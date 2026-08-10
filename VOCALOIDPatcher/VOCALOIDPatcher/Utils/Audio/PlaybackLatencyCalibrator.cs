@@ -363,6 +363,12 @@ internal static class PlaybackLatencyCalibrator
     private static CorrelationResult FindBestLag(float[] source, float[] output,
         int count, int minLag, int maxLag, double reducedRate)
     {
+        var exclusion = Math.Max(3, (int)(0.004 * reducedRate));
+        if (NativePlaybackClock.TryCorrelate(source, output, count, minLag, maxLag,
+                exclusion, out var nativeLag, out var nativeCorrelation,
+                out var nativeProminence))
+            return new CorrelationResult(nativeLag, nativeCorrelation, nativeProminence);
+
         var bestLag = -1;
         var bestCorrelation = double.NegativeInfinity;
 
@@ -384,7 +390,6 @@ internal static class PlaybackLatencyCalibrator
             bestLag = lag;
         }
 
-        var exclusion = Math.Max(3, (int)(0.004 * reducedRate));
         var secondCorrelation = double.NegativeInfinity;
         for (var lag = minLag; lag <= maxLag; lag += 2)
         {

@@ -18,6 +18,7 @@ $translationsDir = Join-Path $root 'translations'
 $hardcodedMap    = Join-Path $root 'HardcodedPropertyMap.xml'
 $thirdParty      = Join-Path $root 'THIRD-PARTY-NOTICES.txt'
 $srcDir          = Join-Path $root 'VOCALOIDPatcher\VOCALOIDPatcher'
+$nativeSrcDir    = Join-Path $root 'native\playback-clock'
 $readmeName      = '请先读我! README.txt'
 
 $readmeDefault = @'
@@ -54,6 +55,10 @@ function Resolve-ReadmeText {
 function Warn-IfStale([string]$mergedDll) {
     $sources = @()
     $sources += Get-ChildItem $srcDir -Recurse -File -Filter *.cs -ErrorAction SilentlyContinue
+    $sources += Get-ChildItem $nativeSrcDir -Recurse -File -Filter *.rs -ErrorAction SilentlyContinue
+    if (Test-Path (Join-Path $nativeSrcDir 'Cargo.toml')) {
+        $sources += Get-Item (Join-Path $nativeSrcDir 'Cargo.toml')
+    }
     $sources += Get-ChildItem $translationsDir -File -Filter *.xml -ErrorAction SilentlyContinue
     if (Test-Path $hardcodedMap) { $sources += Get-Item $hardcodedMap }
     if (-not $sources) { return }
@@ -110,16 +115,21 @@ $results = @()
 foreach ($t in $targets) {
     $tfmDir    = Join-Path $root "VOCALOIDPatcher\bin\Release\$($t.Dir)"
     $mergedDll = Join-Path $tfmDir 'out\Microsoft.Xaml.Behaviors.dll'
+    $nativeDll = Join-Path $tfmDir 'VOCALOIDPatcher\native\v6patch_clock.dll'
 
     if (-not (Test-Path $mergedDll)) {
         Write-Warning "[$($t.Key)] 找不到合并 DLL: $mergedDll —— 跳过 (请先以 Release 构建，或加 -Build)。"
         continue
+    }
+    if (-not (Test-Path $nativeDll)) {
+        throw "[$($t.Key)] 找不到 Rust 播放时钟: $nativeDll —— 请安装 Rust 工具链并重新构建 Release。"
     }
 
     Warn-IfStale $mergedDll
 
     $entries = @(
         @{ Source = $mergedDll;    Entry = 'Microsoft.Xaml.Behaviors.dll' },
+        @{ Source = $nativeDll;    Entry = 'VOCALOIDPatcher/native/v6patch_clock.dll' },
         @{ Source = $readmeTmp;    Entry = $readmeName },
         @{ Source = $thirdParty;   Entry = 'THIRD-PARTY-NOTICES.txt' },
         @{ Source = $hardcodedMap; Entry = 'VOCALOIDPatcher/HardcodedPropertyMap.xml' }

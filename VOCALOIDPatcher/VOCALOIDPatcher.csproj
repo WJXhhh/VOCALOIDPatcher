@@ -23,6 +23,13 @@
         <RootNamespace />
         <AssemblyName>Microsoft.Xaml.Behaviors</AssemblyName>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <NativePlaybackClockDir>$(MSBuildProjectDirectory)\..\native\playback-clock</NativePlaybackClockDir>
+        <NativePlaybackClockManifest>$(NativePlaybackClockDir)\Cargo.toml</NativePlaybackClockManifest>
+        <NativePlaybackClockCargo Condition="'$(NativePlaybackClockCargo)' == ''">$(USERPROFILE)\.cargo\bin\cargo.exe</NativePlaybackClockCargo>
+        <NativePlaybackClockProfile Condition="'$(Configuration)' == 'Release'">release</NativePlaybackClockProfile>
+        <NativePlaybackClockProfile Condition="'$(NativePlaybackClockProfile)' == ''">debug</NativePlaybackClockProfile>
+        <NativePlaybackClockCargoArgs Condition="'$(Configuration)' == 'Release'">--release</NativePlaybackClockCargoArgs>
+        <NativePlaybackClockOutput>$(NativePlaybackClockDir)\target\$(NativePlaybackClockProfile)\v6patch_clock.dll</NativePlaybackClockOutput>
     </PropertyGroup>
 
     <ItemGroup>
@@ -42,5 +49,20 @@
             <SpecificVersion>False</SpecificVersion>
         </Reference>
     </ItemGroup>
+
+    <Target Name="BuildNativePlaybackClock" BeforeTargets="CoreCompile">
+        <Warning Condition="!Exists('$(NativePlaybackClockCargo)')"
+                 Text="Rust/Cargo was not found at $(NativePlaybackClockCargo); the managed playback clock fallback will be used." />
+        <Exec Condition="Exists('$(NativePlaybackClockCargo)')"
+              Command="&quot;$(NativePlaybackClockCargo)&quot; build --manifest-path &quot;$(NativePlaybackClockManifest)&quot; $(NativePlaybackClockCargoArgs)" />
+        <Error Condition="Exists('$(NativePlaybackClockCargo)') and !Exists('$(NativePlaybackClockOutput)')"
+               Text="Cargo completed without producing $(NativePlaybackClockOutput)." />
+        <MakeDir Condition="Exists('$(NativePlaybackClockOutput)')"
+                 Directories="$(OutDir)VOCALOIDPatcher\native" />
+        <Copy Condition="Exists('$(NativePlaybackClockOutput)')"
+              SourceFiles="$(NativePlaybackClockOutput)"
+              DestinationFolder="$(OutDir)VOCALOIDPatcher\native"
+              SkipUnchangedFiles="true" />
+    </Target>
 
 </Project>

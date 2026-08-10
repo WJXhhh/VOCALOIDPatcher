@@ -254,7 +254,8 @@ public static class Patcher
 
             new(Settings.SmoothPlayheadKey,
                 new SmoothPlayheadBeginPatch(),
-                new SmoothPlayheadEndPatch()),
+                new SmoothPlayheadEndPatch(),
+                new SmoothPlayheadSeekPatch()),
 
             new(Settings.FreeAudioPcmCacheKey,
                 new AudioPcmReleasePatch(),

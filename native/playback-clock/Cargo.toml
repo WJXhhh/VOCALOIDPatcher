@@ -1,0 +1,16 @@
+[package]
+name = "v6patch-playback-clock"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-only"
+publish = false
+
+[lib]
+name = "v6patch_clock"
+crate-type = ["cdylib"]
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+panic = "abort"
+strip = "symbols"
