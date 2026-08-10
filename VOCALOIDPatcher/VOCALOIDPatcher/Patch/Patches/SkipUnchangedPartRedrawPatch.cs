@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Windows.Threading;
 using HarmonyLib;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Translation;
@@ -50,14 +51,26 @@ public class SkipUnchangedPartRedrawPatch : PatchBase
     private static readonly MethodInfo? MRedrawSelectedNotes =
         AccessTools.Method(typeof(PianorollView), "RedrawSelectChangedNotes", Type.EmptyTypes);
 
+    private static readonly MethodInfo? MUpdateView =
+        AccessTools.Method(typeof(PianorollView), "UpdateView", new[]
+        {
+            typeof(object),
+            typeof(UpdateViewTypeFlag),
+            typeof(UpdateObserverNotifyEventArgs),
+            typeof(object)
+        });
+
     private static readonly bool MethodsResolved =
         MDrawNoteInside != null && MDrawRenderedWave != null && MDrawVibrato != null
         && MDrawPitchBend != null && MDrawAmplitude != null && MDrawPartName != null
-        && MUpdateOutsideLayer != null && MRedrawSelectedNotes != null;
+        && MUpdateOutsideLayer != null && MRedrawSelectedNotes != null && MUpdateView != null;
 
     private sealed class TrackBox
     {
         public WIVSMMidiTrack? Track;
+        public bool FirstShowCompleted;
+        public bool FirstShowScheduled;
+        public bool BypassFirstShowDefer;
     }
 
     private static readonly ConditionalWeakTable<PianorollView, TrackBox> LastTrack = new();
@@ -72,6 +85,25 @@ public class SkipUnchangedPartRedrawPatch : PatchBase
         {
             if (__instance.DataContext is not MusicalEditorViewModel vm)
                 return true;
+
+            var box = LastTrack.GetOrCreateValue(__instance);
+
+            if (box.BypassFirstShowDefer)
+                return true;
+
+            // The editor rebuilds all pianoroll layers even while its lower zone is hidden.
+            // ShowMusicalEditor will rebuild them with the final viewport a moment later.
+            if (IsActivePartOrTrackChange(typeFlags) && !__instance.IsVisible)
+                return false;
+
+            if (!box.FirstShowCompleted && typeFlags == UpdateViewTypeFlag.ShowMusicalEditor)
+            {
+                ScheduleFirstShow(__instance, box);
+                return false;
+            }
+
+            if (box.FirstShowScheduled && IsActivePartOrTrackChange(typeFlags))
+                return false;
 
             if (typeFlags == UpdateViewTypeFlag.NoteSelectionChanged)
             {
@@ -100,7 +132,6 @@ public class SkipUnchangedPartRedrawPatch : PatchBase
             if (typeFlags != UpdateViewTypeFlag.ActivePartChanged)
                 return true;
 
-            var box = LastTrack.GetOrCreateValue(__instance);
             var current = vm.ActiveTrack;
             bool sameTrack = current != null && box.Track != null && current.Equals(box.Track);
             box.Track = current;
@@ -127,6 +158,53 @@ public class SkipUnchangedPartRedrawPatch : PatchBase
         {
             Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_SkipPartRedraw_Failed", e.Message));
             return true;
+        }
+    }
+
+    private static bool IsActivePartOrTrackChange(UpdateViewTypeFlag typeFlags) =>
+        typeFlags == UpdateViewTypeFlag.ActiveTrackChanged ||
+        typeFlags == UpdateViewTypeFlag.ActivePartChanged;
+
+    private static void ScheduleFirstShow(PianorollView view, TrackBox box)
+    {
+        if (box.FirstShowScheduled)
+            return;
+
+        box.FirstShowScheduled = true;
+        try
+        {
+            view.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                box.FirstShowScheduled = false;
+                if (!view.IsVisible)
+                    return;
+
+                try
+                {
+                    box.BypassFirstShowDefer = true;
+                    MUpdateView!.Invoke(view, new object?[]
+                    {
+                        view,
+                        UpdateViewTypeFlag.ShowMusicalEditor,
+                        null,
+                        null
+                    });
+                    box.FirstShowCompleted = true;
+                }
+                catch (Exception e)
+                {
+                    Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_SkipPartRedraw_Failed", e.Message));
+                }
+                finally
+                {
+                    box.BypassFirstShowDefer = false;
+                }
+            }), DispatcherPriority.Background);
+        }
+        catch
+        {
+            box.FirstShowScheduled = false;
+            throw;
         }
     }
 }
