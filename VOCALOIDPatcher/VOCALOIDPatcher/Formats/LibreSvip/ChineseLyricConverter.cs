@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ToolGood.Words.Pinyin;
+using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Formats.LibreSvip.Model;
 using VOCALOIDPatcher.Formats.LibreSvip.Plugins.Vsqx;
 
@@ -145,10 +146,20 @@ internal static class ChineseLyricConverter
         var parts = value.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries)
             .Select(Normalize)
             .ToArray();
-        if (parts.Length != expectedCount || parts.Any(part => !VsqxPhonemeMaps.Pinyin2Xsampa.ContainsKey(part)))
-            return false;
+        if (parts.Length == expectedCount && parts.All(VsqxPhonemeMaps.Pinyin2Xsampa.ContainsKey))
+        {
+            pronunciation = string.Join(" ", parts);
+            return true;
+        }
 
-        pronunciation = string.Join(" ", parts);
+        if (!Settings.ExtendedChinesePinyin
+            || !ChinesePinyinPhonemeConverter.TryConvertSequence(value, out var converted, out _)
+            || converted.Count != expectedCount)
+        {
+            return false;
+        }
+
+        pronunciation = string.Join(" ", converted.Select(syllable => syllable.NormalizedLyric));
         return true;
     }
 

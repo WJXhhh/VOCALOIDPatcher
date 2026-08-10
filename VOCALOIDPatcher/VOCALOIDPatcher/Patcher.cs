@@ -284,6 +284,10 @@ public static class Patcher
 
             new(Settings.ThrottleRendererPreviewKey, new RendererPreviewThrottlePatch()),
 
+            new(Settings.ExtendedChinesePinyinKey,
+                new ExtendedChinesePinyinSetLyricsPatch(),
+                new ExtendedChinesePinyinCandidatePatch()),
+
             new(Settings.FastSelectionSweepKey,
                 new TimeSigSelectionTrackPatch(),
                 new TempoSelectionTrackPatch(),

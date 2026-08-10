@@ -197,6 +197,54 @@ public static class V6BridgeSvip
         }
     }
 
+    private static void ApplyExtendedChinesePinyin(
+        IReadOnlyList<(WIVSMNote? Note, string Lyric)> importedNotes,
+        int languageId)
+    {
+        if (!Config.Settings.ExtendedChinesePinyin || languageId != (int)VSMLanguageID.Chinese)
+            return;
+
+        for (int i = 0; i < importedNotes.Count; i++)
+        {
+            var (note, lyric) = importedNotes[i];
+            if (note == null
+                || CanNativeConvertChineseLyric(note, lyric, languageId)
+                || !ChinesePinyinPhonemeConverter.TryConvertSequence(lyric, out var syllables, out _))
+            {
+                continue;
+            }
+
+            try
+            {
+                if (ChinesePinyinSyllableApplicator.TrySetSyllables(
+                        note,
+                        syllables,
+                        languageId,
+                        out var result)
+                    && note.ResetPhonemes(result.NextNote))
+                {
+                    i += syllables.Count - 1;
+                }
+            }
+            catch
+            {
+                // Keep the result produced by VOCALOID's native import path.
+            }
+        }
+    }
+
+    private static bool CanNativeConvertChineseLyric(WIVSMNote note, string lyric, int languageId)
+    {
+        try
+        {
+            return App.GetG2PAManager(languageId)?.CanConvert(lyric, false, note.IsAi) == true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     private static bool TryGetSequence(out WIVSMSequence vsm)
     {
         vsm = null!;
@@ -322,6 +370,7 @@ public static class V6BridgeSvip
                 : null;
 
             int insertedInPart = 0;
+            var importedNotes = new List<(WIVSMNote? Note, string Lyric)>(track.NoteList.Count);
             for (int noteIndex = 0; noteIndex < track.NoteList.Count; noteIndex++)
             {
                 var note = track.NoteList[noteIndex];
@@ -334,12 +383,14 @@ public static class V6BridgeSvip
                     ? part.InsertNote(relPos, noteEvent, noteExpression, aiNoteExpression, lyric, defaultPhoneme, true, langId)
                     : part.InsertNote(relPos, noteEvent, noteExpression, aiNoteExpression, lyric, "", false, langId);
 
+                importedNotes.Add((inserted, lyric));
                 if (inserted != null)
                     insertedInPart++;
             }
 
             if (hasDefault && insertedInPart > 0)
                 ResetPartPhonemes(part);
+            ApplyExtendedChinesePinyin(importedNotes, langId);
 
             if (track.EditedParams.Pitch.Points.Count > 0 && track.NoteList.Count > 0)
             {

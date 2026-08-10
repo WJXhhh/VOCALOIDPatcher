@@ -603,6 +603,13 @@ public class SettingsWindow : Window
         panel.Children.Add(autoPinyin);
         HideIfUnsupported(Settings.AutoConvertChineseLyricsToPinyinKey, autoPinyin);
 
+        var extendedPinyin = DescribedToggle("VOCALOIDPatcher_ExtendedChinesePinyin_Header",
+            "VOCALOIDPatcher_ExtendedChinesePinyin_Desc",
+            Settings.ExtendedChinesePinyin, new Thickness(0, 16, 0, 0),
+            checkbox => Settings.ExtendedChinesePinyin = checkbox.IsChecked == true);
+        panel.Children.Add(extendedPinyin);
+        HideIfUnsupported(Settings.ExtendedChinesePinyinKey, extendedPinyin);
+
         return panel;
     }
 

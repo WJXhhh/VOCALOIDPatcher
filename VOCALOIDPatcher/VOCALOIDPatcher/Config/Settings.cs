@@ -182,6 +182,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(AutoConvertChineseLyricsToPinyinKey, value);
     }
 
+    public static string ExtendedChinesePinyinKey => "ExtendedChinesePinyin";
+
+    public static bool ExtendedChinesePinyin
+    {
+        get => FeatureFlag(ExtendedChinesePinyinKey, true);
+        set => Patcher.ConfigManager.Set(ExtendedChinesePinyinKey, value);
+    }
+
     public static string AutoSaveIntervalMinutesKey => "AutoSaveIntervalMinutes";
 
     public static int AutoSaveIntervalMinutes

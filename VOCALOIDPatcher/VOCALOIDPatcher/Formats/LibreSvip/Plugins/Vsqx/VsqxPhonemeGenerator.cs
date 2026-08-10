@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using VOCALOIDPatcher.Config;
+using VOCALOIDPatcher.Formats.LibreSvip;
 
 namespace VOCALOIDPatcher.Formats.LibreSvip.Plugins.Vsqx;
 
@@ -18,10 +20,16 @@ internal static class VsqxPhonemeGenerator
             case VocaloidLanguage.SimplifiedChinese:
             {
                 string key = lyric;
-                string phoneme = VsqxPhonemeMaps.Pinyin2Xsampa.TryGetValue(key, out var cn)
-                    ? cn
-                    : DefaultChinesePhoneme;
-                return (key, phoneme);
+                if (VsqxPhonemeMaps.Pinyin2Xsampa.TryGetValue(key, out var exactPhoneme))
+                    return (key, exactPhoneme);
+
+                if (Settings.ExtendedChinesePinyin
+                    && ChinesePinyinPhonemeConverter.TryConvertSequence(lyric, out var syllables, out _))
+                {
+                    return (key, string.Join(" ", syllables.Select(syllable => syllable.Phonemes)));
+                }
+
+                return (key, DefaultChinesePhoneme);
             }
             case VocaloidLanguage.Japanese:
             {
