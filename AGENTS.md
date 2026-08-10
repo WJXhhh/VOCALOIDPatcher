@@ -59,6 +59,18 @@ VOCALOIDPatcher/bin/Release/net8.0-windows/out/Microsoft.Xaml.Behaviors.dll
 ./scripts/build-release.ps1 -Build
 ```
 
+项目还包含 `native/playback-clock/` 下的 Rust 播放时钟。MSBuild 默认从 `%USERPROFILE%\.cargo\bin\cargo.exe` 调用 Cargo，因此当前 PowerShell 的 `PATH` 中没有 `cargo` 也不代表构建不可用。Release 构建应同时产生：
+
+```text
+VOCALOIDPatcher/bin/Release/net8.0-windows/VOCALOIDPatcher/native/v6patch_clock.dll
+```
+
+发行脚本会把它打包为 `VOCALOIDPatcher/native/v6patch_clock.dll`。不要提交 `native/playback-clock/target/`；Rust 单元测试可显式运行：
+
+```powershell
+& "$env:USERPROFILE\.cargo\bin\cargo.exe" test --manifest-path native/playback-clock/Cargo.toml
+```
+
 `scripts/deploy.ps1` 会申请管理员权限，并修改或链接 VOCALOID 安装目录中的文件。除非用户明确要求部署，否则不要运行它。也不要在验证过程中启动或关闭 VOCALOID Editor。
 
 ## 验证要求
@@ -91,6 +103,36 @@ SV 编辑器样式的音符波形实现在 `VOCALOIDPatcher/VOCALOIDPatcher/Patc
 - 音素标签使用白色；音素起止边界和覆盖线使用 `LightSkyBlue`，线宽为 `0.5`。
 - 编辑器会把渲染波形拆成 512 像素宽的多个 `UIRenderedWave`。跨分块的音素范围只能在真实起止位置绘制竖线，不能在分块边缘制造伪边界；标签中心不在当前分块时也不要重复绘制。
 - 音素数据、音符或渲染分数不可用时应安全跳过并保留原生波形回退，不能让绘制异常影响编辑器。
+
+## 波形保留与渐进更新
+
+波形生命周期和重新渲染过渡实现在 `WaveformSnapshotPatch.cs`，PCM 缓存补丁在 `RenderedWaveCachePatch.cs`，分块刷新节流在 `RendererPreviewThrottlePatch.cs`。维护这些代码时应保留以下已经核实的约束：
+
+- `FastCanvas.ClearElement()` 会清空 `VirtualChildren` 和 `Children`，但不会清空 `Background`。旧波形只能以冻结的 `DrawingBrush` 快照暂存在背景层；把保留层放回 `Children` 会在下一次重画时一起被删除。
+- 稳定快照应“数据常驻、背景按需显示”。无渲染任务时，正常 `UIRenderedWave` 子元素成功挂载后必须隐藏快照背景，否则首次第二次重画会叠成双重波形，水平或垂直缩放期间也会产生旧坐标残影。
+- `PianorollView.UpdateHorizontalOrVerticalZoomed(MusicalEditorViewModel)` 会同步重建各画布并调用 `UpdateViewport()`。非渲染状态下的缩放应走 `WaveformSnapshotZoomPatch` 的无快照背景路径，同时仍可更新内存中的稳定快照。
+- `PianorollView.OnRendererStarted` 会先调用 `DrawRenderedWaveCanvas()`；对应的 `MusicalEditorViewModel.OnRendererStarted` 是先通知订阅者、再移除旧的临时音源。开始回调中若旧波形子元素成功重新挂载，可以隐藏背景；若没有挂载成功，必须继续显示背景，不能重新引入消失。
+- `OnRendererBlockRendered` 在通知钢琴窗前已经把新的 `AudioBufferList` 放进 `audioSourceDictionary`。只有真正通过 `RendererPreviewThrottlePatch`、即将执行重画的分块事件才能推进遮罩；被节流掉的事件不能先清除旧背景。
+- `OnRendererCompleted` 会先移除分块音源，再尝试读取最终波形文件。最终文件仍被占用或尚未可读时，应保留“旧背景 + 已完成分块”的合成快照，等缓存加载成功并主动刷新后再替换，不能在完成事件到来时直接清背景。
+- 渲染通常复用相同的 `WaveFilePath`。只按“Part + 路径”缓存会返回旧 PCM；必须在 `MusicalEditorViewModel.OnRendererStarted` 时通过 `RenderedWaveCacheRenderStartedPatch` 使该 Part 的缓存失效。
+- 删除音符后的空白区域依靠渲染进度遮罩真正裁掉旧快照；不能仅在旧波形上覆盖一层颜色。扫过效果保持为窄幅、低透明度的旧波形残影，不使用发光效果。
+
+排查症状时可优先按以下对应关系判断：
+
+- 修改后波形立刻消失，滚动后才出现：通常是波形子元素被清空但没有稳定背景，随后由 `UpdateViewport()` 重新挂载。
+- 渲染完成后仍显示旧波形：优先检查同路径 PCM 缓存是否在渲染开始时失效。
+- 缩放过程中出现残影、缩放结束消失：快照背景和新坐标下的子波形同时可见。
+- 首次第二次渲染变粗或重影、之后不继续累加：稳定背景在正常子波形挂载后没有隐藏。
+
+截至 2026-08-10，用户已经在 VOCALOID Editor 中确认“首次波形在重新渲染和操作期间不再消失”。渐进更新、删除区域清除、缓存失效已经实现；之后报告的缩放残影和首次二次重影已通过按需隐藏背景与缩放专用补丁修正，并通过 Debug/Release 构建，但该最后一轮修正尚待用户再次做宿主内确认。
+
+## Rust 播放时钟
+
+- 原生实现位于 `native/playback-clock/src/lib.rs`，托管加载和 ABI 封装位于 `Utils/Audio/NativePlaybackClock.cs`，使用者主要是 `SmoothPlayheadPatch.cs` 和 `PlaybackLatencyCalibrator.cs`。
+- 原生 DLL 不存在、加载失败或 ABI 不匹配时必须安全回退到托管时钟，不能影响编辑器播放。
+- 修改导出结构或函数签名时同步更新 Rust 与 C# 两侧，并递增 ABI 版本；结构体布局、调用约定和数值边界必须保持一致。
+- Rust 标准库分发声明已经记录在 `THIRD-PARTY-NOTICES.txt`；更改 Rust 依赖或许可证时同步复核 `Cargo.lock`、项目许可证和第三方声明。
+- 当前 Rust 测试覆盖时钟单调投影、回跳重同步、反馈过期、播放速率边界和相关性延迟检测。修改时钟或相关算法后应运行全部 Rust 测试，并再构建整个 Release 解决方案。
 
 ## 翻译与用户可见文本
 
