@@ -13,6 +13,13 @@ internal static class PianorollVirtualization
 {
     private const int MinimumNotes = 1000;
 
+    private delegate void InsertNoteCallback(
+        PianorollView view,
+        MusicalEditorViewModel vm,
+        WIVSMNote note);
+
+    private delegate void DrawCallback(PianorollView view, MusicalEditorViewModel vm);
+
     internal sealed class State
     {
         public bool Enabled;
@@ -48,6 +55,26 @@ internal static class PianorollVirtualization
         AccessTools.Method(typeof(PianorollView), "DrawLyricCanvas",
             new[] { typeof(MusicalEditorViewModel) });
 
+    // Resolve these only when the editor first draws. By then Harmony has installed
+    // all patches on the private insert methods, and the hot loop avoids MethodInfo.Invoke.
+    private static readonly Lazy<InsertNoteCallback?> InsertNoteFast =
+        new(() => CreateOpenDelegate<InsertNoteCallback>(InsertNote));
+
+    private static readonly Lazy<InsertNoteCallback?> InsertEmotionNoteFast =
+        new(() => CreateOpenDelegate<InsertNoteCallback>(InsertEmotionNote));
+
+    private static readonly Lazy<InsertNoteCallback?> InsertLyricAndPhonemeFast =
+        new(() => CreateOpenDelegate<InsertNoteCallback>(InsertLyricAndPhoneme));
+
+    private static readonly Lazy<InsertNoteCallback?> InsertLyricFast =
+        new(() => CreateOpenDelegate<InsertNoteCallback>(InsertLyric));
+
+    private static readonly Lazy<DrawCallback?> DrawNotesFast =
+        new(() => CreateOpenDelegate<DrawCallback>(DrawNotes));
+
+    private static readonly Lazy<DrawCallback?> DrawLyricsFast =
+        new(() => CreateOpenDelegate<DrawCallback>(DrawLyrics));
+
     private static readonly AccessTools.FieldRef<PianorollView, FastCanvas>? NoteCanvas =
         CreateCanvasRef("xNoteInsideActiveTrackCanvas");
 
@@ -65,7 +92,9 @@ internal static class PianorollVirtualization
             return false;
 
         NoteCanvas!(view).ClearElement();
-        var insert = vm.EditorMode.Mode == EditModeME.Emotion ? InsertEmotionNote : InsertNote;
+        bool emotionMode = vm.EditorMode.Mode == EditModeME.Emotion;
+        var insertMethod = emotionMode ? InsertEmotionNote : InsertNote;
+        var insertFast = emotionMode ? InsertEmotionNoteFast.Value : InsertNoteFast.Value;
         var args = new object?[2];
         args[0] = vm;
 
@@ -74,13 +103,16 @@ internal static class PianorollVirtualization
             if (part.AbsEndTick.Value < leftTick || part.AbsPosTick.Value > rightTick)
                 continue;
 
-            foreach (var note in part.NotesInPart)
+            ulong first = FindFirstVisibleNote(part, leftTick);
+            for (ulong i = first; i < part.NumNotes; i++)
             {
-                if (note.AbsEndTick.Value < leftTick || note.AbsPosTick.Value > rightTick)
+                var note = part.GetNote(i);
+                if (note == null)
                     continue;
+                if (note.AbsPosTick.Value > rightTick)
+                    break;
 
-                args[1] = note;
-                insert!.Invoke(view, args);
+                InvokeInsert(insertFast, insertMethod!, view, vm, note, args);
             }
         }
 
@@ -99,9 +131,9 @@ internal static class PianorollVirtualization
 
         LyricCanvas!(view).ClearElement();
         var mode = vm.EditorMode.Mode;
-        var insert = mode == EditModeME.Emotion || mode == EditModeME.PhonemeTiming
-            ? InsertLyric
-            : InsertLyricAndPhoneme;
+        bool plainLyrics = mode == EditModeME.Emotion || mode == EditModeME.PhonemeTiming;
+        var insertMethod = plainLyrics ? InsertLyric : InsertLyricAndPhoneme;
+        var insertFast = plainLyrics ? InsertLyricFast.Value : InsertLyricAndPhonemeFast.Value;
         var args = new object?[2];
         args[0] = vm;
 
@@ -110,13 +142,16 @@ internal static class PianorollVirtualization
             if (part.AbsEndTick.Value < leftTick || part.AbsPosTick.Value > rightTick)
                 continue;
 
-            foreach (var note in part.NotesInPart)
+            ulong first = FindFirstVisibleNote(part, leftTick);
+            for (ulong i = first; i < part.NumNotes; i++)
             {
-                if (note.AbsEndTick.Value < leftTick || note.AbsPosTick.Value > rightTick)
+                var note = part.GetNote(i);
+                if (note == null)
                     continue;
+                if (note.AbsPosTick.Value > rightTick)
+                    break;
 
-                args[1] = note;
-                insert!.Invoke(view, args);
+                InvokeInsert(insertFast, insertMethod!, view, vm, note, args);
             }
         }
 
@@ -142,17 +177,15 @@ internal static class PianorollVirtualization
         state.Rebuilding = true;
         try
         {
-            var args = new object?[] { vm };
-            DrawNotes!.Invoke(view, args);
-            DrawLyrics!.Invoke(view, args);
+            InvokeDraw(DrawNotesFast.Value, DrawNotes!, view, vm);
+            InvokeDraw(DrawLyricsFast.Value, DrawLyrics!, view, vm);
         }
         catch
         {
             state.Enabled = false;
             state.Bypass = true;
-            var args = new object?[] { vm };
-            DrawNotes!.Invoke(view, args);
-            DrawLyrics!.Invoke(view, args);
+            InvokeDraw(DrawNotesFast.Value, DrawNotes!, view, vm);
+            InvokeDraw(DrawLyricsFast.Value, DrawLyrics!, view, vm);
         }
         finally
         {
@@ -197,6 +230,65 @@ internal static class PianorollVirtualization
         leftTick = Math.Max(0L, (long)Math.Floor(state.Left / vm.WidthPerTick));
         rightTick = Math.Max(leftTick, (long)Math.Ceiling(state.Right / vm.WidthPerTick));
         return true;
+    }
+
+    private static ulong FindFirstVisibleNote(WIVSMMidiPart part, long leftTick)
+    {
+        ulong low = 0;
+        ulong high = part.NumNotes;
+        while (low < high)
+        {
+            ulong middle = low + ((high - low) >> 1);
+            var note = part.GetNote(middle);
+            if (note != null && note.AbsEndTick.Value < leftTick)
+                low = middle + 1;
+            else
+                high = middle;
+        }
+
+        return low;
+    }
+
+    private static void InvokeInsert(
+        InsertNoteCallback? callback,
+        MethodInfo method,
+        PianorollView view,
+        MusicalEditorViewModel vm,
+        WIVSMNote note,
+        object?[] fallbackArgs)
+    {
+        if (callback != null)
+        {
+            callback(view, vm, note);
+            return;
+        }
+
+        fallbackArgs[1] = note;
+        method.Invoke(view, fallbackArgs);
+    }
+
+    private static void InvokeDraw(
+        DrawCallback? callback,
+        MethodInfo method,
+        PianorollView view,
+        MusicalEditorViewModel vm)
+    {
+        if (callback != null)
+            callback(view, vm);
+        else
+            method.Invoke(view, new object?[] { vm });
+    }
+
+    private static T? CreateOpenDelegate<T>(MethodInfo? method) where T : Delegate
+    {
+        try
+        {
+            return method?.CreateDelegate<T>();
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     private static AccessTools.FieldRef<PianorollView, FastCanvas>? CreateCanvasRef(string name)
