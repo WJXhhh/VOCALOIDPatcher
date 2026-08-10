@@ -585,6 +585,11 @@ public class SettingsWindow : Window
             Settings.FastProjectLoad, new Thickness(0, 6, 0, 0),
             checkbox => Settings.FastProjectLoad = checkbox.IsChecked == true);
 
+        Add(Settings.PreloadDseKey, "VOCALOIDPatcher_PreloadDse_Header",
+            "VOCALOIDPatcher_PreloadDse_Desc",
+            Settings.PreloadDse, new Thickness(0, 16, 0, 0),
+            checkbox => Settings.PreloadDse = checkbox.IsChecked == true);
+
         Add(Settings.TrimWorkingSetKey, "VOCALOIDPatcher_TrimWorkingSet_Header",
             "VOCALOIDPatcher_TrimWorkingSet_Desc",
             Settings.TrimWorkingSet, new Thickness(0, 16, 0, 0),

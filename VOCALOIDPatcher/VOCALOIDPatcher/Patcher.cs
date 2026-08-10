@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Stopwatch = System.Diagnostics.Stopwatch;
 using System.Windows.Controls;
 using HarmonyLib;
 using VOCALOIDPatcher.Config;
@@ -63,7 +64,10 @@ public static class Patcher
 
     private static void PatcherInit()
     {
+        var patcherInitStarted = Stopwatch.GetTimestamp();
         if (!Directory.Exists(ConfigDir)) Directory.CreateDirectory(ConfigDir);
+
+        StartupProfiler.InitializeLog();
 
         VstPluginMode = DetectVstPluginMode();
 
@@ -75,6 +79,7 @@ public static class Patcher
             });
 
         ConfigManager = new ConfigManager(ConfigFile);
+        DsePreloader.Start();
         _harmony = new Harmony("VOCALOIDPatcher");
 
         ConsoleHelper.InitConsole();
@@ -95,13 +100,28 @@ public static class Patcher
             VstPluginPatch.ApplyPatches(_harmony);
         }
 
+        var patchInstallStarted = Stopwatch.GetTimestamp();
+        StartupProfiler.Install(_harmony);
         ApplyPatches();
+        StartupProfiler.LogMilestone(
+            "All Harmony patches installed",
+            Stopwatch.GetElapsedTime(patchInstallStarted).TotalMilliseconds);
 
         WpfTranslationPatch.InstallGlobalHandlers();
 
-        if (!VstPluginMode) PostInject();
+        if (!VstPluginMode)
+        {
+            var postInjectStarted = Stopwatch.GetTimestamp();
+            PostInject();
+            StartupProfiler.LogMilestone(
+                "Patcher UI and services injected",
+                Stopwatch.GetElapsedTime(postInjectStarted).TotalMilliseconds);
+        }
 
         UpdateChecker.CheckAsync();
+        StartupProfiler.LogMilestone(
+            "Patcher initialization complete",
+            Stopwatch.GetElapsedTime(patcherInitStarted).TotalMilliseconds);
     }
 
     public static void PostInject()

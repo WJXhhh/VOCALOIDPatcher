@@ -190,6 +190,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(FastProjectLoadKey, value);
     }
 
+    public static string PreloadDseKey => "PreloadDse";
+
+    public static bool PreloadDse
+    {
+        get => FeatureFlag(PreloadDseKey, true);
+        set => Patcher.ConfigManager.Set(PreloadDseKey, value);
+    }
+
     public static string FreeAudioPcmCacheKey => "FreeAudioPcmCache";
 
     public static bool FreeAudioPcmCache
