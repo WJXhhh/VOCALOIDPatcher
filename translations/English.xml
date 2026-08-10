@@ -61,6 +61,21 @@
   <data name="VOCALOIDPatcher_DeferParameterViewUpdate_Desc" xml:space="preserve"><value></value></data>
   <data name="VOCALOIDPatcher_SmoothPlayhead_Header" xml:space="preserve"><value>Smooth Playhead</value></data>
   <data name="VOCALOIDPatcher_SmoothPlayhead_Desc" xml:space="preserve"><value></value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Header" xml:space="preserve"><value>Automatically Calibrate Playhead Latency</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Desc" xml:space="preserve"><value>Uses the actual DirectSound playback cursor or the ASIO driver's reported output latency. Timing stability and independent signal agreement determine the reported confidence.</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Disabled" xml:space="preserve"><value>Calibration is disabled.</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Waiting" xml:space="preserve"><value>Waiting for playback; no calibration result yet.</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Active" xml:space="preserve"><value>Measuring: {0:F1} ms · {1} · confidence: {2}&#10;{3} observations · jitter {4:F2} ms · {5} frames @ {6} Hz{7}</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Last" xml:space="preserve"><value>Last result: {0:F1} ms · {1} · confidence: {2}&#10;{3} observations · jitter {4:F2} ms · {5} frames @ {6} Hz{7}</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_SignalMatch" xml:space="preserve"><value> · signal match {0:F0}%</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_BufferEstimate" xml:space="preserve"><value>configured buffer estimate</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundCursor" xml:space="preserve"><value>DirectSound playback cursor</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundSignal" xml:space="preserve"><value>DirectSound cursor + signal validation</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioBuffer" xml:space="preserve"><value>ASIO active buffer estimate</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioDriver" xml:space="preserve"><value>ASIO driver-reported output latency</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Low" xml:space="preserve"><value>low</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Medium" xml:space="preserve"><value>medium</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_High" xml:space="preserve"><value>high</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_Header" xml:space="preserve"><value>Swing</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_8" xml:space="preserve"><value>8th Swing</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_8_Shuffle" xml:space="preserve"><value>8th Shuffle</value></data>

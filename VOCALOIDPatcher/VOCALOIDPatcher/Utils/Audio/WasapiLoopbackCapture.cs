@@ -49,6 +49,8 @@ public sealed class WasapiLoopbackCapture : IDisposable
 
     public bool ProcessIsolated { get; private set; }
 
+    public long LastBufferTick => Volatile.Read(ref _lastBufferTick);
+
     public void Start()
     {
         if (_running) return;

@@ -177,6 +177,7 @@ public static class Patcher
                 new FastCanvasViewportRectPatch(),
                 new FastCanvasViewportRangePatch(),
                 new AudioBufferReleaseSafetyPatch(),
+                new SpectrumAudioCapturePatch(),
                 new CommonUserSettingsJsonOptionsPatch(),
                 new UniqueUserSettingsJsonOptionsPatch(),
                 new NewsImageCachePatch(),

@@ -8,22 +8,21 @@ namespace VOCALOIDPatcher.UI.Widgets;
 
 public sealed class SpectrumView : FrameworkElement
 {
-    private const int FftSize = 1024;
-    private const int Points = 80;
+    private const int FftSize = 4096;
+    private const int Points = 128;
     private const double MinFreq = 40.0;
     private const double MaxFreq = 18000.0;
     private const double MinDb = -82.0;
     private const double MaxDb = -12.0;
-    private const long FrameIntervalMs = 10;
+    private const long FrameIntervalMs = 16;
     private const double AttackSmoothing = 0.92;
     private const double DecaySmoothing = 0.6;
-    private const int LowFreqSmoothCount = 22;
 
     private static readonly Pen CurvePen;
     private static readonly Brush FillBrush;
     private static readonly Brush BaselineBrush;
 
-    private readonly WasapiLoopbackCapture _capture = new();
+    private readonly SpectrumAudioCapture _capture = new();
     private readonly SimpleFft _fft = new(FftSize);
     private readonly float[] _samples = new float[FftSize];
     private readonly float[] _magnitudes = new float[FftSize / 2];
@@ -35,6 +34,8 @@ public sealed class SpectrumView : FrameworkElement
     private bool _enabled;
     private bool _hooked;
     private volatile bool _analyzing;
+    private int _analysisVersion;
+    private int _renderVersion;
     private Thread? _analysisThread;
 
     static SpectrumView()
@@ -111,7 +112,8 @@ public sealed class SpectrumView : FrameworkElement
         _analysisThread = new Thread(AnalysisLoop)
         {
             IsBackground = true,
-            Name = "VOCALOIDPatcher.SpectrumAnalysis"
+            Name = "VOCALOIDPatcher.SpectrumAnalysis",
+            Priority = ThreadPriority.BelowNormal
         };
         _analysisThread.Start();
     }
@@ -119,7 +121,10 @@ public sealed class SpectrumView : FrameworkElement
     private void StopAnalysis()
     {
         _analyzing = false;
+        var thread = _analysisThread;
         _analysisThread = null;
+        if (thread != null && thread != Thread.CurrentThread && thread.IsAlive)
+            thread.Join(100);
     }
 
     private void AnalysisLoop()
@@ -155,6 +160,10 @@ public sealed class SpectrumView : FrameworkElement
 
     private void OnRendering(object? sender, EventArgs e)
     {
+        var version = Volatile.Read(ref _analysisVersion);
+        if (version == _renderVersion) return;
+
+        _renderVersion = version;
         InvalidateVisual();
     }
 
@@ -166,13 +175,16 @@ public sealed class SpectrumView : FrameworkElement
         var sampleRate = _capture.SampleRate;
         var binHz = sampleRate / (double)FftSize;
         var bins = _magnitudes.Length;
-        var ratio = MaxFreq / MinFreq;
-        var norm = 2.0 / FftSize;
+        var highestFrequency = Math.Min(MaxFreq, sampleRate * 0.5 - binHz);
+        if (highestFrequency <= MinFreq) return;
+
+        var ratio = highestFrequency / MinFreq;
+        var norm = _fft.AmplitudeScale;
 
         for (var i = 0; i < Points; i++)
         {
-            var loPos = MinFreq * Math.Pow(ratio, i / (double)(Points - 1)) / binHz;
-            var hiPos = MinFreq * Math.Pow(ratio, (i + 1.0) / (Points - 1)) / binHz;
+            var loPos = MinFreq * Math.Pow(ratio, i / (double)Points) / binHz;
+            var hiPos = MinFreq * Math.Pow(ratio, (i + 1.0) / Points) / binHz;
 
             double mag;
             if (hiPos - loPos >= 2.0)
@@ -208,26 +220,9 @@ public sealed class SpectrumView : FrameworkElement
             _levels[i] += (level - _levels[i]) * smoothing;
         }
 
-        SpatialSmooth();
-    }
-
-    private void SpatialSmooth()
-    {
         lock (_dataLock)
-        {
             Array.Copy(_levels, _display, Points);
-
-            for (var i = 0; i < LowFreqSmoothCount && i < Points; i++)
-            {
-                var l = _levels[i == 0 ? 0 : i - 1];
-                var c = _levels[i];
-                var r = _levels[i == Points - 1 ? Points - 1 : i + 1];
-                var blurred = l * 0.3 + c * 0.4 + r * 0.3;
-
-                var weight = 1.0 - (double)i / LowFreqSmoothCount;
-                _display[i] = c + (blurred - c) * weight;
-            }
-        }
+        Interlocked.Increment(ref _analysisVersion);
     }
 
     protected override void OnRender(DrawingContext dc)

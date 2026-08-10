@@ -61,6 +61,21 @@
   <data name="VOCALOIDPatcher_DeferParameterViewUpdate_Desc" xml:space="preserve"><value></value></data>
   <data name="VOCALOIDPatcher_SmoothPlayhead_Header" xml:space="preserve"><value>平滑播放指示條</value></data>
   <data name="VOCALOIDPatcher_SmoothPlayhead_Desc" xml:space="preserve"><value></value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Header" xml:space="preserve"><value>自動校準播放指示條延遲</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Desc" xml:space="preserve"><value>使用 DirectSound 實際播放游標或 ASIO 驅動程式回報的輸出延遲。只有時序穩定且獨立訊號驗證一致時，才會提高可信度。</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Disabled" xml:space="preserve"><value>校準已關閉。</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Waiting" xml:space="preserve"><value>等待播放，尚無校準結果。</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Active" xml:space="preserve"><value>正在測量：{0:F1} ms · {1} · 可信度：{2}&#10;{3} 次觀測 · 抖動 {4:F2} ms · {5} 幀 @ {6} Hz{7}</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Last" xml:space="preserve"><value>最近結果：{0:F1} ms · {1} · 可信度：{2}&#10;{3} 次觀測 · 抖動 {4:F2} ms · {5} 幀 @ {6} Hz{7}</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_SignalMatch" xml:space="preserve"><value> · 訊號匹配 {0:F0}%</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_BufferEstimate" xml:space="preserve"><value>設定緩衝區估算</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundCursor" xml:space="preserve"><value>DirectSound 播放游標</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundSignal" xml:space="preserve"><value>DirectSound 游標與訊號交叉驗證</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioBuffer" xml:space="preserve"><value>ASIO 活動緩衝區估算</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioDriver" xml:space="preserve"><value>ASIO 驅動程式回報的輸出延遲</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Low" xml:space="preserve"><value>低</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Medium" xml:space="preserve"><value>中</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_High" xml:space="preserve"><value>高</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_Header" xml:space="preserve"><value>搖擺</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_8" xml:space="preserve"><value>8 分搖擺</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_8_Shuffle" xml:space="preserve"><value>8 分 Shuffle</value></data>

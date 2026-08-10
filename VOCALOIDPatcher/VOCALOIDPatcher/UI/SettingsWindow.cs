@@ -5,11 +5,13 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 using Microsoft.Win32;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Patch.Patches;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.Utils;
+using VOCALOIDPatcher.Utils.Audio;
 
 namespace VOCALOIDPatcher.UI;
 
@@ -28,13 +30,15 @@ public class SettingsWindow : Window
     private static SettingsWindow? _instance;
 
     private readonly List<Action> _localizers = new();
-    private readonly ContentControl _content = new();
+    private readonly Grid _content = new();
     private readonly TranslateTransform _rootTransform = new(0, 14);
     private ScrollViewer? _scroller;
     private TextBlock? _about;
     private TextBlock? _artBankLabel;
     private Button? _artUploadButton;
     private Button? _artResetButton;
+    private TextBlock? _calibrationStatus;
+    private DispatcherTimer? _calibrationStatusTimer;
 
     public static void ShowSingleton()
     {
@@ -77,6 +81,15 @@ public class SettingsWindow : Window
         ApplyTheme();
         BuildUi();
 
+        if (_calibrationStatus != null)
+        {
+            _calibrationStatusTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(500)
+            };
+            _calibrationStatusTimer.Tick += (_, _) => UpdateCalibrationStatus();
+        }
+
         WpfTranslationPatch.MarkUntranslatable(this);
         TranslationManager.LanguageChanged += OnLanguageChanged;
         UpdateChecker.UpdateAvailable += OnUpdateAvailable;
@@ -87,7 +100,13 @@ public class SettingsWindow : Window
         };
 
         SourceInitialized += (_, _) => DarkTheme.EnableDarkTitleBar(this);
-        Loaded += (_, _) => PlayEntrance();
+        Loaded += (_, _) =>
+        {
+            PlayEntrance();
+            UpdateCalibrationStatus();
+            _calibrationStatusTimer?.Start();
+        };
+        Closed += (_, _) => _calibrationStatusTimer?.Stop();
 
         ApplyLocalization();
     }
@@ -106,7 +125,11 @@ public class SettingsWindow : Window
 
         _content.Margin = new Thickness(28, 26, 28, 40);
         _content.RenderTransform = new TranslateTransform();
-        _content.Content = categories[0].Panel;
+        for (var i = 0; i < categories.Length; i++)
+        {
+            categories[i].Panel.Visibility = i == 0 ? Visibility.Visible : Visibility.Collapsed;
+            _content.Children.Add(categories[i].Panel);
+        }
 
         _scroller = new ScrollViewer
         {
@@ -168,7 +191,9 @@ public class SettingsWindow : Window
             if (index < 0 || index >= categories.Length)
                 return;
 
-            _content.Content = categories[index].Panel;
+            for (var i = 0; i < categories.Length; i++)
+                categories[i].Panel.Visibility = i == index ? Visibility.Visible : Visibility.Collapsed;
+
             AnimateContentIn();
         };
 
@@ -630,7 +655,84 @@ public class SettingsWindow : Window
             Settings.SmoothPlayhead, new Thickness(0, 16, 0, 0),
             checkbox => Settings.SmoothPlayhead = checkbox.IsChecked == true);
 
+        var calibration = DescribedToggle("VOCALOIDPatcher_AutoCalibratePlayheadLatency_Header",
+            "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Desc",
+            Settings.AutoCalibratePlayheadLatency, new Thickness(0, 16, 0, 0),
+            checkbox =>
+            {
+                Settings.AutoCalibratePlayheadLatency = checkbox.IsChecked == true;
+                SmoothPlayhead.RefreshLatencyCalibration();
+                UpdateCalibrationStatus();
+            });
+        panel.Children.Add(calibration);
+
+        _calibrationStatus = new TextBlock
+        {
+            Foreground = AccentBrush,
+            FontSize = 11.5,
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(22, 6, 12, 0),
+            Opacity = 0.9
+        };
+        Localize(UpdateCalibrationStatus);
+        panel.Children.Add(_calibrationStatus);
+        HideIfUnsupported(Settings.AutoCalibratePlayheadLatencyKey, calibration, _calibrationStatus);
+
         return panel;
+    }
+
+    private void UpdateCalibrationStatus()
+    {
+        var text = _calibrationStatus;
+        if (text == null) return;
+
+        if (!Settings.AutoCalibratePlayheadLatency)
+        {
+            text.Text = TranslationManager.Tr(
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Disabled");
+            return;
+        }
+
+        var status = PlaybackLatencyCalibrator.GetStatus();
+        if (status.Source == PlaybackLatencySource.None)
+        {
+            text.Text = TranslationManager.Tr(
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Waiting");
+            return;
+        }
+
+        var source = TranslationManager.Tr(status.Source switch
+        {
+            PlaybackLatencySource.DirectSoundCursor =>
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundCursor",
+            PlaybackLatencySource.DirectSoundSignalValidated =>
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundSignal",
+            PlaybackLatencySource.AsioBufferEstimate =>
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioBuffer",
+            PlaybackLatencySource.AsioDriverReported =>
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioDriver",
+            _ => "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_BufferEstimate"
+        });
+        var confidence = TranslationManager.Tr(status.Confidence switch
+        {
+            PlaybackLatencyConfidence.High =>
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_High",
+            PlaybackLatencyConfidence.Medium =>
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Medium",
+            _ => "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Low"
+        });
+        var validation = double.IsFinite(status.ValidationCorrelation)
+            ? TranslationManager.Tr(
+                "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_SignalMatch",
+                status.ValidationCorrelation * 100.0)
+            : string.Empty;
+
+        text.Text = TranslationManager.Tr(status.IsActive
+                ? "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Active"
+                : "VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Last",
+            status.LatencySeconds * 1000.0, source, confidence,
+            status.ObservationCount, status.JitterSeconds * 1000.0,
+            status.BufferFrames, status.SampleRate, validation);
     }
 
     private StackPanel DescribedToggle(string key, string descKey,

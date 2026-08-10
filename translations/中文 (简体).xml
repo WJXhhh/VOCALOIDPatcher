@@ -61,6 +61,21 @@
   <data name="VOCALOIDPatcher_DeferParameterViewUpdate_Desc" xml:space="preserve"><value></value></data>
   <data name="VOCALOIDPatcher_SmoothPlayhead_Header" xml:space="preserve"><value>平滑播放指示条</value></data>
   <data name="VOCALOIDPatcher_SmoothPlayhead_Desc" xml:space="preserve"><value></value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Header" xml:space="preserve"><value>自动校准播放指示条延迟</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Desc" xml:space="preserve"><value>使用 DirectSound 实际播放游标或 ASIO 驱动报告的输出延迟。只有时序稳定且独立信号验证一致时，才会提高可信度。</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Disabled" xml:space="preserve"><value>校准已关闭。</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Waiting" xml:space="preserve"><value>等待播放，尚无校准结果。</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Active" xml:space="preserve"><value>正在测量：{0:F1} ms · {1} · 可信度：{2}&#10;{3} 次观测 · 抖动 {4:F2} ms · {5} 帧 @ {6} Hz{7}</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_Last" xml:space="preserve"><value>最近结果：{0:F1} ms · {1} · 可信度：{2}&#10;{3} 次观测 · 抖动 {4:F2} ms · {5} 帧 @ {6} Hz{7}</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Status_SignalMatch" xml:space="preserve"><value> · 信号匹配 {0:F0}%</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_BufferEstimate" xml:space="preserve"><value>配置缓冲区估算</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundCursor" xml:space="preserve"><value>DirectSound 播放游标</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_DirectSoundSignal" xml:space="preserve"><value>DirectSound 游标与信号交叉验证</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioBuffer" xml:space="preserve"><value>ASIO 活动缓冲区估算</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Source_AsioDriver" xml:space="preserve"><value>ASIO 驱动报告的输出延迟</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Low" xml:space="preserve"><value>低</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_Medium" xml:space="preserve"><value>中</value></data>
+  <data name="VOCALOIDPatcher_AutoCalibratePlayheadLatency_Confidence_High" xml:space="preserve"><value>高</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_Header" xml:space="preserve"><value>摇摆</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_8" xml:space="preserve"><value>8 分摇摆</value></data>
   <data name="VOCALOIDPatcher_Job_Swing_8_Shuffle" xml:space="preserve"><value>8 分 Shuffle</value></data>
@@ -281,32 +296,32 @@
   <data name="PartPropertiesView_Style_StylePreset_Header" xml:space="preserve"><value>预设风格</value></data>
   <data name="PartPropertiesView_Style_StylePresetName_Header" xml:space="preserve"><value>预设风格名称</value></data>
   <data name="PartPropertiesView_Style_RobotVoice_Header" xml:space="preserve"><value>机械音</value></data>
-  <data name="PartPropertiesView_Style_Breath_Header" xml:space="preserve"><value>吸气</value></data>
-  <data name="PartPropertiesView_Style_Breath_Exhalation_Header" xml:space="preserve"><value>呼气</value></data>
-  <data name="PartPropertiesView_Style_Breath_Soft_Header" xml:space="preserve"><value>弱</value></data>
-  <data name="PartPropertiesView_Style_Breath_Hard_Header" xml:space="preserve"><value>强</value></data>
+  <data name="PartPropertiesView_Style_Breath_Header" xml:space="preserve"><value>呼吸</value></data>
+  <data name="PartPropertiesView_Style_Breath_Exhalation_Header" xml:space="preserve"><value>气息音量</value></data>
+  <data name="PartPropertiesView_Style_Breath_Soft_Header" xml:space="preserve"><value>低</value></data>
+  <data name="PartPropertiesView_Style_Breath_Hard_Header" xml:space="preserve"><value>高</value></data>
   <data name="PartPropertiesView_Style_SingingSkill_Header" xml:space="preserve"><value>歌唱技巧</value></data>
   <data name="PartPropertiesView_Style_SingingSkill_Skill_Header" xml:space="preserve"><value>技巧</value></data>
   <data name="PartPropertiesView_Style_SingingSkill_Amount_Header" xml:space="preserve"><value>数量</value></data>
   <data name="PartPropertiesView_Style_Take_Header" xml:space="preserve"><value>重录</value></data>
 
-  <data name="PartPropertiesView_Style_VoiceColor_Header" xml:space="preserve"><value>声音色彩</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Exciter_Header" xml:space="preserve"><value>兴奋</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Exciter_Muffled_Header" xml:space="preserve"><value>闷音</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Header" xml:space="preserve"><value>音色</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Exciter_Header" xml:space="preserve"><value>EXCITER</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Exciter_Muffled_Header" xml:space="preserve"><value>沉闷</value></data>
   <data name="PartPropertiesView_Style_VoiceColor_Exciter_Bright_Header" xml:space="preserve"><value>明亮</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Growl_Header" xml:space="preserve"><value>怒音</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Growl_Clear_Header" xml:space="preserve"><value>清晰</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Breathiness_Header" xml:space="preserve"><value>呼吸度</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Breathiness_Breathy_Header" xml:space="preserve"><value>喘息</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Air_Header" xml:space="preserve"><value>气音</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Air_Airy_Header" xml:space="preserve"><value>轻盈的</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Mouth_Header" xml:space="preserve"><value>开口度</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Mouth_Close_Header" xml:space="preserve"><value>关</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Character_Header" xml:space="preserve"><value>性别值</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Character_Cool_Header" xml:space="preserve"><value>冷酷</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Character_Cute_Header" xml:space="preserve"><value>可爱</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Expression_Header" xml:space="preserve"><value>情感</value></data>
-  <data name="PartPropertiesView_Style_VoiceColor_Powerful_Header" xml:space="preserve"><value>有力</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Growl_Header" xml:space="preserve"><value>GROWL</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Growl_Clear_Header" xml:space="preserve"><value>低</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Breathiness_Header" xml:space="preserve"><value>BREATHINESS</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Breathiness_Breathy_Header" xml:space="preserve"><value>高</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Air_Header" xml:space="preserve"><value>AIR</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Air_Airy_Header" xml:space="preserve"><value>高</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Mouth_Header" xml:space="preserve"><value>MOUTH</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Mouth_Close_Header" xml:space="preserve"><value>关闭</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Character_Header" xml:space="preserve"><value>CHARACTER</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Character_Cool_Header" xml:space="preserve"><value>冷峻</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Character_Cute_Header" xml:space="preserve"><value>甜美</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Expression_Header" xml:space="preserve"><value>表现力</value></data>
+  <data name="PartPropertiesView_Style_VoiceColor_Powerful_Header" xml:space="preserve"><value>高</value></data>
 
   <data name="AudioPropertiesView_Processes_Header" xml:space="preserve"><value>处理</value></data>
   <data name="AudioPropertiesView_Processes_ChangePitch_Header" xml:space="preserve"><value>音高更改</value></data>

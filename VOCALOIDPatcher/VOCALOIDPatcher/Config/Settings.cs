@@ -270,6 +270,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(SmoothPlayheadKey, value);
     }
 
+    public static string AutoCalibratePlayheadLatencyKey => "AutoCalibratePlayheadLatency";
+
+    public static bool AutoCalibratePlayheadLatency
+    {
+        get => Patcher.ConfigManager.Get(AutoCalibratePlayheadLatencyKey, true);
+        set => Patcher.ConfigManager.Set(AutoCalibratePlayheadLatencyKey, value);
+    }
+
     public static string ThrottleRendererPreviewKey => "ThrottleRendererPreview";
 
     public static bool ThrottleRendererPreview

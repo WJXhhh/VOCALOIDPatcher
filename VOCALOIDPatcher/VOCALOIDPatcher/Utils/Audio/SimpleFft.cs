@@ -12,6 +12,7 @@ public sealed class SimpleFft
     private readonly float[] _window;
     private readonly float[] _re;
     private readonly float[] _im;
+    private readonly double _amplitudeScale;
 
     public SimpleFft(int size)
     {
@@ -35,14 +36,26 @@ public sealed class SimpleFft
         }
 
         _window = new float[size];
+        double windowSum = 0;
         for (var i = 0; i < size; i++)
-            _window[i] = (float)(0.5 - 0.5 * Math.Cos(2.0 * Math.PI * i / (size - 1)));
+        {
+            var value = (float)(0.5 - 0.5 * Math.Cos(2.0 * Math.PI * i / (size - 1)));
+            _window[i] = value;
+            windowSum += value;
+        }
+
+        _amplitudeScale = 2.0 / windowSum;
 
         _re = new float[size];
         _im = new float[size];
     }
 
     public int Size => _size;
+
+    /// <summary>
+    /// Converts a one-sided FFT magnitude to the peak amplitude of a bin-centred sine.
+    /// </summary>
+    public double AmplitudeScale => _amplitudeScale;
 
     public void MagnitudeSpectrum(float[] samples, float[] magnitudes)
     {
