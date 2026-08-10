@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -121,6 +122,9 @@ public class WaveformRenderPatch : PatchBase
 
     private const double FadeWidth = 24.0;
 
+    private static readonly Brush PhonemeTextBrush = Brushes.White;
+    private static readonly Brush PhonemeBoundaryBrush = Brushes.LightSkyBlue;
+
     [HarmonyPrefix]
     private static bool Prefix(UIRenderedWave __instance, DrawingContext drawingContext, out int __state)
     {
@@ -168,6 +172,26 @@ public class WaveformRenderPatch : PatchBase
         public double DeltaBottom;
         public int Baseline;
         public double Center;
+    }
+
+    private readonly struct PhonemeSpan
+    {
+        public PhonemeSpan(double startX, double endX, double labelCenterX, bool hasStart, bool hasEnd, string phoneme)
+        {
+            StartX = startX;
+            EndX = endX;
+            LabelCenterX = labelCenterX;
+            HasStart = hasStart;
+            HasEnd = hasEnd;
+            Phoneme = phoneme;
+        }
+
+        public double StartX { get; }
+        public double EndX { get; }
+        public double LabelCenterX { get; }
+        public bool HasStart { get; }
+        public bool HasEnd { get; }
+        public string Phoneme { get; }
     }
 
     private static bool CustomRender(UIRenderedWave wave, DrawingContext dc)
@@ -267,6 +291,8 @@ public class WaveformRenderPatch : PatchBase
                 DrawGhost(dc, bg, pen, cols, i, a.Center, true);
                 DrawGhost(dc, bg, pen, cols, i, b.Center, false);
             }
+
+            DrawPhonemeSpans(wave, dc, vm, cols, left, right, oneKeyHeight);
         }
         finally
         {
@@ -275,6 +301,113 @@ public class WaveformRenderPatch : PatchBase
         }
 
         return true;
+    }
+
+    private static void DrawPhonemeSpans(
+        UIRenderedWave wave,
+        DrawingContext dc,
+        MusicalEditorViewModel vm,
+        List<Column> cols,
+        double left,
+        double right,
+        double oneKeyHeight)
+    {
+        var part = vm.ActivePart;
+        if (part == null || right <= left)
+            return;
+
+        var spans = new List<PhonemeSpan>();
+        foreach (var note in part.NotesInPart)
+        {
+            if (note == null || !note.IsValidPhonemes || string.IsNullOrWhiteSpace(note.Phonemes))
+                continue;
+
+            string[] phonemes = note.Phonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            List<int> positions = note.GetPhonemePositions();
+            int count = Math.Min(phonemes.Length, positions.Count - 1);
+            for (int i = 0; i < count; i++)
+            {
+                double start = vm.CalcTickToViewPosition(note.GetAbsPositionFromNoteBaseTick(positions[i]));
+                double end = vm.CalcTickToViewPosition(note.GetAbsPositionFromNoteBaseTick(positions[i + 1]));
+                if (end <= left || start >= right || end <= start)
+                    continue;
+
+                spans.Add(new PhonemeSpan(
+                    Math.Max(start, left) - left,
+                    Math.Min(end, right) - left,
+                    (start + end) / 2.0 - left,
+                    start >= left,
+                    end <= right,
+                    phonemes[i]));
+            }
+        }
+
+        if (spans.Count == 0)
+            return;
+
+        double fontSize = Math.Clamp(oneKeyHeight * 1.25, 8.0, 12.0);
+        double markerHalfHeight = Math.Max(oneKeyHeight * 0.8, 4.0);
+        double pixelsPerDip = VisualTreeHelper.GetDpi(wave).PixelsPerDip;
+        var typeface = new Typeface(wave.FontFamily, wave.FontStyle, wave.FontWeight, wave.FontStretch);
+        var markerPen = new Pen(PhonemeBoundaryBrush, 0.5);
+        if (markerPen.CanFreeze)
+            markerPen.Freeze();
+
+        dc.PushOpacity(0.82);
+        try
+        {
+            foreach (var span in spans)
+            {
+                double width = span.EndX - span.StartX;
+                if (width < 1.0)
+                    continue;
+
+                double center = CenterForSpan(cols, span.StartX, span.EndX);
+                double top = center - markerHalfHeight;
+                double bottom = center + markerHalfHeight;
+
+                if (span.HasStart)
+                    dc.DrawLine(markerPen, new Point(span.StartX, top), new Point(span.StartX, bottom));
+                dc.DrawLine(markerPen, new Point(span.StartX, bottom), new Point(span.EndX, bottom));
+                if (span.HasEnd)
+                    dc.DrawLine(markerPen, new Point(span.EndX, top), new Point(span.EndX, bottom));
+
+                var text = new FormattedText(
+                    span.Phoneme,
+                    CultureInfo.CurrentCulture,
+                    FlowDirection.LeftToRight,
+                    typeface,
+                    fontSize,
+                    PhonemeTextBrush,
+                    pixelsPerDip);
+                double textX = span.LabelCenterX - text.Width / 2.0;
+                if (text.Width + 4.0 <= width && textX >= 0.0 && textX + text.Width <= right - left)
+                    dc.DrawText(text, new Point(textX, top - text.Height - 1.0));
+            }
+        }
+        finally
+        {
+            dc.Pop();
+        }
+    }
+
+    private static double CenterForSpan(List<Column> cols, double startX, double endX)
+    {
+        double middle = (startX + endX) / 2.0;
+        int lo = 0;
+        int hi = cols.Count - 1;
+        while (lo < hi)
+        {
+            int mid = lo + (hi - lo) / 2;
+            if (cols[mid].X < middle)
+                lo = mid + 1;
+            else
+                hi = mid;
+        }
+
+        if (lo > 0 && Math.Abs(cols[lo - 1].X - middle) < Math.Abs(cols[lo].X - middle))
+            lo--;
+        return cols[lo].Center;
     }
 
     private static void DrawGhost(DrawingContext dc, Brush? bg, Pen? pen, List<Column> cols, int boundaryIndex, double altCenter, bool forward)
