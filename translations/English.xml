@@ -20,6 +20,21 @@
   <data name="VOCALOIDPatcher_ShowNotePitch_Header" xml:space="preserve"><value>Show Note Pitch</value></data>
   <data name="VOCALOIDPatcher_RoundedNotes_Header" xml:space="preserve"><value>Rounded Notes</value></data>
   <data name="VOCALOIDPatcher_CenteredLyrics_Header" xml:space="preserve"><value>Center Lyrics</value></data>
+  <data name="VOCALOIDPatcher_IndividualBreathVolume_Header" xml:space="preserve"><value>Individual Auto-Breath Volume</value></data>
+  <data name="VOCALOIDPatcher_IndividualBreathVolume_Description" xml:space="preserve"><value>Adds a BVL parameter for adjusting each auto-generated breath from 0 to 127. It does not create new breaths.</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL: Breath Volume</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_NoActivePart" xml:space="preserve"><value>Select a singing part to edit its auto breaths.</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_NoBreaths" xml:space="preserve"><value>No rendered auto-breath markers were found in this part.</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Reset" xml:space="preserve"><value>Reset to 127</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_SaveFailed" xml:space="preserve"><value>Breath-volume data could not be saved. The project remains marked as modified; save again or choose another location.</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed" xml:space="preserve"><value>Failed to read breath markers: {0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_CacheFailed" xml:space="preserve"><value>Failed to create the breath-volume audio cache; using the original audio: {0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_PlacementFailed" xml:space="preserve"><value>Failed to refresh breath-volume audio placement: {0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_UnknownVersion" xml:space="preserve"><value>Ignored unsupported breath-volume data version {0}.</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_SaveFailed" xml:space="preserve"><value>Failed to save breath-volume project data: {0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_LoadFailed" xml:space="preserve"><value>Failed to load breath-volume project data: {0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_UiFailed" xml:space="preserve"><value>Breath-volume UI failed safely: {0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_BufferFailed" xml:space="preserve"><value>Failed to adjust a progressive breath-volume buffer; using the unmodified buffer: {0}</value></data>
   <data name="VOCALOIDPatcher_AlwaysShowWaveform_Header" xml:space="preserve"><value>Always Show Note Waveform</value></data>
   <data name="VOCALOIDPatcher_SvEditorStyle_Header" xml:space="preserve"><value>SynthV Editor Style</value></data>
   <data name="VOCALOIDPatcher_WaveformOpacity_Header" xml:space="preserve"><value>Opacity</value></data>

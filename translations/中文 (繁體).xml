@@ -20,6 +20,21 @@
   <data name="VOCALOIDPatcher_ShowNotePitch_Header" xml:space="preserve"><value>顯示音符音高</value></data>
   <data name="VOCALOIDPatcher_RoundedNotes_Header" xml:space="preserve"><value>使用圓角音符</value></data>
   <data name="VOCALOIDPatcher_CenteredLyrics_Header" xml:space="preserve"><value>置中顯示歌詞</value></data>
+  <data name="VOCALOIDPatcher_IndividualBreathVolume_Header" xml:space="preserve"><value>個別調整自動呼吸音量</value></data>
+  <data name="VOCALOIDPatcher_IndividualBreathVolume_Description" xml:space="preserve"><value>新增 BVL 參數，可在 0–127 範圍內調整每個自動產生的呼吸音；此功能不會額外產生呼吸音。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL：呼吸音量</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_NoActivePart" xml:space="preserve"><value>請選擇一個演唱 Part 以編輯其中的自動呼吸。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_NoBreaths" xml:space="preserve"><value>此 Part 的算繪結果中沒有可辨識的自動呼吸標記。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Reset" xml:space="preserve"><value>重設為 127</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_SaveFailed" xml:space="preserve"><value>呼吸音量資料儲存失敗。工程仍保持為已修改狀態，請重試儲存或選擇其他位置。</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed" xml:space="preserve"><value>讀取呼吸標記失敗：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_CacheFailed" xml:space="preserve"><value>建立呼吸音量音訊快取失敗，已使用原始音訊：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_PlacementFailed" xml:space="preserve"><value>重新整理呼吸音量音訊 Placement 失敗：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_UnknownVersion" xml:space="preserve"><value>已忽略不支援的呼吸音量資料版本 {0}。</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_SaveFailed" xml:space="preserve"><value>儲存呼吸音量工程資料失敗：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_LoadFailed" xml:space="preserve"><value>載入呼吸音量工程資料失敗：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_UiFailed" xml:space="preserve"><value>呼吸音量介面已安全回退：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_BufferFailed" xml:space="preserve"><value>漸進算繪呼吸音量處理失敗，已使用未修改的緩衝區：{0}</value></data>
   <data name="VOCALOIDPatcher_AlwaysShowWaveform_Header" xml:space="preserve"><value>始終顯示音符波形</value></data>
   <data name="VOCALOIDPatcher_SvEditorStyle_Header" xml:space="preserve"><value>SV編輯器樣式</value></data>
   <data name="VOCALOIDPatcher_WaveformOpacity_Header" xml:space="preserve"><value>不透明度</value></data>

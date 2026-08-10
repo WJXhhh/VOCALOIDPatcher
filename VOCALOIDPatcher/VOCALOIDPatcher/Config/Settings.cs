@@ -150,6 +150,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(SvEditorStyleKey, value);
     }
 
+    public static string IndividualBreathVolumeKey => "IndividualBreathVolume";
+
+    public static bool IndividualBreathVolume
+    {
+        get => FeatureFlag(IndividualBreathVolumeKey, true);
+        set => Patcher.ConfigManager.Set(IndividualBreathVolumeKey, value);
+    }
+
     public static string WaveformOpacityKey => "WaveformOpacity";
 
     public static double WaveformOpacity

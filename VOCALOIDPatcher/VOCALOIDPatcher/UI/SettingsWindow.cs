@@ -292,6 +292,17 @@ public class SettingsWindow : Window
                 CenteredLyricPatch.RefreshLyrics();
             });
 
+        var individualBreathVolume = DescribedToggle(
+            "VOCALOIDPatcher_IndividualBreathVolume_Header",
+            "VOCALOIDPatcher_IndividualBreathVolume_Description",
+            Settings.IndividualBreathVolume,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.IndividualBreathVolume = checkbox.IsChecked == true;
+                BreathVolumeUi.RefreshSetting();
+            });
+
         var waveformOptions = new StackPanel
         {
             Margin = new Thickness(28, 6, 0, 0),
@@ -354,6 +365,7 @@ public class SettingsWindow : Window
         panel.Children.Add(showNotePitch);
         panel.Children.Add(roundedNotes);
         panel.Children.Add(centeredLyrics);
+        panel.Children.Add(individualBreathVolume);
         panel.Children.Add(alwaysShowWaveform);
         panel.Children.Add(waveformOptions);
         panel.Children.Add(showCharacterArt);
@@ -363,6 +375,7 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.ShowNotePitchKey, showNotePitch);
         HideIfUnsupported(Settings.RoundedNotesKey, roundedNotes);
         HideIfUnsupported(Settings.CenteredLyricsKey, centeredLyrics);
+        HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
         HideIfUnsupported(Settings.AlwaysShowWaveformKey, alwaysShowWaveform, waveformOptions);
         HideIfUnsupported(Settings.SvEditorStyleKey, svEditorStyle);
         HideIfUnsupported(Settings.ShowCharacterArtKey, showCharacterArt, artOptions);

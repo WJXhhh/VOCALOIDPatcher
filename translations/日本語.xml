@@ -20,6 +20,21 @@
   <data name="VOCALOIDPatcher_ShowNotePitch_Header" xml:space="preserve"><value>ノートの音高を表示</value></data>
   <data name="VOCALOIDPatcher_RoundedNotes_Header" xml:space="preserve"><value>角丸ノート</value></data>
   <data name="VOCALOIDPatcher_CenteredLyrics_Header" xml:space="preserve"><value>歌詞を中央に表示</value></data>
+  <data name="VOCALOIDPatcher_IndividualBreathVolume_Header" xml:space="preserve"><value>自動ブレスごとの音量調整</value></data>
+  <data name="VOCALOIDPatcher_IndividualBreathVolume_Description" xml:space="preserve"><value>BVL パラメータを追加し、自動生成された各ブレスを 0～127 で調整します。新しいブレスは生成しません。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL：ブレス音量</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_NoActivePart" xml:space="preserve"><value>自動ブレスを編集する歌唱パートを選択してください。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_NoBreaths" xml:space="preserve"><value>このパートのレンダリング結果に自動ブレスのマーカーがありません。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Reset" xml:space="preserve"><value>127 にリセット</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_SaveFailed" xml:space="preserve"><value>ブレス音量データを保存できませんでした。プロジェクトは変更済みのままです。再保存するか別の場所を選択してください。</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed" xml:space="preserve"><value>ブレスマーカーの読み取りに失敗しました：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_CacheFailed" xml:space="preserve"><value>ブレス音量の音声キャッシュを作成できないため、元の音声を使用します：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_PlacementFailed" xml:space="preserve"><value>ブレス音量の音声 Placement を更新できませんでした：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_UnknownVersion" xml:space="preserve"><value>未対応のブレス音量データ バージョン {0} を無視しました。</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_SaveFailed" xml:space="preserve"><value>ブレス音量のプロジェクトデータを保存できませんでした：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_LoadFailed" xml:space="preserve"><value>ブレス音量のプロジェクトデータを読み込めませんでした：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_UiFailed" xml:space="preserve"><value>ブレス音量 UI を安全に無効化しました：{0}</value></data>
+  <data name="VOCALOIDPatcher_Debug_BreathVolume_BufferFailed" xml:space="preserve"><value>逐次レンダリングのブレス音量処理に失敗したため、未変更のバッファを使用します：{0}</value></data>
   <data name="VOCALOIDPatcher_AlwaysShowWaveform_Header" xml:space="preserve"><value>常にノートの波形を表示</value></data>
   <data name="VOCALOIDPatcher_SvEditorStyle_Header" xml:space="preserve"><value>SVエディタースタイル</value></data>
   <data name="VOCALOIDPatcher_WaveformOpacity_Header" xml:space="preserve"><value>不透明度</value></data>
