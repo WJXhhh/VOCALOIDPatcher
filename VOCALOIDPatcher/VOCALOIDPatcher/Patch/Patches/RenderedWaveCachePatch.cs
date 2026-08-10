@@ -29,11 +29,26 @@ public class RenderedWaveCachePatch : PatchBase
     private static readonly AccessTools.FieldRef<RenderedWaveCacheManager, Dictionary<nint, Tuple<string, AugmentedAudioBuffer>>>? DictRef =
         CreateDictRef();
 
+    private static readonly AccessTools.FieldRef<MusicalEditorViewModel, RenderedWaveCacheManager>? ManagerRef =
+        CreateManagerRef();
+
     private static AccessTools.FieldRef<RenderedWaveCacheManager, Dictionary<nint, Tuple<string, AugmentedAudioBuffer>>>? CreateDictRef()
     {
         try
         {
             return AccessTools.FieldRefAccess<RenderedWaveCacheManager, Dictionary<nint, Tuple<string, AugmentedAudioBuffer>>>("waveDictionary");
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static AccessTools.FieldRef<MusicalEditorViewModel, RenderedWaveCacheManager>? CreateManagerRef()
+    {
+        try
+        {
+            return AccessTools.FieldRefAccess<MusicalEditorViewModel, RenderedWaveCacheManager>("renderedWaveCacheManager");
         }
         catch
         {
@@ -53,6 +68,8 @@ public class RenderedWaveCachePatch : PatchBase
 
     private static readonly ConditionalWeakTable<RenderedWaveCacheManager, LruState> States = new();
     private static readonly SemaphoreSlim LoadSlots = new(2);
+    private const int LoadAttempts = 8;
+    private const int InitialRetryDelayMs = 30;
 
     [HarmonyPrefix]
     private static bool Prefix(RenderedWaveCacheManager __instance, WIVSMMidiPart part, ref IVSMSampleEnumerator? __result)
@@ -102,9 +119,21 @@ public class RenderedWaveCachePatch : PatchBase
                     if (Volatile.Read(ref state.Generation) != generation)
                         return;
 
-                    var loaded = new AugmentedAudioBuffer();
-                    if (loaded.Load(path))
-                        buffer = loaded;
+                    for (int attempt = 0; attempt < LoadAttempts; attempt++)
+                    {
+                        if (Volatile.Read(ref state.Generation) != generation)
+                            return;
+
+                        var loaded = new AugmentedAudioBuffer();
+                        if (loaded.Load(path))
+                        {
+                            buffer = loaded;
+                            break;
+                        }
+
+                        if (attempt + 1 < LoadAttempts)
+                            Thread.Sleep(InitialRetryDelayMs << attempt);
+                    }
                 }
                 catch
                 {
@@ -116,8 +145,11 @@ public class RenderedWaveCachePatch : PatchBase
 
                 Application.Current?.Dispatcher.BeginInvoke(new Action(() =>
                 {
+                    if (state.Generation != generation)
+                        return;
+
                     state.Pending.Remove(key);
-                    if (buffer == null || state.Generation != generation)
+                    if (buffer == null)
                         return;
 
                     dict[key] = Tuple.Create(path, buffer);
@@ -155,7 +187,10 @@ public class RenderedWaveCachePatch : PatchBase
                 foreach (var view in ShowOtherTracksNotesPatch.FindVisualChildren<PianorollView>(window))
                 {
                     if (view.DataContext is MusicalEditorViewModel vm)
+                    {
                         DrawWaveMethod.Invoke(view, new object[] { vm });
+                        vm.UpdateViewport();
+                    }
                 }
             }
         }
@@ -172,6 +207,29 @@ public class RenderedWaveCachePatch : PatchBase
         state.Pending.Clear();
         state.Order.Clear();
     }
+
+    internal static void InvalidatePart(MusicalEditorViewModel vm, WIVSMMidiPart part)
+    {
+        if (ManagerRef == null || DictRef == null || vm == null || part == null)
+            return;
+
+        try
+        {
+            var manager = ManagerRef(vm);
+            var state = States.GetOrCreateValue(manager);
+            var key = (nint)part;
+
+            // WaveFilePath is commonly reused by consecutive renders, so path
+            // equality alone cannot prove that a cached PCM buffer is current.
+            state.Generation++;
+            state.Pending.Clear();
+            state.Order.Remove(key);
+            DictRef(manager).Remove(key);
+        }
+        catch
+        {
+        }
+    }
 }
 
 public class RenderedWaveCacheClearPatch : PatchBase
@@ -186,5 +244,21 @@ public class RenderedWaveCacheClearPatch : PatchBase
     private static void Postfix(RenderedWaveCacheManager __instance)
     {
         RenderedWaveCachePatch.Invalidate(__instance);
+    }
+}
+
+public class RenderedWaveCacheRenderStartedPatch : PatchBase
+{
+    public override string PatchName        => "RenderedWaveCacheRenderStartedPatch";
+    public override Type   TargetClass      => typeof(MusicalEditorViewModel);
+    public override string TargetMethodName => "OnRendererStarted";
+
+    public override Type[] ArgumentTypes => new[] { typeof(object), typeof(RendererObserverStartEventArgs) };
+
+    [HarmonyPrefix]
+    private static void Prefix(MusicalEditorViewModel __instance, RendererObserverStartEventArgs e)
+    {
+        if (e?.MidiPart != null)
+            RenderedWaveCachePatch.InvalidatePart(__instance, e.MidiPart);
     }
 }

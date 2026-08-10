@@ -27,10 +27,13 @@ public class RendererPreviewThrottlePatch : PatchBase
     private static readonly ConditionalWeakTable<PianorollView, State> States = new();
 
     [HarmonyPrefix]
-    private static bool Prefix(PianorollView __instance)
+    private static bool Prefix(PianorollView __instance, RendererObserverBlockRenderingEventArgs e)
     {
         if (!Settings.ThrottleRendererPreview)
+        {
+            WaveformSnapshot.RendererBlockRendered(__instance, e);
             return true;
+        }
 
         var state = States.GetOrCreateValue(__instance);
         long now = Stopwatch.GetTimestamp();
@@ -38,6 +41,7 @@ public class RendererPreviewThrottlePatch : PatchBase
             return false;
 
         state.LastUpdate = now;
+        WaveformSnapshot.RendererBlockRendered(__instance, e);
         return true;
     }
 }

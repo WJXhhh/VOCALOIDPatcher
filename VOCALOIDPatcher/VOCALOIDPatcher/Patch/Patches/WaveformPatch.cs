@@ -90,7 +90,10 @@ public class AlwaysShowWaveformPatch : PatchBase
 
             long frameCount = samples.NumSamples / samplesPerFrame;
             if (WaveformSvState.IsCached(part, frameCount))
+            {
+                WaveformSvState.EnsurePhonemeSpans(vm, part);
                 return;
+            }
 
             var scores = vm.GetScoreEnumerator(part);
             if (scores == null)
@@ -102,6 +105,7 @@ public class AlwaysShowWaveformPatch : PatchBase
             WaveformSvState.Clear();
             WaveformSvState.Precompute(scores, frameCount);
             WaveformSvState.SetCacheKey(part, frameCount);
+            WaveformSvState.EnsurePhonemeSpans(vm, part);
         }
         catch
         {
@@ -124,6 +128,7 @@ public class WaveformRenderPatch : PatchBase
 
     private static readonly Brush PhonemeTextBrush = Brushes.White;
     private static readonly Brush PhonemeBoundaryBrush = Brushes.LightSkyBlue;
+    private static readonly Pen PhonemeBoundaryPen = CreateFrozenPen(PhonemeBoundaryBrush, 0.5);
 
     [HarmonyPrefix]
     private static bool Prefix(UIRenderedWave __instance, DrawingContext drawingContext, out int __state)
@@ -172,26 +177,6 @@ public class WaveformRenderPatch : PatchBase
         public double DeltaBottom;
         public int Baseline;
         public double Center;
-    }
-
-    private readonly struct PhonemeSpan
-    {
-        public PhonemeSpan(double startX, double endX, double labelCenterX, bool hasStart, bool hasEnd, string phoneme)
-        {
-            StartX = startX;
-            EndX = endX;
-            LabelCenterX = labelCenterX;
-            HasStart = hasStart;
-            HasEnd = hasEnd;
-            Phoneme = phoneme;
-        }
-
-        public double StartX { get; }
-        public double EndX { get; }
-        public double LabelCenterX { get; }
-        public bool HasStart { get; }
-        public bool HasEnd { get; }
-        public string Phoneme { get; }
     }
 
     private static bool CustomRender(UIRenderedWave wave, DrawingContext dc)
@@ -303,6 +288,39 @@ public class WaveformRenderPatch : PatchBase
         return true;
     }
 
+    internal static DrawingGroup? CaptureDrawing(UIRenderedWave wave)
+    {
+        try
+        {
+            // WPF keeps the last OnRender output as retained drawing commands. Prefer
+            // that exact image so an edit (especially deleting a note) cannot alter
+            // the old waveform while the replacement render is only starting.
+            var retained = VisualTreeHelper.GetDrawing(wave);
+            if (retained != null && !retained.Bounds.IsEmpty)
+            {
+                var snapshot = retained.CloneCurrentValue();
+                if (snapshot.CanFreeze)
+                    snapshot.Freeze();
+                return snapshot;
+            }
+
+            var drawing = new DrawingGroup();
+            using (var drawingContext = drawing.Open())
+            {
+                if (!CustomRender(wave, drawingContext))
+                    return null;
+            }
+
+            if (drawing.CanFreeze)
+                drawing.Freeze();
+            return drawing;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     private static void DrawPhonemeSpans(
         UIRenderedWave wave,
         DrawingContext dc,
@@ -316,61 +334,56 @@ public class WaveformRenderPatch : PatchBase
         if (part == null || right <= left)
             return;
 
-        var spans = new List<PhonemeSpan>();
-        foreach (var note in part.NotesInPart)
+        if (!WaveformSvState.TryGetPhonemeSpans(part, vm.WidthPerTick, out var spans))
         {
-            if (note == null || !note.IsValidPhonemes || string.IsNullOrWhiteSpace(note.Phonemes))
-                continue;
-
-            string[] phonemes = note.Phonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            List<int> positions = note.GetPhonemePositions();
-            int count = Math.Min(phonemes.Length, positions.Count - 1);
-            for (int i = 0; i < count; i++)
+            try
             {
-                double start = vm.CalcTickToViewPosition(note.GetAbsPositionFromNoteBaseTick(positions[i]));
-                double end = vm.CalcTickToViewPosition(note.GetAbsPositionFromNoteBaseTick(positions[i + 1]));
-                if (end <= left || start >= right || end <= start)
-                    continue;
-
-                spans.Add(new PhonemeSpan(
-                    Math.Max(start, left) - left,
-                    Math.Min(end, right) - left,
-                    (start + end) / 2.0 - left,
-                    start >= left,
-                    end <= right,
-                    phonemes[i]));
+                WaveformSvState.EnsurePhonemeSpans(vm, part);
             }
+            catch
+            {
+                return;
+            }
+
+            if (!WaveformSvState.TryGetPhonemeSpans(part, vm.WidthPerTick, out spans))
+                return;
         }
 
-        if (spans.Count == 0)
+        int first = FindFirstPhonemeSpan(spans, left);
+        if (first >= spans.Count || spans[first].StartX >= right)
             return;
 
         double fontSize = Math.Clamp(oneKeyHeight * 1.25, 8.0, 12.0);
         double markerHalfHeight = Math.Max(oneKeyHeight * 0.8, 4.0);
         double pixelsPerDip = VisualTreeHelper.GetDpi(wave).PixelsPerDip;
         var typeface = new Typeface(wave.FontFamily, wave.FontStyle, wave.FontWeight, wave.FontStretch);
-        var markerPen = new Pen(PhonemeBoundaryBrush, 0.5);
-        if (markerPen.CanFreeze)
-            markerPen.Freeze();
 
         dc.PushOpacity(0.82);
         try
         {
-            foreach (var span in spans)
+            for (int i = first; i < spans.Count; i++)
             {
-                double width = span.EndX - span.StartX;
+                var span = spans[i];
+                if (span.StartX >= right)
+                    break;
+                if (span.EndX <= left)
+                    continue;
+
+                double startX = Math.Max(span.StartX, left) - left;
+                double endX = Math.Min(span.EndX, right) - left;
+                double width = endX - startX;
                 if (width < 1.0)
                     continue;
 
-                double center = CenterForSpan(cols, span.StartX, span.EndX);
+                double center = CenterForSpan(cols, startX, endX);
                 double top = center - markerHalfHeight;
                 double bottom = center + markerHalfHeight;
 
-                if (span.HasStart)
-                    dc.DrawLine(markerPen, new Point(span.StartX, top), new Point(span.StartX, bottom));
-                dc.DrawLine(markerPen, new Point(span.StartX, bottom), new Point(span.EndX, bottom));
-                if (span.HasEnd)
-                    dc.DrawLine(markerPen, new Point(span.EndX, top), new Point(span.EndX, bottom));
+                if (span.StartX >= left)
+                    dc.DrawLine(PhonemeBoundaryPen, new Point(startX, top), new Point(startX, bottom));
+                dc.DrawLine(PhonemeBoundaryPen, new Point(startX, bottom), new Point(endX, bottom));
+                if (span.EndX <= right)
+                    dc.DrawLine(PhonemeBoundaryPen, new Point(endX, top), new Point(endX, bottom));
 
                 var text = new FormattedText(
                     span.Phoneme,
@@ -380,7 +393,7 @@ public class WaveformRenderPatch : PatchBase
                     fontSize,
                     PhonemeTextBrush,
                     pixelsPerDip);
-                double textX = span.LabelCenterX - text.Width / 2.0;
+                double textX = (span.StartX + span.EndX) / 2.0 - left - text.Width / 2.0;
                 if (text.Width + 4.0 <= width && textX >= 0.0 && textX + text.Width <= right - left)
                     dc.DrawText(text, new Point(textX, top - text.Height - 1.0));
             }
@@ -389,6 +402,30 @@ public class WaveformRenderPatch : PatchBase
         {
             dc.Pop();
         }
+    }
+
+    private static int FindFirstPhonemeSpan(List<WaveformSvState.PhonemeSpan> spans, double left)
+    {
+        int low = 0;
+        int high = spans.Count;
+        while (low < high)
+        {
+            int middle = low + ((high - low) >> 1);
+            if (spans[middle].EndX <= left)
+                low = middle + 1;
+            else
+                high = middle;
+        }
+
+        return low;
+    }
+
+    private static Pen CreateFrozenPen(Brush brush, double thickness)
+    {
+        var pen = new Pen(brush, thickness);
+        if (pen.CanFreeze)
+            pen.Freeze();
+        return pen;
     }
 
     private static double CenterForSpan(List<Column> cols, double startX, double endX)
@@ -595,20 +632,36 @@ public class ScoreFrameCaptureCombinedPatch : PatchBase
 public class WaveformBaselineInvalidatePatch : PatchBase
 {
     public override string PatchName        => "WaveformBaselineInvalidatePatch";
-    public override Type   TargetClass      => typeof(AudioPlayer);
+    public override Type   TargetClass      => typeof(PianorollView);
     public override string TargetMethodName => "OnRendererCompleted";
 
     public override Type[] ArgumentTypes => new[] { typeof(object), typeof(RendererObserverCompleteEventArgs) };
 
-    [HarmonyPostfix]
-    private static void Postfix()
+    [HarmonyPrefix]
+    private static void Prefix(PianorollView __instance, RendererObserverCompleteEventArgs e)
     {
-        WaveformSvState.Invalidate();
+        if (e?.MidiPart != null && __instance.DataContext is MusicalEditorViewModel vm
+            && vm.ActivePart != null && vm.ActivePart.Equals(e.MidiPart))
+            WaveformSvState.Invalidate();
     }
 }
 
 internal static class WaveformSvState
 {
+    internal readonly struct PhonemeSpan
+    {
+        public PhonemeSpan(double startX, double endX, string phoneme)
+        {
+            StartX = startX;
+            EndX = endX;
+            Phoneme = phoneme;
+        }
+
+        public double StartX { get; }
+        public double EndX { get; }
+        public string Phoneme { get; }
+    }
+
     private const int GroupSemitones = 7;
     private const double DownwardRows = 3.0;
     private const long MaxFrames = 4_000_000;
@@ -620,6 +673,9 @@ internal static class WaveformSvState
 
     private static object? _cachedPart;
     private static long _cachedFrameCount;
+    private static object? _phonemePart;
+    private static double _phonemeWidthPerTick;
+    private static List<PhonemeSpan>? _phonemeSpans;
 
     public static bool HasBaselines => _baselineByFrame != null;
 
@@ -631,6 +687,9 @@ internal static class WaveformSvState
         _baselineByFrame = null;
         _cachedPart = null;
         _cachedFrameCount = 0;
+        _phonemePart = null;
+        _phonemeWidthPerTick = 0.0;
+        _phonemeSpans = null;
     }
 
     public static bool IsCached(object part, long frameCount)
@@ -649,6 +708,61 @@ internal static class WaveformSvState
     {
         _cachedPart = null;
         _cachedFrameCount = 0;
+        _phonemePart = null;
+        _phonemeWidthPerTick = 0.0;
+    }
+
+    public static void EnsurePhonemeSpans(MusicalEditorViewModel vm, WIVSMMidiPart part)
+    {
+        double widthPerTick = vm.WidthPerTick;
+        if (_phonemeSpans != null && _phonemePart != null && _phonemePart.Equals(part)
+            && _phonemeWidthPerTick.Equals(widthPerTick))
+            return;
+
+        var spans = new List<PhonemeSpan>();
+        foreach (var note in part.NotesInPart)
+        {
+            if (note == null || !note.IsValidPhonemes)
+                continue;
+
+            string value = note.Phonemes;
+            if (string.IsNullOrWhiteSpace(value))
+                continue;
+
+            string[] phonemes = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            List<int> positions = note.GetPhonemePositions();
+            int count = Math.Min(phonemes.Length, positions.Count - 1);
+            for (int i = 0; i < count; i++)
+            {
+                double start = vm.CalcTickToViewPosition(
+                    note.GetAbsPositionFromNoteBaseTick(positions[i]));
+                double end = vm.CalcTickToViewPosition(
+                    note.GetAbsPositionFromNoteBaseTick(positions[i + 1]));
+                if (end > start)
+                    spans.Add(new PhonemeSpan(start, end, phonemes[i]));
+            }
+        }
+
+        spans.Sort((left, right) => left.StartX.CompareTo(right.StartX));
+        _phonemePart = part;
+        _phonemeWidthPerTick = widthPerTick;
+        _phonemeSpans = spans;
+    }
+
+    public static bool TryGetPhonemeSpans(
+        WIVSMMidiPart part,
+        double widthPerTick,
+        out List<PhonemeSpan> spans)
+    {
+        if (_phonemeSpans != null && _phonemePart != null && _phonemePart.Equals(part)
+            && _phonemeWidthPerTick.Equals(widthPerTick))
+        {
+            spans = _phonemeSpans;
+            return spans.Count > 0;
+        }
+
+        spans = null!;
+        return false;
     }
 
     public static int BaselineAtFrame(long frame)
