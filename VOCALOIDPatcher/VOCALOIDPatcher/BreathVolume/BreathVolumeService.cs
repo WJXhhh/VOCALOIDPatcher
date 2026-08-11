@@ -17,6 +17,7 @@ using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.MusicalEditor;
 using Yamaha.VOCALOID.VSM;
+using Stopwatch = System.Diagnostics.Stopwatch;
 
 namespace VOCALOIDPatcher.BreathVolume;
 
@@ -27,6 +28,8 @@ internal readonly record struct BreathRegion(
     long EndTick,
     IntPtr NoteHandle);
 
+internal readonly record struct BreathSampleRange(long BeginSample, long EndSample);
+
 internal sealed record BreathNativeObjectHandles(IntPtr[] NoteHandles, IntPtr[] PartHandles);
 
 internal enum BreathVolumeChangeKind
@@ -35,6 +38,14 @@ internal enum BreathVolumeChangeKind
     Values,
     Regions,
     Selection
+}
+
+internal enum BreathRegionStatus
+{
+    Unknown,
+    Loading,
+    Ready,
+    Faulted
 }
 
 internal static class BreathVolumeService
@@ -68,9 +79,52 @@ internal static class BreathVolumeService
 
     public static event Action<BreathVolumeChangeKind, WIVSMMidiPart?>? Changed;
 
+    private static void NotifyChanged(BreathVolumeChangeKind kind, WIVSMMidiPart? part)
+    {
+        void Notify()
+        {
+            try
+            {
+                Changed?.Invoke(kind, part);
+            }
+            catch (Exception e)
+            {
+                BreathVolumeDiagnosticsLog.Write(
+                    $"change notification failed kind={kind}: {e.GetType().Name}: {e.Message}");
+            }
+        }
+
+        var dispatcher = Application.Current?.Dispatcher;
+        if (dispatcher == null || dispatcher.CheckAccess())
+        {
+            Notify();
+            return;
+        }
+
+        try
+        {
+            dispatcher.BeginInvoke((Action)Notify);
+        }
+        catch (Exception e)
+        {
+            BreathVolumeDiagnosticsLog.Write(
+                $"change dispatch failed kind={kind}: {e.GetType().Name}: {e.Message}");
+        }
+    }
+
     static BreathVolumeService()
     {
         AppDomain.CurrentDomain.ProcessExit += (_, _) => CleanupCreatedFiles();
+    }
+
+    public static void InitializeDiagnostics()
+    {
+        BreathVolumeDiagnosticsLog.Initialize();
+        var nativeMixer = NativeBreathCapture.TryInitialize();
+        BreathVolumeDiagnosticsLog.Write(
+            $"initialize detector=native-mixer+score-pcm nativeMixer={nativeMixer} " +
+            $"log='{BreathVolumeDiagnosticsLog.FilePath}'");
+        BreathVolumeDiagnosticsLog.WriteNativeSnapshot("initialize", force: true);
     }
 
     public static bool IsActive(ControlParameterTypeEnum type)
@@ -103,6 +157,104 @@ internal static class BreathVolumeService
                 : Array.Empty<BreathRegion>();
     }
 
+    public static BreathRegionStatus GetRegionStatus(WIVSMMidiPart? part)
+    {
+        if (part == null)
+            return BreathRegionStatus.Unknown;
+
+        lock (Sync)
+            return Parts.TryGetValue((IntPtr)part, out var state)
+                ? state.RegionStatus
+                : BreathRegionStatus.Unknown;
+    }
+
+    public static void EnsureRegionsAsync(WIVSMSequence sequence, WIVSMMidiPart part)
+        => QueueRegionRefresh(sequence, part, force: false, rebuildAfterRefresh: false);
+
+    public static void RefreshRegionsAsync(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        bool rebuildAfterRefresh = false)
+        => QueueRegionRefresh(sequence, part, force: true, rebuildAfterRefresh);
+
+    private static void QueueRegionRefresh(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        bool force,
+        bool rebuildAfterRefresh)
+    {
+        if (!Settings.IndividualBreathVolume || sequence == null || part == null)
+            return;
+
+        PartState state;
+        int generation;
+        lock (Sync)
+        {
+            state = GetPartState(part);
+            state.Sequence = sequence;
+            state.Part = part;
+            state.RebuildAfterRegionRefresh |= rebuildAfterRefresh;
+            if (state.RegionRefreshPending || !force && state.RegionStatus == BreathRegionStatus.Ready)
+                return;
+
+            state.RegionRefreshPending = true;
+            state.RegionStatus = BreathRegionStatus.Loading;
+            generation = ++state.RegionRefreshGeneration;
+        }
+
+        NotifyChanged(BreathVolumeChangeKind.Regions, part);
+        _ = Task.Run(async () =>
+        {
+            var rebuild = false;
+            try
+            {
+                for (var attempt = 0; attempt < 4; attempt++)
+                {
+                    RefreshRegionsCore(sequence, part, state, generation);
+                    if (GetRegionStatus(part) != BreathRegionStatus.Faulted)
+                        break;
+                    await Task.Delay(50 << attempt).ConfigureAwait(false);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed", e.Message));
+                lock (Sync)
+                {
+                    if (Parts.TryGetValue((IntPtr)part, out var current) &&
+                        ReferenceEquals(current, state) && current.RegionRefreshGeneration == generation)
+                        current.RegionStatus = BreathRegionStatus.Faulted;
+                }
+            }
+            finally
+            {
+                lock (Sync)
+                {
+                    if (Parts.TryGetValue((IntPtr)part, out var current) &&
+                        ReferenceEquals(current, state) && current.RegionRefreshGeneration == generation)
+                    {
+                        current.RegionRefreshPending = false;
+                        rebuild = current.RebuildAfterRegionRefresh;
+                        current.RebuildAfterRegionRefresh = false;
+                    }
+                }
+            }
+
+            if (rebuild)
+            {
+                try { RebuildNow(sequence, part); }
+                catch (Exception e)
+                {
+                    Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_CacheFailed", e.Message));
+                    RemoveCache(part);
+                    RefreshAudioPlacement(sequence, part);
+                }
+            }
+
+            NotifyChanged(BreathVolumeChangeKind.Regions, part);
+        });
+    }
+
     public static IReadOnlyCollection<IntPtr> GetSelection()
     {
         lock (Sync)
@@ -125,7 +277,7 @@ internal static class BreathVolumeService
                 Selection.Add(GetOrCreateNoteKeyCore(handle));
         }
 
-        Changed?.Invoke(BreathVolumeChangeKind.Selection, null);
+        NotifyChanged(BreathVolumeChangeKind.Selection, null);
     }
 
     public static void ToggleSelection(IntPtr handle)
@@ -140,14 +292,14 @@ internal static class BreathVolumeService
                 Selection.Add(key);
         }
 
-        Changed?.Invoke(BreathVolumeChangeKind.Selection, null);
+        NotifyChanged(BreathVolumeChangeKind.Selection, null);
     }
 
     public static void ClearSelection()
     {
         lock (Sync)
             Selection.Clear();
-        Changed?.Invoke(BreathVolumeChangeKind.Selection, null);
+        NotifyChanged(BreathVolumeChangeKind.Selection, null);
     }
 
     public static Dictionary<IntPtr, byte> Snapshot(IEnumerable<IntPtr> handles)
@@ -163,7 +315,7 @@ internal static class BreathVolumeService
                 SetValueCore(handle, normalized);
         }
 
-        Changed?.Invoke(BreathVolumeChangeKind.Display, null);
+        NotifyChanged(BreathVolumeChangeKind.Display, null);
     }
 
     public static void CommitValues(
@@ -196,7 +348,7 @@ internal static class BreathVolumeService
             history.Revision++;
         }
 
-        Changed?.Invoke(BreathVolumeChangeKind.Values, part);
+        NotifyChanged(BreathVolumeChangeKind.Values, part);
         RequestRebuild(sequence, part);
     }
 
@@ -246,6 +398,7 @@ internal static class BreathVolumeService
         var count = Math.Min(source.NumNotes, target.NumNotes);
         for (ulong index = 0; index < count; index++)
             CopyNoteValue(source.GetNote(index), target.GetNote(index));
+        CopyDetectedBreathRanges(source, target);
     }
 
     public static void CopyClipboardPartValues(WIVSMMidiPart? source, WIVSMMidiPart? target)
@@ -256,6 +409,28 @@ internal static class BreathVolumeService
         var count = Math.Min(source.NumNotes, target.NumNotes);
         for (ulong index = 0; index < count; index++)
             CopyClipboardNoteValue(source.GetNote(index), target.GetNote(index));
+        CopyDetectedBreathRanges(source, target);
+    }
+
+    private static void CopyDetectedBreathRanges(WIVSMMidiPart source, WIVSMMidiPart target)
+    {
+        lock (Sync)
+        {
+            if (!Parts.TryGetValue((IntPtr)source, out var sourceState) ||
+                sourceState.NativeBreathMarkers.Count == 0 &&
+                sourceState.TraditionalBreathRanges.Count == 0)
+                return;
+            var targetState = GetPartState(target);
+            targetState.NativeBreathMarkers = sourceState.NativeBreathMarkers
+                .Select(marker => marker with { PartHandle = (IntPtr)target })
+                .ToList();
+            targetState.TraditionalBreathRanges = sourceState.TraditionalBreathRanges.ToList();
+            targetState.NativeBreathSequences.Clear();
+            targetState.NativeBreathSequences.UnionWith(
+                targetState.NativeBreathMarkers.Select(marker => marker.Sequence));
+            targetState.ScoreCount = -1;
+            targetState.RegionStatus = BreathRegionStatus.Unknown;
+        }
     }
 
     public static void CopyTrackValues(WIVSMTrack? source, WIVSMTrack? target)
@@ -411,69 +586,193 @@ internal static class BreathVolumeService
     }
 
     public static bool RefreshRegions(WIVSMSequence sequence, WIVSMMidiPart part)
+        => RefreshRegionsCore(sequence, part, expectedState: null, expectedGeneration: 0);
+
+    private static bool RefreshRegionsCore(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        PartState? expectedState,
+        int expectedGeneration)
     {
         if (!Settings.IndividualBreathVolume || sequence == null || part == null)
             return false;
+        if (!IsRegionRefreshCurrent(part, expectedState, expectedGeneration))
+            return false;
 
-        VSMScoreList? list = null;
         try
         {
-            list = part.RenderingScoreList;
-            if (list != null && !list.IsEmpty)
-                return RefreshRegions(sequence, part, list);
-            list?.Dispose();
-            list = part.HoldingScoreList;
-            if (list != null && !list.IsEmpty)
-                return RefreshRegions(sequence, part, list);
-            list?.Dispose();
-            list = null;
-
             var path = part.ScoreFilePath;
-            if (string.IsNullOrEmpty(path) || !File.Exists(path))
-                return StoreRegions(part, Array.Empty<BreathRegion>(), 0);
+            if (part.HasValidRenderedScore && !string.IsNullOrEmpty(path) && File.Exists(path))
+            {
+                var wavePath = ReadOriginalWavePath(part);
+                var file = new VSMScoreFile(path) { RawState = 0 };
+                try
+                {
+                    var signature = new ScoreSignature(
+                        ScoreSourceKind.RenderedFile,
+                        file.NumScores,
+                        0,
+                        path,
+                        SafeLength(path),
+                        SafeWriteTime(path).Ticks,
+                        wavePath,
+                        SafeLength(wavePath),
+                        SafeWriteTime(wavePath).Ticks);
+                    DetectTraditionalBreathRangesFromWave(
+                        sequence, part, file, wavePath, signature,
+                        expectedState, expectedGeneration);
+                    return RefreshRegions(
+                        sequence, part, file, signature,
+                        expectedState: expectedState, expectedGeneration: expectedGeneration);
+                }
+                finally
+                {
+                    SafeDisposeScore(file, "rendered-file");
+                }
+            }
 
-            using var file = new VSMScoreFile(path);
-            return RefreshRegions(sequence, part, file);
+            VSMScoreList? rendering = null;
+            VSMScoreList? holding = null;
+            try
+            {
+                rendering = part.RenderingScoreList;
+                if (rendering != null && !rendering.IsEmpty)
+                {
+                    rendering.RawState = 2;
+                    holding = part.HoldingScoreList;
+                    if (holding != null)
+                        holding.RawState = 3;
+
+                    var signature = new ScoreSignature(
+                        ScoreSourceKind.CombinedRendering,
+                        rendering.NumScores,
+                        holding?.NumScores ?? -1,
+                        null,
+                        0,
+                        0);
+                    var combined = new VSMCombinedScore(rendering, holding);
+                    rendering = null;
+                    holding = null;
+                    try
+                    {
+                        return RefreshRegions(
+                            sequence, part, combined, signature,
+                            expectedState: expectedState, expectedGeneration: expectedGeneration);
+                    }
+                    finally
+                    {
+                        SafeDisposeScore(combined, "combined-rendering");
+                    }
+                }
+
+                SafeDisposeScore(rendering, "empty-rendering");
+                rendering = null;
+                holding = part.HoldingScoreList;
+                if (holding != null && !holding.IsEmpty)
+                {
+                    holding.RawState = 4;
+                    var signature = new ScoreSignature(
+                        ScoreSourceKind.Holding,
+                        holding.NumScores,
+                        0,
+                        null,
+                        0,
+                        0);
+                    return RefreshRegions(
+                        sequence, part, holding, signature,
+                        expectedState: expectedState, expectedGeneration: expectedGeneration);
+                }
+            }
+            finally
+            {
+                SafeDisposeScore(rendering, "rendering");
+                SafeDisposeScore(holding, "holding");
+            }
+
+            return StoreRegions(
+                part, Array.Empty<BreathRegion>(), 0, ScoreSignature.Unavailable,
+                expectedState, expectedGeneration);
         }
         catch (Exception e)
         {
             Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed", e.Message));
-            return StoreRegions(part, Array.Empty<BreathRegion>(), 0);
+            BreathVolumeDiagnosticsLog.Write(
+                $"score refresh failed: {e.GetType().Name}: {e.Message}");
+            return MarkRegionRefreshFaulted(part, expectedState, expectedGeneration);
         }
-        finally
+    }
+
+    private static void SafeDisposeScore(IDisposable? score, string source)
+    {
+        if (score == null)
+            return;
+        try
         {
-            list?.Dispose();
+            score.Dispose();
+        }
+        catch (Exception e)
+        {
+            BreathVolumeDiagnosticsLog.Write(
+                $"score dispose failed source={source}: {e.GetType().Name}: {e.Message}");
         }
     }
 
     public static bool RefreshRegions(WIVSMSequence sequence, WIVSMMidiPart part, IVSMScoreEnumerator score)
-    {
-        if (!Settings.IndividualBreathVolume || score == null || score.NumScores <= 0 || sequence.NumSampleInFrame <= 0)
-            return StoreRegions(part, Array.Empty<BreathRegion>(), score?.NumScores ?? 0);
+        => RefreshRegions(
+            sequence,
+            part,
+            score,
+            new ScoreSignature(ScoreSourceKind.External, score?.NumScores ?? 0, 0, null, 0, 0));
 
+    private static bool RefreshRegions(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        IVSMScoreEnumerator score,
+        ScoreSignature signature,
+        PartState? expectedState = null,
+        int expectedGeneration = 0)
+    {
+        if (!IsRegionRefreshCurrent(part, expectedState, expectedGeneration))
+            return false;
+        if (!Settings.IndividualBreathVolume || score == null || score.NumScores <= 0 || sequence.NumSampleInFrame <= 0)
+            return StoreRegions(
+                part, Array.Empty<BreathRegion>(), score?.NumScores ?? 0, signature,
+                expectedState, expectedGeneration);
+
+        bool? cachedResult = null;
+        var statusChanged = false;
         lock (Sync)
         {
-            if (Parts.TryGetValue((IntPtr)part, out var cached) && cached.ScoreCount == score.NumScores && cached.Generation != 0)
-                return cached.Regions.Count > 0;
-        }
-
-        var ranges = new List<(long Begin, long End)>();
-        long breathBegin = -1;
-        for (long frame = 0; frame < score.NumScores; frame++)
-        {
-            var phoneme = score.ScoreAtIndex(frame).PhnDur;
-            var isBreath = IsBreathPhoneme(phoneme.FromPhU) || IsBreathPhoneme(phoneme.ToPhU);
-            if (isBreath && breathBegin < 0)
-                breathBegin = frame;
-            else if (!isBreath && breathBegin >= 0)
+            if (Parts.TryGetValue((IntPtr)part, out var cached) &&
+                cached.ScoreCount == score.NumScores &&
+                cached.ScoreSignature == signature &&
+                cached.Generation != 0)
             {
-                ranges.Add((breathBegin * sequence.NumSampleInFrame, frame * sequence.NumSampleInFrame));
-                breathBegin = -1;
+                statusChanged = cached.RegionStatus != BreathRegionStatus.Ready;
+                cached.RegionStatus = BreathRegionStatus.Ready;
+                cachedResult = cached.Regions.Count > 0;
             }
         }
+        if (cachedResult.HasValue)
+        {
+            if (statusChanged)
+                NotifyChanged(BreathVolumeChangeKind.Regions, part);
+            return cachedResult.Value;
+        }
 
-        if (breathBegin >= 0)
-            ranges.Add((breathBegin * sequence.NumSampleInFrame, score.NumScores * sequence.NumSampleInFrame));
+        var sampleRate = (double)sequence.GetSamplingRate();
+        var waveBeginTime = sequence.GetTimeFromTick(part.AbsBeginTick) - sequence.PresendTimeSec;
+        var nativeRanges = ScanNativeBreathRanges(
+            part, score.NumScores, sequence.NumSampleInFrame);
+        IEnumerable<BreathSampleRange> detectedRanges = nativeRanges.Count > 0
+            ? nativeRanges
+            : ScanTraditionalBreathRanges(part);
+        if (IsAiPart(part) && IsAutomaticBreathEnabled(part, out _))
+        {
+            detectedRanges = ScanBreathRanges(score, sequence.NumSampleInFrame)
+                .Concat(detectedRanges);
+        }
+        var ranges = MergeBreathRanges(detectedRanges);
 
         var notes = EnumerateNotes(part)
             .Select(note =>
@@ -483,31 +782,40 @@ internal static class BreathVolumeService
             })
             .OrderBy(item => item.BeginSample)
             .ToArray();
-        var sampleRate = (double)sequence.GetSamplingRate();
-        var waveBeginTime = sequence.GetTimeFromTick(part.AbsBeginTick) - sequence.PresendTimeSec;
         var regions = new List<BreathRegion>();
 
         foreach (var range in ranges)
         {
-            var next = notes.FirstOrDefault(note => note.BeginSample >= range.End);
+            var next = notes.FirstOrDefault(note => note.BeginSample >= range.EndSample);
             if (next.Note == null)
-                next = notes.FirstOrDefault(note => note.BeginSample >= range.Begin);
+                next = notes.FirstOrDefault(note => note.BeginSample >= range.BeginSample);
             if (next.Note == null)
                 continue;
 
-            var beginTime = waveBeginTime + range.Begin / sampleRate;
-            var endTime = waveBeginTime + range.End / sampleRate;
+            var beginTime = waveBeginTime + range.BeginSample / sampleRate;
+            var endTime = waveBeginTime + range.EndSample / sampleRate;
             var beginTick = Math.Max(0, sequence.GetTickFromTime(beginTime).Value);
             var endTick = Math.Max(beginTick, sequence.GetTickFromTime(endTime).Value);
             regions.Add(new BreathRegion(
-                range.Begin,
-                range.End,
+                range.BeginSample,
+                range.EndSample,
                 beginTick,
                 endTick,
                 next.Note.CppObjPtr));
         }
 
-        return StoreRegions(part, regions, score.NumScores);
+        BreathVolumeDiagnosticsLog.Write(
+            $"regions scoreFrames={score.NumScores} samplesPerFrame={sequence.NumSampleInFrame} " +
+            $"ranges={ranges.Count} notes={notes.Length} mappedRegions={regions.Count}");
+        BreathVolumeDiagnosticsLog.WriteRegions(
+            (IntPtr)part,
+            signature.Kind.ToString(),
+            score.NumScores,
+            ranges.Count,
+            notes.Length,
+            regions.Count);
+
+        return StoreRegions(part, regions, score.NumScores, signature, expectedState, expectedGeneration);
     }
 
     public static void BeginRenderedBlock(WIVSMMidiPart part, int progress)
@@ -523,14 +831,77 @@ internal static class BreathVolumeService
 
             state.Generation++;
             state.ScoreCount = -1;
-            state.ProcessedBuffers.Clear();
+            state.RegionStatus = BreathRegionStatus.Loading;
+            state.StableRegions = state.Regions.ToList();
+            state.RenderMarkerRegions.Clear();
             state.LastProgress = progress;
             RemoveCacheCore(state);
         }
     }
 
+    private static int DrainNativeBreathMarkers(
+        string phase,
+        WIVSMMidiPart? activePart = null,
+        bool discardActivePart = false)
+    {
+        IReadOnlyList<NativeBreathMarker> markers = NativeBreathCapture.ReadPending();
+        if (markers.Count == 0)
+        {
+            BreathVolumeDiagnosticsLog.WriteNativeSnapshot(phase);
+            return 0;
+        }
+
+        var activeHandle = activePart == null ? IntPtr.Zero : (IntPtr)activePart;
+        var matched = 0;
+        var discarded = 0;
+        var unmatched = 0;
+        var changedParts = new HashSet<WIVSMMidiPart>();
+        lock (Sync)
+        {
+            foreach (var marker in markers)
+            {
+                if (discardActivePart && marker.PartHandle == activeHandle)
+                {
+                    discarded++;
+                    continue;
+                }
+
+                if (marker.PartHandle == IntPtr.Zero ||
+                    !Parts.TryGetValue(marker.PartHandle, out var state) ||
+                    state.Part == null)
+                {
+                    unmatched++;
+                    continue;
+                }
+
+                if (state.NativeBreathSequences.Add(marker.Sequence))
+                {
+                    state.NativeBreathMarkers.Add(marker);
+                    state.ScoreCount = -1;
+                    state.ScoreSignature = default;
+                    changedParts.Add(state.Part);
+                    matched++;
+                }
+            }
+        }
+
+        BreathVolumeDiagnosticsLog.WriteMarkers(phase, markers);
+        BreathVolumeDiagnosticsLog.Write(
+            $"native mixer drain phase={phase} total={markers.Count} matched={matched} " +
+            $"discarded={discarded} unmatched={unmatched}");
+        BreathVolumeDiagnosticsLog.WriteNativeSnapshot(phase, force: true);
+        foreach (var part in changedParts)
+            NotifyChanged(BreathVolumeChangeKind.Regions, part);
+        return matched;
+    }
+
     public static void StartRender(WIVSMSequence sequence, WIVSMMidiPart part)
     {
+        NativeBreathCapture.TryInitialize();
+        DrainNativeBreathMarkers("renderStart", part, discardActivePart: true);
+        var traditionalEnabled = IsAutomaticBreathEnabled(part, out var breathEffect);
+        BreathVolumeDiagnosticsLog.Write(
+            $"render start notes={part.NumNotes} automaticBreath={traditionalEnabled} {breathEffect}");
         lock (Sync)
         {
             var state = GetPartState(part);
@@ -538,24 +909,45 @@ internal static class BreathVolumeService
             state.Part = part;
             state.Generation++;
             state.ScoreCount = -1;
-            state.ProcessedBuffers.Clear();
+            state.RegionStatus = BreathRegionStatus.Loading;
+            state.StableRegions = state.Regions.ToList();
+            state.RenderMarkerRegions.Clear();
+            state.NativeBreathMarkers.Clear();
+            state.TraditionalBreathRanges.Clear();
+            state.TraditionalWaveDetectionAttempted = false;
+            state.NativeBreathSequences.Clear();
+            state.RegionRefreshGeneration++;
+            state.RegionRefreshPending = false;
+            state.RebuildAfterRegionRefresh = false;
             state.LastProgress = 0;
             Interlocked.Increment(ref state.RebuildGeneration);
             RemoveCacheCore(state);
         }
-        Changed?.Invoke(BreathVolumeChangeKind.Regions, part);
+        NotifyChanged(BreathVolumeChangeKind.Regions, part);
     }
 
     public static void CancelRender(WIVSMMidiPart part)
     {
+        DrainNativeBreathMarkers("renderCancel", part, discardActivePart: true);
         lock (Sync)
         {
             var state = GetPartState(part);
             state.ScoreCount = -1;
-            state.ProcessedBuffers.Clear();
+            state.RegionRefreshGeneration++;
+            state.RegionRefreshPending = false;
+            state.RebuildAfterRegionRefresh = false;
+            state.RenderMarkerRegions.Clear();
+            state.NativeBreathMarkers.Clear();
+            state.TraditionalBreathRanges.Clear();
+            state.TraditionalWaveDetectionAttempted = false;
+            state.NativeBreathSequences.Clear();
+            state.Regions = state.StableRegions.ToList();
+            state.RegionStatus = state.StableRegions.Count > 0
+                ? BreathRegionStatus.Ready
+                : BreathRegionStatus.Unknown;
             state.LastProgress = -1;
         }
-        Changed?.Invoke(BreathVolumeChangeKind.Regions, part);
+        NotifyChanged(BreathVolumeChangeKind.Regions, part);
     }
 
     public static void ProcessRenderedBlock(
@@ -568,37 +960,16 @@ internal static class BreathVolumeService
         if (!Settings.IndividualBreathVolume || buffers == null || score == null)
             return;
 
+        var nativeMixerAvailable = UseNativeBreathMixer(part);
+        DrainNativeBreathMarkers("renderBlock");
         BeginRenderedBlock(part, progress);
-        RefreshRegions(sequence, part, score);
-        var gains = BuildGainRegions(part);
-        if (gains.Count == 0)
-            return;
-
-        long bufferBegin = 0;
-        for (var index = 0; index < buffers.NumAudioBuffers; index++)
-        {
-            using var buffer = buffers.AudioBuffer(index);
-            if (buffer == null || buffer.Samples == IntPtr.Zero || buffer.NumSamples == 0)
-                continue;
-
-            long alreadyProcessed;
-            lock (Sync)
-            {
-                var state = GetPartState(part);
-                state.ProcessedBuffers.TryGetValue(buffer.CppObjPtr, out alreadyProcessed);
-                if (alreadyProcessed > checked((long)buffer.NumSamples))
-                    alreadyProcessed = 0;
-                state.ProcessedBuffers[buffer.CppObjPtr] = checked((long)buffer.NumSamples);
-            }
-
-            BreathWaveProcessor.ApplyFloatBuffer(
-                buffer.Samples,
-                checked((long)buffer.NumSamples),
-                bufferBegin,
-                bufferBegin + alreadyProcessed,
-                gains);
-            bufferBegin += checked((long)buffer.NumSamples);
-        }
+        if (!nativeMixerAvailable && !HasNativeBreathMarkers(part))
+            DetectTraditionalBreathRanges(sequence, part, buffers, score, progress);
+        RefreshRegions(
+            sequence,
+            part,
+            score,
+            new ScoreSignature(ScoreSourceKind.RenderBlock, score.NumScores, progress, null, 0, 0));
     }
 
     public static void CompleteRender(WIVSMSequence sequence, WIVSMMidiPart part)
@@ -608,6 +979,7 @@ internal static class BreathVolumeService
 
         try
         {
+            DrainNativeBreathMarkers("renderComplete");
             lock (Sync)
             {
                 var state = GetPartState(part);
@@ -616,8 +988,7 @@ internal static class BreathVolumeService
                 RemoveCacheCore(state);
             }
 
-            RefreshRegions(sequence, part);
-            RebuildNow(sequence, part);
+            RefreshRegionsAsync(sequence, part, rebuildAfterRefresh: true);
         }
         catch (Exception e)
         {
@@ -683,6 +1054,7 @@ internal static class BreathVolumeService
 
     public static void DisableAndCleanup()
     {
+        NativeBreathCapture.ClearPending();
         List<(WIVSMSequence Sequence, WIVSMMidiPart Part)> refresh;
         lock (Sync)
         {
@@ -700,7 +1072,7 @@ internal static class BreathVolumeService
 
         foreach (var item in refresh)
             RefreshAudioPlacement(item.Sequence, item.Part);
-        Changed?.Invoke(BreathVolumeChangeKind.Display, null);
+        NotifyChanged(BreathVolumeChangeKind.Display, null);
     }
 
     public static void CloseSequence(WIVSMSequence sequence)
@@ -750,7 +1122,7 @@ internal static class BreathVolumeService
             ReleaseHandlesCore(noteHandles);
         }
         ResetHistory(sequence);
-        if (data == null || data.Version != 1 || data.Entries == null)
+        if (data == null || data.Version != 1 || data.Entries == null || data.NativeMarkers == null)
         {
             if (data is { Version: not 1 })
                 Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UnknownVersion", data.Version));
@@ -769,13 +1141,50 @@ internal static class BreathVolumeService
             }
         }
 
+        var persistedSequence = ulong.MaxValue;
+        foreach (var marker in data.NativeMarkers)
+        {
+            if (marker == null || marker.Track < 0 || marker.Part < 0 ||
+                marker.BeginFrame < 0 || marker.EndFrame <= marker.BeginFrame ||
+                marker.EndFrame > BreathProjectArchive.MaxNativeFrame)
+                continue;
+            try
+            {
+                if (sequence.GetTrack(checked((ulong)marker.Track)) is not WIVSMMidiTrack track ||
+                    track.GetPart(checked((ulong)marker.Part)) is not WIVSMMidiPart part)
+                    continue;
+
+                lock (Sync)
+                {
+                    var state = GetPartState(part);
+                    state.Sequence = sequence;
+                    state.Part = part;
+                    if (state.NativeBreathMarkers.Any(existing =>
+                            existing.BeginFrame == marker.BeginFrame &&
+                            existing.EndFrame == marker.EndFrame))
+                        continue;
+                    var nativeMarker = new NativeBreathMarker(
+                        persistedSequence--, (IntPtr)part,
+                        marker.BeginFrame, marker.EndFrame);
+                    state.NativeBreathMarkers.Add(nativeMarker);
+                    state.NativeBreathSequences.Add(nativeMarker.Sequence);
+                    state.ScoreCount = -1;
+                    state.RegionStatus = BreathRegionStatus.Unknown;
+                }
+            }
+            catch
+            {
+                // A stale track/part index is ignored; note values still load independently.
+            }
+        }
+
         lock (Sync)
         {
             var history = GetHistory(sequence);
             history.Revision = 0;
             history.SavedRevision = 0;
         }
-        Changed?.Invoke(BreathVolumeChangeKind.Values, null);
+        NotifyChanged(BreathVolumeChangeKind.Values, null);
     }
 
     public static void RebuildProject(WIVSMSequence sequence)
@@ -799,8 +1208,7 @@ internal static class BreathVolumeService
             if (midiTrack.GetPart(partIndex) is not WIVSMMidiPart part ||
                 !EnumerateNotes(part).Any(note => GetValue(note) != DefaultValue))
                 continue;
-            RefreshRegions(sequence, part);
-            RequestRebuild(sequence, part);
+            RefreshRegionsAsync(sequence, part, rebuildAfterRefresh: true);
         }
     }
 
@@ -841,6 +1249,26 @@ internal static class BreathVolumeService
                         Value = value
                     });
                 }
+
+                NativeBreathMarker[] nativeMarkers;
+                lock (Sync)
+                    nativeMarkers = Parts.TryGetValue((IntPtr)part, out var state)
+                        ? state.NativeBreathMarkers.ToArray()
+                        : Array.Empty<NativeBreathMarker>();
+                foreach (var marker in nativeMarkers
+                             .Where(marker => marker.BeginFrame >= 0 &&
+                                              marker.EndFrame > marker.BeginFrame &&
+                                              marker.EndFrame <= BreathProjectArchive.MaxNativeFrame)
+                             .DistinctBy(marker => (marker.BeginFrame, marker.EndFrame)))
+                {
+                    data.NativeMarkers.Add(new BreathProjectNativeMarker
+                    {
+                        Track = checked((int)trackIndex),
+                        Part = checked((int)partIndex),
+                        BeginFrame = marker.BeginFrame,
+                        EndFrame = marker.EndFrame
+                    });
+                }
             }
         }
 
@@ -859,7 +1287,8 @@ internal static class BreathVolumeService
     }
 
     public static bool RequiresProjectDataWrite(WIVSMSequence sequence, BreathProjectData data)
-        => data.Entries is { Count: > 0 } || IsProjectDirty(sequence);
+        => data.Entries is { Count: > 0 } || data.NativeMarkers is { Count: > 0 } ||
+           IsProjectDirty(sequence);
 
     public static void OnNativeCommit(WIVSMSequence sequence, bool updateHistory, bool result)
     {
@@ -939,7 +1368,7 @@ internal static class BreathVolumeService
                     SetValueCore(pair.Key, pair.Value);
         }
 
-        Changed?.Invoke(BreathVolumeChangeKind.Values, null);
+        NotifyChanged(BreathVolumeChangeKind.Values, null);
         RebuildAllCached(sequence);
         return true;
     }
@@ -953,28 +1382,573 @@ internal static class BreathVolumeService
         }
     }
 
-    private static bool StoreRegions(WIVSMMidiPart part, IReadOnlyList<BreathRegion> regions, long scoreCount)
+    private static bool StoreRegions(
+        WIVSMMidiPart part,
+        IReadOnlyList<BreathRegion> regions,
+        long scoreCount,
+        ScoreSignature signature,
+        PartState? expectedState = null,
+        int expectedGeneration = 0)
     {
+        var detectedRegions = regions.ToList();
+        var nextRegions = detectedRegions;
+        var nextStatus = signature.Kind == ScoreSourceKind.Faulted
+            ? BreathRegionStatus.Faulted
+            : BreathRegionStatus.Ready;
+        bool changed;
         lock (Sync)
         {
-            var state = GetPartState(part);
+            PartState state;
+            if (expectedState != null)
+            {
+                if (!Parts.TryGetValue((IntPtr)part, out var current) ||
+                    !ReferenceEquals(current, expectedState) ||
+                    current.RegionRefreshGeneration != expectedGeneration)
+                    return false;
+                state = current;
+            }
+            else
+            {
+                state = GetPartState(part);
+            }
+
+            var transientScore = signature.Kind is ScoreSourceKind.RenderBlock
+                or ScoreSourceKind.CombinedRendering
+                or ScoreSourceKind.Holding;
+            if (transientScore)
+            {
+                if (detectedRegions.Count > 0)
+                {
+                    state.RenderMarkerRegions = state.RenderMarkerRegions
+                        .Concat(detectedRegions)
+                        .Distinct()
+                        .OrderBy(region => region.BeginSample)
+                        .ToList();
+                }
+                nextRegions = state.RenderMarkerRegions.Count > 0
+                    ? state.RenderMarkerRegions.ToList()
+                    : state.StableRegions.ToList();
+            }
+            else if (signature.Kind == ScoreSourceKind.RenderedFile &&
+                     detectedRegions.Count == 0 && state.RenderMarkerRegions.Count > 0)
+            {
+                nextRegions = state.RenderMarkerRegions.ToList();
+            }
+            else if (signature.Kind == ScoreSourceKind.Unavailable)
+            {
+                nextRegions = state.RenderMarkerRegions.Count > 0
+                    ? state.RenderMarkerRegions.ToList()
+                    : state.StableRegions.ToList();
+            }
+
+            changed = !state.Regions.SequenceEqual(nextRegions) || state.RegionStatus != nextStatus;
             state.ScoreCount = scoreCount;
-            state.Regions = regions.ToList();
+            state.ScoreSignature = signature;
+            state.Regions = nextRegions;
+            state.RegionStatus = nextStatus;
+            if (!transientScore &&
+                signature.Kind != ScoreSourceKind.Unavailable &&
+                signature.Kind != ScoreSourceKind.Faulted)
+            {
+                state.StableRegions = nextRegions.ToList();
+                state.RenderMarkerRegions.Clear();
+            }
             if (state.Generation == 0)
                 state.Generation = 1;
         }
 
-        Changed?.Invoke(BreathVolumeChangeKind.Regions, part);
-        return regions.Count > 0;
+        if (changed)
+            NotifyChanged(BreathVolumeChangeKind.Regions, part);
+        return nextRegions.Count > 0;
     }
 
-    private static bool IsBreathPhoneme(IntPtr pointer)
+    private static bool MarkRegionRefreshFaulted(
+        WIVSMMidiPart part,
+        PartState? expectedState = null,
+        int expectedGeneration = 0)
+    {
+        var changed = false;
+        var hasRegions = false;
+        lock (Sync)
+        {
+            PartState state;
+            if (expectedState != null)
+            {
+                if (!Parts.TryGetValue((IntPtr)part, out var current) ||
+                    !ReferenceEquals(current, expectedState) ||
+                    current.RegionRefreshGeneration != expectedGeneration)
+                    return false;
+                state = current;
+            }
+            else
+            {
+                state = GetPartState(part);
+            }
+            changed = state.RegionStatus != BreathRegionStatus.Faulted;
+            state.RegionStatus = BreathRegionStatus.Faulted;
+            state.ScoreCount = -1;
+            state.ScoreSignature = ScoreSignature.Faulted;
+            hasRegions = state.Regions.Count > 0;
+        }
+
+        if (changed)
+            NotifyChanged(BreathVolumeChangeKind.Regions, part);
+        return hasRegions;
+    }
+
+    private static bool IsRegionRefreshCurrent(
+        WIVSMMidiPart part,
+        PartState? expectedState,
+        int expectedGeneration)
+    {
+        if (expectedState == null)
+            return true;
+        lock (Sync)
+            return Parts.TryGetValue((IntPtr)part, out var current) &&
+                   ReferenceEquals(current, expectedState) &&
+                   current.RegionRefreshGeneration == expectedGeneration;
+    }
+
+    private static IReadOnlyList<BreathSampleRange> ScanBreathRanges(
+        IVSMScoreEnumerator score,
+        long samplesPerFrame)
+    {
+        var ranges = new List<BreathSampleRange>();
+        var names = new Dictionary<IntPtr, string>();
+        long pointerFrames = 0;
+        long namedFrames = 0;
+        long breathFrames = 0;
+        long beginFrame = -1;
+        for (long frame = 0; frame < score.NumScores; frame++)
+        {
+            var phoneme = score.ScoreAtIndex(frame).PhnDur;
+            if (phoneme.FromPhU != IntPtr.Zero || phoneme.ToPhU != IntPtr.Zero)
+                pointerFrames++;
+            var fromName = GetNativePhonemeName(phoneme.FromPhU, names);
+            var toName = GetNativePhonemeName(phoneme.ToPhU, names);
+            if (!string.IsNullOrEmpty(fromName) || !string.IsNullOrEmpty(toName))
+                namedFrames++;
+            var isBreath = BreathPhonemeClassifier.IsNativeBreathPhoneme(fromName) ||
+                           BreathPhonemeClassifier.IsNativeBreathPhoneme(toName);
+            if (isBreath)
+                breathFrames++;
+            if (isBreath && beginFrame < 0)
+            {
+                beginFrame = frame;
+            }
+            else if (!isBreath && beginFrame >= 0)
+            {
+                ranges.Add(new BreathSampleRange(
+                    checked(beginFrame * samplesPerFrame),
+                    checked(frame * samplesPerFrame)));
+                beginFrame = -1;
+            }
+        }
+
+        if (beginFrame >= 0)
+            ranges.Add(new BreathSampleRange(
+                checked(beginFrame * samplesPerFrame),
+                checked(score.NumScores * samplesPerFrame)));
+        BreathVolumeDiagnosticsLog.Write(
+            $"score phonemes frames={score.NumScores} pointerFrames={pointerFrames} " +
+            $"namedFrames={namedFrames} breathFrames={breathFrames}");
+        return ranges;
+    }
+
+    private static string GetNativePhonemeName(IntPtr pointer, IDictionary<IntPtr, string> names)
     {
         if (pointer == IntPtr.Zero)
+            return string.Empty;
+        if (!names.TryGetValue(pointer, out var name))
+        {
+            name = NativePhonemeInspector.ReadName(pointer);
+            names[pointer] = name;
+        }
+        return name;
+    }
+
+    private static IReadOnlyList<BreathSampleRange> ScanTraditionalBreathRanges(
+        WIVSMMidiPart part)
+    {
+        lock (Sync)
+            return Parts.TryGetValue((IntPtr)part, out var state)
+                ? state.TraditionalBreathRanges.ToArray()
+                : Array.Empty<BreathSampleRange>();
+    }
+
+    private static bool HasNativeBreathMarkers(WIVSMMidiPart part)
+    {
+        lock (Sync)
+            return Parts.TryGetValue((IntPtr)part, out var state) &&
+                   state.NativeBreathMarkers.Count > 0;
+    }
+
+    private static IReadOnlyList<BreathSampleRange> ScanNativeBreathRanges(
+        WIVSMMidiPart part,
+        long scoreCount,
+        long samplesPerFrame)
+    {
+        NativeBreathMarker[] markers;
+        lock (Sync)
+            markers = Parts.TryGetValue((IntPtr)part, out var state)
+                ? state.NativeBreathMarkers.ToArray()
+                : Array.Empty<NativeBreathMarker>();
+
+        var ranges = new List<BreathSampleRange>(markers.Length);
+        foreach (var marker in markers)
+        {
+            if (NativeBreathRangeResolver.TryResolve(
+                    marker.BeginFrame, marker.EndFrame, scoreCount, samplesPerFrame,
+                    out var beginSample, out var endSample))
+                ranges.Add(new BreathSampleRange(beginSample, endSample));
+        }
+
+        var merged = MergeBreathRanges(ranges);
+        if (markers.Length > 0)
+            BreathVolumeDiagnosticsLog.Write(
+                $"native mixer ranges markers={markers.Length} resolved={ranges.Count} " +
+                $"merged={merged.Count} scoreFrames={scoreCount} samplesPerFrame={samplesPerFrame}");
+        return merged;
+    }
+
+    private static void DetectTraditionalBreathRanges(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        WIVSMAudioBufferList buffers,
+        IVSMScoreEnumerator score,
+        int progress)
+    {
+        const int maximumDetectionFrames = 2_000_000;
+        var started = Stopwatch.GetTimestamp();
+
+        try
+        {
+            if (!IsAutomaticBreathEnabled(part, out var breathEffect))
+            {
+                BreathVolumeDiagnosticsLog.Write(
+                    $"traditional pcm progress={progress} skipped {breathEffect}");
+                return;
+            }
+
+            var scoreCount = score.NumScores;
+            var samplesPerFrame = sequence.NumSampleInFrame;
+            var sampleRate = (int)sequence.GetSamplingRate();
+            if (scoreCount <= 0 || scoreCount > maximumDetectionFrames ||
+                samplesPerFrame <= 0 || sampleRate <= 0)
+            {
+                BreathVolumeDiagnosticsLog.Write(
+                    $"traditional pcm progress={progress} skipped invalidShape " +
+                    $"scoreFrames={scoreCount} samplesPerFrame={samplesPerFrame} sampleRate={sampleRate}");
+                return;
+            }
+
+            var frameCount = checked((int)scoreCount);
+            var frameRms = new float[frameCount];
+            var framePeaks = new float[frameCount];
+            var pitchedFrames = BuildNotePitchedFrames(
+                sequence, part, frameCount, samplesPerFrame);
+            var audioSamples = checked((long)buffers.NumSamples);
+
+            for (var frame = 0; frame < frameCount; frame++)
+            {
+                if (pitchedFrames[frame])
+                    continue;
+
+                var beginSample = checked(frame * samplesPerFrame);
+                if (beginSample >= audioSamples)
+                    continue;
+                var endSample = Math.Min(audioSamples, beginSample + samplesPerFrame);
+                var thumb = new VSMAudioThumb();
+                if (!buffers.ThumbWithRange(beginSample, endSample, ref thumb))
+                    continue;
+
+                var peak = TraditionalBreathDetector.NormalizeThumbnailPeak(thumb.Min, thumb.Max);
+                framePeaks[frame] = peak;
+                // The native thumbnail API exposes extrema rather than RMS, so this
+                // path deliberately uses only the detector's peak threshold.
+            }
+
+            var detection = TraditionalBreathDetector.Detect(
+                frameRms, framePeaks, pitchedFrames, samplesPerFrame, sampleRate);
+            var detectedRanges = detection.Ranges
+                .Select(range => new BreathSampleRange(range.BeginSample, range.EndSample))
+                .ToArray();
+
+            int storedRangeCount;
+            lock (Sync)
+            {
+                var state = GetPartState(part);
+                state.TraditionalBreathRanges = MergeBreathRanges(
+                        state.TraditionalBreathRanges.Concat(detectedRanges))
+                    .ToList();
+                storedRangeCount = state.TraditionalBreathRanges.Count;
+                state.ScoreCount = -1;
+                state.ScoreSignature = default;
+            }
+
+            var ranges = string.Join(",", detectedRanges
+                .Take(12)
+                .Select(range => $"{range.BeginSample}..{range.EndSample}"));
+            BreathVolumeDiagnosticsLog.Write(
+                $"traditional pcm progress={progress} {breathEffect} scoreFrames={scoreCount} " +
+                $"audioSamples={audioSamples} pitchedOnsets={detection.PitchedOnsets} " +
+                $"evaluatedGaps={detection.EvaluatedGaps} candidates={detection.ActivityCandidates} " +
+                $"rejectedShortActivity={detection.RejectedShortActivity} " +
+                $"rejectedShortLead={detection.RejectedShortLead} " +
+                $"rejectedPreviousTail={detection.RejectedPreviousTail} " +
+                $"activeFrames={detection.ActiveFrames} " +
+                $"levelSource=thumbPeak " +
+                $"maxUnpitchedRms={detection.MaxUnpitchedRms:G6} " +
+                $"maxUnpitchedPeak={detection.MaxUnpitchedPeak:G6} " +
+                $"ranges={detectedRanges.Length} storedRanges={storedRangeCount} [{ranges}] " +
+                $"elapsedMs={Stopwatch.GetElapsedTime(started).TotalMilliseconds:F1}");
+            BreathVolumeDiagnosticsLog.WriteTraditionalDetection(
+                "renderBlock",
+                (IntPtr)part,
+                scoreCount,
+                audioSamples,
+                samplesPerFrame,
+                sampleRate,
+                detection,
+                storedRangeCount,
+                Stopwatch.GetElapsedTime(started).TotalMilliseconds);
+        }
+        catch (Exception e)
+        {
+            BreathVolumeDiagnosticsLog.Write(
+                $"traditional pcm progress={progress} failed: {e.GetType().Name}: {e.Message} " +
+                $"elapsedMs={Stopwatch.GetElapsedTime(started).TotalMilliseconds:F1}");
+        }
+    }
+
+    private static void DetectTraditionalBreathRangesFromWave(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        IVSMScoreEnumerator score,
+        string wavePath,
+        ScoreSignature signature,
+        PartState? expectedState,
+        int expectedGeneration)
+    {
+        const int maximumDetectionFrames = 2_000_000;
+        var started = Stopwatch.GetTimestamp();
+
+        try
+        {
+            if (!IsRegionRefreshCurrent(part, expectedState, expectedGeneration))
+                return;
+
+            var nativeMixerAvailable = UseNativeBreathMixer(part);
+            if (nativeMixerAvailable || HasNativeBreathMarkers(part))
+            {
+                MarkTraditionalWaveDetectionAttempted(
+                    part, signature, Array.Empty<BreathSampleRange>(),
+                    expectedState, expectedGeneration);
+                BreathVolumeDiagnosticsLog.Write(
+                    $"traditional wave skipped nativeMixer={nativeMixerAvailable}");
+                return;
+            }
+
+            lock (Sync)
+            {
+                if (Parts.TryGetValue((IntPtr)part, out var cached) &&
+                    cached.TraditionalWaveDetectionAttempted &&
+                    cached.TraditionalWaveSignature == signature)
+                    return;
+            }
+
+            if (!IsAutomaticBreathEnabled(part, out var breathEffect))
+            {
+                MarkTraditionalWaveDetectionAttempted(
+                    part, signature, Array.Empty<BreathSampleRange>(), expectedState, expectedGeneration);
+                BreathVolumeDiagnosticsLog.Write($"traditional wave skipped {breathEffect}");
+                return;
+            }
+
+            var scoreCount = score.NumScores;
+            var samplesPerFrame = sequence.NumSampleInFrame;
+            if (scoreCount <= 0 || scoreCount > maximumDetectionFrames || samplesPerFrame <= 0)
+            {
+                MarkTraditionalWaveDetectionAttempted(
+                    part, signature, Array.Empty<BreathSampleRange>(), expectedState, expectedGeneration);
+                BreathVolumeDiagnosticsLog.Write(
+                    $"traditional wave skipped invalidShape scoreFrames={scoreCount} " +
+                    $"samplesPerFrame={samplesPerFrame}");
+                return;
+            }
+            if (string.IsNullOrEmpty(wavePath) || !File.Exists(wavePath))
+                throw new IOException("The rendered wave is not available yet.");
+
+            var wave = new WaveFile();
+            var error = wave.ReadWave(wavePath);
+            if (error != WaveFileError.None || wave.SampleRate <= 0 || wave.WaveData.Count == 0)
+                throw new IOException($"The rendered wave is not readable yet ({error}).");
+
+            var frameCount = checked((int)scoreCount);
+            var frameRms = new float[frameCount];
+            var framePeaks = new float[frameCount];
+            var pitchedFrames = BuildNotePitchedFrames(
+                sequence, part, frameCount, samplesPerFrame);
+            var channelCount = Math.Min(wave.ChannelCount, wave.WaveData.Count);
+            for (var frame = 0; frame < frameCount; frame++)
+            {
+                var beginSample = checked(frame * samplesPerFrame);
+                var endSample = Math.Min(wave.NumSamples, beginSample + samplesPerFrame);
+                double sumSquares = 0;
+                long sampleCount = 0;
+                float peak = 0;
+                for (var channel = 0; channel < channelCount; channel++)
+                {
+                    var samples = wave.WaveData[channel];
+                    var channelEnd = Math.Min(endSample, samples.LongLength);
+                    for (var sampleIndex = beginSample; sampleIndex < channelEnd; sampleIndex++)
+                    {
+                        var sample = samples[checked((int)sampleIndex)] / 32768f;
+                        var absolute = Math.Abs(sample);
+                        sumSquares += (double)sample * sample;
+                        sampleCount++;
+                        if (absolute > peak)
+                            peak = absolute;
+                    }
+                }
+
+                if (sampleCount > 0)
+                    frameRms[frame] = (float)Math.Sqrt(sumSquares / sampleCount);
+                framePeaks[frame] = peak;
+            }
+
+            var detection = TraditionalBreathDetector.Detect(
+                frameRms, framePeaks, pitchedFrames, samplesPerFrame, wave.SampleRate);
+            var detectedRanges = detection.Ranges
+                .Select(range => new BreathSampleRange(range.BeginSample, range.EndSample))
+                .ToArray();
+            MarkTraditionalWaveDetectionAttempted(
+                part, signature, detectedRanges, expectedState, expectedGeneration);
+
+            var ranges = string.Join(",", detectedRanges
+                .Take(12)
+                .Select(range => $"{range.BeginSample}..{range.EndSample}"));
+            BreathVolumeDiagnosticsLog.Write(
+                $"traditional wave {breathEffect} scoreFrames={scoreCount} waveSamples={wave.NumSamples} " +
+                $"pitchedOnsets={detection.PitchedOnsets} evaluatedGaps={detection.EvaluatedGaps} " +
+                $"candidates={detection.ActivityCandidates} " +
+                $"rejectedShortActivity={detection.RejectedShortActivity} " +
+                $"rejectedShortLead={detection.RejectedShortLead} " +
+                $"rejectedPreviousTail={detection.RejectedPreviousTail} " +
+                $"activeFrames={detection.ActiveFrames} " +
+                $"maxUnpitchedRms={detection.MaxUnpitchedRms:G6} " +
+                $"maxUnpitchedPeak={detection.MaxUnpitchedPeak:G6} " +
+                $"ranges={detectedRanges.Length} [{ranges}] " +
+                $"elapsedMs={Stopwatch.GetElapsedTime(started).TotalMilliseconds:F1}");
+            BreathVolumeDiagnosticsLog.WriteTraditionalDetection(
+                "renderedWave",
+                (IntPtr)part,
+                scoreCount,
+                wave.NumSamples,
+                samplesPerFrame,
+                wave.SampleRate,
+                detection,
+                detectedRanges.Length,
+                Stopwatch.GetElapsedTime(started).TotalMilliseconds);
+        }
+        catch (Exception e)
+        {
+            BreathVolumeDiagnosticsLog.Write(
+                $"traditional wave failed: {e.GetType().Name}: {e.Message} " +
+                $"elapsedMs={Stopwatch.GetElapsedTime(started).TotalMilliseconds:F1}");
+            throw;
+        }
+    }
+
+    private static void MarkTraditionalWaveDetectionAttempted(
+        WIVSMMidiPart part,
+        ScoreSignature signature,
+        IReadOnlyList<BreathSampleRange> ranges,
+        PartState? expectedState,
+        int expectedGeneration)
+    {
+        lock (Sync)
+        {
+            PartState state;
+            if (expectedState != null)
+            {
+                if (!Parts.TryGetValue((IntPtr)part, out var current) ||
+                    !ReferenceEquals(current, expectedState) ||
+                    current.RegionRefreshGeneration != expectedGeneration)
+                    return;
+                state = current;
+            }
+            else
+            {
+                state = GetPartState(part);
+            }
+
+            state.TraditionalBreathRanges = ranges.ToList();
+            state.TraditionalWaveSignature = signature;
+            state.TraditionalWaveDetectionAttempted = true;
+            state.ScoreCount = -1;
+            state.ScoreSignature = default;
+        }
+    }
+
+    private static bool IsAutomaticBreathEnabled(
+        WIVSMMidiPart part,
+        out string description)
+    {
+        try
+        {
+            var effect = part.BreathEffect;
+            if (effect == null)
+            {
+                description = $"isAi={part.IsAi} effect=null";
+                return false;
+            }
+
+            description =
+                $"isAi={part.IsAi} bypassed={effect.IsBypassed} mode={effect.BreathMode} " +
+                $"type={effect.BreathType} exhalation={effect.Exhalation}";
+            return !effect.IsBypassed;
+        }
+        catch (Exception e)
+        {
+            description = $"effectReadFailed={e.GetType().Name}:{e.Message}";
             return false;
-        var text = Marshal.PtrToStringAnsi(pointer);
-        return text != null && (text.Equals("br", StringComparison.OrdinalIgnoreCase) ||
-                                text.Equals("SilBreath", StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    private static bool IsAiPart(WIVSMMidiPart part)
+    {
+        try { return part.IsAi; }
+        catch { return true; }
+    }
+
+    private static bool UseNativeBreathMixer(WIVSMMidiPart part)
+        => !IsAiPart(part) && NativeBreathCapture.TryInitialize();
+
+    private static IReadOnlyList<BreathSampleRange> MergeBreathRanges(
+        IEnumerable<BreathSampleRange> ranges)
+    {
+        var ordered = ranges
+            .Where(range => range.EndSample > range.BeginSample)
+            .OrderBy(range => range.BeginSample)
+            .ThenBy(range => range.EndSample)
+            .ToArray();
+        if (ordered.Length < 2)
+            return ordered;
+
+        var result = new List<BreathSampleRange> { ordered[0] };
+        foreach (var range in ordered.Skip(1))
+        {
+            var previous = result[^1];
+            if (range.BeginSample > previous.EndSample)
+            {
+                result.Add(range);
+                continue;
+            }
+            result[^1] = new BreathSampleRange(
+                previous.BeginSample, Math.Max(previous.EndSample, range.EndSample));
+        }
+        return result;
     }
 
     private static long GetNoteBeginSample(WIVSMSequence sequence, WIVSMMidiPart part, WIVSMNote note)
@@ -982,6 +1956,24 @@ internal static class BreathVolumeService
         var seconds = sequence.PresendTimeSec + sequence.GetTimeFromTick(part.AbsBeginTick, note.AbsPosTick);
         return Math.Max(0L, (long)Math.Round(seconds * (double)sequence.GetSamplingRate()));
     }
+
+    private static long GetNoteEndSample(WIVSMSequence sequence, WIVSMMidiPart part, WIVSMNote note)
+    {
+        var seconds = sequence.PresendTimeSec + sequence.GetTimeFromTick(part.AbsBeginTick, note.AbsEndTick);
+        return Math.Max(0L, (long)Math.Round(seconds * (double)sequence.GetSamplingRate()));
+    }
+
+    private static bool[] BuildNotePitchedFrames(
+        WIVSMSequence sequence,
+        WIVSMMidiPart part,
+        int frameCount,
+        long samplesPerFrame)
+        => TraditionalBreathDetector.BuildPitchedFrames(
+            frameCount,
+            samplesPerFrame,
+            EnumerateNotes(part).Select(note => new TraditionalBreathRange(
+                GetNoteBeginSample(sequence, part, note),
+                GetNoteEndSample(sequence, part, note))));
 
     private static IEnumerable<WIVSMNote> EnumerateNotes(WIVSMMidiPart part)
     {
@@ -1130,7 +2122,7 @@ internal static class BreathVolumeService
                         RenderedWaveCachePatch.InvalidatePart(vm, part);
                 }
                 ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
-                Changed?.Invoke(BreathVolumeChangeKind.Display, part);
+                NotifyChanged(BreathVolumeChangeKind.Display, part);
             }
             catch (Exception e)
             {
@@ -1402,6 +2394,33 @@ internal static class BreathVolumeService
 
     private readonly record struct NotePosition(WIVSMNote? Note, long BeginSample);
     private readonly record struct NoteKey(IntPtr Handle, long Generation);
+
+    private readonly record struct ScoreSignature(
+        ScoreSourceKind Kind,
+        long PrimaryCount,
+        long SecondaryCount,
+        string? Path,
+        long FileLength,
+        long FileWriteTimeTicks,
+        string? AudioPath = null,
+        long AudioFileLength = 0,
+        long AudioFileWriteTimeTicks = 0)
+    {
+        public static readonly ScoreSignature Unavailable = new(ScoreSourceKind.Unavailable, 0, 0, null, 0, 0);
+        public static readonly ScoreSignature Faulted = new(ScoreSourceKind.Faulted, 0, 0, null, 0, 0);
+    }
+
+    private enum ScoreSourceKind
+    {
+        Unavailable,
+        Faulted,
+        RenderedFile,
+        CombinedRendering,
+        Holding,
+        RenderBlock,
+        External
+    }
+
     private sealed record CacheInfo(string SourcePath, long SourceLength, DateTime SourceWriteTimeUtc, string DerivedPath);
 
     private sealed class PartState
@@ -1409,10 +2428,21 @@ internal static class BreathVolumeService
         public WIVSMSequence? Sequence;
         public WIVSMMidiPart? Part;
         public List<BreathRegion> Regions = new();
-        public readonly Dictionary<IntPtr, long> ProcessedBuffers = new();
+        public List<BreathRegion> StableRegions = new();
+        public List<BreathRegion> RenderMarkerRegions = new();
+        public List<NativeBreathMarker> NativeBreathMarkers = new();
+        public List<BreathSampleRange> TraditionalBreathRanges = new();
+        public ScoreSignature TraditionalWaveSignature;
+        public bool TraditionalWaveDetectionAttempted;
+        public readonly HashSet<ulong> NativeBreathSequences = new();
         public readonly object RebuildLock = new();
         public CacheInfo? Cache;
         public long ScoreCount = -1;
+        public ScoreSignature ScoreSignature;
+        public BreathRegionStatus RegionStatus;
+        public bool RegionRefreshPending;
+        public bool RebuildAfterRegionRefresh;
+        public int RegionRefreshGeneration;
         public int Generation;
         public int LastProgress = -1;
         public int RebuildGeneration;

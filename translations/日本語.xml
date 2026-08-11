@@ -13,6 +13,29 @@
   <data name="VOCALOIDPatcher_Settings_Category_Pianoroll" xml:space="preserve"><value>ピアノロール</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Other" xml:space="preserve"><value>その他</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Widgets" xml:space="preserve"><value>ウィジェット</value></data>
+  <data name="VOCALOIDPatcher_Settings_Category_Mcp" xml:space="preserve"><value>MCP</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Enabled_Header" xml:space="preserve"><value>ローカル MCP 制御を有効にする</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Enabled_Desc" xml:space="preserve"><value>現在の Windows ユーザーで動作する MCP クライアントから Companion 経由で接続できます。既定では無効です。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Http_Header" xml:space="preserve"><value>Streamable HTTP Companion を有効にする</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Http_Desc" xml:space="preserve"><value>127.0.0.1 のみで待ち受け、ランダムな Bearer Token を要求します。この設定なしでも stdio は利用できます。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Port_Header" xml:space="preserve"><value>HTTP ポート</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Running" xml:space="preserve"><value>ブリッジ実行中 · インスタンス {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Stopped" xml:space="preserve"><value>ブリッジ停止中</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Http" xml:space="preserve"><value>HTTP エンドポイント: {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Clients" xml:space="preserve"><value>接続済みクライアント: {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AllowedDirectories_Header" xml:space="preserve"><value>アクセスを許可するフォルダー</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AllowedDirectories_Empty" xml:space="preserve"><value>追加フォルダーはありません。現在のプロジェクトのフォルダーは常に許可されます。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AddDirectory" xml:space="preserve"><value>フォルダーを追加</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ClearDirectories" xml:space="preserve"><value>一覧をクリア</value></data>
+  <data name="VOCALOIDPatcher_Mcp_CopyStdio" xml:space="preserve"><value>stdio 設定をコピー</value></data>
+  <data name="VOCALOIDPatcher_Mcp_CopyHttp" xml:space="preserve"><value>HTTP 設定をコピー</value></data>
+  <data name="VOCALOIDPatcher_Mcp_RotateToken" xml:space="preserve"><value>Token を更新</value></data>
+  <data name="VOCALOIDPatcher_Mcp_RevokeWrite" xml:space="preserve"><value>書き込み権限を取り消す</value></data>
+  <data name="VOCALOIDPatcher_Mcp_TokenRotated" xml:space="preserve"><value>HTTP Token を更新しました。接続済みクライアントの設定を更新してください。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmationTitle" xml:space="preserve"><value>VOCALOID MCP 権限</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmWrite" xml:space="preserve"><value>{0} {1} が {2} 経由でプロジェクトの書き込み権限を要求しています。&#10;&#10;操作: {3}&#10;&#10;VOCALOID を終了するまで許可しますか？</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmDangerousWrite" xml:space="preserve"><value>{0} {1} が {2} 経由で削除または上書き操作を要求しています。&#10;&#10;操作: {3}&#10;&#10;この操作を許可しますか？</value></data>
+  <data name="VOCALOIDPatcher_Mcp_SaveDirtyProject" xml:space="preserve"><value>現在のプロジェクトには未保存の変更があります。置き換える前に保存しますか？「いいえ」で破棄、「キャンセル」で現在のプロジェクトを保持します。</value></data>
   <data name="VOCALOIDPatcher_SpectrumVisualizer_Header" xml:space="preserve"><value>スペクトラム表示</value></data>
   <data name="VOCALOIDPatcher_SpectrumVisualizer_Hint" xml:space="preserve"><value>ASIO 使用時は正しく動作しません</value></data>
   <data name="VOCALOIDPatcher_ShowOtherTracksNotes_Header" xml:space="preserve"><value>他のトラックのノートを表示</value></data>
@@ -25,6 +48,7 @@
   <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL：ブレス音量</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_NoActivePart" xml:space="preserve"><value>自動ブレスを編集する歌唱パートを選択してください。</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_NoBreaths" xml:space="preserve"><value>このパートのレンダリング結果に自動ブレスのマーカーがありません。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Loading" xml:space="preserve"><value>レンダリング済みの自動ブレスを読み込んでいます…</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_Reset" xml:space="preserve"><value>127 にリセット</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_SaveFailed" xml:space="preserve"><value>ブレス音量データを保存できませんでした。プロジェクトは変更済みのままです。再保存するか別の場所を選択してください。</value></data>
   <data name="VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed" xml:space="preserve"><value>ブレスマーカーの読み取りに失敗しました：{0}</value></data>
@@ -54,7 +78,7 @@
   <data name="VOCALOIDPatcher_AutoPinyin_Header" xml:space="preserve"><value>インポート時に中国語歌詞をピンインへ変換</value></data>
   <data name="VOCALOIDPatcher_AutoPinyin_Desc" xml:space="preserve"><value>中国語歌詞のトラックを検出し、語句の文脈から多音字を判定して有効な発音指定を保持します。</value></data>
   <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Header" xml:space="preserve"><value>中国語ピンインの拡張サポート</value></data>
-  <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Desc" xml:space="preserve"><value>エディターとプロジェクト読み込みで中国語の声母と韻母を自由に組み合わせ、単独音を使用し、Asp と Sil の大文字・小文字を区別せずに入力できます。</value></data>
+  <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Desc" xml:space="preserve"><value>エディターとプロジェクト読み込みで中国語の声母と韻母を自由に組み合わせ、単独音を使用し、すべての言語で Asp と Sil の大文字・小文字を区別せずに入力できます。</value></data>
   <data name="VOCALOIDPatcher_Minutes_Suffix" xml:space="preserve"><value>分</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Performance" xml:space="preserve"><value>パフォーマンス</value></data>
   <data name="VOCALOIDPatcher_FastProjectLoad_Header" xml:space="preserve"><value>プロジェクト読み込みを高速化</value></data>

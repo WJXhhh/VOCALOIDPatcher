@@ -201,15 +201,21 @@ public static class V6BridgeSvip
         IReadOnlyList<(WIVSMNote? Note, string Lyric)> importedNotes,
         int languageId)
     {
-        if (!Config.Settings.ExtendedChinesePinyin || languageId != (int)VSMLanguageID.Chinese)
+        if (!Config.Settings.ExtendedChinesePinyin)
             return;
 
         for (int i = 0; i < importedNotes.Count; i++)
         {
             var (note, lyric) = importedNotes[i];
             if (note == null
-                || CanNativeConvertChineseLyric(note, lyric, languageId)
                 || !ChinesePinyinPhonemeConverter.TryConvertSequence(lyric, out var syllables, out _))
+            {
+                continue;
+            }
+
+            bool isSpecial = ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables);
+            if ((!isSpecial && languageId != (int)VSMLanguageID.Chinese)
+                || (!isSpecial && CanNativeConvertChineseLyric(note, lyric, languageId)))
             {
                 continue;
             }

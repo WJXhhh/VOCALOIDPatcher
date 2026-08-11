@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -8,6 +11,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using VOCALOIDPatcher.Config;
+using VOCALOIDPatcher.Mcp;
+using VOCALOIDPatcher.McpBridge;
 using VOCALOIDPatcher.Patch.Patches;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.Utils;
@@ -38,6 +43,7 @@ public class SettingsWindow : Window
     private Button? _artUploadButton;
     private Button? _artResetButton;
     private TextBlock? _calibrationStatus;
+    private TextBlock? _mcpStatus;
     private DispatcherTimer? _calibrationStatusTimer;
 
     public static void ShowSingleton()
@@ -81,13 +87,17 @@ public class SettingsWindow : Window
         ApplyTheme();
         BuildUi();
 
-        if (_calibrationStatus != null)
+        if (_calibrationStatus != null || _mcpStatus != null)
         {
             _calibrationStatusTimer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(500)
             };
-            _calibrationStatusTimer.Tick += (_, _) => UpdateCalibrationStatus();
+            _calibrationStatusTimer.Tick += (_, _) =>
+            {
+                UpdateCalibrationStatus();
+                UpdateMcpStatus();
+            };
         }
 
         WpfTranslationPatch.MarkUntranslatable(this);
@@ -104,6 +114,7 @@ public class SettingsWindow : Window
         {
             PlayEntrance();
             UpdateCalibrationStatus();
+            UpdateMcpStatus();
             _calibrationStatusTimer?.Start();
         };
         Closed += (_, _) => _calibrationStatusTimer?.Stop();
@@ -154,6 +165,7 @@ public class SettingsWindow : Window
             ("VOCALOIDPatcher_Settings_Category_General", BuildGeneralPanel()),
             ("VOCALOIDPatcher_Settings_Category_Pianoroll", BuildPianorollPanel()),
             ("VOCALOIDPatcher_Settings_Category_Widgets", BuildWidgetsPanel()),
+            ("VOCALOIDPatcher_Settings_Category_Mcp", BuildMcpPanel()),
             ("VOCALOIDPatcher_Settings_Category_Other", BuildOtherPanel())
         };
 
@@ -535,6 +547,204 @@ public class SettingsWindow : Window
         row.Children.Add(label);
         row.Children.Add(slider);
         return row;
+    }
+
+    private StackPanel BuildMcpPanel()
+    {
+        var panel = new StackPanel();
+        panel.Children.Add(SectionTitle("VOCALOIDPatcher_Settings_Category_Mcp"));
+
+        var httpOptions = new StackPanel
+        {
+            Margin = new Thickness(28, 8, 0, 0),
+            IsEnabled = Settings.McpEnabled,
+            Opacity = Settings.McpEnabled ? 1.0 : 0.4
+        };
+
+        var http = DescribedToggle(
+            "VOCALOIDPatcher_Mcp_Http_Header",
+            "VOCALOIDPatcher_Mcp_Http_Desc",
+            Settings.McpHttpEnabled,
+            new Thickness(0),
+            checkbox =>
+            {
+                Settings.McpHttpEnabled = checkbox.IsChecked == true;
+                UpdateMcpStatus();
+            });
+        httpOptions.Children.Add(http);
+
+        var portRow = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            Margin = new Thickness(22, 10, 0, 0)
+        };
+        var portLabel = new TextBlock
+        {
+            Width = 120,
+            Foreground = MutedBrush,
+            VerticalAlignment = VerticalAlignment.Center
+        };
+        Localize(() => portLabel.Text = TranslationManager.Tr("VOCALOIDPatcher_Mcp_Port_Header"));
+        var port = new TextBox
+        {
+            Width = 90,
+            Height = 30,
+            Padding = new Thickness(8, 4, 8, 4),
+            Text = Settings.McpHttpPort.ToString(),
+            Foreground = ForegroundBrush,
+            Background = DarkTheme.Frozen(Color.FromRgb(0x2A, 0x2A, 0x2E)),
+            BorderBrush = DarkTheme.Frozen(Color.FromRgb(0x3F, 0x3F, 0x46))
+        };
+        port.LostFocus += (_, _) =>
+        {
+            if (!int.TryParse(port.Text, out int value))
+            {
+                port.Text = Settings.McpHttpPort.ToString();
+                return;
+            }
+            Settings.McpHttpPort = value;
+            port.Text = Settings.McpHttpPort.ToString();
+            McpBridgeService.RestartHttpCompanion();
+            UpdateMcpStatus();
+        };
+        portRow.Children.Add(portLabel);
+        portRow.Children.Add(port);
+        httpOptions.Children.Add(portRow);
+
+        var enabled = DescribedToggle(
+            "VOCALOIDPatcher_Mcp_Enabled_Header",
+            "VOCALOIDPatcher_Mcp_Enabled_Desc",
+            Settings.McpEnabled,
+            new Thickness(0, 6, 0, 0),
+            checkbox =>
+            {
+                Settings.McpEnabled = checkbox.IsChecked == true;
+                httpOptions.IsEnabled = Settings.McpEnabled;
+                httpOptions.Opacity = Settings.McpEnabled ? 1.0 : 0.4;
+                UpdateMcpStatus();
+            });
+        panel.Children.Add(enabled);
+        panel.Children.Add(httpOptions);
+
+        _mcpStatus = new TextBlock
+        {
+            Foreground = AccentBrush,
+            FontSize = 11.5,
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 18, 12, 0),
+        };
+        Localize(UpdateMcpStatus);
+        panel.Children.Add(_mcpStatus);
+
+        var directoriesLabel = new TextBlock
+        {
+            Foreground = MutedBrush,
+            FontSize = 12,
+            TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 18, 12, 8),
+        };
+        void UpdateDirectories()
+        {
+            string values = Settings.McpAllowedDirectories.Count == 0
+                ? TranslationManager.Tr("VOCALOIDPatcher_Mcp_AllowedDirectories_Empty")
+                : string.Join(Environment.NewLine, Settings.McpAllowedDirectories);
+            directoriesLabel.Text = TranslationManager.Tr("VOCALOIDPatcher_Mcp_AllowedDirectories_Header")
+                                    + Environment.NewLine + values;
+        }
+        Localize(UpdateDirectories);
+        panel.Children.Add(directoriesLabel);
+
+        var directoryButtons = new StackPanel { Orientation = Orientation.Horizontal };
+        var addDirectory = new Button { Margin = new Thickness(0, 0, 10, 0) };
+        Localize(() => addDirectory.Content = TranslationManager.Tr("VOCALOIDPatcher_Mcp_AddDirectory"));
+        addDirectory.Click += (_, _) =>
+        {
+            var dialog = new OpenFolderDialog { Multiselect = false };
+            if (dialog.ShowDialog(this) != true)
+                return;
+            var directories = Settings.McpAllowedDirectories;
+            if (!directories.Contains(dialog.FolderName, StringComparer.OrdinalIgnoreCase))
+            {
+                directories.Add(dialog.FolderName);
+                Settings.McpAllowedDirectories = directories;
+            }
+            UpdateDirectories();
+        };
+        var clearDirectories = new Button();
+        Localize(() => clearDirectories.Content = TranslationManager.Tr("VOCALOIDPatcher_Mcp_ClearDirectories"));
+        clearDirectories.Click += (_, _) =>
+        {
+            Settings.McpAllowedDirectories = new List<string>();
+            UpdateDirectories();
+        };
+        directoryButtons.Children.Add(addDirectory);
+        directoryButtons.Children.Add(clearDirectories);
+        panel.Children.Add(directoryButtons);
+
+        var connectionButtons = new WrapPanel { Margin = new Thickness(0, 16, 0, 0) };
+        connectionButtons.Children.Add(McpButton("VOCALOIDPatcher_Mcp_CopyStdio", () =>
+        {
+            string executable = Path.Combine(Patcher.DataDir, "mcp", "VOCALOIDPatcher.McpServer.exe");
+            CopyJson(new
+            {
+                mcpServers = new
+                {
+                    vocaloid6 = new { command = executable, args = new[] { "--transport", "stdio" } }
+                }
+            });
+        }));
+        connectionButtons.Children.Add(McpButton("VOCALOIDPatcher_Mcp_CopyHttp", () =>
+        {
+            CopyJson(new
+            {
+                url = $"http://127.0.0.1:{Settings.McpHttpPort}/mcp",
+                headers = new { Authorization = "Bearer " + HttpTokenStore.GetOrCreate() }
+            });
+        }));
+        connectionButtons.Children.Add(McpButton("VOCALOIDPatcher_Mcp_RotateToken", () =>
+        {
+            HttpTokenStore.Rotate();
+            McpBridgeService.RestartHttpCompanion();
+            Debug.ShowMessageBox(TranslationManager.Tr("VOCALOIDPatcher_Mcp_TokenRotated"));
+        }));
+        connectionButtons.Children.Add(McpButton("VOCALOIDPatcher_Mcp_RevokeWrite", () =>
+        {
+            McpAccessController.RevokeAll();
+            UpdateMcpStatus();
+        }));
+        panel.Children.Add(connectionButtons);
+
+        return panel;
+    }
+
+    private Button McpButton(string key, Action action)
+    {
+        var button = new Button { Margin = new Thickness(0, 0, 10, 8) };
+        Localize(() => button.Content = TranslationManager.Tr(key));
+        button.Click += (_, _) => action();
+        return button;
+    }
+
+    private static void CopyJson(object value)
+    {
+        Clipboard.SetText(JsonSerializer.Serialize(value, new JsonSerializerOptions { WriteIndented = true }));
+    }
+
+    private void UpdateMcpStatus()
+    {
+        if (_mcpStatus == null)
+            return;
+        string state = McpBridgeService.IsRunning
+            ? TranslationManager.Tr("VOCALOIDPatcher_Mcp_Status_Running", McpBridgeService.InstanceId ?? "-")
+            : TranslationManager.Tr("VOCALOIDPatcher_Mcp_Status_Stopped");
+        IReadOnlyList<string> clients = McpAccessController.ClientSummaries();
+        string clientText = clients.Count == 0 ? "-" : string.Join(", ", clients);
+        _mcpStatus.Text = state + Environment.NewLine
+                          + TranslationManager.Tr(
+                              "VOCALOIDPatcher_Mcp_Status_Http",
+                              Settings.McpHttpEnabled ? $"127.0.0.1:{Settings.McpHttpPort}" : "-")
+                          + Environment.NewLine
+                          + TranslationManager.Tr("VOCALOIDPatcher_Mcp_Status_Clients", clientText);
     }
 
     private StackPanel BuildOtherPanel()

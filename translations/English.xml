@@ -13,6 +13,29 @@
   <data name="VOCALOIDPatcher_Settings_Category_Pianoroll" xml:space="preserve"><value>Piano Roll</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Other" xml:space="preserve"><value>Other</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Widgets" xml:space="preserve"><value>Widgets</value></data>
+  <data name="VOCALOIDPatcher_Settings_Category_Mcp" xml:space="preserve"><value>MCP</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Enabled_Header" xml:space="preserve"><value>Enable local MCP control</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Enabled_Desc" xml:space="preserve"><value>Allows MCP clients running as the current Windows user to connect through the companion. Disabled by default.</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Http_Header" xml:space="preserve"><value>Enable Streamable HTTP companion</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Http_Desc" xml:space="preserve"><value>Listens only on 127.0.0.1 and requires the generated Bearer token. stdio remains available without this option.</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Port_Header" xml:space="preserve"><value>HTTP port</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Running" xml:space="preserve"><value>Bridge running · instance {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Stopped" xml:space="preserve"><value>Bridge stopped</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Http" xml:space="preserve"><value>HTTP endpoint: {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Clients" xml:space="preserve"><value>Connected clients: {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AllowedDirectories_Header" xml:space="preserve"><value>Allowed file directories</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AllowedDirectories_Empty" xml:space="preserve"><value>No additional directories. The current project directory is always allowed.</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AddDirectory" xml:space="preserve"><value>Add directory</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ClearDirectories" xml:space="preserve"><value>Clear list</value></data>
+  <data name="VOCALOIDPatcher_Mcp_CopyStdio" xml:space="preserve"><value>Copy stdio config</value></data>
+  <data name="VOCALOIDPatcher_Mcp_CopyHttp" xml:space="preserve"><value>Copy HTTP config</value></data>
+  <data name="VOCALOIDPatcher_Mcp_RotateToken" xml:space="preserve"><value>Rotate token</value></data>
+  <data name="VOCALOIDPatcher_Mcp_RevokeWrite" xml:space="preserve"><value>Revoke write access</value></data>
+  <data name="VOCALOIDPatcher_Mcp_TokenRotated" xml:space="preserve"><value>The HTTP token was rotated. Update connected clients with a new configuration.</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmationTitle" xml:space="preserve"><value>VOCALOID MCP permission</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmWrite" xml:space="preserve"><value>{0} {1} is requesting project write access through {2}.&#10;&#10;Requested action: {3}&#10;&#10;Allow until VOCALOID exits?</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmDangerousWrite" xml:space="preserve"><value>{0} {1} is requesting a destructive or overwrite operation through {2}.&#10;&#10;Requested action: {3}&#10;&#10;Allow this operation?</value></data>
+  <data name="VOCALOIDPatcher_Mcp_SaveDirtyProject" xml:space="preserve"><value>The current project has unsaved changes. Save it before replacing the project? Choose No to discard or Cancel to keep it open.</value></data>
   <data name="VOCALOIDPatcher_SpectrumVisualizer_Header" xml:space="preserve"><value>Spectrum Visualizer</value></data>
   <data name="VOCALOIDPatcher_SpectrumVisualizer_Hint" xml:space="preserve"><value>Does not work properly when using ASIO</value></data>
   <data name="VOCALOIDPatcher_ShowOtherTracksNotes_Header" xml:space="preserve"><value>Show Notes from Other Tracks</value></data>
@@ -25,6 +48,7 @@
   <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL: Breath Volume</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_NoActivePart" xml:space="preserve"><value>Select a singing part to edit its auto breaths.</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_NoBreaths" xml:space="preserve"><value>No rendered auto-breath markers were found in this part.</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Loading" xml:space="preserve"><value>Reading rendered auto breaths…</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_Reset" xml:space="preserve"><value>Reset to 127</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_SaveFailed" xml:space="preserve"><value>Breath-volume data could not be saved. The project remains marked as modified; save again or choose another location.</value></data>
   <data name="VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed" xml:space="preserve"><value>Failed to read breath markers: {0}</value></data>
@@ -54,7 +78,7 @@
   <data name="VOCALOIDPatcher_AutoPinyin_Header" xml:space="preserve"><value>Convert Chinese Lyrics to Pinyin on Import</value></data>
   <data name="VOCALOIDPatcher_AutoPinyin_Desc" xml:space="preserve"><value>Detects Chinese lyric tracks, resolves polyphonic characters from phrase context, and preserves valid source pronunciations.</value></data>
   <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Header" xml:space="preserve"><value>Extended Chinese Pinyin Support</value></data>
-  <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Desc" xml:space="preserve"><value>Allows arbitrary combinations of Chinese initials and finals, standalone sounds, and case-insensitive Asp and Sil in the editor and project imports.</value></data>
+  <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Desc" xml:space="preserve"><value>Allows arbitrary combinations of Chinese initials and finals, standalone sounds, and case-insensitive Asp and Sil for every language in the editor and project imports.</value></data>
   <data name="VOCALOIDPatcher_Minutes_Suffix" xml:space="preserve"><value>min</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Performance" xml:space="preserve"><value>Performance</value></data>
   <data name="VOCALOIDPatcher_FastProjectLoad_Header" xml:space="preserve"><value>Faster Project Loading</value></data>

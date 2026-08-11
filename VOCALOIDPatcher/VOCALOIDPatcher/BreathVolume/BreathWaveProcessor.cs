@@ -50,31 +50,6 @@ internal static class BreathWaveProcessor
         }
     }
 
-    public static unsafe void ApplyFloatBuffer(
-        IntPtr samples,
-        long numSamples,
-        long bufferBeginSample,
-        long processFromSample,
-        IReadOnlyList<BreathGainRegion> regions,
-        int sampleRate = 44100,
-        double fadeMilliseconds = 5.0)
-    {
-        if (samples == IntPtr.Zero || numSamples <= 0 || numSamples > int.MaxValue)
-            return;
-
-        var fadeSamples = Math.Max(1L, (long)Math.Round(sampleRate * fadeMilliseconds / 1000.0));
-        var firstLocalSample = Math.Clamp(processFromSample - bufferBeginSample, 0L, numSamples);
-        var span = new Span<float>((void*)samples, checked((int)numSamples));
-
-        for (var localSample = firstLocalSample; localSample < numSamples; localSample++)
-        {
-            var absoluteSample = bufferBeginSample + localSample;
-            var gain = GainAt(absoluteSample, regions, fadeSamples);
-            if (gain < 1.0)
-                span[checked((int)localSample)] *= (float)gain;
-        }
-    }
-
     private static WaveFormat ParseWave(byte[] bytes)
     {
         if (bytes.Length < RiffHeaderSize ||

@@ -35,8 +35,10 @@ public class AlwaysShowWaveformPatch : PatchBase
         if (!Settings.AlwaysShowWaveform)
             return true;
 
-        if (Settings.SvEditorStyle)
+        if (Settings.SvEditorStyle && vm?.ActivePart?.NumNotes > 0)
             PrecomputeBaselines(vm);
+        else if (Settings.SvEditorStyle)
+            WaveformSvState.Clear();
 
         try
         {
@@ -47,6 +49,9 @@ public class AlwaysShowWaveformPatch : PatchBase
                 return true;
 
             canvas.ClearElement();
+            if (vm.ActivePart?.NumNotes == 0)
+                return false;
+
             InsertMethod.Invoke(__instance, new object[] { vm });
             return false;
         }
@@ -159,6 +164,12 @@ public class WaveformRenderPatch : PatchBase
             __state = 1;
         }
         return true;
+    }
+
+    [HarmonyPostfix]
+    private static void Postfix(UIRenderedWave __instance)
+    {
+        WaveformSnapshot.WaveformDrawingCompleted(__instance);
     }
 
     [HarmonyFinalizer]
@@ -724,6 +735,29 @@ internal static class WaveformSvState
         {
             if (note == null || !note.IsValidPhonemes)
                 continue;
+
+            if (SegmentedPhonemeRenderCoordinator.TryGetWavePhonemeSpans(
+                    part,
+                    note,
+                    out var renderedSpans))
+            {
+                foreach (var renderedSpan in renderedSpans)
+                {
+                    double renderedStart = vm.CalcTickToViewPosition(
+                        new VSMAbsTick(part.AbsPosTick.Value + renderedSpan.StartRelTick));
+                    double renderedEnd = vm.CalcTickToViewPosition(
+                        new VSMAbsTick(part.AbsPosTick.Value + renderedSpan.EndRelTick));
+                    if (renderedEnd > renderedStart)
+                    {
+                        spans.Add(new PhonemeSpan(
+                            renderedStart,
+                            renderedEnd,
+                            renderedSpan.Phoneme));
+                    }
+                }
+
+                continue;
+            }
 
             string value = note.Phonemes;
             if (string.IsNullOrWhiteSpace(value))

@@ -18,6 +18,60 @@ public static class Settings
     private static bool FeatureFlag(string key, bool defaultValue)
         => !IsFeatureDisabled(key) && Patcher.ConfigManager.Get(key, defaultValue);
 
+    public static event System.Action? McpSettingsChanged;
+
+    public static string McpEnabledKey => "McpEnabled";
+
+    public static bool McpEnabled
+    {
+        get => Patcher.ConfigManager.Get(McpEnabledKey, false);
+        set
+        {
+            Patcher.ConfigManager.Set(McpEnabledKey, value);
+            McpSettingsChanged?.Invoke();
+        }
+    }
+
+    public static string McpHttpEnabledKey => "McpHttpEnabled";
+
+    public static bool McpHttpEnabled
+    {
+        get => Patcher.ConfigManager.Get(McpHttpEnabledKey, false);
+        set
+        {
+            Patcher.ConfigManager.Set(McpHttpEnabledKey, value);
+            McpSettingsChanged?.Invoke();
+        }
+    }
+
+    public static string McpHttpPortKey => "McpHttpPort";
+
+    public static int McpHttpPort
+    {
+        get => System.Math.Clamp(Patcher.ConfigManager.Get(McpHttpPortKey, 39266), 1024, 65535);
+        set
+        {
+            Patcher.ConfigManager.Set(McpHttpPortKey, System.Math.Clamp(value, 1024, 65535));
+            McpSettingsChanged?.Invoke();
+        }
+    }
+
+    public static string McpAllowedDirectoriesKey => "McpAllowedDirectories";
+
+    public static List<string> McpAllowedDirectories
+    {
+        get => Patcher.ConfigManager.Get(McpAllowedDirectoriesKey, new List<string>());
+        set => Patcher.ConfigManager.Set(McpAllowedDirectoriesKey, value);
+    }
+
+    public static string McpConfirmWritesKey => "McpConfirmWrites";
+
+    public static bool McpConfirmWrites
+    {
+        get => Patcher.ConfigManager.Get(McpConfirmWritesKey, true);
+        set => Patcher.ConfigManager.Set(McpConfirmWritesKey, value);
+    }
+
     public static string TranslateHardcodedStringsKey => "TranslateHardcodedStrings";
 
     public static bool TranslateHardcodedStrings
@@ -184,10 +238,16 @@ public static class Settings
 
     public static string ExtendedChinesePinyinKey => "ExtendedChinesePinyin";
 
+    public static event System.Action<bool>? ExtendedChinesePinyinChanged;
+
     public static bool ExtendedChinesePinyin
     {
         get => FeatureFlag(ExtendedChinesePinyinKey, true);
-        set => Patcher.ConfigManager.Set(ExtendedChinesePinyinKey, value);
+        set
+        {
+            Patcher.ConfigManager.Set(ExtendedChinesePinyinKey, value);
+            ExtendedChinesePinyinChanged?.Invoke(value);
+        }
     }
 
     public static string AutoSaveIntervalMinutesKey => "AutoSaveIntervalMinutes";

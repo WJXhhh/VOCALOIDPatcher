@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using HarmonyLib;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Formats.LibreSvip;
+using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
+using Yamaha.VOCALOID.G2PA;
 using Yamaha.VOCALOID.VSM;
 
 namespace VOCALOIDPatcher.Patch.Patches;
@@ -16,23 +18,39 @@ public class ExtendedChinesePinyinSetLyricsPatch : PatchBase
     public override Type[] ArgumentTypes    =>
         new[] { typeof(WIVSMNote), typeof(string), typeof(int), typeof(bool), typeof(bool) };
 
+    [HarmonyPrefix]
+    private static void Prefix(
+        WIVSMNote note,
+        out List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        __state = Settings.ExtendedChinesePinyin
+            ? ExtendedChinesePinyinResetHelper.CaptureAdjacentContext(note)
+            : new List<ExtendedChinesePinyinResetHelper.ProtectedNoteState>();
+    }
+
     [HarmonyPostfix]
     private static void Postfix(
         WIVSMNote note,
         string lyrics,
         int langID,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state,
         ref (bool IsSuccess, WIVSMNote? NextNote) __result)
     {
-        if (!Settings.ExtendedChinesePinyin
-            || langID != (int)VSMLanguageID.Chinese
-            || __result.IsSuccess
-            || !ChinesePinyinPhonemeConverter.TryConvertSequence(lyrics, out var syllables, out _))
-        {
-            return;
-        }
-
         try
         {
+            if (!Settings.ExtendedChinesePinyin
+                || !ChinesePinyinPhonemeConverter.TryConvertSequence(lyrics, out var syllables, out _))
+            {
+                return;
+            }
+
+            bool isSpecial = ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables);
+            if ((!isSpecial && langID != (int)VSMLanguageID.Chinese)
+                || (!isSpecial && __result.IsSuccess))
+            {
+                return;
+            }
+
             if (!ChinesePinyinSyllableApplicator.TrySetSyllables(note, syllables, langID, out var result))
                 return;
 
@@ -42,6 +60,117 @@ public class ExtendedChinesePinyinSetLyricsPatch : PatchBase
         {
             // Keep the failure returned by VOCALOID's native G2PA path.
         }
+        finally
+        {
+            ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        }
+    }
+
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(
+        Exception? __exception,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        return __exception;
+    }
+}
+
+public class VocaloidSpecialPhonemeAiSetLyricsPatch : PatchBase
+{
+    public override string PatchName        => "VocaloidSpecialPhonemeAiSetLyricsPatch";
+    public override Type TargetClass        => typeof(G2PAMultiLingualManager);
+    public override string TargetMethodName => "SetLyrics";
+    public override Type[] ArgumentTypes    => new[] { typeof(WIVSMNote), typeof(string) };
+
+    [HarmonyPrefix]
+    private static void Prefix(
+        WIVSMNote note,
+        out List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        __state = Settings.ExtendedChinesePinyin && note.IsAi
+            ? ExtendedChinesePinyinResetHelper.CaptureAdjacentContext(note)
+            : new List<ExtendedChinesePinyinResetHelper.ProtectedNoteState>();
+    }
+
+    [HarmonyPostfix]
+    private static void Postfix(
+        WIVSMNote note,
+        string lyrics,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state,
+        ref (bool IsSuccess, WIVSMNote? NextNote) __result)
+    {
+        try
+        {
+            if (!Settings.ExtendedChinesePinyin
+                || !note.IsAi
+                || !ChinesePinyinPhonemeConverter.TryConvertSequence(lyrics, out var syllables, out _)
+                || !ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables))
+            {
+                return;
+            }
+
+            if (ChinesePinyinSyllableApplicator.TrySetSyllables(
+                    note,
+                    syllables,
+                    note.LangID,
+                    out var result))
+            {
+                __result = result;
+            }
+        }
+        catch
+        {
+            // Keep the result returned by VOCALOID's native G2PA path.
+        }
+        finally
+        {
+            ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        }
+    }
+
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(
+        Exception? __exception,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        return __exception;
+    }
+}
+
+public class ExtendedChinesePinyinSetSyllablesContextPatch : PatchBase
+{
+    public override string PatchName        => "ExtendedChinesePinyinSetSyllablesContextPatch";
+    public override Type TargetClass        => typeof(G2PAMultiLingualManager);
+    public override string TargetMethodName => "SetSyllables";
+    public override Type[] ArgumentTypes    =>
+        new[] { typeof(WIVSMNote), typeof(SyllablesData), typeof(int), typeof(int), typeof(bool) };
+
+    [HarmonyPrefix]
+    private static void Prefix(
+        WIVSMNote note,
+        out List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        __state = Settings.ExtendedChinesePinyin
+            ? ExtendedChinesePinyinResetHelper.CaptureAdjacentContext(note)
+            : new List<ExtendedChinesePinyinResetHelper.ProtectedNoteState>();
+    }
+
+    [HarmonyPostfix]
+    private static void Postfix(
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+    }
+
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(
+        Exception? __exception,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        return __exception;
     }
 }
 
@@ -60,9 +189,14 @@ public class ExtendedChinesePinyinCandidatePatch : PatchBase
         ref List<Syllables> __result)
     {
         if (!Settings.ExtendedChinesePinyin
-            || langID != (int)VSMLanguageID.Chinese
-            || __result is { Count: > 0 }
             || !ChinesePinyinPhonemeConverter.TryConvertSequence(lyrics, out var syllables, out _))
+        {
+            return;
+        }
+
+        bool isSpecial = ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables);
+        if ((!isSpecial && langID != (int)VSMLanguageID.Chinese)
+            || (!isSpecial && __result is { Count: > 0 }))
         {
             return;
         }
@@ -78,5 +212,235 @@ public class ExtendedChinesePinyinCandidatePatch : PatchBase
         {
             // Keep the empty result returned by VOCALOID's native G2PA path.
         }
+    }
+}
+
+public class ExtendedChinesePinyinRangeResetPatch : PatchBase
+{
+    public override string PatchName        => "ExtendedChinesePinyinRangeResetPatch";
+    public override Type TargetClass        => typeof(G2PAMultiLingualManager);
+    public override string TargetMethodName => "ResetPhonemes";
+    public override Type[] ArgumentTypes    => new[] { typeof(WIVSMNote), typeof(WIVSMNote) };
+
+    [HarmonyPrefix]
+    private static void Prefix(
+        WIVSMNote? beginNote,
+        WIVSMNote? endNote,
+        out List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        __state = Settings.ExtendedChinesePinyin
+            ? ExtendedChinesePinyinResetHelper.PrepareRange(beginNote, endNote)
+            : new List<ExtendedChinesePinyinResetHelper.ProtectedNoteState>();
+    }
+
+    [HarmonyPostfix]
+    private static void Postfix(List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+    }
+
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(
+        Exception? __exception,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        return __exception;
+    }
+}
+
+public class ExtendedChinesePinyinPartResetPatch : PatchBase
+{
+    public override string PatchName        => "ExtendedChinesePinyinPartResetPatch";
+    public override Type TargetClass        => typeof(G2PAMultiLingualManager);
+    public override string TargetMethodName => "ResetPhonemes";
+    public override Type[] ArgumentTypes    => new[] { typeof(WIVSMMidiPart) };
+
+    [HarmonyPrefix]
+    private static void Prefix(
+        WIVSMMidiPart? part,
+        out List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        __state = Settings.ExtendedChinesePinyin
+            ? ExtendedChinesePinyinResetHelper.PreparePart(part)
+            : new List<ExtendedChinesePinyinResetHelper.ProtectedNoteState>();
+    }
+
+    [HarmonyPostfix]
+    private static void Postfix(List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+    }
+
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(
+        Exception? __exception,
+        List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
+    {
+        ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+        return __exception;
+    }
+}
+
+internal static class ExtendedChinesePinyinResetHelper
+{
+    internal sealed record ProtectedNoteState(
+        WIVSMNote Note,
+        string Lyric,
+        string ExpectedPhonemes,
+        bool OriginalProtection);
+
+    public static List<ProtectedNoteState> CaptureAdjacentContext(WIVSMNote? note)
+    {
+        var captured = new List<ProtectedNoteState>();
+        if (note?.Prev != null)
+            TryCaptureNote(note.Prev, captured);
+        if (note?.Next != null)
+            TryCaptureNote(note.Next, captured);
+        return captured;
+    }
+
+    public static List<ProtectedNoteState> PrepareRange(WIVSMNote? beginNote, WIVSMNote? endNote)
+    {
+        var prepared = new List<ProtectedNoteState>();
+        if (beginNote?.Prev != null)
+            TryPrepareNote(beginNote.Prev, prepared);
+        for (WIVSMNote? note = beginNote; note != null && !note.Equals(endNote); note = note.Next)
+            TryPrepareNote(note, prepared);
+        if (endNote != null)
+            TryPrepareNote(endNote, prepared);
+        return prepared;
+    }
+
+    public static List<ProtectedNoteState> PreparePart(WIVSMMidiPart? part)
+    {
+        var prepared = new List<ProtectedNoteState>();
+        if (part == null)
+            return prepared;
+
+        foreach (var note in part.Notes)
+            TryPrepareNote(note, prepared);
+        return prepared;
+    }
+
+    public static void RestoreProtection(List<ProtectedNoteState>? prepared)
+    {
+        if (prepared == null)
+            return;
+
+        int restored = 0;
+        int repaired = 0;
+        foreach (ProtectedNoteState state in prepared)
+        {
+            try
+            {
+                WIVSMNote note = state.Note;
+                note.IsProtected = false;
+                if (!string.Equals(note.Lyric, state.Lyric, StringComparison.Ordinal))
+                    continue;
+
+                if (!string.Equals(note.Phonemes, state.ExpectedPhonemes, StringComparison.Ordinal))
+                {
+                    if (!G2PAMultiLingualManager.SetPhonemes(note, state.ExpectedPhonemes)
+                        && !note.SetPhonemes(state.ExpectedPhonemes, true, note.LangID))
+                    {
+                        continue;
+                    }
+
+                    repaired++;
+                }
+
+                restored++;
+            }
+            catch
+            {
+                // The reset result is more important than restoring a transient guard on a stale note.
+            }
+            finally
+            {
+                try
+                {
+                    state.Note.IsProtected = state.OriginalProtection;
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        if (prepared.Count != 0)
+        {
+            ExtendedPinyinDiagnosticLog.Write(
+                "g2pa-guard",
+                $"prepared={prepared.Count}; restored={restored}; repaired={repaired}");
+        }
+        prepared.Clear();
+    }
+
+    private static void TryPrepareNote(WIVSMNote note, ICollection<ProtectedNoteState> prepared)
+    {
+        try
+        {
+            if (note.IsProtected
+                || !TryGetExpectedPhonemes(note, out string lyric, out string phonemes))
+            {
+                return;
+            }
+
+            if (!G2PAMultiLingualManager.SetPhonemes(note, phonemes)
+                && !note.SetPhonemes(phonemes, true, note.LangID))
+            {
+                return;
+            }
+
+            note.IsProtected = true;
+            prepared.Add(new ProtectedNoteState(note, lyric, phonemes, false));
+        }
+        catch
+        {
+            // Let VOCALOID keep its native reset result for this note.
+        }
+    }
+
+    private static void TryCaptureNote(WIVSMNote note, ICollection<ProtectedNoteState> captured)
+    {
+        try
+        {
+            if (!TryGetExpectedPhonemes(note, out string lyric, out string phonemes))
+                return;
+
+            captured.Add(new ProtectedNoteState(note, lyric, phonemes, note.IsProtected));
+        }
+        catch
+        {
+        }
+    }
+
+    private static bool TryGetExpectedPhonemes(
+        WIVSMNote note,
+        out string lyric,
+        out string phonemes)
+    {
+        lyric = note.Lyric;
+        phonemes = string.Empty;
+        if (!ChinesePinyinPhonemeConverter.TryConvertToken(lyric, out var syllable))
+            return false;
+
+        bool isSpecial = syllable.IsVocaloidSpecialPhoneme;
+        if (!isSpecial)
+        {
+            if (note.LangID != (int)VSMLanguageID.Chinese)
+                return false;
+
+            var chineseManager = App.GetG2PAManager((int)VSMLanguageID.Chinese);
+            if (chineseManager?.CanConvert(lyric, false, note.IsAi) == true
+                || chineseManager?.CanConvert(lyric, true, note.IsAi) == true)
+            {
+                return false;
+            }
+        }
+
+        phonemes = syllable.Phonemes;
+        return true;
     }
 }

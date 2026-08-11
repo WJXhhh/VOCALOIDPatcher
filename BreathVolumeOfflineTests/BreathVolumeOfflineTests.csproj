@@ -8,6 +8,9 @@
     <RootNamespace>VOCALOIDPatcher.BreathVolume</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\BreathPhonemeClassifier.cs" Link="BreathPhonemeClassifier.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\NativeBreathRangeResolver.cs" Link="NativeBreathRangeResolver.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\TraditionalBreathDetector.cs" Link="TraditionalBreathDetector.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\BreathWaveProcessor.cs" Link="BreathWaveProcessor.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\BreathProjectArchive.cs" Link="BreathProjectArchive.cs" />
   </ItemGroup>

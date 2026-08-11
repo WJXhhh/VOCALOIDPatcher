@@ -10,10 +10,16 @@ internal readonly record struct ChinesePinyinSyllable(
     string Lyric,
     string NormalizedLyric,
     string Phonemes,
-    bool RequiresOverride);
+    bool RequiresOverride)
+{
+    public bool IsVocaloidSpecialPhoneme => NormalizedLyric is "asp" or "sil";
+}
 
 internal static class ChinesePinyinPhonemeConverter
 {
+    private static readonly HashSet<string> NativePhonemeSequences =
+        new(VsqxPhonemeMaps.Pinyin2Xsampa.Values, StringComparer.Ordinal);
+
     private static readonly Dictionary<string, string> Initials = new(StringComparer.Ordinal)
     {
         ["b"] = "p",
@@ -223,6 +229,43 @@ internal static class ChinesePinyinPhonemeConverter
         convertedRequiresOverride |= normalizedBoundary;
         syllables = convertedSyllables;
         requiresOverride = convertedRequiresOverride;
+        return true;
+    }
+
+    public static bool IsVocaloidSpecialSequence(IReadOnlyList<ChinesePinyinSyllable> syllables)
+    {
+        if (syllables.Count == 0)
+            return false;
+
+        foreach (var syllable in syllables)
+        {
+            if (!syllable.IsVocaloidSpecialPhoneme)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static bool TryGetSegmentedSynthesisPhonemes(
+        ChinesePinyinSyllable syllable,
+        out string first,
+        out string second)
+    {
+        first = string.Empty;
+        second = string.Empty;
+        if (!syllable.RequiresOverride
+            || syllable.IsVocaloidSpecialPhoneme
+            || NativePhonemeSequences.Contains(syllable.Phonemes))
+        {
+            return false;
+        }
+
+        string[] phonemes = syllable.Phonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (phonemes.Length != 2)
+            return false;
+
+        first = phonemes[0];
+        second = phonemes[1];
         return true;
     }
 

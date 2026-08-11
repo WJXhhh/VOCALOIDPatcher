@@ -6,8 +6,10 @@ using System.Runtime.CompilerServices;
 using Stopwatch = System.Diagnostics.Stopwatch;
 using System.Windows.Controls;
 using HarmonyLib;
+using VOCALOIDPatcher.BreathVolume;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Jobs;
+using VOCALOIDPatcher.Mcp;
 using VOCALOIDPatcher.Patch;
 using VOCALOIDPatcher.Patch.Patches;
 using VOCALOIDPatcher.Translation;
@@ -133,6 +135,7 @@ public static class Patcher
         AutoSaveService.UpdateFromSettings();
         WorkingSetTrimmer.Install();
         SpectrumWidget.Install();
+        McpBridgeService.Install();
     }
 
     private static bool DetectVstPluginMode()
@@ -184,6 +187,32 @@ public static class Patcher
                 new ShortcutModifierCachePatch(),
                 new ShortcutKeyMapCachePatch(),
                 new ShortcutJsonModifierCachePatch(),
+                new McpRevisionCommitPatch(),
+                new McpRevisionUndoPatch(),
+                new McpRevisionRedoPatch(),
+                new ObserveRendererStartPatch(),
+                new ObserveRendererBlockPatch(),
+                new ObserveRendererProgressPatch(),
+                new ObserveRendererCompletePatch(),
+                new ObserveRendererCancelPatch(),
+                new ObserveMusicalEditorRendererStartPatch(),
+                new ObserveMusicalEditorRendererBlockPatch(),
+                new ObserveMusicalEditorRendererCompletePatch(),
+                new ObserveAudioPlayerRendererBlockPatch(),
+                new ObserveAudioPlayerRendererCompletePatch(),
+                new ObserveAudioBufferReleasePatch(),
+                new ObserveTransactionEndPatch(),
+                new ObserveSequenceCommitPatch(),
+                new ObserveSequenceRollbackPatch(),
+                new ObserveCandidatePhonemesPatch(),
+                new ObserveSetSyllablesPatch(),
+                new ObserveResetPhonemesPatch(),
+                new ObserveSetLyricsAndResetPatch(),
+                new ObserveSetLyricsAndResetWithLanguagePatch(),
+                new ObserveBreathBypassPatch(),
+                new ObserveBreathModePatch(),
+                new ObserveBreathTypePatch(),
+                new ObserveBreathExhalationPatch(),
                 new RenderedWaveCacheRenderStartedPatch(),
                 new WaveformBaselineInvalidatePatch(),
                 new WaveformSnapshotPatch(),
@@ -286,7 +315,20 @@ public static class Patcher
 
             new(Settings.ExtendedChinesePinyinKey,
                 new ExtendedChinesePinyinSetLyricsPatch(),
-                new ExtendedChinesePinyinCandidatePatch()),
+                new VocaloidSpecialPhonemeAiSetLyricsPatch(),
+                new ExtendedChinesePinyinSetSyllablesContextPatch(),
+                new ExtendedChinesePinyinCandidatePatch(),
+                new ExtendedChinesePinyinRangeResetPatch(),
+                new ExtendedChinesePinyinPartResetPatch(),
+                new SegmentedPhonemeSequenceCommitPatch(),
+                new SegmentedPhonemeSequenceStartRenderingPatch(),
+                new SegmentedPhonemeSequenceUndoPatch(),
+                new SegmentedPhonemeSequenceRedoPatch(),
+                new SegmentedPhonemeWaveFilePathPatch(),
+                new SegmentedPhonemeValidRenderedWavePatch(),
+                new SegmentedPhonemeScoreFilePathPatch(),
+                new SegmentedPhonemeValidRenderedScorePatch(),
+                new SegmentedPhonemeRendererProgressPatch()),
 
             new(Settings.FastSelectionSweepKey,
                 new TimeSigSelectionTrackPatch(),
@@ -355,6 +397,9 @@ public static class Patcher
 
         if (disabled.Count > 0)
             ReportDisabledFeatures(disabled);
+
+        if (Settings.IndividualBreathVolume)
+            BreathVolumeService.InitializeDiagnostics();
     }
 
     private const string NotifiedDisabledFeaturesKey = "NotifiedDisabledFeatures";

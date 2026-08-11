@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using HarmonyLib;
 using VOCALOIDPatcher.Translation;
+using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.MusicalEditor;
 using Yamaha.VOCALOID.VSM;
@@ -35,6 +36,10 @@ internal sealed class BreathVolumeOverlay
     private IntPtr _selectionAnchor;
     private GestureKind _gesture;
     private int _refreshPending;
+    private int _refreshing;
+    private bool _lastLoggedActive;
+    private BreathRegionStatus _lastLoggedStatus = (BreathRegionStatus)(-1);
+    private int _lastLoggedRegionCount = -1;
 
     private BreathVolumeOverlay(ParameterView view, Grid panel)
     {
@@ -81,10 +86,17 @@ internal sealed class BreathVolumeOverlay
         try
         {
             var panel = AccessTools.Field(typeof(ParameterView), "xPanel")?.GetValue(view) as Grid;
-            return panel == null ? null : new BreathVolumeOverlay(view, panel);
+            if (panel == null)
+            {
+                BreathVolumeDiagnosticsLog.Write("overlay attach failed: xPanel was not found");
+                return null;
+            }
+            BreathVolumeDiagnosticsLog.Write("overlay attached");
+            return new BreathVolumeOverlay(view, panel);
         }
-        catch
+        catch (Exception e)
         {
+            BreathVolumeDiagnosticsLog.Write($"overlay attach failed: {e.GetType().Name}: {e.Message}");
             return null;
         }
     }
@@ -99,9 +111,41 @@ internal sealed class BreathVolumeOverlay
             return;
         }
 
+        if (Interlocked.Exchange(ref _refreshing, 1) != 0)
+            return;
+
+        try
+        {
+            RefreshCore();
+        }
+        catch (Exception e)
+        {
+            Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message));
+            BreathVolumeDiagnosticsLog.Write($"overlay refresh failed: {e.GetType().Name}: {e.Message}");
+            try
+            {
+                _canvas.Children.Clear();
+                if (_view.DataContext is MusicalEditorViewModel vm)
+                    DrawEmptyState("VOCALOIDPatcher_BreathVolume_NoBreaths", vm);
+                RestoreTransientObjects();
+            }
+            catch
+            {
+                _canvas.Visibility = Visibility.Collapsed;
+            }
+        }
+        finally
+        {
+            Interlocked.Exchange(ref _refreshing, 0);
+        }
+    }
+
+    private void RefreshCore()
+    {
         if (_view.DataContext is not MusicalEditorViewModel vm ||
             !BreathVolumeService.IsActive(vm.ControlParameterType))
         {
+            LogOverlayState(active: false, BreathRegionStatus.Unknown, 0, 0);
             _canvas.Visibility = Visibility.Collapsed;
             return;
         }
@@ -117,16 +161,26 @@ internal sealed class BreathVolumeOverlay
         var sequence = vm.VSMSequence;
         if (part == null || sequence == null)
         {
-            DrawEmptyState("VOCALOIDPatcher_BreathVolume_NoActivePart");
+            DrawEmptyState("VOCALOIDPatcher_BreathVolume_NoActivePart", vm);
             RestoreTransientObjects();
             return;
         }
 
-        BreathVolumeService.RefreshRegions(sequence, part);
+        var status = BreathVolumeService.GetRegionStatus(part);
+        if (status == BreathRegionStatus.Unknown)
+        {
+            BreathVolumeService.EnsureRegionsAsync(sequence, part);
+            status = BreathRegionStatus.Loading;
+        }
         var regions = BreathVolumeService.GetRegions(part);
+        LogOverlayState(active: true, status, regions.Count, part.NumNotes);
         if (regions.Count == 0)
         {
-            DrawEmptyState("VOCALOIDPatcher_BreathVolume_NoBreaths");
+            DrawEmptyState(
+                status == BreathRegionStatus.Loading
+                    ? "VOCALOIDPatcher_BreathVolume_Loading"
+                    : "VOCALOIDPatcher_BreathVolume_NoBreaths",
+                vm);
             RestoreTransientObjects();
             return;
         }
@@ -174,6 +228,22 @@ internal sealed class BreathVolumeOverlay
         RestoreTransientObjects();
     }
 
+    private void LogOverlayState(
+        bool active,
+        BreathRegionStatus status,
+        int regionCount,
+        ulong noteCount)
+    {
+        if (_lastLoggedActive == active && _lastLoggedStatus == status &&
+            _lastLoggedRegionCount == regionCount)
+            return;
+        _lastLoggedActive = active;
+        _lastLoggedStatus = status;
+        _lastLoggedRegionCount = regionCount;
+        BreathVolumeDiagnosticsLog.Write(
+            $"overlay active={active} status={status} regions={regionCount} notes={noteCount}");
+    }
+
     public void Show() => Refresh();
 
     public void Hide()
@@ -204,7 +274,7 @@ internal sealed class BreathVolumeOverlay
         }
     }
 
-    private void DrawEmptyState(string key)
+    private void DrawEmptyState(string key, MusicalEditorViewModel vm)
     {
         var label = new TextBlock
         {
@@ -213,7 +283,9 @@ internal sealed class BreathVolumeOverlay
             FontSize = 12,
             IsHitTestVisible = false
         };
-        Canvas.SetLeft(label, 12);
+        var zoom = Math.Max(0.0001, Math.Abs(_scale.ScaleX));
+        var viewportLeft = (vm.ParameterViewer?.HorizontalOffset ?? 0.0) / zoom;
+        Canvas.SetLeft(label, Math.Max(0, viewportLeft) + 12);
         Canvas.SetTop(label, 12);
         _canvas.Children.Add(label);
     }
@@ -453,6 +525,9 @@ internal sealed class BreathVolumeOverlay
     private void OnServiceChanged(BreathVolumeChangeKind kind, WIVSMMidiPart? part)
     {
         if (_canvas.Dispatcher.HasShutdownStarted)
+            return;
+        if (part != null && _view.DataContext is MusicalEditorViewModel { ActivePart: { } activePart } &&
+            !activePart.Equals(part))
             return;
         if (Interlocked.Exchange(ref _refreshPending, 1) != 0)
             return;

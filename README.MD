@@ -64,6 +64,12 @@ VOCALOID Patcher 是一个直接加载进 `VOCALOID 6 Editor` 的功能补丁。
 
 不同编辑器的数据模型并不完全相同，转换后仍建议检查音高曲线、音素、换气和伴奏位置之类的东西。PPSF 目前支持新版 ZIP/JSON 工程，不支持旧版二进制 PPSF。
 
+### MCP 控制
+
+可选的本地 MCP Companion 允许 Codex、Claude Desktop、Cursor 等 AI 工具读取工程，并以可撤销事务编辑轨道、Part、音符、歌词和参数，也可控制播放、转换工程和执行混缩。MCP 默认关闭；连接、文件白名单、写租约和 HTTP Token 均在设置窗口的 MCP 分类中管理。
+
+架构、客户端配置、工具列表和安全规则见 [VOCALOID 6 MCP 文档](./docs/mcp.md)。
+
 ### 其它
 
 - 按设定间隔自动保存当前工程。

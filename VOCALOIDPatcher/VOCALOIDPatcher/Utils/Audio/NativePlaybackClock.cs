@@ -21,7 +21,7 @@ internal readonly record struct PlaybackClockSnapshot(
 /// </summary>
 internal static unsafe class NativePlaybackClock
 {
-    private const uint ExpectedAbiVersion = 1;
+    private const uint ExpectedAbiVersion = 8;
     private const uint SnapshotStale = 1 << 1;
     private const string LibraryName = "v6patch_clock.dll";
 

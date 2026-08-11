@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
@@ -123,9 +122,7 @@ public class WaveformSnapshotZoomPatch : PatchBase
 
 internal static class WaveformSnapshot
 {
-    private const double SweepWidth = 32.0;
-    private const double SweepOpacity = 0.28;
-    private const double SweepDurationSeconds = 0.14;
+    private static readonly Pen RenderBoundaryPen = CreateRenderBoundaryPen();
 
     private sealed class SnapshotData
     {
@@ -166,20 +163,6 @@ internal static class WaveformSnapshot
                 Math.Clamp(progress.SecondEnd, 0, 100),
                 progress.BlockRenderingEnabled);
         }
-
-        public static RenderProgress Lerp(RenderProgress from, RenderProgress to, double amount)
-        {
-            return new RenderProgress(
-                Interpolate(from.FirstEnd, to.FirstEnd, amount),
-                Interpolate(from.SecondBegin, to.SecondBegin, amount),
-                Interpolate(from.SecondEnd, to.SecondEnd, amount),
-                to.BlockRenderingEnabled);
-        }
-
-        private static double Interpolate(double from, double to, double amount)
-        {
-            return from + (to - from) * amount;
-        }
     }
 
     private readonly struct HorizontalRange
@@ -205,15 +188,20 @@ internal static class WaveformSnapshot
         public bool Rendering;
         public bool CompletionPending;
         public RenderProgress DisplayProgress;
-        public RenderProgress AnimationFrom;
-        public RenderProgress AnimationTarget;
-        public long AnimationStart;
-        public DispatcherTimer? Timer;
+        public RenderProgress PendingProgress;
+        public bool HasPendingProgress;
         public bool ZoomRedraw;
         public int BackgroundHideRequest;
+        public bool EmptyPart;
+    }
+
+    private sealed class ViewReference
+    {
+        public WeakReference<PianorollView>? View;
     }
 
     private static readonly ConditionalWeakTable<PianorollView, ViewState> States = new();
+    private static readonly ConditionalWeakTable<MusicalEditorViewModel, ViewReference> Views = new();
 
     private static readonly AccessTools.FieldRef<PianorollView, FastCanvas>? WaveCanvas =
         CreateWaveCanvasRef();
@@ -228,6 +216,8 @@ internal static class WaveformSnapshot
             var state = States.GetOrCreateValue(view);
             var canvas = WaveCanvas(view);
             CaptureOriginalBackground(state, canvas);
+            if (vm != null)
+                RememberView(view, vm);
 
             if (!IsEnabled(vm))
             {
@@ -244,6 +234,13 @@ internal static class WaveformSnapshot
             }
 
             state.Part = part;
+            if (part.NumNotes == 0)
+            {
+                ClearEmptyPart(state, canvas, vm, part);
+                return;
+            }
+
+            state.EmptyPart = false;
             if (!state.Rendering && !state.CompletionPending)
             {
                 var current = CaptureSnapshot(canvas, vm);
@@ -275,6 +272,7 @@ internal static class WaveformSnapshot
             var state = States.GetOrCreateValue(view);
             var canvas = WaveCanvas(view);
             CaptureOriginalBackground(state, canvas);
+            RememberView(view, vm!);
 
             var part = vm!.ActivePart!;
             if (state.Part != null && !state.Part.Equals(part))
@@ -286,6 +284,14 @@ internal static class WaveformSnapshot
             {
                 state.Part = part;
             }
+
+            if (part.NumNotes == 0)
+            {
+                ClearEmptyPart(state, canvas, vm, part);
+                return;
+            }
+
+            state.EmptyPart = false;
 
             if (state.CompletionPending)
             {
@@ -327,6 +333,7 @@ internal static class WaveformSnapshot
             var state = States.GetOrCreateValue(view);
             var canvas = WaveCanvas(view);
             CaptureOriginalBackground(state, canvas);
+            RememberView(view, vm);
             SynchronizePart(state, canvas, e.MidiPart);
             var current = CaptureSnapshot(canvas, vm);
             if (current?.Drawing != null || state.StableSnapshot == null)
@@ -336,9 +343,8 @@ internal static class WaveformSnapshot
             state.CompletionPending = false;
             state.CompletionFallback = null;
             state.DisplayProgress = default;
-            state.AnimationFrom = default;
-            state.AnimationTarget = default;
-            StopTimer(state);
+            state.PendingProgress = default;
+            state.HasPendingProgress = false;
             ApplyCurrentBackground(state, canvas, vm);
 
         }
@@ -389,6 +395,7 @@ internal static class WaveformSnapshot
             var state = States.GetOrCreateValue(view);
             var canvas = WaveCanvas(view);
             CaptureOriginalBackground(state, canvas);
+            RememberView(view, vm);
             SynchronizePart(state, canvas, e.MidiPart);
             if (!state.Rendering)
             {
@@ -396,11 +403,12 @@ internal static class WaveformSnapshot
                 state.Rendering = true;
             }
 
-            // The start redraw hides the retained background when old waveform
-            // children mounted successfully. Restore it before this block redraw
-            // clears those children, then move the rendered-area mask.
+            // The audio buffer is installed before this event, but the new
+            // UIRenderedWave shape has not been drawn yet. Keep the reported range
+            // pending until that visual actually completes OnRender.
+            state.PendingProgress = RenderProgress.From(e.Progress);
+            state.HasPendingProgress = true;
             ApplyCurrentBackground(state, canvas, vm);
-            StartProgressAnimation(view, state, RenderProgress.From(e.Progress));
         }
         catch
         {
@@ -420,14 +428,23 @@ internal static class WaveformSnapshot
             var canvas = WaveCanvas(view);
             CaptureOriginalBackground(state, canvas);
             SynchronizePart(state, canvas, e.MidiPart);
-            StopTimer(state);
+            state.PendingProgress = default;
+            state.HasPendingProgress = false;
 
             // Preserve exactly what was visible at the end of block rendering.
             // If the final wave file is still locked, this composite remains until
             // RenderedWaveCachePatch successfully loads it and requests a redraw.
-            ApplyCurrentBackground(state, canvas, vm);
-            state.CompletionFallback = CaptureComposite(canvas, vm, state.DisplayedSnapshot)
-                ?? state.DisplayedSnapshot
+            var visibleBackground = state.StableSnapshot == null
+                ? null
+                : CreateTransitionSnapshot(
+                    state.StableSnapshot,
+                    vm,
+                    state.DisplayProgress,
+                    showBoundaries: false);
+            state.DisplayedSnapshot = visibleBackground;
+            canvas.Background = visibleBackground?.Brush ?? state.OriginalBackground;
+            state.CompletionFallback = CaptureComposite(canvas, vm, visibleBackground)
+                ?? visibleBackground
                 ?? state.StableSnapshot;
             state.Rendering = true;
             state.CompletionPending = true;
@@ -466,11 +483,43 @@ internal static class WaveformSnapshot
 
             var state = States.GetOrCreateValue(view);
             var canvas = WaveCanvas(view);
-            StopTimer(state);
             state.Rendering = false;
             state.CompletionPending = false;
             state.CompletionFallback = null;
             state.DisplayProgress = default;
+            state.PendingProgress = default;
+            state.HasPendingProgress = false;
+            ApplyCurrentBackground(state, canvas, vm);
+        }
+        catch
+        {
+        }
+    }
+
+    public static void WaveformDrawingCompleted(UIRenderedWave wave)
+    {
+        try
+        {
+            if (WaveCanvas == null || wave.MusicalEditorVM is not { } vm
+                || !Views.TryGetValue(vm, out var viewReference)
+                || viewReference.View == null
+                || !viewReference.View.TryGetTarget(out var view)
+                || !ReferenceEquals(view.DataContext, vm)
+                || !IsEnabled(vm))
+                return;
+
+            var state = States.GetOrCreateValue(view);
+            if (!state.Rendering || state.CompletionPending || !state.HasPendingProgress
+                || state.Part == null || !state.Part.Equals(vm.ActivePart))
+                return;
+
+            var canvas = WaveCanvas(view);
+            if (!canvas.Children.Contains(wave))
+                return;
+
+            state.DisplayProgress = state.PendingProgress;
+            state.PendingProgress = default;
+            state.HasPendingProgress = false;
             ApplyCurrentBackground(state, canvas, vm);
         }
         catch
@@ -522,68 +571,6 @@ internal static class WaveformSnapshot
         }
     }
 
-    private static void StartProgressAnimation(
-        PianorollView view,
-        ViewState state,
-        RenderProgress target)
-    {
-        state.AnimationFrom = state.DisplayProgress;
-        state.AnimationTarget = target;
-        state.AnimationStart = Stopwatch.GetTimestamp();
-
-        if (state.Timer == null)
-        {
-            var weakView = new WeakReference<PianorollView>(view);
-            var timer = new DispatcherTimer(DispatcherPriority.Render, view.Dispatcher)
-            {
-                Interval = TimeSpan.FromMilliseconds(16.0)
-            };
-            timer.Tick += (_, _) =>
-            {
-                if (!weakView.TryGetTarget(out var targetView))
-                {
-                    timer.Stop();
-                    return;
-                }
-
-                AnimateProgress(targetView, state);
-            };
-            state.Timer = timer;
-        }
-
-        state.Timer.Start();
-    }
-
-    private static void AnimateProgress(PianorollView view, ViewState state)
-    {
-        try
-        {
-            if (WaveCanvas == null || !state.Rendering || state.CompletionPending
-                || view.DataContext is not MusicalEditorViewModel vm
-                || !IsEnabled(vm) || state.Part == null || !state.Part.Equals(vm.ActivePart))
-            {
-                StopTimer(state);
-                return;
-            }
-
-            double elapsed = (Stopwatch.GetTimestamp() - state.AnimationStart)
-                / (double)Stopwatch.Frequency;
-            double amount = Math.Clamp(elapsed / SweepDurationSeconds, 0.0, 1.0);
-            state.DisplayProgress = RenderProgress.Lerp(
-                state.AnimationFrom,
-                state.AnimationTarget,
-                amount);
-            ApplyCurrentBackground(state, WaveCanvas(view), vm);
-
-            if (amount >= 1.0)
-                StopTimer(state);
-        }
-        catch
-        {
-            StopTimer(state);
-        }
-    }
-
     private static void TryFinalizeCompletedWaveform(
         PianorollView view,
         ViewState state,
@@ -606,6 +593,8 @@ internal static class WaveformSnapshot
         state.Rendering = false;
         state.CompletionPending = false;
         state.DisplayProgress = default;
+        state.PendingProgress = default;
+        state.HasPendingProgress = false;
         canvas.Background = replacement.Brush ?? state.OriginalBackground;
         ScheduleStableBackgroundHide(view, state, canvas);
     }
@@ -656,7 +645,11 @@ internal static class WaveformSnapshot
         }
         else if (state.Rendering && state.StableSnapshot != null)
         {
-            display = CreateTransitionSnapshot(state.StableSnapshot, vm, state.DisplayProgress);
+            display = CreateTransitionSnapshot(
+                state.StableSnapshot,
+                vm,
+                state.DisplayProgress,
+                showBoundaries: true);
         }
         else
         {
@@ -785,7 +778,8 @@ internal static class WaveformSnapshot
     private static SnapshotData CreateTransitionSnapshot(
         SnapshotData stable,
         MusicalEditorViewModel vm,
-        RenderProgress progress)
+        RenderProgress progress,
+        bool showBoundaries)
     {
         if (stable.Drawing == null || vm.ActivePart == null)
             return stable;
@@ -805,26 +799,28 @@ internal static class WaveformSnapshot
             root.Children.Add(remaining);
         }
 
-        double partRight = vm.CalcTickToViewPosition(vm.ActivePart.AbsEndTick);
-        foreach (var range in ranges)
+        if (showBoundaries)
         {
-            if (range.Right >= partRight - 0.5)
-                continue;
-
-            double left = Math.Max(range.Left, range.Right - SweepWidth);
-            if (range.Right - left <= 0.5)
-                continue;
-
-            var sweep = new DrawingGroup
+            Rect waveformBounds = stable.Drawing.Bounds;
+            double markerTop = Math.Max(stable.Mapping.Top, waveformBounds.Top);
+            double markerBottom = Math.Min(stable.Mapping.Bottom, waveformBounds.Bottom);
+            double partRight = vm.CalcTickToViewPosition(vm.ActivePart.AbsEndTick);
+            if (double.IsFinite(markerTop) && double.IsFinite(markerBottom)
+                && markerBottom - markerTop > 0.5)
             {
-                Opacity = SweepOpacity,
-                ClipGeometry = CreateFrozenRectangle(
-                    new Rect(left, stable.Mapping.Top, range.Right - left, stable.Mapping.Height))
-            };
-            sweep.Children.Add(stable.Drawing);
-            if (sweep.CanFreeze)
-                sweep.Freeze();
-            root.Children.Add(sweep);
+                foreach (var range in ranges)
+                {
+                    if (range.Right >= partRight - 0.5)
+                        continue;
+
+                    root.Children.Add(new GeometryDrawing(
+                        null,
+                        RenderBoundaryPen,
+                        new LineGeometry(
+                            new Point(range.Right, markerTop),
+                            new Point(range.Right, markerBottom))));
+                }
+            }
         }
 
         if (root.CanFreeze)
@@ -844,15 +840,11 @@ internal static class WaveformSnapshot
             return new List<HorizontalRange>();
 
         var ranges = new List<HorizontalRange>(2);
-        if (progress.BlockRenderingEnabled)
-        {
-            AddPercentRange(ranges, partLeft, partRight, 0.0, progress.FirstEnd);
-            AddPercentRange(ranges, partLeft, partRight, progress.SecondBegin, progress.SecondEnd);
-        }
-        else
-        {
-            AddPercentRange(ranges, partLeft, partRight, 0.0, progress.SecondEnd);
-        }
+        if (!progress.BlockRenderingEnabled)
+            return ranges;
+
+        AddPercentRange(ranges, partLeft, partRight, 0.0, progress.FirstEnd);
+        AddPercentRange(ranges, partLeft, partRight, progress.SecondBegin, progress.SecondEnd);
 
         if (ranges.Count == 0)
             return ranges;
@@ -936,6 +928,18 @@ internal static class WaveformSnapshot
         return geometry;
     }
 
+    private static Pen CreateRenderBoundaryPen()
+    {
+        var brush = new SolidColorBrush(Color.FromArgb(192, 135, 206, 250));
+        if (brush.CanFreeze)
+            brush.Freeze();
+
+        var pen = new Pen(brush, 1.0);
+        if (pen.CanFreeze)
+            pen.Freeze();
+        return pen;
+    }
+
     private static DrawingBrush CreateBrush(Drawing drawing, Rect mapping)
     {
         var brush = new DrawingBrush(drawing)
@@ -959,6 +963,11 @@ internal static class WaveformSnapshot
         return Settings.SvEditorStyle && Settings.AlwaysShowWaveform && vm?.ActivePart != null;
     }
 
+    private static void RememberView(PianorollView view, MusicalEditorViewModel vm)
+    {
+        Views.GetOrCreateValue(vm).View = new WeakReference<PianorollView>(view);
+    }
+
     private static void SynchronizePart(ViewState state, FastCanvas canvas, WIVSMMidiPart part)
     {
         if (state.Part != null && !state.Part.Equals(part))
@@ -975,9 +984,25 @@ internal static class WaveformSnapshot
         state.OriginalBackgroundCaptured = true;
     }
 
+    private static void ClearEmptyPart(
+        ViewState state,
+        FastCanvas canvas,
+        MusicalEditorViewModel vm,
+        WIVSMMidiPart part)
+    {
+        bool invalidateCache = !state.EmptyPart || state.Part == null || !state.Part.Equals(part);
+        Reset(state, canvas);
+        state.Part = part;
+        state.EmptyPart = true;
+        canvas.ClearElement();
+        WaveformSvState.Clear();
+
+        if (invalidateCache)
+            RenderedWaveCachePatch.InvalidatePart(vm, part);
+    }
+
     private static void Reset(ViewState state, FastCanvas canvas)
     {
-        StopTimer(state);
         if (state.OriginalBackgroundCaptured)
             canvas.Background = state.OriginalBackground;
 
@@ -988,13 +1013,11 @@ internal static class WaveformSnapshot
         state.Rendering = false;
         state.CompletionPending = false;
         state.DisplayProgress = default;
+        state.PendingProgress = default;
+        state.HasPendingProgress = false;
         state.ZoomRedraw = false;
         state.BackgroundHideRequest++;
-    }
-
-    private static void StopTimer(ViewState state)
-    {
-        state.Timer?.Stop();
+        state.EmptyPart = false;
     }
 
     private static AccessTools.FieldRef<PianorollView, FastCanvas>? CreateWaveCanvasRef()

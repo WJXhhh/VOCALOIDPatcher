@@ -15,6 +15,13 @@ internal static class VsqxPhonemeGenerator
         if (VsqxPhonemeMaps.LegatoChars.Contains(lyric))
             return (lyric, "-");
 
+        if (Settings.ExtendedChinesePinyin
+            && ChinesePinyinPhonemeConverter.TryConvertSequence(lyric, out var specialSyllables, out _)
+            && ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(specialSyllables))
+        {
+            return (lyric, string.Join(" ", specialSyllables.Select(syllable => syllable.Phonemes)));
+        }
+
         switch (language)
         {
             case VocaloidLanguage.SimplifiedChinese:

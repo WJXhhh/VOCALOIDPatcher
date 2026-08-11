@@ -13,6 +13,8 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 $root            = Split-Path -Parent $PSScriptRoot
 $proj            = Join-Path $root 'VOCALOIDPatcher\VOCALOIDPatcher.csproj'
+$mcpProj         = Join-Path $root 'VOCALOIDPatcher.McpServer\VOCALOIDPatcher.McpServer.csproj'
+$mcpPublishDir   = Join-Path $root 'VOCALOIDPatcher.McpServer\bin\Release\publish\win-x64'
 $patcherCs       = Join-Path $root 'VOCALOIDPatcher\VOCALOIDPatcher\Patcher.cs'
 $translationsDir = Join-Path $root 'translations'
 $hardcodedMap    = Join-Path $root 'HardcodedPropertyMap.xml'
@@ -55,6 +57,10 @@ function Resolve-ReadmeText {
 function Warn-IfStale([string]$mergedDll) {
     $sources = @()
     $sources += Get-ChildItem $srcDir -Recurse -File -Filter *.cs -ErrorAction SilentlyContinue
+    $sources += Get-ChildItem (Join-Path $root 'VOCALOIDPatcher.McpBridge') -Recurse -File -Filter *.cs -ErrorAction SilentlyContinue |
+        Where-Object FullName -NotMatch '[\\/](bin|obj)[\\/]'
+    $sources += Get-ChildItem (Join-Path $root 'VOCALOIDPatcher.McpServer') -Recurse -File -Filter *.cs -ErrorAction SilentlyContinue |
+        Where-Object FullName -NotMatch '[\\/](bin|obj)[\\/]'
     $sources += Get-ChildItem $nativeSrcDir -Recurse -File -Filter *.rs -ErrorAction SilentlyContinue
     if (Test-Path (Join-Path $nativeSrcDir 'Cargo.toml')) {
         $sources += Get-Item (Join-Path $nativeSrcDir 'Cargo.toml')
@@ -103,6 +109,13 @@ if ($Build) {
     if ($LASTEXITCODE -ne 0) {
         throw "构建失败。若 VOCALOID6 编辑器正在运行会锁定输出 DLL，请先关闭再试。"
     }
+    Write-Host "正在发布 MCP Companion (self-contained win-x64 single-file)..." -ForegroundColor Cyan
+    & dotnet publish $mcpProj -c Release -f net8.0 -r win-x64 --self-contained true `
+        -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true `
+        -p:PublishTrimmed=false -o $mcpPublishDir
+    if ($LASTEXITCODE -ne 0) {
+        throw "MCP Companion 发布失败。"
+    }
 }
 
 Write-Host "版本: $Version" -ForegroundColor Green
@@ -116,6 +129,7 @@ foreach ($t in $targets) {
     $tfmDir    = Join-Path $root "VOCALOIDPatcher\bin\Release\$($t.Dir)"
     $mergedDll = Join-Path $tfmDir 'out\Microsoft.Xaml.Behaviors.dll'
     $nativeDll = Join-Path $tfmDir 'VOCALOIDPatcher\native\v6patch_clock.dll'
+    $mcpExe     = Join-Path $mcpPublishDir 'VOCALOIDPatcher.McpServer.exe'
 
     if (-not (Test-Path $mergedDll)) {
         Write-Warning "[$($t.Key)] 找不到合并 DLL: $mergedDll —— 跳过 (请先以 Release 构建，或加 -Build)。"
@@ -124,12 +138,16 @@ foreach ($t in $targets) {
     if (-not (Test-Path $nativeDll)) {
         throw "[$($t.Key)] 找不到 Rust 播放时钟: $nativeDll —— 请安装 Rust 工具链并重新构建 Release。"
     }
+    if (-not (Test-Path $mcpExe)) {
+        throw "[$($t.Key)] 找不到 MCP Companion: $mcpExe —— 请加 -Build，或先执行 self-contained win-x64 发布。"
+    }
 
     Warn-IfStale $mergedDll
 
     $entries = @(
         @{ Source = $mergedDll;    Entry = 'Microsoft.Xaml.Behaviors.dll' },
         @{ Source = $nativeDll;    Entry = 'VOCALOIDPatcher/native/v6patch_clock.dll' },
+        @{ Source = $mcpExe;       Entry = 'VOCALOIDPatcher/mcp/VOCALOIDPatcher.McpServer.exe' },
         @{ Source = $readmeTmp;    Entry = $readmeName },
         @{ Source = $thirdParty;   Entry = 'THIRD-PARTY-NOTICES.txt' },
         @{ Source = $hardcodedMap; Entry = 'VOCALOIDPatcher/HardcodedPropertyMap.xml' }

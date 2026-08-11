@@ -13,6 +13,29 @@
   <data name="VOCALOIDPatcher_Settings_Category_Pianoroll" xml:space="preserve"><value>鋼琴窗</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Other" xml:space="preserve"><value>其它</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Widgets" xml:space="preserve"><value>小工具</value></data>
+  <data name="VOCALOIDPatcher_Settings_Category_Mcp" xml:space="preserve"><value>MCP</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Enabled_Header" xml:space="preserve"><value>啟用本機 MCP 控制</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Enabled_Desc" xml:space="preserve"><value>允許目前 Windows 使用者下執行的 MCP 用戶端透過 Companion 連線。預設關閉。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Http_Header" xml:space="preserve"><value>啟用 Streamable HTTP Companion</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Http_Desc" xml:space="preserve"><value>僅監聽 127.0.0.1，並要求使用隨機 Bearer Token。不啟用此項也可使用 stdio。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Port_Header" xml:space="preserve"><value>HTTP 連接埠</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Running" xml:space="preserve"><value>橋接服務執行中 · 執行個體 {0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Stopped" xml:space="preserve"><value>橋接服務已停止</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Http" xml:space="preserve"><value>HTTP 端點：{0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_Status_Clients" xml:space="preserve"><value>已連線用戶端：{0}</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AllowedDirectories_Header" xml:space="preserve"><value>允許存取的檔案目錄</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AllowedDirectories_Empty" xml:space="preserve"><value>沒有額外目錄；目前專案所在目錄一律允許存取。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_AddDirectory" xml:space="preserve"><value>新增目錄</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ClearDirectories" xml:space="preserve"><value>清空清單</value></data>
+  <data name="VOCALOIDPatcher_Mcp_CopyStdio" xml:space="preserve"><value>複製 stdio 設定</value></data>
+  <data name="VOCALOIDPatcher_Mcp_CopyHttp" xml:space="preserve"><value>複製 HTTP 設定</value></data>
+  <data name="VOCALOIDPatcher_Mcp_RotateToken" xml:space="preserve"><value>輪替 Token</value></data>
+  <data name="VOCALOIDPatcher_Mcp_RevokeWrite" xml:space="preserve"><value>撤銷寫入權限</value></data>
+  <data name="VOCALOIDPatcher_Mcp_TokenRotated" xml:space="preserve"><value>HTTP Token 已輪替，請為已連線的用戶端更新設定。</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmationTitle" xml:space="preserve"><value>VOCALOID MCP 權限</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmWrite" xml:space="preserve"><value>{0} {1} 正透過 {2} 請求專案寫入權限。&#10;&#10;請求操作：{3}&#10;&#10;是否允許至本次 VOCALOID 結束？</value></data>
+  <data name="VOCALOIDPatcher_Mcp_ConfirmDangerousWrite" xml:space="preserve"><value>{0} {1} 正透過 {2} 請求執行刪除或覆寫操作。&#10;&#10;請求操作：{3}&#10;&#10;是否允許本次操作？</value></data>
+  <data name="VOCALOIDPatcher_Mcp_SaveDirtyProject" xml:space="preserve"><value>目前專案有未儲存的變更。替換專案前是否儲存？選擇「否」將捨棄變更，選擇「取消」將保留目前專案。</value></data>
   <data name="VOCALOIDPatcher_SpectrumVisualizer_Header" xml:space="preserve"><value>頻譜視覺化</value></data>
   <data name="VOCALOIDPatcher_SpectrumVisualizer_Hint" xml:space="preserve"><value>使用 ASIO 時將不會正常運作</value></data>
   <data name="VOCALOIDPatcher_ShowOtherTracksNotes_Header" xml:space="preserve"><value>顯示其他軌道的音符</value></data>
@@ -25,6 +48,7 @@
   <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL：呼吸音量</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_NoActivePart" xml:space="preserve"><value>請選擇一個演唱 Part 以編輯其中的自動呼吸。</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_NoBreaths" xml:space="preserve"><value>此 Part 的算繪結果中沒有可辨識的自動呼吸標記。</value></data>
+  <data name="VOCALOIDPatcher_BreathVolume_Loading" xml:space="preserve"><value>正在讀取已算繪的自動呼吸…</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_Reset" xml:space="preserve"><value>重設為 127</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_SaveFailed" xml:space="preserve"><value>呼吸音量資料儲存失敗。工程仍保持為已修改狀態，請重試儲存或選擇其他位置。</value></data>
   <data name="VOCALOIDPatcher_Debug_BreathVolume_ScoreFailed" xml:space="preserve"><value>讀取呼吸標記失敗：{0}</value></data>
@@ -54,7 +78,7 @@
   <data name="VOCALOIDPatcher_AutoPinyin_Header" xml:space="preserve"><value>匯入時自動將中文歌詞轉換為拼音</value></data>
   <data name="VOCALOIDPatcher_AutoPinyin_Desc" xml:space="preserve"><value>自動識別中文歌詞軌道，結合詞組上下文處理多音字，並保留來源工程中的有效拼音。</value></data>
   <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Header" xml:space="preserve"><value>擴充中文拼音支援</value></data>
-  <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Desc" xml:space="preserve"><value>允許在編輯器和工程匯入中自由組合中文聲母與韻母、單獨使用音素，並忽略 Asp 和 Sil 的大小寫。</value></data>
+  <data name="VOCALOIDPatcher_ExtendedChinesePinyin_Desc" xml:space="preserve"><value>允許在編輯器和工程匯入中自由組合中文聲母與韻母、單獨使用音素，並在所有語言中忽略 Asp 和 Sil 的大小寫。</value></data>
   <data name="VOCALOIDPatcher_Minutes_Suffix" xml:space="preserve"><value>分鐘</value></data>
   <data name="VOCALOIDPatcher_Settings_Category_Performance" xml:space="preserve"><value>效能</value></data>
   <data name="VOCALOIDPatcher_FastProjectLoad_Header" xml:space="preserve"><value>加快工程載入</value></data>

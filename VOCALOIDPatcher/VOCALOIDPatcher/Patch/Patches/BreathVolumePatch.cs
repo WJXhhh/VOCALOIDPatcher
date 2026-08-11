@@ -61,6 +61,8 @@ internal static class BreathVolumeUi
     {
         if (!Settings.IndividualBreathVolume)
             BreathVolumeService.DisableAndCleanup();
+        else
+            BreathVolumeService.InitializeDiagnostics();
 
         RefreshHeaders(synchronize: true);
         if (Application.Current?.MainWindow?.DataContext is MainViewModel mainVm && mainVm.MusicalEditorVM is { } vm)
@@ -320,7 +322,8 @@ public sealed class BreathVolumeParameterViewUpdatePatch : PatchBase
 
             if (selectingBvl || typeFlags is ParameterUpdateViewTypeFlag.ActivePartChanged or ParameterUpdateViewTypeFlag.ActiveTrackChanged)
                 BreathVolumeService.ClearSelection();
-            BreathVolumeUi.UpdateView(__instance);
+            if (selectingBvl || ShouldRefreshOverlay(typeFlags))
+                BreathVolumeUi.UpdateView(__instance);
             return typeFlags is ParameterUpdateViewTypeFlag.SongPositionChanged or ParameterUpdateViewTypeFlag.ShowMusicalEditor;
         }
         catch (Exception e)
@@ -329,6 +332,21 @@ public sealed class BreathVolumeParameterViewUpdatePatch : PatchBase
             return true;
         }
     }
+
+    private static bool ShouldRefreshOverlay(ParameterUpdateViewTypeFlag typeFlags)
+        => typeFlags is ParameterUpdateViewTypeFlag.SequenceChanged
+            or ParameterUpdateViewTypeFlag.ActiveTrackChanged
+            or ParameterUpdateViewTypeFlag.ActivePartChanged
+            or ParameterUpdateViewTypeFlag.ShowMusicalEditor
+            or ParameterUpdateViewTypeFlag.HorizontalZoomed
+            or ParameterUpdateViewTypeFlag.VerticalZoomed
+            or ParameterUpdateViewTypeFlag.Scrolled
+            or ParameterUpdateViewTypeFlag.DisplayControlParameterChanged
+            or ParameterUpdateViewTypeFlag.ControlParameterAreaSizeChanged
+            or ParameterUpdateViewTypeFlag.OpenParameterView
+            or ParameterUpdateViewTypeFlag.TimeSigSectionInfosChanged
+            or ParameterUpdateViewTypeFlag.TempoSectionInfosChanged
+            or ParameterUpdateViewTypeFlag.MeasureOffsetChanged;
 }
 
 public sealed class BreathVolumeMinimumPatch : PatchBase
@@ -625,10 +643,7 @@ public sealed class BreathVolumeDuplicatePartPatch : PatchBase
         BreathVolumeService.CopyPartValues(midiPart, __result);
         var sequence = App.Shared?.Document?.Sequence?.VSMSequence;
         if (sequence != null && __result != null && __result.HasValidRenderedWave)
-        {
-            BreathVolumeService.RefreshRegions(sequence, __result);
-            BreathVolumeService.RequestRebuild(sequence, __result);
-        }
+            BreathVolumeService.RefreshRegionsAsync(sequence, __result, rebuildAfterRefresh: true);
     }
 }
 

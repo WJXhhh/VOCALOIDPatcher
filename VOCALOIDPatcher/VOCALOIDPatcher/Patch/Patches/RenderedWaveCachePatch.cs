@@ -230,6 +230,37 @@ public class RenderedWaveCachePatch : PatchBase
         {
         }
     }
+
+    internal static void InvalidateAndRefreshPart(WIVSMMidiPart part)
+    {
+        if (Application.Current == null || part == null)
+            return;
+
+        void Apply()
+        {
+            try
+            {
+                foreach (Window window in Application.Current.Windows)
+                {
+                    foreach (var view in ShowOtherTracksNotesPatch.FindVisualChildren<PianorollView>(window))
+                    {
+                        if (view.DataContext is MusicalEditorViewModel vm)
+                            InvalidatePart(vm, part);
+                    }
+                }
+
+                RefreshWaveCanvases();
+            }
+            catch
+            {
+            }
+        }
+
+        if (Application.Current.Dispatcher.CheckAccess())
+            Apply();
+        else
+            Application.Current.Dispatcher.BeginInvoke((Action)Apply, DispatcherPriority.Background);
+    }
 }
 
 public class RenderedWaveCacheClearPatch : PatchBase
