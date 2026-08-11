@@ -18,21 +18,26 @@ namespace VOCALOIDPatcher.BreathVolume;
 
 internal sealed class BreathVolumeOverlay
 {
-    private static readonly Brush BackgroundBrush = Freeze(new SolidColorBrush(Color.FromRgb(35, 35, 38)));
-    private static readonly Brush BarBrush = Freeze(new SolidColorBrush(Color.FromRgb(104, 185, 230)));
-    private static readonly Brush SelectedBarBrush = Freeze(new SolidColorBrush(Color.FromRgb(255, 184, 76)));
-    private static readonly Brush GridBrush = Freeze(new SolidColorBrush(Color.FromArgb(100, 120, 120, 125)));
+    private static readonly Brush FallbackBarBrush = Freeze(new SolidColorBrush(Color.FromRgb(104, 185, 230)));
+    private static readonly Brush FallbackSelectedBarBrush = Freeze(new SolidColorBrush(Color.FromRgb(255, 184, 76)));
+    private static readonly Brush FallbackGridBrush = Freeze(new SolidColorBrush(Color.FromArgb(150, 110, 110, 115)));
+    private static readonly Brush FallbackQuantizeBrush = Freeze(new SolidColorBrush(Color.FromArgb(90, 90, 90, 95)));
     private static readonly Brush TextBrush = Freeze(new SolidColorBrush(Color.FromRgb(190, 190, 195)));
     private static readonly Brush SelectionBrush = Freeze(new SolidColorBrush(Color.FromArgb(70, 90, 170, 240)));
 
     private readonly ParameterView _view;
     private readonly Canvas _canvas;
     private readonly ScaleTransform _scale = new(1.0, 1.0);
+    private readonly BreathVolumeGridLayer _gridLayer = new();
     private readonly Rectangle _selectionRectangle;
     private readonly Line _linePreview;
+    private readonly TextBox _valueEditor;
+    private readonly FrameworkElement? _nativeParameterCanvas;
+    private readonly Label? _nativeToolTip;
+    private readonly Label? _nativeCursorGuide;
     private Dictionary<IntPtr, byte>? _gestureBefore;
     private Point _gestureStart;
-    private double _previousPaintX;
+    private Point _previousPaintPoint;
     private IntPtr _selectionAnchor;
     private GestureKind _gesture;
     private int _refreshPending;
@@ -40,19 +45,26 @@ internal sealed class BreathVolumeOverlay
     private bool _lastLoggedActive;
     private BreathRegionStatus _lastLoggedStatus = (BreathRegionStatus)(-1);
     private int _lastLoggedRegionCount = -1;
+    private bool _cancelValueEdit;
 
     private BreathVolumeOverlay(ParameterView view, Grid panel)
     {
         _view = view;
         _canvas = new Canvas
         {
-            Background = BackgroundBrush,
+            Background = Brushes.Transparent,
             ClipToBounds = true,
             Visibility = Visibility.Collapsed,
             Focusable = true,
             RenderTransform = _scale,
             RenderTransformOrigin = new Point(0, 0)
         };
+        _nativeParameterCanvas = AccessTools.Field(typeof(ParameterView), "xUIControlParameters")
+            ?.GetValue(view) as FrameworkElement;
+        _nativeToolTip = AccessTools.Field(typeof(ParameterView), "xToolTip")
+            ?.GetValue(view) as Label;
+        _nativeCursorGuide = AccessTools.Field(typeof(ParameterView), "xMouseCursorGuide")
+            ?.GetValue(view) as Label;
         Panel.SetZIndex(_canvas, 1000);
         panel.Children.Add(_canvas);
 
@@ -71,11 +83,25 @@ internal sealed class BreathVolumeOverlay
             Visibility = Visibility.Collapsed,
             IsHitTestVisible = false
         };
+        _valueEditor = new TextBox
+        {
+            Width = 45,
+            Height = 22,
+            MaxLength = 3,
+            Background = Brushes.White,
+            Foreground = Brushes.Black,
+            FontSize = 12,
+            Visibility = Visibility.Collapsed
+        };
+        _valueEditor.PreviewKeyDown += OnValueEditorKeyDown;
+        _valueEditor.LostKeyboardFocus += (_, _) => EndValueEdit(commit: !_cancelValueEdit);
 
         _canvas.MouseLeftButtonDown += OnMouseLeftButtonDown;
         _canvas.MouseMove += OnMouseMove;
         _canvas.MouseLeftButtonUp += OnMouseLeftButtonUp;
         _canvas.MouseRightButtonDown += OnMouseRightButtonDown;
+        _canvas.MouseLeave += OnMouseLeave;
+        _canvas.LostMouseCapture += OnLostMouseCapture;
         _canvas.SizeChanged += (_, _) => Refresh();
         _view.DataContextChanged += (_, _) => Refresh();
         BreathVolumeService.Changed += OnServiceChanged;
@@ -147,16 +173,30 @@ internal sealed class BreathVolumeOverlay
         {
             LogOverlayState(active: false, BreathRegionStatus.Unknown, 0, 0);
             _canvas.Visibility = Visibility.Collapsed;
+            if (_nativeParameterCanvas != null)
+                _nativeParameterCanvas.Visibility = Visibility.Visible;
+            HideNativeGuides();
             return;
         }
 
         _canvas.Visibility = Visibility.Visible;
+        if (_nativeParameterCanvas != null)
+            _nativeParameterCanvas.Visibility = Visibility.Collapsed;
         _canvas.Width = Math.Max(vm.SongWidth, _view.ActualWidth);
         _canvas.Height = Math.Max(1, vm.ViewHeight);
         _scale.ScaleX = vm.ViewCanvasHorizontalZoom == 0 ? 1.0 : vm.ViewCanvasHorizontalZoom;
         _canvas.Children.Clear();
 
-        DrawGrid(vm);
+        _gridLayer.Width = _canvas.Width;
+        _gridLayer.Height = _canvas.Height;
+        _gridLayer.Update(
+            vm,
+            vm.VSMSequence,
+            FindNativeBrush("Brush_MeasureLine", FallbackGridBrush),
+            FindNativeBrush("Brush_BeatLine", FallbackGridBrush),
+            FindNativeBrush("Brush_GridLine", FallbackQuantizeBrush));
+        _canvas.Children.Add(_gridLayer);
+
         var part = vm.ActivePart;
         var sequence = vm.VSMSequence;
         if (part == null || sequence == null)
@@ -195,32 +235,18 @@ internal sealed class BreathVolumeOverlay
         }
         foreach (var region in regions)
         {
-            var x1 = vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick);
-            var x2 = vm.CalcTickToViewPosition((VSMAbsTick)region.EndTick);
-            if (x2 <= 0 && notePositions.TryGetValue(region.NoteHandle, out var noteX))
-            {
-                x1 = Math.Max(0, noteX);
-                x2 = x1 + 5;
-            }
-            else
-            {
-                x1 = Math.Max(0, x1);
-            }
-            var width = Math.Max(5.0, x2 - x1);
+            var x = GetBarX(vm, region, notePositions);
             var value = BreathVolumeService.GetValue(region.NoteHandle);
             var top = ValueToY(value, height);
             var selected = BreathVolumeService.IsSelected(region.NoteHandle);
             var bar = new Rectangle
             {
-                Width = width,
-                Height = Math.Max(2, height - top),
+                Width = NativeBarWidth + (selected ? NativeSelectedAddWidth : 0),
+                Height = Math.Max(1, ValueBottom(height) - top),
                 Fill = selected ? SelectedBarBrush : BarBrush,
-                Stroke = selected ? Brushes.White : Brushes.Transparent,
-                StrokeThickness = selected ? 1 : 0,
                 Tag = region,
-                ToolTip = $"BVL {value}"
             };
-            Canvas.SetLeft(bar, x1);
+            Canvas.SetLeft(bar, x);
             Canvas.SetTop(bar, top);
             _canvas.Children.Add(bar);
         }
@@ -252,26 +278,10 @@ internal sealed class BreathVolumeOverlay
         _gestureBefore = null;
         _canvas.ReleaseMouseCapture();
         _canvas.Visibility = Visibility.Collapsed;
-    }
-
-    private void DrawGrid(MusicalEditorViewModel vm)
-    {
-        var height = Math.Max(1, vm.ViewHeight);
-        foreach (var value in new[] { 0, 32, 64, 96, 127 })
-        {
-            var y = ValueToY(value, height);
-            var line = new Line
-            {
-                X1 = 0,
-                X2 = _canvas.Width,
-                Y1 = y,
-                Y2 = y,
-                Stroke = GridBrush,
-                StrokeThickness = value is 0 or 127 ? 1 : 0.5,
-                IsHitTestVisible = false
-            };
-            _canvas.Children.Add(line);
-        }
+        if (_nativeParameterCanvas != null)
+            _nativeParameterCanvas.Visibility = Visibility.Visible;
+        HideNativeGuides();
+        _valueEditor.Visibility = Visibility.Collapsed;
     }
 
     private void DrawEmptyState(string key, MusicalEditorViewModel vm)
@@ -294,6 +304,7 @@ internal sealed class BreathVolumeOverlay
     {
         _canvas.Children.Add(_selectionRectangle);
         _canvas.Children.Add(_linePreview);
+        _canvas.Children.Add(_valueEditor);
     }
 
     private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -303,13 +314,19 @@ internal sealed class BreathVolumeOverlay
 
         _canvas.Focus();
         _gestureStart = e.GetPosition(_canvas);
-        _previousPaintX = _gestureStart.X;
+        _previousPaintPoint = _gestureStart;
         var region = FindRegion(e.OriginalSource);
         var mode = vm.EditorMode.Mode;
 
         if (mode == EditModeME.Arrow && region.HasValue)
         {
             SelectClickedRegion(part, region.Value, Keyboard.Modifiers);
+            if (e.ClickCount == 2)
+            {
+                BeginValueEdit(region.Value, _gestureStart);
+                e.Handled = true;
+                return;
+            }
             var handles = BreathVolumeService.GetSelection();
             _gestureBefore = BreathVolumeService.Snapshot(handles);
             _gesture = GestureKind.Move;
@@ -327,7 +344,7 @@ internal sealed class BreathVolumeOverlay
             _gestureBefore = BreathVolumeService.Snapshot(handles);
             _gesture = mode == EditModeME.Line ? GestureKind.Line : GestureKind.Pencil;
             if (_gesture == GestureKind.Pencil)
-                PaintBetween(vm, part, _gestureStart.X, _gestureStart.X, YToValue(_gestureStart.Y, vm.ViewHeight));
+                PaintBetween(vm, part, _gestureStart, _gestureStart);
             else
                 ShowLinePreview(_gestureStart, _gestureStart);
         }
@@ -342,24 +359,37 @@ internal sealed class BreathVolumeOverlay
 
     private void OnMouseMove(object sender, MouseEventArgs e)
     {
-        if (_gesture == GestureKind.None || e.LeftButton != MouseButtonState.Pressed ||
-            !TryGetContext(out var vm, out _, out var part))
+        if (!TryGetContext(out var vm, out _, out var part))
             return;
 
         var point = e.GetPosition(_canvas);
+        if (_gesture == GestureKind.None || e.LeftButton != MouseButtonState.Pressed)
+        {
+            UpdateIdleFeedback(vm, point, FindRegion(e.OriginalSource));
+            return;
+        }
+
         switch (_gesture)
         {
             case GestureKind.Move:
-                BreathVolumeService.SetPreviewValues(
-                    BreathVolumeService.GetSelection(),
-                    YToValue(point.Y, vm.ViewHeight));
+                if (_gestureBefore != null)
+                {
+                    var delta = YToValue(point.Y, vm.ViewHeight) -
+                                YToValue(_gestureStart.Y, vm.ViewHeight);
+                    BreathVolumeService.SetPreviewValues(_gestureBefore.Select(pair =>
+                        new KeyValuePair<IntPtr, byte>(pair.Key,
+                            (byte)Math.Clamp(pair.Value + delta, MinValue, MaxValue))));
+                    ShowNativeGuide(point, Math.Clamp(
+                        YToValue(_gestureStart.Y, vm.ViewHeight) + delta, MinValue, MaxValue));
+                }
                 break;
             case GestureKind.Rectangle:
                 ShowSelectionRectangle(_gestureStart, point);
                 break;
             case GestureKind.Pencil:
-                PaintBetween(vm, part, _previousPaintX, point.X, YToValue(point.Y, vm.ViewHeight));
-                _previousPaintX = point.X;
+                PaintBetween(vm, part, _previousPaintPoint, point);
+                _previousPaintPoint = point;
+                ShowNativeGuide(point, YToValue(point.Y, vm.ViewHeight));
                 break;
             case GestureKind.Line:
                 ShowLinePreview(_gestureStart, point);
@@ -387,6 +417,7 @@ internal sealed class BreathVolumeOverlay
         _selectionRectangle.Visibility = Visibility.Collapsed;
         _linePreview.Visibility = Visibility.Collapsed;
         _canvas.ReleaseMouseCapture();
+        HideNativeGuides();
         Refresh();
         e.Handled = true;
     }
@@ -448,24 +479,27 @@ internal sealed class BreathVolumeOverlay
         var handles = BreathVolumeService.GetRegions(part).Where(region =>
         {
             var x1 = vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick);
-            var x2 = vm.CalcTickToViewPosition((VSMAbsTick)region.EndTick);
+            var x2 = x1 + NativeBarWidth;
             var y = ValueToY(BreathVolumeService.GetValue(region.NoteHandle), vm.ViewHeight);
-            return Math.Max(x1 + 5, x2) >= left && x1 <= right && vm.ViewHeight >= top && y <= bottom;
+            return x2 >= left && x1 <= right && ValueBottom(vm.ViewHeight) >= top && y <= bottom;
         }).Select(region => region.NoteHandle);
         BreathVolumeService.SetSelection(handles, Keyboard.Modifiers.HasFlag(ModifierKeys.Control));
     }
 
-    private static void PaintBetween(MusicalEditorViewModel vm, WIVSMMidiPart part, double x1, double x2, int value)
+    private static void PaintBetween(MusicalEditorViewModel vm, WIVSMMidiPart part, Point start, Point end)
     {
-        var left = Math.Min(x1, x2);
-        var right = Math.Max(x1, x2);
-        var handles = BreathVolumeService.GetRegions(part).Where(region =>
+        var left = Math.Min(start.X, end.X) - NativeBarWidth;
+        var right = Math.Max(start.X, end.X) + NativeBarWidth;
+        var deltaX = end.X - start.X;
+        var values = BreathVolumeService.GetRegions(part).Select(region =>
         {
-            var center = (vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick) +
-                          vm.CalcTickToViewPosition((VSMAbsTick)region.EndTick)) / 2;
-            return center >= left - 3 && center <= right + 3;
-        }).Select(region => region.NoteHandle);
-        BreathVolumeService.SetPreviewValues(handles, value);
+            var x = vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick);
+            var ratio = Math.Abs(deltaX) < 0.001 ? 1.0 : Math.Clamp((x - start.X) / deltaX, 0.0, 1.0);
+            var y = start.Y + (end.Y - start.Y) * ratio;
+            return new { Region = region, X = x, Value = (byte)YToValue(y, vm.ViewHeight) };
+        }).Where(item => item.X >= left && item.X <= right)
+            .ToDictionary(item => item.Region.NoteHandle, item => item.Value);
+        BreathVolumeService.SetPreviewValues(values);
     }
 
     private static void ApplyLine(MusicalEditorViewModel vm, WIVSMMidiPart part, Point start, Point end)
@@ -473,11 +507,10 @@ internal sealed class BreathVolumeOverlay
         var deltaX = end.X - start.X;
         foreach (var region in BreathVolumeService.GetRegions(part))
         {
-            var center = (vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick) +
-                          vm.CalcTickToViewPosition((VSMAbsTick)region.EndTick)) / 2;
-            if (center < Math.Min(start.X, end.X) || center > Math.Max(start.X, end.X))
+            var x = vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick);
+            if (x < Math.Min(start.X, end.X) || x > Math.Max(start.X, end.X))
                 continue;
-            var ratio = Math.Abs(deltaX) < 0.001 ? 0.0 : (center - start.X) / deltaX;
+            var ratio = Math.Abs(deltaX) < 0.001 ? 0.0 : (x - start.X) / deltaX;
             var y = start.Y + (end.Y - start.Y) * ratio;
             BreathVolumeService.SetPreviewValues(new[] { region.NoteHandle }, YToValue(y, vm.ViewHeight));
         }
@@ -547,10 +580,141 @@ internal sealed class BreathVolumeOverlay
     }
 
     private static double ValueToY(int value, double height)
-        => (MaxValue - Math.Clamp(value, MinValue, MaxValue)) / (double)MaxValue * Math.Max(1, height - 2);
+        => ValueBottom(height) - Math.Max(1,
+            Math.Clamp(value, MinValue, MaxValue) / (double)MaxValue * ValueHeight(height));
 
     private static int YToValue(double y, double height)
-        => Math.Clamp((int)Math.Round(MaxValue * (1.0 - y / Math.Max(1, height - 2))), MinValue, MaxValue);
+        => Math.Clamp((int)Math.Round(MaxValue * (1.0 - (y - NativeTopOffset) / ValueHeight(height))), MinValue, MaxValue);
+
+    private static double ValueHeight(double height)
+        => Math.Max(1, height - NativeTopOffset - NativeBottomOffset);
+
+    private static double ValueBottom(double height)
+        => NativeTopOffset + ValueHeight(height);
+
+    private static double GetBarX(
+        MusicalEditorViewModel vm,
+        BreathRegion region,
+        IReadOnlyDictionary<IntPtr, double> notePositions)
+    {
+        var x = vm.CalcTickToViewPosition((VSMAbsTick)region.BeginTick);
+        return x <= 0 && notePositions.TryGetValue(region.NoteHandle, out var noteX)
+            ? Math.Max(0, noteX)
+            : Math.Max(0, x);
+    }
+
+    private Brush BarBrush => FindNativeBrush("Brush_Parameter_Normal", FallbackBarBrush);
+
+    private Brush SelectedBarBrush => FindNativeBrush("Brush_Parameter_Selected", FallbackSelectedBarBrush);
+
+    private Brush FindNativeBrush(string key, Brush fallback)
+        => _view.TryFindResource(key) as Brush ?? fallback;
+
+    private void UpdateIdleFeedback(MusicalEditorViewModel vm, Point point, BreathRegion? region)
+    {
+        if (vm.EditorMode.Mode == EditModeME.Arrow)
+        {
+            _canvas.Cursor = region.HasValue ? Cursors.Hand : null;
+            if (region.HasValue)
+                ShowNativeToolTip(point, BreathVolumeService.GetValue(region.Value.NoteHandle));
+            else if (_nativeToolTip != null)
+                _nativeToolTip.Visibility = Visibility.Hidden;
+            return;
+        }
+
+        _canvas.Cursor = _view.Cursor;
+        if (vm.EditorMode.Mode is EditModeME.Pencil or EditModeME.Line)
+            ShowNativeGuide(point, YToValue(point.Y, vm.ViewHeight));
+    }
+
+    private void ShowNativeToolTip(Point point, int value)
+        => ShowNativeLabel(_nativeToolTip, point, value);
+
+    private void ShowNativeGuide(Point point, int value)
+        => ShowNativeLabel(_nativeCursorGuide, point, value);
+
+    private static void ShowNativeLabel(Label? label, Point point, int value)
+    {
+        if (label == null)
+            return;
+        label.Content = value.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        label.Margin = new Thickness(point.X + 14, point.Y + 7, 0, 0);
+        label.Visibility = Visibility.Visible;
+    }
+
+    private void HideNativeGuides()
+    {
+        if (_nativeToolTip != null)
+            _nativeToolTip.Visibility = Visibility.Hidden;
+        if (_nativeCursorGuide != null)
+            _nativeCursorGuide.Visibility = Visibility.Hidden;
+    }
+
+    private void OnMouseLeave(object sender, MouseEventArgs e)
+        => HideNativeGuides();
+
+    private void OnLostMouseCapture(object sender, MouseEventArgs e)
+    {
+        if (_gesture == GestureKind.None)
+            return;
+        _gesture = GestureKind.None;
+        _gestureBefore = null;
+        _selectionRectangle.Visibility = Visibility.Collapsed;
+        _linePreview.Visibility = Visibility.Collapsed;
+        HideNativeGuides();
+        Refresh();
+    }
+
+    private void BeginValueEdit(BreathRegion region, Point point)
+    {
+        _cancelValueEdit = false;
+        _valueEditor.Tag = region.NoteHandle;
+        _valueEditor.Text = BreathVolumeService.GetValue(region.NoteHandle)
+            .ToString(System.Globalization.CultureInfo.InvariantCulture);
+        Canvas.SetLeft(_valueEditor, point.X + 8);
+        Canvas.SetTop(_valueEditor, Math.Max(0, point.Y - _valueEditor.Height / 2));
+        _valueEditor.Visibility = Visibility.Visible;
+        _valueEditor.Dispatcher.BeginInvoke(new Action(() =>
+        {
+            _valueEditor.Focus();
+            _valueEditor.SelectAll();
+        }));
+    }
+
+    private void OnValueEditorKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape)
+        {
+            _cancelValueEdit = true;
+            EndValueEdit(commit: false);
+            e.Handled = true;
+        }
+        else if (e.Key == Key.Enter)
+        {
+            EndValueEdit(commit: true);
+            e.Handled = true;
+        }
+    }
+
+    private void EndValueEdit(bool commit)
+    {
+        if (_valueEditor.Visibility != Visibility.Visible)
+            return;
+
+        var handle = _valueEditor.Tag is IntPtr value ? value : IntPtr.Zero;
+        var text = _valueEditor.Text;
+        _valueEditor.Visibility = Visibility.Collapsed;
+        _valueEditor.Tag = null;
+        if (commit && handle != IntPtr.Zero &&
+            int.TryParse(text, System.Globalization.NumberStyles.Integer,
+                System.Globalization.CultureInfo.InvariantCulture, out var parsed) &&
+            TryGetContext(out _, out var sequence, out var part))
+        {
+            BreathVolumeService.SetValues(sequence, part, new[] { handle }, parsed);
+        }
+        _cancelValueEdit = false;
+        _canvas.Focus();
+    }
 
     private static T Freeze<T>(T freezable) where T : Freezable
     {
@@ -561,6 +725,10 @@ internal sealed class BreathVolumeOverlay
 
     private const int MinValue = BreathVolumeService.MinValue;
     private const int MaxValue = BreathVolumeService.MaxValue;
+    private const double NativeBarWidth = 10.0;
+    private const double NativeSelectedAddWidth = 2.0;
+    private const double NativeTopOffset = 7.0;
+    private const double NativeBottomOffset = 9.0;
 
     private enum GestureKind
     {
@@ -570,4 +738,112 @@ internal sealed class BreathVolumeOverlay
         Pencil,
         Line
     }
+}
+
+internal sealed class BreathVolumeGridLayer : FrameworkElement
+{
+    private MusicalEditorViewModel? _viewModel;
+    private WIVSMSequence? _sequence;
+    private Brush? _measureBrush;
+    private Brush? _beatBrush;
+    private Brush? _quantizeBrush;
+
+    public BreathVolumeGridLayer()
+    {
+        Focusable = false;
+        IsHitTestVisible = false;
+    }
+
+    public void Update(
+        MusicalEditorViewModel viewModel,
+        WIVSMSequence? sequence,
+        Brush measureBrush,
+        Brush beatBrush,
+        Brush quantizeBrush)
+    {
+        _viewModel = viewModel;
+        _sequence = sequence;
+        _measureBrush = measureBrush;
+        _beatBrush = beatBrush;
+        _quantizeBrush = quantizeBrush;
+        InvalidateVisual();
+    }
+
+    protected override void OnRender(DrawingContext drawingContext)
+    {
+        base.OnRender(drawingContext);
+        if (_viewModel is not { ParameterViewer: { } viewer } vm ||
+            _sequence == null || ActualWidth <= 0 || ActualHeight <= 0)
+            return;
+
+        var left = viewer.HorizontalOffset;
+        var right = left + viewer.ViewportWidth;
+        var (beginIndex, endIndex) = _sequence.GetBarIndex(
+            vm.CalcViewPositionToTick(left, QuantizeStrategy.None),
+            vm.CalcViewPositionToTick(right, QuantizeStrategy.None));
+        if (beginIndex < 0 || endIndex < 0)
+            return;
+
+        var mainVm = Application.Current?.MainWindow?.DataContext as MainViewModel;
+        var timeSignature = _sequence.DefaultTimeSigValue;
+        var accumulatedMeasureWidth = 0.0;
+
+        for (var barIndex = beginIndex; barIndex <= endIndex + 1; barIndex++)
+        {
+            var beginTick = _sequence.GetTickFromBar(barIndex);
+            var endTick = _sequence.GetTickFromBar(barIndex + 1);
+            var beginX = beginTick.Value * vm.WidthPerTick;
+            var endX = endTick.Value * vm.WidthPerTick;
+            if (beginX > right + 2 || beginX > ActualWidth)
+                break;
+
+            var current = mainVm?.GetTimeSigBeforePosBar(barIndex);
+            if (current != null)
+                timeSignature = current.Value;
+
+            var measureWidth = Math.Max(0, endX - beginX);
+            var beatWidth = timeSignature.Numer > 0
+                ? measureWidth / timeSignature.Numer
+                : measureWidth;
+
+            if (measureWidth >= MinMeasureSpacing || accumulatedMeasureWidth >= MinMeasureSpacing)
+            {
+                DrawVertical(drawingContext, _measureBrush, beginX, 2);
+                accumulatedMeasureWidth = 0;
+            }
+            else
+            {
+                accumulatedMeasureWidth += measureWidth;
+            }
+
+            if (beatWidth < MinBeatSpacing)
+                continue;
+
+            var quantizeWidth = vm.WidthPerQuantize;
+            if (quantizeWidth >= MinQuantizeSpacing)
+            {
+                for (var x = beginX + quantizeWidth; x < endX - 0.5; x += quantizeWidth)
+                {
+                    var beatNumber = beatWidth <= 0 ? 0 : Math.Round((x - beginX) / beatWidth);
+                    var beatX = beginX + beatNumber * beatWidth;
+                    if (Math.Abs(x - beatX) >= 1)
+                        DrawVertical(drawingContext, _quantizeBrush, x, 1);
+                }
+            }
+
+            for (var beat = 1; beat < timeSignature.Numer; beat++)
+                DrawVertical(drawingContext, _beatBrush, beginX + beat * beatWidth, 2);
+        }
+    }
+
+    private void DrawVertical(DrawingContext drawingContext, Brush? brush, double x, double width)
+    {
+        if (brush == null || x + width < 0 || x > ActualWidth)
+            return;
+        drawingContext.DrawRectangle(brush, null, new Rect(x, 0, width, ActualHeight));
+    }
+
+    private const double MinMeasureSpacing = 50.0;
+    private const double MinBeatSpacing = 25.0;
+    private const double MinQuantizeSpacing = 12.5;
 }

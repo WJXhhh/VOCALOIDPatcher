@@ -318,6 +318,20 @@ internal static class BreathVolumeService
         NotifyChanged(BreathVolumeChangeKind.Display, null);
     }
 
+    public static void SetPreviewValues(IEnumerable<KeyValuePair<IntPtr, byte>> values)
+    {
+        lock (Sync)
+        {
+            foreach (var pair in values)
+            {
+                if (pair.Key != IntPtr.Zero)
+                    SetValueCore(pair.Key, pair.Value);
+            }
+        }
+
+        NotifyChanged(BreathVolumeChangeKind.Display, null);
+    }
+
     public static void CommitValues(
         WIVSMSequence sequence,
         WIVSMMidiPart part,
