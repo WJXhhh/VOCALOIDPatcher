@@ -1018,10 +1018,16 @@ internal static class BreathVolumeService
 
         var state = GetPartState(part);
         var generation = Interlocked.Increment(ref state.RebuildGeneration);
-        _ = Task.Run(() =>
+        _ = Task.Run(async () =>
         {
             try
             {
+                // Parameter edits can arrive much faster than rebuilding a wave file.
+                // Let a short burst settle and discard superseded generations before
+                // they enter the per-part rebuild lock.
+                await Task.Delay(250).ConfigureAwait(false);
+                if (Volatile.Read(ref state.RebuildGeneration) != generation)
+                    return;
                 RebuildNow(sequence, part, generation);
             }
             catch (Exception e)

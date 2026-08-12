@@ -164,6 +164,20 @@ VOCALOIDPatcher/bin/Release/net8.0-windows/VOCALOIDPatcher/native/v6patch_clock.
 - WPF UI 访问须在正确的 Dispatcher/UI 线程上执行。缓存 WPF 画刷、几何等可冻结对象时，沿用 `Freeze()` 做法。
 - 不引入无必要的新 NuGet 依赖；确需引入时，说明用途并同步第三方声明。
 
+## BVL 参数面板
+
+独立呼吸音量（BVL）面板主要实现在 `VOCALOIDPatcher/VOCALOIDPatcher/BreathVolume/BreathVolumeOverlay.cs`，数值、缓存和波形重建生命周期在 `BreathVolumeService.cs`。维护时应以 `E:\Users\Administrator\CLionProjects\v613\VOCALOID6\MusicalEditor\ParameterView.cs` 及其 Behavior 反编译代码为行为依据，不要只凭截图模仿外观。
+
+- BVL 的网格、柱和编辑候选层分别复用 `UIControlParameterGridLine`、`UIControlParameters`、`UINomineeControlParameters`。这些控件应在覆盖 Canvas 中常驻，只更新数据和调用 `InvalidateVisual()`；不要在每次刷新时清空并重挂整棵视觉树。歌曲画布可能宽达数十万像素，反复拆装会在连续操作后阻塞 WPF UI 线程。
+- 播放位置线复用 `ParameterView.pathSongPos` 及原生 `songPosTranslate`。项目的平滑播放头会在 `CompositionTarget.Rendering` 中逐帧更新该变换；不要用低频 `SongPosition` 通知另算一套 BVL 播放线。
+- Pencil、Line 和 Move 的拖动过程只更新候选层，鼠标松开后才一次性写入 BVL 数值并提交历史。Pencil 回拉时要删除被折返覆盖的轨迹点；Pencil/Line 对柱值按音符绝对 tick 在线段间插值，Line 越过 Part 边界时先裁剪端点并保持原斜率。
+- 原生交互包含 Wait→Insert/Move 状态。只按下再松开不应误修改柱值；首次 MouseMove 才建立候选轨迹。拖动期间同步维护 `EditorMode.IsIdleMouseOperation` 和 `HorizontalDragScroll`，Escape 或丢失鼠标捕获必须清理候选层、拖选框和临时状态。
+- 光标和提示沿用 `VocCursors.Pencil`、`VocCursors.LinePencil`、`Cursors.Hand` 和 Alt 拖动的 `VocCursors.Duplicate`。数值提示、双击输入框采用原生 57×17 尺寸与水平 14、垂直 7 像素偏移，并按 `ParameterViewer.ViewportRect()` 翻转或裁剪。
+- 空白 Arrow 单击先进入 SongPositionJump；发生拖动后才切为 RectangleSelect，并使用 `ParameterView.BeginDragRectangle/DragRectangle/EndDragRectangle`。未拖动松开时才跳转歌曲位置，播放或录音期间不跳转。
+- 一次 BVL 提交可能同时产生 Display 和 Values 通知，覆盖层刷新必须合并排队，不能在鼠标松开后再额外同步全量刷新。不要在 `UIControlParameters.OnRender` 等 WPF 热路径上挂全局 Harmony 诊断或生成大字典日志。
+- 同一 Part 的派生波形重建必须去抖并丢弃过期代次。连续编辑不能为每次鼠标操作都排队一个最终会串行执行的完整 WAV 重建；当前 `RequestRebuild` 在进入 Part 重建锁前等待短暂稳定期并核对最新 generation。
+- 截至 2026-08-12，原生播放线、候选轨迹、数值提示、选择生命周期和输入框已按 6.13.0.1 原生代码接入；连续操作卡死已针对视觉树反复重挂、重复刷新和波形重建任务堆积修正，并通过 Debug/Release 构建，尚待用户再次做宿主内连续操作确认。
+
 ## SV 波形样式
 
 SV 编辑器样式的音符波形实现在 `VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/WaveformPatch.cs`：

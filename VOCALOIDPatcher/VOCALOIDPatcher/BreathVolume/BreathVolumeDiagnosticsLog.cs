@@ -42,6 +42,17 @@ internal static class BreathVolumeDiagnosticsLog
         }
     }
 
+    internal static void WriteUiState(string stage, IReadOnlyDictionary<string, object?> data)
+    {
+        try
+        {
+            RuntimeObservationLog.Write("breath.ui", stage, data);
+        }
+        catch
+        {
+        }
+    }
+
     internal static void WriteTraditionalDetection(
         string source,
         IntPtr partHandle,
