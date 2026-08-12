@@ -57,6 +57,12 @@ internal static class BreathVolumeUi
             overlay.Hide();
     }
 
+    public static void MoveSongPosition(ParameterView view)
+    {
+        if (Overlays.TryGetValue(view, out var overlay))
+            overlay.MoveSongPosition();
+    }
+
     public static void RefreshSetting()
     {
         if (!Settings.IndividualBreathVolume)
@@ -343,10 +349,28 @@ public sealed class BreathVolumeParameterViewUpdatePatch : PatchBase
             or ParameterUpdateViewTypeFlag.Scrolled
             or ParameterUpdateViewTypeFlag.DisplayControlParameterChanged
             or ParameterUpdateViewTypeFlag.ControlParameterAreaSizeChanged
+            or ParameterUpdateViewTypeFlag.QuantizeChanged
             or ParameterUpdateViewTypeFlag.OpenParameterView
             or ParameterUpdateViewTypeFlag.TimeSigSectionInfosChanged
             or ParameterUpdateViewTypeFlag.TempoSectionInfosChanged
             or ParameterUpdateViewTypeFlag.MeasureOffsetChanged;
+}
+
+public sealed class BreathVolumeSongPositionPatch : PatchBase
+{
+    public override string PatchName => nameof(BreathVolumeSongPositionPatch);
+    public override Type TargetClass => typeof(ParameterView);
+    public override string TargetMethodName => "SongPositionPropertyChanged";
+
+    [HarmonyPostfix]
+    private static void Postfix(ParameterView __instance)
+    {
+        try { BreathVolumeUi.MoveSongPosition(__instance); }
+        catch (Exception e)
+        {
+            Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message));
+        }
+    }
 }
 
 public sealed class BreathVolumeMinimumPatch : PatchBase

@@ -258,6 +258,7 @@ public static class Patcher
                 new BreathVolumeHeaderInputPatch(),
                 new BreathVolumeParameterViewConstructorPatch(),
                 new BreathVolumeParameterViewUpdatePatch(),
+                new BreathVolumeSongPositionPatch(),
                 new BreathVolumeMinimumPatch(),
                 new BreathVolumeMaximumPatch(),
                 new BreathVolumeDefaultPatch(),
