@@ -168,6 +168,26 @@ VOCALOIDPatcher/bin/Release/net8.0-windows/VOCALOIDPatcher/native/v6patch_clock.
 
 独立呼吸音量（BVL）面板主要实现在 `VOCALOIDPatcher/VOCALOIDPatcher/BreathVolume/BreathVolumeOverlay.cs`，数值、缓存和波形重建生命周期在 `BreathVolumeService.cs`。维护时应以 `E:\Users\Administrator\CLionProjects\v613\VOCALOID6\MusicalEditor\ParameterView.cs` 及其 Behavior 反编译代码为行为依据，不要只凭截图模仿外观。
 
+### 自定义参数面板的实现方法
+
+这轮实践确认，新增参数面板不能简单理解为“画一层长得像原版的 Canvas”，也不能只把自定义枚举塞给整个原生 `ParameterView`。原生参数面板由显示控件、`ParameterView` 调度、多个 Behavior、VSM 数据写入和撤销事务共同组成；其中只有一部分能安全复用。
+
+1. **先确定数据语义。** 明确参数是连续 Controller、音符属性，还是像 BVL 一样由补丁单独持久化的“每音符派生值”。同时确定取值范围、默认值、选择单位、命中区域、撤销粒度和修改后是否触发重渲染。数据语义没定之前不要开始仿 UI。
+2. **沿原生调用链研究，而不是只看控件类。** 至少核对 `ParameterView.OnLoaded`、`EditModePropertyChanged`、`DrawControlParameters`、`UpdateMouseCursorGuide`、`UpdateToolTip`、`BeginDragRectangle/DragRectangle/EndDragRectangle`，以及 Arrow、Pencil、Line、Move、Selection、SongPositionJump 对应的 Behavior。还要阅读 `UIControlParameters`、`UINomineeControlParameters`、`Bar`/`BreakPoint`、`NomineeBar`/`NomineeBreakPoint` 的 `Render` 和 `IsHit`。
+3. **把原生代码分成“可复用显示原语”和“必须适配的业务行为”。** 网格、Bar 绘制、候选轨迹、原生画刷、光标、提示 Label、播放位置线和拖选框可以复用。原生 Behavior 会按 `ControlParameterType` 直接修改 `NoteVelocity`、`Opening` 或 VSM Controller，并使用原生 Selection/Transaction；对于 BVL 这种独立数据模型，直接挂原生 Behavior 会写错数据。正确方式是保留显示原语，按原生状态机重建一层很薄的数据适配与提交逻辑。
+4. **不要把“补齐 Min/Max/Default 枚举分支”误当成完整接入。** 即使原生控件能画出柱，后续的命中、选择、候选建立、拖动提交、双击输入、撤销和刷新仍可能在不同方法中按 Velocity/Mouth/Controller 分流。只有逐条审计所有分支后才能决定是否复用整条原生路径；否则应使用隔离覆盖层。
+5. **覆盖层只创建一次。** 在 `ParameterView` 构造完成后找到 `xPanel`，建立一个与歌曲坐标系一致的根 Canvas，并一次性加入网格层、真实参数层、候选层、空状态和输入框。以后刷新只改 `Width`、`Height`、数据列表、Visibility 和 `InvalidateVisual()`，不要 `Children.Clear()` 后重建。
+6. **保持原生层级关系。** 参数层顺序应为背景/网格 → 实际参数 → 候选轨迹；原生 `xOutsideActivePartCanvas`、`xTempObjectCanvas`、`xGuideCanvas` 在自定义面板激活时按需要提升到覆盖层上方，并关闭命中，退出时恢复原始 ZIndex 和 `IsHitTestVisible`。不要复制播放线或提示 Label，否则容易出现双线、低频更新或两套边界算法。
+7. **统一歌曲坐标系。** 根 Canvas 宽度至少为 `max(SongWidth, ParameterView.ActualWidth)`，横坐标统一由绝对 tick 与 `WidthPerTick`/`CalcTickToViewPosition` 得出；命中测试、轨迹点、柱位置和播放线不能混用 viewport 局部坐标、Part 相对 tick 与歌曲绝对 tick。所有提示和输入框再用 `ParameterViewer.ViewportRect()` 做可视范围裁剪。
+8. **把交互写成显式状态机。** 推荐最少包含 `None`、`SongPositionJump`、`Rectangle`、`MoveWait`、`Move`、`PencilWait`、`Pencil`、`LineWait`、`Line`。MouseDown 只捕获上下文和原值；首次 MouseMove 才从 Wait 进入真实拖动；MouseUp 负责唯一一次提交；LostCapture/Escape 只取消候选并恢复 Idle。不要把这些逻辑分散成互相触发的即时值更新。
+9. **拖动期间数据与显示分离。** 用独立 preview 字典保存候选值，用 `UINomineeControlParameters` 呈现；不要在每个 MouseMove 中写服务层、触发 Changed、刷新真实柱或启动音频重建。MouseUp 时把 preview 一次写入服务层，再创建一条撤销记录和一次重建请求。
+10. **刷新入口必须幂等且合并。** 后台通知先切回 Dispatcher；用 pending 标记把同一消息循环内的多次 Changed 合成一次刷新；用 refreshing 标记阻止重入。刷新代码不得反过来修改会再次发送 Changed 的业务状态。只更新播放头、提示或候选轨迹时，不要刷新网格和全部柱。
+11. **重计算与 UI 刷新分开限流。** 参数显示应立即更新，但 WAV、缓存、分析结果等昂贵派生物应按 Part 去抖。generation 只有在昂贵工作开始前和结束前都核对才有效；如果所有旧任务仍会排队进入串行锁，generation 检查得太晚，仍会造成卡死。
+12. **诊断只放在状态边界。** 可记录 Attach、Refresh 合并次数、MouseDown/状态转换/MouseUp、提交值数量、重建 generation 和耗时。不要给 `OnRender`、`CompositionTarget.Rendering` 或每像素/每 MouseMove 路径挂全局 Harmony 日志；结构化日志也会产生分配、序列化与后台写盘压力。
+13. **按行为矩阵验收。** 至少覆盖 Arrow 单击/拖选/Ctrl/Shift/双击/右键、Pencil 单击/正向拖动/回拉/越界、Line 单击/左右两个方向/越界、Move 单个/多选/上下限/Alt、Escape/LostCapture、播放中点击、水平滚动与缩放、空 Part、切换参数类型，以及连续快速操作几十次后的 UI 响应和后台任务数量。
+
+实现新面板时，优先复制原生的行为契约和生命周期，而不是复制反编译源码本身。最终结构应当是“原生绘制与交互素材 + 自定义数据适配器 + 明确状态机 + 合并刷新/去抖重建”，而不是一套凭外观猜出来的平行 UI，也不是把不兼容的数据硬塞进原生业务分支。
+
 - BVL 的网格、柱和编辑候选层分别复用 `UIControlParameterGridLine`、`UIControlParameters`、`UINomineeControlParameters`。这些控件应在覆盖 Canvas 中常驻，只更新数据和调用 `InvalidateVisual()`；不要在每次刷新时清空并重挂整棵视觉树。歌曲画布可能宽达数十万像素，反复拆装会在连续操作后阻塞 WPF UI 线程。
 - 播放位置线复用 `ParameterView.pathSongPos` 及原生 `songPosTranslate`。项目的平滑播放头会在 `CompositionTarget.Rendering` 中逐帧更新该变换；不要用低频 `SongPosition` 通知另算一套 BVL 播放线。
 - Pencil、Line 和 Move 的拖动过程只更新候选层，鼠标松开后才一次性写入 BVL 数值并提交历史。Pencil 回拉时要删除被折返覆盖的轨迹点；Pencil/Line 对柱值按音符绝对 tick 在线段间插值，Line 越过 Part 边界时先裁剪端点并保持原斜率。
