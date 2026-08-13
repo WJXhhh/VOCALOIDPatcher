@@ -41,19 +41,29 @@ function Is-ReparsePoint([string]$path) {
 
 $root     = Split-Path -Parent $PSScriptRoot
 $dllSrc   = Join-Path $root 'VOCALOIDPatcher\bin\Release\net8.0-windows\out\Microsoft.Xaml.Behaviors.dll'
+$nativeSrc = Join-Path $root 'VOCALOIDPatcher\bin\Release\net8.0-windows\VOCALOIDPatcher\native\v6patch_clock.dll'
 $mapSrc   = Join-Path $root 'HardcodedPropertyMap.xml'
 $transSrc = Join-Path $root 'translations'
 
 $dllDst   = Join-Path $Editor 'Microsoft.Xaml.Behaviors.dll'
 $bakDst   = Join-Path $Editor 'Microsoft.Xaml.Behaviors.dll.bak'
 $patchDir = Join-Path $Editor 'VOCALOIDPatcher'
+$nativeDir = Join-Path $patchDir 'native'
+$nativeDst = Join-Path $nativeDir 'v6patch_clock.dll'
+$nativeBak = Join-Path $nativeDir 'v6patch_clock.dll.bak'
 
 if (-not (Test-Path $dllSrc)) {
     Fail "Built dll not found:`n  $dllSrc`nBuild Release first: dotnet build VOCALOIDPatcher\VOCALOIDPatcher.csproj -c Release"
 }
+if (-not (Test-Path $nativeSrc)) {
+    Fail "Built native dll not found:`n  $nativeSrc`nBuild Release first: dotnet build VOCALOIDPatcher\VOCALOIDPatcher.csproj -c Release"
+}
 if (-not (Test-Path $Editor))   { Fail "Editor directory not found: $Editor" }
 if (-not (Test-Path $mapSrc))   { Fail "Not found: $mapSrc" }
 if (-not (Test-Path $transSrc)) { Fail "Not found: $transSrc" }
+if (Get-Process -Name 'VOCALOID6' -ErrorAction SilentlyContinue) {
+    Fail 'VOCALOID Editor is running. Save your project and close the editor before deployment.'
+}
 
 Write-Host "Editor: $Editor"
 Write-Host ''
@@ -79,6 +89,21 @@ if (-not (Test-Path $patchDir)) {
     New-Item -ItemType Directory -Path $patchDir | Out-Null
     Write-Host "Created $patchDir"
 }
+
+if (-not (Test-Path $nativeDir)) {
+    New-Item -ItemType Directory -Path $nativeDir | Out-Null
+    Write-Host "Created $nativeDir"
+}
+
+if ((Test-Path $nativeDst) -and -not (Test-Path $nativeBak) -and -not (Is-ReparsePoint $nativeDst)) {
+    Copy-Item -LiteralPath $nativeDst -Destination $nativeBak
+    Write-Host "Backed up native dll to $nativeBak"
+}
+if ((Test-Path $nativeDst) -and (Is-ReparsePoint $nativeDst)) {
+    Remove-Link $nativeDst
+}
+Copy-Item -LiteralPath $nativeSrc -Destination $nativeDst -Force
+Write-Host "Copied $nativeDst"
 
 $mapLink = Join-Path $patchDir 'HardcodedPropertyMap.xml'
 Remove-Link $mapLink
