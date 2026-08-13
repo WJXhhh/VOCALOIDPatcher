@@ -18,7 +18,8 @@ internal static class DsePreloader
 
     public static void Start()
     {
-        if (!Settings.PreloadDse || Interlocked.Exchange(ref _started, 1) != 0)
+        if ((!Settings.PreloadDse && !Settings.DseLicensePatch) ||
+            Interlocked.Exchange(ref _started, 1) != 0)
             return;
 
         _preloadTask = Task.Run(Preload);
@@ -36,6 +37,9 @@ internal static class DsePreloader
 
             _dftHandle = Load(Path.Combine(editorDirectory, "DSE_DFT.dll"));
             _dseHandle = Load(Path.Combine(editorDirectory, "DSE.dll"));
+
+            if (Settings.DseLicensePatch && _dseHandle != 0)
+                PatchLicense(_dseHandle);
 
             StartupProfiler.LogMilestone(
                 "DSE native modules preloaded",
@@ -57,5 +61,20 @@ internal static class DsePreloader
         // Keep the explicit reference for the process lifetime. The later DllImport calls
         // reuse the loaded module, and Windows releases it when the editor exits.
         return NativeLibrary.Load(path);
+    }
+
+    private static void PatchLicense(nint dseHandle)
+    {
+        try
+        {
+            var patched = DseLicensePatch.TryPatch(dseHandle);
+            Debug.Print(patched
+                ? "DSE license check patched."
+                : "DSE license patch target was not found; license check left unchanged.");
+        }
+        catch (Exception e)
+        {
+            Debug.Print($"DSE license patch failed ({e.GetType().Name}: {e.Message}).");
+        }
     }
 }

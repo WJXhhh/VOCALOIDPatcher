@@ -861,6 +861,11 @@ public class SettingsWindow : Window
             Settings.PreloadDse, new Thickness(0, 16, 0, 0),
             checkbox => Settings.PreloadDse = checkbox.IsChecked == true);
 
+        Add(Settings.DseLicensePatchKey, "VOCALOIDPatcher_DseLicensePatch_Header",
+            "VOCALOIDPatcher_DseLicensePatch_Desc",
+            Settings.DseLicensePatch, new Thickness(0, 16, 0, 0),
+            checkbox => Settings.DseLicensePatch = checkbox.IsChecked == true);
+
         Add(Settings.TrimWorkingSetKey, "VOCALOIDPatcher_TrimWorkingSet_Header",
             "VOCALOIDPatcher_TrimWorkingSet_Desc",
             Settings.TrimWorkingSet, new Thickness(0, 16, 0, 0),

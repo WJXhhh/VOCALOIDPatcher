@@ -282,6 +282,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(PreloadDseKey, value);
     }
 
+    public static string DseLicensePatchKey => "DseLicensePatch";
+
+    public static bool DseLicensePatch
+    {
+        get => FeatureFlag(DseLicensePatchKey, true);
+        set => Patcher.ConfigManager.Set(DseLicensePatchKey, value);
+    }
+
     public static string FreeAudioPcmCacheKey => "FreeAudioPcmCache";
 
     public static bool FreeAudioPcmCache
