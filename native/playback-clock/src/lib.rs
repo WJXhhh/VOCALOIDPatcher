@@ -481,21 +481,22 @@ mod breath_hook {
     const ABSOLUTE_JUMP_LENGTH: usize = 14;
     const CORE_PATCH_LENGTH: usize = 14;
     const MIXER_PATCH_LENGTH: usize = 16;
-    const CORE_TARGET_RVA: usize = 0x50eb0;
-    const MIXER_TARGET_RVA: usize = 0x4cda0;
-    const EXPECTED_TIMESTAMP: u32 = 0x6a1e_712a;
-    const EXPECTED_SIZE_OF_IMAGE: usize = 0x393000;
+    const MAX_SCAN_IMAGE_SIZE: usize = 0x1000_0000;
     const CONTEXT_MAP_CAPACITY: usize = 256;
     const CONTEXT_MAP_PROBES: usize = 8;
 
-    // VSM 6.13 traditional render core (FUN_180050eb0) and automatic-breath
-    // PCM mixer (FUN_18004cda0). Both must match the exact sample identity and
-    // complete prologues before either observation is used.
+    // Traditional render core and automatic-breath PCM mixer. Register-save
+    // structure and the overwritten instructions are exact; stack-frame sizes
+    // and save-slot displacements are allowed to vary between compiler builds.
     const CORE_SIGNATURE: &[u8] = &[
         0x48, 0x8b, 0xc4, 0x53, 0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57, 0x48,
         0x81, 0xec, 0x10, 0x03, 0x00, 0x00, 0x0f, 0x29, 0x70, 0xb8, 0x0f, 0x29, 0x78, 0xa8, 0x44,
         0x0f, 0x29, 0x40, 0x98, 0x44, 0x0f, 0x29, 0x48, 0x88, 0x44, 0x0f, 0x29, 0x90, 0x78, 0xff,
         0xff, 0xff,
+    ];
+    const CORE_SIGNATURE_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+        1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0,
     ];
     const MIXER_SIGNATURE: &[u8] = &[
         0x48, 0x8b, 0xc4, 0x48, 0x89, 0x58, 0x08, 0x48, 0x89, 0x70, 0x10, 0x48, 0x89, 0x78, 0x18,
@@ -503,9 +504,50 @@ mod breath_hook {
         0xec, 0x30, 0x01, 0x00, 0x00, 0x0f, 0x29, 0x70, 0xc8, 0x0f, 0x29, 0x78, 0xb8, 0x44, 0x0f,
         0x29, 0x40, 0xa8,
     ];
+    const MIXER_SIGNATURE_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+        1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0,
+    ];
+    const CORE_ARGUMENT_SIGNATURE: &[u8] = &[
+        0x49, 0x8b, 0xf8, 0x4c, 0x8b, 0xf2, 0x48, 0x89, 0x94, 0x24, 0, 0, 0, 0, 0x48, 0x89, 0x8c,
+        0x24, 0, 0, 0, 0, 0x45, 0x33, 0xe4, 0x4c, 0x8b, 0x6a, 0x10, 0x4c, 0x89, 0xac, 0x24, 0, 0,
+        0, 0, 0x4c, 0x8b, 0x7a, 0x18,
+    ];
+    const CORE_ARGUMENT_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1,
+    ];
+    const MIXER_BLOCK_SIGNATURE: &[u8] = &[
+        0x49, 0x8b, 0x46, 0x68, 0x49, 0x2b, 0x46, 0x60, 0x48, 0xd1, 0xf8, 0x48, 0x3d, 0, 0, 0, 0,
+        0x0f, 0x82, 0, 0, 0, 0, 0x41, 0x8b, 0x46, 0x30, 0x85, 0xc0, 0x0f, 0x8e,
+    ];
+    const MIXER_BLOCK_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+    ];
+    const MIXER_BLOCK_IMMEDIATE_OFFSET: usize = 13;
+    // In the render caller, VSM copies the renderer's shared_ptr<Part> pair
+    // before invoking the core. The three displacements identify the object
+    // pointer followed by its control block without depending on fixed RVAs.
+    const RENDERER_PART_RELATION: &[u8] = &[
+        0x4d, 0x8b, 0x37, 0x49, 0x8b, 0x46, 0, 0x48, 0x85, 0xc0, 0x74, 0, 0xf0, 0xff, 0x40, 0x08,
+        0x49, 0x8b, 0x4e, 0, 0x48, 0x89, 0x4c, 0x24, 0, 0x4d, 0x8b, 0x76, 0, 0x4c, 0x89, 0x74,
+        0x24, 0,
+    ];
+    const RENDERER_PART_RELATION_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1,
+        1, 1, 1, 0,
+    ];
+    const CORE_CALL_SEARCH_BACK: usize = 0x800;
+    const RENDERER_MODE_RELATION: &[u8] = &[
+        0x48, 0x8b, 0x03, 0x0f, 0xb6, 0x48, 0, 0x80, 0xf9, 0x01, 0x0f, 0x85,
+    ];
+    const RENDERER_MODE_RELATION_MASK: &[u8] = &[1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1];
 
     static ORIGINAL_CORE: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
     static ORIGINAL_MIXER: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
+    static MIXER_BLOCK_SAMPLES: AtomicU32 = AtomicU32::new(u32::MAX);
+    static RENDERER_PART_OFFSET: AtomicU32 = AtomicU32::new(u32::MAX);
+    static RENDERER_MODE_OFFSET: AtomicU32 = AtomicU32::new(u32::MAX);
     static INSTALL_LOCK: Mutex<()> = Mutex::new(());
     static CONTEXT_KEYS: [AtomicU64; CONTEXT_MAP_CAPACITY] =
         [const { AtomicU64::new(0) }; CONTEXT_MAP_CAPACITY];
@@ -626,12 +668,23 @@ mod breath_hook {
             let renderer = unsafe { ptr::read_unaligned(renderer_holder.cast::<*mut u8>()) };
             let context = unsafe { ptr::read_unaligned(arguments.cast::<*const c_void>()) };
             if !renderer.is_null() && !context.is_null() {
-                REGISTER_SHIFT_LAST_VSM_MODE.store(
-                    i32::from(unsafe { ptr::read_unaligned(renderer.add(0x38)) }),
-                    Ordering::Relaxed,
-                );
-                let part =
-                    unsafe { ptr::read_unaligned(renderer.add(0x10).cast::<*const c_void>()) };
+                let mode_offset = RENDERER_MODE_OFFSET.load(Ordering::Acquire);
+                if mode_offset != u32::MAX {
+                    REGISTER_SHIFT_LAST_VSM_MODE.store(
+                        i32::from(unsafe {
+                            ptr::read_unaligned(renderer.add(mode_offset as usize))
+                        }),
+                        Ordering::Relaxed,
+                    );
+                }
+                let part_offset = RENDERER_PART_OFFSET.load(Ordering::Acquire);
+                if part_offset == u32::MAX {
+                    BREATH_INVALID_CALLS.fetch_add(1, Ordering::Relaxed);
+                    return 0x14;
+                }
+                let part = unsafe {
+                    ptr::read_unaligned(renderer.add(part_offset as usize).cast::<*const c_void>())
+                };
                 part_handle = part as usize as u64;
                 register_context(context as usize as u64, part as usize as u64);
             }
@@ -683,7 +736,12 @@ mod breath_hook {
             return result;
         }
 
-        let samples = unsafe { slice::from_raw_parts(output, 0x100) };
+        let sample_count = MIXER_BLOCK_SAMPLES.load(Ordering::Acquire);
+        if sample_count == u32::MAX {
+            BREATH_INVALID_CALLS.fetch_add(1, Ordering::Relaxed);
+            return result;
+        }
+        let samples = unsafe { slice::from_raw_parts(output, sample_count as usize) };
         let peak = samples
             .iter()
             .map(|sample| i64::from(*sample).unsigned_abs())
@@ -713,15 +771,134 @@ mod breath_hook {
         result
     }
 
-    fn signature_matches(bytes: &[u8], signature: &[u8]) -> bool {
-        bytes.len() >= signature.len()
+    fn signature_matches(bytes: &[u8], signature: &[u8], mask: &[u8]) -> bool {
+        signature.len() == mask.len()
+            && bytes.len() >= signature.len()
             && signature
                 .iter()
+                .zip(mask)
                 .enumerate()
-                .all(|(index, expected)| bytes[index] == *expected)
+                .all(|(index, (expected, required))| *required == 0 || bytes[index] == *expected)
     }
 
-    unsafe fn validated_image_size(module: *mut u8) -> Result<usize, i32> {
+    fn contains_masked(bytes: &[u8], signature: &[u8], mask: &[u8]) -> bool {
+        signature.len() == mask.len()
+            && signature.len() <= bytes.len()
+            && (0..=bytes.len() - signature.len())
+                .any(|offset| signature_matches(&bytes[offset..], signature, mask))
+    }
+
+    fn core_candidate_matches(bytes: &[u8]) -> bool {
+        contains_masked(
+            &bytes[..bytes.len().min(0x100)],
+            CORE_ARGUMENT_SIGNATURE,
+            CORE_ARGUMENT_MASK,
+        )
+    }
+
+    fn decode_mixer_block_samples(bytes: &[u8]) -> Option<u32> {
+        let bytes = &bytes[..bytes.len().min(0x1000)];
+        if bytes.len() < MIXER_BLOCK_SIGNATURE.len() {
+            return None;
+        }
+        let mut found = None;
+        for offset in 0..=bytes.len() - MIXER_BLOCK_SIGNATURE.len() {
+            if !signature_matches(&bytes[offset..], MIXER_BLOCK_SIGNATURE, MIXER_BLOCK_MASK) {
+                continue;
+            }
+            let sample_count = u32::from_le_bytes(
+                bytes[offset + MIXER_BLOCK_IMMEDIATE_OFFSET
+                    ..offset + MIXER_BLOCK_IMMEDIATE_OFFSET + 4]
+                    .try_into()
+                    .unwrap(),
+            );
+            if sample_count == 0 || sample_count > 0x1_0000 || found.replace(sample_count).is_some()
+            {
+                return None;
+            }
+        }
+        found
+    }
+
+    fn mixer_candidate_matches(bytes: &[u8]) -> bool {
+        decode_mixer_block_samples(bytes).is_some()
+    }
+
+    fn merge_unique_offset(found: &mut Option<u32>, value: u32) -> Option<()> {
+        if found.is_some_and(|existing| existing != value) {
+            return None;
+        }
+        *found = Some(value);
+        Some(())
+    }
+
+    fn decode_renderer_part_offset(code: &[u8], core_offset: usize) -> Option<u32> {
+        let mut found = None;
+        for call_offset in 0..code.len().saturating_sub(4) {
+            if code[call_offset] != 0xe8 {
+                continue;
+            }
+            let displacement =
+                i32::from_le_bytes(code[call_offset + 1..call_offset + 5].try_into().unwrap())
+                    as isize;
+            if (call_offset + 5).checked_add_signed(displacement) != Some(core_offset) {
+                continue;
+            }
+            let begin = call_offset.saturating_sub(CORE_CALL_SEARCH_BACK);
+            let window = &code[begin..call_offset];
+            if window.len() < RENDERER_PART_RELATION.len() {
+                continue;
+            }
+            for offset in 0..=window.len() - RENDERER_PART_RELATION.len() {
+                if !signature_matches(
+                    &window[offset..],
+                    RENDERER_PART_RELATION,
+                    RENDERER_PART_RELATION_MASK,
+                ) {
+                    continue;
+                }
+                let control_offset = u32::from(window[offset + 6]);
+                let part_offset = u32::from(window[offset + 19]);
+                let repeated_control_offset = u32::from(window[offset + 28]);
+                if control_offset != repeated_control_offset
+                    || control_offset != part_offset + 8
+                    || part_offset & 7 != 0
+                    || part_offset > 0x1000
+                    || merge_unique_offset(&mut found, part_offset).is_none()
+                {
+                    return None;
+                }
+            }
+        }
+        found
+    }
+
+    fn decode_renderer_mode_offset(core: &[u8]) -> Option<u32> {
+        let core = &core[..core.len().min(0x1000)];
+        if core.len() < RENDERER_MODE_RELATION.len() {
+            return None;
+        }
+        let mut found = None;
+        for offset in 0..=core.len() - RENDERER_MODE_RELATION.len() {
+            if signature_matches(
+                &core[offset..],
+                RENDERER_MODE_RELATION,
+                RENDERER_MODE_RELATION_MASK,
+            ) && merge_unique_offset(&mut found, u32::from(core[offset + 6])).is_none()
+            {
+                return None;
+            }
+        }
+        found.filter(|offset| *offset <= 0x1000)
+    }
+
+    #[derive(Clone, Copy)]
+    struct ImageLayout {
+        code_start: usize,
+        code_size: usize,
+    }
+
+    unsafe fn image_layout(module: *mut u8) -> Result<ImageLayout, i32> {
         if module.is_null() || unsafe { ptr::read_unaligned(module.cast::<u16>()) } != 0x5a4d {
             return Err(-2);
         }
@@ -731,40 +908,57 @@ mod breath_hook {
         if unsafe { ptr::read_unaligned(nt.cast::<u32>()) } != 0x0000_4550 {
             return Err(-2);
         }
-        let timestamp = unsafe { ptr::read_unaligned(nt.add(8).cast::<u32>()) };
-
         let optional_size = unsafe { ptr::read_unaligned(nt.add(20).cast::<u16>()) } as usize;
         if optional_size < 0x70 {
             return Err(-2);
         }
-        let size_of_image =
-            unsafe { ptr::read_unaligned(nt.add(24 + 0x38).cast::<u32>()) } as usize;
-        if timestamp != EXPECTED_TIMESTAMP || size_of_image != EXPECTED_SIZE_OF_IMAGE {
-            return Err(-7);
+        let size = unsafe { ptr::read_unaligned(nt.add(24 + 0x38).cast::<u32>()) } as usize;
+        let code_size = unsafe { ptr::read_unaligned(nt.add(24 + 0x04).cast::<u32>()) } as usize;
+        let code_start = unsafe { ptr::read_unaligned(nt.add(24 + 0x14).cast::<u32>()) } as usize;
+        if size == 0
+            || size > MAX_SCAN_IMAGE_SIZE
+            || code_size == 0
+            || code_start
+                .checked_add(code_size)
+                .is_none_or(|end| end > size)
+        {
+            return Err(-2);
         }
-        Ok(size_of_image)
+        Ok(ImageLayout {
+            code_start,
+            code_size,
+        })
     }
 
-    unsafe fn find_target(
+    unsafe fn find_unique_target(
         module: *mut u8,
-        target_rva: usize,
         signature: &[u8],
+        mask: &[u8],
+        validate: fn(&[u8]) -> bool,
     ) -> Result<*mut u8, i32> {
-        let size_of_image = unsafe { validated_image_size(module)? };
-        let Some(signature_end) = target_rva.checked_add(signature.len()) else {
-            return Err(-2);
-        };
-        if signature_end > size_of_image {
+        let layout = unsafe { image_layout(module)? };
+        if signature.is_empty()
+            || signature.len() != mask.len()
+            || signature.len() > layout.code_size
+        {
             return Err(-2);
         }
-
-        let target = unsafe { module.add(target_rva) };
-        let bytes = unsafe { slice::from_raw_parts(target, signature.len()) };
-        if signature_matches(bytes, signature) {
-            Ok(target)
-        } else {
-            Err(-3)
+        let code =
+            unsafe { slice::from_raw_parts(module.add(layout.code_start), layout.code_size) };
+        let mut found = None;
+        for offset in 0..=code.len() - signature.len() {
+            if !signature_matches(&code[offset..], signature, mask) {
+                continue;
+            }
+            if !validate(&code[offset..]) {
+                continue;
+            }
+            if found.is_some() {
+                return Err(-9);
+            }
+            found = Some(unsafe { module.add(layout.code_start + offset) });
         }
+        found.ok_or(-3)
     }
 
     unsafe fn write_absolute_jump(destination: *mut u8, target: *const c_void) {
@@ -852,10 +1046,31 @@ mod breath_hook {
             return -6;
         }
 
-        let core_target = match unsafe { find_target(module, CORE_TARGET_RVA, CORE_SIGNATURE) } {
+        let core_target = match unsafe {
+            find_unique_target(
+                module,
+                CORE_SIGNATURE,
+                CORE_SIGNATURE_MASK,
+                core_candidate_matches,
+            )
+        } {
             Ok(value) => value,
             Err(error) => return error,
         };
+        let layout = match unsafe { image_layout(module) } {
+            Ok(value) => value,
+            Err(error) => return error,
+        };
+        let code =
+            unsafe { slice::from_raw_parts(module.add(layout.code_start), layout.code_size) };
+        let core_offset = core_target as usize - module as usize - layout.code_start;
+        let part_offset = match decode_renderer_part_offset(code, core_offset) {
+            Some(value) => value,
+            None => return -3,
+        };
+        let mode_offset = decode_renderer_mode_offset(&code[core_offset..]);
+        RENDERER_PART_OFFSET.store(part_offset, Ordering::Release);
+        RENDERER_MODE_OFFSET.store(mode_offset.unwrap_or(u32::MAX), Ordering::Release);
         if let Err(error) = unsafe {
             install_inline_hook(
                 core_target,
@@ -866,7 +1081,10 @@ mod breath_hook {
         } {
             return error;
         }
-        BREATH_CORE_TARGET_RVA.store(CORE_TARGET_RVA as u64, Ordering::Relaxed);
+        BREATH_CORE_TARGET_RVA.store(
+            (core_target as usize - module as usize) as u64,
+            Ordering::Relaxed,
+        );
         1
     }
 
@@ -889,10 +1107,30 @@ mod breath_hook {
         if module.is_null() {
             return -6;
         }
-        let mixer_target = match unsafe { find_target(module, MIXER_TARGET_RVA, MIXER_SIGNATURE) } {
+        let mixer_target = match unsafe {
+            find_unique_target(
+                module,
+                MIXER_SIGNATURE,
+                MIXER_SIGNATURE_MASK,
+                mixer_candidate_matches,
+            )
+        } {
             Ok(value) => value,
             Err(error) => return error,
         };
+        let layout = match unsafe { image_layout(module) } {
+            Ok(value) => value,
+            Err(error) => return error,
+        };
+        let code_end = unsafe { module.add(layout.code_start + layout.code_size) } as usize;
+        let remaining = code_end.saturating_sub(mixer_target as usize);
+        let sample_count = match decode_mixer_block_samples(unsafe {
+            slice::from_raw_parts(mixer_target, remaining.min(0x1000))
+        }) {
+            Some(value) => value,
+            None => return -3,
+        };
+        MIXER_BLOCK_SAMPLES.store(sample_count, Ordering::Release);
 
         if let Err(error) = unsafe {
             install_inline_hook(
@@ -904,13 +1142,16 @@ mod breath_hook {
         } {
             return error;
         }
-        BREATH_TARGET_RVA.store(MIXER_TARGET_RVA as u64, Ordering::Relaxed);
+        BREATH_TARGET_RVA.store(
+            (mixer_target as usize - module as usize) as u64,
+            Ordering::Relaxed,
+        );
         1
     }
 
     #[cfg(test)]
     pub(super) fn test_core_signature(bytes: &[u8]) -> bool {
-        signature_matches(bytes, CORE_SIGNATURE)
+        signature_matches(bytes, CORE_SIGNATURE, CORE_SIGNATURE_MASK)
     }
 
     #[cfg(test)]
@@ -920,12 +1161,52 @@ mod breath_hook {
 
     #[cfg(test)]
     pub(super) fn test_mixer_signature(bytes: &[u8]) -> bool {
-        signature_matches(bytes, MIXER_SIGNATURE)
+        signature_matches(bytes, MIXER_SIGNATURE, MIXER_SIGNATURE_MASK)
     }
 
     #[cfg(test)]
     pub(super) fn test_mixer_signature_bytes() -> Vec<u8> {
         MIXER_SIGNATURE.to_vec()
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_core_candidate(bytes: &[u8]) -> bool {
+        core_candidate_matches(bytes)
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_core_argument_signature_bytes() -> Vec<u8> {
+        CORE_ARGUMENT_SIGNATURE.to_vec()
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_decode_mixer_block_samples(bytes: &[u8]) -> Option<u32> {
+        decode_mixer_block_samples(bytes)
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_mixer_block_signature_bytes() -> Vec<u8> {
+        MIXER_BLOCK_SIGNATURE.to_vec()
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_decode_renderer_part_offset(code: &[u8], core_offset: usize) -> Option<u32> {
+        decode_renderer_part_offset(code, core_offset)
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_renderer_part_relation_bytes() -> Vec<u8> {
+        RENDERER_PART_RELATION.to_vec()
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_decode_renderer_mode_offset(bytes: &[u8]) -> Option<u32> {
+        decode_renderer_mode_offset(bytes)
+    }
+
+    #[cfg(test)]
+    pub(super) fn test_renderer_mode_relation_bytes() -> Vec<u8> {
+        RENDERER_MODE_RELATION.to_vec()
     }
 
     #[cfg(test)]
@@ -3284,11 +3565,68 @@ mod tests {
         assert!(breath_hook::test_core_signature(&signature));
         signature[10] ^= 1;
         assert!(!breath_hook::test_core_signature(&signature));
+        signature = breath_hook::test_core_signature_bytes();
+        signature[18] ^= 1;
+        assert!(breath_hook::test_core_signature(&signature));
+        let mut candidate = vec![0xcc; 0x100];
+        let argument_signature = breath_hook::test_core_argument_signature_bytes();
+        candidate[0x40..0x40 + argument_signature.len()].copy_from_slice(&argument_signature);
+        assert!(breath_hook::test_core_candidate(&candidate));
+        candidate[0x40] ^= 1;
+        assert!(!breath_hook::test_core_candidate(&candidate));
 
         let mut signature = breath_hook::test_mixer_signature_bytes();
         assert!(breath_hook::test_mixer_signature(&signature));
         signature[10] ^= 1;
         assert!(!breath_hook::test_mixer_signature(&signature));
+        signature = breath_hook::test_mixer_signature_bytes();
+        signature[31] ^= 1;
+        assert!(breath_hook::test_mixer_signature(&signature));
+        let mut mixer_body = vec![0xcc; 0x1000];
+        let block_signature = breath_hook::test_mixer_block_signature_bytes();
+        mixer_body[0x80..0x80 + block_signature.len()].copy_from_slice(&block_signature);
+        mixer_body[0x80 + 13..0x80 + 17].copy_from_slice(&0x100u32.to_le_bytes());
+        assert_eq!(
+            breath_hook::test_decode_mixer_block_samples(&mixer_body),
+            Some(0x100)
+        );
+        mixer_body[0x80 + 13..0x80 + 17].copy_from_slice(&0u32.to_le_bytes());
+        assert_eq!(
+            breath_hook::test_decode_mixer_block_samples(&mixer_body),
+            None
+        );
+
+        let core_offset = 0x900;
+        let call_offset = 0x700;
+        let relation_offset = 0x640;
+        let mut code = vec![0xcc; 0x1000];
+        let mut part_relation = breath_hook::test_renderer_part_relation_bytes();
+        part_relation[6] = 0x18;
+        part_relation[19] = 0x10;
+        part_relation[28] = 0x18;
+        code[relation_offset..relation_offset + part_relation.len()]
+            .copy_from_slice(&part_relation);
+        code[call_offset] = 0xe8;
+        let displacement = (core_offset as isize - (call_offset + 5) as isize) as i32;
+        code[call_offset + 1..call_offset + 5].copy_from_slice(&displacement.to_le_bytes());
+        assert_eq!(
+            breath_hook::test_decode_renderer_part_offset(&code, core_offset),
+            Some(0x10)
+        );
+        code[relation_offset + 28] = 0x20;
+        assert_eq!(
+            breath_hook::test_decode_renderer_part_offset(&code, core_offset),
+            None
+        );
+
+        let mut mode_body = vec![0xcc; 0x1000];
+        let mut mode_relation = breath_hook::test_renderer_mode_relation_bytes();
+        mode_relation[6] = 0x38;
+        mode_body[0x120..0x120 + mode_relation.len()].copy_from_slice(&mode_relation);
+        assert_eq!(
+            breath_hook::test_decode_renderer_mode_offset(&mode_body),
+            Some(0x38)
+        );
     }
 
     #[cfg(windows)]
