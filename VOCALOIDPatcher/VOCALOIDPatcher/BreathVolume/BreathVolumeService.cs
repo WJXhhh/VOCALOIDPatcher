@@ -831,7 +831,11 @@ internal static class BreathVolumeService
             notes.Length,
             regions.Count);
 
-        return StoreRegions(part, regions, score.NumScores, signature, expectedState, expectedGeneration);
+        var preserveStableAutomaticRegions = ranges.Count > 0 &&
+                                             IsAutomaticBreathEnabled(part, out _);
+        return StoreRegions(
+            part, regions, score.NumScores, signature, expectedState, expectedGeneration,
+            preserveStableAutomaticRegions);
     }
 
     public static void BeginRenderedBlock(WIVSMMidiPart part, int progress)
@@ -1547,10 +1551,14 @@ internal static class BreathVolumeService
         long scoreCount,
         ScoreSignature signature,
         PartState? expectedState = null,
-        int expectedGeneration = 0)
+        int expectedGeneration = 0,
+        bool preserveStableAutomaticRegions = false)
     {
         var detectedRegions = regions.ToList();
         var nextRegions = detectedRegions;
+        var liveHandles = preserveStableAutomaticRegions && detectedRegions.Count > 0
+            ? EnumerateNotes(part).Select(note => note.CppObjPtr).ToHashSet()
+            : null;
         var nextStatus = signature.Kind == ScoreSourceKind.Faulted
             ? BreathRegionStatus.Faulted
             : BreathRegionStatus.Ready;
@@ -1571,6 +1579,29 @@ internal static class BreathVolumeService
                 state = GetPartState(part);
             }
 
+            if (liveHandles != null && state.StableRegions.Count > 0)
+            {
+                var detectedHandles = detectedRegions
+                    .Select(region => region.NoteHandle)
+                    .ToHashSet();
+                var retainedRegions = state.StableRegions
+                    .Where(region => liveHandles.Contains(region.NoteHandle) &&
+                                     !detectedHandles.Contains(region.NoteHandle))
+                    .ToArray();
+                if (retainedRegions.Length > 0)
+                {
+                    detectedRegions = detectedRegions
+                        .Concat(retainedRegions)
+                        .OrderBy(region => region.BeginSample)
+                        .ThenBy(region => region.EndSample)
+                        .ToList();
+                    nextRegions = detectedRegions;
+                    BreathVolumeDiagnosticsLog.Write(
+                        $"regions reconciled detected={regions.Count} retained={retainedRegions.Length} " +
+                        $"stable={state.StableRegions.Count}");
+                }
+            }
+
             var transientScore = signature.Kind is ScoreSourceKind.RenderBlock
                 or ScoreSourceKind.CombinedRendering
                 or ScoreSourceKind.Holding;
@@ -1578,7 +1609,11 @@ internal static class BreathVolumeService
             {
                 if (detectedRegions.Count > 0)
                 {
+                    var refreshedHandles = detectedRegions
+                        .Select(region => region.NoteHandle)
+                        .ToHashSet();
                     state.RenderMarkerRegions = state.RenderMarkerRegions
+                        .Where(region => !refreshedHandles.Contains(region.NoteHandle))
                         .Concat(detectedRegions)
                         .Distinct()
                         .OrderBy(region => region.BeginSample)
@@ -2485,7 +2520,11 @@ internal static class BreathVolumeService
             return;
 
         foreach (var state in Parts.Values)
+        {
             state.Regions.RemoveAll(region => releasedHandles.Contains(region.NoteHandle));
+            state.StableRegions.RemoveAll(region => releasedHandles.Contains(region.NoteHandle));
+            state.RenderMarkerRegions.RemoveAll(region => releasedHandles.Contains(region.NoteHandle));
+        }
         foreach (var history in Histories.Values)
         {
             PurgeHistoryKeysCore(history.Undo, releasedKeys);
