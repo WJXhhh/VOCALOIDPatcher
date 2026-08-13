@@ -130,7 +130,8 @@ public sealed class PathAllowlist
         {
             try
             {
-                normalized.Add(NormalizeDirectory(path));
+                string lexical = NormalizeDirectory(path);
+                normalized.Add(NormalizeDirectory(CanonicalizeExistingPath(lexical)));
             }
             catch
             {
@@ -185,8 +186,8 @@ public sealed class PathAllowlist
                 {
                     try
                     {
-                        string canonicalRoot = Canonicalize(root);
-                        string canonicalTarget = Canonicalize(fullPath);
+                        string canonicalRoot = NormalizeDirectory(CanonicalizeExistingPath(root));
+                        string canonicalTarget = CanonicalizeExistingPath(fullPath);
                         if (canonicalTarget.StartsWith(canonicalRoot, StringComparison.OrdinalIgnoreCase))
                             return true;
                         reason = "The path escapes the allowlist through a symbolic link or junction.";
@@ -211,7 +212,7 @@ public sealed class PathAllowlist
         return Path.TrimEndingDirectorySeparator(full) + Path.DirectorySeparatorChar;
     }
 
-    private static string Canonicalize(string path)
+    private static string CanonicalizeExistingPath(string path)
     {
         string full = Path.GetFullPath(path);
         var missing = new Stack<string>();
@@ -226,14 +227,35 @@ public sealed class PathAllowlist
 
         if (probe == null)
             throw new IOException("No existing ancestor could be resolved.");
-        FileSystemInfo info = Directory.Exists(probe) ? new DirectoryInfo(probe) : new FileInfo(probe);
-        FileSystemInfo? target = info.ResolveLinkTarget(true);
-        string resolved = target?.FullName ?? info.FullName;
+        string resolved = ResolveEveryExistingSegment(probe);
         while (missing.TryPop(out string? segment))
             resolved = Path.Combine(resolved, segment);
         resolved = Path.GetFullPath(resolved);
-        return Directory.Exists(full) || full.EndsWith(Path.DirectorySeparatorChar)
-            ? NormalizeDirectory(resolved)
-            : resolved;
+        return resolved;
+    }
+
+    private static string ResolveEveryExistingSegment(string path)
+    {
+        string full = Path.GetFullPath(path);
+        string root = Path.GetPathRoot(full) ?? throw new IOException("The path has no root.");
+        string resolved = root;
+        string relative = Path.GetRelativePath(root, full);
+        if (relative == ".")
+            return resolved;
+
+        foreach (string segment in relative.Split(
+                     new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar },
+                     StringSplitOptions.RemoveEmptyEntries))
+        {
+            string candidate = Path.Combine(resolved, segment);
+            FileSystemInfo info = Directory.Exists(candidate)
+                ? new DirectoryInfo(candidate)
+                : File.Exists(candidate)
+                    ? new FileInfo(candidate)
+                    : throw new IOException("An existing path segment disappeared during validation.");
+            FileSystemInfo? target = info.ResolveLinkTarget(true);
+            resolved = Path.GetFullPath(target?.FullName ?? info.FullName);
+        }
+        return resolved;
     }
 }

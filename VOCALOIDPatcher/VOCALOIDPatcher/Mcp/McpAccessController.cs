@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using VOCALOIDPatcher.Config;
+using VOCALOIDPatcher.Mcp.Core;
 using VOCALOIDPatcher.McpBridge;
 using VOCALOIDPatcher.Translation;
 using Yamaha.VOCALOID;
@@ -64,7 +65,13 @@ internal static class McpAccessController
         return false;
     }
 
-    public static bool Release(BridgeClientInfo client) => Lease.Release(LeaseClientId(client));
+    public static bool Release(BridgeClientInfo client)
+    {
+        bool released = Lease.Release(LeaseClientId(client));
+        if (released)
+            McpEventHub.Publish("write_lease_revoked", data: new { reason = "released" });
+        return released;
+    }
 
     public static bool BeginJob(BridgeClientInfo client)
         => Lease.BeginJob(LeaseClientId(client), DateTimeOffset.UtcNow);
@@ -80,6 +87,7 @@ internal static class McpAccessController
             GrantedClients.Clear();
             Clients.Clear();
         }
+        McpEventHub.Publish("write_lease_revoked", data: new { reason = "revoked" });
     }
 
     public static bool AuthorizeWrite(BridgeClientInfo client, string action, bool alwaysConfirm, out BridgeError? error)

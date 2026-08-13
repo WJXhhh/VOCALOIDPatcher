@@ -49,7 +49,7 @@ internal static partial class VocaloidMcpFacade
         return new
         {
             project = new ProjectContext(McpBridgeService.InstanceId ?? string.Empty, projectId, revision),
-            note = new EntityRef(projectId, revision, "note", trackIndex, partIndex, noteIndex),
+            note = Ref(projectId, revision, "note", note, trackIndex, partIndex, noteIndex),
             is_ai = note.IsAi,
             note_language_id = note.LangID,
             candidates = candidates.Select((candidate, index) => new

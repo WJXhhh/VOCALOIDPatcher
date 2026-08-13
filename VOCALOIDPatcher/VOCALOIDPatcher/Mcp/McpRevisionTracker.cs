@@ -1,4 +1,5 @@
 using System;
+using VOCALOIDPatcher.Mcp.Core;
 using Yamaha.VOCALOID;
 
 namespace VOCALOIDPatcher.Mcp;
@@ -20,6 +21,8 @@ internal static class McpRevisionTracker
                 _sequencePointer = pointer;
                 _projectId = Guid.NewGuid().ToString("N");
                 _revision = 1;
+                McpEntityRegistry.ProjectReplaced(_projectId);
+                McpEventHub.Publish("document_replaced", _projectId, _revision);
             }
             return (_projectId, _revision);
         }
@@ -30,7 +33,9 @@ internal static class McpRevisionTracker
         lock (Gate)
         {
             Current();
-            return ++_revision;
+            long revision = ++_revision;
+            McpEventHub.Publish("project_revision_changed", _projectId, revision);
+            return revision;
         }
     }
 
@@ -41,6 +46,8 @@ internal static class McpRevisionTracker
             _sequencePointer = CurrentSequencePointer();
             _projectId = Guid.NewGuid().ToString("N");
             _revision = 1;
+            McpEntityRegistry.ProjectReplaced(_projectId);
+            McpEventHub.Publish("document_replaced", _projectId, _revision);
         }
     }
 

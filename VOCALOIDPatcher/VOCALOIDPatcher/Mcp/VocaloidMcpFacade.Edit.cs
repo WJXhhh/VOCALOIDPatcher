@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using VOCALOIDPatcher.McpBridge;
+using VOCALOIDPatcher.Mcp.Domains.AudioParts;
 using VOCALOIDPatcher.Patch.Patches;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.VDM;
+using Yamaha.VOCALOID.G2PA;
 using Yamaha.VOCALOID.VSM;
 
 namespace VOCALOIDPatcher.Mcp;
@@ -19,7 +21,7 @@ internal static partial class VocaloidMcpFacade
         JsonElement operations = Operations(arguments);
         bool dryRun = Bool(arguments, "dry_run");
         bool dangerous = operations.EnumerateArray().Any(operation =>
-            String(operation, "op") is "delete_track" or "delete_part");
+            String(operation, "op") is "delete_track" or "delete_part" or "audio_delete" or "audio_replace_source");
         Authorize(client, $"Edit project structure ({operations.GetArrayLength()} operations)", dangerous, dryRun);
         (_, WIVSMSequence vsm) = Context();
 
@@ -45,6 +47,18 @@ internal static partial class VocaloidMcpFacade
     private static void ApplyStructureOperation(WIVSMSequence vsm, JsonElement operation, bool execute)
     {
         string op = String(operation, "op") ?? throw Fault("invalid_request", "Each structure operation requires op.");
+        if (op.StartsWith("audio_", StringComparison.Ordinal))
+        {
+            try
+            {
+                AudioPartDomain.Apply(vsm, operation, execute);
+                return;
+            }
+            catch (AudioPartDomainException exception)
+            {
+                throw Fault(exception.Code, exception.Message);
+            }
+        }
         switch (op)
         {
             case "add_track":
@@ -425,9 +439,23 @@ internal static partial class VocaloidMcpFacade
                 if (execute)
                 {
                     string lyric = String(operation, "lyric") ?? "あ";
-                    string phonemes = String(operation, "phonemes") ?? string.Empty;
+                    string? requestedPhonemes = String(operation, "phonemes");
+                    string phonemes = requestedPhonemes ?? string.Empty;
                     bool validPhonemes = !string.IsNullOrWhiteSpace(phonemes);
-                    if (part.InsertNote(
+                    if (!validPhonemes
+                        && DefaultLyricManager.GetUserSettingDefaultLyric((VSMLanguageID)language, out _, out string defaultPhonemes))
+                    {
+                        phonemes = defaultPhonemes;
+                        validPhonemes = true;
+                    }
+                    if (!validPhonemes)
+                    {
+                        // The native insert API rejects an empty phoneme even when the next call will
+                        // ask G2PA to derive it. This placeholder only exists inside the transaction.
+                        phonemes = language == (int)VSMLanguageID.English ? "@" : "a";
+                        validPhonemes = true;
+                    }
+                    WIVSMNote? inserted = part.InsertNote(
                             new VSMRelTick(tick),
                             new VSMNoteEvent(duration, number, velocity),
                             part.GetDefaultNoteExpression(),
@@ -435,8 +463,11 @@ internal static partial class VocaloidMcpFacade
                             lyric,
                             phonemes,
                             validPhonemes,
-                            language) == null)
+                            language);
+                    if (inserted == null)
                         throw Fault("operation_failed", "VOCALOID could not insert the note.");
+                    if (requestedPhonemes == null && !inserted.SetLyricsAndResetPhonemes(lyric, language))
+                        throw Fault("operation_failed", "VOCALOID could not derive phonemes for the inserted lyric.");
                 }
                 break;
             }

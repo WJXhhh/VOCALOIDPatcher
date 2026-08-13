@@ -19,4 +19,10 @@
     <ProjectReference Include="..\VOCALOIDPatcher.McpServer\VOCALOIDPatcher.McpServer.csproj" />
     <PackageReference Include="ModelContextProtocol" Version="1.4.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Domains\ExtensionParameters\ExtensionParameterContracts.cs"
+             Link="Stage3\ExtensionParameterContracts.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Domains\AudioParts\AudioPartContracts.cs"
+             Link="Stage5\AudioPartContracts.cs" />
+  </ItemGroup>
 </Project>

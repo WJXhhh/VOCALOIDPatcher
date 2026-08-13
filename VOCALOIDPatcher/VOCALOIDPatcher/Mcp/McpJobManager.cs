@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using VOCALOIDPatcher.Mcp.Core;
 using VOCALOIDPatcher.McpBridge;
 
 namespace VOCALOIDPatcher.Mcp;
@@ -43,6 +44,7 @@ internal static class McpJobManager
             Status = BridgeJobStatus.Queued,
         };
         Entries[entry.Id] = entry;
+        McpEventHub.Publish("job_progress", data: new { job_id = entry.Id, kind, status = entry.Status.ToString(), progress = 0.0 });
         _ = RunAsync(entry, action);
         return Snapshot(entry);
     }
@@ -65,10 +67,11 @@ internal static class McpJobManager
     {
         if (!Entries.TryGetValue(id, out Entry? entry)
             || !string.Equals(entry.ClientId, clientId, StringComparison.Ordinal)
-            || entry.Status is BridgeJobStatus.Succeeded or BridgeJobStatus.Failed or BridgeJobStatus.Cancelled)
+            || entry.Status is BridgeJobStatus.Succeeded or BridgeJobStatus.Failed or BridgeJobStatus.Cancelled or BridgeJobStatus.CompletedAfterCancel)
             return false;
         entry.Cancellation.Cancel();
         entry.UpdatedAtUtc = DateTimeOffset.UtcNow;
+        McpEventHub.Publish("job_progress", data: new { job_id = entry.Id, status = entry.Status.ToString(), cancel_requested = true });
         return true;
     }
 
@@ -80,15 +83,18 @@ internal static class McpJobManager
         {
             entry.Status = BridgeJobStatus.Running;
             entry.UpdatedAtUtc = DateTimeOffset.UtcNow;
+            McpEventHub.Publish("job_progress", data: new { job_id = entry.Id, status = entry.Status.ToString(), progress = entry.Progress });
             object? result = await action(entry.Cancellation.Token, progress =>
             {
                 entry.Progress = Math.Clamp(progress, 0.0, 1.0);
                 entry.UpdatedAtUtc = DateTimeOffset.UtcNow;
+                McpEventHub.Publish("job_progress", data: new { job_id = entry.Id, status = entry.Status.ToString(), progress = entry.Progress });
             }).ConfigureAwait(false);
-            entry.Cancellation.Token.ThrowIfCancellationRequested();
             entry.Result = JsonSerializer.SerializeToElement(result, BridgeProtocol.JsonOptions);
             entry.Progress = 1.0;
-            entry.Status = BridgeJobStatus.Succeeded;
+            entry.Status = entry.Cancellation.IsCancellationRequested
+                ? BridgeJobStatus.CompletedAfterCancel
+                : BridgeJobStatus.Succeeded;
         }
         catch (OperationCanceledException) when (entry.Cancellation.IsCancellationRequested)
         {
@@ -103,6 +109,7 @@ internal static class McpJobManager
         finally
         {
             entry.UpdatedAtUtc = DateTimeOffset.UtcNow;
+            McpEventHub.Publish("job_progress", data: new { job_id = entry.Id, status = entry.Status.ToString(), progress = entry.Progress });
         }
     }
 

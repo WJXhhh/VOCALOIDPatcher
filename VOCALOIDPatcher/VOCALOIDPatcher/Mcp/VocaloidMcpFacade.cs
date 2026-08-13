@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
+using VOCALOIDPatcher.Mcp.Core;
+using VOCALOIDPatcher.Mcp.Domains.MixerEffects;
+using VOCALOIDPatcher.Mcp.Domains.AudioParts;
 using VOCALOIDPatcher.McpBridge;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.VSM;
@@ -11,6 +14,12 @@ namespace VOCALOIDPatcher.Mcp;
 
 internal static partial class VocaloidMcpFacade
 {
+    static VocaloidMcpFacade()
+    {
+        MixerEffectsDomain.Register();
+        AudioPartDomain.Register();
+    }
+
     private sealed class McpFaultException : Exception
     {
         public string Code { get; }
@@ -55,6 +64,7 @@ internal static partial class VocaloidMcpFacade
                 "v6_g2pa_candidates" => G2paCandidates(arguments),
                 "v6_g2pa_apply" => ApplyG2pa(request.Client, arguments),
                 "v6_edit_parameters" => EditParameters(request.Client, arguments),
+                "v6_apply_operations" => ApplyOperations(request.Client, arguments),
                 "v6_select_view" => SelectView(request.Client, arguments),
                 "v6_transport" => Transport(arguments),
                 "v6_history" => History(request.Client, arguments),
@@ -63,7 +73,7 @@ internal static partial class VocaloidMcpFacade
                 "v6_convert_project" => ConvertProject(request.Client, arguments),
                 "v6_mixdown" => Mixdown(request.Client, arguments),
                 "v6_job" => ManageJob(request.Client, arguments),
-                _ => throw Fault("unsupported", $"Unknown bridge method '{request.Method}'."),
+                _ => throw Fault(McpErrorCodes.Unsupported, $"Unknown bridge method '{request.Method}'."),
             };
 
             BridgeResponse response = BridgeResponse.Success(request.RequestId, result);
@@ -127,9 +137,10 @@ internal static partial class VocaloidMcpFacade
     }
 
     private static bool IsMutation(string method, JsonElement arguments)
-        => method is "v6_edit_structure" or "v6_edit_notes" or "v6_g2pa_apply" or "v6_edit_parameters" or "v6_select_view" or "v6_run_job"
+        => method is "v6_edit_structure" or "v6_edit_notes" or "v6_g2pa_apply" or "v6_edit_parameters" or "v6_apply_operations" or "v6_select_view" or "v6_run_job"
            || method == "v6_history" && !string.Equals(String(arguments, "action"), "status", StringComparison.OrdinalIgnoreCase)
-           || method is "v6_project_file" or "v6_convert_project" or "v6_mixdown";
+           || method == "v6_project_file" && !string.Equals(String(arguments, "action"), "recent", StringComparison.OrdinalIgnoreCase)
+           || method is "v6_convert_project" or "v6_mixdown";
 
     private static (Yamaha.VOCALOID.Sequence Sequence, WIVSMSequence Vsm) Context()
     {
@@ -191,7 +202,33 @@ internal static partial class VocaloidMcpFacade
             : null;
 
     private static int Int(JsonElement element, string name, int defaultValue = 0)
-        => checked((int)(Long(element, name) ?? defaultValue));
+    {
+        if (Long(element, name) is { } direct)
+            return checked((int)direct);
+        if (defaultValue == -1 && name is "track_index" or "part_index" or "note_index")
+        {
+            string? entityId = String(element, name switch
+            {
+                "track_index" => "track_entity_id",
+                "part_index" => "part_entity_id",
+                _ => "note_entity_id",
+            }) ?? String(element, "entity_id");
+            if (entityId != null)
+            {
+                (_, WIVSMSequence vsm) = Context();
+                (string projectId, _) = McpRevisionTracker.Current();
+                var resolved = McpEntityRegistry.Resolve(vsm, projectId, entityId)
+                               ?? throw Fault(McpErrorCodes.InvalidReference, $"Entity '{entityId}' is no longer present in this project.");
+                return name switch
+                {
+                    "track_index" => resolved.TrackIndex,
+                    "part_index" => resolved.PartIndex,
+                    _ => resolved.ItemIndex,
+                };
+            }
+        }
+        return defaultValue;
+    }
 
     private static bool Bool(JsonElement element, string name, bool defaultValue = false)
         => element.ValueKind == JsonValueKind.Object
@@ -248,6 +285,17 @@ internal static partial class VocaloidMcpFacade
             throw Fault("invalid_reference", $"Note index {noteIndex} is out of range.");
         return part.Notes[noteIndex];
     }
+
+    private static EntityRef Ref(
+        string projectId,
+        long revision,
+        string kind,
+        object entity,
+        int trackIndex = -1,
+        int partIndex = -1,
+        int itemIndex = -1,
+        string? clientTag = null)
+        => McpEntityRegistry.Reference(projectId, revision, kind, entity, trackIndex, partIndex, itemIndex, clientTag);
 
     private static long ResolveAbsoluteTick(WIVSMSequence vsm, JsonElement element, long defaultValue = 0)
     {

@@ -25,10 +25,13 @@ public sealed class CompanionIntegrationTests
         await using McpClient client = await McpClient.CreateAsync(transport);
         var tools = await client.ListToolsAsync();
 
-        Assert.Equal(17, tools.Count);
+        Assert.Equal(20, tools.Count);
         Assert.Contains(tools, tool => tool.Name == "v6_get_state");
         Assert.Contains(tools, tool => tool.Name == "v6_g2pa_candidates");
         Assert.Contains(tools, tool => tool.Name == "v6_g2pa_apply");
+        Assert.Contains(tools, tool => tool.Name == "v6_apply_operations");
+        Assert.Contains(tools, tool => tool.Name == "v6_wait_event");
+        Assert.Contains(tools, tool => tool.Name == "v6_wait_for");
         string editSchema = tools.Single(tool => tool.Name == "v6_edit_notes").JsonSchema.GetRawText();
         Assert.Contains("project_id", editSchema);
         Assert.Contains("expected_revision", editSchema);

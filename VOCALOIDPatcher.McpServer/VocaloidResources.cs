@@ -36,4 +36,8 @@ public sealed class VocaloidResources
     [McpServerResource(Name = "vocaloid_catalog", UriTemplate = "vocaloid://instances/{instance_id}/catalog", MimeType = "application/json")]
     public Task<string> Catalog(McpServerInstance server, string instance_id, CancellationToken cancellationToken = default)
         => _gateway.ReadResourceAsync(server, instance_id, "v6_get_catalog", cancellationToken);
+
+    [McpServerResource(Name = "vocaloid_schema", UriTemplate = "vocaloid://instances/{instance_id}/schema", MimeType = "application/json")]
+    public Task<string> Schema(McpServerInstance server, string instance_id, CancellationToken cancellationToken = default)
+        => _gateway.ReadResourceAsync(server, instance_id, "v6_get_catalog", cancellationToken);
 }

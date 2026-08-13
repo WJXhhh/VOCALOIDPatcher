@@ -83,7 +83,35 @@ public sealed record EntityRef(
     string Kind,
     int TrackIndex = -1,
     int PartIndex = -1,
-    int ItemIndex = -1);
+    int ItemIndex = -1,
+    string? EntityId = null,
+    string? ClientTag = null);
+
+public sealed record CapabilityStatus(
+    string Id,
+    bool Implemented,
+    bool HostVerified,
+    string? MinimumEditorVersion = null,
+    string? UnavailableReason = null,
+    string Availability = "available");
+
+public sealed record OperationResult(
+    int OperationIndex,
+    string OperationId,
+    string Status,
+    EntityRef? Reference = null,
+    string? ClientTag = null,
+    string? TempId = null,
+    object? Summary = null);
+
+public sealed record OperationFailure(
+    int OperationIndex,
+    string OperationId,
+    string? Field,
+    string Code,
+    string Message,
+    bool RolledBack,
+    bool Retryable);
 
 public sealed record MusicalPosition(
     long AbsoluteTick,
@@ -114,6 +142,7 @@ public enum BridgeJobStatus
     Succeeded,
     Failed,
     Cancelled,
+    CompletedAfterCancel,
 }
 
 public sealed record JobInfo(

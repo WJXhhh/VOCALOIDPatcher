@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using VOCALOIDPatcher.Config;
+using VOCALOIDPatcher.Mcp.Core;
 using VOCALOIDPatcher.McpBridge;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
@@ -251,6 +252,26 @@ public static class McpBridgeService
 
     private static async Task<BridgeResponse> DispatchAsync(BridgeRequest request, CancellationToken cancellationToken)
     {
+        if (request.Method is "v6_wait_event" or "v6_wait_for")
+        {
+            try
+            {
+                System.Text.Json.JsonElement arguments = request.Arguments ?? System.Text.Json.JsonSerializer.SerializeToElement(new { });
+                object result = request.Method == "v6_wait_for"
+                    ? await McpEventHub.WaitForAsync(arguments, cancellationToken).ConfigureAwait(false)
+                    : await McpEventHub.WaitAsync(arguments, cancellationToken).ConfigureAwait(false);
+                return BridgeResponse.Success(request.RequestId, result);
+            }
+            catch (ArgumentException exception)
+            {
+                return BridgeResponse.Failure(request.RequestId, McpErrorCodes.InvalidRequest, exception.Message);
+            }
+            catch (OperationCanceledException)
+            {
+                return BridgeResponse.Failure(request.RequestId, McpErrorCodes.Cancelled, "The wait was cancelled.");
+            }
+        }
+
         var dispatcher = Application.Current?.Dispatcher;
         if (dispatcher == null)
             return BridgeResponse.Failure(request.RequestId, "v6_unavailable", "VOCALOID UI dispatcher is unavailable.", true);
