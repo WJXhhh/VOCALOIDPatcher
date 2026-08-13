@@ -1225,27 +1225,14 @@ mod register_shift_hook {
     const MEM_RESERVE: u32 = 0x2000;
     const MEM_RELEASE: u32 = 0x8000;
     const ABSOLUTE_JUMP_LENGTH: usize = 14;
-    const PREPARE_1A_RVA: usize = 0x1a1800;
     const PREPARE_1A_PATCH_LENGTH: usize = 21;
-    const CANDIDATE_SCOPE_RVA: usize = 0x1ab850;
     const CANDIDATE_SCOPE_PATCH_LENGTH: usize = 15;
-    const CANDIDATE_PRUNE_RVA: usize = 0x1a9e00;
     const CANDIDATE_PRUNE_PATCH_LENGTH: usize = 21;
-    const CANDIDATE_SCORE_RVA: usize = 0x19d160;
     const CANDIDATE_SCORE_PATCH_LENGTH: usize = 15;
-    const FRAME_GETTER_RVA: usize = 0x189ca0;
-    const FRAME_GETTER_CALL_RVA: usize = 0x19d39c;
-    const CANDIDATE_POOL_SORT_RVA: usize = 0x196320;
-    const CANDIDATE_POOL_SORT_CALL_RVA: usize = 0x1aa5a8;
-    const PREPARE_1B_RVA: usize = 0x1b3fb0;
     const PREPARE_1B_PATCH_LENGTH: usize = 21;
-    const SELECTOR_1B_RVA: usize = 0x1b7aa0;
     const SELECTOR_1B_PATCH_LENGTH: usize = 15;
-    const EXPECTED_TIMESTAMP: u32 = 0x6916_7c99;
-    const EXPECTED_SIZE_OF_IMAGE: usize = 0xac6000;
-    const STATE_TABLE_RVA: usize = 0xaab8c0;
-    const OUTER_SYNTHESIS_OFFSET: usize = 0x1d568;
-    const OUTER_PARSER_OFFSET: usize = 0x1d570;
+    const MAX_SCAN_IMAGE_SIZE: usize = 0x1000_0000;
+    const STATE_SLOT_COUNT: usize = 32;
     const BIT_PREPARE_1B: u32 = 1 << 0;
     const BIT_SELECTOR_1B: u32 = 1 << 1;
     const BIT_PREPARE_1A: u32 = 1 << 2;
@@ -1266,7 +1253,9 @@ mod register_shift_hook {
     ];
     const SELECTOR_1B_SIGNATURE: &[u8] = &[
         0x48, 0x8b, 0xc4, 0x48, 0x89, 0x58, 0x08, 0x48, 0x89, 0x70, 0x18, 0x48, 0x89, 0x78, 0x20,
-        0x55, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57,
+        0x55, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57, 0x48, 0x8d, 0x68, 0x98, 0x48, 0x81,
+        0xec, 0x40, 0x01, 0x00, 0x00, 0x0f, 0x29, 0x70, 0xc8, 0x0f, 0x29, 0x78, 0xb8, 0x44, 0x0f,
+        0x29, 0x40, 0xa8, 0x44, 0x0f, 0x29, 0x48, 0x98, 0x44, 0x0f, 0x29, 0x50, 0x88,
     ];
     const PREPARE_1A_SIGNATURE: &[u8] = &[
         0x40, 0x55, 0x53, 0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57, 0x48, 0x8d,
@@ -1285,8 +1274,29 @@ mod register_shift_hook {
         0x48, 0x89, 0x48, 0x08,
     ];
     const FRAME_GETTER_SIGNATURE: &[u8] = &[0x44, 0x8b, 0x41, 0x18, 0x85, 0xd2, 0x79, 0x17];
-    const FRAME_GETTER_CALL_SIGNATURE: &[u8] = &[0xe8, 0xff, 0xc8, 0xfe, 0xff];
-    const CANDIDATE_POOL_SORT_CALL_SIGNATURE: &[u8] = &[0xe8, 0x73, 0xbd, 0xfe, 0xff];
+    const CANDIDATE_POOL_SORT_SIGNATURE: &[u8] = &[
+        0x40, 0x53, 0x55, 0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57, 0x48, 0x81,
+        0xec, 0xc8, 0x00, 0x00, 0x00,
+    ];
+    const CANDIDATE_POOL_CALLSITE_SIGNATURE: &[u8] = &[
+        0x44, 0x0f, 0xb6, 0x4c, 0x24, 0x34, 0x4c, 0x8b, 0xc1, 0x49, 0x8b, 0xd4, 0x49, 0x8b, 0xce,
+        0xe8, 0, 0, 0, 0, 0xf3, 0x0f, 0x10, 0x95, 0x10, 0x01, 0x00, 0x00, 0x49, 0x8b, 0xd4, 0x49,
+        0x8b, 0xce, 0xe8, 0, 0, 0, 0, 0x48, 0x63, 0xd8, 0x85, 0xc0, 0x0f, 0x88,
+    ];
+    const CANDIDATE_POOL_CALLSITE_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+    ];
+    const CANDIDATE_POOL_SORT_CALL_OFFSET: usize = 15;
+    const STATE_COUNTER_SIGNATURE: &[u8] = &[
+        0x33, 0xc0, 0x48, 0x39, 0x05, 0, 0, 0, 0, 0x0f, 0x95, 0xc0, 0x48, 0x83, 0x3d, 0, 0, 0, 0,
+        0, 0x8d, 0x48, 0x01, 0x0f, 0x44, 0xc8, 0x48, 0x83, 0x3d, 0, 0, 0, 0, 0, 0x8d, 0x41, 0x01,
+        0x0f, 0x44, 0xc1,
+    ];
+    const STATE_COUNTER_MASK: &[u8] = &[
+        1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+    ];
 
     #[repr(C)]
     #[derive(Clone, Copy, Debug, Default)]
@@ -1336,7 +1346,13 @@ mod register_shift_hook {
     static ORIGINAL_SELECTOR_1B: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
     static FRAME_GETTER: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
     static CANDIDATE_POOL_SORT: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
-    static DSE_BASE: AtomicU64 = AtomicU64::new(0);
+    static ENGINE_SLOT_OFFSET: AtomicU32 = AtomicU32::new(u32::MAX);
+    static OUTER_SYNTHESIS_OFFSET: AtomicU32 = AtomicU32::new(u32::MAX);
+    static OUTER_PARSER_OFFSET: AtomicU32 = AtomicU32::new(u32::MAX);
+    static SELECTOR_TARGET_RETURN: AtomicU64 = AtomicU64::new(0);
+    static SELECTOR_CURRENT_RETURN_0: AtomicU64 = AtomicU64::new(0);
+    static SELECTOR_CURRENT_RETURN_1: AtomicU64 = AtomicU64::new(0);
+    static STATE_TABLE: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
     static INSTALL_BITMAP: AtomicU32 = AtomicU32::new(0);
     static ONE_A_INSTALL_RESULT: AtomicI32 = AtomicI32::new(i32::MIN);
     static PREPARE_1A_CALLS: AtomicU64 = AtomicU64::new(0);
@@ -1700,13 +1716,15 @@ mod register_shift_hook {
         let count = unsafe {
             RtlCaptureStackBackTrace(0, frames.len() as u32, frames.as_mut_ptr(), ptr::null_mut())
         } as usize;
-        let base = DSE_BASE.load(Ordering::Relaxed);
+        let target = SELECTOR_TARGET_RETURN.load(Ordering::Acquire);
+        let current_0 = SELECTOR_CURRENT_RETURN_0.load(Ordering::Acquire);
+        let current_1 = SELECTOR_CURRENT_RETURN_1.load(Ordering::Acquire);
         for frame in &frames[..count] {
             let address = *frame as usize as u64;
-            if address == base + 0x1b4522 {
+            if address == target {
                 return 1;
             }
-            if address == base + 0x1b54de || address == base + 0x1b58cf {
+            if address == current_0 || address == current_1 {
                 return 2;
             }
         }
@@ -2019,7 +2037,14 @@ mod register_shift_hook {
         unsafe { original(begin, end, count, flag) };
     }
 
-    unsafe fn validated_image_size(module: *mut u8) -> Result<usize, i32> {
+    #[derive(Clone, Copy)]
+    pub(super) struct ImageLayout {
+        pub(super) size: usize,
+        pub(super) code_start: usize,
+        pub(super) code_size: usize,
+    }
+
+    pub(super) unsafe fn image_layout(module: *mut u8) -> Result<ImageLayout, i32> {
         if module.is_null() || unsafe { ptr::read_unaligned(module.cast::<u16>()) } != 0x5a4d {
             return Err(-2);
         }
@@ -2028,29 +2053,240 @@ mod register_shift_hook {
         if unsafe { ptr::read_unaligned(nt.cast::<u32>()) } != 0x0000_4550 {
             return Err(-2);
         }
-        let timestamp = unsafe { ptr::read_unaligned(nt.add(8).cast::<u32>()) };
         let size = unsafe { ptr::read_unaligned(nt.add(24 + 0x38).cast::<u32>()) } as usize;
-        if timestamp != EXPECTED_TIMESTAMP || size != EXPECTED_SIZE_OF_IMAGE {
-            return Err(-7);
-        }
-        Ok(size)
-    }
-
-    unsafe fn target(module: *mut u8, rva: usize, signature: &[u8]) -> Result<*mut u8, i32> {
-        let size = unsafe { validated_image_size(module)? };
-        if rva
-            .checked_add(signature.len())
-            .is_none_or(|end| end > size)
+        let code_size = unsafe { ptr::read_unaligned(nt.add(24 + 0x04).cast::<u32>()) } as usize;
+        let code_start = unsafe { ptr::read_unaligned(nt.add(24 + 0x14).cast::<u32>()) } as usize;
+        if size == 0
+            || size > MAX_SCAN_IMAGE_SIZE
+            || code_size == 0
+            || code_start
+                .checked_add(code_size)
+                .is_none_or(|end| end > size)
         {
             return Err(-2);
         }
-        let address = unsafe { module.add(rva) };
-        let bytes = unsafe { slice::from_raw_parts(address, signature.len()) };
-        if bytes == signature {
-            Ok(address)
-        } else {
-            Err(-3)
+        Ok(ImageLayout {
+            size,
+            code_start,
+            code_size,
+        })
+    }
+
+    unsafe fn find_unique(
+        module: *mut u8,
+        layout: ImageLayout,
+        signatures: &[&[u8]],
+    ) -> Result<*mut u8, i32> {
+        let code =
+            unsafe { slice::from_raw_parts(module.add(layout.code_start), layout.code_size) };
+        let mut found = None;
+        for signature in signatures {
+            if signature.is_empty() || signature.len() > code.len() {
+                continue;
+            }
+            for offset in 0..=code.len() - signature.len() {
+                if &code[offset..offset + signature.len()] != *signature {
+                    continue;
+                }
+                let address = unsafe { module.add(layout.code_start + offset) };
+                if found.is_some_and(|previous| previous != address) {
+                    return Err(-9);
+                }
+                found = Some(address);
+            }
         }
+        found.ok_or(-3)
+    }
+
+    unsafe fn find_unique_masked(
+        module: *mut u8,
+        layout: ImageLayout,
+        signature: &[u8],
+        mask: &[u8],
+    ) -> Result<*mut u8, i32> {
+        if signature.is_empty()
+            || signature.len() != mask.len()
+            || signature.len() > layout.code_size
+        {
+            return Err(-2);
+        }
+        let code =
+            unsafe { slice::from_raw_parts(module.add(layout.code_start), layout.code_size) };
+        let mut found = None;
+        for offset in 0..=code.len() - signature.len() {
+            if signature
+                .iter()
+                .zip(mask)
+                .enumerate()
+                .all(|(index, (expected, required))| {
+                    *required == 0 || code[offset + index] == *expected
+                })
+            {
+                let address = unsafe { module.add(layout.code_start + offset) };
+                if found.is_some_and(|previous| previous != address) {
+                    return Err(-9);
+                }
+                found = Some(address);
+            }
+        }
+        found.ok_or(-3)
+    }
+
+    unsafe fn find_state_table(module: *mut u8, layout: ImageLayout) -> Result<*mut c_void, i32> {
+        let counter = unsafe {
+            find_unique_masked(module, layout, STATE_COUNTER_SIGNATURE, STATE_COUNTER_MASK)?
+        };
+        let resolve = |displacement_offset: usize, next_offset: usize| unsafe {
+            let displacement = ptr::read_unaligned(counter.add(displacement_offset).cast::<i32>());
+            counter.add(next_offset).offset(displacement as isize)
+        };
+        let table = resolve(5, 9);
+        if resolve(15, 20) != unsafe { table.add(8) } || resolve(29, 34) != unsafe { table.add(16) }
+        {
+            return Err(-3);
+        }
+        let Some(table_offset) = (table as usize).checked_sub(module as usize) else {
+            return Err(-3);
+        };
+        if table as usize & 7 != 0
+            || table_offset
+                .checked_add(STATE_SLOT_COUNT * std::mem::size_of::<usize>())
+                .is_none_or(|end| end > layout.size)
+        {
+            return Err(-3);
+        }
+        Ok(table.cast())
+    }
+
+    unsafe fn configure_outer_offsets(module: *mut u8, layout: ImageLayout) -> Result<(), i32> {
+        const PREFIX: &[u8] = &[
+            0x48, 0x89, 0x5c, 0x24, 0x08, 0x48, 0x89, 0x6c, 0x24, 0x10, 0x48, 0x89, 0x74, 0x24,
+            0x18, 0x57, 0x48, 0x83, 0xec, 0x20, 0x48, 0x8b, 0x99,
+        ];
+        const SUFFIX: &[u8] = &[
+            0x48, 0x8b, 0xf9, 0x48, 0x85, 0xdb, 0x74, 0x15, 0x48, 0x8b, 0xcb, 0xe8,
+        ];
+        const TAIL: &[u8] = &[0xba, 0xf0, 0xaa, 0x05, 0x00];
+        const DISPLACEMENT_OFFSET: usize = 23;
+        const SUFFIX_OFFSET: usize = 27;
+        const TAIL_OFFSET: usize = 43;
+        const SIGNATURE_LENGTH: usize = TAIL_OFFSET + TAIL.len();
+
+        let code =
+            unsafe { slice::from_raw_parts(module.add(layout.code_start), layout.code_size) };
+        let mut found = None;
+        for offset in 0..=code.len().saturating_sub(SIGNATURE_LENGTH) {
+            if &code[offset..offset + PREFIX.len()] != PREFIX
+                || &code[offset + SUFFIX_OFFSET..offset + SUFFIX_OFFSET + SUFFIX.len()] != SUFFIX
+                || &code[offset + TAIL_OFFSET..offset + SIGNATURE_LENGTH] != TAIL
+            {
+                continue;
+            }
+            if found.is_some() {
+                return Err(-9);
+            }
+            found = Some(u32::from_le_bytes(
+                code[offset + DISPLACEMENT_OFFSET..offset + DISPLACEMENT_OFFSET + 4]
+                    .try_into()
+                    .unwrap(),
+            ));
+        }
+        let synthesis_offset = found.ok_or(-3)?;
+        let parser_offset = synthesis_offset.checked_add(8).ok_or(-3)?;
+        if synthesis_offset & 7 != 0 || synthesis_offset < 0x1000 || parser_offset > 0x1000_000 {
+            return Err(-3);
+        }
+        OUTER_SYNTHESIS_OFFSET.store(synthesis_offset, Ordering::Release);
+        OUTER_PARSER_OFFSET.store(parser_offset, Ordering::Release);
+        Ok(())
+    }
+
+    unsafe fn find_unique_direct_call(
+        function: *mut u8,
+        search_length: usize,
+        target: *mut u8,
+    ) -> Result<*mut u8, i32> {
+        let bytes = unsafe { slice::from_raw_parts(function, search_length) };
+        let mut found = None;
+        for offset in 0..bytes.len().saturating_sub(4) {
+            if bytes[offset] != 0xe8 {
+                continue;
+            }
+            let displacement =
+                i32::from_le_bytes(bytes[offset + 1..offset + 5].try_into().unwrap());
+            let destination = unsafe { function.add(offset + 5).offset(displacement as isize) };
+            if destination == target {
+                let address = unsafe { function.add(offset) };
+                if found.is_some() {
+                    return Err(-9);
+                }
+                found = Some(address);
+            }
+        }
+        found.ok_or(-3)
+    }
+
+    unsafe fn configure_selector_callsites(prepare: *mut u8, selector: *mut u8) -> Result<(), i32> {
+        let bytes = unsafe { slice::from_raw_parts(prepare, 0x4000) };
+        let mut returns = Vec::new();
+        for offset in 0..bytes.len().saturating_sub(4) {
+            if bytes[offset] != 0xe8 {
+                continue;
+            }
+            let displacement =
+                i32::from_le_bytes(bytes[offset + 1..offset + 5].try_into().unwrap());
+            let return_address = unsafe { prepare.add(offset + 5) };
+            if unsafe { return_address.offset(displacement as isize) } == selector {
+                returns.push(return_address as usize as u64);
+            }
+        }
+        if returns.len() != 3 {
+            return Err(if returns.len() > 3 { -9 } else { -3 });
+        }
+        SELECTOR_TARGET_RETURN.store(returns[0], Ordering::Release);
+        SELECTOR_CURRENT_RETURN_0.store(returns[1], Ordering::Release);
+        SELECTOR_CURRENT_RETURN_1.store(returns[2], Ordering::Release);
+        Ok(())
+    }
+
+    unsafe fn find_candidate_pool_call(
+        module: *mut u8,
+        layout: ImageLayout,
+        prune: *mut u8,
+    ) -> Result<(*mut u8, *mut u8), i32> {
+        let bytes = unsafe { slice::from_raw_parts(prune, 0x1000) };
+        let mut found = None;
+        for offset in 0..=bytes.len() - CANDIDATE_POOL_CALLSITE_SIGNATURE.len() {
+            if !CANDIDATE_POOL_CALLSITE_SIGNATURE
+                .iter()
+                .zip(CANDIDATE_POOL_CALLSITE_MASK)
+                .enumerate()
+                .all(|(index, (expected, required))| {
+                    *required == 0 || bytes[offset + index] == *expected
+                })
+            {
+                continue;
+            }
+            if found.is_some() {
+                return Err(-9);
+            }
+            let call = unsafe { prune.add(offset + CANDIDATE_POOL_SORT_CALL_OFFSET) };
+            let displacement = unsafe { ptr::read_unaligned(call.add(1).cast::<i32>()) };
+            let target = unsafe { call.add(5).offset(displacement as isize) };
+            let code_begin = unsafe { module.add(layout.code_start) } as usize;
+            let code_end = code_begin + layout.code_size;
+            if (target as usize) < code_begin
+                || (target as usize) + CANDIDATE_POOL_SORT_SIGNATURE.len() > code_end
+                || unsafe {
+                    slice::from_raw_parts(target, CANDIDATE_POOL_SORT_SIGNATURE.len())
+                        != CANDIDATE_POOL_SORT_SIGNATURE
+                }
+            {
+                return Err(-3);
+            }
+            found = Some((call, target));
+        }
+        found.ok_or(-3)
     }
 
     unsafe fn write_jump(destination: *mut u8, target: *const c_void) {
@@ -2070,7 +2306,8 @@ mod register_shift_hook {
         call: *mut u8,
         wrapper: *const c_void,
     ) -> Result<*mut u8, i32> {
-        let start = ((module as usize + EXPECTED_SIZE_OF_IMAGE + 0xffff) & !0xffff) as isize;
+        let image_size = unsafe { image_layout(module)?.size };
+        let start = ((module as usize + image_size + 0xffff) & !0xffff) as isize;
         for step in 0..0x8000isize {
             for candidate in [start + step * 0x10000, start - (step + 1) * 0x10000] {
                 if candidate <= 0 {
@@ -2185,15 +2422,29 @@ mod register_shift_hook {
         if module.is_null() {
             return -6;
         }
-        DSE_BASE.store(module as usize as u64, Ordering::Relaxed);
-        let prepare_1b = match unsafe { target(module, PREPARE_1B_RVA, PREPARE_1B_SIGNATURE) } {
+        let layout = match unsafe { image_layout(module) } {
             Ok(value) => value,
             Err(error) => return error,
         };
-        let selector_1b = match unsafe { target(module, SELECTOR_1B_RVA, SELECTOR_1B_SIGNATURE) } {
+        if let Err(error) = unsafe { configure_outer_offsets(module, layout) } {
+            return error;
+        }
+        let prepare_1b = match unsafe { find_unique(module, layout, &[PREPARE_1B_SIGNATURE]) } {
             Ok(value) => value,
             Err(error) => return error,
         };
+        let selector_1b = match unsafe { find_unique(module, layout, &[SELECTOR_1B_SIGNATURE]) } {
+            Ok(value) => value,
+            Err(error) => return error,
+        };
+        if let Err(error) = unsafe { configure_selector_callsites(prepare_1b, selector_1b) } {
+            return error;
+        }
+        let state_table = match unsafe { find_state_table(module, layout) } {
+            Ok(value) => value,
+            Err(error) => return error,
+        };
+        STATE_TABLE.store(state_table, Ordering::Release);
         let dse_context = super::dse_hook::install();
         if dse_context < 0 {
             return dse_context;
@@ -2222,23 +2473,17 @@ mod register_shift_hook {
         INSTALL_BITMAP.fetch_or(BIT_SELECTOR_1B, Ordering::Release);
 
         let one_a = (|| -> Result<(), i32> {
-            let prepare = unsafe { target(module, PREPARE_1A_RVA, PREPARE_1A_SIGNATURE)? };
-            let scope = unsafe { target(module, CANDIDATE_SCOPE_RVA, CANDIDATE_SCOPE_SIGNATURE)? };
-            let prune = unsafe { target(module, CANDIDATE_PRUNE_RVA, CANDIDATE_PRUNE_SIGNATURE)? };
-            let score = unsafe { target(module, CANDIDATE_SCORE_RVA, CANDIDATE_SCORE_SIGNATURE)? };
-            unsafe { target(module, FRAME_GETTER_RVA, FRAME_GETTER_SIGNATURE)? };
-            let call =
-                unsafe { target(module, FRAME_GETTER_CALL_RVA, FRAME_GETTER_CALL_SIGNATURE)? };
+            let prepare = unsafe { find_unique(module, layout, &[PREPARE_1A_SIGNATURE])? };
+            let scope = unsafe { find_unique(module, layout, &[CANDIDATE_SCOPE_SIGNATURE])? };
+            let prune = unsafe { find_unique(module, layout, &[CANDIDATE_PRUNE_SIGNATURE])? };
+            let score = unsafe { find_unique(module, layout, &[CANDIDATE_SCORE_SIGNATURE])? };
+            let frame_getter = unsafe { find_unique(module, layout, &[FRAME_GETTER_SIGNATURE])? };
+            let call = unsafe { find_unique_direct_call(score, 0x400, frame_getter)? };
             let relay = unsafe {
                 allocate_relay_near(module, call, frame_getter_wrapper as *const c_void)?
             };
-            let pool_call = unsafe {
-                target(
-                    module,
-                    CANDIDATE_POOL_SORT_CALL_RVA,
-                    CANDIDATE_POOL_SORT_CALL_SIGNATURE,
-                )?
-            };
+            let (pool_call, pool_sort) =
+                unsafe { find_candidate_pool_call(module, layout, prune)? };
             let pool_relay = unsafe {
                 allocate_relay_near(
                     module,
@@ -2246,14 +2491,8 @@ mod register_shift_hook {
                     candidate_pool_sort_wrapper as *const c_void,
                 )?
             };
-            FRAME_GETTER.store(
-                unsafe { module.add(FRAME_GETTER_RVA) }.cast(),
-                Ordering::Release,
-            );
-            CANDIDATE_POOL_SORT.store(
-                unsafe { module.add(CANDIDATE_POOL_SORT_RVA) }.cast(),
-                Ordering::Release,
-            );
+            FRAME_GETTER.store(frame_getter.cast(), Ordering::Release);
+            CANDIDATE_POOL_SORT.store(pool_sort.cast(), Ordering::Release);
             unsafe {
                 install_hook(
                     prepare,
@@ -2290,11 +2529,11 @@ mod register_shift_hook {
                 )?
             };
             INSTALL_BITMAP.fetch_or(BIT_SCORE_1A, Ordering::Release);
-            unsafe { install_call_relay(call, relay, FRAME_GETTER_CALL_SIGNATURE)? };
+            let call_signature = unsafe { slice::from_raw_parts(call, 5) }.to_vec();
+            unsafe { install_call_relay(call, relay, &call_signature)? };
             INSTALL_BITMAP.fetch_or(BIT_RELAY_1A, Ordering::Release);
-            unsafe {
-                install_call_relay(pool_call, pool_relay, CANDIDATE_POOL_SORT_CALL_SIGNATURE)?
-            };
+            let pool_call_signature = unsafe { slice::from_raw_parts(pool_call, 5) }.to_vec();
+            unsafe { install_call_relay(pool_call, pool_relay, &pool_call_signature)? };
             INSTALL_BITMAP.fetch_or(BIT_POOL_RELAY_1A, Ordering::Release);
             Ok(())
         })();
@@ -2303,7 +2542,7 @@ mod register_shift_hook {
             Err(error) => {
                 ONE_A_INSTALL_RESULT.store(error, Ordering::Relaxed);
                 // Partially installed entry hooks remain behavior-neutral until every 1A bit is set.
-                return 1;
+                return error;
             }
         }
         1
@@ -2455,8 +2694,18 @@ mod register_shift_hook {
         if engine.is_null() || part == 0 {
             return;
         }
-        let slot = unsafe { ptr::read_unaligned((engine as *const u8).add(0x10).cast::<i32>()) };
-        if !(0..256).contains(&slot) {
+        let slot_offset = ENGINE_SLOT_OFFSET.load(Ordering::Acquire);
+        if slot_offset == u32::MAX {
+            return;
+        }
+        let slot = unsafe {
+            ptr::read_unaligned(
+                (engine as *const u8)
+                    .add(slot_offset as usize)
+                    .cast::<i32>(),
+            )
+        };
+        if !(0..STATE_SLOT_COUNT as i32).contains(&slot) {
             return;
         }
         let name: Vec<u16> = "DSE.dll\0".encode_utf16().collect();
@@ -2464,13 +2713,16 @@ mod register_shift_hook {
         if module.is_null() {
             return;
         }
-        let outer = unsafe {
-            ptr::read_unaligned(
-                module
-                    .add(STATE_TABLE_RVA + slot as usize * 8)
-                    .cast::<u64>(),
-            )
-        };
+        let table = STATE_TABLE.load(Ordering::Acquire).cast::<u8>();
+        if table.is_null() {
+            return;
+        }
+        let synthesis_offset = OUTER_SYNTHESIS_OFFSET.load(Ordering::Acquire);
+        let parser_offset = OUTER_PARSER_OFFSET.load(Ordering::Acquire);
+        if synthesis_offset == u32::MAX || parser_offset == u32::MAX {
+            return;
+        }
+        let outer = unsafe { ptr::read_unaligned(table.add(slot as usize * 8).cast::<u64>()) };
         let epoch = part_notes()
             .read()
             .unwrap_or_else(|value| value.into_inner())
@@ -2481,11 +2733,11 @@ mod register_shift_hook {
             let synthesis = unsafe {
                 ptr::read_unaligned(
                     (outer as *const u8)
-                        .add(OUTER_SYNTHESIS_OFFSET)
+                        .add(synthesis_offset as usize)
                         .cast::<u64>(),
                 )
             };
-            let parser = outer + OUTER_PARSER_OFFSET as u64;
+            let parser = outer + u64::from(parser_offset);
             let entry = StateEntry {
                 slot,
                 part,
@@ -2499,6 +2751,14 @@ mod register_shift_hook {
                 .unwrap_or_else(|value| value.into_inner())
                 .insert(parser, entry);
         }
+    }
+
+    pub(super) fn configure_engine_slot_offset(offset: u32) -> Result<(), i32> {
+        if offset as usize & 3 != 0 || offset > 0x1000 {
+            return Err(-3);
+        }
+        ENGINE_SLOT_OFFSET.store(offset, Ordering::Release);
+        Ok(())
     }
 
     #[cfg(test)]
@@ -2539,7 +2799,10 @@ mod register_shift_hook {
             && CANDIDATE_SCOPE_SIGNATURE.len() >= CANDIDATE_SCOPE_PATCH_LENGTH
             && CANDIDATE_PRUNE_SIGNATURE.len() >= CANDIDATE_PRUNE_PATCH_LENGTH
             && CANDIDATE_SCORE_SIGNATURE.len() >= CANDIDATE_SCORE_PATCH_LENGTH
-            && FRAME_GETTER_CALL_SIGNATURE == [0xe8, 0xff, 0xc8, 0xfe, 0xff]
+            && CANDIDATE_POOL_SORT_SIGNATURE.len() >= ABSOLUTE_JUMP_LENGTH
+            && CANDIDATE_POOL_CALLSITE_SIGNATURE.len() == CANDIDATE_POOL_CALLSITE_MASK.len()
+            && CANDIDATE_POOL_CALLSITE_SIGNATURE[CANDIDATE_POOL_SORT_CALL_OFFSET] == 0xe8
+            && CANDIDATE_POOL_CALLSITE_MASK[CANDIDATE_POOL_SORT_CALL_OFFSET] != 0
     }
 
     #[cfg(test)]
@@ -2700,21 +2963,14 @@ mod dse_hook {
     use super::*;
 
     const PAGE_EXECUTE_READWRITE: u32 = 0x40;
-    const VTABLE_RVA: usize = 0x50b618;
+    const IMAGE_SCN_MEM_EXECUTE: u32 = 0x2000_0000;
+    const IMAGE_SCN_MEM_READ: u32 = 0x4000_0000;
     const SLOT_CREATE_BUFFER: usize = 7;
     const SLOT_ADD_EVENT: usize = 8;
     const SLOT_SET_PREROLL: usize = 9;
     const SLOT_START: usize = 10;
     const SLOT_STOP: usize = 11;
     const SLOT_STEP: usize = 15;
-    const EXPECTED_TARGETS: &[(usize, usize)] = &[
-        (SLOT_CREATE_BUFFER, 0x1d0110),
-        (SLOT_ADD_EVENT, 0x1d0030),
-        (SLOT_SET_PREROLL, 0x1d0240),
-        (SLOT_START, 0x1d0290),
-        (SLOT_STOP, 0x1d02b0),
-        (SLOT_STEP, 0x1d00f0),
-    ];
     const MAX_EVENT_VALUES: usize = 1_000_000;
     const MAX_OUTPUT_SAMPLES: usize = 4096;
     const LOUD_SAMPLE_THRESHOLD: u64 = 64;
@@ -2989,6 +3245,108 @@ mod dse_hook {
         result
     }
 
+    unsafe fn find_vtable(
+        module: *mut u8,
+        layout: super::register_shift_hook::ImageLayout,
+    ) -> Result<(*mut *mut c_void, u32), i32> {
+        let code_begin = unsafe { module.add(layout.code_start) } as usize;
+        let code_end = code_begin + layout.code_size;
+        let is_code_pointer = |value: usize| value >= code_begin && value < code_end;
+        let read_engine_offset = |instruction: usize, following_opcode: u8| unsafe {
+            if !is_code_pointer(instruction) {
+                return None;
+            }
+            if instruction
+                .checked_add(4)
+                .is_some_and(|end| end <= code_end)
+                && *(instruction as *const u8) == 0x8b
+                && *((instruction + 1) as *const u8) == 0x49
+                && *((instruction + 3) as *const u8) == following_opcode
+            {
+                return Some(u32::from(*((instruction + 2) as *const u8)));
+            }
+            if instruction
+                .checked_add(7)
+                .is_some_and(|end| end <= code_end)
+                && *(instruction as *const u8) == 0x8b
+                && *((instruction + 1) as *const u8) == 0x89
+                && *((instruction + 6) as *const u8) == following_opcode
+            {
+                return Some(ptr::read_unaligned((instruction + 2) as *const u32));
+            }
+            None
+        };
+        let read_thunk_offset = |function: usize| read_engine_offset(function, 0xe9);
+        let read_event_wrapper_offset = |function: usize, stack_size: u8, following_opcode: u8| unsafe {
+            if !is_code_pointer(function)
+                || !function.checked_add(11).is_some_and(|end| end <= code_end)
+                || slice::from_raw_parts(function as *const u8, 7)
+                    != [0x48, 0x83, 0xec, stack_size, 0x0f, 0x10, 0x02]
+            {
+                return None;
+            }
+            read_engine_offset(function + 7, following_opcode)
+        };
+
+        let mut found = None;
+        let nt_offset = unsafe { ptr::read_unaligned(module.add(0x3c).cast::<u32>()) } as usize;
+        let nt = unsafe { module.add(nt_offset) };
+        let section_count = unsafe { ptr::read_unaligned(nt.add(6).cast::<u16>()) } as usize;
+        let optional_header_size =
+            unsafe { ptr::read_unaligned(nt.add(20).cast::<u16>()) } as usize;
+        let section_table = unsafe { nt.add(24 + optional_header_size) };
+        for section_index in 0..section_count {
+            let section = unsafe { section_table.add(section_index * 40) };
+            let characteristics = unsafe { ptr::read_unaligned(section.add(36).cast::<u32>()) };
+            if characteristics & IMAGE_SCN_MEM_READ == 0
+                || characteristics & IMAGE_SCN_MEM_EXECUTE != 0
+            {
+                continue;
+            }
+            let section_start =
+                unsafe { ptr::read_unaligned(section.add(12).cast::<u32>()) } as usize;
+            let virtual_size =
+                unsafe { ptr::read_unaligned(section.add(8).cast::<u32>()) } as usize;
+            let section_end = section_start
+                .checked_add(virtual_size)
+                .map(|end| end.min(layout.size))
+                .ok_or(-2)?;
+            let scan_start = (section_start + 7) & !7;
+            let Some(scan_end) =
+                section_end.checked_sub((SLOT_STEP + 1) * std::mem::size_of::<usize>())
+            else {
+                continue;
+            };
+            for offset in (scan_start..=scan_end).step_by(std::mem::size_of::<usize>()) {
+                let candidate = unsafe { module.add(offset) }.cast::<*mut c_void>();
+                let target =
+                    |slot: usize| unsafe { ptr::read_unaligned(candidate.add(slot)) as usize };
+                let Some(slot_offset) = read_thunk_offset(target(SLOT_CREATE_BUFFER)) else {
+                    continue;
+                };
+                if read_thunk_offset(target(SLOT_SET_PREROLL)) != Some(slot_offset)
+                    || read_thunk_offset(target(SLOT_START)) != Some(slot_offset)
+                    || read_thunk_offset(target(SLOT_STOP)) != Some(slot_offset)
+                    // AddEvent continues with another SIMD argument copy;
+                    // Step instead forms the address of its stack copy. Keep
+                    // both semantic continuations explicit so compiler layout
+                    // changes do not masquerade as an engine-field mismatch.
+                    || read_event_wrapper_offset(target(SLOT_ADD_EVENT), 0x58, 0x0f)
+                        != Some(slot_offset)
+                    || read_event_wrapper_offset(target(SLOT_STEP), 0x38, 0x48)
+                        != Some(slot_offset)
+                {
+                    continue;
+                }
+                if found.is_some() {
+                    return Err(-9);
+                }
+                found = Some((candidate, slot_offset));
+            }
+        }
+        found.ok_or(-3)
+    }
+
     pub fn install() -> i32 {
         if !ORIGINAL_ADD_EVENT.load(Ordering::Acquire).is_null() {
             return 0;
@@ -3005,13 +3363,18 @@ mod dse_hook {
         if module.is_null() {
             return -6;
         }
-        let vtable = unsafe { module.add(VTABLE_RVA) }.cast::<*mut c_void>();
-        for (slot, expected_rva) in EXPECTED_TARGETS {
-            let actual = unsafe { *vtable.add(*slot) } as usize;
-            if actual != module as usize + expected_rva {
-                return -3;
-            }
+        let layout = match unsafe { super::register_shift_hook::image_layout(module) } {
+            Ok(value) => value,
+            Err(error) => return error,
+        };
+        let (vtable, slot_offset) = match unsafe { find_vtable(module, layout) } {
+            Ok(value) => value,
+            Err(error) => return error,
+        };
+        if let Err(error) = super::register_shift_hook::configure_engine_slot_offset(slot_offset) {
+            return error;
         }
+        let vtable_rva = vtable as usize - module as usize;
 
         let mut old_protect = 0u32;
         if unsafe {
@@ -3047,7 +3410,7 @@ mod dse_hook {
                 &mut ignored,
             );
         }
-        DSE_VTABLE_RVA.store(VTABLE_RVA as u64, Ordering::Relaxed);
+        DSE_VTABLE_RVA.store(vtable_rva as u64, Ordering::Relaxed);
         1
     }
 }
