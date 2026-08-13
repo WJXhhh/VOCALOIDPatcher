@@ -83,7 +83,7 @@ internal static class AudioPartDomain
                 VSMAudioPartRegion region = part.Region;
                 string resolved = string.Empty;
                 bool allowed = !string.IsNullOrWhiteSpace(sourcePath)
-                               && McpAccessController.TryResolvePath(sourcePath, out resolved, out _);
+                               && TryResolvePartMedia(sourcePath, out resolved, out _);
                 WaveMetadata? metadata = null;
                 string? diagnostic = null;
                 if (string.IsNullOrWhiteSpace(sourcePath))
@@ -208,9 +208,11 @@ internal static class AudioPartDomain
             {
                 ValidateOfflineOperation(operation);
                 WIVSMAudioPart part = ResolvePart(sequence, operation);
+                long duration = ReadLong(operation, "duration_tick")!.Value;
+                if (duration == part.DurationTick.Value)
+                    return;
                 ValidateRenderableMedia(part);
                 RejectAiVoiceChanger(part);
-                long duration = ReadLong(operation, "duration_tick")!.Value;
                 double currentSeconds = part.DurationSec;
                 if (currentSeconds <= 0)
                     throw Invalid("The Audio Part has no positive playable duration.");
@@ -289,12 +291,36 @@ internal static class AudioPartDomain
         string source = part.GetOriginalWaveFilePath();
         if (string.IsNullOrWhiteSpace(source))
             throw new AudioPartDomainException(McpErrorCodes.InvalidReference, "The Audio Part has no original media reference.");
-        if (!McpAccessController.TryResolvePath(source, out string resolved, out BridgeError? error))
+        if (!TryResolvePartMedia(source, out string resolved, out BridgeError? error))
             throw new AudioPartDomainException(error?.Code ?? "path_not_allowed", error?.Message ?? "The Audio Part media path is not allowed.");
         if (!File.Exists(resolved))
             throw new AudioPartDomainException(McpErrorCodes.InvalidReference, "The Audio Part media is missing.");
         if (!TryReadWaveMetadata(resolved, out _, out string? diagnostic))
             throw new AudioPartDomainException(McpErrorCodes.Unsupported, diagnostic ?? "The Audio Part media is not a supported PCM/float WAVE file.");
+    }
+
+    private static bool TryResolvePartMedia(string source, out string resolved, out BridgeError? error)
+    {
+        if (McpAccessController.TryResolvePath(source, out resolved, out error))
+            return true;
+
+        // Once V6 accepts an allowlisted source it copies/converts that media into its
+        // private VSM workspace. OfflineProcessor must be able to consume that exact
+        // Part-owned reference, but clients still cannot nominate an arbitrary path here.
+        string local = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        var managedMedia = new PathAllowlist(new[]
+        {
+            Path.Combine(local, "VOCALOID6", "VSM", "VOCALOID6"),
+            Path.Combine(local, "VOCALOID6", "VSMCaches", "VOCALOID6"),
+        });
+        if (managedMedia.TryResolve(source, out resolved, out string? reason))
+        {
+            error = null;
+            return true;
+        }
+
+        error = new BridgeError("path_not_allowed", reason ?? "The Audio Part media path is not allowed.");
+        return false;
     }
 
     private static void RejectAiVoiceChanger(WIVSMAudioPart part)

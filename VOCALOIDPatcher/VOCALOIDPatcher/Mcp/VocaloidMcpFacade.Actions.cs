@@ -46,7 +46,10 @@ internal static partial class VocaloidMcpFacade
         {
             WIVSMPart selectedPart = Part(vsm, trackIndex.Value, partIndex.Value);
             sequence.SelectPart(selectedPart, mode == "toggle" ? !selectedPart.IsSelected : true);
-            if (!sequence.SetActivePartAndTrack(selectedPart))
+            bool alreadyActive = selectedPart.Equals(sequence.ActivePart);
+            if (SelectionActivation.ShouldActivate(alreadyActive))
+                sequence.SetActivePartAndTrack(selectedPart);
+            if (!SelectionActivation.Succeeded(selectedPart.Equals(sequence.ActivePart)))
                 throw Fault("operation_failed", "VOCALOID could not activate the requested part.");
         }
         else if (trackIndex != null)
@@ -441,7 +444,15 @@ internal static partial class VocaloidMcpFacade
             if (string.IsNullOrWhiteSpace(current) || !File.Exists(current))
                 throw Fault("invalid_reference", "The current project has no existing saved file to revert to.");
             if (dirtyAction == "cancel")
-                return new { reverted = false, outcome = "cancel", project = McpRevisionTracker.Current() };
+            {
+                (string projectId, long revision) = McpRevisionTracker.Current();
+                return new
+                {
+                    reverted = false,
+                    outcome = "cancel",
+                    project = new ProjectContext(McpBridgeService.InstanceId ?? string.Empty, projectId, revision),
+                };
+            }
         }
 
         bool dangerous = action is "new" or "open" or "revert" || fullPath != null && File.Exists(fullPath);
@@ -597,7 +608,13 @@ internal static partial class VocaloidMcpFacade
         App.Shared.Document.Load(path);
         main.Refresh();
         McpRevisionTracker.ProjectReplaced();
-        return new { reverted = true, outcome = dirtyAction == "save" ? "saved_then_reverted" : "discarded_then_reverted", project = McpRevisionTracker.Current() };
+        (string projectId, long revision) = McpRevisionTracker.Current();
+        return new
+        {
+            reverted = true,
+            outcome = dirtyAction == "save" ? "saved_then_reverted" : "discarded_then_reverted",
+            project = new ProjectContext(McpBridgeService.InstanceId ?? string.Empty, projectId, revision),
+        };
     }
 
     private static object NativeImportResult(string kind, long beforeRevision, object? details)

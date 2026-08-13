@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 using VOCALOIDPatcher.McpBridge;
+using VOCALOIDPatcher.Mcp.Core;
 
 namespace VOCALOIDPatcher.McpTests;
 
@@ -91,6 +92,15 @@ public sealed class StageZeroToTwoContractTests
 public sealed class StageSevenContractTests
 {
     [Fact]
+    public void ActivePartActivationUsesPostconditionInsteadOfNativeChangeFlag()
+    {
+        Assert.False(SelectionActivation.ShouldActivate(alreadyActive: true));
+        Assert.True(SelectionActivation.Succeeded(requestedPartIsActive: true));
+        Assert.True(SelectionActivation.ShouldActivate(alreadyActive: false));
+        Assert.False(SelectionActivation.Succeeded(requestedPartIsActive: false));
+    }
+
+    [Fact]
     public void UiCapabilitiesExposeConfirmedPanelEntryPointsAndDisablePlaybackRate()
     {
         Assert.Contains(McpContractCatalog.StageSevenCapabilities, item => item.Id == "ui.selection" && item.Implemented);
@@ -108,6 +118,23 @@ public sealed class StageSevenContractTests
 
 public sealed class StageEightContractTests
 {
+    [Fact]
+    public void RevertProjectContextSerializesAsProtocolObject()
+    {
+        var result = new
+        {
+            reverted = true,
+            outcome = "discarded_then_reverted",
+            project = new ProjectContext("instance", "replacement-project", 9),
+        };
+
+        JsonElement json = JsonSerializer.SerializeToElement(result, BridgeProtocol.JsonOptions);
+        JsonElement project = json.GetProperty("project");
+        Assert.Equal("instance", project.GetProperty("instance_id").GetString());
+        Assert.Equal("replacement-project", project.GetProperty("project_id").GetString());
+        Assert.Equal(9, project.GetProperty("revision").GetInt64());
+    }
+
     [Fact]
     public void NativeLifecycleCapabilitiesRemainUnverifiedUntilHostMatrixRuns()
     {

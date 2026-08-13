@@ -18,10 +18,19 @@ public sealed class StageFiveAudioPartContractTests
     [Theory]
     [InlineData("{\"op\":\"audio_normalize\",\"track_index\":0,\"part_index\":1}")]
     [InlineData("{\"op\":\"audio_time_stretch\",\"track_index\":0,\"part_index\":1,\"duration_tick\":1920}")]
+    [InlineData("{\"op\":\"normalize\",\"track_index\":0,\"part_index\":1}")]
+    [InlineData("{\"op\":\"time_stretch\",\"track_index\":0,\"part_index\":1,\"duration_tick\":1920}")]
     public void OfflineOperationShapeValidationAcceptsValidRequests(string json)
     {
         using JsonDocument document = JsonDocument.Parse(json);
         Assert.Empty(AudioPartContracts.ValidateOfflineOperation(document.RootElement));
+    }
+
+    [Fact]
+    public void UnifiedOperationNamesMatchPublishedContractIds()
+    {
+        Assert.Contains(AudioPartContracts.Operations, item => item.Id == "audio_parts.normalize");
+        Assert.Contains(AudioPartContracts.Operations, item => item.Id == "audio_parts.time_stretch");
     }
 
     [Theory]
