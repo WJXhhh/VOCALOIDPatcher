@@ -12,6 +12,7 @@ using System.Windows;
 using HarmonyLib;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.RegisterShift;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
@@ -78,6 +79,7 @@ internal static class BreathVolumeService
     private static long _nextNoteGeneration;
 
     public static event Action<BreathVolumeChangeKind, WIVSMMidiPart?>? Changed;
+    public static event Action<WIVSMMidiPart, int, bool>? RebuildCompleted;
 
     private static void NotifyChanged(BreathVolumeChangeKind kind, WIVSMMidiPart? part)
     {
@@ -1036,7 +1038,19 @@ internal static class BreathVolumeService
                 RemoveCache(part);
                 RefreshAudioPlacement(sequence, part);
             }
+            finally
+            {
+                RebuildCompleted?.Invoke(part, generation, Volatile.Read(ref state.RebuildGeneration) == generation);
+            }
         });
+    }
+
+    internal static void CompleteExternalMutation(WIVSMSequence sequence, IEnumerable<WIVSMMidiPart> parts)
+    {
+        WIVSMMidiPart[] targets = parts.Distinct().ToArray();
+        NotifyChanged(BreathVolumeChangeKind.Values, null);
+        foreach (WIVSMMidiPart part in targets)
+            RequestRebuild(sequence, part);
     }
 
     public static string SubstituteWavePath(WIVSMMidiPart part, string originalPath)
@@ -1325,16 +1339,33 @@ internal static class BreathVolumeService
         }
     }
 
+    internal static void PushExternalHistory(
+        WIVSMSequence sequence,
+        ICustomParameterHistoryEdit edit)
+    {
+        ArgumentNullException.ThrowIfNull(edit);
+        lock (Sync)
+        {
+            var history = GetHistory(sequence);
+            history.Undo.Add(new TimelineEntry(null, edit));
+            history.Redo.Clear();
+            history.Revision++;
+            RegisterShiftDiagnosticsLog.Write(
+                $"history timeline push sequence=0x{((IntPtr)sequence).ToInt64():X} " +
+                $"undo={history.Undo.Count} redo={history.Redo.Count}");
+        }
+    }
+
     public static bool CanUndo(WIVSMSequence sequence, bool nativeResult)
     {
         lock (Sync)
-            return nativeResult || GetHistory(sequence).Undo.LastOrDefault().Edit != null;
+            return nativeResult || GetHistory(sequence).Undo.LastOrDefault().HasEdit;
     }
 
     public static bool CanRedo(WIVSMSequence sequence, bool nativeResult)
     {
         lock (Sync)
-            return nativeResult || GetHistory(sequence).Redo.LastOrDefault().Edit != null;
+            return nativeResult || GetHistory(sequence).Redo.LastOrDefault().HasEdit;
     }
 
     public static bool IsProjectDirty(WIVSMSequence sequence)
@@ -1349,6 +1380,12 @@ internal static class BreathVolumeService
 
     public static bool HandleRedo(WIVSMSequence sequence)
         => HandleHistory(sequence, undo: false);
+
+    public static bool HandlePatchOwnedUndo(WIVSMSequence sequence)
+        => HandlePatchOwnedHistory(sequence, undo: true);
+
+    public static bool HandlePatchOwnedRedo(WIVSMSequence sequence)
+        => HandlePatchOwnedHistory(sequence, undo: false);
 
     public static void ResetHistory(WIVSMSequence sequence)
     {
@@ -1366,7 +1403,8 @@ internal static class BreathVolumeService
 
     private static bool HandleHistory(WIVSMSequence sequence, bool undo)
     {
-        ValueEdit? edit;
+        TimelineEntry entry;
+        ICustomParameterHistoryEdit? externalEdit = null;
         lock (Sync)
         {
             var history = GetHistory(sequence);
@@ -1375,22 +1413,123 @@ internal static class BreathVolumeService
             if (source.Count == 0)
                 return false;
 
-            var entry = source[^1];
+            entry = source[^1];
             source.RemoveAt(source.Count - 1);
             destination.Add(entry);
-            if (entry.Edit == null)
+            if (!entry.HasEdit)
                 return false;
 
-            edit = entry.Edit;
             history.Revision += undo ? -1 : 1;
-            foreach (var pair in undo ? edit.Before : edit.After)
-                if (IsActiveNoteKeyCore(pair.Key))
-                    SetValueCore(pair.Key, pair.Value);
+            if (entry.Edit is { } edit)
+            {
+                foreach (var pair in undo ? edit.Before : edit.After)
+                    if (IsActiveNoteKeyCore(pair.Key))
+                        SetValueCore(pair.Key, pair.Value);
+            }
+            else
+            {
+                externalEdit = entry.External;
+            }
         }
 
-        NotifyChanged(BreathVolumeChangeKind.Values, null);
-        RebuildAllCached(sequence);
+        if (entry.Edit != null)
+        {
+            NotifyChanged(BreathVolumeChangeKind.Values, null);
+            RebuildAllCached(sequence);
+        }
+        else
+        {
+            try
+            {
+                // External parameters have their own synchronization and may notify UI code.
+                // Never invoke them while holding the BVL history lock: apart from lock-order
+                // hazards, callbacks must be allowed to complete before AfterApply refreshes
+                // the editor from their new values.
+                if (externalEdit == null)
+                    throw new InvalidOperationException("The custom parameter history entry is missing.");
+                if (undo)
+                    externalEdit.ApplyBefore();
+                else
+                    externalEdit.ApplyAfter();
+            }
+            catch (Exception exception)
+            {
+                RollBackHistoryMove(sequence, entry, undo);
+                RegisterShiftDiagnosticsLog.Write(
+                    $"history replay failed direction={(undo ? "undo" : "redo")} " +
+                    $"sequence=0x{((IntPtr)sequence).ToInt64():X} " +
+                    $"exception={exception}");
+                Debug.Print($"Custom parameter {(undo ? "undo" : "redo")} failed: " +
+                            $"{exception.GetType().Name}: {exception.Message}");
+                // This was a patch-owned entry. Do not fall through to native Undo/Redo after
+                // restoring it, or an unrelated native edit would be consumed instead.
+                return true;
+            }
+        }
+
+        try
+        {
+            entry.External?.AfterApply();
+        }
+        catch (Exception exception)
+        {
+            // The value has already been restored. A refresh/render failure must not corrupt
+            // timeline ordering or cause the native history underneath it to be consumed.
+            Debug.Print($"Custom parameter history refresh failed: " +
+                        $"{exception.GetType().Name}: {exception.Message}");
+        }
         return true;
+    }
+
+    private static bool HandlePatchOwnedHistory(WIVSMSequence sequence, bool undo)
+    {
+        string top;
+        int sourceCount;
+        int destinationCount;
+        lock (Sync)
+        {
+            var history = GetHistory(sequence);
+            var source = undo ? history.Undo : history.Redo;
+            var destination = undo ? history.Redo : history.Undo;
+            sourceCount = source.Count;
+            destinationCount = destination.Count;
+            top = source.Count == 0 ? "empty" : source[^1].External != null
+                ? "external" : source[^1].Edit != null ? "bvl" : "native";
+            if (source.Count == 0 || !source[^1].HasEdit)
+            {
+                RegisterShiftDiagnosticsLog.Write(
+                    $"history command direction={(undo ? "undo" : "redo")} " +
+                    $"sequence=0x{((IntPtr)sequence).ToInt64():X} top={top} " +
+                    $"source={sourceCount} destination={destinationCount} handled=False");
+                return false;
+            }
+        }
+
+        RegisterShiftDiagnosticsLog.Write(
+            $"history command direction={(undo ? "undo" : "redo")} " +
+            $"sequence=0x{((IntPtr)sequence).ToInt64():X} top={top} " +
+            $"source={sourceCount} destination={destinationCount} handled=True");
+        return HandleHistory(sequence, undo);
+    }
+
+    private static void RollBackHistoryMove(WIVSMSequence sequence, TimelineEntry entry, bool undo)
+    {
+        lock (Sync)
+        {
+            var history = GetHistory(sequence);
+            var source = undo ? history.Undo : history.Redo;
+            var destination = undo ? history.Redo : history.Undo;
+            if (destination.Count > 0 && destination[^1].Equals(entry))
+            {
+                destination.RemoveAt(destination.Count - 1);
+                source.Add(entry);
+                history.Revision += undo ? 1 : -1;
+                RegisterShiftDiagnosticsLog.Write(
+                    $"history timeline rollback direction={(undo ? "undo" : "redo")} " +
+                    $"sequence=0x{((IntPtr)sequence).ToInt64():X} " +
+                    $"source={source.Count} destination={destination.Count}");
+            }
+        }
     }
 
     private static void MarkSaved(WIVSMSequence sequence)
@@ -2365,7 +2504,7 @@ internal static class BreathVolumeService
                 .ToDictionary(pair => pair.Key, pair => pair.Value);
             var after = edit.After.Where(pair => !releasedKeys.Contains(pair.Key))
                 .ToDictionary(pair => pair.Key, pair => pair.Value);
-            timeline[index] = new TimelineEntry(new ValueEdit(before, after));
+            timeline[index] = new TimelineEntry(new ValueEdit(before, after), null);
         }
     }
 
@@ -2480,8 +2619,11 @@ internal static class BreathVolumeService
         IReadOnlyDictionary<NoteKey, byte> Before,
         IReadOnlyDictionary<NoteKey, byte> After);
 
-    private readonly record struct TimelineEntry(ValueEdit? Edit)
+    private readonly record struct TimelineEntry(
+        ValueEdit? Edit,
+        ICustomParameterHistoryEdit? External = null)
     {
-        public static TimelineEntry Native => new(null);
+        public bool HasEdit => Edit != null || External != null;
+        public static TimelineEntry Native => new(null, null);
     }
 }

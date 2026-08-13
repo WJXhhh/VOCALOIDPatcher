@@ -212,6 +212,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(IndividualBreathVolumeKey, value);
     }
 
+    public static string RegisterShiftKey => "RegisterShift";
+
+    public static bool RegisterShift
+    {
+        get => FeatureFlag(RegisterShiftKey, true);
+        set => Patcher.ConfigManager.Set(RegisterShiftKey, value);
+    }
+
     public static string WaveformOpacityKey => "WaveformOpacity";
 
     public static double WaveformOpacity

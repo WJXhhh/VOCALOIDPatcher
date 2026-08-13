@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
+using VOCALOIDPatcher.Config;
+using VOCALOIDPatcher.Mcp;
+using VOCALOIDPatcher.Mcp.Core;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.G2PA;
@@ -163,6 +166,11 @@ public class ObserveRendererStartPatch : PatchBase
     {
         try
         {
+            if (Settings.McpEnabled)
+            {
+                (string projectId, long revision) = McpRevisionTracker.Current();
+                McpEventHub.Publish("render_started", projectId, revision);
+            }
             RuntimeObservationPatchSupport.End("render.started.native", __state, new Dictionary<string, object?>
             {
                 ["partId"] = RuntimeObservationLog.ObjectId("part", pMidiPart),
@@ -298,6 +306,11 @@ public class ObserveRendererCompletePatch : PatchBase
     {
         try
         {
+            if (Settings.McpEnabled)
+            {
+                (string projectId, long revision) = McpRevisionTracker.Current();
+                McpEventHub.Publish("render_idle", projectId, revision);
+            }
             RuntimeObservationPatchSupport.End("render.completed.native", __state, new Dictionary<string, object?>
             {
                 ["partId"] = RuntimeObservationLog.ObjectId("part", pMidiPart),

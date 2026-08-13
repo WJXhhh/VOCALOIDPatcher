@@ -39,7 +39,7 @@ internal readonly record struct NativeBreathDiagnostics(
 /// </summary>
 internal static unsafe class NativeBreathCapture
 {
-    private const uint ExpectedAbiVersion = 8;
+    private const uint ExpectedAbiVersion = 14;
     private const int InstallModuleNotLoaded = -6;
     private const int ReadBatchSize = 64;
     private const string LibraryName = "v6patch_clock.dll";

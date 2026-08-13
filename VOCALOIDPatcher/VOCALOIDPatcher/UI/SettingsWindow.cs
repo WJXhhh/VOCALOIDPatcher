@@ -14,6 +14,7 @@ using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Mcp;
 using VOCALOIDPatcher.McpBridge;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.RegisterShift;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.Utils;
 using VOCALOIDPatcher.Utils.Audio;
@@ -315,6 +316,19 @@ public class SettingsWindow : Window
                 BreathVolumeUi.RefreshSetting();
             });
 
+        var registerShift = DescribedToggle(
+            "VOCALOIDPatcher_RegisterShift_Header",
+            "VOCALOIDPatcher_RegisterShift_Description",
+            Settings.RegisterShift,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.RegisterShift = checkbox.IsChecked == true;
+                if (!Settings.RegisterShift)
+                    RegisterShiftService.DisableNative();
+                BreathVolumeUi.RefreshSetting();
+            });
+
         var waveformOptions = new StackPanel
         {
             Margin = new Thickness(28, 6, 0, 0),
@@ -378,6 +392,7 @@ public class SettingsWindow : Window
         panel.Children.Add(roundedNotes);
         panel.Children.Add(centeredLyrics);
         panel.Children.Add(individualBreathVolume);
+        panel.Children.Add(registerShift);
         panel.Children.Add(alwaysShowWaveform);
         panel.Children.Add(waveformOptions);
         panel.Children.Add(showCharacterArt);
@@ -388,6 +403,7 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.RoundedNotesKey, roundedNotes);
         HideIfUnsupported(Settings.CenteredLyricsKey, centeredLyrics);
         HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
+        HideIfUnsupported(Settings.RegisterShiftKey, registerShift);
         HideIfUnsupported(Settings.AlwaysShowWaveformKey, alwaysShowWaveform, waveformOptions);
         HideIfUnsupported(Settings.SvEditorStyleKey, svEditorStyle);
         HideIfUnsupported(Settings.ShowCharacterArtKey, showCharacterArt, artOptions);

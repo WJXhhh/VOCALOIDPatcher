@@ -50,7 +50,7 @@ internal readonly record struct NativeDseDiagnostics(
 /// </summary>
 internal static unsafe class NativeDseCapture
 {
-    private const uint ExpectedAbiVersion = 8;
+    private const uint ExpectedAbiVersion = 14;
     private const int InstallModuleNotLoaded = -6;
     private const string LibraryName = "v6patch_clock.dll";
 

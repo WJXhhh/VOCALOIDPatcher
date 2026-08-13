@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using HarmonyLib;
+using VOCALOIDPatcher.RegisterShift;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
@@ -60,6 +61,13 @@ internal sealed class BreathVolumeOverlay
         IsHitTestVisible = false,
         Visibility = Visibility.Collapsed
     };
+    private readonly Rectangle _zeroLine = new()
+    {
+        Height = 1,
+        Fill = FallbackBaseBrush,
+        IsHitTestVisible = false,
+        Visibility = Visibility.Collapsed
+    };
     private readonly UIControlParameters? _nativeParameterCanvas;
     private readonly Canvas? _nativeGuideCanvas;
     private readonly Canvas? _nativeTempObjectCanvas;
@@ -86,6 +94,7 @@ internal sealed class BreathVolumeOverlay
     private GestureKind _gesture;
     private int _refreshPending;
     private int _refreshing;
+    private int _refreshPosted;
     private int _nativeInjectionGeneration;
     private string? _lastObservedRenderSignature;
     private bool _lastLoggedActive;
@@ -102,7 +111,10 @@ internal sealed class BreathVolumeOverlay
             Background = Brushes.Transparent,
             ClipToBounds = true,
             Visibility = Visibility.Collapsed,
-            Focusable = true
+            Focusable = true,
+            // Returning keyboard focus here after an inline value edit must not
+            // apply VOCALOID's full-surface focus adorner to this song-wide canvas.
+            FocusVisualStyle = null
         };
         _nativeParameterCanvas = AccessTools.Field(typeof(ParameterView), "xUIControlParameters")
             ?.GetValue(view) as UIControlParameters;
@@ -147,6 +159,7 @@ internal sealed class BreathVolumeOverlay
         _valueEditor.PreviewKeyDown += OnValueEditorKeyDown;
         _valueEditor.LostKeyboardFocus += (_, _) => EndValueEdit(commit: !_cancelValueEdit);
         _canvas.Children.Add(_gridLayer);
+        _canvas.Children.Add(_zeroLine);
         _canvas.Children.Add(_parameterLayer);
         _canvas.Children.Add(_nomineeLayer);
         _canvas.Children.Add(_emptyStateLabel);
@@ -161,6 +174,7 @@ internal sealed class BreathVolumeOverlay
         _canvas.PreviewKeyDown += OnCanvasPreviewKeyDown;
         _view.DataContextChanged += (_, _) => Refresh();
         BreathVolumeService.Changed += OnServiceChanged;
+        RegisterShiftService.Changed += OnRegisterShiftChanged;
     }
 
     public static BreathVolumeOverlay? Attach(ParameterView view)
@@ -185,47 +199,97 @@ internal sealed class BreathVolumeOverlay
 
     public bool IsVisible => _canvas.Visibility == Visibility.Visible;
 
+    public void ReassertCustomSurface()
+    {
+        if (_view.DataContext is not MusicalEditorViewModel vm ||
+            !IsParameterActive(vm.ControlParameterType))
+            return;
+
+        _canvas.Visibility = Visibility.Visible;
+        if (_nativeParameterCanvas != null)
+            _nativeParameterCanvas.Visibility = Visibility.Collapsed;
+        if (_nativeSongPositionPath != null)
+            _nativeSongPositionPath.Visibility = Visibility.Visible;
+        ShowNativeGuideLayer();
+        HideNativeOutsidePartLayer();
+    }
+
     public void Refresh()
     {
+        if (_canvas.Dispatcher.HasShutdownStarted)
+            return;
+
         if (!_canvas.Dispatcher.CheckAccess())
         {
-            _canvas.Dispatcher.BeginInvoke((Action)Refresh);
+            QueueRefresh();
             return;
         }
 
-        if (Interlocked.Exchange(ref _refreshing, 1) != 0)
+        Interlocked.Exchange(ref _refreshPending, 1);
+        if (Interlocked.CompareExchange(ref _refreshing, 1, 0) != 0)
             return;
 
         try
         {
-            RefreshCore();
-        }
-        catch (Exception e)
-        {
-            Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message));
-            BreathVolumeDiagnosticsLog.Write($"overlay refresh failed: {e.GetType().Name}: {e.Message}");
-            try
+            while (Interlocked.Exchange(ref _refreshPending, 0) != 0)
             {
-                ClearNativeBars();
-                if (_view.DataContext is MusicalEditorViewModel vm)
-                    DrawEmptyState("VOCALOIDPatcher_BreathVolume_NoBreaths", vm);
-                RestoreTransientObjects();
-            }
-            catch
-            {
-                _canvas.Visibility = Visibility.Collapsed;
+                try
+                {
+                    RefreshCore();
+                }
+                catch (Exception e)
+                {
+                    Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message));
+                    BreathVolumeDiagnosticsLog.Write($"overlay refresh failed: {e.GetType().Name}: {e.Message}");
+                    try
+                    {
+                        ClearNativeBars();
+                        if (_view.DataContext is MusicalEditorViewModel vm)
+                            DrawEmptyState(IsRegisterMode
+                                ? "VOCALOIDPatcher_RegisterShift_NoNotes"
+                                : "VOCALOIDPatcher_BreathVolume_NoBreaths", vm);
+                        RestoreTransientObjects();
+                    }
+                    catch
+                    {
+                        _canvas.Visibility = Visibility.Collapsed;
+                    }
+                }
             }
         }
         finally
         {
             Interlocked.Exchange(ref _refreshing, 0);
+            if (Volatile.Read(ref _refreshPending) != 0)
+                QueueRefresh();
         }
+    }
+
+    private void QueueRefresh()
+    {
+        if (_canvas.Dispatcher.HasShutdownStarted)
+            return;
+        Interlocked.Exchange(ref _refreshPending, 1);
+        if (Interlocked.Exchange(ref _refreshPosted, 1) != 0)
+            return;
+        _canvas.Dispatcher.BeginInvoke(new Action(() =>
+        {
+            Interlocked.Exchange(ref _refreshPosted, 0);
+            if (Interlocked.Exchange(ref _refreshPending, 0) == 0)
+                return;
+            if (Volatile.Read(ref _refreshing) != 0)
+            {
+                Interlocked.Exchange(ref _refreshPending, 1);
+                return;
+            }
+            Refresh();
+        }));
     }
 
     private void RefreshCore()
     {
         if (_view.DataContext is not MusicalEditorViewModel vm ||
-            !BreathVolumeService.IsActive(vm.ControlParameterType))
+            !IsParameterActive(vm.ControlParameterType))
         {
             LogOverlayState(active: false, BreathRegionStatus.Unknown, 0, 0);
             _canvas.Visibility = Visibility.Collapsed;
@@ -236,8 +300,7 @@ internal sealed class BreathVolumeOverlay
             RestoreNativeGuideLayer();
             _view.EndDragRectangle();
             ClearNominees();
-            if (_nativeOutsidePartCanvas != null)
-                _nativeOutsidePartCanvas.Visibility = Visibility.Visible;
+            ShowNativeOutsidePartLayer();
             HideNativeGuides();
             return;
         }
@@ -245,6 +308,7 @@ internal sealed class BreathVolumeOverlay
         _canvas.Visibility = Visibility.Visible;
         if (_nativeParameterCanvas != null)
             _nativeParameterCanvas.Visibility = Visibility.Collapsed;
+        HideNativeOutsidePartLayer();
         if (_nativeSongPositionPath != null)
             _nativeSongPositionPath.Visibility = Visibility.Visible;
         ShowNativeGuideLayer();
@@ -258,24 +322,34 @@ internal sealed class BreathVolumeOverlay
         if (part == null || sequence == null)
         {
             ClearNativeBars();
-            DrawEmptyState("VOCALOIDPatcher_BreathVolume_NoActivePart", vm);
+            DrawEmptyState(IsRegisterMode
+                ? "VOCALOIDPatcher_RegisterShift_NoActivePart"
+                : "VOCALOIDPatcher_BreathVolume_NoActivePart", vm);
             RestoreTransientObjects();
             return;
         }
 
-        var status = BreathVolumeService.GetRegionStatus(part);
-        if (status == BreathRegionStatus.Unknown)
+        var status = IsRegisterMode ? BreathRegionStatus.Ready : BreathVolumeService.GetRegionStatus(part);
+        if (IsRegisterMode && !RegisterShiftService.IsSupported)
+        {
+            ClearNativeBars();
+            DrawEmptyState("VOCALOIDPatcher_RegisterShift_Unsupported", vm);
+            RestoreTransientObjects();
+            return;
+        }
+        if (!IsRegisterMode && status == BreathRegionStatus.Unknown)
         {
             BreathVolumeService.EnsureRegionsAsync(sequence, part);
             status = BreathRegionStatus.Loading;
         }
-        var regions = BreathVolumeService.GetRegions(part);
+        var regions = GetRegions(part);
         LogOverlayState(active: true, status, regions.Count, part.NumNotes);
         if (regions.Count == 0)
         {
             ClearNativeBars();
-            DrawEmptyState(
-                status == BreathRegionStatus.Loading
+            DrawEmptyState(IsRegisterMode
+                ? "VOCALOIDPatcher_RegisterShift_NoNotes"
+                : status == BreathRegionStatus.Loading
                     ? "VOCALOIDPatcher_BreathVolume_Loading"
                     : "VOCALOIDPatcher_BreathVolume_NoBreaths",
                 vm);
@@ -284,6 +358,11 @@ internal sealed class BreathVolumeOverlay
         }
 
         UpdateNativeBars(vm, part, regions);
+
+        _zeroLine.Visibility = IsRegisterMode ? Visibility.Visible : Visibility.Collapsed;
+        _zeroLine.Width = _canvas.Width;
+        Canvas.SetLeft(_zeroLine, 0);
+        Canvas.SetTop(_zeroLine, ValueToY(12, vm.ViewHeight));
 
         RestoreTransientObjects();
     }
@@ -320,8 +399,7 @@ internal sealed class BreathVolumeOverlay
         if (_nativeSongPositionPath != null)
             _nativeSongPositionPath.Visibility = Visibility.Visible;
         RestoreNativeGuideLayer();
-        if (_nativeOutsidePartCanvas != null)
-            _nativeOutsidePartCanvas.Visibility = Visibility.Visible;
+        ShowNativeOutsidePartLayer();
         HideNativeGuides();
         _valueEditor.Visibility = Visibility.Collapsed;
     }
@@ -366,8 +444,8 @@ internal sealed class BreathVolumeOverlay
                 e.Handled = true;
                 return;
             }
-            var handles = BreathVolumeService.GetSelection();
-            _gestureBefore = BreathVolumeService.Snapshot(handles);
+            var handles = GetSelection();
+            _gestureBefore = Snapshot(handles);
             _gesturePreview.Clear();
             _gestureTargetHandle = region.Value.NoteHandle;
             _gesture = GestureKind.MoveWait;
@@ -384,8 +462,8 @@ internal sealed class BreathVolumeOverlay
                 e.Handled = true;
                 return;
             }
-            var handles = BreathVolumeService.GetRegions(part).Select(item => item.NoteHandle).Distinct().ToArray();
-            _gestureBefore = BreathVolumeService.Snapshot(handles);
+            var handles = GetRegions(part).Select(item => item.NoteHandle).Distinct().ToArray();
+            _gestureBefore = Snapshot(handles);
             _gesturePreview.Clear();
             _gestureStartTick = vm.CalcViewPositionToTick(_gestureStart.X, QuantizeStrategy.Nearest).Value;
             _gesture = mode == EditModeME.Line ? GestureKind.LineWait : GestureKind.PencilWait;
@@ -422,7 +500,7 @@ internal sealed class BreathVolumeOverlay
         {
             case GestureKind.SongPositionJump:
                 if (!Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
-                    BreathVolumeService.ClearSelection();
+                    ClearSelection();
                 _gesture = GestureKind.Rectangle;
                 _view.BeginDragRectangle(_gestureStart);
                 _view.DragRectangle(point, _gestureStart);
@@ -487,7 +565,7 @@ internal sealed class BreathVolumeOverlay
         if (_gesture == GestureKind.SongPositionJump)
         {
             if (!Keyboard.Modifiers.HasFlag(ModifierKeys.Control))
-                BreathVolumeService.ClearSelection();
+                ClearSelection();
             if (App.AudioPlayer?.IsPlaying != true && !vm.IsRecording &&
                 Application.Current?.MainWindow?.DataContext is MainViewModel mainVm)
             {
@@ -501,8 +579,8 @@ internal sealed class BreathVolumeOverlay
 
         if (_gestureBefore != null && _gesture is GestureKind.Move or GestureKind.Pencil or GestureKind.Line)
         {
-            BreathVolumeService.SetPreviewValues(_gesturePreview);
-            BreathVolumeService.CommitValues(sequence, part, _gestureBefore);
+            SetPreviewValues(_gesturePreview);
+            CommitValues(sequence, part, _gestureBefore);
         }
 
         _gesture = GestureKind.None;
@@ -523,12 +601,13 @@ internal sealed class BreathVolumeOverlay
             return;
 
         var region = FindRegion(vm, part, e.GetPosition(_canvas));
-        if (region.HasValue && !BreathVolumeService.IsSelected(region.Value.NoteHandle))
-            BreathVolumeService.SetSelection(new[] { region.Value.NoteHandle });
+        if (region.HasValue && !IsSelected(region.Value.NoteHandle))
+            SetSelection(new[] { region.Value.NoteHandle });
 
         var menu = new ContextMenu();
-        var reset = new MenuItem { Header = TranslationManager.Tr("VOCALOIDPatcher_BreathVolume_Reset") };
-        reset.Click += (_, _) => BreathVolumeService.ResetSelected(sequence, part);
+        var reset = new MenuItem { Header = TranslationManager.Tr(IsRegisterMode
+            ? "VOCALOIDPatcher_RegisterShift_Reset" : "VOCALOIDPatcher_BreathVolume_Reset") };
+        reset.Click += (_, _) => ResetSelected(sequence, part);
         menu.Items.Add(reset);
         _canvas.ContextMenu = menu;
         menu.IsOpen = true;
@@ -537,7 +616,7 @@ internal sealed class BreathVolumeOverlay
 
     private void SelectClickedRegion(WIVSMMidiPart part, BreathRegion clicked, ModifierKeys modifiers)
     {
-        var regions = BreathVolumeService.GetRegions(part);
+        var regions = GetRegions(part);
         if (modifiers.HasFlag(ModifierKeys.Shift) && _selectionAnchor != IntPtr.Zero)
         {
             var first = IndexOf(regions, _selectionAnchor);
@@ -546,20 +625,20 @@ internal sealed class BreathVolumeOverlay
             {
                 var handles = regions.Skip(Math.Min(first, second)).Take(Math.Abs(first - second) + 1)
                     .Select(region => region.NoteHandle);
-                BreathVolumeService.SetSelection(handles, modifiers.HasFlag(ModifierKeys.Control));
+                SetSelection(handles, modifiers.HasFlag(ModifierKeys.Control));
             }
             else
             {
-                BreathVolumeService.SetSelection(new[] { clicked.NoteHandle }, modifiers.HasFlag(ModifierKeys.Control));
+                SetSelection(new[] { clicked.NoteHandle }, modifiers.HasFlag(ModifierKeys.Control));
             }
         }
         else if (modifiers.HasFlag(ModifierKeys.Control))
         {
-            BreathVolumeService.ToggleSelection(clicked.NoteHandle);
+            ToggleSelection(clicked.NoteHandle);
         }
-        else if (!BreathVolumeService.IsSelected(clicked.NoteHandle))
+        else if (!IsSelected(clicked.NoteHandle))
         {
-            BreathVolumeService.SetSelection(new[] { clicked.NoteHandle });
+            SetSelection(new[] { clicked.NoteHandle });
         }
 
         _selectionAnchor = clicked.NoteHandle;
@@ -572,17 +651,17 @@ internal sealed class BreathVolumeOverlay
         var top = Math.Min(start.Y, end.Y);
         var bottom = Math.Max(start.Y, end.Y);
         var notePositions = BuildNotePositions(vm, part);
-        var handles = BreathVolumeService.GetRegions(part).Where(region =>
+        var handles = GetRegions(part).Where(region =>
         {
             var x1 = GetBarX(vm, region, notePositions);
             var x2 = x1 + NativeBarWidth;
-            var y = ValueToY(BreathVolumeService.GetValue(region.NoteHandle), vm.ViewHeight);
+            var y = ValueToY(GetDisplayValue(region.NoteHandle), vm.ViewHeight);
             return x2 >= left && x1 <= right && ValueBottom(vm.ViewHeight) >= top && y <= bottom;
         }).Select(region => region.NoteHandle);
-        BreathVolumeService.SetSelection(handles, Keyboard.Modifiers.HasFlag(ModifierKeys.Control));
+        SetSelection(handles, Keyboard.Modifiers.HasFlag(ModifierKeys.Control));
     }
 
-    private static void ApplyDragPoints(
+    private void ApplyDragPoints(
         WIVSMMidiPart part,
         IReadOnlyList<Point> dragPoints,
         IDictionary<IntPtr, byte> preview)
@@ -593,7 +672,7 @@ internal sealed class BreathVolumeOverlay
         var first = dragPoints[0];
         var last = dragPoints[^1];
         var notes = BuildNotes(part);
-        foreach (var region in BreathVolumeService.GetRegions(part))
+        foreach (var region in GetRegions(part))
         {
             if (!notes.TryGetValue(region.NoteHandle, out var note))
                 continue;
@@ -630,20 +709,20 @@ internal sealed class BreathVolumeOverlay
         vm = _view.DataContext as MusicalEditorViewModel ?? null!;
         sequence = vm?.VSMSequence ?? null!;
         part = vm?.ActivePart ?? null!;
-        return vm != null && sequence != null && part != null && BreathVolumeService.IsActive(vm.ControlParameterType);
+        return vm != null && sequence != null && part != null && IsParameterActive(vm.ControlParameterType);
     }
 
-    private static BreathRegion? FindRegion(MusicalEditorViewModel vm, WIVSMMidiPart part, Point point)
+    private BreathRegion? FindRegion(MusicalEditorViewModel vm, WIVSMMidiPart part, Point point)
     {
         var notePositions = BuildNotePositions(vm, part);
-        var regions = BreathVolumeService.GetRegions(part);
+        var regions = GetRegions(part);
         for (var index = regions.Count - 1; index >= 0; index--)
         {
             var region = regions[index];
             var left = GetBarX(vm, region, notePositions);
             var width = NativeBarWidth +
-                        (BreathVolumeService.IsSelected(region.NoteHandle) ? NativeSelectedAddWidth : 0);
-            var top = ValueToY(BreathVolumeService.GetValue(region.NoteHandle), vm.ViewHeight);
+                        (IsSelected(region.NoteHandle) ? NativeSelectedAddWidth : 0);
+            var top = ValueToY(GetDisplayValue(region.NoteHandle), vm.ViewHeight);
             if (point.X >= left && point.X <= left + width &&
                 point.Y >= top && point.Y <= ValueBottom(vm.ViewHeight))
                 return region;
@@ -658,14 +737,11 @@ internal sealed class BreathVolumeOverlay
         if (part != null && _view.DataContext is MusicalEditorViewModel { ActivePart: { } activePart } &&
             !activePart.Equals(part))
             return;
-        if (Interlocked.Exchange(ref _refreshPending, 1) != 0)
-            return;
-        _canvas.Dispatcher.BeginInvoke(new Action(() =>
-        {
-            Interlocked.Exchange(ref _refreshPending, 0);
-            Refresh();
-        }));
+        QueueRefresh();
     }
+
+    private void OnRegisterShiftChanged(WIVSMMidiPart? part)
+        => OnServiceChanged(BreathVolumeChangeKind.Values, part);
 
     private static int IndexOf(IReadOnlyList<BreathRegion> regions, IntPtr handle)
     {
@@ -675,11 +751,11 @@ internal sealed class BreathVolumeOverlay
         return -1;
     }
 
-    private static double ValueToY(int value, double height)
+    private double ValueToY(int value, double height)
         => ValueBottom(height) - Math.Max(1,
             Math.Clamp(value, MinValue, MaxValue) / (double)MaxValue * ValueHeight(height));
 
-    private static int YToValue(double y, double height)
+    private int YToValue(double y, double height)
         => Math.Clamp((int)Math.Round(MaxValue * (1.0 - (y - NativeTopOffset) / ValueHeight(height))), MinValue, MaxValue);
 
     private static double ValueHeight(double height)
@@ -805,9 +881,9 @@ internal sealed class BreathVolumeOverlay
                 Minimum = MinValue,
                 Maximum = MaxValue,
                 RelPosTick = (VSMRelTick)note.AbsPosTick.Value,
-                Value = BreathVolumeService.GetValue(region.NoteHandle),
+                Value = GetDisplayValue(region.NoteHandle),
                 ViewHeight = vm.ViewHeight,
-                IsSelected = BreathVolumeService.IsSelected(region.NoteHandle)
+                IsSelected = IsSelected(region.NoteHandle)
             });
         }
 
@@ -819,6 +895,7 @@ internal sealed class BreathVolumeOverlay
 
     private void ClearNativeBars()
     {
+        _zeroLine.Visibility = Visibility.Collapsed;
         _parameterLayer.ControlParameters.Clear();
         _parameterLayer.InvalidateVisual();
     }
@@ -1014,7 +1091,41 @@ internal sealed class BreathVolumeOverlay
         if (_nativeOutsidePartCanvas == null)
             return;
         UpdateOutsideActivePartLayerMethod?.Invoke(_view, new object[] { vm });
+        // BVL/REG already renders the active-part content itself. Keep the
+        // native outside-part dark layer hidden so it cannot dim the custom
+        // parameter panel or cover it with a gray mask.
+        HideNativeOutsidePartLayer();
+    }
+
+    private void HideNativeOutsidePartLayer()
+    {
+        if (_nativeOutsidePartCanvas == null)
+            return;
+        _nativeOutsidePartCanvas.Visibility = Visibility.Collapsed;
+        _nativeOutsidePartCanvas.IsHitTestVisible = false;
+        if (_nativeOutsidePartLeftLayer != null)
+            _nativeOutsidePartLeftLayer.Visibility = Visibility.Collapsed;
+        if (_nativeOutsidePartRightLayer != null)
+            _nativeOutsidePartRightLayer.Visibility = Visibility.Collapsed;
+    }
+
+    private void ShowNativeOutsidePartLayer()
+    {
+        if (_nativeOutsidePartCanvas == null)
+            return;
+
+        if (_view.DataContext is MusicalEditorViewModel vm)
+            UpdateOutsideActivePartLayerMethod?.Invoke(_view, new object[] { vm });
+        else
+        {
+            if (_nativeOutsidePartLeftLayer != null)
+                _nativeOutsidePartLeftLayer.Visibility = Visibility.Visible;
+            if (_nativeOutsidePartRightLayer != null)
+                _nativeOutsidePartRightLayer.Visibility = Visibility.Collapsed;
+        }
+
         _nativeOutsidePartCanvas.Visibility = Visibility.Visible;
+        _nativeOutsidePartCanvas.IsHitTestVisible = _nativeOutsidePartHitTestVisible;
     }
 
     private void ObserveNativeRenderCore(UIControlParameters surface)
@@ -1193,7 +1304,7 @@ internal sealed class BreathVolumeOverlay
             if (_nativeCursorGuide != null)
                 _nativeCursorGuide.Visibility = Visibility.Hidden;
             if (region.HasValue)
-                ShowNativeToolTip(vm, point, BreathVolumeService.GetValue(region.Value.NoteHandle));
+                ShowNativeToolTip(vm, point, GetDisplayValue(region.Value.NoteHandle));
             else if (_nativeToolTip != null)
                 _nativeToolTip.Visibility = Visibility.Hidden;
             return;
@@ -1225,7 +1336,7 @@ internal sealed class BreathVolumeOverlay
     private void ShowNativeGuide(MusicalEditorViewModel vm, Point point, int value)
         => ShowNativeLabel(_nativeCursorGuide, vm, point, value, includeHorizontalOffsetWhenFlipped: true);
 
-    private static void ShowNativeLabel(
+    private void ShowNativeLabel(
         Label? label,
         MusicalEditorViewModel vm,
         Point point,
@@ -1234,7 +1345,7 @@ internal sealed class BreathVolumeOverlay
     {
         if (label == null || vm.ParameterViewer == null)
             return;
-        label.Content = value.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        label.Content = FormatDisplayValue(value);
         label.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
         var width = Math.Max(label.ActualWidth, label.DesiredSize.Width);
         var height = Math.Max(label.ActualHeight, label.DesiredSize.Height);
@@ -1286,9 +1397,9 @@ internal sealed class BreathVolumeOverlay
     private void BeginValueEdit(BreathRegion region, Point point)
     {
         _cancelValueEdit = false;
+        _valueEditor.Regex = new Regex(IsRegisterMode ? "^-?[0-9]{0,2}$" : "^[0-9]{0,3}$");
         _valueEditor.Tag = region.NoteHandle;
-        _valueEditor.Text = BreathVolumeService.GetValue(region.NoteHandle)
-            .ToString(System.Globalization.CultureInfo.InvariantCulture);
+        _valueEditor.Text = FormatDisplayValue(GetDisplayValue(region.NoteHandle));
         var viewport = (_view.DataContext as MusicalEditorViewModel)?.ParameterViewer?.ViewportRect()
                        ?? new Rect(0, 0, _canvas.ActualWidth, _canvas.ActualHeight);
         var left = Math.Max(viewport.Left, point.X + 14);
@@ -1335,7 +1446,7 @@ internal sealed class BreathVolumeOverlay
                 System.Globalization.CultureInfo.InvariantCulture, out var parsed) &&
             TryGetContext(out _, out var sequence, out var part))
         {
-            BreathVolumeService.SetValues(sequence, part, new[] { handle }, parsed);
+            SetValues(sequence, part, new[] { handle }, parsed);
         }
         _cancelValueEdit = false;
         _canvas.Focus();
@@ -1348,8 +1459,89 @@ internal sealed class BreathVolumeOverlay
         return freezable;
     }
 
-    private const int MinValue = BreathVolumeService.MinValue;
-    private const int MaxValue = BreathVolumeService.MaxValue;
+    private bool IsRegisterMode
+        => _view.DataContext is MusicalEditorViewModel vm &&
+           vm.ControlParameterType.Equals(RegisterShiftService.ParameterType);
+
+    private bool IsParameterActive(ControlParameterTypeEnum type)
+    {
+        if (BreathVolumeService.IsActive(type))
+            return true;
+        if (!RegisterShiftService.IsActive(type))
+            return false;
+
+        // ActivePart can be temporarily null while the header commits a value.
+        // Treat REG as active until the track is known to be an AI track; otherwise
+        // the native outside-part mask can flash over the custom panel.
+        return _view.DataContext is not MusicalEditorViewModel vm ||
+               vm.ActiveTrack?.Type != VSMTrackType.MidiAi;
+    }
+
+    private IReadOnlyList<BreathRegion> GetRegions(WIVSMMidiPart part)
+        => IsRegisterMode ? RegisterShiftService.GetRegions(part) : BreathVolumeService.GetRegions(part);
+
+    private int GetDisplayValue(IntPtr handle)
+        => IsRegisterMode ? RegisterShiftService.GetValue(handle) + 12 : BreathVolumeService.GetValue(handle);
+
+    private IReadOnlyCollection<IntPtr> GetSelection()
+        => IsRegisterMode ? RegisterShiftService.GetSelection() : BreathVolumeService.GetSelection();
+
+    private Dictionary<IntPtr, byte> Snapshot(IEnumerable<IntPtr> handles)
+        => IsRegisterMode ? RegisterShiftService.Snapshot(handles) : BreathVolumeService.Snapshot(handles);
+
+    private bool IsSelected(IntPtr handle)
+        => IsRegisterMode ? RegisterShiftService.IsSelected(handle) : BreathVolumeService.IsSelected(handle);
+
+    private void ClearSelection()
+    {
+        if (IsRegisterMode) RegisterShiftService.ClearSelection();
+        else BreathVolumeService.ClearSelection();
+    }
+
+    private void SetSelection(IEnumerable<IntPtr> handles, bool additive = false)
+    {
+        if (IsRegisterMode) RegisterShiftService.SetSelection(handles, additive);
+        else BreathVolumeService.SetSelection(handles, additive);
+    }
+
+    private void ToggleSelection(IntPtr handle)
+    {
+        if (IsRegisterMode) RegisterShiftService.ToggleSelection(handle);
+        else BreathVolumeService.ToggleSelection(handle);
+    }
+
+    private void SetPreviewValues(IEnumerable<KeyValuePair<IntPtr, byte>> values)
+    {
+        if (IsRegisterMode) RegisterShiftService.SetPreviewValues(values);
+        else BreathVolumeService.SetPreviewValues(values);
+    }
+
+    private void CommitValues(WIVSMSequence sequence, WIVSMMidiPart part,
+        IReadOnlyDictionary<IntPtr, byte> before)
+    {
+        if (IsRegisterMode) RegisterShiftService.CommitValues(sequence, part, before);
+        else BreathVolumeService.CommitValues(sequence, part, before);
+    }
+
+    private void ResetSelected(WIVSMSequence sequence, WIVSMMidiPart part)
+    {
+        if (IsRegisterMode) RegisterShiftService.ResetSelected(sequence, part);
+        else BreathVolumeService.ResetSelected(sequence, part);
+    }
+
+    private void SetValues(WIVSMSequence sequence, WIVSMMidiPart part,
+        IEnumerable<IntPtr> handles, int value)
+    {
+        if (IsRegisterMode) RegisterShiftService.SetValues(sequence, part, handles, value);
+        else BreathVolumeService.SetValues(sequence, part, handles, value);
+    }
+
+    private string FormatDisplayValue(int value)
+        => (IsRegisterMode ? value - 12 : value)
+            .ToString(System.Globalization.CultureInfo.InvariantCulture);
+
+    private int MinValue => 0;
+    private int MaxValue => IsRegisterMode ? 24 : BreathVolumeService.MaxValue;
     private const double NativeBarWidth = 10.0;
     private const double NativeSelectedAddWidth = 2.0;
     private const double NativeTopOffset = 7.0;
