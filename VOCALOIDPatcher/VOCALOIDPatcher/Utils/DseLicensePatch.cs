@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace VOCALOIDPatcher.Utils;
@@ -7,40 +8,31 @@ namespace VOCALOIDPatcher.Utils;
 /// <summary>
 /// 对已加载的 DSE.dll 做内存 patch，让 license 结果恒为绿灯。
 ///
-/// 思路与"文件级 patch"完全等价：不改任何 getter（改 GetResult 反而会破坏验证核心
-/// 内部的"临时对象结果码 == 0"检查，导致验证永远进错误分支），而是直接修改
-/// 验证核心 <c>FUN_1801dac80</c>（VOCALOID 6.13.0.1）里的结果码赋值：
-///
-/// 1. 验证核心内共有 60 处结果码赋值（三组同构阶段，对应 V6 声库 / 旧版本声库 / Splice）：
-///    - <c>C7 44 24 38 XX 00 00 00</c>（MOV [RSP+0x38], imm32，立即数在 +4）→ 普通结果码 +0x50；
-///    - <c>C7 45 C8 XX 00 00 00</c>（MOV [RBP-0x38], imm32，立即数在 +3）→ Splice 结果码 +0x54。
-///    绿灯内部结果码集合为 {0x02, 0x06, 0x0B, 0x0E}（对应 GetResult 输出 15/9/14/8，
-///    即 NoError / PaidOffLeaseFile / ValidExpiryKey / ValidLeaseFile），保持不动；
-///    其余 45 处红灯一律改成 0x0B（ValidExpiryKey）。
-/// 2. 动态赋值点 <c>core+0x2F0B</c>（0x1DDB8B）：<c>JZ 74 18 → 74 00</c>，短路"日期无效跳过绿灯"分支。
-///
-/// 验证核心用 32 字节 prologue signature 定位（唯一命中 6.13.0.1；6.10 修改版内核不命中，
-/// 安全降级不修改任何字节）。patch 后验证核心写入端恒为绿灯，编辑器无论从哪个 getter 读都是绿灯。
+/// 不修改公开 getter：验证核心本身会读取临时对象的结果码，修改 getter 会改变内部控制流。
+/// 定位从初始化 wrapper 的稳定调用关系出发，再用 PE 异常目录取得验证核心的真实函数边界；
+/// 结果写入按同一栈槽上的完整结果码集合分组识别，日期检查按局部控制流关系识别。
+/// 任一关系不唯一或结构不完整时均拒绝修改。
 /// </summary>
 internal static unsafe class DseLicensePatch
 {
-    // FUN_1801dac80（验证核心）prologue signature：
-    //   MOV RAX,RSP; MOV [RAX+0x10],RBX; PUSH RBP..R15; LEA RBP,[RAX-0x598]; SUB RSP,0x660
-    private static readonly byte[] CoreSignature =
-    {
-        0x48, 0x8B, 0xC4, 0x48, 0x89, 0x58, 0x10, 0x55, 0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56,
-        0x41, 0x57, 0x48, 0x8D, 0xA8, 0x68, 0xFA, 0xFF, 0xFF, 0x48, 0x81, 0xEC, 0x60, 0x06, 0x00, 0x00,
-    };
+    private const int MinimumWrapperLength = 0x80;
+    private const int MaximumWrapperLength = 0x400;
+    private const int MinimumCoreLength = 0x1000;
+    private const int MinimumResultStoreCount = 40;
+    private const int MaximumResultStoreCount = 120;
+    private const int MinimumStoresPerSlot = 16;
+    private const int MinimumDistinctUnpatchedResults = 12;
 
-    private const int CoreLength = 0x3AFC;  // 验证核心函数体长度
-    private const int JzOffset = 0x2F0B;    // 0x1DDB8B - 0x1DAC80：JZ 74 18 -> 74 00
+    private static readonly HashSet<int> KnownResults =
+        new() { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+            0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10 };
 
-    // 编辑器绿灯的内部结果码集合（GetResult 输出 7^r mod 17 ∈ {15,9,14,8}）
-    private static readonly HashSet<byte> GreenResults = new() { 0x02, 0x06, 0x0B, 0x0E };
+    // 编辑器绿灯的内部结果码集合（GetResult 输出 7^r mod 17 ∈ {15,9,14,8}）。
+    private static readonly HashSet<int> GreenResults = new() { 0x02, 0x06, 0x0B, 0x0E };
 
-    private const byte GreenValue = 0x0B;   // 红灯统一改成 ValidExpiryKey
+    private const byte GreenValue = 0x0B;
 
-    /// <summary>尝试 patch <paramref name="module"/>（DSE.dll 的模块基址）。成功或已放行返回 true。</summary>
+    /// <summary>尝试 patch <paramref name="module"/>（DSE.dll 的模块基址）。</summary>
     public static bool TryPatch(nint module)
     {
         if (module == 0)
@@ -48,28 +40,30 @@ internal static unsafe class DseLicensePatch
 
         try
         {
-            if (!TryGetTextSection(module, out var text, out var textSize))
+            if (!TryGetImageLayout(module, out var layout) ||
+                !TryResolveLicenseCore(module, layout, out var core))
                 return false;
 
-            var core = FindBytes(text, textSize, CoreSignature);
-            if (core == 0)
-                return false; // 版本不匹配（如 6.10 修改版内核），安全降级
-
-            var patches = CollectPatches(core);
+            if (!TryCollectPatches(core, out var patches))
+                return false;
             if (patches.Count == 0)
-                return true; // 已全部是绿灯（例如文件级 patch 已先行生效），无需再写
+                return true;
 
-            if (!VirtualProtect(core, CoreLength, PageExecuteReadWrite, out var oldProtect))
+            var coreAddress = module + (int)core.BeginRva;
+            var coreLength = core.EndRva - core.BeginRva;
+            if (!VirtualProtect(coreAddress, coreLength, PageExecuteReadWrite, out var oldProtect))
                 return false;
 
             try
             {
-                foreach (var (address, value) in patches)
-                    *(byte*)address = value;
+                foreach (var patch in patches)
+                    *(byte*)patch.Address = patch.Value;
+
+                FlushInstructionCache(GetCurrentProcess(), coreAddress, coreLength);
             }
             finally
             {
-                VirtualProtect(core, CoreLength, oldProtect, out _);
+                VirtualProtect(coreAddress, coreLength, oldProtect, out _);
             }
 
             return true;
@@ -81,50 +75,352 @@ internal static unsafe class DseLicensePatch
         }
     }
 
-    /// <summary>在验证核心内收集需要改写的字节（红灯立即数 + JZ 动态赋值）。</summary>
-    private static List<(nint Address, byte Value)> CollectPatches(nint core)
+    private static bool TryResolveLicenseCore(nint module, ImageLayout layout, out RuntimeFunction core)
     {
-        var patches = new List<(nint, byte)>();
+        core = default;
+        var found = false;
+        var count = layout.ExceptionSize / 12;
 
-        for (var p = core; p < core + CoreLength - 7; p++)
+        for (uint i = 0; i < count; i++)
         {
-            var b = (byte*)p;
+            var entry = (byte*)module + layout.ExceptionRva + i * 12;
+            var wrapper = new RuntimeFunction(*(uint*)entry, *(uint*)(entry + 4));
+            var wrapperLength = wrapper.Length;
+            if (wrapperLength is < MinimumWrapperLength or > MaximumWrapperLength ||
+                !IsCodeRange(layout, wrapper))
+                continue;
 
-            // C7 44 24 38 XX 00 00 00：MOV dword [RSP+0x38], imm32（立即数在 +4）
-            if (b[0] == 0xC7 && b[1] == 0x44 && b[2] == 0x24 && b[3] == 0x38 &&
-                b[5] == 0x00 && b[6] == 0x00 && b[7] == 0x00)
+            var wrapperAddress = (byte*)module + wrapper.BeginRva;
+            if (!ContainsPebGuard(wrapperAddress, wrapperLength) ||
+                !TryFindCoreCall(wrapperAddress, wrapperLength, module, layout, out var candidate))
+                continue;
+
+            if (found && candidate != core)
+                return false;
+
+            core = candidate;
+            found = true;
+        }
+
+        return found;
+    }
+
+    private static bool TryFindCoreCall(byte* wrapper, uint wrapperLength, nint module,
+        ImageLayout layout, out RuntimeFunction core)
+    {
+        core = default;
+        var found = false;
+
+        for (var offset = 0; offset + 8 < wrapperLength; offset++)
+        {
+            if (wrapper[offset] != 0x84 || wrapper[offset + 1] != 0xC0 ||
+                !TryReadConditionalTarget(wrapper, wrapperLength, offset + 2, out var successOffset))
+                continue;
+
+            var firstCallOffset = SkipPadding(wrapper, wrapperLength, successOffset);
+            if (!TryReadDirectCallTarget(wrapper, wrapperLength, firstCallOffset, module, out _))
+                continue;
+
+            var searchEnd = Math.Min((int)wrapperLength, firstCallOffset + 40);
+            for (var callOffset = firstCallOffset + 5; callOffset + 5 <= searchEnd; callOffset++)
             {
-                var value = b[4];
-                if (!GreenResults.Contains(value))
-                    patches.Add((p + 4, GreenValue));
-                p += 7;
-            }
-            // C7 45 C8 XX 00 00 00：MOV dword [RBP-0x38], imm32（3 字节前缀，立即数在 +3）
-            else if (b[0] == 0xC7 && b[1] == 0x45 && b[2] == 0xC8 &&
-                     b[4] == 0x00 && b[5] == 0x00 && b[6] == 0x00)
-            {
-                var value = b[3];
-                if (!GreenResults.Contains(value))
-                    patches.Add((p + 3, GreenValue));
-                p += 7;
+                if (!TryReadDirectCallTarget(wrapper, wrapperLength, callOffset, module,
+                        out var targetRva) ||
+                    !TryGetRuntimeFunction(module, layout, targetRva, out var candidate) ||
+                    candidate.Length < MinimumCoreLength || !IsCodeRange(layout, candidate))
+                    continue;
+
+                var candidateAddress = (byte*)module + candidate.BeginRva;
+                if (!ContainsPebGuard(candidateAddress, candidate.Length))
+                    continue;
+
+                if (found && candidate != core)
+                    return false;
+
+                core = candidate;
+                found = true;
             }
         }
 
-        // JZ 74 18 -> 74 00 @ core+0x2F0B（短路"日期无效跳过绿灯"的分支）
-        var jz = (byte*)(core + JzOffset);
-        if (jz[0] == 0x74 && jz[1] == 0x18)
-            patches.Add((core + JzOffset + 1, 0x00));
-
-        return patches;
+        return found;
     }
 
-    private static bool TryGetTextSection(nint module, out nint text, out uint textSize)
+    private static bool TryReadConditionalTarget(byte* function, uint length, int offset,
+        out int targetOffset)
     {
-        text = 0;
-        textSize = 0;
+        targetOffset = 0;
+        if (offset + 2 <= length && function[offset] == 0x75)
+        {
+            targetOffset = offset + 2 + (sbyte)function[offset + 1];
+            return targetOffset >= 0 && targetOffset < length;
+        }
 
+        if (offset + 6 <= length && function[offset] == 0x0F && function[offset + 1] == 0x85)
+        {
+            targetOffset = offset + 6 + *(int*)(function + offset + 2);
+            return targetOffset >= 0 && targetOffset < length;
+        }
+
+        return false;
+    }
+
+    private static int SkipPadding(byte* function, uint length, int offset)
+    {
+        while (offset < length && function[offset] is 0x90 or 0xCC)
+            offset++;
+        return offset;
+    }
+
+    private static bool TryReadDirectCallTarget(byte* function, uint length, int offset,
+        nint module, out uint targetRva)
+    {
+        targetRva = 0;
+        if (offset < 0 || offset + 5 > length || function[offset] != 0xE8)
+            return false;
+
+        var target = (nint)(function + offset + 5 + *(int*)(function + offset + 1));
+        var relative = target - module;
+        if (relative < 0 || relative > uint.MaxValue)
+            return false;
+
+        targetRva = (uint)relative;
+        return true;
+    }
+
+    private static bool ContainsPebGuard(byte* function, uint length)
+    {
+        ReadOnlySpan<byte> peb = stackalloc byte[]
+            { 0x65, 0x48, 0x8B, 0x04, 0x25, 0x60, 0x00, 0x00, 0x00 };
+        ReadOnlySpan<byte> guard = stackalloc byte[]
+            { 0xF6, 0x80, 0xBC, 0x00, 0x00, 0x00, 0x70 };
+
+        for (var offset = 0; offset + peb.Length <= length; offset++)
+        {
+            if (!new ReadOnlySpan<byte>(function + offset, peb.Length).SequenceEqual(peb))
+                continue;
+
+            var guardEnd = Math.Min((int)length, offset + peb.Length + 16);
+            for (var guardOffset = offset + peb.Length;
+                 guardOffset + guard.Length <= guardEnd;
+                 guardOffset++)
+            {
+                if (new ReadOnlySpan<byte>(function + guardOffset, guard.Length).SequenceEqual(guard))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool TryCollectPatches(RuntimeFunction core, out List<BytePatch> patches)
+    {
+        patches = new List<BytePatch>();
+        var coreAddress = (byte*)core.Module + core.BeginRva;
+        var groups = new Dictionary<StackSlot, List<ImmediateStore>>();
+
+        for (var offset = 0; offset < core.Length; offset++)
+        {
+            if (!TryDecodeImmediateStore(coreAddress, core.Length, offset, out var store))
+                continue;
+
+            if (!groups.TryGetValue(store.Slot, out var stores))
+            {
+                stores = new List<ImmediateStore>();
+                groups.Add(store.Slot, stores);
+            }
+            stores.Add(store);
+            offset += store.Length - 1;
+        }
+
+        var resultGroups = groups.Values.Where(IsResultGroup).ToList();
+        var resultStoreCount = resultGroups.Sum(group => group.Count);
+        if (resultStoreCount is < MinimumResultStoreCount or > MaximumResultStoreCount ||
+            resultGroups.Count is < 1 or > 4)
+            return false;
+
+        var resultStores = resultGroups.SelectMany(group => group).ToList();
+        if (!TryFindDateBranch(coreAddress, core.Length, resultStores, out var branchPatches))
+            return false;
+
+        foreach (var store in resultStores)
+        {
+            if (!GreenResults.Contains(store.Value))
+                patches.Add(new BytePatch((nint)(coreAddress + store.ImmediateOffset), GreenValue));
+        }
+        patches.AddRange(branchPatches);
+        return true;
+    }
+
+    private static bool IsResultGroup(List<ImmediateStore> stores)
+    {
+        if (stores.Count < MinimumStoresPerSlot || stores.Any(store => !KnownResults.Contains(store.Value)))
+            return false;
+
+        var distinct = stores.Select(store => store.Value).Distinct().ToArray();
+        return distinct.Length >= MinimumDistinctUnpatchedResults ||
+               distinct.All(GreenResults.Contains);
+    }
+
+    private static bool TryFindDateBranch(byte* core, uint coreLength,
+        List<ImmediateStore> resultStores, out List<BytePatch> patches)
+    {
+        patches = new List<BytePatch>();
+        var candidates = 0;
+
+        foreach (var store in resultStores)
+        {
+            if (!GreenResults.Contains(store.Value))
+                continue;
+
+            if (store.Offset >= 2 && core[store.Offset - 2] == 0x74)
+            {
+                var displacement = (sbyte)core[store.Offset - 1];
+                if (displacement == 0 ||
+                    IsZeroStoreAt(core, coreLength, store.Offset + displacement, store.Slot))
+                {
+                    candidates++;
+                    if (displacement != 0)
+                        patches.Add(new BytePatch((nint)(core + store.Offset - 1), 0));
+                }
+            }
+            else if (store.Offset >= 6 && core[store.Offset - 6] == 0x0F &&
+                     core[store.Offset - 5] == 0x84)
+            {
+                var displacement = *(int*)(core + store.Offset - 4);
+                if (displacement == 0 ||
+                    IsZeroStoreAt(core, coreLength, store.Offset + displacement, store.Slot))
+                {
+                    candidates++;
+                    for (var i = 0; displacement != 0 && i < 4; i++)
+                        patches.Add(new BytePatch((nint)(core + store.Offset - 4 + i), 0));
+                }
+            }
+        }
+
+        if (candidates == 1)
+            return true;
+
+        patches.Clear();
+        return false;
+    }
+
+    private static bool IsZeroStoreAt(byte* core, uint coreLength, int offset, StackSlot slot)
+    {
+        if (offset < 0 || offset + 4 >= coreLength)
+            return false;
+
+        var rex = 0;
+        if (core[offset] is >= 0x40 and <= 0x4F)
+            rex = core[offset++];
+
+        var opcode = core[offset++];
+        if (opcode is not (0x31 or 0x33))
+            return false;
+
+        var modRm = core[offset++];
+        if ((modRm & 0xC0) != 0xC0)
+            return false;
+
+        var reg = ((modRm >> 3) & 7) + ((rex & 4) != 0 ? 8 : 0);
+        var rm = (modRm & 7) + ((rex & 1) != 0 ? 8 : 0);
+        if (reg != rm)
+            return false;
+
+        return TryDecodeRegisterStore(core, coreLength, offset, reg, out var zeroSlot, out _) &&
+               zeroSlot == slot;
+    }
+
+    private static bool TryDecodeImmediateStore(byte* code, uint length, int offset,
+        out ImmediateStore store)
+    {
+        store = default;
+        if (!TryDecodeStackOperand(code, length, offset, 0xC7, out var slot,
+                out var register, out var operandEnd) || register != 0 || operandEnd + 4 > length)
+            return false;
+
+        var value = *(int*)(code + operandEnd);
+        store = new ImmediateStore(slot, offset, operandEnd, operandEnd + 4 - offset, value);
+        return true;
+    }
+
+    private static bool TryDecodeRegisterStore(byte* code, uint length, int offset,
+        int expectedRegister, out StackSlot slot, out int instructionLength)
+    {
+        slot = default;
+        instructionLength = 0;
+        if (!TryDecodeStackOperand(code, length, offset, 0x89, out slot,
+                out var register, out var operandEnd) || register != expectedRegister)
+            return false;
+
+        instructionLength = operandEnd - offset;
+        return true;
+    }
+
+    private static bool TryDecodeStackOperand(byte* code, uint length, int offset, byte opcode,
+        out StackSlot slot, out int register, out int operandEnd)
+    {
+        slot = default;
+        register = 0;
+        operandEnd = 0;
+        if (offset < 0 || offset + 3 > length)
+            return false;
+
+        // 这里只接受编译器用于 RSP/RBP 局部变量的无 REX dword 形式。
+        // 在逐字节扫描中把前一条指令的尾字节当成可选 REX 会制造伪指令。
+        var cursor = offset;
+        if (cursor + 2 > length || code[cursor++] != opcode)
+            return false;
+
+        var modRm = code[cursor++];
+        var mode = modRm >> 6;
+        if (mode is not (1 or 2))
+            return false;
+
+        register = (modRm >> 3) & 7;
+        var rm = modRm & 7;
+        int baseRegister;
+        if (rm == 4)
+        {
+            if (cursor >= length)
+                return false;
+            var sib = code[cursor++];
+            if (((sib >> 3) & 7) != 4)
+                return false;
+            baseRegister = sib & 7;
+        }
+        else
+        {
+            baseRegister = rm;
+        }
+
+        if (baseRegister is not (4 or 5))
+            return false;
+
+        int displacement;
+        if (mode == 1)
+        {
+            if (cursor + 1 > length)
+                return false;
+            displacement = (sbyte)code[cursor++];
+        }
+        else
+        {
+            if (cursor + 4 > length)
+                return false;
+            displacement = *(int*)(code + cursor);
+            cursor += 4;
+        }
+
+        slot = new StackSlot(baseRegister, displacement);
+        operandEnd = cursor;
+        return true;
+    }
+
+    private static bool TryGetImageLayout(nint module, out ImageLayout layout)
+    {
+        layout = default;
         var image = (byte*)module;
-        if (*(ushort*)image != 0x5A4D) // MZ
+        if (*(ushort*)image != 0x5A4D)
             return false;
 
         var peOffset = *(int*)(image + 0x3C);
@@ -132,16 +428,26 @@ internal static unsafe class DseLicensePatch
             return false;
 
         var ntHeaders = image + peOffset;
-        if (*(uint*)ntHeaders != 0x00004550) // PE\0\0
+        if (*(uint*)ntHeaders != 0x00004550)
             return false;
 
         var optionalHeader = ntHeaders + 24;
-        if (*(ushort*)optionalHeader != 0x20B) // PE32+
+        if (*(ushort*)optionalHeader != 0x20B)
+            return false;
+
+        var sizeOfImage = *(uint*)(optionalHeader + 56);
+        var directoryCount = *(uint*)(optionalHeader + 108);
+        if (sizeOfImage == 0 || directoryCount <= 3)
+            return false;
+
+        var exceptionRva = *(uint*)(optionalHeader + 112 + 3 * 8);
+        var exceptionSize = *(uint*)(optionalHeader + 112 + 3 * 8 + 4);
+        if (exceptionSize < 12 || exceptionSize % 12 != 0 ||
+            !IsImageRange(sizeOfImage, exceptionRva, exceptionSize))
             return false;
 
         var sectionCount = *(ushort*)(ntHeaders + 6);
-        var sectionTable = optionalHeader + *(ushort*)(ntHeaders + 20); // SizeOfOptionalHeader
-
+        var sectionTable = optionalHeader + *(ushort*)(ntHeaders + 20);
         for (var i = 0; i < sectionCount; i++)
         {
             var section = sectionTable + i * 40;
@@ -149,41 +455,72 @@ internal static unsafe class DseLicensePatch
                 section[2] != (byte)'e' || section[3] != (byte)'x' || section[4] != (byte)'t')
                 continue;
 
-            var virtualAddress = *(uint*)(section + 12);
-            var virtualSize = *(uint*)(section + 8);
-            if (virtualSize == 0)
-                continue;
+            var textRva = *(uint*)(section + 12);
+            var textSize = *(uint*)(section + 8);
+            if (textSize == 0 || !IsImageRange(sizeOfImage, textRva, textSize))
+                return false;
 
-            text = (nint)(image + virtualAddress);
-            textSize = virtualSize;
+            layout = new ImageLayout(textRva, textSize, exceptionRva, exceptionSize, sizeOfImage);
             return true;
         }
 
         return false;
     }
 
-    private static nint FindBytes(nint baseAddress, uint length, byte[] signature)
+    private static bool TryGetRuntimeFunction(nint module, ImageLayout layout, uint targetRva,
+        out RuntimeFunction function)
     {
-        var end = (byte*)baseAddress + length - signature.Length;
-        for (var p = (byte*)baseAddress; p <= end; p++)
+        function = default;
+        var count = layout.ExceptionSize / 12;
+        for (uint i = 0; i < count; i++)
         {
-            var i = 0;
-            for (; i < signature.Length; i++)
-            {
-                if (p[i] != signature[i])
-                    break;
-            }
+            var entry = (byte*)module + layout.ExceptionRva + i * 12;
+            var begin = *(uint*)entry;
+            var end = *(uint*)(entry + 4);
+            if (targetRva < begin || targetRva >= end)
+                continue;
 
-            if (i == signature.Length)
-                return (nint)p;
+            function = new RuntimeFunction(begin, end, module);
+            return begin < end && IsImageRange(layout.SizeOfImage, begin, end - begin);
         }
 
-        return 0;
+        return false;
     }
+
+    private static bool IsCodeRange(ImageLayout layout, RuntimeFunction function)
+    {
+        var textEnd = (ulong)layout.TextRva + layout.TextSize;
+        return function.BeginRva >= layout.TextRva && function.BeginRva < function.EndRva &&
+               function.EndRva <= textEnd;
+    }
+
+    private static bool IsImageRange(uint sizeOfImage, uint rva, uint size) =>
+        rva < sizeOfImage && size <= sizeOfImage - rva;
+
+    private readonly record struct ImageLayout(uint TextRva, uint TextSize, uint ExceptionRva,
+        uint ExceptionSize, uint SizeOfImage);
+
+    private readonly record struct RuntimeFunction(uint BeginRva, uint EndRva, nint Module = 0)
+    {
+        public uint Length => EndRva - BeginRva;
+    }
+
+    private readonly record struct StackSlot(int BaseRegister, int Displacement);
+    private readonly record struct ImmediateStore(StackSlot Slot, int Offset, int ImmediateOffset,
+        int Length, int Value);
+    private readonly record struct BytePatch(nint Address, byte Value);
 
     private const uint PageExecuteReadWrite = 0x40;
 
     [DllImport("kernel32.dll", SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    private static extern bool VirtualProtect(nint address, nuint size, uint newProtect, out uint oldProtect);
+    private static extern bool VirtualProtect(nint address, nuint size, uint newProtect,
+        out uint oldProtect);
+
+    [DllImport("kernel32.dll")]
+    private static extern nint GetCurrentProcess();
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    private static extern bool FlushInstructionCache(nint process, nint baseAddress, nuint size);
 }
