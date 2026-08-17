@@ -68,6 +68,8 @@ internal static class BreathVolumeService
     private static readonly Dictionary<IntPtr, SequenceHistory> Histories = new();
     private static readonly HashSet<string> CreatedCacheFiles = new(StringComparer.OrdinalIgnoreCase);
     private static readonly string CacheDirectory = Path.Combine(Path.GetTempPath(), "VOCALOIDPatcher", "BreathVolume");
+    private static readonly long AutomaticRegionRefreshCooldownTicks = Stopwatch.Frequency * 2L;
+    private const int MaximumAutomaticRegionRefreshAttempts = 4;
 
     private static readonly MethodInfo? RegisterFilePlacementMethod = AccessTools.Method(
         typeof(AudioPlayer), "RegisterAudioPlacementWithFile",
@@ -170,7 +172,7 @@ internal static class BreathVolumeService
                 : BreathRegionStatus.Unknown;
     }
 
-    public static void EnsureRegionsAsync(WIVSMSequence sequence, WIVSMMidiPart part)
+    public static bool EnsureRegionsAsync(WIVSMSequence sequence, WIVSMMidiPart part)
         => QueueRegionRefresh(sequence, part, force: false, rebuildAfterRefresh: false);
 
     public static void RefreshRegionsAsync(
@@ -179,14 +181,14 @@ internal static class BreathVolumeService
         bool rebuildAfterRefresh = false)
         => QueueRegionRefresh(sequence, part, force: true, rebuildAfterRefresh);
 
-    private static void QueueRegionRefresh(
+    private static bool QueueRegionRefresh(
         WIVSMSequence sequence,
         WIVSMMidiPart part,
         bool force,
         bool rebuildAfterRefresh)
     {
         if (!Settings.IndividualBreathVolume || sequence == null || part == null)
-            return;
+            return false;
 
         PartState state;
         int generation;
@@ -196,8 +198,44 @@ internal static class BreathVolumeService
             state.Sequence = sequence;
             state.Part = part;
             state.RebuildAfterRegionRefresh |= rebuildAfterRefresh;
-            if (state.RegionRefreshPending || !force && state.RegionStatus == BreathRegionStatus.Ready)
-                return;
+            if (state.RegionRefreshPending)
+                return false;
+
+            if (!force)
+            {
+                if (state.RegionStatus == BreathRegionStatus.Ready && state.Regions.Count > 0)
+                    return false;
+
+                var automaticRetry =
+                    state.RegionStatus == BreathRegionStatus.Unknown ||
+                    state.RegionStatus == BreathRegionStatus.Faulted ||
+                    state.RegionStatus == BreathRegionStatus.Ready &&
+                    state.ScoreSignature.Kind == ScoreSourceKind.Unavailable;
+                if (!automaticRetry)
+                    return false;
+
+                if (state.RegionStatus != BreathRegionStatus.Unknown)
+                {
+                    if (state.AutoRefreshAttempts >= MaximumAutomaticRegionRefreshAttempts)
+                        return false;
+
+                    var now = Stopwatch.GetTimestamp();
+                    if (state.LastAutoRefreshQueuedTicks != 0 &&
+                        now - state.LastAutoRefreshQueuedTicks < AutomaticRegionRefreshCooldownTicks)
+                        return false;
+
+                    state.AutoRefreshAttempts++;
+                    state.LastAutoRefreshQueuedTicks = now;
+                    BreathVolumeDiagnosticsLog.Write(
+                        $"region refresh automatic retry status={state.RegionStatus} " +
+                        $"attempts={state.AutoRefreshAttempts}");
+                }
+            }
+            else
+            {
+                state.AutoRefreshAttempts = 0;
+                state.LastAutoRefreshQueuedTicks = 0;
+            }
 
             state.RegionRefreshPending = true;
             state.RegionStatus = BreathRegionStatus.Loading;
@@ -255,6 +293,7 @@ internal static class BreathVolumeService
 
             NotifyChanged(BreathVolumeChangeKind.Regions, part);
         });
+        return true;
     }
 
     public static IReadOnlyCollection<IntPtr> GetSelection()
@@ -831,8 +870,7 @@ internal static class BreathVolumeService
             notes.Length,
             regions.Count);
 
-        var preserveStableAutomaticRegions = ranges.Count > 0 &&
-                                             IsAutomaticBreathEnabled(part, out _);
+        var preserveStableAutomaticRegions = IsAutomaticBreathEnabled(part, out _);
         return StoreRegions(
             part, regions, score.NumScores, signature, expectedState, expectedGeneration,
             preserveStableAutomaticRegions);
@@ -940,6 +978,8 @@ internal static class BreathVolumeService
             state.RegionRefreshPending = false;
             state.RebuildAfterRegionRefresh = false;
             state.LastProgress = 0;
+            state.AutoRefreshAttempts = 0;
+            state.LastAutoRefreshQueuedTicks = 0;
             Interlocked.Increment(ref state.RebuildGeneration);
             RemoveCacheCore(state);
         }
@@ -956,6 +996,8 @@ internal static class BreathVolumeService
             state.RegionRefreshGeneration++;
             state.RegionRefreshPending = false;
             state.RebuildAfterRegionRefresh = false;
+            state.AutoRefreshAttempts = 0;
+            state.LastAutoRefreshQueuedTicks = 0;
             state.RenderMarkerRegions.Clear();
             state.NativeBreathMarkers.Clear();
             state.TraditionalBreathRanges.Clear();
@@ -1556,7 +1598,7 @@ internal static class BreathVolumeService
     {
         var detectedRegions = regions.ToList();
         var nextRegions = detectedRegions;
-        var liveHandles = preserveStableAutomaticRegions && detectedRegions.Count > 0
+        var liveHandles = preserveStableAutomaticRegions
             ? EnumerateNotes(part).Select(note => note.CppObjPtr).ToHashSet()
             : null;
         var nextStatus = signature.Kind == ScoreSourceKind.Faulted
@@ -1640,6 +1682,11 @@ internal static class BreathVolumeService
             state.ScoreSignature = signature;
             state.Regions = nextRegions;
             state.RegionStatus = nextStatus;
+            if (nextStatus == BreathRegionStatus.Ready && nextRegions.Count > 0)
+            {
+                state.AutoRefreshAttempts = 0;
+                state.LastAutoRefreshQueuedTicks = 0;
+            }
             if (!transientScore &&
                 signature.Kind != ScoreSourceKind.Unavailable &&
                 signature.Kind != ScoreSourceKind.Faulted)
@@ -1933,13 +1980,13 @@ internal static class BreathVolumeService
                 return;
 
             var nativeMixerAvailable = UseNativeBreathMixer(part);
-            if (nativeMixerAvailable || HasNativeBreathMarkers(part))
+            if (HasNativeBreathMarkers(part))
             {
                 MarkTraditionalWaveDetectionAttempted(
                     part, signature, Array.Empty<BreathSampleRange>(),
                     expectedState, expectedGeneration);
                 BreathVolumeDiagnosticsLog.Write(
-                    $"traditional wave skipped nativeMixer={nativeMixerAvailable}");
+                    $"traditional wave skipped nativeMixer={nativeMixerAvailable} markers=present");
                 return;
             }
 
@@ -2641,6 +2688,8 @@ internal static class BreathVolumeService
         public bool RegionRefreshPending;
         public bool RebuildAfterRegionRefresh;
         public int RegionRefreshGeneration;
+        public long LastAutoRefreshQueuedTicks;
+        public int AutoRefreshAttempts;
         public int Generation;
         public int LastProgress = -1;
         public int RebuildGeneration;

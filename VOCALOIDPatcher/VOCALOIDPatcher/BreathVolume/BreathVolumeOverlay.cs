@@ -337,12 +337,17 @@ internal sealed class BreathVolumeOverlay
             RestoreTransientObjects();
             return;
         }
-        if (!IsRegisterMode && status == BreathRegionStatus.Unknown)
-        {
-            BreathVolumeService.EnsureRegionsAsync(sequence, part);
-            status = BreathRegionStatus.Loading;
-        }
         var regions = GetRegions(part);
+        if (!IsRegisterMode &&
+            (status == BreathRegionStatus.Unknown ||
+             regions.Count == 0 && status is BreathRegionStatus.Ready or BreathRegionStatus.Faulted))
+        {
+            if (BreathVolumeService.EnsureRegionsAsync(sequence, part))
+            {
+                status = BreathRegionStatus.Loading;
+                regions = GetRegions(part);
+            }
+        }
         LogOverlayState(active: true, status, regions.Count, part.NumNotes);
         if (regions.Count == 0)
         {
