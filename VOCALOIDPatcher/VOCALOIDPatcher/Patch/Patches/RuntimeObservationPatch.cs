@@ -311,10 +311,29 @@ public class ObserveRendererCompletePatch : PatchBase
                 (string projectId, long revision) = McpRevisionTracker.Current();
                 McpEventHub.Publish("render_idle", projectId, revision);
             }
-            RuntimeObservationPatchSupport.End("render.completed.native", __state, new Dictionary<string, object?>
+
+            var data = new Dictionary<string, object?>
             {
                 ["partId"] = RuntimeObservationLog.ObjectId("part", pMidiPart),
-            });
+            };
+
+            // 渲染完成后的音符/score/波形快照：携带每个音符的 velocity、
+            // ConsonantOffset、音素位置，以及全量 score 音素时长与波形峰值，
+            // 用于观察 VEL → 渲染辅音时长的关系与饱和点。
+            WIVSMMidiPart? part = RuntimeObservationLog.PartFromHandle(pMidiPart);
+            if (part != null)
+            {
+                try
+                {
+                    data["postRender"] = RuntimeObservationLog.PostRenderSnapshot(part);
+                }
+                finally
+                {
+                    (part as IDisposable)?.Dispose();
+                }
+            }
+
+            RuntimeObservationPatchSupport.End("render.completed.native", __state, data);
             RuntimeObservationLog.EndRenderCycle(pMidiPart);
         }
         catch

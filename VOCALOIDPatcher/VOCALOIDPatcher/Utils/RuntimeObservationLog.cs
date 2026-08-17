@@ -96,6 +96,26 @@ internal static class RuntimeObservationLog
 
     public static void ClearCommitCycle() => _threadCommit = default;
 
+    /// <summary>
+    /// 把原生 Part 句柄包装为托管 WIVSMMidiPart（构造函数为 internal，
+    /// 通过反射创建并 AddRef；调用方负责 Dispose 释放引用）。
+    /// </summary>
+    public static WIVSMMidiPart? PartFromHandle(IntPtr handle)
+    {
+        if (handle == IntPtr.Zero)
+            return null;
+        try
+        {
+            var constructor = AccessTools.Constructor(
+                typeof(WIVSMMidiPart), new[] { typeof(IntPtr) });
+            return constructor?.Invoke(new object[] { handle }) as WIVSMMidiPart;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     public static RenderCycle BeginRenderCycle(IntPtr partHandle, WIVSMMidiPart? part)
     {
         if (!IsEnabled || partHandle == IntPtr.Zero)
@@ -417,6 +437,119 @@ internal static class RuntimeObservationLog
         catch { return -1; }
     }
 
+    /// <summary>
+    /// 渲染完成后的音符/score/波形快照。用于 VEL 实验：把每个音符的 velocity、
+    /// ConsonantOffset、音素位置，以及全量 score 的音素时长和波形峰值一起记录，
+    /// 以观察“VEL → 渲染辅音时长”的关系与饱和点。
+    /// </summary>
+    public static Dictionary<string, object?> PostRenderSnapshot(WIVSMMidiPart part)
+    {
+        var result = new Dictionary<string, object?>();
+
+        var notes = new List<Dictionary<string, object?>>();
+        try
+        {
+            foreach (WIVSMNote note in part.Notes)
+            {
+                notes.Add(new Dictionary<string, object?>
+                {
+                    ["relPos"] = note.RelPosTick.Value,
+                    ["duration"] = note.DurationTick.Value,
+                    ["lyricHash"] = HashText(note.Lyric),
+                    ["phonemeHash"] = HashText(note.Phonemes),
+                    ["velocity"] = note.NoteVelocity,
+                    ["consonantOffset"] = note.ConsonantOffset,
+                    ["positions"] = note.GetPhonemePositions().Take(MaximumPhonemePositions).ToArray(),
+                });
+            }
+        }
+        catch (Exception exception)
+        {
+            notes.Add(new Dictionary<string, object?> { ["error"] = exception.GetType().Name });
+        }
+        result["notes"] = notes;
+
+        // 全量 score：优先取 Part 保留的渲染结果 score list（覆盖整个 Part，
+        // 而不是 block 事件的第一个分块）。属性名随版本差异（6.13.0.1 为
+        // RetainedHolding/RetainedRendering，6.13.1.1 为 Holding/Rendering）。
+        VSMScoreList? retained = Safe(() => part.HoldingScoreList)
+                                ?? Safe(() => part.RenderingScoreList);
+        result["score"] = retained == null
+            ? new Dictionary<string, object?> { ["available"] = false }
+            : ScoreSnapshot(retained);
+
+        result["wave"] = WavePeakSnapshot(Safe(() => part.WaveFilePath));
+
+        return result;
+    }
+
+    private static Dictionary<string, object?> WavePeakSnapshot(string? path)
+    {
+        var snapshot = new Dictionary<string, object?>
+        {
+            ["pathId"] = HashText(path),
+            ["readable"] = false,
+        };
+        if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
+            return snapshot;
+
+        try
+        {
+            using var stream = new FileStream(
+                path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete,
+                1, FileOptions.SequentialScan);
+            long length = stream.Length;
+            snapshot["readable"] = true;
+            snapshot["length"] = length;
+            if (length < 44)
+                return snapshot;
+
+            // 跳过 RIFF 头；按 16-bit PCM 扫描峰值与非零样本数。
+            const int bytesPerSample = 2;
+            long dataBytes = length - 44;
+            long maxScan = Math.Min(dataBytes, 16L * 1024 * 1024);
+            long samples = maxScan / bytesPerSample;
+            if (samples <= 0)
+                return snapshot;
+
+            var buffer = new byte[1 << 16];
+            int peak = 0;
+            long nonZero = 0;
+            long remaining = maxScan;
+            long offset = 44;
+            while (remaining > 0)
+            {
+                int toRead = (int)Math.Min(buffer.Length, remaining);
+                stream.Position = offset;
+                int read = stream.Read(buffer, 0, toRead);
+                if (read <= 0)
+                    break;
+                for (int i = 0; i + 1 < read; i += 2)
+                {
+                    short sample = (short)(buffer[i] | (buffer[i + 1] << 8));
+                    int abs = Math.Abs((int)sample);
+                    if (abs > peak)
+                        peak = abs;
+                    if (sample != 0)
+                        nonZero++;
+                }
+                offset += read;
+                remaining -= read;
+            }
+
+            snapshot["peakRaw"] = peak;
+            snapshot["peak"] = peak / 32768.0;
+            snapshot["scannedSamples"] = samples;
+            snapshot["nonZeroSamples"] = nonZero;
+            snapshot["nonZeroRatio"] = samples == 0 ? 0.0 : nonZero / (double)samples;
+        }
+        catch (Exception exception)
+        {
+            snapshot["openError"] = exception.GetType().Name;
+        }
+        return snapshot;
+    }
+
     // Compatibility name for existing probes. Values are per-process keyed IDs, never raw pointers.
     public static string Handle(IntPtr handle) => ObjectId("native", handle);
 
@@ -487,6 +620,8 @@ internal static class RuntimeObservationLog
                 ["langId"] = note.LangID,
                 ["protected"] = note.IsProtected,
                 ["validPhonemes"] = note.IsValidPhonemes,
+                ["velocity"] = note.NoteVelocity,
+                ["consonantOffset"] = note.ConsonantOffset,
                 ["phonemeLength"] = phonemes.Length,
                 ["phonemeHash"] = HashText(phonemes),
                 ["phonemePositionCount"] = positions.Count,
