@@ -1291,6 +1291,18 @@ internal static class SegmentedPhonemeRenderCoordinator
                 continue;
             }
 
+            if (!ChinesePinyinPhonemeConverter.IsSplitRenderEligible(syllable))
+            {
+                if (syllable.RequiresOverride)
+                {
+                    ExtendedPinyinDiagnosticLog.Write(
+                        "plan-skipped",
+                        $"part=0x{(nint)part:X}; note={index}; phonemes={syllable.Phonemes}; "
+                        + "reason=not-in-renderable-whitelist");
+                }
+                continue;
+            }
+
             if (!ChinesePinyinPhonemeConverter.TryGetSegmentedSynthesisPhonemes(
                     syllable,
                     out string first,

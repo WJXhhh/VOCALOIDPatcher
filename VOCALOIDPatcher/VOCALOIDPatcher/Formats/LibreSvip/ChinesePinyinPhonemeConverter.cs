@@ -246,6 +246,19 @@ internal static class ChinesePinyinPhonemeConverter
         return true;
     }
 
+    /// <summary>
+    /// 是否只允许通过分段载波渲染（临时实现）发声的组合（如 fong → f UN）。
+    /// 仅白名单中标记为 <see cref="RenderablePhonemeStatus.Split"/> 的音节为 true。
+    /// </summary>
+    public static bool IsSplitRenderEligible(ChinesePinyinSyllable syllable)
+    {
+        if (syllable.IsVocaloidSpecialPhoneme)
+            return false;
+
+        return RenderablePhonemeMatrix.GetStatus(syllable.NormalizedLyric)
+               == RenderablePhonemeStatus.Split;
+    }
+
     public static bool TryGetSegmentedSynthesisPhonemes(
         ChinesePinyinSyllable syllable,
         out string first,
@@ -253,7 +266,8 @@ internal static class ChinesePinyinPhonemeConverter
     {
         first = string.Empty;
         second = string.Empty;
-        if (!syllable.RequiresOverride
+        if (!IsSplitRenderEligible(syllable)
+            || !syllable.RequiresOverride
             || syllable.IsVocaloidSpecialPhoneme
             || NativePhonemeSequences.Contains(syllable.Phonemes))
         {
