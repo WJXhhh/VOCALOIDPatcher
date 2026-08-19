@@ -31,7 +31,8 @@ internal static class ExtensionParameterContracts
     {
         new ExtensionParameterDescriptor("patcher.bvl", "patcher", "note", "integer", 0, 127, 127, true,
             "vpr:VOCALOIDPatcher/breath-volume.json", "level", "operation.extension_parameters.bvl", "6.13.0"),
-        new ExtensionParameterDescriptor("patcher.register_shift", "patcher", "note", "integer", -12, 12, 0, true,
+        new ExtensionParameterDescriptor("patcher.register_shift", "patcher", "note", "integer",
+            -24, 24, 0, true,
             "vpr:VOCALOIDPatcher/register-shift.json", "semitone", "operation.extension_parameters.register_shift", "6.13.0"),
     };
 

@@ -367,7 +367,9 @@ internal sealed class BreathVolumeOverlay
         _zeroLine.Visibility = IsRegisterMode ? Visibility.Visible : Visibility.Collapsed;
         _zeroLine.Width = _canvas.Width;
         Canvas.SetLeft(_zeroLine, 0);
-        Canvas.SetTop(_zeroLine, ValueToY(12, vm.ViewHeight));
+        Canvas.SetTop(_zeroLine,
+            ValueToY(RegisterShiftService.DefaultValue + RegisterShiftService.DisplayOffset,
+                vm.ViewHeight));
 
         RestoreTransientObjects();
     }
@@ -1486,7 +1488,9 @@ internal sealed class BreathVolumeOverlay
         => IsRegisterMode ? RegisterShiftService.GetRegions(part) : BreathVolumeService.GetRegions(part);
 
     private int GetDisplayValue(IntPtr handle)
-        => IsRegisterMode ? RegisterShiftService.GetValue(handle) + 12 : BreathVolumeService.GetValue(handle);
+        => IsRegisterMode
+            ? RegisterShiftService.GetValue(handle) + RegisterShiftService.DisplayOffset
+            : BreathVolumeService.GetValue(handle);
 
     private IReadOnlyCollection<IntPtr> GetSelection()
         => IsRegisterMode ? RegisterShiftService.GetSelection() : BreathVolumeService.GetSelection();
@@ -1542,11 +1546,15 @@ internal sealed class BreathVolumeOverlay
     }
 
     private string FormatDisplayValue(int value)
-        => (IsRegisterMode ? value - 12 : value)
+        => (IsRegisterMode ? value - RegisterShiftService.DisplayOffset : value)
             .ToString(System.Globalization.CultureInfo.InvariantCulture);
 
-    private int MinValue => 0;
-    private int MaxValue => IsRegisterMode ? 24 : BreathVolumeService.MaxValue;
+    private int MinValue => IsRegisterMode
+        ? RegisterShiftService.MinValue + RegisterShiftService.DisplayOffset
+        : BreathVolumeService.MinValue;
+    private int MaxValue => IsRegisterMode
+        ? RegisterShiftService.MaxValue + RegisterShiftService.DisplayOffset
+        : BreathVolumeService.MaxValue;
     private const double NativeBarWidth = 10.0;
     private const double NativeSelectedAddWidth = 2.0;
     private const double NativeTopOffset = 7.0;

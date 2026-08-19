@@ -53,7 +53,8 @@ internal static class RegisterShiftProjectArchive
         if (data.Version != 1 || data.Entries == null || data.Entries.Count > MaxEntries ||
             data.Entries.Any(item => item == null || item.Track < 0 || item.Part < 0 ||
                 item.Note < 0 || item.RelPosTick < 0 || item.NoteNumber is < 0 or > 127 ||
-                item.Occurrence < 0 || item.Value is < -12 or > 12))
+                item.Occurrence < 0 || item.Value < RegisterShiftService.MinValue ||
+                item.Value > RegisterShiftService.MaxValue))
             throw new InvalidDataException("The register-shift project entry is invalid.");
         return data;
     }

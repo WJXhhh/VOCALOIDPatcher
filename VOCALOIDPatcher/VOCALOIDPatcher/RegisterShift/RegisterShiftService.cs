@@ -24,9 +24,10 @@ internal enum RegisterShiftStatus
 
 internal static class RegisterShiftService
 {
-    public const int MinValue = -12;
-    public const int MaxValue = 12;
+    public const int MinValue = -24;
+    public const int MaxValue = 24;
     public const int DefaultValue = 0;
+    public const int DisplayOffset = -MinValue;
     public static readonly ControlParameterTypeEnum ParameterType = (ControlParameterTypeEnum)0x524547;
 
     private static readonly object Sync = new();
@@ -109,20 +110,21 @@ internal static class RegisterShiftService
 
     public static Dictionary<IntPtr, byte> Snapshot(IEnumerable<IntPtr> handles)
         => handles.Distinct().Where(handle => handle != IntPtr.Zero)
-            .ToDictionary(handle => handle, handle => unchecked((byte)(GetValue(handle) + 12)));
+            .ToDictionary(handle => handle,
+                handle => unchecked((byte)(GetValue(handle) + DisplayOffset)));
 
     public static void SetPreviewValues(IEnumerable<KeyValuePair<IntPtr, byte>> values)
     {
         lock (Sync)
             foreach (var pair in values)
-                SetCore(pair.Key, pair.Value - 12);
+                SetCore(pair.Key, pair.Value - DisplayOffset);
         Notify(null);
     }
 
     public static void CommitValues(WIVSMSequence sequence, WIVSMMidiPart part,
         IReadOnlyDictionary<IntPtr, byte> before)
     {
-        var beforeValues = before.ToDictionary(pair => pair.Key, pair => pair.Value - 12);
+        var beforeValues = before.ToDictionary(pair => pair.Key, pair => pair.Value - DisplayOffset);
         var afterValues = before.Keys.ToDictionary(handle => handle, GetValue);
         if (beforeValues.All(pair => afterValues.TryGetValue(pair.Key, out var value) && value == pair.Value))
             return;

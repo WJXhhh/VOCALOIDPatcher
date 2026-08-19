@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace VOCALOIDPatcher.Config;
 
@@ -328,6 +328,14 @@ public static class Settings
     {
         get => FeatureFlag(DeferParameterViewUpdateKey, true);
         set => Patcher.ConfigManager.Set(DeferParameterViewUpdateKey, value);
+    }
+
+    public static string DeferInspectorRefreshKey => "DeferInspectorRefresh";
+
+    public static bool DeferInspectorRefresh
+    {
+        get => FeatureFlag(DeferInspectorRefreshKey, true);
+        set => Patcher.ConfigManager.Set(DeferInspectorRefreshKey, value);
     }
 
     public static string CacheRenderedWavesKey => "CacheRenderedWaves";

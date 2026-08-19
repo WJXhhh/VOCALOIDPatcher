@@ -17,7 +17,8 @@ public sealed class ExtensionParameterContractTests
     [Theory]
     [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.bvl\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":0}")]
     [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.bvl\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":127}")]
-    [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.register_shift\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":-12}")]
+    [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.register_shift\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":-24}")]
+    [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.register_shift\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":24}")]
     [InlineData("{\"op\":\"clear\",\"parameter_id\":\"patcher.register_shift\",\"track_index\":0,\"part_index\":0,\"note_index\":0}")]
     public void ValidOperationsShareOnePureValidator(string json)
     {
@@ -28,7 +29,7 @@ public sealed class ExtensionParameterContractTests
     [Theory]
     [InlineData("{\"op\":\"set\",\"parameter_id\":\"BVL\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":64}", "parameter_id")]
     [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.bvl\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":128}", "between 0 and 127")]
-    [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.register_shift\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":-13}", "between -12 and 12")]
+    [InlineData("{\"op\":\"set\",\"parameter_id\":\"patcher.register_shift\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"value\":-25}", "between -24 and 24")]
     [InlineData("{\"op\":\"clear\",\"parameter_id\":\"patcher.bvl\",\"track_index\":-1,\"part_index\":0,\"note_index\":0}", "track_index")]
     public void InvalidOperationsReturnFieldSpecificErrors(string json, string expected)
     {

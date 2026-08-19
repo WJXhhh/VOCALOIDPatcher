@@ -17,8 +17,22 @@ internal static class StartupProfiler
     private static string? _logPath;
     private static int _sequence;
 
+    public static string EnabledPath => Path.Combine(Patcher.ConfigDir, "startup-profile.enabled");
+
+    private static bool IsEnabled
+    {
+        get
+        {
+            try { return File.Exists(EnabledPath); }
+            catch { return false; }
+        }
+    }
+
     public static void InitializeLog()
     {
+        if (!IsEnabled)
+            return;
+
         try
         {
             _logPath = Path.Combine(Patcher.ConfigDir, "startup-profile.log");
@@ -41,6 +55,9 @@ internal static class StartupProfiler
 
     public static void LogMilestone(string label, double? durationMilliseconds = null)
     {
+        if (_logPath == null)
+            return;
+
         var total = Stopwatch.GetElapsedTime(ProfilerStart).TotalMilliseconds;
         var duration = durationMilliseconds.HasValue
             ? $" | duration {durationMilliseconds.Value.ToString("F1", CultureInfo.InvariantCulture),9} ms"
@@ -50,6 +67,9 @@ internal static class StartupProfiler
 
     public static void Install(Harmony harmony)
     {
+        if (_logPath == null)
+            return;
+
         var prefix = new HarmonyMethod(typeof(StartupProfiler), nameof(Prefix));
         var finalizer = new HarmonyMethod(typeof(StartupProfiler), nameof(Finalizer));
 

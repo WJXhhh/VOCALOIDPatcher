@@ -145,8 +145,9 @@ internal static class ExtensionParameterRegistry
             }
             else
             {
-                regBefore.TryAdd(handle, unchecked((byte)(RegisterShiftService.GetValue(handle) + 12)));
-                regAfter[handle] = unchecked((byte)(item.Value + 12));
+                regBefore.TryAdd(handle, unchecked((byte)(RegisterShiftService.GetValue(handle) +
+                    RegisterShiftService.DisplayOffset)));
+                regAfter[handle] = unchecked((byte)(item.Value + RegisterShiftService.DisplayOffset));
                 regParts.Add(item.Part);
             }
         }

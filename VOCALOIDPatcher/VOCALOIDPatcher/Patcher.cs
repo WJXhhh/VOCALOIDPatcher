@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -104,6 +104,7 @@ public static class Patcher
 
         var patchInstallStarted = Stopwatch.GetTimestamp();
         StartupProfiler.Install(_harmony);
+        FirstTrackProfiler.Install(_harmony);
         ApplyPatches();
         StartupProfiler.LogMilestone(
             "All Harmony patches installed",
@@ -320,6 +321,8 @@ public static class Patcher
             new(Settings.ShowCharacterArtKey, new CharacterArtPatch()),
 
             new(Settings.FastProjectLoadKey,
+                new NewProjectSetupScopePatch(),
+                new NewProjectActivePartDeferPatch(),
                 new LazyLyricRenderPatch(),
                 new DeferAudioBufferLoadPatch(),
                 new CancelDeferredAudioBufferLoadPatch(),
@@ -364,6 +367,10 @@ public static class Patcher
             new(Settings.DeferParameterViewUpdateKey,
                 new ParameterViewDeferPatch(),
                 new ParameterVisibleRangePatch()
+            ),
+
+            new(Settings.DeferInspectorRefreshKey,
+                new InspectorRefreshDeferPatch()
             ),
 
             new(Settings.SmoothPlayheadKey,

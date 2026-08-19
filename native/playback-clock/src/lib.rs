@@ -1220,6 +1220,8 @@ mod breath_hook {
 mod register_shift_hook {
     use super::*;
 
+    const MIN_SHIFT: i32 = -24;
+    const MAX_SHIFT: i32 = 24;
     const PAGE_EXECUTE_READWRITE: u32 = 0x40;
     const MEM_COMMIT: u32 = 0x1000;
     const MEM_RESERVE: u32 = 0x2000;
@@ -1594,7 +1596,7 @@ mod register_shift_hook {
         if matched.len() != 1 {
             return None;
         }
-        Some(matched[0].semitones.clamp(-12, 12))
+        Some(matched[0].semitones.clamp(MIN_SHIFT, MAX_SHIFT))
     }
 
     unsafe fn resolve_part(parser: *mut c_void) -> PartContext {
@@ -1751,7 +1753,7 @@ mod register_shift_hook {
                 }
             })
             .unwrap_or(0)
-            .clamp(-12, 12);
+            .clamp(MIN_SHIFT, MAX_SHIFT);
         if callsite == 0 {
             CALLSITE_MISSES.fetch_add(1, Ordering::Relaxed);
         }
@@ -1802,7 +1804,7 @@ mod register_shift_hook {
                 }
             })
             .unwrap_or(0)
-            .clamp(-12, 12)
+            .clamp(MIN_SHIFT, MAX_SHIFT)
     }
 
     fn expanded_pitch_window(pitch_min: f32, pitch_max: f32, shift: f32) -> (f32, f32) {
@@ -2555,7 +2557,7 @@ mod register_shift_hook {
             || notes.iter().any(|note| {
                 note.begin_frame < 0
                     || note.end_frame < note.begin_frame
-                    || !(-12..=12).contains(&note.semitones)
+                    || !(MIN_SHIFT..=MAX_SHIFT).contains(&note.semitones)
             })
         {
             return -1;
@@ -2862,9 +2864,9 @@ mod register_shift_hook {
     #[cfg(test)]
     pub(super) fn test_repeated_record_calibration(part: u64) -> [Option<i32>; 4] {
         let notes = [
-            test_note(100, 186, -100, -12, 0),
+            test_note(100, 186, -100, -24, 0),
             test_note(186, 272, -100, 0, 1),
-            test_note(272, 358, -100, 12, 2),
+            test_note(272, 358, -100, 24, 2),
         ];
         set_part(part, 1, &notes);
         let record = |note: RegisterNote| {
@@ -4065,7 +4067,7 @@ mod tests {
     fn register_shift_calibrates_repeated_notes_across_prepare_calls() {
         assert_eq!(
             register_shift_hook::test_repeated_record_calibration(0x7f00_4000),
-            [None, None, Some(12), Some(-12)]
+            [None, None, Some(24), Some(-24)]
         );
     }
 
@@ -4083,15 +4085,15 @@ mod tests {
     #[test]
     fn register_shift_ambiguous_and_out_of_range_records_fall_back() {
         let notes = [
-            register_shift_hook::test_note(100, 120, 6000, -12, 0),
-            register_shift_hook::test_note(100, 120, 6000, 12, 1),
+            register_shift_hook::test_note(100, 120, 6000, -24, 0),
+            register_shift_hook::test_note(100, 120, 6000, 24, 1),
         ];
         assert_eq!(register_shift_hook::test_find(&notes, 100, 120, 6000), None);
         assert_eq!(
             register_shift_hook::set_part(
                 0x1000,
                 1,
-                &[register_shift_hook::test_note(100, 120, 6000, 13, 0)]
+                &[register_shift_hook::test_note(100, 120, 6000, 25, 0)]
             ),
             -1
         );
