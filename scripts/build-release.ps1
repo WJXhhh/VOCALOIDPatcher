@@ -1,4 +1,4 @@
-﻿[CmdletBinding()]
+[CmdletBinding()]
 param(
     [string]$Version,
     [string]$OutputDir,
@@ -112,7 +112,7 @@ if ($Build) {
     Write-Host "正在发布 MCP Companion (self-contained win-x64 single-file)..." -ForegroundColor Cyan
     & dotnet publish $mcpProj -c Release -f net8.0 -r win-x64 --self-contained true `
         -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true `
-        -p:PublishTrimmed=false -o $mcpPublishDir
+        -p:PublishTrimmed=false -p:TargetFrameworks=net8.0 -o $mcpPublishDir
     if ($LASTEXITCODE -ne 0) {
         throw "MCP Companion 发布失败。"
     }

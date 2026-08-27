@@ -75,6 +75,8 @@ internal sealed class BreathVolumeOverlay
     private readonly Rectangle? _nativeOutsidePartLeftLayer;
     private readonly Rectangle? _nativeOutsidePartRightLayer;
     private readonly Path? _nativeSongPositionPath;
+    private readonly ScaleTransform? _nativeScaleTransform;
+    private readonly TranslateTransform? _nativeSongPosTranslate;
     private readonly Label? _nativeToolTip;
     private readonly Label? _nativeCursorGuide;
     private readonly int _nativeGuideZIndex;
@@ -137,6 +139,10 @@ internal sealed class BreathVolumeOverlay
             ?.GetValue(view) as Rectangle;
         _nativeSongPositionPath = AccessTools.Field(typeof(ParameterView), "pathSongPos")
             ?.GetValue(view) as Path;
+        _nativeScaleTransform = AccessTools.Field(typeof(ParameterView), "scaleTransform")
+            ?.GetValue(view) as ScaleTransform;
+        _nativeSongPosTranslate = AccessTools.Field(typeof(ParameterView), "songPosTranslate")
+            ?.GetValue(view) as TranslateTransform;
         _nativeToolTip = AccessTools.Field(typeof(ParameterView), "xToolTip")
             ?.GetValue(view) as Label;
         _nativeCursorGuide = AccessTools.Field(typeof(ParameterView), "xMouseCursorGuide")
@@ -208,8 +214,7 @@ internal sealed class BreathVolumeOverlay
         _canvas.Visibility = Visibility.Visible;
         if (_nativeParameterCanvas != null)
             _nativeParameterCanvas.Visibility = Visibility.Collapsed;
-        if (_nativeSongPositionPath != null)
-            _nativeSongPositionPath.Visibility = Visibility.Visible;
+        UpdateNativeSongPosition();
         ShowNativeGuideLayer();
         HideNativeOutsidePartLayer();
     }
@@ -295,8 +300,7 @@ internal sealed class BreathVolumeOverlay
             _canvas.Visibility = Visibility.Collapsed;
             if (_nativeParameterCanvas != null)
                 _nativeParameterCanvas.Visibility = Visibility.Visible;
-            if (_nativeSongPositionPath != null)
-                _nativeSongPositionPath.Visibility = Visibility.Visible;
+            UpdateNativeSongPosition();
             RestoreNativeGuideLayer();
             _view.EndDragRectangle();
             ClearNominees();
@@ -403,8 +407,7 @@ internal sealed class BreathVolumeOverlay
         _canvas.Cursor = null;
         if (_nativeParameterCanvas != null)
             _nativeParameterCanvas.Visibility = Visibility.Visible;
-        if (_nativeSongPositionPath != null)
-            _nativeSongPositionPath.Visibility = Visibility.Visible;
+        UpdateNativeSongPosition();
         RestoreNativeGuideLayer();
         ShowNativeOutsidePartLayer();
         HideNativeGuides();
@@ -1046,12 +1049,25 @@ internal sealed class BreathVolumeOverlay
 
     private void UpdateNativeSongPosition()
     {
+        if (_nativeScaleTransform != null)
+        {
+            if (_nativeScaleTransform.ScaleX != 1.0)
+                _nativeScaleTransform.ScaleX = 1.0;
+            if (_nativeScaleTransform.ScaleY != 1.0)
+                _nativeScaleTransform.ScaleY = 1.0;
+        }
+
         if (_nativeSongPositionPath != null)
         {
             _nativeSongPositionPath.Data = new LineGeometry(
                 new Point(0, 0),
                 new Point(0, _canvas.Height));
             _nativeSongPositionPath.Visibility = Visibility.Visible;
+        }
+
+        if (_nativeSongPosTranslate != null && _view.DataContext is MusicalEditorViewModel vm)
+        {
+            _nativeSongPosTranslate.X = (double)(int)(long)_view.SongPosition * vm.WidthPerTick;
         }
     }
 

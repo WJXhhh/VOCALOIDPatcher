@@ -346,6 +346,7 @@ public static class Patcher
                 new VocaloidSpecialPhonemeAiSetLyricsPatch(),
                 new ExtendedChinesePinyinSetSyllablesContextPatch(),
                 new ExtendedChinesePinyinCandidatePatch(),
+                new ExtendedChinesePinyinFloatingInputRepairPatch(),
                 new ExtendedChinesePinyinRangeResetPatch(),
                 new ExtendedChinesePinyinPartResetPatch(),
                 new SegmentedPhonemeSequenceCommitPatch(),
