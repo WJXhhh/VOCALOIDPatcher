@@ -334,7 +334,7 @@ internal sealed class BreathVolumeOverlay
         }
 
         var status = IsRegisterMode ? BreathRegionStatus.Ready : BreathVolumeService.GetRegionStatus(part);
-        if (IsRegisterMode && !RegisterShiftService.IsSupported)
+        if (IsRegisterMode && !RegisterShiftService.IsSupportedForPart(part))
         {
             ClearNativeBars();
             DrawEmptyState("VOCALOIDPatcher_RegisterShift_Unsupported", vm);

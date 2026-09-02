@@ -10,7 +10,10 @@ use std::sync::RwLock;
 #[cfg(windows)]
 use std::sync::atomic::AtomicPtr;
 use std::sync::atomic::{AtomicI32, AtomicI64, AtomicU32, AtomicU64, Ordering};
-use std::sync::{Mutex, OnceLock};
+use std::sync::{Arc, Mutex, OnceLock};
+
+#[cfg(windows)]
+mod ai_register_shift;
 
 const ABI_VERSION: u32 = 14;
 const HARD_RESYNC_SECONDS: f64 = 0.080;
@@ -241,6 +244,20 @@ pub struct RegisterShiftStatus {
     pub render_input_signature: u64,
     pub render_scope_calls: u64,
     pub scope_trace: [u64; 9],
+    pub ai_install_result: i32,
+    pub ai_install_bitmap: u32,
+    pub ai_table_ready_scopes: u64,
+    pub ai_fallback_scopes: u64,
+    pub ai_validation_failures: u64,
+    pub ai_last_part: u64,
+    pub ai_last_epoch: u64,
+    pub ai_last_table: u64,
+    pub ai_last_func417_calls: u64,
+    pub ai_last_func2d_calls: u64,
+    pub ai_last_emitted_rows: u64,
+    pub ai_last_consumed_rows: u64,
+    pub ai_last_error: i32,
+    pub ai_last_compensation_mode: u32,
 }
 
 #[repr(C)]
@@ -1309,12 +1326,14 @@ mod register_shift_hook {
         pub semitones: i32,
         pub ordinal: i32,
         pub reserved: i32,
+        pub begin_seconds: f64,
+        pub end_seconds: f64,
     }
 
     #[derive(Debug)]
     struct PartEntry {
         epoch: u64,
-        notes: Vec<RegisterNote>,
+        notes: Arc<[RegisterNote]>,
         frame_offset: AtomicI64,
         calibration: Mutex<CalibrationState>,
     }
@@ -2195,7 +2214,7 @@ mod register_shift_hook {
         }
         let synthesis_offset = found.ok_or(-3)?;
         let parser_offset = synthesis_offset.checked_add(8).ok_or(-3)?;
-        if synthesis_offset & 7 != 0 || synthesis_offset < 0x1000 || parser_offset > 0x1000_000 {
+        if synthesis_offset & 7 != 0 || synthesis_offset < 0x1000 || parser_offset > 0x0100_0000 {
             return Err(-3);
         }
         OUTER_SYNTHESIS_OFFSET.store(synthesis_offset, Ordering::Release);
@@ -2558,6 +2577,11 @@ mod register_shift_hook {
                 note.begin_frame < 0
                     || note.end_frame < note.begin_frame
                     || !(MIN_SHIFT..=MAX_SHIFT).contains(&note.semitones)
+                    || !note.begin_seconds.is_finite()
+                    || !note.end_seconds.is_finite()
+                    || note.begin_seconds < 0.0
+                    || note.end_seconds < note.begin_seconds
+                    || note.reserved != 0
             })
         {
             return -1;
@@ -2592,7 +2616,7 @@ mod register_shift_hook {
                 part,
                 PartEntry {
                     epoch,
-                    notes: notes.to_vec(),
+                    notes: Arc::from(notes),
                     frame_offset: AtomicI64::new(frame_offset),
                     calibration: Mutex::new(CalibrationState { possible_offsets }),
                 },
@@ -2642,7 +2666,14 @@ mod register_shift_hook {
             .len() as u64
     }
 
+    pub(super) fn try_part_snapshot(part: u64) -> Option<(u64, Arc<[RegisterNote]>)> {
+        let map = part_notes().try_read().ok()?;
+        let entry = map.get(&part)?;
+        Some((entry.epoch, Arc::clone(&entry.notes)))
+    }
+
     pub fn status(install_result: i32) -> RegisterShiftStatus {
+        let ai = super::ai_register_shift::status();
         RegisterShiftStatus {
             install_result,
             install_bitmap: INSTALL_BITMAP.load(Ordering::Acquire),
@@ -2689,6 +2720,20 @@ mod register_shift_hook {
             render_input_signature: RENDER_INPUT_SIGNATURE.load(Ordering::Relaxed),
             render_scope_calls: RENDER_SCOPE_CALLS.load(Ordering::Relaxed),
             scope_trace: std::array::from_fn(|index| SCOPE_TRACE[index].load(Ordering::Relaxed)),
+            ai_install_result: ai.install_result,
+            ai_install_bitmap: ai.install_bitmap,
+            ai_table_ready_scopes: ai.table_ready_scopes,
+            ai_fallback_scopes: ai.fallback_scopes,
+            ai_validation_failures: ai.validation_failures,
+            ai_last_part: ai.last_part,
+            ai_last_epoch: ai.last_epoch,
+            ai_last_table: ai.last_table,
+            ai_last_func417_calls: ai.last_func417_calls,
+            ai_last_func2d_calls: ai.last_func2d_calls,
+            ai_last_emitted_rows: ai.last_emitted_rows,
+            ai_last_consumed_rows: ai.last_consumed_rows,
+            ai_last_error: ai.last_error,
+            ai_last_compensation_mode: ai.last_compensation_mode,
         }
     }
 
@@ -2822,6 +2867,8 @@ mod register_shift_hook {
             semitones: shift,
             ordinal,
             reserved: 0,
+            begin_seconds: begin as f64 / 100.0,
+            end_seconds: end as f64 / 100.0,
         }
     }
 
@@ -3434,7 +3481,41 @@ pub extern "C" fn v6_register_shift_install() -> i32 {
 }
 
 #[unsafe(no_mangle)]
-/// Replaces the immutable note lookup table for one traditional MIDI part.
+pub extern "C" fn v6_register_shift_install_ai() -> i32 {
+    #[cfg(windows)]
+    {
+        ai_register_shift::install()
+    }
+    #[cfg(not(windows))]
+    {
+        -1
+    }
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn v6_register_shift_abi_version() -> u32 {
+    15
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn v6_register_shift_note_size() -> u32 {
+    #[cfg(windows)]
+    {
+        std::mem::size_of::<register_shift_hook::RegisterNote>() as u32
+    }
+    #[cfg(not(windows))]
+    {
+        48
+    }
+}
+
+#[unsafe(no_mangle)]
+pub extern "C" fn v6_register_shift_status_size() -> u32 {
+    std::mem::size_of::<RegisterShiftStatus>() as u32
+}
+
+#[unsafe(no_mangle)]
+/// Replaces the immutable note lookup table for one AI or traditional MIDI part.
 ///
 /// # Safety
 ///
@@ -4010,7 +4091,8 @@ mod tests {
     #[cfg(windows)]
     #[test]
     fn register_shift_rejects_signature_changes() {
-        assert_eq!(std::mem::size_of::<RegisterShiftStatus>(), 368);
+        assert_eq!(std::mem::size_of::<register_shift_hook::RegisterNote>(), 48);
+        assert_eq!(std::mem::size_of::<RegisterShiftStatus>(), 464);
         let mut signature = register_shift_hook::test_note_signature_bytes();
         assert!(register_shift_hook::test_note_signature(&signature));
         signature[8] ^= 1;

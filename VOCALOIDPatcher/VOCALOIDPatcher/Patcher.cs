@@ -12,6 +12,7 @@ using VOCALOIDPatcher.Jobs;
 using VOCALOIDPatcher.Mcp;
 using VOCALOIDPatcher.Patch;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.RegisterShift;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.UI;
 using VOCALOIDPatcher.Utils;
@@ -300,6 +301,7 @@ public static class Patcher
 
             new(Settings.RegisterShiftKey,
                 new RegisterShiftProjectLoadPatch(),
+                new RegisterShiftSequenceStartRenderingPatch(),
                 new RegisterShiftProjectSavePatch(),
                 new RegisterShiftDuplicateNotePatch(),
                 new RegisterShiftDuplicatePartPatch(),
@@ -433,6 +435,8 @@ public static class Patcher
 
         if (Settings.IndividualBreathVolume)
             BreathVolumeService.InitializeDiagnostics();
+        if (Settings.RegisterShift)
+            NativeRegisterShift.Initialize();
     }
 
     private const string NotifiedDisabledFeaturesKey = "NotifiedDisabledFeatures";

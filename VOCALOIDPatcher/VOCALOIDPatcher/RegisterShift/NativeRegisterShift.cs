@@ -9,15 +9,19 @@ namespace VOCALOIDPatcher.RegisterShift;
 
 internal static unsafe class NativeRegisterShift
 {
-    private const uint ExpectedAbiVersion = 14;
-    private const int ExpectedNativeStatusSize = 368;
+    private const uint ExpectedClockAbiVersion = 14;
+    private const uint ExpectedRegisterShiftAbiVersion = 15;
+    private const uint ExpectedNativeNoteSize = 48;
+    private const uint ExpectedNativeStatusSize = 464;
     private const int ModuleNotLoaded = -6;
     private const string LibraryName = "v6patch_clock.dll";
     private static readonly object LoadLock = new();
     private static nint _library;
     private static int _loadState;
-    private static int _installResult = int.MinValue;
-    private static delegate* unmanaged[Cdecl]<int> _install;
+    private static int _traditionalInstallResult = int.MinValue;
+    private static int _aiInstallResult = int.MinValue;
+    private static delegate* unmanaged[Cdecl]<int> _installTraditional;
+    private static delegate* unmanaged[Cdecl]<int> _installAi;
     private static delegate* unmanaged[Cdecl]<ulong, ulong, NativeNote*, int, int> _setPart;
     private static delegate* unmanaged[Cdecl]<ulong, void> _removePart;
     private static delegate* unmanaged[Cdecl]<void> _clear;
@@ -27,18 +31,40 @@ internal static unsafe class NativeRegisterShift
     {
         get
         {
-            var state = Volatile.Read(ref _loadState);
-            if (state == 2) return RegisterShiftStatus.Unsupported;
-            if (state == 1) return RegisterShiftStatus.Installed;
-            return state == 3 ? RegisterShiftStatus.Loading : RegisterShiftStatus.Unavailable;
+            var traditional = TraditionalStatus;
+            var ai = AiStatus;
+            if (traditional == RegisterShiftStatus.Installed || ai == RegisterShiftStatus.Installed)
+                return RegisterShiftStatus.Installed;
+            if (traditional == RegisterShiftStatus.Loading || ai == RegisterShiftStatus.Loading)
+                return RegisterShiftStatus.Loading;
+            if (traditional == RegisterShiftStatus.Unavailable || ai == RegisterShiftStatus.Unavailable)
+                return RegisterShiftStatus.Unavailable;
+            return RegisterShiftStatus.Unsupported;
         }
+    }
+
+    internal static RegisterShiftStatus TraditionalStatus
+        => GetInstallStatus(Volatile.Read(ref _traditionalInstallResult));
+
+    internal static RegisterShiftStatus AiStatus
+        => GetInstallStatus(Volatile.Read(ref _aiInstallResult));
+
+    internal static RegisterShiftStatus StatusForPart(WIVSMMidiPart? part)
+        => part?.IsAi == true ? AiStatus : TraditionalStatus;
+
+    internal static void Initialize()
+    {
+        if (!EnsureLoaded()) return;
+        EnsureTraditionalInstalled();
+        EnsureAiInstalled();
     }
 
     internal static int SetPart(WIVSMSequence sequence, WIVSMMidiPart part, ulong epoch,
         IReadOnlyDictionary<IntPtr, int> values)
     {
-        if (!EnsureLoaded() || part == null || part.IsAi || epoch == 0 || sequence.NumSampleInFrame <= 0)
+        if (!EnsureLoaded() || part == null || epoch == 0 || sequence.NumSampleInFrame <= 0)
             return -1;
+        if (part.IsAi) EnsureAiInstalled(); else EnsureTraditionalInstalled();
         var notes = new List<NativeNote>();
         var samplingRate = (double)sequence.GetSamplingRate();
         for (ulong index = 0; index < part.NumNotes; index++)
@@ -56,7 +82,9 @@ internal static unsafe class NativeRegisterShift
                 EndFrame = Math.Max(0, (long)Math.Round(endSeconds * samplingRate / sequence.NumSampleInFrame)),
                 PitchCents = checked((note.NoteNumber - 69) * 100),
                 Semitones = value,
-                Ordinal = checked((int)index)
+                Ordinal = checked((int)index),
+                BeginSeconds = beginSeconds,
+                EndSeconds = endSeconds
             });
         }
         var array = notes.ToArray();
@@ -66,18 +94,22 @@ internal static unsafe class NativeRegisterShift
 
     internal static void RemovePart(ulong partHandle)
     {
-        if (_loadState == 1 && _removePart != null) _removePart(partHandle);
+        if (Volatile.Read(ref _loadState) == 1 && _removePart != null) _removePart(partHandle);
     }
 
     internal static void Clear()
     {
-        if (_loadState == 1 && _clear != null) _clear();
+        if (Volatile.Read(ref _loadState) == 1 && _clear != null) _clear();
     }
 
     internal static NativeSnapshot GetSnapshot()
     {
-        var value = new NativeStatus { InstallResult = Volatile.Read(ref _installResult) };
-        if (_loadState == 1 && _status != null)
+        var value = new NativeStatus
+        {
+            InstallResult = Volatile.Read(ref _traditionalInstallResult),
+            AiInstallResult = Volatile.Read(ref _aiInstallResult)
+        };
+        if (Volatile.Read(ref _loadState) == 1 && _status != null)
         {
             try { _status(&value); }
             catch { }
@@ -99,7 +131,12 @@ internal static unsafe class NativeRegisterShift
             value.RenderOutputSignature, value.RenderInputSignature, value.RenderScopeCalls,
             value.Scope0Context, value.Scope0Output, value.Scope0Input,
             value.Scope1Context, value.Scope1Output, value.Scope1Input,
-            value.Scope2Context, value.Scope2Output, value.Scope2Input);
+            value.Scope2Context, value.Scope2Output, value.Scope2Input,
+            value.AiInstallResult, value.AiInstallBitmap, value.AiTableReadyScopes,
+            value.AiFallbackScopes, value.AiValidationFailures, value.AiLastPart,
+            value.AiLastEpoch, value.AiLastTable, value.AiLastFunc417Calls,
+            value.AiLastFunc2dCalls, value.AiLastEmittedRows, value.AiLastConsumedRows,
+            value.AiLastError, value.AiLastCompensationMode);
     }
 
     private static bool EnsureLoaded()
@@ -119,14 +156,26 @@ internal static unsafe class NativeRegisterShift
                 {
                     var path = Path.Combine(Patcher.DataDir, "native", LibraryName);
                     library = NativeLibrary.Load(path);
-                    var abi = (delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library,
+                    var clockAbi = (delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library,
                         "v6_clock_abi_version");
-                    if (abi() != ExpectedAbiVersion)
+                    var registerShiftAbi = (delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library,
+                        "v6_register_shift_abi_version");
+                    var noteSize = (delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library,
+                        "v6_register_shift_note_size");
+                    var statusSize = (delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library,
+                        "v6_register_shift_status_size");
+                    if (clockAbi() != ExpectedClockAbiVersion ||
+                        registerShiftAbi() != ExpectedRegisterShiftAbiVersion)
                         throw new InvalidOperationException("Unsupported native register-shift ABI.");
-                    if (sizeof(NativeStatus) != ExpectedNativeStatusSize)
+                    if (sizeof(NativeNote) != ExpectedNativeNoteSize || noteSize() != ExpectedNativeNoteSize)
+                        throw new InvalidOperationException("Unexpected native register-shift note layout.");
+                    if (sizeof(NativeStatus) != ExpectedNativeStatusSize ||
+                        statusSize() != ExpectedNativeStatusSize)
                         throw new InvalidOperationException("Unexpected native register-shift status layout.");
-                    _install = (delegate* unmanaged[Cdecl]<int>)NativeLibrary.GetExport(library,
+                    _installTraditional = (delegate* unmanaged[Cdecl]<int>)NativeLibrary.GetExport(library,
                         "v6_register_shift_install");
+                    _installAi = (delegate* unmanaged[Cdecl]<int>)NativeLibrary.GetExport(library,
+                        "v6_register_shift_install_ai");
                     _setPart = (delegate* unmanaged[Cdecl]<ulong, ulong, NativeNote*, int, int>)
                         NativeLibrary.GetExport(library, "v6_register_shift_set_part");
                     _removePart = (delegate* unmanaged[Cdecl]<ulong, void>)
@@ -138,11 +187,8 @@ internal static unsafe class NativeRegisterShift
                     _library = library;
                     library = 0;
                 }
-                var result = _install();
-                Volatile.Write(ref _installResult, result);
-                Volatile.Write(ref _loadState, result >= 0 ? 1 : result == ModuleNotLoaded ? 3 : 2);
-                RegisterShiftDiagnosticsLog.Write($"native install result={result} state={Status}");
-                return result >= 0;
+                Volatile.Write(ref _loadState, 1);
+                return true;
             }
             catch (Exception exception)
             {
@@ -154,6 +200,50 @@ internal static unsafe class NativeRegisterShift
         }
     }
 
+    private static bool EnsureTraditionalInstalled()
+        => EnsureInstalled(ref _traditionalInstallResult, _installTraditional, "traditional");
+
+    private static bool EnsureAiInstalled()
+        => EnsureInstalled(ref _aiInstallResult, _installAi, "ai");
+
+    private static bool EnsureInstalled(ref int installResult,
+        delegate* unmanaged[Cdecl]<int> installer, string engine)
+    {
+        var current = Volatile.Read(ref installResult);
+        if (current >= 0) return true;
+        if (current != int.MinValue && current != ModuleNotLoaded) return false;
+        lock (LoadLock)
+        {
+            current = installResult;
+            if (current >= 0) return true;
+            if (current != int.MinValue && current != ModuleNotLoaded) return false;
+            if (installer == null) return false;
+            try
+            {
+                var result = installer();
+                Volatile.Write(ref installResult, result);
+                RegisterShiftDiagnosticsLog.Write(
+                    $"native {engine} install result={result} state={GetInstallStatus(result)}");
+                return result >= 0;
+            }
+            catch (Exception exception)
+            {
+                Volatile.Write(ref installResult, -1);
+                RegisterShiftDiagnosticsLog.Write(
+                    $"native {engine} install failed: {exception.GetType().Name}: {exception.Message}");
+                return false;
+            }
+        }
+    }
+
+    private static RegisterShiftStatus GetInstallStatus(int result)
+    {
+        if (Volatile.Read(ref _loadState) == 2) return RegisterShiftStatus.Unsupported;
+        if (result >= 0) return RegisterShiftStatus.Installed;
+        if (result == ModuleNotLoaded) return RegisterShiftStatus.Loading;
+        return result == int.MinValue ? RegisterShiftStatus.Unavailable : RegisterShiftStatus.Unsupported;
+    }
+
     [StructLayout(LayoutKind.Sequential)]
     private struct NativeNote
     {
@@ -163,6 +253,8 @@ internal static unsafe class NativeRegisterShift
         internal int Semitones;
         internal int Ordinal;
         internal int Reserved;
+        internal double BeginSeconds;
+        internal double EndSeconds;
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -221,6 +313,20 @@ internal static unsafe class NativeRegisterShift
         internal ulong Scope2Context;
         internal ulong Scope2Output;
         internal ulong Scope2Input;
+        internal int AiInstallResult;
+        internal uint AiInstallBitmap;
+        internal ulong AiTableReadyScopes;
+        internal ulong AiFallbackScopes;
+        internal ulong AiValidationFailures;
+        internal ulong AiLastPart;
+        internal ulong AiLastEpoch;
+        internal ulong AiLastTable;
+        internal ulong AiLastFunc417Calls;
+        internal ulong AiLastFunc2dCalls;
+        internal ulong AiLastEmittedRows;
+        internal ulong AiLastConsumedRows;
+        internal int AiLastError;
+        internal uint AiLastCompensationMode;
     }
 
     internal readonly record struct NativeSnapshot(
@@ -241,5 +347,10 @@ internal static unsafe class NativeRegisterShift
         ulong RenderOutputSignature, ulong RenderInputSignature, ulong RenderScopeCalls,
         ulong Scope0Context, ulong Scope0Output, ulong Scope0Input,
         ulong Scope1Context, ulong Scope1Output, ulong Scope1Input,
-        ulong Scope2Context, ulong Scope2Output, ulong Scope2Input);
+        ulong Scope2Context, ulong Scope2Output, ulong Scope2Input,
+        int AiInstallResult, uint AiInstallBitmap, ulong AiTableReadyScopes,
+        ulong AiFallbackScopes, ulong AiValidationFailures, ulong AiLastPart,
+        ulong AiLastEpoch, ulong AiLastTable, ulong AiLastFunc417Calls,
+        ulong AiLastFunc2dCalls, ulong AiLastEmittedRows, ulong AiLastConsumedRows,
+        int AiLastError, uint AiLastCompensationMode);
 }

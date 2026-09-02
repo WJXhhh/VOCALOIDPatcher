@@ -38,7 +38,7 @@ internal static class ExtensionParameterRegistry
                 Settings.IndividualBreathVolume ? null : "Individual Breath Volume is disabled in Patcher settings."),
             Status(ExtensionParameterContracts.Parameters[1], Settings.RegisterShift && RegisterShiftService.IsSupported,
                 !Settings.RegisterShift ? "Register Shift is disabled in Patcher settings."
-                : !RegisterShiftService.IsSupported ? "The native DSE pitch-layer hook is unsupported by this editor build."
+                : !RegisterShiftService.IsSupported ? "The native register-shift hooks are unsupported by this editor build."
                 : null),
         };
     }
@@ -207,7 +207,8 @@ internal static class ExtensionParameterRegistry
             source = "patcher",
             value,
             is_default = value == Schema.First(item => item.Id == id).DefaultValue,
-            state = cache ? BreathVolumeService.GetRegionStatus(part).ToString().ToLowerInvariant() : RegisterShiftService.NativeStatus.ToString().ToLowerInvariant(),
+            state = cache ? BreathVolumeService.GetRegionStatus(part).ToString().ToLowerInvariant() :
+                RegisterShiftService.NativeStatusForPart(part).ToString().ToLowerInvariant(),
         };
 
     private static CapabilityStatus Status(ExtensionParameterDescriptor descriptor, bool available, string? reason)

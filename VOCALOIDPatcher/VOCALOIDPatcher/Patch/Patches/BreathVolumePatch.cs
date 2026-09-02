@@ -114,7 +114,7 @@ internal static class BreathVolumeUi
             ?.GetValue(header) as List<ControlParameterTypeEnum>;
         var standard = AccessTools.Field(typeof(ParameterHeaderControl), "MidiControlParameterTypes")
             ?.GetValue(header) as List<ControlParameterTypeEnum>;
-        SynchronizeList(ai, includeRegisterShift: false);
+        SynchronizeList(ai, includeRegisterShift: true);
         SynchronizeList(standard, includeRegisterShift: true);
 
         if (header.DataContext is MusicalEditorViewModel vm)
@@ -122,9 +122,6 @@ internal static class BreathVolumeUi
             if (!Settings.IndividualBreathVolume && vm.ControlParameterType.Equals(BreathVolumeService.ParameterType))
                 vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
             else if (!Settings.RegisterShift && vm.ControlParameterType.Equals(RegisterShiftService.ParameterType))
-                vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
-            else if (vm.ActiveTrack?.Type == VSMTrackType.MidiAi &&
-                     vm.ControlParameterType.Equals(RegisterShiftService.ParameterType))
                 vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
             var current = vm.ActiveTrack?.Type == VSMTrackType.MidiAi ? ai : standard;
             if (current != null)
@@ -155,7 +152,9 @@ internal static class BreathVolumeUi
             else
             {
                 var firstValue = RegisterShiftService.GetValue(registerSelection[0]);
-                header.IsEnabledControlParameterValueTextBox = RegisterShiftService.IsSupported;
+                header.IsEnabledControlParameterValueTextBox =
+                    RegisterShiftService.IsSupportedForPart(
+                        (header.DataContext as MusicalEditorViewModel)?.ActivePart);
                 header.ControlParameterValue = registerSelection.Skip(1)
                     .Any(handle => RegisterShiftService.GetValue(handle) != firstValue)
                     ? "-" : firstValue.ToString(CultureInfo.InvariantCulture);

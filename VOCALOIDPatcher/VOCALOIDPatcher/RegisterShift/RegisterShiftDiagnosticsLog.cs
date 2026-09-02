@@ -65,7 +65,14 @@ internal static class RegisterShiftDiagnosticsLog
               $"{status.RenderScopeCalls} " +
               $"scopes={FormatScope(status.Scope0Context, status.Scope0Output, status.Scope0Input)};" +
               $"{FormatScope(status.Scope1Context, status.Scope1Output, status.Scope1Input)};" +
-              $"{FormatScope(status.Scope2Context, status.Scope2Output, status.Scope2Input)}");
+              $"{FormatScope(status.Scope2Context, status.Scope2Output, status.Scope2Input)} " +
+              $"aiInstall={status.AiInstallResult}/0x{status.AiInstallBitmap:X} " +
+              $"aiScopes={status.AiTableReadyScopes}/{status.AiFallbackScopes}/" +
+              $"{status.AiValidationFailures} aiLast=0x{status.AiLastPart:X}/" +
+              $"{status.AiLastEpoch}/0x{status.AiLastTable:X} " +
+              $"aiCalls={status.AiLastFunc417Calls}/{status.AiLastFunc2dCalls} " +
+              $"aiRows={status.AiLastEmittedRows}/{status.AiLastConsumedRows} " +
+              $"aiError={status.AiLastError} aiMode={status.AiLastCompensationMode}");
     }
 
     private static string FormatScope(ulong context, ulong output, ulong input)
@@ -82,7 +89,8 @@ internal static class RegisterShiftDiagnosticsLog
         string rawScore = "?";
         try
         {
-            if (handle != IntPtr.Zero && NativeRegisterShift.Status == RegisterShiftStatus.Installed)
+            if (handle != IntPtr.Zero &&
+                NativeRegisterShift.StatusForPart(part) == RegisterShiftStatus.Installed)
             {
                 rawWave = (Marshal.ReadByte(handle, 0x4c1) != 0).ToString();
                 rawScore = (Marshal.ReadByte(handle, 0x4c2) != 0).ToString();

@@ -36,18 +36,25 @@ internal static class RegisterShiftService
     private static readonly HashSet<IntPtr> Selection = new();
     private static readonly Dictionary<IntPtr, int> RebuildGenerations = new();
     private static readonly Dictionary<IntPtr, ulong> RenderEpochs = new();
+    private static readonly Dictionary<IntPtr, ulong> RenderFingerprints = new();
     private static long _nextGeneration;
     private static long _nextRenderEpoch;
+    [ThreadStatic] private static RegisterShiftProjectLoadState? _pendingProjectLoad;
 
     public static event Action<WIVSMMidiPart?>? Changed;
     public static event Action? ValuesChanged;
     public static event Action<WIVSMMidiPart, int, bool>? RebuildCompleted;
     public static RegisterShiftStatus NativeStatus => NativeRegisterShift.Status;
+    public static RegisterShiftStatus NativeStatusForPart(WIVSMMidiPart? part)
+        => NativeRegisterShift.StatusForPart(part);
 
     public static bool IsActive(ControlParameterTypeEnum type)
         => Settings.RegisterShift && type.Equals(ParameterType);
 
     public static bool IsSupported => NativeStatus != RegisterShiftStatus.Unsupported;
+
+    public static bool IsSupportedForPart(WIVSMMidiPart? part)
+        => NativeStatusForPart(part) != RegisterShiftStatus.Unsupported;
 
     public static IReadOnlyList<BreathRegion> GetRegions(WIVSMMidiPart? part)
     {
@@ -217,6 +224,7 @@ internal static class RegisterShiftService
             lock (Sync)
             {
                 RenderEpochs.Remove(part);
+                RenderFingerprints.Remove(part);
                 RebuildGenerations.Remove(part);
             }
         }
@@ -264,27 +272,7 @@ internal static class RegisterShiftService
     }
 
     public static void LoadProjectData(WIVSMSequence sequence, RegisterShiftProjectData? data)
-    {
-        lock (Sync)
-        {
-            Values.Clear();
-            Generations.Clear();
-            Selection.Clear();
-            RebuildGenerations.Clear();
-            RenderEpochs.Clear();
-        }
-        NativeRegisterShift.Clear();
-        if (data == null) { Notify(null); return; }
-        foreach (var entry in data.Entries)
-        {
-            var note = FindNote(sequence, entry);
-            if (note == null) continue;
-            Register(note);
-            lock (Sync) SetCore(note.CppObjPtr, entry.Value);
-        }
-        PublishAll(sequence);
-        Notify(null);
-    }
+        => ApplyProjectData(sequence, data, notify: true);
 
     public static void PublishAll(WIVSMSequence sequence)
     {
@@ -296,7 +284,7 @@ internal static class RegisterShiftService
         for (ulong trackIndex = 0; trackIndex < sequence.NumTrack; trackIndex++)
             if (sequence.GetTrack(trackIndex) is WIVSMMidiTrack track)
                 for (ulong partIndex = 0; partIndex < track.NumParts; partIndex++)
-                    if (track.GetPart(partIndex) is WIVSMMidiPart part && !part.IsAi)
+                    if (track.GetPart(partIndex) is WIVSMMidiPart part)
                         PublishPart(sequence, part);
     }
 
@@ -307,33 +295,47 @@ internal static class RegisterShiftService
             NativeRegisterShift.RemovePart(unchecked((ulong)((IntPtr)part).ToInt64()));
             return;
         }
-        if (part.IsAi)
-            NativeRegisterShift.RemovePart(unchecked((ulong)((IntPtr)part).ToInt64()));
-        else
+        var values = GetNoteValues(part);
+        var handle = (IntPtr)part;
+        var fingerprint = ComputeRenderFingerprint(sequence, part, values);
+        if (values.Values.All(value => value == 0))
         {
-            var values = GetNoteValues(part);
-            var handle = (IntPtr)part;
-            if (values.Values.All(value => value == 0))
+            lock (Sync)
+                if (RenderFingerprints.TryGetValue(handle, out var previous) && previous == fingerprint &&
+                    RenderEpochs.TryGetValue(handle, out var existingEpoch) && existingEpoch == 0)
+                    return;
+            NativeRegisterShift.RemovePart(unchecked((ulong)handle.ToInt64()));
+            lock (Sync)
             {
-                NativeRegisterShift.RemovePart(unchecked((ulong)handle.ToInt64()));
-                lock (Sync) RenderEpochs.Remove(handle);
-                RegisterShiftDiagnosticsLog.Write(
-                    $"publish cleared part=0x{handle.ToInt64():X} notes={values.Count}");
-                RegisterShiftDiagnosticsLog.WriteStatus("publish-clear-status", handle);
-                return;
+                RenderEpochs[handle] = 0;
+                RenderFingerprints[handle] = fingerprint;
             }
-            var epoch = unchecked((ulong)Interlocked.Increment(ref _nextRenderEpoch));
-            if (epoch == 0)
-                epoch = unchecked((ulong)Interlocked.Increment(ref _nextRenderEpoch));
-            lock (Sync) RenderEpochs[handle] = epoch;
-            var result = NativeRegisterShift.SetPart(sequence, part, epoch, values);
-            var majorVersion = part.VoiceBank()?.MajorVersion;
             RegisterShiftDiagnosticsLog.Write(
-                $"publish part=0x{handle.ToInt64():X} epoch={epoch} result={result} " +
-                $"isAi={part.IsAi} voiceMajor={majorVersion?.ToString() ?? "?"} " +
-                $"notes={values.Count} nonzero={values.Values.Count(value => value != 0)}");
-            RegisterShiftDiagnosticsLog.WriteStatus("publish-status", (IntPtr)part);
+                $"publish cleared part=0x{handle.ToInt64():X} notes={values.Count}");
+            RegisterShiftDiagnosticsLog.WriteStatus("publish-clear-status", handle);
+            return;
         }
+        NativeRegisterShift.Initialize();
+        lock (Sync)
+            if (RenderFingerprints.TryGetValue(handle, out var previous) && previous == fingerprint &&
+                RenderEpochs.TryGetValue(handle, out var existingEpoch))
+                return;
+        var epoch = unchecked((ulong)Interlocked.Increment(ref _nextRenderEpoch));
+        if (epoch == 0)
+            epoch = unchecked((ulong)Interlocked.Increment(ref _nextRenderEpoch));
+        var result = NativeRegisterShift.SetPart(sequence, part, epoch, values);
+        if (result == 0)
+            lock (Sync)
+            {
+                RenderEpochs[handle] = epoch;
+                RenderFingerprints[handle] = fingerprint;
+            }
+        var majorVersion = part.VoiceBank()?.MajorVersion;
+        RegisterShiftDiagnosticsLog.Write(
+            $"publish part=0x{handle.ToInt64():X} epoch={epoch} result={result} " +
+            $"isAi={part.IsAi} voiceMajor={majorVersion?.ToString() ?? "?"} " +
+            $"notes={values.Count} nonzero={values.Values.Count(value => value != 0)}");
+        RegisterShiftDiagnosticsLog.WriteStatus("publish-status", handle);
     }
 
     public static void LogNativeStatus(string boundary, WIVSMMidiPart? part)
@@ -351,7 +353,11 @@ internal static class RegisterShiftService
     public static void DisableNative()
     {
         NativeRegisterShift.Clear();
-        lock (Sync) RenderEpochs.Clear();
+        lock (Sync)
+        {
+            RenderEpochs.Clear();
+            RenderFingerprints.Clear();
+        }
         Notify(null);
     }
 
@@ -360,6 +366,104 @@ internal static class RegisterShiftService
 
     private static Dictionary<IntPtr, int> GetNoteValues(WIVSMMidiPart part)
         => GetRegions(part).ToDictionary(region => region.NoteHandle, region => GetValue(region.NoteHandle));
+
+    private static ulong ComputeRenderFingerprint(WIVSMSequence sequence, WIVSMMidiPart part,
+        IReadOnlyDictionary<IntPtr, int> values)
+    {
+        const ulong offset = 14695981039346656037;
+        const ulong prime = 1099511628211;
+        var hash = offset;
+        void Add(ulong value)
+        {
+            for (var index = 0; index < 8; index++)
+            {
+                hash ^= (byte)value;
+                hash *= prime;
+                value >>= 8;
+            }
+        }
+        Add(part.IsAi ? 1UL : 0UL);
+        Add(part.NumNotes);
+        for (ulong index = 0; index < part.NumNotes; index++)
+        {
+            if (part.GetNote(index) is not { } note)
+            {
+                Add(ulong.MaxValue);
+                continue;
+            }
+            var beginSeconds = sequence.PresendTimeSec +
+                               sequence.GetTimeFromTick(part.AbsBeginTick, note.AbsPosTick);
+            var endSeconds = sequence.PresendTimeSec +
+                             sequence.GetTimeFromTick(part.AbsBeginTick, note.AbsEndTick);
+            Add(index);
+            Add(unchecked((ulong)BitConverter.DoubleToInt64Bits(beginSeconds)));
+            Add(unchecked((ulong)BitConverter.DoubleToInt64Bits(endSeconds)));
+            Add(unchecked((ulong)(uint)note.NoteNumber));
+            Add(unchecked((ulong)(uint)(values.TryGetValue(note.CppObjPtr, out var value)
+                ? value : DefaultValue)));
+        }
+        return hash;
+    }
+
+    internal static RegisterShiftProjectLoadState BeginProjectLoad(RegisterShiftProjectData? data)
+    {
+        var state = new RegisterShiftProjectLoadState(data, _pendingProjectLoad);
+        _pendingProjectLoad = state;
+        return state;
+    }
+
+    internal static void PublishBeforeRendering(WIVSMSequence sequence)
+    {
+        if (_pendingProjectLoad is { Applied: false } pending)
+        {
+            ApplyProjectData(sequence, pending.Data, notify: false);
+            pending.Applied = true;
+        }
+        PublishAll(sequence);
+    }
+
+    internal static void CompleteProjectLoad(WIVSMSequence sequence,
+        RegisterShiftProjectLoadState? state)
+    {
+        if (state == null) return;
+        if (!state.Applied)
+        {
+            ApplyProjectData(sequence, state.Data, notify: false);
+            state.Applied = true;
+        }
+        Notify(null);
+    }
+
+    internal static void EndProjectLoad(RegisterShiftProjectLoadState? state)
+    {
+        if (state != null && ReferenceEquals(_pendingProjectLoad, state))
+            _pendingProjectLoad = state.Previous;
+    }
+
+    private static void ApplyProjectData(WIVSMSequence sequence, RegisterShiftProjectData? data,
+        bool notify)
+    {
+        lock (Sync)
+        {
+            Values.Clear();
+            Generations.Clear();
+            Selection.Clear();
+            RebuildGenerations.Clear();
+            RenderEpochs.Clear();
+            RenderFingerprints.Clear();
+        }
+        NativeRegisterShift.Clear();
+        if (data != null)
+            foreach (var entry in data.Entries)
+            {
+                var note = FindNote(sequence, entry);
+                if (note == null) continue;
+                Register(note);
+                lock (Sync) SetCore(note.CppObjPtr, entry.Value);
+            }
+        PublishAll(sequence);
+        if (notify) Notify(null);
+    }
 
     private static void PublishAndRender(WIVSMSequence sequence, WIVSMMidiPart part)
     {
@@ -621,4 +725,13 @@ internal static class RegisterShiftService
     }
 
     private readonly record struct NoteKey(IntPtr Handle, long Generation);
+}
+
+internal sealed class RegisterShiftProjectLoadState(
+    RegisterShiftProjectData? data,
+    RegisterShiftProjectLoadState? previous)
+{
+    internal RegisterShiftProjectData? Data { get; } = data;
+    internal RegisterShiftProjectLoadState? Previous { get; } = previous;
+    internal bool Applied { get; set; }
 }

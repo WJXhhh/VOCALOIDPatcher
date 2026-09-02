@@ -18,31 +18,53 @@ public sealed class RegisterShiftProjectLoadPatch : PatchBase
     public override Type[] ArgumentTypes => new[] { typeof(string), typeof(WIVSMSequence).MakeByRefType() };
 
     [HarmonyPrefix]
-    private static void Prefix(string filePath, ref RegisterShiftProjectData? __state)
+    private static void Prefix(string filePath, out RegisterShiftProjectLoadState __state)
     {
-        __state = null;
+        RegisterShiftProjectData? data = null;
         if (!File.Exists(filePath) ||
             !(filePath.EndsWith(".vpr", StringComparison.OrdinalIgnoreCase) ||
               filePath.EndsWith(".vpr.bak", StringComparison.OrdinalIgnoreCase)))
+        {
+            __state = RegisterShiftService.BeginProjectLoad(null);
             return;
-        try { __state = RegisterShiftProjectArchive.Read(filePath); }
+        }
+        try { data = RegisterShiftProjectArchive.Read(filePath); }
         catch (InvalidDataException) { }
+        catch (Exception exception)
+        {
+            Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_RegisterShift_LoadFailed", exception.Message));
+        }
+        __state = RegisterShiftService.BeginProjectLoad(data);
+    }
+
+    [HarmonyPostfix]
+    private static void Postfix(WIVSMSequence? vsmSequence, RegisterShiftProjectLoadState? __state)
+    {
+        if (vsmSequence == null) return;
+        try { RegisterShiftService.CompleteProjectLoad(vsmSequence, __state); }
         catch (Exception exception)
         {
             Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_RegisterShift_LoadFailed", exception.Message));
         }
     }
 
-    [HarmonyPostfix]
-    private static void Postfix(WIVSMSequence? vsmSequence, RegisterShiftProjectData? __state)
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(Exception? __exception, RegisterShiftProjectLoadState? __state)
     {
-        if (vsmSequence == null) return;
-        try { RegisterShiftService.LoadProjectData(vsmSequence, __state); }
-        catch (Exception exception)
-        {
-            Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_RegisterShift_LoadFailed", exception.Message));
-        }
+        RegisterShiftService.EndProjectLoad(__state);
+        return __exception;
     }
+}
+
+public sealed class RegisterShiftSequenceStartRenderingPatch : PatchBase
+{
+    public override string PatchName => nameof(RegisterShiftSequenceStartRenderingPatch);
+    public override Type TargetClass => typeof(WIVSMSequence);
+    public override string TargetMethodName => "StartAsyncRendering";
+
+    [HarmonyPrefix]
+    private static void Prefix(WIVSMSequence __instance)
+        => RegisterShiftService.PublishBeforeRendering(__instance);
 }
 
 public sealed class RegisterShiftProjectSavePatch : PatchBase
@@ -252,8 +274,11 @@ public sealed class RegisterShiftRendererStartPatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(MusicalEditorViewModel __instance, RendererObserverStartEventArgs e)
     {
-        if (__instance.VSMSequence != null && e?.MidiPart is { IsAi: false } part)
+        if (__instance.VSMSequence != null && e?.MidiPart is { } part)
         {
+            // This observer is delivered by a DispatcherTimer after the native task has
+            // started. StartAsyncRendering is the ordering-critical publication point;
+            // this refresh is intentionally diagnostic and idempotent.
             RegisterShiftService.PublishPart(__instance.VSMSequence, part);
             RegisterShiftService.LogNativeStatus("render-start", part);
         }
@@ -281,5 +306,5 @@ public sealed class RegisterShiftSequenceClosePatch : PatchBase
     public override Type TargetClass => typeof(WIVSMSequence);
     public override string TargetMethodName => "Close";
     [HarmonyPrefix]
-    private static void Prefix() => NativeRegisterShift.Clear();
+    private static void Prefix() => RegisterShiftService.DisableNative();
 }
