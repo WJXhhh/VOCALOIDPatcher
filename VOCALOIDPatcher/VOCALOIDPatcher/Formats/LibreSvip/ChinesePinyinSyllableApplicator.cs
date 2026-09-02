@@ -20,19 +20,29 @@ internal static class ChinesePinyinSyllableApplicator
         try
         {
             using var syllablesData = new SyllablesData();
+            var nativeSyllables = new List<SyllableData>(syllables.Count);
             syllablesData.InitializeData(syllables.Count);
-            for (int i = 0; i < syllables.Count; i++)
+            try
             {
-                var syllableData = new SyllableData
+                for (int i = 0; i < syllables.Count; i++)
                 {
-                    syllable = syllables[i].Lyric,
-                    phonemes = syllables[i].Phonemes,
-                };
-                syllablesData.SetSyllableData(syllableData, i);
-            }
+                    var syllableData = new SyllableData
+                    {
+                        syllable = syllables[i].Lyric,
+                        phonemes = syllables[i].Phonemes,
+                    };
+                    nativeSyllables.Add(syllableData);
+                    syllablesData.SetSyllableData(syllableData, i);
+                }
 
-            result = G2PAMultiLingualManager.SetSyllables(note, syllablesData, syllables.Count, languageId);
-            return result.IsSuccess;
+                result = G2PAMultiLingualManager.SetSyllables(note, syllablesData, syllables.Count, languageId);
+                return result.IsSuccess;
+            }
+            finally
+            {
+                foreach (SyllableData nativeSyllable in nativeSyllables)
+                    nativeSyllable.Dispose();
+            }
         }
         catch
         {

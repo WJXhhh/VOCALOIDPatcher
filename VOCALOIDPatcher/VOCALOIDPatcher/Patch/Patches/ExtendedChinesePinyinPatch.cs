@@ -41,10 +41,39 @@ public class ExtendedChinesePinyinSetLyricsPatch : PatchBase
         List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state,
         ref (bool IsSuccess, WIVSMNote? NextNote) __result)
     {
+        bool hanziApplied = false;
         try
         {
-            if (!Settings.ExtendedChinesePinyin
-                || !ChinesePinyinPhonemeConverter.TryConvertSequence(
+            if (!Settings.ExtendedChinesePinyin)
+                return;
+
+            if (!__result.IsSuccess
+                && langID == (int)VSMLanguageID.Chinese
+                && ChineseHanziG2paRecognizer.TryConvert(note, lyrics, out var hanziSyllables))
+            {
+                if (!ChinesePinyinSyllableApplicator.TrySetSyllables(
+                        note,
+                        hanziSyllables,
+                        (int)VSMLanguageID.Chinese,
+                        out var hanziResult))
+                {
+                    return;
+                }
+
+                ExtendedChinesePinyinResetHelper.ProtectAppliedSyllables(
+                    note,
+                    hanziResult.NextNote,
+                    hanziSyllables);
+                ExtendedChinesePinyinResetHelper.DiscardAffectedContext(
+                    __state,
+                    note,
+                    hanziResult.NextNote);
+                __result = hanziResult;
+                hanziApplied = true;
+                return;
+            }
+
+            if (!ChinesePinyinPhonemeConverter.TryConvertSequence(
                     lyrics,
                     out var syllables,
                     out bool requiresOverride))
@@ -66,6 +95,7 @@ public class ExtendedChinesePinyinSetLyricsPatch : PatchBase
                 note,
                 result.NextNote,
                 syllables);
+            ExtendedChinesePinyinResetHelper.DiscardAffectedContext(__state, note, result.NextNote);
             __result = result;
         }
         catch
@@ -75,6 +105,8 @@ public class ExtendedChinesePinyinSetLyricsPatch : PatchBase
         finally
         {
             ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+            if (hanziApplied)
+                ChineseHanziG2paRecognizer.RefreshContext(note);
             ExtendedChinesePinyinResetHelper.EnsureManagedProtection(note);
         }
     }
@@ -116,11 +148,41 @@ public class VocaloidSpecialPhonemeAiSetLyricsPatch : PatchBase
         List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state,
         ref (bool IsSuccess, WIVSMNote? NextNote) __result)
     {
+        bool hanziApplied = false;
         try
         {
             if (!Settings.ExtendedChinesePinyin
-                || !note.IsAi
-                || !ChinesePinyinPhonemeConverter.TryConvertSequence(
+                || !note.IsAi)
+            {
+                return;
+            }
+
+            if (!__result.IsSuccess
+                && ChineseHanziG2paRecognizer.TryConvert(note, lyrics, out var hanziSyllables))
+            {
+                if (!ChinesePinyinSyllableApplicator.TrySetSyllables(
+                        note,
+                        hanziSyllables,
+                        (int)VSMLanguageID.Chinese,
+                        out var hanziResult))
+                {
+                    return;
+                }
+
+                ExtendedChinesePinyinResetHelper.ProtectAppliedSyllables(
+                    note,
+                    hanziResult.NextNote,
+                    hanziSyllables);
+                ExtendedChinesePinyinResetHelper.DiscardAffectedContext(
+                    __state,
+                    note,
+                    hanziResult.NextNote);
+                __result = hanziResult;
+                hanziApplied = true;
+                return;
+            }
+
+            if (!ChinesePinyinPhonemeConverter.TryConvertSequence(
                     lyrics,
                     out var syllables,
                     out bool requiresOverride))
@@ -145,6 +207,7 @@ public class VocaloidSpecialPhonemeAiSetLyricsPatch : PatchBase
                     note,
                     result.NextNote,
                     syllables);
+                ExtendedChinesePinyinResetHelper.DiscardAffectedContext(__state, note, result.NextNote);
                 __result = result;
             }
         }
@@ -155,6 +218,8 @@ public class VocaloidSpecialPhonemeAiSetLyricsPatch : PatchBase
         finally
         {
             ExtendedChinesePinyinResetHelper.RestoreProtection(__state);
+            if (hanziApplied)
+                ChineseHanziG2paRecognizer.RefreshContext(note);
             ExtendedChinesePinyinResetHelper.EnsureManagedProtection(note);
         }
     }
@@ -182,10 +247,11 @@ public class ExtendedChinesePinyinSetSyllablesContextPatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(
         WIVSMNote note,
+        int syllablesSize,
         out List<ExtendedChinesePinyinResetHelper.ProtectedNoteState> __state)
     {
         __state = Settings.ExtendedChinesePinyin
-            ? ExtendedChinesePinyinResetHelper.CaptureAdjacentContext(note)
+            ? ExtendedChinesePinyinResetHelper.CaptureAdjacentContext(note, syllablesSize)
             : new List<ExtendedChinesePinyinResetHelper.ProtectedNoteState>();
     }
 
@@ -216,12 +282,35 @@ public class ExtendedChinesePinyinCandidatePatch : PatchBase
 
     [HarmonyPostfix]
     private static void Postfix(
+        WIVSMNote note,
         string lyrics,
         int langID,
         ref List<Syllables> __result)
     {
-        if (!Settings.ExtendedChinesePinyin
-            || !ChinesePinyinPhonemeConverter.TryConvertSequence(
+        if (!Settings.ExtendedChinesePinyin)
+            return;
+
+        if (__result.Count == 0
+            && langID == (int)VSMLanguageID.Chinese
+            && ChineseHanziG2paRecognizer.TryConvert(note, lyrics, out var hanziSyllables))
+        {
+            try
+            {
+                __result = new List<Syllables>
+                {
+                    ChinesePinyinSyllableApplicator.CreateCandidate(
+                        hanziSyllables,
+                        (int)VSMLanguageID.Chinese),
+                };
+            }
+            catch
+            {
+                // Keep the empty result returned by VOCALOID's native G2PA path.
+            }
+            return;
+        }
+
+        if (!ChinesePinyinPhonemeConverter.TryConvertSequence(
                 lyrics,
                 out var syllables,
                 out bool requiresOverride))
@@ -425,14 +514,37 @@ internal static class ExtendedChinesePinyinResetHelper
         }
     }
 
-    public static List<ProtectedNoteState> CaptureAdjacentContext(WIVSMNote? note)
+    public static List<ProtectedNoteState> CaptureAdjacentContext(
+        WIVSMNote? note,
+        int affectedNoteCount = 1)
     {
         var captured = new List<ProtectedNoteState>();
         if (note?.Prev != null)
             TryCaptureNote(note.Prev, captured);
-        if (note?.Next != null)
-            TryCaptureNote(note.Next, captured);
+
+        WIVSMNote? following = note;
+        for (int i = 0; i < Math.Max(affectedNoteCount, 1) && following != null; i++)
+            following = following.Next;
+        if (following != null)
+            TryCaptureNote(following, captured);
         return captured;
+    }
+
+    public static void DiscardAffectedContext(
+        List<ProtectedNoteState>? captured,
+        WIVSMNote? beginNote,
+        WIVSMNote? endNote)
+    {
+        if (captured == null || captured.Count == 0 || beginNote == null)
+            return;
+
+        for (WIVSMNote? note = beginNote;
+             note != null && !note.Equals(endNote);
+             note = note.Next)
+        {
+            WIVSMNote affected = note;
+            captured.RemoveAll(state => state.Note.Equals(affected));
+        }
     }
 
     public static List<ProtectedNoteState> PrepareRange(WIVSMNote? beginNote, WIVSMNote? endNote)
@@ -576,6 +688,14 @@ internal static class ExtendedChinesePinyinResetHelper
         lyric = note.Lyric;
         phonemes = string.Empty;
         expectedLangId = note.LangID;
+        if (ChineseHanziG2paRecognizer.TryConvert(note, lyric, out var hanziSyllables)
+            && hanziSyllables.Count == 1)
+        {
+            phonemes = hanziSyllables[0].Phonemes;
+            expectedLangId = (int)VSMLanguageID.Chinese;
+            return true;
+        }
+
         if (!ChinesePinyinPhonemeConverter.TryConvertToken(lyric, out var syllable))
             return false;
 
