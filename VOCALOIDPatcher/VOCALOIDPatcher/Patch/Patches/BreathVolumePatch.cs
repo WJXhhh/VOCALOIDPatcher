@@ -79,8 +79,7 @@ internal static class BreathVolumeUi
         // Do not depend on ActivePart here. During header Enter/lost-focus the
         // editor can clear ActivePart for one notification before restoring it.
         // Hiding in that window exposes xOutsideActivePartCanvas over the panel.
-        return RegisterShiftService.IsActive(vm.ControlParameterType) &&
-               vm.ActiveTrack?.Type != VSMTrackType.MidiAi;
+        return RegisterShiftService.IsActive(vm.ControlParameterType);
     }
 
     public static void RefreshSetting()

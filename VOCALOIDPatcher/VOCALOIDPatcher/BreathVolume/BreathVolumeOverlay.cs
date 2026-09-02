@@ -1494,10 +1494,9 @@ internal sealed class BreathVolumeOverlay
             return false;
 
         // ActivePart can be temporarily null while the header commits a value.
-        // Treat REG as active until the track is known to be an AI track; otherwise
-        // the native outside-part mask can flash over the custom panel.
-        return _view.DataContext is not MusicalEditorViewModel vm ||
-               vm.ActiveTrack?.Type != VSMTrackType.MidiAi;
+        // REG is a patch-owned parameter for both traditional and AI tracks, so
+        // it must never fall through to VOCALOID's native controller behaviors.
+        return true;
     }
 
     private IReadOnlyList<BreathRegion> GetRegions(WIVSMMidiPart part)
