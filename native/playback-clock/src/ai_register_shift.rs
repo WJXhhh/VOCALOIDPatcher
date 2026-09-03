@@ -67,8 +67,12 @@ struct MemoryBasicInformation {
 #[derive(Clone, Copy)]
 struct ImageLayout {
     size: usize,
-    code_start: usize,
-    code_size: usize,
+}
+
+#[derive(Clone, Copy)]
+enum SectionKind {
+    Executable,
+    ReadableNonExecutable,
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -366,35 +370,17 @@ unsafe fn image_layout(module: *mut u8) -> Result<ImageLayout, i32> {
     if !(0x1000..=0x1000_0000).contains(&size) {
         return Err(-2);
     }
-    let section_count = unsafe { ptr::read_unaligned(nt.add(6).cast::<u16>()) } as usize;
-    let optional_size = unsafe { ptr::read_unaligned(nt.add(20).cast::<u16>()) } as usize;
-    let sections = unsafe { nt.add(24 + optional_size) };
-    let mut code = None;
-    for index in 0..section_count {
-        let section = unsafe { sections.add(index * 40) };
-        let characteristics = unsafe { ptr::read_unaligned(section.add(36).cast::<u32>()) };
-        if characteristics & IMAGE_SCN_MEM_EXECUTE == 0 {
-            continue;
-        }
-        let start = unsafe { ptr::read_unaligned(section.add(12).cast::<u32>()) } as usize;
-        let length = unsafe { ptr::read_unaligned(section.add(8).cast::<u32>()) } as usize;
-        let length = length.min(size.saturating_sub(start));
-        if length == 0 || code.replace((start, length)).is_some() {
-            return Err(-9);
-        }
+    let layout = ImageLayout { size };
+    if unsafe { section_ranges(module, layout, SectionKind::Executable)? }.is_empty() {
+        return Err(-3);
     }
-    let (code_start, code_size) = code.ok_or(-3)?;
-    Ok(ImageLayout {
-        size,
-        code_start,
-        code_size,
-    })
+    Ok(layout)
 }
 
 unsafe fn section_ranges(
     module: *mut u8,
     layout: ImageLayout,
-    readable_non_executable: bool,
+    kind: SectionKind,
 ) -> Result<Vec<(usize, usize)>, i32> {
     let nt_offset = unsafe { ptr::read_unaligned(module.add(0x3c).cast::<u32>()) } as usize;
     let nt = unsafe { module.add(nt_offset) };
@@ -405,10 +391,14 @@ unsafe fn section_ranges(
     for index in 0..section_count {
         let section = unsafe { sections.add(index * 40) };
         let characteristics = unsafe { ptr::read_unaligned(section.add(36).cast::<u32>()) };
-        if readable_non_executable
-            && (characteristics & IMAGE_SCN_MEM_READ == 0
-                || characteristics & IMAGE_SCN_MEM_EXECUTE != 0)
-        {
+        let matches = match kind {
+            SectionKind::Executable => characteristics & IMAGE_SCN_MEM_EXECUTE != 0,
+            SectionKind::ReadableNonExecutable => {
+                characteristics & IMAGE_SCN_MEM_READ != 0
+                    && characteristics & IMAGE_SCN_MEM_EXECUTE == 0
+            }
+        };
+        if !matches {
             continue;
         }
         let start = unsafe { ptr::read_unaligned(section.add(12).cast::<u32>()) } as usize;
@@ -421,6 +411,14 @@ unsafe fn section_ranges(
     Ok(result)
 }
 
+fn range_contains(ranges: &[(usize, usize)], start: usize, length: usize) -> bool {
+    start.checked_add(length).is_some_and(|end| {
+        ranges
+            .iter()
+            .any(|&(begin, limit)| start >= begin && end <= limit)
+    })
+}
+
 unsafe fn resolve_rel32(call: *const u8) -> Option<*mut u8> {
     if call.is_null() || unsafe { *call } != 0xe8 {
         return None;
@@ -430,34 +428,35 @@ unsafe fn resolve_rel32(call: *const u8) -> Option<*mut u8> {
 }
 
 unsafe fn find_wrapper(module: *mut u8, layout: ImageLayout) -> Result<*mut u8, i32> {
-    let code = unsafe { module.add(layout.code_start) };
-    let bytes = unsafe { slice::from_raw_parts(code, layout.code_size) };
-    if bytes.len() < 48 {
-        return Err(-3);
-    }
+    let executable = unsafe { section_ranges(module, layout, SectionKind::Executable)? };
     let mut found = None;
-    for offset in 0..=bytes.len().saturating_sub(48) {
-        let candidate = unsafe { code.add(offset) };
-        if &bytes[offset..offset + WRAPPER_PREFIX.len()] != WRAPPER_PREFIX
-            || &bytes[offset + 24..offset + 24 + WRAPPER_MIDDLE.len()] != WRAPPER_MIDDLE
-        {
+    for &(start, end) in &executable {
+        let code = unsafe { module.add(start) };
+        let bytes = unsafe { slice::from_raw_parts(code, end - start) };
+        if bytes.len() < 48 {
             continue;
         }
-        let Some(target) = (unsafe { resolve_rel32(candidate.add(43)) }) else {
-            continue;
-        };
-        let target_value = target as usize;
-        let code_begin = code as usize;
-        if target_value < code_begin
-            || target_value
-                .checked_add(OUTER_PREFIX.len())
-                .is_none_or(|end| end > code_begin + layout.code_size)
-            || unsafe { slice::from_raw_parts(target, OUTER_PREFIX.len()) } != OUTER_PREFIX
-        {
-            continue;
-        }
-        if found.replace(candidate).is_some() {
-            return Err(-9);
+        for offset in 0..=bytes.len() - 48 {
+            let candidate = unsafe { code.add(offset) };
+            if &bytes[offset..offset + WRAPPER_PREFIX.len()] != WRAPPER_PREFIX
+                || &bytes[offset + 24..offset + 24 + WRAPPER_MIDDLE.len()] != WRAPPER_MIDDLE
+            {
+                continue;
+            }
+            let Some(target) = (unsafe { resolve_rel32(candidate.add(43)) }) else {
+                continue;
+            };
+            let Some(target_offset) = (target as usize).checked_sub(module as usize) else {
+                continue;
+            };
+            if !range_contains(&executable, target_offset, OUTER_PREFIX.len())
+                || unsafe { slice::from_raw_parts(target, OUTER_PREFIX.len()) } != OUTER_PREFIX
+            {
+                continue;
+            }
+            if found.replace(candidate).is_some() {
+                return Err(-9);
+            }
         }
     }
     found.ok_or(-3)
@@ -468,10 +467,11 @@ unsafe fn find_wrapper_slot(
     layout: ImageLayout,
     wrapper: *mut u8,
 ) -> Result<*mut *mut c_void, i32> {
-    let code_begin = unsafe { module.add(layout.code_start) } as usize;
-    let code_end = code_begin + layout.code_size;
+    let executable = unsafe { section_ranges(module, layout, SectionKind::Executable)? };
     let mut found = None;
-    for (start, end) in unsafe { section_ranges(module, layout, true)? } {
+    for (start, end) in
+        unsafe { section_ranges(module, layout, SectionKind::ReadableNonExecutable)? }
+    {
         let aligned = (start + 7) & !7;
         for offset in (aligned..=end.saturating_sub(8)).step_by(8) {
             let location = unsafe { module.add(offset) }.cast::<*mut c_void>();
@@ -484,7 +484,9 @@ unsafe fn find_wrapper_slot(
             let mut plausible = true;
             for index in [0usize, 1, 2, 13, 15] {
                 let value = unsafe { ptr::read_unaligned(vtable.add(index)) } as usize;
-                plausible &= value >= code_begin && value < code_end;
+                plausible &= value
+                    .checked_sub(module as usize)
+                    .is_some_and(|offset| range_contains(&executable, offset, 1));
             }
             if !plausible {
                 continue;
@@ -1463,6 +1465,17 @@ unsafe extern "system-unwind" fn func950_hook(state: *mut c_void) {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn executable_range_lookup_supports_disjoint_sections() {
+        let ranges = [(0x1000, 0x1800), (0x3000, 0x3800)];
+
+        assert!(range_contains(&ranges, 0x1100, 0x20));
+        assert!(range_contains(&ranges, 0x3100, 0x20));
+        assert!(!range_contains(&ranges, 0x17f0, 0x20));
+        assert!(!range_contains(&ranges, 0x2000, 0x20));
+        assert!(!range_contains(&ranges, usize::MAX - 3, 8));
+    }
 
     #[test]
     fn aligned_buffer_is_zeroed_and_32_byte_aligned() {
