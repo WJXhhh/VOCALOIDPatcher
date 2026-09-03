@@ -4,7 +4,7 @@
 
 ### 工作区与样本
 
-- 用户指定记录目录 `voicebank/_doc` 当时不存在；仓库只有未跟踪目录 `voicebank_doc/`，内有一份 VDM/AI 声库分析。
+- 用户指定的记录目录是仓库根目录下完整名称 `voicebank_doc/`，不是 `voicebank/_doc/`；此前误建的嵌套路径已在提交后纠正。
 - 工作区已有与本研究无关的未提交补丁和翻译改动。本轮未修改这些文件。
 - 64 位注册表 `HKLM\\SOFTWARE\\VOCALOID5\\Voice\\Components` 中发现 7 个传统声库组件，均指向 `C:\Program Files\Common Files\VOCALOID5\Voicelib`。
 - 每个组件目录均包含一个 `.ddi`、一个 `.ddb` 和一个 约 230 字节的 `_v4compatible.vvd`，另有图标/EULA 等安装资源。

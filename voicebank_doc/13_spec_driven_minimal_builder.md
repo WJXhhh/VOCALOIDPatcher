@@ -56,7 +56,7 @@ frame = round(seconds / WAV_duration * frame_count)
 
 ```powershell
 python voicebank/tools/build_minimal_sil_a_bank.py `
-  voicebank/_doc/minimal_sil_a_spec.example.json `
+  voicebank_doc/minimal_sil_a_spec.example.json `
   E:/voicebank-build/my_voice
 ```
 
