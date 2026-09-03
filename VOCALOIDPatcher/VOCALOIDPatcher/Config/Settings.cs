@@ -386,4 +386,20 @@ public static class Settings
         set => Patcher.ConfigManager.Set(ThrottleRendererPreviewKey, value);
     }
 
+    public static string UnlockAllLanguagesKey => "UnlockAllLanguages";
+
+    public static bool UnlockAllLanguages
+    {
+        get => FeatureFlag(UnlockAllLanguagesKey, true);
+        set => Patcher.ConfigManager.Set(UnlockAllLanguagesKey, value);
+    }
+
+    public static string UnlockVocaloChangerKey => "UnlockVocaloChanger";
+
+    public static bool UnlockVocaloChanger
+    {
+        get => FeatureFlag(UnlockVocaloChangerKey, true);
+        set => Patcher.ConfigManager.Set(UnlockVocaloChangerKey, value);
+    }
+
 }

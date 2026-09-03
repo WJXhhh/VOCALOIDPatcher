@@ -13,6 +13,7 @@ using Microsoft.Win32;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Mcp;
 using VOCALOIDPatcher.McpBridge;
+using VOCALOIDPatcher.Patch;
 using VOCALOIDPatcher.Patch.Patches;
 using VOCALOIDPatcher.RegisterShift;
 using VOCALOIDPatcher.Translation;
@@ -258,6 +259,30 @@ public class SettingsWindow : Window
                         TranslationManager.Tr("VOCALOIDPatcher_TranslateHardcodedStringsRestart"));
             });
         panel.Children.Add(translateHardcoded);
+
+        var unlockLanguages = DescribedToggle(
+            "VOCALOIDPatcher_UnlockAllLanguages_Header",
+            "VOCALOIDPatcher_UnlockAllLanguages_Desc",
+            Settings.UnlockAllLanguages,
+            new Thickness(0, 20, 0, 0),
+            checkbox =>
+            {
+                Settings.UnlockAllLanguages = checkbox.IsChecked == true;
+                NativeVoiceBankHook.SyncSettings();
+            });
+        panel.Children.Add(unlockLanguages);
+
+        var unlockVocaloChanger = DescribedToggle(
+            "VOCALOIDPatcher_UnlockVocaloChanger_Header",
+            "VOCALOIDPatcher_UnlockVocaloChanger_Desc",
+            Settings.UnlockVocaloChanger,
+            new Thickness(0, 16, 0, 0),
+            checkbox =>
+            {
+                Settings.UnlockVocaloChanger = checkbox.IsChecked == true;
+                NativeVoiceBankHook.SyncSettings();
+            });
+        panel.Children.Add(unlockVocaloChanger);
 
         return panel;
     }

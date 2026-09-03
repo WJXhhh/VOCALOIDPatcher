@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "singer_name": "my_voice",
+  "pitch_hz": 220.0,
+  "stationary": {
+    "wav": "C:/voicebank-recordings/a_stationary.wav",
+    "f0_hz": 220.0
+  },
+  "articulations": [
+    {
+      "source": "Sil",
+      "target": "a",
+      "wav": "C:/voicebank-recordings/sil_to_a.wav",
+      "f0_hz": 220.0,
+      "boundary_seconds": 0.15,
+      "source_inner_seconds": [0.02, 0.13],
+      "target_inner_seconds": [0.17, 0.28]
+    },
+    {
+      "source": "a",
+      "target": "Sil",
+      "wav": "C:/voicebank-recordings/a_to_sil.wav",
+      "f0_hz": 220.0,
+      "boundary_seconds": 0.15,
+      "source_inner_seconds": [0.02, 0.13],
+      "target_inner_seconds": [0.17, 0.28]
+    }
+  ]
+}

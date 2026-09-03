@@ -408,6 +408,21 @@ public static class Patcher
             new(Settings.CacheRenderedWavesKey,
                 new RenderedWaveCachePatch(),
                 new RenderedWaveCacheClearPatch()),
+
+            new(Settings.UnlockAllLanguagesKey,
+                new VoiceBankLangIDsPatch(),
+                new VoiceBankLangIDSizePatch(),
+                new VoiceBankLangIDByIndexPatch(),
+                new VoiceBankContainsLangIDPatch(),
+                new VoiceBankContainsAllLangIDsPatch()),
+
+            new(Settings.UnlockVocaloChangerKey,
+                new VoiceBankVocaloChangerPatch(),
+                new VocaloChangerModelFallbackPatch()),
+
+            new(null,
+                new DatabaseManagerCreatePatch(),
+                new VoiceBankConstructorPatch()),
         };
 
         var disabled = new List<string>();
@@ -437,6 +452,18 @@ public static class Patcher
             BreathVolumeService.InitializeDiagnostics();
         if (Settings.RegisterShift)
             NativeRegisterShift.Initialize();
+
+        try
+        {
+            if (Yamaha.VOCALOID.App.DatabaseManager != null)
+            {
+                NativeVoiceBankHook.Initialize(Yamaha.VOCALOID.App.DatabaseManager);
+            }
+        }
+        catch
+        {
+            // Defensive
+        }
     }
 
     private const string NotifiedDisabledFeaturesKey = "NotifiedDisabledFeatures";
