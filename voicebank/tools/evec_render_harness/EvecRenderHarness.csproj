@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="VOCALOID6">
+      <HintPath>C:\Program Files\VOCALOID6\Editor\VOCALOID6.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecConstants.cs" Link="EvecConstants.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecNoteState.cs" Link="EvecNoteState.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecPhonemeRecomposer.cs" Link="EvecPhonemeRecomposer.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecVoicebankDetector.cs" Link="EvecVoicebankDetector.cs" />
+  </ItemGroup>
+
+</Project>

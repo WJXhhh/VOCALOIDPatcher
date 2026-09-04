@@ -38,6 +38,32 @@ public static class JobMenu
             jobMenu.Items.Add(BuildItem("VOCALOIDPatcher_Job_QuantizeLength_Header", ShowQuantizeDialog));
             jobMenu.Items.Add(BuildItem("VOCALOIDPatcher_Job_Harmony_Header", ShowHarmonyDialog));
 
+            var evecSubMenu = new MenuItem { Tag = MarkerTag };
+            WpfTranslationPatch.MarkUntranslatable(evecSubMenu);
+            Localizers.Add((evecSubMenu, "VOCALOIDPatcher_Job_Evec_Header"));
+
+            var colorSoft = new MenuItem();
+            WpfTranslationPatch.MarkUntranslatable(colorSoft);
+            Localizers.Add((colorSoft, "VOCALOIDPatcher_Job_Evec_ColorSoft"));
+            colorSoft.Click += (_, _) => JobTools.ApplyEvecColor(Evec.EvecConstants.VoiceColorSoft);
+            evecSubMenu.Items.Add(colorSoft);
+
+            var colorPower = new MenuItem();
+            WpfTranslationPatch.MarkUntranslatable(colorPower);
+            Localizers.Add((colorPower, "VOCALOIDPatcher_Job_Evec_ColorPower"));
+            colorPower.Click += (_, _) => JobTools.ApplyEvecColor(Evec.EvecConstants.VoiceColorPower);
+            evecSubMenu.Items.Add(colorPower);
+
+            evecSubMenu.Items.Add(new Separator());
+
+            var resetEvec = new MenuItem();
+            WpfTranslationPatch.MarkUntranslatable(resetEvec);
+            Localizers.Add((resetEvec, "VOCALOIDPatcher_Job_Evec_Reset"));
+            resetEvec.Click += (_, _) => JobTools.ResetEvec();
+            evecSubMenu.Items.Add(resetEvec);
+
+            jobMenu.Items.Add(evecSubMenu);
+
             HookLanguage();
             RefreshHeaders();
         }
@@ -84,7 +110,7 @@ public static class JobMenu
     private static void RefreshHeaders()
     {
         foreach (var (item, key) in Localizers)
-            item.Header = TranslationManager.Tr(key) + "...";
+            item.Header = TranslationManager.Tr(key) + (item.HasItems ? string.Empty : "...");
     }
 
 

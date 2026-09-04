@@ -354,6 +354,18 @@ public class SettingsWindow : Window
                 BreathVolumeUi.RefreshSetting();
             });
 
+        var evec = DescribedToggle(
+            "VOCALOIDPatcher_Evec_Header",
+            "VOCALOIDPatcher_Evec_Description",
+            Settings.EvecEnabled,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.EvecEnabled = checkbox.IsChecked == true;
+                Evec.EvecService.Refresh();
+                RoundedNotePatch.RefreshNotes();
+            });
+
         var waveformOptions = new StackPanel
         {
             Margin = new Thickness(28, 6, 0, 0),
@@ -418,6 +430,7 @@ public class SettingsWindow : Window
         panel.Children.Add(centeredLyrics);
         panel.Children.Add(individualBreathVolume);
         panel.Children.Add(registerShift);
+        panel.Children.Add(evec);
         panel.Children.Add(alwaysShowWaveform);
         panel.Children.Add(waveformOptions);
         panel.Children.Add(showCharacterArt);
@@ -429,6 +442,7 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.CenteredLyricsKey, centeredLyrics);
         HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
         HideIfUnsupported(Settings.RegisterShiftKey, registerShift);
+        HideIfUnsupported(Settings.EvecEnabledKey, evec);
         HideIfUnsupported(Settings.AlwaysShowWaveformKey, alwaysShowWaveform, waveformOptions);
         HideIfUnsupported(Settings.SvEditorStyleKey, svEditorStyle);
         HideIfUnsupported(Settings.ShowCharacterArtKey, showCharacterArt, artOptions);

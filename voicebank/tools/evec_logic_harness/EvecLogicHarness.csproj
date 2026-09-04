@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecConstants.cs" Link="EvecConstants.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecNoteState.cs" Link="EvecNoteState.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecLyricMovePlanner.cs" Link="EvecLyricMovePlanner.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecPhonemeRecomposer.cs" Link="EvecPhonemeRecomposer.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecProjectArchive.cs" Link="EvecProjectArchive.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecTimingMath.cs" Link="EvecTimingMath.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecTransitionAccumulator.cs" Link="EvecTransitionAccumulator.cs" />
+  </ItemGroup>
+</Project>

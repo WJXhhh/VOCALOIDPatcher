@@ -322,4 +322,31 @@ public static class JobTools
         return vsm.InsertTrackEx(vsm.NumTrack, type, name) as WIVSMMidiTrack;
     }
 
+    public static void ApplyEvecColor(int voiceColorId)
+    {
+        if (!TryGetContext(out _, out _, out var notes))
+            return;
+        Evec.EvecService.UpdateVoiceColor(notes, voiceColorId);
+    }
+
+    public static void ApplyEvecAttack(int attackId)
+    {
+        if (!TryGetContext(out _, out _, out var notes))
+            return;
+        Evec.EvecService.UpdateAttack(notes, attackId);
+    }
+
+    public static void ApplyEvecRelease(int releaseId)
+    {
+        if (!TryGetContext(out _, out _, out var notes))
+            return;
+        Evec.EvecService.UpdateRelease(notes, releaseId);
+    }
+
+    public static void ResetEvec()
+    {
+        if (!TryGetContext(out _, out _, out var notes))
+            return;
+        Evec.EvecService.ResetNotes(notes);
+    }
 }

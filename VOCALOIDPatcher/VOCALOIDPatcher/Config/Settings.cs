@@ -220,6 +220,14 @@ public static class Settings
         set => Patcher.ConfigManager.Set(RegisterShiftKey, value);
     }
 
+    public static string EvecEnabledKey => "EvecEnabled";
+
+    public static bool EvecEnabled
+    {
+        get => FeatureFlag(EvecEnabledKey, true);
+        set => Patcher.ConfigManager.Set(EvecEnabledKey, value);
+    }
+
     public static string WaveformOpacityKey => "WaveformOpacity";
 
     public static double WaveformOpacity
