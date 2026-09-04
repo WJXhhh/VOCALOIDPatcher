@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "session_id": "research_voice_cn_3layer_v1",
+  "layer_count": 3,
+  "center_midi": 64.0,
+  "comfortable_midi_range": [60.0, 68.0],
+  "repetitions": 1,
+  "timing": {
+    "art_syllable_seconds": 0.5,
+    "art_leading_silence_seconds": 0.5,
+    "art_trailing_silence_seconds": 0.5,
+    "stationary_sustain_seconds": 1.5,
+    "stationary_leading_silence_seconds": 0.5,
+    "stationary_trailing_silence_seconds": 0.5,
+    "maximum_prompt_seconds": 8.0
+  },
+  "capture": {
+    "sample_rate": 44100,
+    "channels": 1,
+    "bit_depth": 16
+  },
+  "qa": {
+    "pitch_tolerance_cents": 25.0,
+    "minimum_pitch_correlation": 0.7,
+    "minimum_snr_db": 45.0,
+    "duration_tolerance_seconds": 0.25,
+    "maximum_peak_dbfs": -1.0,
+    "minimum_signal_rms_dbfs": -30.0,
+    "maximum_dc_offset": 0.01
+  }
+}

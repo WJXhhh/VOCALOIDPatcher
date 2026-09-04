@@ -53,6 +53,23 @@ VOCALOID6 的传统声库运行时入口已经闭合到一条可复现调用链�
 
 旧 V3/V4 路径的字段名和目录组合规则不同。例如旧读取器检查大写 `INSTALLED/NAME/PATH/TIME`，并从 `NAME` 的圆括号内提取短名。自建库应优先采用已经闭合的 V5 风格组件路径，不混用旧字段集合。
 
+### 名称、身份和“默认声库”是三个概念
+
+6.13.0.1 的托管包装和启动逻辑把这些字段分得很清楚：
+
+| 概念 | 存储/来源 | 运行时用途 |
+| --- | --- | --- |
+| 组件身份 | 16 字符 `CompID`（注册表组件子键名） | 组件查找、工程引用、许可证匹配、默认选择持久化 |
+| 组件全名 | 注册值 `Name` → `VoiceBank.ComponentName` | 产品/组件描述；不是默认选择键 |
+| 声库显示名 | 注册值 `BankName` → `VoiceBank.Name` | 编辑器声库名称和 `GetVoiceBankName` 返回值 |
+| 分组显示名 | `GroupName`，缺失时回退到 `BankName` | UI 分组；不是授权身份 |
+| 默认传统声库 | 用户设置 `defaultVoiceCompID` | 由 CompID 找库，找不到时按可用语言选择首个候选 |
+| 默认 AI 声库 | 用户设置 `defaultAiVoiceCompID` | 同样按 CompID 保存，但走 DNN 类型和多语言可用性判断 |
+
+`MainViewModel.Initialize()` 会把解析出的对象传给 `VoiceBank.SetDefault()`；VDM 的 `DefaultVoiceBank`/`DefaultAiVoiceBank` 随后供新 Part 继承。如果前一个 Part 存在，新 Part 优先继承前一个 Part 的 voice-bank ID。因此不存在一个需要写进 V5 组件元数据、名为“默认声库名称”的认证字段；需要生成的是 `Name`/`BankName` 等显示元数据，而默认选择属于每个 Editor 用户的设置。
+
+传统 V5 路径的支持语言也不是自由填写的字符串列表：`NativeLangID` 由 CompID payload 第 4 位恢复，`LangIDs` 由 VDM 对象暴露；本路径不读取 AI 分支的 `Languages` 注册值。版本号则来自 `Version\Major/Minor/Revision`，VDM 还会独立给出 `IsSynthesizableVersion`、`IsVersionTooOld` 和 `IsVersionTooNew`，所以“字段能被解析”不等于“当前引擎接受该版本”。
+
 ## 组件 ID 不是任意 16 字符串
 
 VDM 的 `FUN_1800daa40` 调用 `FUN_1800d9de0`，把 16 字符组件 ID 解成 14 位 base-28 payload。其规则包括：
@@ -133,7 +150,9 @@ VDM 能枚举、DSE 能打开 DDI/DDB，仍不足以让 stock Editor 把组件�
 - 查不到 license 或结果无效时，UI 会显示不可用/过期；
 - 注册表 `Key` 被 VDM包装为授权描述，但任意字符串不会产生合法授权。
 
-因此不能用现成商业组件 ID 冒充自建库：这会造成组件冲突、授权错配，并可能让已安装库失效。下一步宿主验证必须使用独立组件 ID、可撤销的隔离注册和仅针对研究库的许可/UI 隔离补丁，或者继续通过不依赖 stock 授权 UI 的原生 DSE/VSM harness 验证渲染。
+后续只读 harness 已进一步证明：本机 29 个传统库共有 57 个非空 key/serial descriptor，但最终结果仍全部不在 Editor 接受集合中。完整对象链、结果分布和复现方法见 [DSE 许可证对象与编辑器可用性判定](17_dse_license_pipeline.md)；CompID、名称、语言、版本、默认选择与 DBSe 摘要的边界汇总见 [声库身份、默认选择与许可证字段矩阵](26_voicebank_identity_and_license_fields.md)。
+
+因此不能用现成商业组件 ID 冒充自建库：这会造成组件冲突、授权错配，并可能让已安装库失效。下一步宿主验证必须使用独立组件 ID 和可撤销的隔离注册；授权条件必须通过合法渠道另行满足。格式研究可继续通过不依赖 stock 授权 UI 的原生 DSE/VSM harness 分层验证。
 
 ## 尚未完成
 

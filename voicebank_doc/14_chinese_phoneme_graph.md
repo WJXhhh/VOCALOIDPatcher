@@ -151,6 +151,7 @@ Sil -> unvoiced consonant
 
 ## 下一步
 
-1. 在 2,556 交集图上加入中文音节合法性和最大录音长度，求允许重复连接边的句表候选。
-2. 把 38 STA、主音高层数和 `Sil→unvoiced` 单层例外写入通用训练规格，而不是继续把构建器固定为 `a`。
-3. 研究每个 ARTp 层的选择坐标，确认 2/3/4 层的实际音高分布与边界样本层是否同 STA 一致。
+1. ~~先建立零漏边、零非法边且允许重复连接的确定性 trail/clip 基线。~~ 已完成：交集图从 449 条最少 trail 连接并切成 278 个最多 12 音素的 clips，见 [中文 ART 录音 trail/clip 规划器](19_art_recording_trail_planner.md)。
+2. ~~在该基线上加入中文音节模板和拼音提示。~~ 已完成原生 G2PA 约束和 190 条最优长提示，见 [原生中文 G2PA 音节清单与 ART 提示覆盖](20_chinese_g2pa_prompt_cover.md)与[中文长提示压缩与 190 段最优覆盖](21_chinese_long_prompt_optimizer.md)。自然汉字与真人换气仍待验证。
+3. ~~把 38 STA、主音高层数和 `Sil→unvoiced` 单层例外写入通用训练规格。~~ 已进入逐 take session manifest；保守地全层录音，分析后才把无音高起辅音降为单层。
+4. ~~研究每个 ARTp 层的选择坐标，确认 2/3/4 层的实际音高分布与边界样本层是否同 STA 一致。~~ 已完成逐样本聚合：满层 ART 与 STA 的对应层中位数最大差 6.7443 cent；相对模板与例外哨兵见 [七库录音音高层、样本时长与无音高例外](22_reference_pitch_layers_and_durations.md)。
