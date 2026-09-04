@@ -91,9 +91,9 @@ def insert_articulation_at(
 
     snd_source_offset_position = cursor
     (snd_source_offset,) = struct.unpack_from("<Q", skeleton, cursor)
-    if snd_source_offset != 0x6C:
+    if snd_source_offset <= 0:
         raise stationary.FinalizeError(
-            f"ARTp SND source offset is 0x{snd_source_offset:x}; expected 0x6c"
+            f"ARTp SND source offset must be positive, got 0x{snd_source_offset:x}"
         )
     cursor += 8
     cursor = stationary.expect(
@@ -114,7 +114,7 @@ def insert_articulation_at(
         )
     duration = ddb.pcm_count / ddb.sample_rate
     pitch_cents = 1200.0 * math.log2(pitch_hz / 440.0)
-    epr_source_offset = 0x6C + ddb.snd_size + 4 + len("EpR")
+    epr_source_offset = snd_source_offset + ddb.snd_size + 4 + len("EpR")
     snd_payload_pointer = ddb.snd_offset + stationary.SND_HEADER.size
     snd_core_pointer = (
         snd_payload_pointer + stationary.ANALYSIS_MARGIN_SAMPLES * 2

@@ -120,6 +120,7 @@ def main() -> int:
     )
     parser.add_argument("--bank", type=parse_bank, action="append", required=True)
     parser.add_argument("--include-keys", action="store_true")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
 
     try:
@@ -275,7 +276,20 @@ def main() -> int:
             },
             "art": art_aggregate,
         }
-        print(json.dumps({"banks": banks, "aggregate": aggregate}, ensure_ascii=False, indent=2))
+        text = json.dumps(
+            {"banks": banks, "aggregate": aggregate},
+            ensure_ascii=False,
+            indent=2,
+        )
+        if args.output is None:
+            print(text)
+        else:
+            output = args.output.resolve()
+            if output.exists():
+                raise GraphError(f"output already exists: {output}")
+            output.parent.mkdir(parents=True, exist_ok=True)
+            output.write_text(text + "\n", encoding="utf-8")
+            print(f"output={output}")
         return 0
     except (OSError, UnicodeError, AssertionError, GraphError) as error:
         print(f"error: {error}", file=sys.stderr)

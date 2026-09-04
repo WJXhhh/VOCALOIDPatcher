@@ -154,9 +154,10 @@ internal static class Program
             return 2;
         }
 
-        if (pitchMode is not ("auto" or "external"))
+        if (pitchMode is not ("auto" or "external" or "unvoiced"))
         {
-            Console.Error.WriteLine("Pitch mode must be 'auto' or 'external'.");
+            Console.Error.WriteLine(
+                "Pitch mode must be 'auto', 'external', or 'unvoiced'.");
             return 2;
         }
 
@@ -275,10 +276,14 @@ internal static class Program
                 $"config.region_split.default={defaultRegionSplit:R} " +
                 $"active={getConfigValue(config, 0x2f, 0.0f):R}");
 
-            if (pitchMode == "external")
+            if (pitchMode is "external" or "unvoiced")
             {
                 SetDynamicParameterConstant(config, setEnvelopeValue, 0x14, 0.0f);
-                if (f0BoundarySeconds is double f0Boundary)
+                if (pitchMode == "unvoiced")
+                {
+                    SetDynamicParameterConstant(config, setEnvelopeValue, 0x0d, 0.0f);
+                }
+                else if (f0BoundarySeconds is double f0Boundary)
                 {
                     SetDynamicParameterStep(
                         config,

@@ -190,18 +190,28 @@ def insert_dbse_authentication(data: bytearray, singer_name: str) -> dict[str, o
     }
 
 
-def finalize_skeleton(
+def stationary_positions(skeleton: bytes) -> list[int]:
+    positions: list[int] = []
+    cursor = 0
+    while True:
+        cursor = skeleton.find(STAP_MAGIC, cursor)
+        if cursor < 0:
+            return positions
+        positions.append(cursor)
+        cursor += len(STAP_MAGIC)
+
+
+def insert_stationary_at(
     skeleton: bytes,
+    stap: int,
     ddb: DdbInfo,
     pitch_hz: float,
     unknown2: float,
     dynamics: float,
     tempo: float,
-    singer_name: str,
 ) -> tuple[bytes, dict[str, object]]:
-    stap = skeleton.find(STAP_MAGIC)
-    if stap < 0 or skeleton.find(STAP_MAGIC, stap + 1) >= 0:
-        raise FinalizeError("skeleton must contain exactly one STAp")
+    if stap < 0 or skeleton[stap : stap + len(STAP_MAGIC)] != STAP_MAGIC:
+        raise FinalizeError(f"no STAp begins at 0x{stap:x}")
 
     cursor = stap + 4
     cursor = expect(skeleton, cursor, struct.pack("<III", 0, 0, 1), "STAp header")
@@ -260,10 +270,9 @@ def finalize_skeleton(
     )
     struct.pack_into("<Q", result, epr_source_offset_position, epr_source_offset)
     result[metadata_position:metadata_position] = metadata
-    authentication = insert_dbse_authentication(result, singer_name)
-    normalization = normalize_compact_ddi(result)
 
     report: dict[str, object] = {
+        "stap_skeleton_offset": stap,
         "frame_count": len(ddb.frame_offsets),
         "duration_seconds": duration,
         "pitch_hz": pitch_hz,
@@ -276,6 +285,33 @@ def finalize_skeleton(
         "metadata_bytes_inserted": len(metadata),
         "integrity_payload": "four signed -1 values (absent)",
     }
+    return bytes(result), report
+
+
+def finalize_skeleton(
+    skeleton: bytes,
+    ddb: DdbInfo,
+    pitch_hz: float,
+    unknown2: float,
+    dynamics: float,
+    tempo: float,
+    singer_name: str,
+) -> tuple[bytes, dict[str, object]]:
+    positions = stationary_positions(skeleton)
+    if len(positions) != 1:
+        raise FinalizeError("skeleton must contain exactly one STAp")
+    inserted, report = insert_stationary_at(
+        skeleton,
+        positions[0],
+        ddb,
+        pitch_hz,
+        unknown2,
+        dynamics,
+        tempo,
+    )
+    result = bytearray(inserted)
+    authentication = insert_dbse_authentication(result, singer_name)
+    normalization = normalize_compact_ddi(result)
     report.update(normalization)
     report.update(authentication)
     return bytes(result), report
