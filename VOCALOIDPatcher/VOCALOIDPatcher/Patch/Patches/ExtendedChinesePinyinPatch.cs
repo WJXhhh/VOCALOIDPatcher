@@ -82,6 +82,11 @@ public class ExtendedChinesePinyinSetLyricsPatch : PatchBase
             }
 
             bool isSpecial = ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables);
+            if (!isSpecial && langID != (int)VSMLanguageID.Chinese)
+            {
+                return;
+            }
+
             if (!isSpecial && !requiresOverride && __result.IsSuccess)
             {
                 return;
@@ -158,6 +163,7 @@ public class VocaloidSpecialPhonemeAiSetLyricsPatch : PatchBase
             }
 
             if (!__result.IsSuccess
+                && note.LangID == (int)VSMLanguageID.Chinese
                 && ChineseHanziG2paRecognizer.TryConvert(note, lyrics, out var hanziSyllables))
             {
                 if (!ChinesePinyinSyllableApplicator.TrySetSyllables(
@@ -191,6 +197,11 @@ public class VocaloidSpecialPhonemeAiSetLyricsPatch : PatchBase
             }
 
             bool isSpecial = ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables);
+            if (!isSpecial && note.LangID != (int)VSMLanguageID.Chinese)
+            {
+                return;
+            }
+
             if (!isSpecial && !requiresOverride && __result.IsSuccess)
             {
                 return;
@@ -319,6 +330,11 @@ public class ExtendedChinesePinyinCandidatePatch : PatchBase
         }
 
         bool isSpecial = ChinesePinyinPhonemeConverter.IsVocaloidSpecialSequence(syllables);
+        if (!isSpecial && langID != (int)VSMLanguageID.Chinese)
+        {
+            return;
+        }
+
         if (!isSpecial && !requiresOverride && __result is { Count: > 0 })
         {
             return;
@@ -688,7 +704,8 @@ internal static class ExtendedChinesePinyinResetHelper
         lyric = note.Lyric;
         phonemes = string.Empty;
         expectedLangId = note.LangID;
-        if (ChineseHanziG2paRecognizer.TryConvert(note, lyric, out var hanziSyllables)
+        if (note.LangID == (int)VSMLanguageID.Chinese
+            && ChineseHanziG2paRecognizer.TryConvert(note, lyric, out var hanziSyllables)
             && hanziSyllables.Count == 1)
         {
             phonemes = hanziSyllables[0].Phonemes;
@@ -702,6 +719,9 @@ internal static class ExtendedChinesePinyinResetHelper
         bool isSpecial = syllable.IsVocaloidSpecialPhoneme;
         if (!isSpecial)
         {
+            if (note.LangID != (int)VSMLanguageID.Chinese)
+                return false;
+
             if (!syllable.RequiresOverride)
             {
                 var chineseManager = App.GetG2PAManager((int)VSMLanguageID.Chinese);

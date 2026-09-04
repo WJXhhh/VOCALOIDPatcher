@@ -27,6 +27,9 @@ internal static class ChineseHanziG2paRecognizer
             if (part == null)
                 return false;
 
+            if (note != null && note.LangID != ChineseLanguageId && part.LangIDFromVoiceBank() != ChineseLanguageId)
+                return false;
+
             return part.IsAi
                 ? part.LangIDsFromAiVoiceBank().Contains(ChineseLanguageId)
                 : part.LangIDFromVoiceBank() == ChineseLanguageId;
