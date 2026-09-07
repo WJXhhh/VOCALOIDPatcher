@@ -88,8 +88,8 @@
 
 ### Ghidra/DSE 实测
 
-- 8089 端口监听正常。
-- 当前打开的 Program 有 `VDM2.dll`、`VDM.dll`、`DSE.dll`；所有 DSE 查询均显式指定 `program="DSE.dll"`。
+- 当次研究使用 GUI 桥接，8089 端口监听正常；这只是历史环境记录，不要求其他设备使用同一端口或 MCP 实现。当前环境的发现与验证遵循 [AGENTS.md](../AGENTS.md) 的 Ghidra MCP 约定。
+- 当次打开的 Program 有 `VDM2.dll`、`VDM.dll`、`DSE.dll`；DSE 查询使用当时工具的 `program="DSE.dll"` 参数。其他实现应按实际 schema 指定并核对目标。
 - DSE 6.13.1.1 的 RTTI/字符串显示传统库对象与分析对象：
   - `DSE5::CDBSinger`
   - `DSE5::CDBVoice`

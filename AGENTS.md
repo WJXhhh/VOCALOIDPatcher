@@ -43,75 +43,38 @@ development/
 
 当补丁涉及 VOCALOID 内部类型、私有方法、音素时值或原生绘制流程时，可优先在该目录核对实现。该目录不属于本仓库，只能作为只读参考；不要修改、复制或提交其中的专有代码。
 
-## Ghidra MCP：实测可用的连接方法
+## Ghidra MCP：跨设备与多实现约定
 
-下面只记录本机实际跑通的流程。不要采用 GhidraMCP 自带说明、实例的 `connected` 字段或旧排障记录作为连通结论。
+本仓库不绑定某一种 Ghidra MCP 实现、服务名称、版本、安装路径、端口或运行模式。GUI 插件桥接、stdio 服务、PyGhidra/headless 等均可使用；以当前设备的有效配置、实际工具 schema 和用户授权为准。个人 MCP 配置、Java/Python 路径和分析项目位置由本机维护，不应因切换设备修改仓库文档。
 
-### 本机固定配置
+### 发现与验证
 
-- Ghidra：`E:\Program Files\ghidra_12.1_DEV`，版本 12.1 DEV。
-- GhidraMCP：`%APPDATA%\ghidra\ghidra_12.1_DEV\Extensions\GhidraMCP\`，版本 5.13.1。
-- stdio 桥：`E:\Program Files\ghidra_12.1_DEV\bridge_mcp_ghidra.py`，由 Python 3.10 启动。
-- Ghidra 实际使用 `E:\forge-dev\dimension\tools\jdk21\jdk-21.0.11+10`。系统 `PATH` 中先出现 Java 8 不代表 Ghidra 用错 Java，禁止为此修改全局 Java 配置。
-- GUI 插件的单实例固定地址是 `http://127.0.0.1:8089`。Windows 上不要依赖 AF_UNIX、端口扫描或缓存的实例发现。
-- `%USERPROFILE%\.codex\config.toml` 的 `[mcp_servers.ghidra]` 必须通过子表固定地址：
+1. 先检查当前会话实际可用的工具，包括可搜索或延迟加载的工具。不要仅因没有某个预期工具名就断言“没有 Ghidra MCP”；不同实现的同类能力可能使用完全不同的名称。
+2. 如需排障，检查客户端中实际配置的服务名称、启动命令、参数、环境变量和加载错误。Codex 可使用 `codex mcp list`，再用 `codex mcp get <实际服务名> --json` 查看对应服务；服务不必名为 `ghidra`。只读取必要配置，不把完整用户配置或凭据复制到仓库或日志中。
+3. 按当前实现选择检查方式：
+   - GUI 桥接：确认其要求的 GUI、插件和目标 Program 已准备好；仅在配置使用网络端点时检查该端点，不固定检查某个端口。
+   - stdio 或 PyGhidra/headless：检查启动程序、依赖、项目目录和服务错误；不要求 GUI 或 HTTP 监听。客户端按既有配置正常启动服务是该模式的正常流程。
+   - 需要显式连接或选择实例的实现：依据实际工具说明操作；不要把某个实现的握手步骤套到其他实现。
+4. 使用当前实现提供的只读能力列出程序/二进制并查询目标元数据，确认文件名、版本或哈希、架构和映像基址。后续查询按 schema 显式指定目标名称、路径或标识；不支持显式目标时先确认当前选择。空项目或未加载目标应与服务未连接区分。
+5. 工具列表出现、端口监听、实例的缓存状态或“已连接”字段都不能单独证明目标可用。以一次成功的目标元数据查询和所需只读查询为验证依据。
+6. 仅在配置已修正、客户端仍未加载工具时，按客户端支持的方式刷新或重新建立会话；重新建会话不能替代依赖安装、配置修复或目标准备。失败时报告具体层次：工具未加载、服务启动失败、连接失败、目标缺失或查询不支持，不无限重试。
 
-  ```toml
-  [mcp_servers.ghidra.env]
-  GHIDRA_MCP_URL = "http://127.0.0.1:8089"
-  GHIDRA_MCP_LOG_LEVEL = "WARNING"
-  ```
+### 分析用法与兼容性
 
-这是机器级配置，不属于仓库。可用 `codex mcp get ghidra --json` 核对有效配置，但不要把整个用户配置复制进项目。
+- 按能力选择工具：程序/二进制列表与元数据、函数/符号搜索、反编译、交叉引用、字符串、导入/导出、内存读取。不要求实现提供固定名称的工具，也不因缺少某个工具而否定其他可用能力。
+- 先定位目标和函数，再按地址或实现支持的标识反编译；用交叉引用和少量原始数据交叉验证。导出符号可能只是标签，不一定是可反编译函数。
+- 所有搜索、列表和批量反编译使用合理的分页、数量或范围限制。避免无界 p-code、全库反编译和巨量调用图输出。
+- 工具可能返回 JSON、文本或逐项错误；先检查实际返回结构。分析状态、函数长度和类型推断等单项结果不应独立作为结论。
+- 旧环境曾出现分析状态不准、函数长度被报告为 1 字节、搜索词不可省略等问题。这些是特定实现/版本的历史现象，不是所有 MCP 的通用缺陷；遇到类似现象时以当前查询结果及交叉验证为准。
+- 研究文档里的工具名、端口、已打开项目、绝对地址和分析环境是当时记录，不是新设备的配置要求。复用结论前核对目标二进制版本、哈希或相关字节特征及映像基址。
 
-### 唯一推荐的连接顺序
+### 操作边界
 
-1. **由用户启动 Ghidra GUI。代理不得启动、重启或关闭 Ghidra GUI，也不得使用 GhidraGo 或另起 headless 实例来“帮助连接”。**
-2. 用户在原有 GUI 中打开正确的 Project，再双击目标文件，使目标 Program 真正在 CodeBrowser 中打开，并确认 GhidraMCP 插件已启用。
-3. 在启动 Codex 任务前检查监听：
-
-   ```powershell
-   Get-NetTCPConnection -LocalAddress 127.0.0.1 -LocalPort 8089 -State Listen -ErrorAction SilentlyContinue
-   ```
-
-   没有结果就表示 HTTP 服务没有监听。此时请用户处理 GUI/插件；代理不要启动第二个 Ghidra、重导入文件、改 Java 或反复重连。
-4. Ghidra 和 Program 准备好以后，**新建 Codex 任务**。已经运行的任务不会可靠地热加载新增或变更后的 MCP 工具和环境变量。
-5. 单实例固定为 8089 时，不要先调用 `connect_instance`。桥接器会直接使用 `GHIDRA_MCP_URL`。
-6. 先调用 `get_current_program_info`，再调用 `list_open_programs`。两者能返回正确 Program 信息才算真正连接成功；后续查询显式传入 `program` 名称。
-
-### 不能用来判断连接的现象
-
-- `list_instances` 返回实例，或其中 `connected: true/false`，都不是实时健康检查。实测中它曾显示 `connected: true`，而真正的 Program 查询仍然报 `WinError 10061`。
-- `connect_instance` 不是必须执行的握手。固定单实例时循环调用它不能修复未监听的 8089，也不能让旧 Codex 任务加载新工具。
-- `No program loaded.` 表示桥接和 HTTP 请求已经到达 Ghidra，但 CodeBrowser 没有当前 Program；它不是插件安装失败。
-- Project Manager 中看得到项目树、窗口标题正确，仍不等于 Program 已在 CodeBrowser 中打开。
-- “MCP Connect = False”、工具清单已出现、HTTP schema 可读取，均不能替代一次成功的 `get_current_program_info`。
-
-连接失败时只按以下顺序排查：先查 8089 是否监听，再用 `codex mcp get ghidra --json` 核对固定 URL，最后在用户准备好 Ghidra 后新建 Codex 任务。不要无限重试 `connect_instance`。
-
-### 实测可靠的只读用法
-
-- 先用 `get_current_program_info` 和 `list_open_programs` 锁定 Program。
-- 用 `search_functions` 或 `search_functions_enhanced` 定位函数，再按地址调用 `decompile_function`。
-- 用 `get_xrefs_to`、`get_function_xrefs`、`get_bulk_xrefs` 查引用；用 `search_strings` 查字符串；用 imports、exports、segments 和 entry points 工具核对装载结构。
-- `read_memory` 和 `inspect_memory_content` 可核对地址处原始数据。
-- `batch_decompile` 会逐项返回成功或错误，适合少量已确认函数；所有列表调用都设置合理的 `limit`/`offset`，避免把大量输出塞进上下文。
-
-### 已确认的工具缺陷和替代方法
-
-- `search_functions` 的工具描述声称可以省略 `name_pattern` 来列出全部函数，但本机 5.13.1 实际会返回 `Search term is required`；必须提供搜索词，枚举需求改用其它分页列表或明确的名称模式。
-- `analysis_status` 可能返回 `analyzed: false`，即使分析已完成且反编译正常。以实际函数搜索和反编译结果为准。
-- `get_function_by_address` 可能把真实函数体错误报告为 1 字节。此时 `disassemble_function`、`search_instructions`、`analyze_control_flow`、caller/callee/call graph 也可能为空；改用 `decompile_function`、xref 工具和少量内存读取交叉核对。
-- `get_function_pcode` 即使使用 `granularity="basic"` 也可能产生超过十万 token 的结果，默认不要调用。
-- exports 中的名称可能只是标签，并非可反编译函数。先用 `search_functions` 或目标地址确认。
-- `list_classes`、`list_globals(min_xrefs=...)`、`get_valid_data_types` 与 `get_type_size` 存在已观察到的不一致，不能把单个返回值当成最终事实。
-- 返回格式不统一，可能是 JSON、纯文本或包在字符串中的 JSON；解析前先检查实际类型。
-
-### 权限边界
-
-Codex 配置继续使用只读 `enabled_tools` 白名单。插件服务端即使报告写入、重命名、注释、类型修改、导入、保存或调试器工具“可调用”，也不代表获得了用户授权；这是客户端过滤，不是服务端安全边界。禁止通过直接 HTTP、额外脚本、`load_tool_group` 或改白名单绕过限制。
-
-仓库中的 `VOCALOIDPatcher.McpBridge/`、`VOCALOIDPatcher.McpServer/` 和 `VOCALOIDPatcher/VOCALOIDPatcher/Mcp/` 是面向 VOCALOID Editor 的另一套 MCP，不是 GhidraMCP。未经用户明确要求，不得部署或启动 VOCALOID Editor，也不能用 GhidraMCP 的成功代替 VOCALOID MCP 的宿主内验证。
+- 普通查询默认只读。用户已有的 MCP 配置可以正常使用；不要求所有设备采用同一白名单格式，也不因为服务暴露写工具就调用它们。
+- 重命名、注释、类型修改、导入、保存、删除、调试和修改二进制等操作应在用户请求授权范围内。不要为验证连通性修改或重新导入用户项目。
+- 不擅自启动、重启或关闭用户的交互式 Ghidra GUI，不为排障另起重复实例或切换实现。已配置的 headless 服务正常启动不属于擅自切换；涉及用户正在使用的项目时先确认不会造成锁冲突或覆盖。
+- 尊重现有客户端工具过滤与权限设置，不通过直接 HTTP、额外脚本或修改白名单绕过限制。配置排障应聚焦已确认的问题，不顺手修改全局 Java/Python 环境或替换用户选择的 MCP 实现。
+- 仓库中的 `VOCALOIDPatcher.McpBridge/`、`VOCALOIDPatcher.McpServer/` 和 `VOCALOIDPatcher/VOCALOIDPatcher/Mcp/` 面向 VOCALOID Editor，与 Ghidra 分析服务不同。未经用户明确要求，不得部署或启动 VOCALOID Editor；Ghidra 查询成功也不能代替 VOCALOID MCP 的宿主内验证。
 
 常用命令：
 

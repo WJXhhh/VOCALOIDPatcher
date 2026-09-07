@@ -58,6 +58,8 @@ bit 6  1A frame-getter CALL relay
 
 调查日期：2026-08-11 至 2026-08-12。
 
+以下为当次研究环境，不要求其他设备沿用同一安装路径、项目布局或 MCP 实现。重新分析时按 [AGENTS.md](../AGENTS.md) 的 Ghidra MCP 约定发现工具并核对目标二进制；文中已导入或已打开的状态不代表当前会话状态。
+
 - Ghidra 主分析程序：`DSE.dll`
 - 同一项目另开：`VSM.dll`、`S5API.dll`
 - 三者均来自 `C:\Program Files\VOCALOID6\Editor\`
