@@ -28,11 +28,18 @@ C:\Program Files\VOCALOID6\Editor\VOCALOID6.dll
 
 因此，完整构建要求该路径存在较新的 VOCALOID 6 Editor 安装。不要把 VOCALOID 的专有 DLL 复制进仓库，也不要为了绕过缺失依赖而提交本地路径或二进制文件。
 
-本机另有 VOCALOID 6.13.0.1 的反编译代码参考目录：
+VOCALOID 6.13.0.1 的反编译代码参考目录按以下规则定位（翻译检查工具使用相同规则）：
+
+1. 优先使用本机环境变量 `VOCALOID_V6SRC`；空值或纯空白值视为未设置。相对路径以仓库根目录为基准。
+2. 未设置时使用仓库同级的 `v6src` 目录，即相对于仓库根目录的 `../v6src`：
 
 ```text
-E:\Users\Administrator\CLionProjects\v613
+development/
+├── VOCALOIDPatcher/
+└── v6src/
 ```
+
+各设备可以使用不同的父目录；如果源码放在其他位置，只需在该设备设置用户级环境变量 `VOCALOID_V6SRC`，并重新打开终端或代理应用使其生效。不要为切换设备修改本文件或在源码中写入机器专用路径。代理读取参考代码前应按上述规则解析目录并检查是否存在。
 
 当补丁涉及 VOCALOID 内部类型、私有方法、音素时值或原生绘制流程时，可优先在该目录核对实现。该目录不属于本仓库，只能作为只读参考；不要修改、复制或提交其中的专有代码。
 
@@ -166,7 +173,7 @@ VOCALOIDPatcher/bin/Release/net8.0-windows/VOCALOIDPatcher/native/v6patch_clock.
 
 ## BVL 参数面板
 
-独立呼吸音量（BVL）面板主要实现在 `VOCALOIDPatcher/VOCALOIDPatcher/BreathVolume/BreathVolumeOverlay.cs`，数值、缓存和波形重建生命周期在 `BreathVolumeService.cs`。维护时应以 `E:\Users\Administrator\CLionProjects\v613\VOCALOID6\MusicalEditor\ParameterView.cs` 及其 Behavior 反编译代码为行为依据，不要只凭截图模仿外观。
+独立呼吸音量（BVL）面板主要实现在 `VOCALOIDPatcher/VOCALOIDPatcher/BreathVolume/BreathVolumeOverlay.cs`，数值、缓存和波形重建生命周期在 `BreathVolumeService.cs`。维护时应以按上述规则定位的反编译代码目录中的 `VOCALOID6/MusicalEditor/ParameterView.cs` 及其 Behavior 反编译代码为行为依据，不要只凭截图模仿外观。
 
 ### 自定义参数面板的实现方法
 

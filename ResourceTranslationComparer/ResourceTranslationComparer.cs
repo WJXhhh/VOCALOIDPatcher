@@ -24,7 +24,12 @@ public static class Program
                       ?? @"C:\Program Files\VOCALOID6\Editor\VOCALOID6.dll";
         var translationPath = Path.Combine(repoRoot, "translations", "中文 (简体).xml");
         var hardcodedMapPath = Path.Combine(repoRoot, "HardcodedPropertyMap.xml");
-        var v6srcDir = Path.Combine(repoRoot, "V6src");
+        var configuredSourceDir = Environment.GetEnvironmentVariable("VOCALOID_V6SRC");
+        var v6srcDir = Path.GetFullPath(
+            string.IsNullOrWhiteSpace(configuredSourceDir)
+                ? Path.Combine("..", "v6src")
+                : configuredSourceDir,
+            repoRoot);
 
         if (!File.Exists(dllPath))
         {
