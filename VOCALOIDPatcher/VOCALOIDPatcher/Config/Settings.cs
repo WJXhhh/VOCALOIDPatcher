@@ -204,7 +204,29 @@ public static class Settings
         set => Patcher.ConfigManager.Set(SvEditorStyleKey, value);
     }
 
+    public static string IntuitiveConsonantTimingKey => "IntuitiveConsonantTiming";
+
+    public static bool IntuitiveConsonantTiming
+    {
+        get => FeatureFlag(IntuitiveConsonantTimingKey, true);
+        set => Patcher.ConfigManager.Set(IntuitiveConsonantTimingKey, value);
+    }
+
     public static string IndividualBreathVolumeKey => "IndividualBreathVolume";
+    public static string IndividualPhonemeVolumeKey => "IndividualPhonemeVolume";
+    public static string IndependentDurationSelectionKey => "IndependentDurationSelection";
+
+    public static bool IndependentDurationSelection
+    {
+        get => FeatureFlag(IndependentDurationSelectionKey, false);
+        set => Patcher.ConfigManager.Set(IndependentDurationSelectionKey, value);
+    }
+
+    public static bool IndividualPhonemeVolume
+    {
+        get => FeatureFlag(IndividualPhonemeVolumeKey, true);
+        set => Patcher.ConfigManager.Set(IndividualPhonemeVolumeKey, value);
+    }
 
     public static bool IndividualBreathVolume
     {
@@ -222,10 +244,16 @@ public static class Settings
 
     public static string EvecEnabledKey => "EvecEnabled";
 
+    public static event System.Action<bool>? EvecEnabledChanged;
+
     public static bool EvecEnabled
     {
         get => FeatureFlag(EvecEnabledKey, true);
-        set => Patcher.ConfigManager.Set(EvecEnabledKey, value);
+        set
+        {
+            Patcher.ConfigManager.Set(EvecEnabledKey, value);
+            EvecEnabledChanged?.Invoke(value);
+        }
     }
 
     public static string WaveformOpacityKey => "WaveformOpacity";

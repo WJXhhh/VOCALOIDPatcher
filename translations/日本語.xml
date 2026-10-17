@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Hardcoded -->
   <data name="HomeWindow_PushButton_NEW_PROJECT_Header" xml:space="preserve"><value>新規プロジェクト</value></data>
@@ -79,7 +79,7 @@
   <data name="VOCALOIDPatcher_Evec_Attack" xml:space="preserve"><value>子音アタック</value></data>
   <data name="VOCALOIDPatcher_Evec_ConsonantExtension" xml:space="preserve"><value>発音延長</value></data>
   <data name="VOCALOIDPatcher_Evec_Extension_None" xml:space="preserve"><value>オフ</value></data>
-  <data name="VOCALOIDPatcher_Evec_Extension_Count" xml:space="preserve"><value>{0} 回繰り返す</value></data>
+  <data name="VOCALOIDPatcher_Evec_Extension_Count" xml:space="preserve"><value>子音 ×{0}</value></data>
   <data name="VOCALOIDPatcher_Evec_Release" xml:space="preserve"><value>リリース</value></data>
   <data name="VOCALOIDPatcher_Evec_Color_Normal" xml:space="preserve"><value>ノーマル (Normal)</value></data>
   <data name="VOCALOIDPatcher_Evec_Color_Soft" xml:space="preserve"><value>ソフト (Soft)</value></data>
@@ -1330,4 +1330,49 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_Debug_SkipPartRedraw_Failed" xml:space="preserve"><value>同一トラック内パート切替の高速再描画に失敗, 完全再描画にフォールバック: {0}</value></data>
   <data name="VOCALOIDPatcher_Debug_SmoothPlayhead_Failed" xml:space="preserve"><value>再生位置ラインのスムーズ更新に失敗, タイマーにフォールバック: {0}</value></data>
   <data name="VOCALOIDPatcher_Debug_Wpf_KeyNotFound" xml:space="preserve"><value>Key not found: {0}</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Header" xml:space="preserve"><value>音素タイミング</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Description" xml:space="preserve"><value>エモーションモードでサンプル音源の音素境界を表示します。先頭と末尾を含む各境界をドラッグして調整し、Ctrl+クリックまたはダブルクリックでリセットします。</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Value" xml:space="preserve"><value>子音 {0} ms · VEL {1} · Ctrl+クリックでリセット</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Preview" xml:space="preserve"><value>子音 {0} ms · VEL {1} · エンジン時刻にスナップ</value></data>
+  <data name="VOCALOIDPatcher_Debug_ConsonantTiming_Failed" xml:space="preserve"><value>子音タイミングの視覚化を無効にしました：{0}</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Unavailable" xml:space="preserve"><value>この状態ではタイミングを計算できません。レンダリング後に再試行してください。</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Refreshing" xml:space="preserve"><value>VEL {0} · タイミングを更新中</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_UnavailableValue" xml:space="preserve"><value>VEL {0} · 現在のタイミングを取得できません</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Start" xml:space="preserve"><value>開始</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_End" xml:space="preserve"><value>終了</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Value" xml:space="preserve"><value>{0} → {1} · ノート開始から {2} ms · Ctrl+クリックでリセット</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Limit" xml:space="preserve"><value>境界を隣の境界より先や利用可能な範囲外に移動できません。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Name" xml:space="preserve"><value>音素音量</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Description" xml:space="preserve"><value>エモーションモードでサンプリング音素の内部を上下にドラッグすると音量を調整できます。クリックで音素選択と dB 入力を開きます。境界の左右ドラッグはタイミング調整です。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Tip" xml:space="preserve"><value>{0} · {1} · 上下ドラッグで音量 · Shift: 微調整 · クリック: 詳細 · Ctrl+クリック: リセット</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Mute" xml:space="preserve"><value>ミュート</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Reset" xml:space="preserve"><value>この音素をリセット</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Selected" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_PanelHint" xml:space="preserve"><value>スライダーをドラッグするか、dB を入力して Enter。−60 はミュート、0 は元の音量です。Esc で未確定の入力をキャンセルします。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_ExportNotReady" xml:space="preserve"><value>音素音量の音声を準備中です。レンダリング完了後にもう一度書き出してください。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Original" xml:space="preserve"><value>元の音量</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Pending" xml:space="preserve"><value>音量を更新中…</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Ready" xml:space="preserve"><value>音量を適用しました</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Unavailable" xml:space="preserve"><value>有効な音素タイミングのレンダリングを待機中</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Disabled" xml:space="preserve"><value>音素音量は無効です</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Preview" xml:space="preserve"><value>離すと適用</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Name" xml:space="preserve"><value>ノートのサンプル選択時間</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Description" xml:space="preserve"><value>Emotion に「選択時間」ツールを追加します。ノートの長さと音素タイミングを保ったまま、サンプル選択用の仮定時間を変更します。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Tool" xml:space="preserve"><value>選択時間</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_ToolHint" xml:space="preserve"><value>ノート内を左右にドラッグして調整。クリックで数値入力、ダブルクリックで標準の自動選択に戻します。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Tip" xml:space="preserve"><value>選択 {0}% · 仮定 {1} ms · 実際 {2} ms · {3}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Native" xml:space="preserve"><value>標準の候補</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Expanded" xml:space="preserve"><value>候補を拡張（実験）</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Planning" xml:space="preserve"><value>タイミング計画を検証中…</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Failed" xml:space="preserve"><value>選択時間を適用できませんでした：{0}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Percent" xml:space="preserve"><value>比率（%）</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Milliseconds" xml:space="preserve"><value>仮定時間（ms）</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_PanelHint" xml:space="preserve"><value>ノート全体に適用されます。比率を変えてもサンプルが変わるとは限りません。候補拡張では別の録音音域を使う場合があります。ドラッグ範囲は 25–400% で、数値入力もエンジンの制限を受けます。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Actual" xml:space="preserve"><value>実際のノート時間：{0} ms · 音素：{1}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Apply" xml:space="preserve"><value>適用</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Reset" xml:space="preserve"><value>標準の自動選択</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Submitted" xml:space="preserve"><value>パラメーターを送信しました。実際の素材と自動選択との比較は未実施です。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Invalid" xml:space="preserve"><value>正の有限値を入力してください。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>プレビューのみ。「適用」で確定します。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>音素タイミングまたは選択時間の音声を更新中、もしくは利用できません。レンダリングが正常に完了してから書き出してください。</value></data>
 </root>

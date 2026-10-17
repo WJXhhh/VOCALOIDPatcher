@@ -2,6 +2,7 @@
 param(
     [string]$Version,
     [string]$OutputDir,
+    [string]$VocaloidReferenceDirectory,
     [ValidateSet('all', 'net8')]
     [string]$Tfm = 'all',
     [switch]$Build
@@ -105,7 +106,11 @@ if ($Tfm -ne 'all') { $targets = $targets | Where-Object Key -eq $Tfm }
 
 if ($Build) {
     Write-Host "正在以 Release 构建..." -ForegroundColor Cyan
-    & dotnet build $proj -c Release
+    $buildArguments = @('build', $proj, '-c', 'Release')
+    if ($VocaloidReferenceDirectory) {
+        $buildArguments += "-p:VocaloidReferenceDirectory=$VocaloidReferenceDirectory"
+    }
+    & dotnet @buildArguments
     if ($LASTEXITCODE -ne 0) {
         throw "构建失败。若 VOCALOID6 编辑器正在运行会锁定输出 DLL，请先关闭再试。"
     }

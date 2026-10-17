@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Hardcoded -->
   <data name="HomeWindow_PushButton_NEW_PROJECT_Header" xml:space="preserve"><value>新建專案</value></data>
@@ -79,7 +79,7 @@
   <data name="VOCALOIDPatcher_Evec_Attack" xml:space="preserve"><value>子音起音</value></data>
   <data name="VOCALOIDPatcher_Evec_ConsonantExtension" xml:space="preserve"><value>發音延長</value></data>
   <data name="VOCALOIDPatcher_Evec_Extension_None" xml:space="preserve"><value>關閉</value></data>
-  <data name="VOCALOIDPatcher_Evec_Extension_Count" xml:space="preserve"><value>重複 {0} 次</value></data>
+  <data name="VOCALOIDPatcher_Evec_Extension_Count" xml:space="preserve"><value>子音 ×{0}</value></data>
   <data name="VOCALOIDPatcher_Evec_Release" xml:space="preserve"><value>吐氣釋放</value></data>
   <data name="VOCALOIDPatcher_Evec_Color_Normal" xml:space="preserve"><value>標準 (Normal)</value></data>
   <data name="VOCALOIDPatcher_Evec_Color_Soft" xml:space="preserve"><value>柔和 (Soft)</value></data>
@@ -1326,4 +1326,49 @@ VOCALOID6 將以 Lite 版本啟動。</value></data>
   <data name="VOCALOIDPatcher_Debug_SkipPartRedraw_Failed" xml:space="preserve"><value>同軌換樂段快速重繪失敗,回退完整重繪: {0}</value></data>
   <data name="VOCALOIDPatcher_Debug_SmoothPlayhead_Failed" xml:space="preserve"><value>平滑播放指示條更新失敗,回退計時器: {0}</value></data>
   <data name="VOCALOIDPatcher_Debug_Wpf_KeyNotFound" xml:space="preserve"><value>Key not found: {0}</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Header" xml:space="preserve"><value>音素時值</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Description" xml:space="preserve"><value>在情感模式顯示採樣聲庫的音素邊界。可拖曳每條邊界，包括最前和最後一條；Ctrl+按一下或連按兩下重設目前邊界。</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Value" xml:space="preserve"><value>輔音 {0} 毫秒 · VEL {1} · Ctrl+按一下重設</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Preview" xml:space="preserve"><value>輔音 {0} 毫秒 · VEL {1} · 貼齊引擎時值</value></data>
+  <data name="VOCALOIDPatcher_Debug_ConsonantTiming_Failed" xml:space="preserve"><value>直覺輔音時長已停用：{0}</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Unavailable" xml:space="preserve"><value>目前上下文無法計算時值，請等待算繪後重試。</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Refreshing" xml:space="preserve"><value>VEL {0} · 正在更新實際時值</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_UnavailableValue" xml:space="preserve"><value>VEL {0} · 目前時值暫時無法查詢</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Start" xml:space="preserve"><value>起始</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_End" xml:space="preserve"><value>結束</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Value" xml:space="preserve"><value>{0} → {1} · 距音符起點 {2} 毫秒 · Ctrl+按一下重設</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Limit" xml:space="preserve"><value>邊界不能交叉或超出可用上下文。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Name" xml:space="preserve"><value>音素音量</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Description" xml:space="preserve"><value>在情感模式中，上下拖曳取樣音素內部調整音量；按一下可選擇音素並精確輸入 dB。音素邊界仍可橫向拖曳調整 timing。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Tip" xml:space="preserve"><value>{0} · {1} · 上下拖曳調音量 · Shift 精調 · 按一下展開 · Ctrl+按一下重設</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Mute" xml:space="preserve"><value>靜音</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Reset" xml:space="preserve"><value>重設此音素</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Selected" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_PanelHint" xml:space="preserve"><value>拖曳滑桿，或輸入 dB 後按 Enter。−60 為靜音，0 恢復原始音量。Esc 取消尚未提交的輸入。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_ExportNotReady" xml:space="preserve"><value>音素音量音訊尚未準備好，請等待算繪完成後重試匯出。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Original" xml:space="preserve"><value>原始音量</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Pending" xml:space="preserve"><value>正在更新音量…</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Ready" xml:space="preserve"><value>音量已套用</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Unavailable" xml:space="preserve"><value>等待有效的算繪音素時值</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Disabled" xml:space="preserve"><value>音素音量已關閉</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Preview" xml:space="preserve"><value>放開後套用</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Name" xml:space="preserve"><value>音符選樣時長</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Description" xml:space="preserve"><value>在 Emotion 中增加「選樣」工具。改變選樣時使用的假設時長，保持音符長度與音素 timing 不變。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Tool" xml:space="preserve"><value>選樣</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_ToolHint" xml:space="preserve"><value>選樣模式：在音符內左右拖曳。按一下精確輸入，按兩下恢復原生自動選樣。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Tip" xml:space="preserve"><value>選樣 {0}% · 假設 {1} 毫秒 · 實際 {2} 毫秒 · {3}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Native" xml:space="preserve"><value>原生候選</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Expanded" xml:space="preserve"><value>擴展來源（實驗）</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Planning" xml:space="preserve"><value>正在驗證時間計畫…</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Failed" xml:space="preserve"><value>選樣時長未能套用：{0}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Percent" xml:space="preserve"><value>比例（%）</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Milliseconds" xml:space="preserve"><value>假設時長（毫秒）</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_PanelHint" xml:space="preserve"><value>作用於整個音符。偏好變化不保證換樣；擴展來源可能使用其他錄音音區。拖曳刻度為 25–400%，精確輸入仍受引擎範圍限制。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Actual" xml:space="preserve"><value>音符實際時長：{0} 毫秒 · 音素：{1}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Apply" xml:space="preserve"><value>套用</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Reset" xml:space="preserve"><value>恢復原生自動</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Submitted" xml:space="preserve"><value>參數已提交。尚未與自動選樣比較實際使用的素材。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Invalid" xml:space="preserve"><value>請輸入正的有限數值。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>僅預覽，按下套用後提交。</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>音素時值或選樣音訊仍在更新，或暫不可用。請在算繪成功完成後匯出。</value></data>
 </root>

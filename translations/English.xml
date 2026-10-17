@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Hardcoded -->
   <data name="HomeWindow_PushButton_NEW_PROJECT_Header" xml:space="preserve"><value>NEW PROJECT</value></data>
@@ -79,7 +79,7 @@
   <data name="VOCALOIDPatcher_Evec_Attack" xml:space="preserve"><value>Consonant Attack</value></data>
   <data name="VOCALOIDPatcher_Evec_ConsonantExtension" xml:space="preserve"><value>Pronunciation Extension</value></data>
   <data name="VOCALOIDPatcher_Evec_Extension_None" xml:space="preserve"><value>Off</value></data>
-  <data name="VOCALOIDPatcher_Evec_Extension_Count" xml:space="preserve"><value>Repeat {0}×</value></data>
+  <data name="VOCALOIDPatcher_Evec_Extension_Count" xml:space="preserve"><value>Consonant ×{0}</value></data>
   <data name="VOCALOIDPatcher_Evec_Release" xml:space="preserve"><value>Release</value></data>
   <data name="VOCALOIDPatcher_Evec_Color_Normal" xml:space="preserve"><value>Normal</value></data>
   <data name="VOCALOIDPatcher_Evec_Color_Soft" xml:space="preserve"><value>Soft</value></data>
@@ -1330,4 +1330,49 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_Debug_SkipPartRedraw_Failed" xml:space="preserve"><value>Fast same-track part redraw failed, falling back to full redraw: {0}</value></data>
   <data name="VOCALOIDPatcher_Debug_SmoothPlayhead_Failed" xml:space="preserve"><value>Smooth playhead update failed, falling back to timer: {0}</value></data>
   <data name="VOCALOIDPatcher_Debug_Wpf_KeyNotFound" xml:space="preserve"><value>Key not found: {0}</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Header" xml:space="preserve"><value>Phoneme timing</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Description" xml:space="preserve"><value>Show sampled-voice phoneme boundaries in Emotion mode. Drag any boundary, including the first and last, to change its timing. Ctrl-click or double-click resets one boundary.</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Value" xml:space="preserve"><value>Consonant: {0} ms · VEL {1} · Ctrl-click to reset</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Preview" xml:space="preserve"><value>Consonant: {0} ms · VEL {1} · Snaps to engine timing</value></data>
+  <data name="VOCALOIDPatcher_Debug_ConsonantTiming_Failed" xml:space="preserve"><value>Visual consonant timing disabled: {0}</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Unavailable" xml:space="preserve"><value>Timing unavailable in this context; try again after rendering.</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_Refreshing" xml:space="preserve"><value>VEL {0} · Updating timing</value></data>
+  <data name="VOCALOIDPatcher_ConsonantTiming_UnavailableValue" xml:space="preserve"><value>VEL {0} · Current timing unavailable</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Start" xml:space="preserve"><value>Start</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_End" xml:space="preserve"><value>End</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Value" xml:space="preserve"><value>{0} → {1} · {2} ms from note onset · Ctrl-click to reset</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Limit" xml:space="preserve"><value>Boundary cannot cross its neighbors or exceed the available context.</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Name" xml:space="preserve"><value>Phoneme volume</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Description" xml:space="preserve"><value>In Emotion mode, drag inside a sampled phoneme vertically to adjust its volume. Click for phoneme selection and precise dB entry. Timing boundaries remain horizontal handles.</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Tip" xml:space="preserve"><value>{0} · {1} · Drag vertically · Shift: fine · Click: details · Ctrl-click: reset</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Mute" xml:space="preserve"><value>Mute</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Reset" xml:space="preserve"><value>Reset this phoneme</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Selected" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_PanelHint" xml:space="preserve"><value>Drag the slider, or type dB and press Enter. −60 is mute; 0 restores the original level. Esc cancels a pending input.</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_ExportNotReady" xml:space="preserve"><value>Phoneme volume audio is not ready. Wait for rendering and try exporting again.</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Original" xml:space="preserve"><value>Original level</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Pending" xml:space="preserve"><value>Updating volume…</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Ready" xml:space="preserve"><value>Volume applied</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Unavailable" xml:space="preserve"><value>Waiting for valid rendered phoneme timing</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Disabled" xml:space="preserve"><value>Phoneme volume is disabled</value></data>
+  <data name="VOCALOIDPatcher_PhonemeVolume_Status_Preview" xml:space="preserve"><value>Release to apply</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Name" xml:space="preserve"><value>Note sample duration</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Description" xml:space="preserve"><value>Adds a Sample tool to Emotion. Change the duration used for sample selection while keeping note length and phoneme timing fixed.</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Tool" xml:space="preserve"><value>Sample</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_ToolHint" xml:space="preserve"><value>Sample mode: drag horizontally inside a note. Click for precise values; double-click restores native automatic selection.</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Tip" xml:space="preserve"><value>Selection {0}% · assumed {1} ms · actual {2} ms · {3}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Native" xml:space="preserve"><value>Native candidates</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Expanded" xml:space="preserve"><value>Expanded sources (experimental)</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Planning" xml:space="preserve"><value>Validating the timing plan…</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Failed" xml:space="preserve"><value>Sample duration could not be applied: {0}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Percent" xml:space="preserve"><value>Ratio (%)</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Milliseconds" xml:space="preserve"><value>Assumed duration (ms)</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_PanelHint" xml:space="preserve"><value>Applies to the entire note. A preference does not guarantee a different sample. Expanded sources may use recordings from other pitch ranges. Drag scale: 25–400%; precise input remains subject to engine limits.</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Actual" xml:space="preserve"><value>Actual note: {0} ms · phonemes: {1}</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Apply" xml:space="preserve"><value>Apply</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Reset" xml:space="preserve"><value>Native automatic</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Submitted" xml:space="preserve"><value>Parameters submitted. Selected materials have not been compared with automatic selection.</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Invalid" xml:space="preserve"><value>Enter a positive, finite number.</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>Preview only. Apply to commit.</value></data>
+  <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>Phoneme timing or sample-duration audio is still updating or unavailable. Export after rendering has completed successfully.</value></data>
 </root>

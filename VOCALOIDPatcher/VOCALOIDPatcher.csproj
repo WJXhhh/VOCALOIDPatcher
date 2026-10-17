@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0-windows</TargetFramework>
+        <VocaloidReferenceDirectory Condition="'$(VocaloidReferenceDirectory)' == ''">C:\Program Files\VOCALOID6\Editor</VocaloidReferenceDirectory>
         <OutputType>Library</OutputType>
         <PackageId>Microsoft.Xaml.Behaviors.Wpf</PackageId>
         <Title>Microsoft.Xaml.Behaviors.Wpf</Title>
@@ -32,6 +33,16 @@
         <NativePlaybackClockOutput>$(NativePlaybackClockDir)\target\$(NativePlaybackClockProfile)\v6patch_clock.dll</NativePlaybackClockOutput>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(PatcherIsolatedValidation)' == 'true'">
+        <DefineConstants>$(DefineConstants);PATCHER_ISOLATED_VALIDATION</DefineConstants>
+        <AssemblyName>VOCALOIDPatcher.IsolatedValidation</AssemblyName>
+    </PropertyGroup>
+
+    <Target Name="CheckIsolatedValidationOutput" BeforeTargets="BeforeBuild" Condition="'$(PatcherIsolatedValidation)' == 'true'">
+        <Error Condition="'$(Configuration)' != 'Debug' or '$(ArtifactsPath)' == ''"
+               Text="Isolated host validation requires Debug and a separate --artifacts-path; it is not a deployable build." />
+    </Target>
+
     <ItemGroup>
         <ProjectReference Include="..\VOCALOIDPatcher.McpBridge\VOCALOIDPatcher.McpBridge.csproj" />
     </ItemGroup>
@@ -47,7 +58,7 @@
 
     <ItemGroup>
         <Reference Include="VOCALOID6">
-            <HintPath>C:\Program Files\VOCALOID6\Editor\VOCALOID6.dll</HintPath>
+            <HintPath>$(VocaloidReferenceDirectory)\VOCALOID6.dll</HintPath>
             <Private>false</Private>
             <ExcludeAssets>runtime</ExcludeAssets>
             <SpecificVersion>False</SpecificVersion>
@@ -69,4 +80,8 @@
               SkipUnchangedFiles="true" />
     </Target>
 
+  <ItemGroup>
+    <EmbeddedResource Include="../compatibility/sampled-timing-6.13.1.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile" />
+    <EmbeddedResource Include="../compatibility/sampled-timing-6.13.3.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile.6.13.3" />
+  </ItemGroup>
 </Project>

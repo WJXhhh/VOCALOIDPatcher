@@ -42,7 +42,9 @@ public static class Patcher
     public static string Version => "2.3.1";
 
 #pragma warning disable CA2255
+#if !PATCHER_ISOLATED_VALIDATION
     [ModuleInitializer]
+#endif
     public static void Initialize()
     {
         AppDomain.CurrentDomain.AssemblyResolve += (_, args) =>
@@ -138,6 +140,9 @@ public static class Patcher
         WorkingSetTrimmer.Install();
         SpectrumWidget.Install();
         McpBridgeService.Install();
+        ConsonantTiming.SampledTimingHostValidation.Queue();
+        PhonemeVolume.PhonemeVolumeHost.Initialize();
+        ConsonantTiming.TimingFeedbackHostValidation.Queue();
     }
 
     private static bool DetectVstPluginMode()
@@ -240,6 +245,18 @@ public static class Patcher
                 new CenteredLyricPatch(),
                 new CenteredLyricPlainPatch()),
 
+            new(Settings.IntuitiveConsonantTimingKey,
+                new ConsonantTimingDrawPatch(),
+                new ConsonantTimingViewportPatch(),
+                new ConsonantTimingSearchPatch(),
+                new ConsonantTimingHoverPatch(),
+                new ConsonantTimingRenderCompletedPatch()),
+
+            new(Settings.IndividualPhonemeVolumeKey,
+                new PhonemeVolumeMasterExportPatch(),
+                new PhonemeVolumeTrackExportPatch(),
+                new PhonemeVolumePartExportPatch()),
+
             new(Settings.AlwaysShowWaveformKey,
                 new AlwaysShowWaveformPatch(),
                 new WaveformRenderPatch()),
@@ -266,7 +283,6 @@ public static class Patcher
                 new BreathVolumeDefaultPatch(),
                 new BreathVolumeRemoveNativeParameterPatch(),
                 new BreathVolumeV2CompatibilityPatch(),
-                new BreathVolumeWavePathPatch(),
                 new BreathVolumeRendererStartPatch(),
                 new BreathVolumeRendererBlockPatch(),
                 new BreathVolumeRendererCancelPatch(),
@@ -290,6 +306,7 @@ public static class Patcher
                 new BreathVolumeSequenceClosePatch()),
 
             new(null,
+                new BreathVolumeWavePathPatch(),
                 new BreathVolumeCommitHistoryPatch(),
                 new BreathVolumeCanUndoPatch(),
                 new BreathVolumeCanRedoPatch(),
@@ -321,6 +338,8 @@ public static class Patcher
                 new RegisterShiftSequenceClosePatch()),
 
             new(Settings.EvecEnabledKey,
+                // Empty-key catalog discovery is disabled: exposing incomplete
+                // V4 registrations produced expired voicebanks in the host.
                 new EvecProjectLoadPatch(),
                 new EvecProjectSavePatch(),
                 new EvecSequenceUndoPatch(),
@@ -374,7 +393,19 @@ public static class Patcher
                 new EvecG2paResetPhonemesNotePatch(),
                 new EvecAutomaticVoiceBankChangePatch(),
                 new EvecG2paResetPhonemesPartPatch(),
-                new EvecVoiceBankChangePatch()),
+                new EvecVoiceBankChangePatch(),
+                new EvecRenderSequenceCommitPatch(),
+                new EvecRenderSequenceUndoPatch(),
+                new EvecRenderSequenceRedoPatch(),
+                new EvecRenderSequenceStartRenderingPatch(),
+                new EvecRenderSequenceClosePatch(),
+                new EvecRenderRemovePartPatch(),
+                new EvecRenderRemoveTrackPatch(),
+                new EvecRenderWaveFilePathPatch(),
+                new EvecRenderValidRenderedWavePatch(),
+                new EvecRenderScoreFilePathPatch(),
+                new EvecRenderValidRenderedScorePatch(),
+                new EvecRenderProgressPatch()),
 
             new(Settings.ShowCharacterArtKey, new CharacterArtPatch()),
 
@@ -477,6 +508,21 @@ public static class Patcher
                 new VocaloChangerModelFallbackPatch()),
 
             new(null,
+                new ConsonantTimingShutdownPatch(),
+                new SampledTimingProjectLoadPatch(),
+                new SampledTimingPhonemePositionsPatch(),
+                new SampledTimingBeginPhonemePatch(),
+                new SampledTimingEndPhonemePatch(),
+                new SampledTimingProjectSavePatch(),
+                new SampledTimingRenderStartPatch(),
+                new DurationSelectionStartupPatch(),
+                new SampledTimingRenderCompletionPatch(),
+                new SampledTimingDirtyPatch(),
+                new SampledTimingDuplicateSequencePatch(),
+                new ConsonantTimingCommitPatch(),
+                new ConsonantTimingUndoPatch(),
+                new ConsonantTimingRedoPatch(),
+                new ConsonantTimingClosePatch(),
                 new DatabaseManagerCreatePatch(),
                 new VoiceBankConstructorPatch()),
         };

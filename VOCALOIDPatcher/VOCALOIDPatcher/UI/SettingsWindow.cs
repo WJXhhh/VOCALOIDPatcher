@@ -330,6 +330,40 @@ public class SettingsWindow : Window
                 CenteredLyricPatch.RefreshLyrics();
             });
 
+        var consonantTiming = DescribedToggle(
+            "VOCALOIDPatcher_ConsonantTiming_Header",
+            "VOCALOIDPatcher_ConsonantTiming_Description",
+            Settings.IntuitiveConsonantTiming,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.IntuitiveConsonantTiming = checkbox.IsChecked == true;
+                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
+            });
+
+        var durationSelection = DescribedToggle(
+            "VOCALOIDPatcher_DurationSelection_Name",
+            "VOCALOIDPatcher_DurationSelection_Description",
+            Settings.IndependentDurationSelection,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.IndependentDurationSelection = checkbox.IsChecked == true;
+                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
+            });
+
+        var individualPhonemeVolume = DescribedToggle(
+            "VOCALOIDPatcher_PhonemeVolume_Name",
+            "VOCALOIDPatcher_PhonemeVolume_Description",
+            Settings.IndividualPhonemeVolume,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.IndividualPhonemeVolume = checkbox.IsChecked == true;
+                PhonemeVolume.PhonemeVolumeHost.RefreshSettings();
+                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
+            });
+
         var individualBreathVolume = DescribedToggle(
             "VOCALOIDPatcher_IndividualBreathVolume_Header",
             "VOCALOIDPatcher_IndividualBreathVolume_Description",
@@ -428,6 +462,9 @@ public class SettingsWindow : Window
         panel.Children.Add(showNotePitch);
         panel.Children.Add(roundedNotes);
         panel.Children.Add(centeredLyrics);
+        panel.Children.Add(consonantTiming);
+        panel.Children.Add(durationSelection);
+        panel.Children.Add(individualPhonemeVolume);
         panel.Children.Add(individualBreathVolume);
         panel.Children.Add(registerShift);
         panel.Children.Add(evec);
@@ -440,6 +477,9 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.ShowNotePitchKey, showNotePitch);
         HideIfUnsupported(Settings.RoundedNotesKey, roundedNotes);
         HideIfUnsupported(Settings.CenteredLyricsKey, centeredLyrics);
+        HideIfUnsupported(Settings.IntuitiveConsonantTimingKey, consonantTiming);
+        HideIfUnsupported(Settings.IndividualPhonemeVolumeKey, individualPhonemeVolume);
+        HideIfUnsupported(Settings.IndependentDurationSelectionKey, durationSelection);
         HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
         HideIfUnsupported(Settings.RegisterShiftKey, registerShift);
         HideIfUnsupported(Settings.EvecEnabledKey, evec);
