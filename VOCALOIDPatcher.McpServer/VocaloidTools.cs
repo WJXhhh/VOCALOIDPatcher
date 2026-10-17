@@ -39,12 +39,12 @@ public sealed class VocaloidTools
         => _gateway.InvokeAsync(server, "v6_get_state", instance_id, new { }, cancellationToken);
 
     [McpServerTool(Name = "v6_get_catalog", Title = "Get VOCALOID Catalog", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true)]
-    [Description("List available voicebanks, controller types, languages, and project conversion formats.")]
+    [Description("List voicebanks with supported EVEC option IDs, controller types, languages, and project conversion formats.")]
     public Task<McpBridgeResult> GetCatalog(McpServerInstance server, string? instance_id = null, CancellationToken cancellationToken = default)
         => _gateway.InvokeAsync(server, "v6_get_catalog", instance_id, new { }, cancellationToken);
 
     [McpServerTool(Name = "v6_query_project", Title = "Query VOCALOID Project", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true)]
-    [Description("Query project structure, tracks, parts, Audio Parts, notes, tempo, time signatures, parameters, or selection with revision-bound pagination.")]
+    [Description("Query project structure, tracks, parts, Audio Parts, notes, tempo, time signatures, parameters, or selection with revision-bound pagination. Notes expose an evec projection with logical state, voicebank options, and experimental timing preview; renderer_integrated explicitly reports whether that preview is used for playback.")]
     public Task<McpBridgeResult> QueryProject(
         McpServerInstance server,
         string kind = "summary",
@@ -81,7 +81,7 @@ public sealed class VocaloidTools
         => Mutation(server, "v6_edit_structure", instance_id, project_id, expected_revision, client_request_id, operations, dry_run, cancellationToken);
 
     [McpServerTool(Name = "v6_edit_notes", Title = "Edit VOCALOID Notes", ReadOnly = false, Destructive = true, Idempotent = false, OpenWorld = false, UseStructuredContent = true)]
-    [Description("Atomically add, move, resize, copy, delete, or update notes, lyrics, phonemes, language, expression, and vibrato.")]
+    [Description("Atomically add, move, resize, copy, delete, or update notes, lyrics, phonemes, language, expression, and vibrato. For EVEC use op=set_evec with evec={voice_color_id?,attack_id?,release_id?,consonant_extension?} or evec={clear:true}. Missing fields preserve current values; extension is 0-3 (none/x2/x3/x4). Query per-note evec options first; unsupported combinations fail instead of clamping.")]
     public Task<McpBridgeResult> EditNotes(McpServerInstance server, string project_id, long expected_revision, string client_request_id, JsonElement operations, string? instance_id = null, bool dry_run = false, CancellationToken cancellationToken = default)
         => Mutation(server, "v6_edit_notes", instance_id, project_id, expected_revision, client_request_id, operations, dry_run, cancellationToken);
 
@@ -225,7 +225,24 @@ public sealed class VocaloidTools
         => _gateway.InvokeAsync(server, "v6_job", instance_id, new { action, job_id }, cancellationToken);
 
     private Task<McpBridgeResult> Mutation(McpServerInstance server, string method, string? instanceId, string projectId, long expectedRevision, string requestId, JsonElement operations, bool dryRun, CancellationToken cancellationToken)
-        => _gateway.InvokeAsync(server, method, instanceId, new
+    {
+        // Some MCP clients expose an unconstrained JsonElement as a JSON string.
+        // Unwrap exactly once, retaining the host's array and operation validation.
+        if (operations.ValueKind == JsonValueKind.String)
+        {
+            try
+            {
+                using var document = JsonDocument.Parse(operations.GetString()!);
+                operations = document.RootElement.Clone();
+            }
+            catch (JsonException)
+            {
+                return Task.FromResult(McpBridgeResult.Failure("invalid_request", "operations must contain a valid JSON array."));
+            }
+        }
+        if (operations.ValueKind != JsonValueKind.Array)
+            return Task.FromResult(McpBridgeResult.Failure("invalid_request", "operations must be a JSON array."));
+        return _gateway.InvokeAsync(server, method, instanceId, new
         {
             project_id = projectId,
             expected_revision = expectedRevision,
@@ -233,4 +250,5 @@ public sealed class VocaloidTools
             operations,
             dry_run = dryRun,
         }, cancellationToken);
+    }
 }

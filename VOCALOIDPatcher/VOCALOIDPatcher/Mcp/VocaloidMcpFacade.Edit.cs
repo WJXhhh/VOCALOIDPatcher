@@ -425,6 +425,13 @@ internal static partial class VocaloidMcpFacade
         int trackIndex = Int(operation, "track_index", -1);
         int partIndex = Int(operation, "part_index", -1);
         WIVSMMidiPart part = MidiPart(vsm, trackIndex, partIndex);
+        if (op == "set_evec")
+        {
+            ApplyEvecOperation(part, Note(vsm, trackIndex, partIndex, Int(operation, "note_index", -1)), operation, execute);
+            return;
+        }
+        if (Element(operation, "evec") != null)
+            throw Fault("invalid_request", "Use op=set_evec for EVEC changes; other note operations do not accept evec.");
         switch (op)
         {
             case "add":
@@ -433,7 +440,13 @@ internal static partial class VocaloidMcpFacade
                 int duration = Int(operation, "duration_tick", 480);
                 int number = Int(operation, "note_number", 60);
                 int velocity = Int(operation, "velocity", 64);
-                int language = Int(operation, "language_id", part.LangID);
+                int language = Core.NoteLanguage.Resolve(
+                    Element(operation, "language_id") == null ? null : Int(operation, "language_id", -1),
+                    part.LangID,
+                    () => part.IsAi ? part.NativeLangIDFromAiVoiceBank() : part.NativeLangIDFromVoiceBank(),
+                    (int)VSMLanguageID.Japanese);
+                if (!Enum.IsDefined(typeof(VSMLanguageID), language))
+                    throw Fault("invalid_request", "The note language_id is invalid.");
                 if (tick < 0 || duration <= 0 || number is < 0 or > 127 || velocity is < 0 or > 127)
                     throw Fault("invalid_request", "Note position, duration, number, or velocity is invalid.");
                 if (execute)
@@ -495,8 +508,13 @@ internal static partial class VocaloidMcpFacade
             case "update":
             {
                 WIVSMNote note = Note(vsm, trackIndex, partIndex, Int(operation, "note_index", -1));
+                int? velocity = Element(operation, "velocity") is null ? null : Int(operation, "velocity", -1);
+                if (velocity is < 0 or > 127)
+                    throw Fault("invalid_request", "Note velocity must be between 0 and 127.");
                 if (!execute)
                     break;
+                if (velocity.HasValue)
+                    note.NoteVelocity = velocity.Value;
                 if (String(operation, "lyric") is { } lyric)
                     note.Lyric = lyric;
                 if (Element(operation, "note_number") != null && !note.SetNoteNumber(Int(operation, "note_number")))

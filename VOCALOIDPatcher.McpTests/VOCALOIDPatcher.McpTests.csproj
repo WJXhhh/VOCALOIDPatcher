@@ -7,6 +7,12 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\DurationSelection\Model\*.cs" Link="DurationSelection/%(Filename)%(Extension)" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\Model\*.cs" Link="PhonemeVolume/%(Filename)%(Extension)" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\PhonemeGainWaveProcessor.cs" Link="PhonemeVolume/PhonemeGainWaveProcessor.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\BreathWaveProcessor.cs" Link="PhonemeVolume/BreathWaveProcessor.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\Model\*.cs" Link="TimingModel/%(Filename)%(Extension)" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\ICustomParameterHistoryEdit.cs" Link="TimingModel/ICustomParameterHistoryEdit.cs" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2">
@@ -20,11 +26,22 @@
     <PackageReference Include="ModelContextProtocol" Version="1.4.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\ConsonantTimingMath.cs" Link="ConsonantTiming\ConsonantTimingMath.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\ConsonantTimingDragSearch.cs" Link="ConsonantTiming\ConsonantTimingDragSearch.cs" />
+    <Compile Include="..\voicebank\tools\evec_render_harness\ConsonantTimingSolver.cs" Link="ConsonantTiming\ConsonantTimingSolver.cs" />
+    <None Update="Fixtures\consonant-timing-response.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\BoundedRenderRetry.cs" Link="Evec\BoundedRenderRetry.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\CreatedEntityIndex.cs" Link="Core\CreatedEntityIndex.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\NoteLanguage.cs" Link="Core\NoteLanguage.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Domains\ExtensionParameters\ExtensionParameterContracts.cs"
              Link="Stage3\ExtensionParameterContracts.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Domains\AudioParts\AudioPartContracts.cs"
              Link="Stage5\AudioPartContracts.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\SelectionActivation.cs"
              Link="Stage7\SelectionActivation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../compatibility/sampled-timing-6.13.1.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile" />
+    <EmbeddedResource Include="../compatibility/sampled-timing-6.13.3.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile.6.13.3" />
   </ItemGroup>
 </Project>

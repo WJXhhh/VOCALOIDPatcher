@@ -98,6 +98,7 @@ internal static partial class VocaloidMcpFacade
     private static IReadOnlyList<CapabilityStatus> CapabilityStatuses()
     {
         Version? version = typeof(App).Assembly.GetName().Version;
+        bool evecVersionSupported = version == null || version >= new Version(6, 13);
         return McpContractCatalog.BaselineCapabilities.Concat(McpDomainRegistry.Capabilities).Concat(NativeSemanticJobs.Capabilities()).Select(capability =>
         {
             bool versionSupported = version == null || version >= new Version(6, 13);
@@ -107,7 +108,14 @@ internal static partial class VocaloidMcpFacade
                 Availability = versionSupported ? capability.Availability : "unsupported",
                 UnavailableReason = versionSupported ? capability.UnavailableReason : "The installed editor is older than 6.13.0.",
             };
-        }).Concat(ExtensionParameterRegistry.Capabilities()).Concat(McpContractCatalog.StageSevenCapabilities).ToArray();
+        }).Concat(ExtensionParameterRegistry.Capabilities()).Concat(McpContractCatalog.StageSevenCapabilities)
+            .Append(new CapabilityStatus("notes.evec", evecVersionSupported, true, "6.13.0",
+                !evecVersionSupported ? "The installed editor is older than 6.13.0." :
+                Evec.EvecService.IsEnabled ? null : "EVEC is disabled.",
+                !evecVersionSupported ? "unsupported" : Evec.EvecService.IsEnabled ? "available" : "disabled"))
+            .Append(new CapabilityStatus("evec.render_timing", true, true, "6.13.0",
+                Evec.EvecService.IsEnabled ? null : "EVEC is disabled.",
+                Evec.EvecService.IsEnabled ? "available" : "disabled")).ToArray();
     }
 
     private static object GetCatalog()
@@ -139,6 +147,16 @@ internal static partial class VocaloidMcpFacade
             operations = McpContractCatalog.Operations.Concat(McpDomainRegistry.Operations).ToArray(),
             domains = McpContractCatalog.Domains.Concat(McpDomainRegistry.Contracts).ToArray(),
             extension_parameters = ExtensionParameterRegistry.Schema,
+            evec = new
+            {
+                operation = "notes.set_evec",
+                fields = new[] { "voice_color_id", "attack_id", "release_id", "consonant_extension" },
+                clear = new { clear = true },
+                partial_update = true,
+                option_source = "voicebanks[].evec or notes[].evec.options",
+                note_projection = "evec",
+                timing_renderer_integrated = Evec.EvecService.IsEnabled,
+            },
             error_codes = McpErrorCodes.Catalog,
             native_semantic_jobs = NativeSemanticJobCatalog.Jobs,
             query = new
@@ -174,6 +192,7 @@ internal static partial class VocaloidMcpFacade
                 native_language_id = bank.NativeLangID,
                 language_ids = bank.LangIDs,
                 available = bank.IsAvailableInSequence,
+                evec = EvecOptions(Evec.EvecVoicebankDetector.GetCapabilities(bank)),
             });
         }
     }
@@ -380,12 +399,17 @@ internal static partial class VocaloidMcpFacade
                         item["position"] = Position(vsm, note.AbsPosTick.Value, note.RelPosTick.Value);
                     Add("duration_tick", note.DurationTick.Value);
                     Add("note_number", note.NoteNumber);
+                    Add("velocity", note.NoteVelocity);
+                    if (fields?.Contains("timing_diagnostics") == true)
+                        item["timing_diagnostics"] = ConsonantTiming.ConsonantTimingOverlay.Diagnostics(note);
                     Add("lyric", note.Lyric);
                     Add("phonemes", note.Phonemes);
                     Add("language_id", note.LangID);
                     Add("selected", note.IsSelected);
                     Add("is_ai", note.IsAi);
                     Add("voicebank_id", partVoicebank);
+                    if (fields == null || fields.Contains("evec"))
+                        item["evec"] = EvecNoteInfo(part, note);
                     if (fields == null || fields.Contains("expression"))
                     {
                         VSMNoteExpression expression = note.GetNoteExpression();

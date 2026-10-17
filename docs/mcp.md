@@ -69,6 +69,77 @@ Resources：
 
 ## 写入协议
 
+### EVEC 查询与编辑
+
+`v6_get_catalog` 的 `voicebanks[].evec` 返回每个声库实际支持的 Color、CTop、
+Release ID、显示键、后缀和独立辅音扩展能力。不要把某声库的 ID 集合套到其它声库。
+`v6_query_project` 使用 `kind: "notes"` 查询时，默认包含 `evec`；也可以使用
+`projection: ["phonemes", "evec"]`。结果包含逻辑状态、基础音素、保护状态、
+当前组合允许的最大扩展值及分段预览。
+
+通过已有 `v6_edit_notes` 的专用 `set_evec` operation 编辑：
+
+```json
+{
+  "project_id": "从 state 获取",
+  "expected_revision": 12,
+  "client_request_id": "一次逻辑请求的唯一 ID",
+  "dry_run": true,
+  "operations": [
+    {
+      "op": "set_evec",
+      "track_index": 0,
+      "part_index": 0,
+      "note_index": 0,
+      "evec": {
+        "voice_color_id": 101,
+        "attack_id": 302,
+        "release_id": 201,
+        "consonant_extension": 0
+      }
+    }
+  ]
+}
+```
+
+示例是 Miku 的 Soft、Mild、Breath-Short。缺省字段保留原逻辑值；单项设置为 0
+清除该项；`"evec": {"clear": true}` 清空四项。辅音扩展 0/1/2/3 表示
+none/×2/×3/×4，CTop 额外辅音独立计算。`clear` 不能和其它字段混合。
+错误类型、重复字段、未知字段、未知 ID 或不支持的组合会报错，不静默裁剪。
+关闭 EVEC、AI 音符、不支持的声库或非日语音符返回 `unsupported`。
+
+批量调用共用一个原生事务；混合其它修改时可用 `v6_apply_operations`，
+在上述 operation 中添加 `"domain": "notes"`，并使用其稳定引用或 temp ID。
+创建后再设置 EVEC 的真实执行会按新音符校验；涉及尚未创建音符的 dry run
+当前不能校验其声库/音素，返回错误，不声称已通过完整验证。
+普通 `add`/`update` 不接受内嵌 `evec`，请追加一条 `set_evec` operation。
+
+`notes.update` 支持可选 `velocity`（整数 0–127），省略保持原值；dry_run 同样检查范围。
+2026-09-12 后续源码修复使渲染重试在同一 job 内重建原生副本，避免重复启动已完成副本
+时没有完成事件而占用共享门。该修复已部署，真实宿主 C3 三次阳性回归及重试等待取消通过，
+见研究记录 36；全量重建开销和未验证路径仍按该记录保留。
+
+`notes.evec` 的 `host_verified` 为 true：2026-09-11 在真实 V6 6.13.1.1 宿主完成
+部分更新、清除、非法输入零副作用、批量回滚、撤销重做，以及 Rin/Len 同形音素的元数据隔离。
+
+2026-09-12 源码加固：工程变更代次使 EVEC 覆盖失效（含声库/tempo/控制曲线），
+WAV 与 score 均成功才发布；同一任务最多重试一次，等待期间可取消。
+本轮仅完成 Debug 构建及单元回归，尚未部署或宿主复验；不扩展下述历史宿主证据范围。
+
+`evec.render_timing` 同为 `implemented`/`host_verified`：编辑器侧发布链路位于
+`Evec/EvecRenderCoordinator.cs` 与 `Patch/Patches/EvecRenderPatches.cs`，与中文分段渲染器
+共享 `Utils/NativeRenderSession.cs` 的原生渲染门与内部序列表，EVEC 在中文已接管的 Part 上让位，
+副本关闭统一走共享关闭窗口。宿主实测已覆盖：加载/提交触发 → `prepared` → `wave-copied`
+（含峰值校验）→ `published`（WAV 与 score 成对）→ placement 注册；编辑后重建并更换覆盖；
+清除某 Part 全部 EVEC、删除 Part、关闭/重开工程、在设置中关闭 EVEC 都会释放覆盖文件并恢复原生。
+因此 `notes[].evec.timing.renderer_integrated` 在 EVEC 启用时为 true，`status` 为
+`editor_render_copy`；EVEC 关闭时两者都回落到关闭状态。
+分段预览时间仍相对逻辑音符起点、单位毫秒；"已发布"表示部件的渲染产物来自分段副本，
+不表示每个切分时刻都经过听感优化——听感矩阵见
+`voicebank_doc/31_evec_v6_adaptation_progress.md`。
+界面音素排列、逻辑状态及保存/撤销使用同一个 EvecService。宿主必须加载含此
+接口的新版补丁；只升级 Companion 不会为旧宿主增加 EVEC 操作。
+
 写入前先调用：
 
 ```json
@@ -109,6 +180,14 @@ Resources：
 ```
 
 每个批量编辑调用只产生一个 V6 `Transaction` 和一个撤销步骤。任何子操作失败都会回滚整个调用。使用 `dry_run: true` 可以先做引用、范围和操作类型验证；dry run 不要求用户授予写入权限。
+
+Companion 在 stdio 和 HTTP 共用的 `tools/list` 发布层，将 schema 位置的 `true`
+统一转换为等价的 `{}`，兼容拒绝布尔 schema 的客户端 SDK。该处理不改变参数契约、
+宿主校验或 `default`、`examples` 等普通数据中的布尔值，也不放宽 `false` schema。
+
+Companion 的批量 `operations` 同时接受 JSON 数组和一层 JSON 数组字符串，以兼容
+将通用 JSON 参数暴露为字符串的客户端。字符串仅解码一次；无效 JSON 或解码后
+不是数组返回 `invalid_request`，仍由宿主验证每项操作、权限和事务。
 
 稳定引用新增 `entity_id`，在当前 project generation 内不随 Track/Part/Note 的插入、移动和下标变化而改变。写入可以继续使用旧下标，也可以提供 `entity_id`、`track_entity_id`、`part_entity_id` 或 `note_entity_id`。工程替换后旧 ID 返回 `stale_project`/`invalid_reference`。创建 operation 可带 `temp_id`，同一 `v6_apply_operations` 中后续项用 `track_temp_id`、`part_temp_id`、`note_temp_id` 引用；`client_tag` 会原样回到逐项结果。
 

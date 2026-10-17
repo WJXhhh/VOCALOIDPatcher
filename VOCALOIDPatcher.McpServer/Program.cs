@@ -37,6 +37,7 @@ if (options.Transport == "stdio")
     builder.Services.AddMcpServer(server => server.ServerInfo = new Implementation { Name = "vocaloid6", Version = "1.0.0" })
         .WithStdioServerTransport()
         .WithTools<VocaloidTools>()
+        .WithCompatibleToolSchemas()
         .WithResources<VocaloidResources>();
     await builder.Build().RunAsync();
     return 0;
@@ -70,6 +71,7 @@ webBuilder.Services.AddMcpServer(server => server.ServerInfo = new Implementatio
         http.MaxIdleSessionCount = 64;
     })
     .WithTools<VocaloidTools>()
+    .WithCompatibleToolSchemas()
     .WithResources<VocaloidResources>();
 
 var app = webBuilder.Build();

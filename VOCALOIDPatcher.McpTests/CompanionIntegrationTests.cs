@@ -36,10 +36,45 @@ public sealed class CompanionIntegrationTests
         Assert.Contains("project_id", editSchema);
         Assert.Contains("expected_revision", editSchema);
         Assert.Contains("client_request_id", editSchema);
+        foreach (string name in new[] { "v6_edit_notes", "v6_edit_structure", "v6_edit_parameters", "v6_apply_operations", "v6_select_view" })
+        {
+            string field = name == "v6_select_view" ? "request" : "operations";
+            var parameter = tools.Single(tool => tool.Name == name).JsonSchema.GetProperty("properties").GetProperty(field);
+            Assert.Equal(System.Text.Json.JsonValueKind.Object, parameter.ValueKind);
+            Assert.Empty(parameter.EnumerateObject());
+        }
         var result = await client.CallToolAsync("v6_get_state", new Dictionary<string, object?>());
         Assert.NotEqual(true, result.IsError);
         Assert.NotNull(result.StructuredContent);
         Assert.Contains("fake-6.13", result.StructuredContent.Value.GetRawText());
+        Assert.Contains("set_evec", tools.Single(tool => tool.Name == "v6_edit_notes").Description);
+        var evecResult = await client.CallToolAsync("v6_edit_notes", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project",
+            ["expected_revision"] = 1L,
+            ["client_request_id"] = "evec-transport-check",
+            ["dry_run"] = true,
+            ["operations"] = new[] { new { op = "set_evec", track_index = 0, part_index = 0, note_index = 0,
+                evec = new { voice_color_id = 101, attack_id = 302, release_id = 201, consonant_extension = 0 } } },
+        });
+        Assert.NotEqual(true, evecResult.IsError);
+        Assert.Equal("v6_edit_notes", fake.LastRequest?.Method);
+        var payload = fake.LastRequest!.Arguments!.Value;
+        Assert.True(payload.GetProperty("dry_run").GetBoolean());
+        var evec = payload.GetProperty("operations")[0].GetProperty("evec");
+        Assert.Equal(101, evec.GetProperty("voice_color_id").GetInt32());
+        Assert.Equal(302, evec.GetProperty("attack_id").GetInt32());
+        Assert.Equal(201, evec.GetProperty("release_id").GetInt32());
+        Assert.Equal(0, evec.GetProperty("consonant_extension").GetInt32());
+        var stringResult = await client.CallToolAsync("v6_edit_notes", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project", ["expected_revision"] = 1L,
+            ["client_request_id"] = "evec-string-transport-check", ["dry_run"] = true,
+            ["operations"] = "[{\"op\":\"set_evec\",\"track_index\":0,\"part_index\":0,\"note_index\":0,\"evec\":{\"clear\":true}}]",
+        });
+        Assert.NotEqual(true, stringResult.IsError);
+        Assert.Equal(System.Text.Json.JsonValueKind.Array, fake.LastRequest!.Arguments!.Value.GetProperty("operations").ValueKind);
+        Assert.True(fake.LastRequest.Arguments.Value.GetProperty("operations")[0].GetProperty("evec").GetProperty("clear").GetBoolean());
     }
 
     [Fact]
@@ -61,6 +96,10 @@ public sealed class CompanionIntegrationTests
                 Name = "v6patch-http-test",
             });
             await using McpClient client = await McpClient.CreateAsync(transport);
+
+            var tools = await client.ListToolsAsync();
+            Assert.Equal(System.Text.Json.JsonValueKind.Object,
+                tools.Single(tool => tool.Name == "v6_select_view").JsonSchema.GetProperty("properties").GetProperty("request").ValueKind);
 
             var result = await client.CallToolAsync("v6_get_state", new Dictionary<string, object?>());
             Assert.NotEqual(true, result.IsError);
@@ -159,6 +198,7 @@ public sealed class CompanionIntegrationTests
 
     private sealed class FakeV6Bridge : IAsyncDisposable
     {
+        public BridgeRequest? LastRequest { get; private set; }
         private readonly CancellationTokenSource _cancellation = new();
         private Task? _server;
 
@@ -198,6 +238,7 @@ public sealed class CompanionIntegrationTests
                         PipeOptions.Asynchronous | PipeOptions.CurrentUserOnly);
                     await pipe.WaitForConnectionAsync(_cancellation.Token);
                     BridgeRequest request = await PipeMessageFraming.ReadAsync<BridgeRequest>(pipe, _cancellation.Token);
+                    LastRequest = request;
                     object result = request.Method switch
                     {
                         "v6_get_state" => new

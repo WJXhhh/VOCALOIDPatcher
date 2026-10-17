@@ -66,7 +66,8 @@ public static class McpContractCatalog
         new OperationContract("structure.add_part", "structure", "v6_edit_structure", new[] { "op", "track_index" }, new[] { "absolute_tick", "duration_tick", "name", "temp_id", "client_tag" }),
         new OperationContract("structure.delete_track", "structure", "v6_edit_structure", new[] { "op", "track_index" }, new[] { "entity_id", "client_tag" }, true),
         new OperationContract("notes.add", "notes", "v6_edit_notes", new[] { "op", "track_index", "part_index", "duration_tick", "note_number" }, new[] { "absolute_tick", "part_relative_tick", "lyric", "temp_id", "client_tag" }),
-        new OperationContract("notes.update", "notes", "v6_edit_notes", new[] { "op", "track_index", "part_index", "note_index" }, new[] { "entity_id", "lyric", "phonemes", "note_number", "duration_tick", "client_tag" }),
+        new OperationContract("notes.update", "notes", "v6_edit_notes", new[] { "op", "track_index", "part_index", "note_index" }, new[] { "entity_id", "lyric", "phonemes", "note_number", "velocity", "duration_tick", "client_tag" }),
+        new OperationContract("notes.set_evec", "notes", "v6_edit_notes", new[] { "op", "track_index", "part_index", "note_index", "evec" }, new[] { "entity_id", "note_entity_id", "note_temp_id", "client_tag" }),
         new OperationContract("parameters.add_controller", "parameters", "v6_edit_parameters", new[] { "op", "track_index", "part_index", "parameter_type", "value" }, new[] { "part_relative_tick", "absolute_tick", "client_tag" }),
         new OperationContract("g2pa.set_lyrics", "g2pa", "v6_g2pa_apply", new[] { "action", "track_index", "part_index", "note_index", "lyrics" }, new[] { "entity_id", "client_tag" }),
     };

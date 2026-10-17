@@ -214,7 +214,7 @@ internal static partial class VocaloidMcpFacade
 
     private static EntityRef? ExecuteUnifiedOperation(WIVSMSequence vsm, string projectId, long revision, UnifiedOperationPlanner.PlannedOperation item)
     {
-        HashSet<object>? before = item.Creates ? SnapshotEntities(vsm, item) : null;
+        HashSet<IntPtr>? before = item.Creates ? SnapshotEntities(vsm, item) : null;
         switch (item.Domain)
         {
             case "structure": ApplyStructureOperation(vsm, item.Payload, true); break;
@@ -262,41 +262,41 @@ internal static partial class VocaloidMcpFacade
             throw Fault(McpErrorCodes.OperationFailed, $"VOCALOID rejected the G2PA operation '{action}'.");
     }
 
-    private static HashSet<object> SnapshotEntities(WIVSMSequence vsm, UnifiedOperationPlanner.PlannedOperation item)
+    private static HashSet<IntPtr> SnapshotEntities(WIVSMSequence vsm, UnifiedOperationPlanner.PlannedOperation item)
     {
         if (item.OperationId == "structure.add_track")
-            return vsm.Tracks.Cast<object>().ToHashSet(ReferenceEqualityComparer.Instance);
+            return vsm.Tracks.Select(value => (IntPtr)value).ToHashSet();
         int track = Int(item.Payload, "track_index", -1);
         if (item.OperationId is "structure.add_part" or "structure.duplicate_part")
-            return Track(vsm, track).Parts.Cast<object>().ToHashSet(ReferenceEqualityComparer.Instance);
+            return Track(vsm, track).Parts.Select(value => (IntPtr)value).ToHashSet();
         if (item.Domain == "notes")
-            return MidiPart(vsm, track, Int(item.Payload, "part_index", -1)).Notes.Cast<object>().ToHashSet(ReferenceEqualityComparer.Instance);
-        return new HashSet<object>(ReferenceEqualityComparer.Instance);
+            return MidiPart(vsm, track, Int(item.Payload, "part_index", -1)).Notes.Select(value => (IntPtr)value).ToHashSet();
+        return new HashSet<IntPtr>();
     }
 
-    private static EntityRef? FindCreatedEntity(WIVSMSequence vsm, string projectId, long revision, UnifiedOperationPlanner.PlannedOperation item, HashSet<object> before)
+    private static EntityRef? FindCreatedEntity(WIVSMSequence vsm, string projectId, long revision, UnifiedOperationPlanner.PlannedOperation item, HashSet<IntPtr> before)
     {
         if (item.OperationId == "structure.add_track")
         {
-            for (int index = 0; index < vsm.Tracks.Count; index++)
-                if (!before.Contains(vsm.Tracks[index]))
-                    return Ref(projectId, revision, "track", vsm.Tracks[index], index, clientTag: item.ClientTag);
+            var tracks = vsm.Tracks;
+            int index = CreatedEntityIndex.Find(tracks.Select(value => (IntPtr)value), before);
+            return Ref(projectId, revision, "track", tracks[index], index, clientTag: item.ClientTag);
         }
         int track = Int(item.Payload, "track_index", -1);
         if (item.OperationId is "structure.add_part" or "structure.duplicate_part")
         {
             WIVSMTrack owner = Track(vsm, track);
-            for (int part = 0; part < owner.Parts.Count; part++)
-                if (!before.Contains(owner.Parts[part]))
-                    return Ref(projectId, revision, "part", owner.Parts[part], track, part, clientTag: item.ClientTag);
+            var parts = owner.Parts;
+            int part = CreatedEntityIndex.Find(parts.Select(value => (IntPtr)value), before);
+            return Ref(projectId, revision, "part", parts[part], track, part, clientTag: item.ClientTag);
         }
         if (item.Domain == "notes")
         {
             int partIndex = Int(item.Payload, "part_index", -1);
             WIVSMMidiPart owner = MidiPart(vsm, track, partIndex);
-            for (int note = 0; note < owner.Notes.Count; note++)
-                if (!before.Contains(owner.Notes[note]))
-                    return Ref(projectId, revision, "note", owner.Notes[note], track, partIndex, note, item.ClientTag);
+            var notes = owner.Notes;
+            int note = CreatedEntityIndex.Find(notes.Select(value => (IntPtr)value), before);
+            return Ref(projectId, revision, "note", notes[note], track, partIndex, note, item.ClientTag);
         }
         return null;
     }
