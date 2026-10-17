@@ -1,0 +1,47 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "helper_rva": "0xc86a0",
+  "cases": [
+    {
+      "name": "hz_positive_only",
+      "start": 0,
+      "end": 3,
+      "actual_cent": -166.0150146484375,
+      "expected_cent": -166.01499971153757,
+      "error_cent": 1.493689993026237e-05
+    },
+    {
+      "name": "bounded_region",
+      "start": 1,
+      "end": 2,
+      "actual_cent": 350.97747802734375,
+      "expected_cent": 350.9775004326937,
+      "error_cent": 2.240534996644783e-05
+    },
+    {
+      "name": "encoded_cent",
+      "start": 0,
+      "end": 3,
+      "actual_cent": -333.3333435058594,
+      "expected_cent": -333.3333333333333,
+      "error_cent": 1.0172526060614473e-05
+    },
+    {
+      "name": "mixed_format",
+      "start": 0,
+      "end": 3,
+      "actual_cent": 100.65164947509766,
+      "expected_cent": 100.65166695512914,
+      "error_cent": 1.7480031488048553e-05
+    },
+    {
+      "name": "no_positive_pitch",
+      "start": 0,
+      "end": 2,
+      "actual_cent": 0.0,
+      "expected_cent": 0.0,
+      "error_cent": 0.0
+    }
+  ],
+  "scope": "DSE track-statistic mean over a selected frame interval. The caller that chooses PHDC voiced ART intervals and writes DDI pitch2 has not been established by this test."
+}

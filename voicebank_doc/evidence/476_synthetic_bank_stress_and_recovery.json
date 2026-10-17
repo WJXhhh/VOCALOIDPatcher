@@ -1,0 +1,1138 @@
+{
+  "format": "vocaloid-synthetic-bank-scale-and-recovery-v1",
+  "date": "2026-10-15",
+  "status": "complete_within_offline_synthetic_scope",
+  "work_root": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015",
+  "scope": {
+    "real_recordings": false,
+    "editor": false,
+    "maker_provenance": false,
+    "independent_acoustic_templates": 3,
+    "per_template_frames": 128,
+    "recording_diversity_acceptance": false,
+    "per_unit_checkpoint_resume": false
+  },
+  "requirements": {
+    "full_planned_shape": true,
+    "near_million_frame_assembly": true,
+    "public_all_references": true,
+    "native_all_planned_tree_objects": true,
+    "above_4_and_8_gib_offsets": true,
+    "repeat_full_output_hashes": true,
+    "phase_resource_metrics": true,
+    "measured_supervisor_wall_time": true,
+    "failure_matrix_and_safe_rebuild": true,
+    "existing_output_preserved": true,
+    "all_prior_evidence_unchanged": true
+  },
+  "small": {
+    "metrics": {
+      "assemble": {
+        "exit_code": 0,
+        "elapsed_seconds": 1.3147031999978935,
+        "peak_working_set_bytes": 29016064,
+        "peak_commit_bytes": 20299776,
+        "timed_out": false
+      },
+      "plan": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.15730389999953331,
+        "peak_working_set_bytes": 25600000,
+        "peak_commit_bytes": 16355328,
+        "timed_out": false
+      },
+      "tree": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.10570580000057817,
+        "peak_working_set_bytes": 41947136,
+        "peak_commit_bytes": 28504064,
+        "timed_out": false
+      },
+      "finalize": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.35713949999626493,
+        "peak_working_set_bytes": 26640384,
+        "peak_commit_bytes": 17715200,
+        "timed_out": false
+      },
+      "verify": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.2058474000004935,
+        "peak_working_set_bytes": 26877952,
+        "peak_commit_bytes": 17416192,
+        "timed_out": false
+      },
+      "native_load": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.10514629999670433,
+        "peak_working_set_bytes": 42266624,
+        "peak_commit_bytes": 28577792,
+        "timed_out": false
+      }
+    },
+    "ddb_bytes": 24674848,
+    "ddb_sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6",
+    "ddi_bytes": 34052,
+    "ddi_sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0",
+    "public_parser_valid": true,
+    "native_loader_valid": true
+  },
+  "medium": {
+    "metrics": {
+      "assemble": {
+        "exit_code": 0,
+        "elapsed_seconds": 76.24314289999893,
+        "peak_working_set_bytes": 48287744,
+        "peak_commit_bytes": 39030784,
+        "timed_out": false
+      },
+      "plan": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.15647049999824958,
+        "peak_working_set_bytes": 38895616,
+        "peak_commit_bytes": 29773824,
+        "timed_out": false
+      },
+      "tree": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.20761040000070352,
+        "peak_working_set_bytes": 46874624,
+        "peak_commit_bytes": 33628160,
+        "timed_out": false
+      },
+      "finalize": {
+        "exit_code": 0,
+        "elapsed_seconds": 14.90492209999502,
+        "peak_working_set_bytes": 42147840,
+        "peak_commit_bytes": 33050624,
+        "timed_out": false
+      },
+      "verify": {
+        "exit_code": 0,
+        "elapsed_seconds": 2.1205464000013308,
+        "peak_working_set_bytes": 49881088,
+        "peak_commit_bytes": 41250816,
+        "timed_out": false
+      },
+      "native_load": {
+        "exit_code": 0,
+        "elapsed_seconds": 0.15585819999978412,
+        "peak_working_set_bytes": 46477312,
+        "peak_commit_bytes": 33054720,
+        "timed_out": false
+      }
+    },
+    "ddb_bytes": 1552341388,
+    "ddb_sha256": "1dc70dc763c6af7a5d65513cc428aa9d7ff6704a060c70404866ae5af5da31bf",
+    "ddi_bytes": 1251704,
+    "ddi_sha256": "7dec14b4e1ad29fe079c30d94da8725556a62e05de0ceed54211cfc05ce14ef4",
+    "public_parser_valid": true,
+    "native_loader_valid": true
+  },
+  "full": {
+    "shape": {
+      "units": 7782,
+      "stationary_parts": 114,
+      "articulation_parts": 7668,
+      "art_edges": 2556,
+      "layers": 3,
+      "frames": 996096,
+      "phonemes": 62
+    },
+    "build": {
+      "format": "vocaloid-offline-verified-bank-build-v1",
+      "status": "verified",
+      "summary": {
+        "public_parser_valid": true,
+        "native_loader_valid": true,
+        "coverage_complete": true,
+        "approval_complete": false
+      },
+      "output": {
+        ".ddi": {
+          "name": "StressBank.ddi",
+          "bytes": 9531224,
+          "sha256": "315aa0f5ac2d5887c1b88818ee47b262d3bec014acbb6fc7e31de078f19aa85c"
+        },
+        ".ddb": {
+          "name": "StressBank.ddb",
+          "bytes": 11913531244,
+          "sha256": "be19ab5e8ffc06b75278e71db1826f2a4367694e5984ec8ea0c396221086056b"
+        }
+      },
+      "phases": {
+        "assemble": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 631.8138753000021,
+          "observed_peak_working_set_bytes": 190939136,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 182108160,
+          "peak_job_commit_bytes": 182108160
+        },
+        "plan": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.40670849999878556,
+          "observed_peak_working_set_bytes": 121364480,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 112922624,
+          "peak_job_commit_bytes": 112922624
+        },
+        "tree": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.20539360000111628,
+          "observed_peak_working_set_bytes": 74907648,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 63012864,
+          "peak_job_commit_bytes": 63012864
+        },
+        "finalize": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 133.51169890000165,
+          "observed_peak_working_set_bytes": 132108288,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 125755392,
+          "peak_job_commit_bytes": 125755392
+        },
+        "verify": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 17.78065880000213,
+          "observed_peak_working_set_bytes": 217468928,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 209395712,
+          "peak_job_commit_bytes": 209395712
+        },
+        "native_load": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.25669729999935953,
+          "observed_peak_working_set_bytes": 71794688,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 60186624,
+          "peak_job_commit_bytes": 60186624
+        }
+      },
+      "source_sha256": {
+        "build_planned_bank.py": "64e90aff7f8b899ffe3021389da15d08efa1e2ffb3ba58a35288d44c9879199a",
+        "analyze_recording_units.py": "d56677da23036a3e1532a29728469ff55a30c9499511e02b52e95be7a9264665",
+        "assemble_recording_units_ddb.py": "3ac371bd3c662cd7427fa627fd28a4d53b8c77b3675191a1f147f3e68616cc74",
+        "build_unit_ddb.py": "2a77ace82ff8b60d802cca3e41fde4ff3be7e475c766d882dded9ce658b14a31",
+        "plan_ddi_tree.py": "5f1e6d6fb20fffa5c16a3ef9d0837cf4fe5388d6aa812415fda0597077984f0c",
+        "finalize_planned_ddi.py": "c790093a0e78257cc468e4e0904768994926c32025651ee4916f9a125a528bbd",
+        "verify_planned_ddi.py": "5edc41c17428eadbbab425e6d1724e3617782dd98b7c6cef67f98e28777b9ee4",
+        "finalize_stationary_ddi.py": "fb3fd8f729fde7cd855d39d59f1ac36c868292322c4d488fed8db1f0de5ce502",
+        "finalize_minimal_articulation_ddi.py": "867d6cc64820e0fc983321348648acdf66508e2e053917dfcbac95b16ad6bdd6",
+        "pitch2_reference.py": "41c0185b701885ebfb7ad2079f682ab98462942e89e25214f74a0f9c06c0a6a8",
+        "probe_frm2.py": "0883d7765acb5d44ed90ddc6692d7a61323abbd2b89e2fa026067ae933c158b8",
+        "probe_sms2.py": "d42e3e4798c566e6864a056300a7f6ea93abfcf79c906002118c78ea4507fdb1",
+        "validate_main_sms2.py": "652668ad39962a7592e5e335435d0acabdb175c2e5318f6b6995e8d0d406d108"
+      },
+      "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+      "tree_harness_sha256": "671b27cf268272fa37708602b38187cf590ca1d7d5a4937d9eeab10fbb06caf1",
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "limitations": [
+        "Offline structure/loader acceptance; no Editor, licensing, recording quality or acoustic approval.",
+        "Retry rebuilds from validated inputs; no per-unit checkpoint/resume.",
+        "Working-set peaks are observed OS high-water counters; the final unsampled tail is not guaranteed.",
+        "Job peak commit is the OS-maintained process/job high-water counter."
+      ]
+    },
+    "public_verification": {
+      "format": "vocaloid-planned-ddi-public-verification-v1",
+      "source": {
+        "tree_plan_sha256": "b5085f8abde176079f4edd67e60d559efffd16c4588388157ea5319e7a81a7ee",
+        "ddb_manifest_sha256": "31f2470409c103e1ed9affb4961339665821604738fabdb65a91e66d5c513d2c",
+        "ddi_sha256": "315aa0f5ac2d5887c1b88818ee47b262d3bec014acbb6fc7e31de078f19aa85c",
+        "ddb_sha256": "be19ab5e8ffc06b75278e71db1826f2a4367694e5984ec8ea0c396221086056b",
+        "ddb_tools_parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994"
+      },
+      "summary": {
+        "phonemes": 62,
+        "voiced_phonemes": 61,
+        "unvoiced_phonemes": 1,
+        "stationary_parts": 114,
+        "articulation_edges": 2556,
+        "articulation_parts": 7668,
+        "coverage_complete": true,
+        "approval_complete": false,
+        "public_parser_valid": true
+      }
+    },
+    "phase_seconds_sum": 783.9750324000051,
+    "observed_max_worker_working_set_bytes": 217468928,
+    "max_worker_job_peak_commit_bytes": 209395712,
+    "references": {
+      "max_frame_offset": 11913450354,
+      "max_snd_payload_pointer": 11913461612,
+      "frame_offsets_above_4_gib": 636989,
+      "frame_offsets_above_8_gib": 277888
+    },
+    "native_summary": [
+      "load.result=0",
+      "root.authenticated=1",
+      "planned.phonemes=62",
+      "planned.stationary_parts=114",
+      "planned.articulation_edges=2556",
+      "planned.articulation_parts=7668",
+      "load.valid=True"
+    ],
+    "artifacts": {
+      "build_manifest.json": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\published-full-v2\\build_manifest.json",
+        "bytes": 4361,
+        "sha256": "6e94a445d9192ae977684fd733a52c480030373ad7bf80708166d7a520c21414"
+      },
+      "ddb_manifest.json": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\published-full-v2\\ddb_manifest.json",
+        "bytes": 28990045,
+        "sha256": "31f2470409c103e1ed9affb4961339665821604738fabdb65a91e66d5c513d2c"
+      },
+      "ddi_manifest.json": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\published-full-v2\\ddi_manifest.json",
+        "bytes": 6039094,
+        "sha256": "4f030d6961bedb54de79de45fd19f62b0ab8565e86f76abd3940aeb259fe620d"
+      },
+      "tree_plan.json": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\.published-full-v2.build-dff64611e64c44319908bfca68e54a3e\\tree_plan.json",
+        "bytes": 1076139,
+        "sha256": "b5085f8abde176079f4edd67e60d559efffd16c4588388157ea5319e7a81a7ee"
+      },
+      "public_verification.json": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\.published-full-v2.build-dff64611e64c44319908bfca68e54a3e\\public_verification.json",
+        "bytes": 821,
+        "sha256": "d0c1fdf18547f1f1c7fa65657b2bc2751d82c11ac318f22861dcdb7657703a2f"
+      },
+      "native_load.log": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\.published-full-v2.build-dff64611e64c44319908bfca68e54a3e\\native_load.log",
+        "bytes": 132404,
+        "sha256": "524c4179b3381716fb6a0e2a1de1b2abd91ba9fbe60d60be6267666846fbf2d3"
+      },
+      "build_state.json": {
+        "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\.published-full-v2.build-dff64611e64c44319908bfca68e54a3e\\build_state.json",
+        "bytes": 1946,
+        "sha256": "af8f8939e646d0b6215914cfbd2901af9424bf5a9d0604e2d8ae2ee4ac494171"
+      }
+    }
+  },
+  "deterministic_full_comparison": {
+    "output_hashes_equal": true,
+    "transition_output": {
+      ".ddi": {
+        "name": "StressBank.ddi",
+        "bytes": 9531224,
+        "sha256": "315aa0f5ac2d5887c1b88818ee47b262d3bec014acbb6fc7e31de078f19aa85c"
+      },
+      ".ddb": {
+        "name": "StressBank.ddb",
+        "bytes": 11913531244,
+        "sha256": "be19ab5e8ffc06b75278e71db1826f2a4367694e5984ec8ea0c396221086056b"
+      }
+    },
+    "transition_executed_supervisor_snapshot": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\full_supervisor_v1.py",
+      "bytes": 12869,
+      "sha256": "64ef9691ada2f7e9fb69eb2e92df7fde0042348f225886f1d8c6f699d0906a6b"
+    },
+    "qualification": "Transition run began before integrity-guard changes; worker subprocesses may use newer wrapper code. Its source_sha256 is an end-of-run inventory, not execution-version proof. Use final run for current wrapper acceptance."
+  },
+  "supervisor_metrics": {
+    "transition": {
+      "pid": 27908,
+      "observed_peak_working_set_bytes": 26099712,
+      "observed_peak_commit_bytes": 16556032,
+      "exited": true,
+      "wall_seconds": 807.8986863,
+      "kernel_cpu_seconds": 3.75,
+      "user_cpu_seconds": 5.15625
+    },
+    "final": {
+      "pid": 15652,
+      "observed_peak_working_set_bytes": 41086976,
+      "observed_peak_commit_bytes": 31395840,
+      "exited": true,
+      "wall_seconds": 791.6409715,
+      "kernel_cpu_seconds": 3.265625,
+      "user_cpu_seconds": 5.1875
+    }
+  },
+  "recovery": {
+    "results": {
+      "existing_output": {
+        "file_count": 5,
+        "unchanged": true
+      },
+      "corrupt_manifest": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-manifest.build-eb855f1e5833426e9697d33a42b6689a",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 2,
+                "timed_out": false,
+                "elapsed_seconds": 0.1575303999998141,
+                "observed_peak_working_set_bytes": 25427968,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 16007168,
+                "peak_job_commit_bytes": 16007168
+              }
+            },
+            "stage": "assemble",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "corrupt_wav": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-wav.build-8a6defd2472e492397d4db16349316e2",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 2,
+                "timed_out": false,
+                "elapsed_seconds": 0.15588620000198716,
+                "observed_peak_working_set_bytes": 26701824,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17420288,
+                "peak_job_commit_bytes": 17420288
+              }
+            },
+            "stage": "assemble",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "corrupt_sms2": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-sms2.build-535b0778c57b47969f8d0f7bffa2a212",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 2,
+                "timed_out": false,
+                "elapsed_seconds": 0.1563285999945947,
+                "observed_peak_working_set_bytes": 26763264,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17428480,
+                "peak_job_commit_bytes": 17428480
+              }
+            },
+            "stage": "assemble",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "timeout": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-timeout.build-0cb29ba4f1584a6798dd4ba7646ce4ff",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 2,
+                "timed_out": true,
+                "elapsed_seconds": 0.006146799998532515,
+                "observed_peak_working_set_bytes": 2641920,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 385024,
+                "peak_job_commit_bytes": 385024
+              }
+            },
+            "stage": "assemble",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "memory_limit": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-memory_limit.build-015f3a233afe48a59c05f7575ed04cc9",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 1,
+                "timed_out": false,
+                "elapsed_seconds": 0.10761580000689719,
+                "observed_peak_working_set_bytes": 21864448,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 12578816,
+                "peak_job_commit_bytes": 12578816
+              }
+            },
+            "stage": "assemble",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "ddb_manifest_io": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-ddb_manifest_io.build-2890919145b54453b57961bc0b3009cc",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 2,
+                "timed_out": false,
+                "elapsed_seconds": 1.4142588000031537,
+                "observed_peak_working_set_bytes": 29130752,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 20041728,
+                "peak_job_commit_bytes": 20041728
+              }
+            },
+            "stage": "assemble",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "ddi_report_io": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-ddi_report_io.build-1747e79fd8a34808ac413cfe7fa4d44e",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 1.415448899999319,
+                "observed_peak_working_set_bytes": 29163520,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 19812352,
+                "peak_job_commit_bytes": 19812352
+              },
+              "plan": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.15640559999883408,
+                "observed_peak_working_set_bytes": 25767936,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 16424960,
+                "peak_job_commit_bytes": 16424960
+              },
+              "tree": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.1045763000001898,
+                "observed_peak_working_set_bytes": 41893888,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 28413952,
+                "peak_job_commit_bytes": 28413952
+              },
+              "finalize": {
+                "exit_code": 2,
+                "timed_out": false,
+                "elapsed_seconds": 0.4058528000023216,
+                "observed_peak_working_set_bytes": 26624000,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17686528,
+                "peak_job_commit_bytes": 17686528
+              }
+            },
+            "stage": "finalize",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "verify_rejection": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-verify.build-43497393f829466caff2a0cec21d3f96",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 1.414457399994717,
+                "observed_peak_working_set_bytes": 29163520,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 20172800,
+                "peak_job_commit_bytes": 20172800
+              },
+              "plan": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.1555573000005097,
+                "observed_peak_working_set_bytes": 25808896,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 16355328,
+                "peak_job_commit_bytes": 16355328
+              },
+              "tree": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.10500429999956395,
+                "observed_peak_working_set_bytes": 41885696,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 28385280,
+                "peak_job_commit_bytes": 28385280
+              },
+              "finalize": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.4076405000014347,
+                "observed_peak_working_set_bytes": 26918912,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17727488,
+                "peak_job_commit_bytes": 17727488
+              },
+              "verify": {
+                "exit_code": 2,
+                "timed_out": false,
+                "elapsed_seconds": 0.15527039999869885,
+                "observed_peak_working_set_bytes": 25812992,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 16314368,
+                "peak_job_commit_bytes": 16314368
+              }
+            },
+            "stage": "verify",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "native_load_hash_guard_rejection": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-native_load_hash_guard.build-8891bbe54ece45418d63c1933b1a170a",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 1.413582499997574,
+                "observed_peak_working_set_bytes": 28905472,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 19701760,
+                "peak_job_commit_bytes": 19701760
+              },
+              "plan": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.20681619999959366,
+                "observed_peak_working_set_bytes": 25858048,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17125376,
+                "peak_job_commit_bytes": 17125376
+              },
+              "tree": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.3061189000000013,
+                "observed_peak_working_set_bytes": 41906176,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 28372992,
+                "peak_job_commit_bytes": 28372992
+              },
+              "finalize": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.40656719999969937,
+                "observed_peak_working_set_bytes": 27009024,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17653760,
+                "peak_job_commit_bytes": 17653760
+              },
+              "verify": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.2071570000043721,
+                "observed_peak_working_set_bytes": 26865664,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17641472,
+                "peak_job_commit_bytes": 17641472
+              },
+              "native_load": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.10429160000057891,
+                "observed_peak_working_set_bytes": 42323968,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 28663808,
+                "peak_job_commit_bytes": 28663808
+              }
+            },
+            "stage": "native_load",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "native_load_truncation_rejection": {
+        "failure": {
+          "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-native_load_truncation.build-c96bd4c98a2442e1aeec27e10b39eaf4",
+          "state": {
+            "format": "vocaloid-offline-bank-build-state-v1",
+            "status": "failed",
+            "phases": {
+              "assemble": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 1.365245799999684,
+                "observed_peak_working_set_bytes": 29040640,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 19922944,
+                "peak_job_commit_bytes": 19922944
+              },
+              "plan": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.15541669999947771,
+                "observed_peak_working_set_bytes": 25993216,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17014784,
+                "peak_job_commit_bytes": 17014784
+              },
+              "tree": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.10466820000146981,
+                "observed_peak_working_set_bytes": 41857024,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 28315648,
+                "peak_job_commit_bytes": 28315648
+              },
+              "finalize": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.40717399999994086,
+                "observed_peak_working_set_bytes": 26865664,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 18046976,
+                "peak_job_commit_bytes": 18046976
+              },
+              "verify": {
+                "exit_code": 0,
+                "timed_out": false,
+                "elapsed_seconds": 0.20535410000593401,
+                "observed_peak_working_set_bytes": 26886144,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 17510400,
+                "peak_job_commit_bytes": 17510400
+              },
+              "native_load": {
+                "exit_code": 6,
+                "timed_out": false,
+                "elapsed_seconds": 0.10411330000351882,
+                "observed_peak_working_set_bytes": 43982848,
+                "working_set_poll_interval_seconds": 0.05,
+                "peak_process_commit_bytes": 28975104,
+                "peak_job_commit_bytes": 28975104
+              }
+            },
+            "stage": "native_load",
+            "error_type": "BuildFailure"
+          }
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "postcommit_ledger_failure": {
+        "published": true,
+        "output": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 34052,
+            "sha256": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 24674848,
+            "sha256": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+          }
+        }
+      },
+      "concurrent_publish": {
+        "exit_codes": [
+          0,
+          2
+        ],
+        "winner_unchanged": true,
+        "output": {
+          ".ddi": "f1e708916bb6a66dc774d3bc57138e113bbb25d0f6fe4c06090dc79c377fa9e0",
+          ".ddb": "3a7bd0221db83d4bef7904f27d41a9cc11fe6ad319495791933f3774bec945c6"
+        }
+      },
+      "forced_supervisor_termination": {
+        "private_directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery-final\\.output-interrupted.build-b169949405824249b4765a5f9bb036fe",
+        "written_bytes_before_kill": 1559594,
+        "parent_exit_code": 1,
+        "child_ids": [
+          36076
+        ],
+        "all_owned_children_exited": true,
+        "stale_private_state": {
+          "format": "vocaloid-offline-bank-build-state-v1",
+          "status": "building",
+          "phases": {},
+          "stage": "assemble"
+        },
+        "retry": {
+          ".ddi": {
+            "name": "StressBank.ddi",
+            "bytes": 1251704,
+            "sha256": "7dec14b4e1ad29fe079c30d94da8725556a62e05de0ceed54211cfc05ce14ef4"
+          },
+          ".ddb": {
+            "name": "StressBank.ddb",
+            "bytes": 1552341388,
+            "sha256": "1dc70dc763c6af7a5d65513cc428aa9d7ff6704a060c70404866ae5af5da31bf"
+          }
+        }
+      }
+    },
+    "elapsed_seconds": 153.89108570000099
+  },
+  "concurrent_publication_states": [
+    {
+      "format": "vocaloid-offline-bank-build-state-v1",
+      "status": "failed",
+      "phases": {
+        "assemble": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 1.4157880999991903,
+          "observed_peak_working_set_bytes": 29024256,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 19935232,
+          "peak_job_commit_bytes": 19935232
+        },
+        "plan": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.15653919999749633,
+          "observed_peak_working_set_bytes": 25284608,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 16134144,
+          "peak_job_commit_bytes": 16134144
+        },
+        "tree": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.10413390000030631,
+          "observed_peak_working_set_bytes": 41947136,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 28491776,
+          "peak_job_commit_bytes": 28491776
+        },
+        "finalize": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.40708870000526076,
+          "observed_peak_working_set_bytes": 26673152,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 17268736,
+          "peak_job_commit_bytes": 17268736
+        },
+        "verify": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.20667329999560025,
+          "observed_peak_working_set_bytes": 26914816,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 18030592,
+          "peak_job_commit_bytes": 18030592
+        },
+        "native_load": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.10514900000271155,
+          "observed_peak_working_set_bytes": 42213376,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 28499968,
+          "peak_job_commit_bytes": 28499968
+        }
+      },
+      "stage": "native_load",
+      "error_type": "FileExistsError"
+    },
+    {
+      "format": "vocaloid-offline-bank-build-state-v1",
+      "status": "published",
+      "phases": {
+        "assemble": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 1.414996899999096,
+          "observed_peak_working_set_bytes": 28913664,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 19767296,
+          "peak_job_commit_bytes": 19767296
+        },
+        "plan": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.15507649999926798,
+          "observed_peak_working_set_bytes": 25702400,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 16482304,
+          "peak_job_commit_bytes": 16482304
+        },
+        "tree": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.1048328999968362,
+          "observed_peak_working_set_bytes": 41967616,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 28487680,
+          "peak_job_commit_bytes": 28487680
+        },
+        "finalize": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.4066658999945503,
+          "observed_peak_working_set_bytes": 26722304,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 17223680,
+          "peak_job_commit_bytes": 17223680
+        },
+        "verify": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.20534129999578,
+          "observed_peak_working_set_bytes": 27074560,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 18096128,
+          "peak_job_commit_bytes": 18096128
+        },
+        "native_load": {
+          "exit_code": 0,
+          "timed_out": false,
+          "elapsed_seconds": 0.10504309999669204,
+          "observed_peak_working_set_bytes": 42381312,
+          "working_set_poll_interval_seconds": 0.05,
+          "peak_process_commit_bytes": 28774400,
+          "peak_job_commit_bytes": 28774400
+        }
+      },
+      "stage": "published"
+    }
+  ],
+  "known_failed_experiment": {
+    "directory": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\recovery\\output-verify",
+    "outcome": "Initial wrapper incorrectly published a DDI whose first four bytes were changed; both readers accepted it.",
+    "resolution": "Final wrapper compares recorded DDI/DDB hashes before publication; separately tested header guard and native truncation rejection."
+  },
+  "fixture_preparation_note": "Initial full preparation hit NTFS hard-link limit 1142; preserved under full-preparation-link-limit; generator now copies after that limit.",
+  "sources": {
+    "build_planned_bank.py": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher\\voicebank\\tools\\build_planned_bank.py",
+      "bytes": 13889,
+      "sha256": "64e90aff7f8b899ffe3021389da15d08efa1e2ffb3ba58a35288d44c9879199a"
+    },
+    "verify_bank_build_stress.py": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher\\voicebank\\tools\\verify_bank_build_stress.py",
+      "bytes": 11656,
+      "sha256": "e4ba37051827bffa300b6776be064c0c62037879a12269443f0506c7f94f3aeb"
+    },
+    "verify_bank_build_recovery.py": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher\\voicebank\\tools\\verify_bank_build_recovery.py",
+      "bytes": 13053,
+      "sha256": "50ded9971a763b24e53bb374c9173c22b75fa444bef87506d9c899fce51e42f3"
+    }
+  },
+  "seed_artifacts": {
+    "layer0.wav": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\seeds\\layer0.wav",
+      "bytes": 65580,
+      "sha256": "5290a666d14602da4b1e851c746e246c1e8224ee525be14c5a81f0b0792110b5"
+    },
+    "layer0.sms2": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\seeds\\layer0.sms2",
+      "bytes": 1492417,
+      "sha256": "e795aa5eac82060bf6f134cf084ca63757f7af4db0dd0c4fb5c02d0164ec71df"
+    },
+    "layer1.wav": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\seeds\\layer1.wav",
+      "bytes": 65580,
+      "sha256": "94a98c3b61f6db18225ee5f75d4161e8d0e5dabf125071daeed0df05fd1b9789"
+    },
+    "layer1.sms2": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\seeds\\layer1.sms2",
+      "bytes": 1457585,
+      "sha256": "108314d58c4ba9734fe53a3d3c6faa8356fa58a7e336874254c013754d9d2629"
+    },
+    "layer2.wav": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\seeds\\layer2.wav",
+      "bytes": 65580,
+      "sha256": "084d17fcb74e7d56386eec8f6f3cbff12b31f98b3092f59a898086b68bcac462"
+    },
+    "layer2.sms2": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\seeds\\layer2.sms2",
+      "bytes": 1441193,
+      "sha256": "c149b146cb54652a59dcedfe4a0adc862cb1a63a5f245f76c304c8b039a194d6"
+    }
+  },
+  "drs_harness_binary": {
+    "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher\\voicebank\\tools\\drs_harness\\bin\\Release\\net8.0-windows\\DrsHarness.dll",
+    "bytes": 28672,
+    "sha256": "b7bc08bcc496d6f2b2d8e96817f1952a42444ed60e5ddea8c3d7eeb1a11977ec"
+  },
+  "drs_harness_qualification": "Existing local harness binary was reused; no claim it was rebuilt from current dirty source in this task.",
+  "prior_evidence": {
+    "count": 464,
+    "all_unchanged": true,
+    "snapshot": {
+      "path": "C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher-research-work\\build-stress-20261015\\prior_evidence_sha256.json",
+      "bytes": 50599,
+      "sha256": "b08da0af2505707d872ed40768f250339b7fb645e872d484f55c6f63b56071c0"
+    }
+  },
+  "checks": {
+    "python_tests": {
+      "command": "python -B -m unittest discover -s voicebank/tools -p 'test_*.py' -v",
+      "passed": 30,
+      "failed": 0
+    },
+    "debug_solution_build": {
+      "command": "dotnet build VOCALOIDPatcher.sln -c Debug --nologo -v quiet",
+      "exit_code": 0,
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26300-SP0"
+  },
+  "limitations": [
+    "Synthetic structural pressure, not diverse recording analysis or acoustic approval.",
+    "Native loader validates planned objects; not every frame through a singing renderer.",
+    "Working-set high-water counters sampled every 50 ms; final unsampled tail may be missed.",
+    "Job peak commit applies to stage workers; supervisor measured separately, not summed as a simultaneous peak.",
+    "Scale runs overlapped in wall time; elapsed values are not isolated-host benchmark claims.",
+    "Real sharing violations tested, not physical disk-full or whole-machine power loss.",
+    "Forced termination tested after worker assignment and actual DDB output, not every startup instruction boundary."
+  ]
+}

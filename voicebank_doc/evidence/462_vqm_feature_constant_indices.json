@@ -1,0 +1,3409 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "decoder_version": "5.0.3",
+  "source_sha256": {
+    "audit_vqm_feature_constant_indices.py": "330185c12de9d0797b9b3fa7fc7d077a5a5a436eabdcc79496602ea294e0ddb8",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244",
+    "audit_vqm_feature_entry_returns.py": "076c9dc49f0fc96a4f1ef639cc33e0ade810eee7fe0ebd443e1bd8625ef4aa90",
+    "audit_vqm_feature_pointer_accesses.py": "30d8efca252006e6143dbbfb99230b8aa90721fc7793e9bfea50747ae0b69993",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84"
+  },
+  "owned_instruction_checks": [
+    {
+      "case": "constant_index",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "unknown_index",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "constant_shift",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "constant_multiply",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "partial_register_kills",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "call_kills_index",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "conditional_same",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "conditional_different",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "zero_extend_32_is_not_negative",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "sign_extend_negative_index",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "arithmetic_shift_negative",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "resolved_indexed_frame_load",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "nonvolatile_index",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "wide_overlap",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "adjacent_only",
+      "overlaps": 0,
+      "passed": true
+    }
+  ],
+  "counts": {
+    "runtime_groups": 3585,
+    "exception_ranges": 6090,
+    "decoded_instructions": 491535,
+    "transfer_visits": 951811,
+    "reached_instructions": 489457,
+    "previous_overlaps_preserved": 44,
+    "all_refined_overlaps": 44,
+    "indexed_alias_operands": 1810,
+    "unknown_index_operands": 1794,
+    "constant_index_operands": 16
+  },
+  "bit17_constant_index_leads": [],
+  "decode_gaps": [
+    {
+      "group_rva": "0x22570",
+      "fragment_rva": "0x22570",
+      "undecoded_start_rva": "0x227ae",
+      "undecoded_bytes": 28
+    },
+    {
+      "group_rva": "0x4c250",
+      "fragment_rva": "0x4c4fa",
+      "undecoded_start_rva": "0x4c800",
+      "undecoded_bytes": 64
+    },
+    {
+      "group_rva": "0x585a0",
+      "fragment_rva": "0x585a0",
+      "undecoded_start_rva": "0x5872d",
+      "undecoded_bytes": 3
+    },
+    {
+      "group_rva": "0xcdde0",
+      "fragment_rva": "0xcdde0",
+      "undecoded_start_rva": "0xcf6bd",
+      "undecoded_bytes": 23
+    },
+    {
+      "group_rva": "0xecbf0",
+      "fragment_rva": "0xecbf0",
+      "undecoded_start_rva": "0xece82",
+      "undecoded_bytes": 62
+    },
+    {
+      "group_rva": "0x113740",
+      "fragment_rva": "0x113740",
+      "undecoded_start_rva": "0x113838",
+      "undecoded_bytes": 24
+    },
+    {
+      "group_rva": "0x113850",
+      "fragment_rva": "0x113850",
+      "undecoded_start_rva": "0x11395b",
+      "undecoded_bytes": 5
+    },
+    {
+      "group_rva": "0x119df0",
+      "fragment_rva": "0x119df0",
+      "undecoded_start_rva": "0x119f5c",
+      "undecoded_bytes": 36
+    },
+    {
+      "group_rva": "0x1469e0",
+      "fragment_rva": "0x1469e0",
+      "undecoded_start_rva": "0x146ac5",
+      "undecoded_bytes": 29
+    },
+    {
+      "group_rva": "0x147b30",
+      "fragment_rva": "0x147b30",
+      "undecoded_start_rva": "0x147ca5",
+      "undecoded_bytes": 29
+    },
+    {
+      "group_rva": "0x14c5c0",
+      "fragment_rva": "0x14c853",
+      "undecoded_start_rva": "0x14ca10",
+      "undecoded_bytes": 16
+    },
+    {
+      "group_rva": "0x1af080",
+      "fragment_rva": "0x1af080",
+      "undecoded_start_rva": "0x1af759",
+      "undecoded_bytes": 213
+    },
+    {
+      "group_rva": "0x1af830",
+      "fragment_rva": "0x1af830",
+      "undecoded_start_rva": "0x1afba0",
+      "undecoded_bytes": 130
+    },
+    {
+      "group_rva": "0x1b2ab0",
+      "fragment_rva": "0x1b38f2",
+      "undecoded_start_rva": "0x1b3a88",
+      "undecoded_bytes": 380
+    },
+    {
+      "group_rva": "0x1ef4d0",
+      "fragment_rva": "0x1ef4d0",
+      "undecoded_start_rva": "0x1ef77e",
+      "undecoded_bytes": 42
+    }
+  ],
+  "unresolved_indexed_writes": [
+    {
+      "group_rva": "0x57d0",
+      "instruction_rva": "0x594b",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x57d0",
+      "instruction_rva": "0x5983",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x57d0",
+      "instruction_rva": "0x598e",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xd190",
+      "instruction_rva": "0xd312",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe810",
+      "instruction_rva": "0xea2c",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe810",
+      "instruction_rva": "0xea64",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe810",
+      "instruction_rva": "0xea6f",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xeb00",
+      "instruction_rva": "0xf308",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xeb00",
+      "instruction_rva": "0xf7f8",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x14110",
+      "instruction_rva": "0x14149",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x14110",
+      "instruction_rva": "0x1419c",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x14920",
+      "instruction_rva": "0x14946",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x14920",
+      "instruction_rva": "0x14949",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 1,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x149f0",
+      "instruction_rva": "0x14a29",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x149f0",
+      "instruction_rva": "0x14a9e",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x14ae0",
+      "instruction_rva": "0x14afb",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x159f0",
+      "instruction_rva": "0x15a6f",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x3a670",
+      "instruction_rva": "0x3a8a0",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3a670",
+      "instruction_rva": "0x3dec5",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x44db0",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44112,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x44db8",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44120,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x44dd0",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44112,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x44dd8",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44120,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45842",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44112,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x4584a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44120,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45a10",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44112,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45a18",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44120,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45a35",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44088,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45a3d",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44092,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45a5e",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44116,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45af7",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44088,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45b07",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44104,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x3dfe0",
+      "instruction_rva": "0x45b18",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 44120,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x46f20",
+      "instruction_rva": "0x47034",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4a240",
+      "instruction_rva": "0x4a66a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4a240",
+      "instruction_rva": "0x4a7d0",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4a7f0",
+      "instruction_rva": "0x4aa91",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4aab0",
+      "instruction_rva": "0x4ad51",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4ad70",
+      "instruction_rva": "0x4b0ea",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4b110",
+      "instruction_rva": "0x4b38b",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4b6f0",
+      "instruction_rva": "0x4b9d1",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4b9f0",
+      "instruction_rva": "0x4bcd1",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4bcf0",
+      "instruction_rva": "0x4bea9",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4bed0",
+      "instruction_rva": "0x4c0fa",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x4c110",
+      "instruction_rva": "0x4c23a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x52610",
+      "instruction_rva": "0x52fb8",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x52610",
+      "instruction_rva": "0x52fc3",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x52610",
+      "instruction_rva": "0x53648",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x52610",
+      "instruction_rva": "0x53653",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x52610",
+      "instruction_rva": "0x536e2",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x52610",
+      "instruction_rva": "0x536ec",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x539b0",
+      "instruction_rva": "0x550a0",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x539b0",
+      "instruction_rva": "0x550a6",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x539b0",
+      "instruction_rva": "0x55189",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x539b0",
+      "instruction_rva": "0x5519d",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x539b0",
+      "instruction_rva": "0x551fd",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x539b0",
+      "instruction_rva": "0x55203",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x553c0",
+      "instruction_rva": "0x5558d",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x553c0",
+      "instruction_rva": "0x557f0",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x6c0a0",
+      "instruction_rva": "0x6c1ea",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x6c0a0",
+      "instruction_rva": "0x6c1f0",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x6c3c0",
+      "instruction_rva": "0x6c73c",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 76,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x6c3c0",
+      "instruction_rva": "0x6c743",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 72,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7b4b0",
+      "instruction_rva": "0x7b851",
+      "root_load_rva": "0x7b826",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7b4b0",
+      "instruction_rva": "0x7b87e",
+      "root_load_rva": "0x7b826",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7b4b0",
+      "instruction_rva": "0x7b8c1",
+      "root_load_rva": "0x7b887",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7bf20",
+      "instruction_rva": "0x7c0d5",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": -4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7bf20",
+      "instruction_rva": "0x7c109",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": -4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7bf20",
+      "instruction_rva": "0x7c146",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7bf20",
+      "instruction_rva": "0x7c329",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7bf20",
+      "instruction_rva": "0x7c47e",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7ce60",
+      "instruction_rva": "0x7d1af",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 984,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x7ce60",
+      "instruction_rva": "0x7d210",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 984,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xa67d0",
+      "instruction_rva": "0xa6af5",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 50380,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xa67d0",
+      "instruction_rva": "0xa6b2a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 50788,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xa67d0",
+      "instruction_rva": "0xa6b6d",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 50584,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xbed00",
+      "instruction_rva": "0xbee95",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1780,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xbed00",
+      "instruction_rva": "0xbeeaf",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xccb10",
+      "instruction_rva": "0xccb52",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xccb10",
+      "instruction_rva": "0xccb62",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xccb10",
+      "instruction_rva": "0xccb72",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xccb10",
+      "instruction_rva": "0xccb7b",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xd2cc0",
+      "instruction_rva": "0xd6bc3",
+      "root_load_rva": "0xd6b80",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe3ee2",
+      "root_load_rva": "0xe3eb5",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe3f1a",
+      "root_load_rva": "0xe3eb5",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe3f3f",
+      "root_load_rva": "0xe3f2c",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe3fbe",
+      "root_load_rva": "0xe3f9e",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe3fe4",
+      "root_load_rva": "0xe3fc3",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe400b",
+      "root_load_rva": "0xe3fea",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe4032",
+      "root_load_rva": "0xe4011",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe4059",
+      "root_load_rva": "0xe4038",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe4080",
+      "root_load_rva": "0xe405f",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe40a7",
+      "root_load_rva": "0xe4086",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe40ce",
+      "root_load_rva": "0xe40ad",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe40f5",
+      "root_load_rva": "0xe40d4",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe411c",
+      "root_load_rva": "0xe40fb",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe3640",
+      "instruction_rva": "0xe4143",
+      "root_load_rva": "0xe4122",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4316",
+      "root_load_rva": "0xe42ef",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe436c",
+      "root_load_rva": "0xe4320",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe438e",
+      "root_load_rva": "0xe4376",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe458a",
+      "root_load_rva": "0xe4572",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe461a",
+      "root_load_rva": "0xe4601",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe46ab",
+      "root_load_rva": "0xe4692",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4719",
+      "root_load_rva": "0xe470e",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe473c",
+      "root_load_rva": "0xe4723",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe47aa",
+      "root_load_rva": "0xe479f",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe47cc",
+      "root_load_rva": "0xe47b3",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe485c",
+      "root_load_rva": "0xe4843",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe48f1",
+      "root_load_rva": "0xe48d8",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4986",
+      "root_load_rva": "0xe496d",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4a17",
+      "root_load_rva": "0xe49fe",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4add",
+      "root_load_rva": "0xe4ac4",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4c1d",
+      "root_load_rva": "0xe4c12",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 160,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4c88",
+      "root_load_rva": "0xe4c7d",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 164,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4cf3",
+      "root_load_rva": "0xe4ce8",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 168,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4d5e",
+      "root_load_rva": "0xe4d53",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 172,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4dc9",
+      "root_load_rva": "0xe4dbe",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 176,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4e34",
+      "root_load_rva": "0xe4e29",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 180,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4e9f",
+      "root_load_rva": "0xe4e94",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 184,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4f0a",
+      "root_load_rva": "0xe4eff",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 188,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4f75",
+      "root_load_rva": "0xe4f6a",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 192,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe4fe4",
+      "root_load_rva": "0xe4fd9",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 196,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe55c9",
+      "root_load_rva": "0xe55b1",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe56de",
+      "root_load_rva": "0xe56d3",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 156,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe5747",
+      "root_load_rva": "0xe573c",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 160,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe57b2",
+      "root_load_rva": "0xe57a7",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 164,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe581d",
+      "root_load_rva": "0xe5812",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 168,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe5888",
+      "root_load_rva": "0xe587d",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 172,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe58f3",
+      "root_load_rva": "0xe58e8",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 176,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe595e",
+      "root_load_rva": "0xe5953",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 180,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe59c9",
+      "root_load_rva": "0xe59be",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 184,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe5a34",
+      "root_load_rva": "0xe5a29",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 188,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe5aa7",
+      "root_load_rva": "0xe5a9c",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 192,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe5b12",
+      "root_load_rva": "0xe5b07",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 196,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe4240",
+      "instruction_rva": "0xe5b7d",
+      "root_load_rva": "0xe5b72",
+      "entry_argument": null,
+      "alias_offset": 0,
+      "displacement": 200,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe711d",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe7193",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe7211",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe727c",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe7334",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe73aa",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xe6a70",
+      "instruction_rva": "0xe743d",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 1488,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xead20",
+      "instruction_rva": "0xeb14a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xead20",
+      "instruction_rva": "0xeb2b0",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xeb2d0",
+      "instruction_rva": "0xeb571",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xeb590",
+      "instruction_rva": "0xeb831",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xeb850",
+      "instruction_rva": "0xeba8a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xebab0",
+      "instruction_rva": "0xebd2b",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xec090",
+      "instruction_rva": "0xec371",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xec390",
+      "instruction_rva": "0xec671",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xec690",
+      "instruction_rva": "0xec849",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xec870",
+      "instruction_rva": "0xeca9a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xecab0",
+      "instruction_rva": "0xecbda",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xecfe0",
+      "instruction_rva": "0xed218",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0690",
+      "instruction_rva": "0xf0b96",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 126032,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0690",
+      "instruction_rva": "0xf0ba4",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 132032,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0ec0",
+      "instruction_rva": "0xf134c",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0ec0",
+      "instruction_rva": "0xf1352",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0ec0",
+      "instruction_rva": "0xf1358",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0ec0",
+      "instruction_rva": "0xf1397",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf0ec0",
+      "instruction_rva": "0xf139d",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf16a0",
+      "instruction_rva": "0xf17a9",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 132032,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf16a0",
+      "instruction_rva": "0xf1850",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 126032,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf16a0",
+      "instruction_rva": "0xf1860",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 132032,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xf2830",
+      "instruction_rva": "0xf32a8",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfa860",
+      "instruction_rva": "0xfaa2d",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfa860",
+      "instruction_rva": "0xfaa74",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfa860",
+      "instruction_rva": "0xfaa82",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfa860",
+      "instruction_rva": "0xfaba6",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfb4a0",
+      "instruction_rva": "0xfb6d9",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 80,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfb4a0",
+      "instruction_rva": "0xfb717",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 120,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0xfb4a0",
+      "instruction_rva": "0xffb3a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 120,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1011e0",
+      "instruction_rva": "0x1012c4",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 164,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104b30",
+      "instruction_rva": "0x104b74",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104b30",
+      "instruction_rva": "0x104b87",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104b30",
+      "instruction_rva": "0x104b99",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104b30",
+      "instruction_rva": "0x104baf",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104b30",
+      "instruction_rva": "0x104bda",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104bf0",
+      "instruction_rva": "0x104c34",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104bf0",
+      "instruction_rva": "0x104c3a",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104bf0",
+      "instruction_rva": "0x104c45",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104bf0",
+      "instruction_rva": "0x104c54",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x104bf0",
+      "instruction_rva": "0x104c77",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1050c0",
+      "instruction_rva": "0x10511c",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1050c0",
+      "instruction_rva": "0x105139",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1050c0",
+      "instruction_rva": "0x105152",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1050c0",
+      "instruction_rva": "0x105169",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1050c0",
+      "instruction_rva": "0x10519b",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x105740",
+      "instruction_rva": "0x105782",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x105740",
+      "instruction_rva": "0x105792",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x105740",
+      "instruction_rva": "0x1057a2",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x105740",
+      "instruction_rva": "0x1057ab",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x10e570",
+      "instruction_rva": "0x10e617",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 352,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x10e910",
+      "instruction_rva": "0x10ea27",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 352,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x10ea90",
+      "instruction_rva": "0x10eba6",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 352,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x13e410",
+      "instruction_rva": "0x13e5a5",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4060,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x13e410",
+      "instruction_rva": "0x13e5bf",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1483a0",
+      "instruction_rva": "0x148641",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x148660",
+      "instruction_rva": "0x148901",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x148930",
+      "instruction_rva": "0x148c11",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x148da0",
+      "instruction_rva": "0x148fda",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x14cb40",
+      "instruction_rva": "0x14ccf9",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x14d230",
+      "instruction_rva": "0x14d65a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x14d230",
+      "instruction_rva": "0x14d7c0",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x14dc10",
+      "instruction_rva": "0x14dd9a",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x1502e5",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4256,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x1502f4",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4280,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x1503bf",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4280,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x1503cd",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4280,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x1503ea",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4316,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x150437",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4316,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x150464",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4316,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1500f0",
+      "instruction_rva": "0x15048a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 4316,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15de19",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15de27",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15de35",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15de40",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15de5e",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15df09",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15df17",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15df25",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15df30",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x15da20",
+      "instruction_rva": "0x15df4f",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x171e10",
+      "instruction_rva": "0x17206c",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 2
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c6a7",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369600,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c6b8",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369556,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c7e1",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369600,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c7eb",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369556,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c83b",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369600,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c842",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369556,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c859",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369556,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x18c5a0",
+      "instruction_rva": "0x18c886",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 369576,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x192350",
+      "instruction_rva": "0x19245a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x192350",
+      "instruction_rva": "0x19247a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x192350",
+      "instruction_rva": "0x192524",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x192350",
+      "instruction_rva": "0x19253a",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196130",
+      "instruction_rva": "0x19620c",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196130",
+      "instruction_rva": "0x196231",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196130",
+      "instruction_rva": "0x1962dd",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196130",
+      "instruction_rva": "0x1962f0",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196130",
+      "instruction_rva": "0x1962fe",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196130",
+      "instruction_rva": "0x196314",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196320",
+      "instruction_rva": "0x19637d",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196320",
+      "instruction_rva": "0x196399",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196320",
+      "instruction_rva": "0x1963c5",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196320",
+      "instruction_rva": "0x1963d4",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196320",
+      "instruction_rva": "0x1963dd",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196400",
+      "instruction_rva": "0x19645d",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196400",
+      "instruction_rva": "0x196479",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196400",
+      "instruction_rva": "0x1964a5",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196400",
+      "instruction_rva": "0x1964b4",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x196400",
+      "instruction_rva": "0x1964bd",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196a24",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196a30",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196a56",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196a62",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196a93",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196a9f",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196ac7",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1969c0",
+      "instruction_rva": "0x196ad2",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1a02b0",
+      "instruction_rva": "0x1a03fc",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5392,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa591",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1296,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa59d",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1304,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa5a5",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1312,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa5ae",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 7192,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa7ae",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1296,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa7ba",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1304,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aa7c2",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1312,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aaaae",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1296,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aaaba",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1304,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1aaac2",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1312,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1ab07b",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 7193,
+      "index_scale": 1,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1ab0e2",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1ab0fa",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1ab140",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 6936,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1aa0a0",
+      "instruction_rva": "0x1ab153",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 7064,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b0170",
+      "instruction_rva": "0x1b02c7",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6936,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b0170",
+      "instruction_rva": "0x1b02d5",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 7064,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b0360",
+      "instruction_rva": "0x1b04b8",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 872,
+      "index_scale": 1,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b28b0",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6164,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b28e4",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6420,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b28ed",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6676,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b2925",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6168,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b2946",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6424,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b294f",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6680,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b2a13",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6160,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b2a3e",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6416,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b2260",
+      "instruction_rva": "0x1b2a4d",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6672,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b8120",
+      "instruction_rva": "0x1b8a41",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1b8120",
+      "instruction_rva": "0x1b8a57",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 1
+    },
+    {
+      "group_rva": "0x1b8120",
+      "instruction_rva": "0x1b8a65",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 1040,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1b8120",
+      "instruction_rva": "0x1b8a77",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 6936,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b8120",
+      "instruction_rva": "0x1b8a88",
+      "root_load_rva": null,
+      "entry_argument": "r8",
+      "alias_offset": 0,
+      "displacement": 7064,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b9a40",
+      "instruction_rva": "0x1b9b7b",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 1040,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1b9a40",
+      "instruction_rva": "0x1b9b8a",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 6936,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1b9a40",
+      "instruction_rva": "0x1b9b98",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 7064,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1bafa0",
+      "instruction_rva": "0x1bb080",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5392,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1bafa0",
+      "instruction_rva": "0x1bb090",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5396,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1bafa0",
+      "instruction_rva": "0x1bb32f",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5392,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1bafa0",
+      "instruction_rva": "0x1bb42e",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5396,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1bafa0",
+      "instruction_rva": "0x1bb4b7",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5396,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1bafa0",
+      "instruction_rva": "0x1bb4d9",
+      "root_load_rva": null,
+      "entry_argument": "r9",
+      "alias_offset": 0,
+      "displacement": 5396,
+      "index_scale": 8,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1c73c0",
+      "instruction_rva": "0x1c76ed",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 80,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1d3f20",
+      "instruction_rva": "0x1d4026",
+      "root_load_rva": null,
+      "entry_argument": "rdx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 4,
+      "operand_bytes": 4
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d62e6",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d62f2",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d6319",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d6325",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d6368",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d6372",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d638b",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 8,
+      "operand_bytes": 16
+    },
+    {
+      "group_rva": "0x1d6270",
+      "instruction_rva": "0x1d6395",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_scale": 8,
+      "operand_bytes": 8
+    },
+    {
+      "group_rva": "0x1e7ec0",
+      "instruction_rva": "0x1e7f0b",
+      "root_load_rva": null,
+      "entry_argument": "rcx",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_scale": 1,
+      "operand_bytes": 1
+    }
+  ],
+  "unresolved_frame_load_write_groups": {
+    "0x7b4b0": 3,
+    "0xd2cc0": 1,
+    "0xe3640": 14,
+    "0xe4240": 38
+  },
+  "reviewed_output_parameter_groups": [
+    {
+      "group_rva": "0x104b30",
+      "role": "Strided four-byte array copy",
+      "output_argument": "r8",
+      "count_argument": 5,
+      "basis": "Successful pinned Ghidra function/decompile query",
+      "limit": "Generic copy helper; its callers and target ownership are not established"
+    },
+    {
+      "group_rva": "0x1050c0",
+      "role": "Strided float32 array copy multiplied by one supplied scalar",
+      "output_argument": "r9",
+      "count_argument": 6,
+      "basis": "Successful pinned Ghidra function/decompile query",
+      "limit": "Generic arithmetic helper; a supplied scalar does not identify a bit17 formula"
+    },
+    {
+      "group_rva": "0x15da20",
+      "role": "PCM16 to float conversion, edge taper and reflected padding",
+      "output_argument": "rdx",
+      "sample_count_argument": 3,
+      "caller_rvas": [
+        "0x15e5a0",
+        "0x15e810"
+      ],
+      "caller_source_bytes_per_sample": 2,
+      "caller_output_float_count_extra": 65536,
+      "basis": "Successful pinned Ghidra function/decompile/xref queries including both loaders",
+      "limit": "The inspected loaders prepare PCM and load/copy Frames separately; no bit17 calculation is identified"
+    }
+  ],
+  "scope": "All pinned PE unwind groups; untyped entry arguments and pointer-shaped Frame loads with must-known integer indices",
+  "limits": [
+    "A candidate is an untyped address lead, not a proved feature or producer",
+    "Unknown indices, loop induction ranges, indirect edges/callees and escaping spill addresses remain unresolved",
+    "Only the four previously reviewed switch tables are followed",
+    "The original private-spill analysis tracks pointer aliases but not spilled integer literals",
+    "No original maker assignment, physical unit or whole-program producer absence proof follows"
+  ],
+  "voiceaf_metadata": {
+    "modules": [
+      {
+        "module": "DSE.dll",
+        "sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+        "pointer_bytes": 8,
+        "labels_count": 44,
+        "categories": {
+          "frVoiceAF": 13,
+          "rgnVoiceAF": 12,
+          "timbreDescriptor": 19
+        },
+        "labels_sha256": "9a8616428aa5604e2e578f5d4db5c3961cdb7485ba68fac2a1df10e85db592f3"
+      },
+      {
+        "module": "va_DSE4.dll",
+        "sha256": "b96fec982d0a57b383835590d6ee852eb4ffc607933a33b52728edf35101b0eb",
+        "pointer_bytes": 4,
+        "labels_count": 44,
+        "categories": {
+          "frVoiceAF": 13,
+          "rgnVoiceAF": 12,
+          "timbreDescriptor": 19
+        },
+        "labels_sha256": "9a8616428aa5604e2e578f5d4db5c3961cdb7485ba68fac2a1df10e85db592f3"
+      }
+    ],
+    "identical_literal_sets": true,
+    "v6_core_name_prefix_separator_rva": "0x5aaf78",
+    "v6_separate_frame_voiceaf_pointer_rva": "0x5aaf80",
+    "conclusion": "All44 following VoiceAF/timbre labels are also present in V6; the shorter contiguous99-word run does not establish an older-only feature set",
+    "limits": [
+      "String identity and pointer placement are metadata, not implementation or serialized-field mapping",
+      "No V4-only producer, function binding or bit17 calculation follows from the labels"
+    ]
+  }
+}

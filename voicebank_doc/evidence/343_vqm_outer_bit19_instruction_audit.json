@@ -1,0 +1,26 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "image_base": "0x180000000",
+  "target_offset": "CSMSFrame+0x25c (saved outer bit19 u32)",
+  "source_candidates": "339_vqm_outer_direct_access_candidates.json",
+  "method": "All 23 four-byte 0x25c hits in executable sections were checked against Ghidra disassembly and enclosing-function decompilation; classify the actual instruction and base object, not just the byte sequence.",
+  "candidate_count": 23,
+  "frame_field_hits": {
+    "copy": ["0x12c2ac", "0x12c2b2", "0x12cde6", "0x12cdec"],
+    "clear": ["0x12d538"],
+    "constructor_default": ["0x130510"],
+    "two_source_copy_in_interpolator": ["0x134e19", "0x134e22", "0x134e29"],
+    "file_read": ["0x13748f"],
+    "file_write": ["0x13918e"]
+  },
+  "other_object_field_hits": {
+    "rvas": ["0x50682", "0x52c6c", "0x54625", "0x54661"],
+    "basis": "These functions use +0x25c as an analysis/index field with +0x250/+0x260/+0x268/+0x270 relationships, not a CSMSFrame operand."
+  },
+  "non_field_byte_hits": {
+    "instruction_displacement_or_immediate_overlap": ["0x615d7", "0x617d8", "0xe0632", "0x1079a7", "0x13a670"],
+    "stack_local_displacement": ["0x1a6fb6", "0x1a70dc", "0x1e3218"]
+  },
+  "coverage": "The 23 raw disp32/immediate byte candidates only; indirect addressing, block copies, other binaries and producer-side code are outside scope.",
+  "conclusion": "No additional direct CSMSFrame+0x25c access was found among these 23 executable-byte candidates beyond the seven previously identified generic frame helpers. This does not establish the saved field's semantic identity or global non-use."
+}

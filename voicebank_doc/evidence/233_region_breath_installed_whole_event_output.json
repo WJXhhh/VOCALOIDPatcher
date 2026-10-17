@@ -1,0 +1,106 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "source_reports": [
+    {
+      "name": "breath_real233_a.json",
+      "sha256": "224e8eac5b1f0d14113d69ccc792eaf575f32fb96a5658d350060f608633cf75",
+      "bytes": 209404
+    },
+    {
+      "name": "breath_real233_b.json",
+      "sha256": "224e8eac5b1f0d14113d69ccc792eaf575f32fb96a5658d350060f608633cf75",
+      "bytes": 209404
+    }
+  ],
+  "repeated_report_equal": true,
+  "all_432_output_stream_hashes_equal": true,
+  "design": "For each of 432 native V4X breath event commits, one fresh DSE context replays the original mode-0 event from block zero through the last short-margin ART record. This covers all 56616 short-item record times in the complete output-block loop.",
+  "sources": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "ddb_bytes": 2374247876,
+      "ddb_sha256": "10e4e139f80bcd738e2e318f2d7cc61e5b099a4536455de7005ffcae9b0edb75"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "ddb_bytes": 660424322,
+      "ddb_sha256": "a429b51e2650ba81640d57a7f5e8ef4facd7e7e22ff877502a5bedf34daac196"
+    }
+  ],
+  "events": 432,
+  "short_items_covered": 576,
+  "short_record_times_covered": 56616,
+  "output_blocks_each": 108432,
+  "nonzero_output_blocks_each": 66240,
+  "events_with_nonzero_output": 432,
+  "short_items_per_event": {
+    "1": 288,
+    "2": 144
+  },
+  "by_token": [
+    {
+      "bank": "MIKU_V4X_Dark",
+      "token": "br5",
+      "events": 72,
+      "short_items": 72,
+      "short_records": 5844,
+      "output_blocks": 18420,
+      "nonzero_output_blocks": 11580,
+      "events_with_nonzero_output": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br1",
+      "events": 72,
+      "short_items": 72,
+      "short_records": 9168,
+      "output_blocks": 17844,
+      "nonzero_output_blocks": 10788,
+      "events_with_nonzero_output": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br2",
+      "events": 72,
+      "short_items": 72,
+      "short_records": 9900,
+      "output_blocks": 18276,
+      "nonzero_output_blocks": 11220,
+      "events_with_nonzero_output": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br3",
+      "events": 72,
+      "short_items": 144,
+      "short_records": 10860,
+      "output_blocks": 17772,
+      "nonzero_output_blocks": 10860,
+      "events_with_nonzero_output": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br4",
+      "events": 72,
+      "short_items": 72,
+      "short_records": 10056,
+      "output_blocks": 18204,
+      "nonzero_output_blocks": 11076,
+      "events_with_nonzero_output": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br5",
+      "events": 72,
+      "short_items": 144,
+      "short_records": 10788,
+      "output_blocks": 17916,
+      "nonzero_output_blocks": 10716,
+      "events_with_nonzero_output": 72
+    }
+  ],
+  "scope": "Read-only installed V4X FRM2/PCM; all short-item record times reach the full output-block call. Does not independently prove each frame was selected at every time, test Editor host configuration, or evaluate listening quality. PCM remains in memory; reports save counts and hashes only."
+}

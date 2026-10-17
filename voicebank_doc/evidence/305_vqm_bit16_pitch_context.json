@@ -1,0 +1,157 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "independent_sequences": 3,
+  "window_size": 2048,
+  "window_kind": 10,
+  "rows": [
+    {
+      "frequency_rule": "saved_current",
+      "count": 216,
+      "median_absolute_error": 0.0017335508484409567,
+      "mean_absolute_error": 0.001948145215533006,
+      "max_absolute_error": 0.0056846483013404114,
+      "per_sequence_mean_absolute_error": [
+        0.0026927483394200576,
+        0.0011469909991931445,
+        0.0021497488645871895
+      ]
+    },
+    {
+      "frequency_rule": "saved_previous",
+      "count": 216,
+      "median_absolute_error": 0.0017183495271162474,
+      "mean_absolute_error": 0.0021737083515265205,
+      "max_absolute_error": 0.014167199621473614,
+      "per_sequence_mean_absolute_error": [
+        0.0033351770045285346,
+        0.001317997410295243,
+        0.002094210766963968
+      ]
+    },
+    {
+      "frequency_rule": "saved_next",
+      "count": 216,
+      "median_absolute_error": 0.0015191728917283154,
+      "mean_absolute_error": 0.0020231886863079415,
+      "max_absolute_error": 0.012288045333775033,
+      "per_sequence_mean_absolute_error": [
+        0.0031140964666707487,
+        0.0010957797161622812,
+        0.002072204378758874
+      ]
+    },
+    {
+      "frequency_rule": "three_frame_mean",
+      "count": 216,
+      "median_absolute_error": 0.0018806256020706957,
+      "mean_absolute_error": 0.002123632756349155,
+      "max_absolute_error": 0.005686837370367126,
+      "per_sequence_mean_absolute_error": [
+        0.003062146633705209,
+        0.0010555109270712478,
+        0.002436068086976733
+      ]
+    },
+    {
+      "frequency_rule": "three_frame_median",
+      "count": 216,
+      "median_absolute_error": 0.001811595561359347,
+      "mean_absolute_error": 0.0020853903851628325,
+      "max_absolute_error": 0.0056846483013404114,
+      "per_sequence_mean_absolute_error": [
+        0.002955492656263252,
+        0.0010793926309644656,
+        0.0023907863106829392
+      ]
+    },
+    {
+      "frequency_rule": "pitch1",
+      "count": 216,
+      "median_absolute_error": 0.0032427000219323876,
+      "mean_absolute_error": 0.004641021385349159,
+      "max_absolute_error": 0.03992025438513136,
+      "per_sequence_mean_absolute_error": [
+        0.007105187053548782,
+        0.002105236481812675,
+        0.005192672893711921
+      ]
+    },
+    {
+      "frequency_rule": "previous_0.25",
+      "count": 216,
+      "median_absolute_error": 0.0018384704715304068,
+      "mean_absolute_error": 0.0020445549436684837,
+      "max_absolute_error": 0.005881844590480467,
+      "per_sequence_mean_absolute_error": [
+        0.0028850799057377557,
+        0.001089040467344978,
+        0.0023232830868972513
+      ]
+    },
+    {
+      "frequency_rule": "next_0.25",
+      "count": 216,
+      "median_absolute_error": 0.0018662125955395403,
+      "mean_absolute_error": 0.0020671138044372657,
+      "max_absolute_error": 0.0058501788789149245,
+      "per_sequence_mean_absolute_error": [
+        0.002990978003883006,
+        0.0010701780620409411,
+        0.0023201588927344234
+      ]
+    },
+    {
+      "frequency_rule": "previous_0.5",
+      "count": 216,
+      "median_absolute_error": 0.00199084224005297,
+      "mean_absolute_error": 0.00209593223147273,
+      "max_absolute_error": 0.005273577191526435,
+      "per_sequence_mean_absolute_error": [
+        0.002990882999992667,
+        0.0011171136515225567,
+        0.002354141101705551
+      ]
+    },
+    {
+      "frequency_rule": "next_0.5",
+      "count": 216,
+      "median_absolute_error": 0.0018244885737961347,
+      "mean_absolute_error": 0.0020766927364993136,
+      "max_absolute_error": 0.005807391138870077,
+      "per_sequence_mean_absolute_error": [
+        0.003041984190584671,
+        0.0010180031320592478,
+        0.0023581346766109097
+      ]
+    },
+    {
+      "frequency_rule": "previous_0.75",
+      "count": 216,
+      "median_absolute_error": 0.0018893838836684385,
+      "mean_absolute_error": 0.0020949894448669465,
+      "max_absolute_error": 0.007119309070522162,
+      "per_sequence_mean_absolute_error": [
+        0.0029702589861918035,
+        0.0012140493004516482,
+        0.00227116710146223
+      ]
+    },
+    {
+      "frequency_rule": "next_0.75",
+      "count": 216,
+      "median_absolute_error": 0.001759491085490783,
+      "mean_absolute_error": 0.002015061935747718,
+      "max_absolute_error": 0.0058675597955855086,
+      "per_sequence_mean_absolute_error": [
+        0.002960749180683231,
+        0.001010708386422175,
+        0.002257953028112199
+      ]
+    }
+  ],
+  "best_frequency_rule": "saved_current",
+  "best_reduction_fraction_vs_current": 0.0,
+  "scope": "Finite local saved-F0 candidate family on 216 fully bounded VQM frames; a better candidate is not proof of the original frequency estimator."
+}

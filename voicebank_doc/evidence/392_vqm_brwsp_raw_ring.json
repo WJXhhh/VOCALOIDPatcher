@@ -1,0 +1,88 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "geometry_from_bit0_only": {
+    "exception_pairs": [
+      120,
+      121,
+      304,
+      305
+    ],
+    "first_boundary_range": [
+      30786,
+      30788
+    ],
+    "first_boundary_count": 3,
+    "second_boundary_range": [
+      77960,
+      77960
+    ],
+    "second_boundary_count": 1,
+    "possible_capacities": [
+      47172,
+      47173,
+      47174
+    ],
+    "representative_capacity": 47172,
+    "representative_start_offset": 16384,
+    "constructor_config100": 12.0
+  },
+  "native_to_independent_float32_exact": 388,
+  "unsaved_neighbour_controls": 8,
+  "raw_bit15_to_saved": {
+    "frames": 388,
+    "mean_absolute_error": 9.433275146275452e-05,
+    "max_absolute_error": 0.00929751992225647,
+    "within_1e_6": 382
+  },
+  "fixed_half_lsb_controls": [
+    {
+      "adjustment_from_zero": -0.5,
+      "frames": 388,
+      "mean_absolute_error": 0.00011182793406481596,
+      "max_absolute_error": 0.00929751992225647,
+      "within_1e_6": 381
+    },
+    {
+      "adjustment_from_zero": 0.5,
+      "frames": 388,
+      "mean_absolute_error": 0.00012376498354157222,
+      "max_absolute_error": 0.011419706046581268,
+      "within_1e_6": 381
+    }
+  ],
+  "saved_crossing_counts_match": 382,
+  "exceptions": [
+    {
+      "index": 14,
+      "bit15_absolute_error": 0.0071921199560165405,
+      "crossing_count_delta": -2
+    },
+    {
+      "index": 46,
+      "bit15_absolute_error": 0.00929751992225647,
+      "crossing_count_delta": -2
+    },
+    {
+      "index": 161,
+      "bit15_absolute_error": 0.008686408400535583,
+      "crossing_count_delta": 2
+    },
+    {
+      "index": 165,
+      "bit15_absolute_error": 0.002278141677379608,
+      "crossing_count_delta": 2
+    },
+    {
+      "index": 251,
+      "bit15_absolute_error": 0.0020041167736053467,
+      "crossing_count_delta": -2
+    },
+    {
+      "index": 298,
+      "bit15_absolute_error": 0.007141217589378357,
+      "crossing_count_delta": -2
+    }
+  ],
+  "scope": "All 388 BRWSP raw windows after frame0. Boundary positions and period are constrained using saved bit0 only; bit15 is a separate check. A real DRS constructor allocates the representative ring, populated per window from installed PCM. Main comparison uses original PCM; fixed half-LSB inputs are separately labeled controls. No mean fitting or bit15 field substitutions. Neither original capacity nor configuration is uniquely proven; remaining small crossing differences persist."
+}

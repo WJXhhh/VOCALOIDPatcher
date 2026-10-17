@@ -1,0 +1,2483 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "resource_sha256": "45ac6bb79bf12fd6f79d6739e06154d25585ec7850bd52531fe28d2943057438",
+  "reference_sha256": "5ba52ec05729cabde8bc68d7fc5c0aa4490837eb7b26190213f8bdc9795949b6",
+  "python_version": "3.12.14",
+  "numpy_version": "2.3.5",
+  "fft_identity": {
+    "name": "DSE_DFT.dll",
+    "sha256": "7cae07fabcede5a9aa6ddbef596eafb73220d25ff7e343943322c93a4db60860",
+    "identity_source": "GetModuleHandleW/GetModuleFileNameW of the loaded module"
+  },
+  "owned_checks": [
+    {
+      "case": "known_context_left_constant",
+      "passed": true
+    },
+    {
+      "case": "known_context_left_rising",
+      "passed": true
+    },
+    {
+      "case": "known_context_left_falling",
+      "passed": true
+    },
+    {
+      "case": "known_context_left_alternating",
+      "passed": true
+    },
+    {
+      "case": "known_context_right_constant",
+      "passed": true
+    },
+    {
+      "case": "known_context_right_rising",
+      "passed": true
+    },
+    {
+      "case": "known_context_right_falling",
+      "passed": true
+    },
+    {
+      "case": "known_context_right_alternating",
+      "passed": true
+    },
+    {
+      "case": "visible_count_exceeds_saved",
+      "passed": true
+    },
+    {
+      "case": "inconsistent_nested_hidden_max",
+      "passed": true
+    },
+    {
+      "case": "constant_pitch_1",
+      "passed": true
+    },
+    {
+      "case": "constant_pitch_2",
+      "passed": true
+    },
+    {
+      "case": "constant_pitch_16",
+      "passed": true
+    },
+    {
+      "case": "constant_pitch_19",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "boundaries": 238,
+    "boundaries_with_constraints": 142,
+    "feasible_boundaries": 238,
+    "boundaries_needing_hidden": 24,
+    "left_length_mismatches": 79,
+    "minimum_eligible_hidden_frames": 48,
+    "right_length_mismatches": 61,
+    "source_frames": 26842,
+    "interior_optional_frames": 20798,
+    "nonzero_runtime_strength": 3255,
+    "interior_length_matching": 20798,
+    "edge_optional_frames": 1240,
+    "edge_length_matching": 1100
+  },
+  "boundary_count_feasibility": [
+    {
+      "sample_index": 0,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 0,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 1,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 1,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 2,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 2,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 3,
+      "side": "left",
+      "constraints": 1,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 3,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 4,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 4,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 5,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 5,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 9,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 5
+    },
+    {
+      "sample_index": 6,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 6,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 7,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 7,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 8,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 8,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 9,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 9,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 10,
+      "side": "left",
+      "constraints": 6,
+      "visible_length_mismatches": 5,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 2
+    },
+    {
+      "sample_index": 10,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 11,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 11,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 12,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 12,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 13,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 13,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 14,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 9,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 14,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 15,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 15,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 16,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 16,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 4,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 4
+    },
+    {
+      "sample_index": 17,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 17,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 18,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 18,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 19,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 19,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 20,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 20,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 21,
+      "side": "left",
+      "constraints": 7,
+      "visible_length_mismatches": 4,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 2
+    },
+    {
+      "sample_index": 21,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 22,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 22,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 23,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 23,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 24,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 24,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 25,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 25,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 26,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 26,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 27,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 27,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 28,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 28,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 29,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 29,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 30,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 30,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 31,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 31,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 32,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 32,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 33,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 33,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 34,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 34,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 35,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 35,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 9,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 36,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 36,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 37,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 37,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 38,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 38,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 39,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 39,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 40,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 40,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 41,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 41,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 5,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 42,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 42,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 43,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 43,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 4,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 44,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 44,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 45,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 45,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 46,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 46,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 47,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 47,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 48,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 48,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 6,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 3
+    },
+    {
+      "sample_index": 49,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 49,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 50,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 50,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 51,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 51,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 52,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 52,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 1,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 53,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 53,
+      "side": "right",
+      "constraints": 2,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 54,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 54,
+      "side": "right",
+      "constraints": 6,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 55,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 55,
+      "side": "right",
+      "constraints": 2,
+      "visible_length_mismatches": 2,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 2
+    },
+    {
+      "sample_index": 56,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 56,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 57,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 57,
+      "side": "right",
+      "constraints": 5,
+      "visible_length_mismatches": 5,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 58,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 58,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 59,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 59,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 60,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 60,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 61,
+      "side": "left",
+      "constraints": 6,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 61,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 62,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 62,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 63,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 63,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 64,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 8,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 64,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 65,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 65,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 4,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 66,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 66,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 67,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 6,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 67,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 68,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 68,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 69,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 6,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 69,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 70,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 8,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 70,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 71,
+      "side": "left",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 71,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 72,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 7,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 72,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 73,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 7,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 73,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 74,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 1,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 74,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 75,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 75,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 76,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 76,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 77,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 77,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 78,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 78,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 79,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 79,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 80,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 9,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 7
+    },
+    {
+      "sample_index": 80,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 81,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 81,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 82,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 82,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 83,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 83,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 84,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 84,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 85,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 85,
+      "side": "right",
+      "constraints": 8,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 86,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 86,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 9,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 6
+    },
+    {
+      "sample_index": 87,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 87,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 88,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 88,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 89,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 89,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 90,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 90,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 91,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 91,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 92,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 92,
+      "side": "right",
+      "constraints": 9,
+      "visible_length_mismatches": 3,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 1
+    },
+    {
+      "sample_index": 93,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 93,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 94,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 94,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 95,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 95,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 96,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 96,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 97,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 97,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 98,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 98,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 99,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 99,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 100,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 100,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 101,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 101,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 102,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 102,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 103,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 103,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 104,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 104,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 105,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 105,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 106,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 106,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 107,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 107,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 108,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 108,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 109,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 109,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 110,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 110,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 111,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 111,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 112,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 112,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 113,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 113,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 114,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 114,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 115,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 115,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 116,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 9,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 2
+    },
+    {
+      "sample_index": 116,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 117,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 117,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 118,
+      "side": "left",
+      "constraints": 9,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    },
+    {
+      "sample_index": 118,
+      "side": "right",
+      "constraints": 0,
+      "visible_length_mismatches": 0,
+      "feasible_with_missing_context": true,
+      "minimum_eligible_hidden_frames": 0
+    }
+  ],
+  "pitch_model_errors": {
+    "all": {
+      "runtime_cents": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.09291803408611901,
+          "median_absolute_error": 0.022216796875,
+          "max_absolute_error": 47.9266357421875,
+          "within_1e_6": 31,
+          "within_1e_3": 1035,
+          "within_1e_2": 7246
+        },
+        "float32_bytes_exact": 31
+      },
+      "cents_nyquist_suppressed": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.03938434458677409,
+          "median_absolute_error": 0.0,
+          "max_absolute_error": 48.6197509765625,
+          "within_1e_6": 19768,
+          "within_1e_3": 20809,
+          "within_1e_2": 20875
+        },
+        "float32_bytes_exact": 19564
+      },
+      "cents_without_mix": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.29087246835234487,
+          "median_absolute_error": 0.0283203125,
+          "max_absolute_error": 57.0517578125,
+          "within_1e_6": 26,
+          "within_1e_3": 933,
+          "within_1e_2": 6662
+        },
+        "float32_bytes_exact": 26
+      },
+      "hz_from_pitch_mix_cents": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.10873280619673836,
+          "median_absolute_error": 0.022151947021484375,
+          "max_absolute_error": 47.9697265625,
+          "within_1e_6": 21,
+          "within_1e_3": 1005,
+          "within_1e_2": 7291
+        },
+        "float32_bytes_exact": 21
+      },
+      "hz_from_frequency_mix_cents": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.10873200484720613,
+          "median_absolute_error": 0.02215576171875,
+          "max_absolute_error": 47.9698486328125,
+          "within_1e_6": 23,
+          "within_1e_3": 1005,
+          "within_1e_2": 7284
+        },
+        "float32_bytes_exact": 23
+      },
+      "hz_from_pitch_mix_hz": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.10881202945192048,
+          "median_absolute_error": 0.02215576171875,
+          "max_absolute_error": 47.9697265625,
+          "within_1e_6": 22,
+          "within_1e_3": 1003,
+          "within_1e_2": 7291
+        },
+        "float32_bytes_exact": 22
+      },
+      "hz_from_frequency_mix_hz": {
+        "error": {
+          "compared": 22038,
+          "mean_absolute_error": 0.1088113108992387,
+          "median_absolute_error": 0.022182464599609375,
+          "max_absolute_error": 47.9698486328125,
+          "within_1e_6": 24,
+          "within_1e_3": 1002,
+          "within_1e_2": 7283
+        },
+        "float32_bytes_exact": 24
+      }
+    },
+    "interior": {
+      "runtime_cents": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 0.05666728868918621,
+          "median_absolute_error": 0.020263671875,
+          "max_absolute_error": 3.71142578125,
+          "within_1e_6": 31,
+          "within_1e_3": 1026,
+          "within_1e_2": 7168
+        },
+        "float32_bytes_exact": 31
+      },
+      "cents_nyquist_suppressed": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 1.4736552011027843e-06,
+          "median_absolute_error": 0.0,
+          "max_absolute_error": 0.000244140625,
+          "within_1e_6": 19766,
+          "within_1e_3": 20798,
+          "within_1e_2": 20798
+        },
+        "float32_bytes_exact": 19562
+      },
+      "cents_without_mix": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 0.2648544015556485,
+          "median_absolute_error": 0.025390625,
+          "max_absolute_error": 57.0517578125,
+          "within_1e_6": 26,
+          "within_1e_3": 926,
+          "within_1e_2": 6589
+        },
+        "float32_bytes_exact": 26
+      },
+      "hz_from_pitch_mix_cents": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 0.0734100368167481,
+          "median_absolute_error": 0.01995849609375,
+          "max_absolute_error": 9.684814453125,
+          "within_1e_6": 21,
+          "within_1e_3": 995,
+          "within_1e_2": 7214
+        },
+        "float32_bytes_exact": 21
+      },
+      "hz_from_frequency_mix_cents": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 0.07340906370027811,
+          "median_absolute_error": 0.019977569580078125,
+          "max_absolute_error": 9.684814453125,
+          "within_1e_6": 23,
+          "within_1e_3": 995,
+          "within_1e_2": 7207
+        },
+        "float32_bytes_exact": 23
+      },
+      "hz_from_pitch_mix_hz": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 0.07349481689570177,
+          "median_absolute_error": 0.01995849609375,
+          "max_absolute_error": 9.684814453125,
+          "within_1e_6": 22,
+          "within_1e_3": 994,
+          "within_1e_2": 7214
+        },
+        "float32_bytes_exact": 22
+      },
+      "hz_from_frequency_mix_hz": {
+        "error": {
+          "compared": 20798,
+          "mean_absolute_error": 0.07349392417586127,
+          "median_absolute_error": 0.019985198974609375,
+          "max_absolute_error": 9.684814453125,
+          "within_1e_6": 24,
+          "within_1e_3": 993,
+          "within_1e_2": 7206
+        },
+        "float32_bytes_exact": 24
+      }
+    },
+    "edge": {
+      "runtime_cents": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.7009365847033839,
+          "median_absolute_error": 0.17818737030029297,
+          "max_absolute_error": 47.9266357421875,
+          "within_1e_6": 0,
+          "within_1e_3": 9,
+          "within_1e_2": 78
+        },
+        "float32_bytes_exact": 0
+      },
+      "cents_nyquist_suppressed": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.6999367233245604,
+          "median_absolute_error": 0.172698974609375,
+          "max_absolute_error": 48.6197509765625,
+          "within_1e_6": 2,
+          "within_1e_3": 11,
+          "within_1e_2": 77
+        },
+        "float32_bytes_exact": 2
+      },
+      "cents_without_mix": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.7272625919311277,
+          "median_absolute_error": 0.18780517578125,
+          "max_absolute_error": 47.9266357421875,
+          "within_1e_6": 0,
+          "within_1e_3": 7,
+          "within_1e_2": 73
+        },
+        "float32_bytes_exact": 0
+      },
+      "hz_from_pitch_mix_cents": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.7011868042330588,
+          "median_absolute_error": 0.17691802978515625,
+          "max_absolute_error": 47.9697265625,
+          "within_1e_6": 0,
+          "within_1e_3": 10,
+          "within_1e_2": 77
+        },
+        "float32_bytes_exact": 0
+      },
+      "hz_from_frequency_mix_cents": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.7011888838583423,
+          "median_absolute_error": 0.176971435546875,
+          "max_absolute_error": 47.9698486328125,
+          "within_1e_6": 0,
+          "within_1e_3": 10,
+          "within_1e_2": 77
+        },
+        "float32_bytes_exact": 0
+      },
+      "hz_from_pitch_mix_hz": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.7011728252134015,
+          "median_absolute_error": 0.17691802978515625,
+          "max_absolute_error": 47.9697265625,
+          "within_1e_6": 0,
+          "within_1e_3": 9,
+          "within_1e_2": 77
+        },
+        "float32_bytes_exact": 0
+      },
+      "hz_from_frequency_mix_hz": {
+        "error": {
+          "compared": 1240,
+          "mean_absolute_error": 0.7011750278934356,
+          "median_absolute_error": 0.176971435546875,
+          "max_absolute_error": 47.9698486328125,
+          "within_1e_6": 0,
+          "within_1e_3": 9,
+          "within_1e_2": 77
+        },
+        "float32_bytes_exact": 0
+      }
+    }
+  },
+  "grouped_linear_audit": {
+    "eligible_rows": 17663,
+    "distinct_loaded_state_groups": 114,
+    "fold_rows": {
+      "0": 3406,
+      "1": 7144,
+      "2": 4532,
+      "3": 2581
+    },
+    "native_control_error": {
+      "compared": 17663,
+      "mean_absolute_error": 0.04974158581092972,
+      "median_absolute_error": 0.0179443359375,
+      "max_absolute_error": 3.71142578125,
+      "within_1e_6": 26,
+      "within_1e_3": 912,
+      "within_1e_2": 6479
+    },
+    "fitted_families": {
+      "symmetric_19_point": {
+        "folds": [
+          {
+            "fold": 0,
+            "training_rows": 14257,
+            "held_out_rows": 3406,
+            "rank": 9,
+            "parameters": 9,
+            "singular_condition": 135.8996300876659,
+            "held_out_error": {
+              "compared": 3406,
+              "mean_absolute_error": 0.058825200566878684,
+              "median_absolute_error": 0.01631927490234375,
+              "max_absolute_error": 4.6083984375,
+              "within_1e_6": 2,
+              "within_1e_3": 133,
+              "within_1e_2": 1140
+            },
+            "held_out_float32_bytes_exact": 2
+          },
+          {
+            "fold": 1,
+            "training_rows": 10519,
+            "held_out_rows": 7144,
+            "rank": 9,
+            "parameters": 9,
+            "singular_condition": 137.73804478446846,
+            "held_out_error": {
+              "compared": 7144,
+              "mean_absolute_error": 0.10070600063401333,
+              "median_absolute_error": 0.0474853515625,
+              "max_absolute_error": 1.53875732421875,
+              "within_1e_6": 11,
+              "within_1e_3": 142,
+              "within_1e_2": 1155
+            },
+            "held_out_float32_bytes_exact": 11
+          },
+          {
+            "fold": 2,
+            "training_rows": 13131,
+            "held_out_rows": 4532,
+            "rank": 9,
+            "parameters": 9,
+            "singular_condition": 123.95524364690166,
+            "held_out_error": {
+              "compared": 4532,
+              "mean_absolute_error": 0.16824812735435007,
+              "median_absolute_error": 0.0901947021484375,
+              "max_absolute_error": 3.449951171875,
+              "within_1e_6": 1,
+              "within_1e_3": 58,
+              "within_1e_2": 480
+            },
+            "held_out_float32_bytes_exact": 1
+          },
+          {
+            "fold": 3,
+            "training_rows": 15082,
+            "held_out_rows": 2581,
+            "rank": 9,
+            "parameters": 9,
+            "singular_condition": 130.99916925408297,
+            "held_out_error": {
+              "compared": 2581,
+              "mean_absolute_error": 0.09763163488815801,
+              "median_absolute_error": 0.0420379638671875,
+              "max_absolute_error": 2.62255859375,
+              "within_1e_6": 0,
+              "within_1e_3": 43,
+              "within_1e_2": 402
+            },
+            "held_out_float32_bytes_exact": 0
+          }
+        ],
+        "held_out_error": {
+          "compared": 17663,
+          "mean_absolute_error": 0.10951084552320843,
+          "median_absolute_error": 0.043914794921875,
+          "max_absolute_error": 4.6083984375,
+          "within_1e_6": 14,
+          "within_1e_3": 376,
+          "within_1e_2": 3177
+        },
+        "held_out_float32_bytes_exact": 14,
+        "maximum_fold_coefficient_range": 0.00832327351747908,
+        "maximum_difference_from_native_impulse_kernel": 0.04178080649120272,
+        "maximum_difference_from_suppressed_nyquist_kernel": 0.010714898157995853
+      },
+      "unrestricted_19_point": {
+        "folds": [
+          {
+            "fold": 0,
+            "training_rows": 14257,
+            "held_out_rows": 3406,
+            "rank": 18,
+            "parameters": 18,
+            "singular_condition": 286.9454839078695,
+            "held_out_error": {
+              "compared": 3406,
+              "mean_absolute_error": 1.9758935368068064e-05,
+              "median_absolute_error": 0.0,
+              "max_absolute_error": 0.00048828125,
+              "within_1e_6": 1773,
+              "within_1e_3": 3406,
+              "within_1e_2": 3406
+            },
+            "held_out_float32_bytes_exact": 1765
+          },
+          {
+            "fold": 1,
+            "training_rows": 10519,
+            "held_out_rows": 7144,
+            "rank": 18,
+            "parameters": 18,
+            "singular_condition": 280.3713380098436,
+            "held_out_error": {
+              "compared": 7144,
+              "mean_absolute_error": 2.4341403747609455e-05,
+              "median_absolute_error": 0.0,
+              "max_absolute_error": 0.000244140625,
+              "within_1e_6": 3761,
+              "within_1e_3": 7144,
+              "within_1e_2": 7144
+            },
+            "held_out_float32_bytes_exact": 3646
+          },
+          {
+            "fold": 2,
+            "training_rows": 13131,
+            "held_out_rows": 4532,
+            "rank": 18,
+            "parameters": 18,
+            "singular_condition": 290.6701962821639,
+            "held_out_error": {
+              "compared": 4532,
+              "mean_absolute_error": 2.8688416200618458e-05,
+              "median_absolute_error": 0.0,
+              "max_absolute_error": 0.00048828125,
+              "within_1e_6": 2457,
+              "within_1e_3": 4532,
+              "within_1e_2": 4532
+            },
+            "held_out_float32_bytes_exact": 2332
+          },
+          {
+            "fold": 3,
+            "training_rows": 15082,
+            "held_out_rows": 2581,
+            "rank": 18,
+            "parameters": 18,
+            "singular_condition": 271.0763380815899,
+            "held_out_error": {
+              "compared": 2581,
+              "mean_absolute_error": 2.241556896044736e-05,
+              "median_absolute_error": 0.0,
+              "max_absolute_error": 0.00048828125,
+              "within_1e_6": 1321,
+              "within_1e_3": 2581,
+              "within_1e_2": 2581
+            },
+            "held_out_float32_bytes_exact": 1310
+          }
+        ],
+        "held_out_error": {
+          "compared": 17663,
+          "mean_absolute_error": 2.4291706275529595e-05,
+          "median_absolute_error": 0.0,
+          "max_absolute_error": 0.00048828125,
+          "within_1e_6": 9312,
+          "within_1e_3": 17663,
+          "within_1e_2": 17663
+        },
+        "held_out_float32_bytes_exact": 9053,
+        "maximum_fold_coefficient_range": 1.8146022240372872e-06,
+        "maximum_difference_from_native_impulse_kernel": 0.031251159949137915,
+        "maximum_difference_from_suppressed_nyquist_kernel": 1.3652692548160594e-06
+      }
+    },
+    "scope": "Four deterministic folds by identical loaded-state hash, full19 valid-pitch interiors and current model strength0. Sum1/DC-preserving linear filters; no fitted intercept. Not original authoring parameters or a proven division into independent recordings. Learned coefficient arrays remain in memory."
+  },
+  "owned_nyquist_impulse_kernel_difference": {
+    "compared": 19,
+    "maximum_error_to_alternating_1_over64_endpoints_1_over32_interior": 3.725290298461914e-09
+  },
+  "identical_pitch_window_target_differences": {
+    "compared": 213,
+    "mean_absolute_error": 0.0,
+    "median_absolute_error": 0.0,
+    "max_absolute_error": 0.0,
+    "within_1e_6": 213,
+    "within_1e_3": 213,
+    "within_1e_2": 213
+  },
+  "scope": "Serialized compact resource only,425 bound intervals. No new bank audio/configure calls. Boundary max-count feasibility does not recover actual hidden frames or prove author identity. Pitch unit/order and grouped filter fits are diagnostics, not a maker implementation. Only genuine FFT transforms are shared; installed files read only, payloads/fit arrays in memory. bit17,vector13 production,BRWSP and other original requirements remain unresolved.",
+  "source_sha256": {
+    "audit_vqm_compact_authoring_context.py": "a5b3c90387a234d23fc5ca76db60fe2770f2c3a131a51d14c10e74021aa83728",
+    "verify_vqm_compact_runtime_decomposition.py": "83f2893331c6e5090e5af9e86726931002852ef6703d65310e1126036a4f4736",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "audit_vqm_compact_load_identity.py": "bd55e39300cc5c8a170b7d12fbaf09c279cb4c14287f137c9abc6b35d52a6dd3",
+    "audit_vqm_legacy_live_features.py": "17657a98c6759cc5a9817be23cf3df9ed5916dc021712b4389033ae5a3cd1561",
+    "audit_vqm_legacy_phase_relations.py": "2126bfd484fb3d3c6c534b6c8342f41cf21c12e5116dcf7c8dd522391319071f",
+    "verify_vqm_temporal_lowpass.py": "982afc5f1523132db403115f314be41da0e64277353f9117fd00f79f0d97358a",
+    "verify_frm2_analysis_windows.py": "7495be2e54ba528244f90fa71839db3dda982c44288242153241a37ad793f6da",
+    "verify_vqm_spectrum_stage_precision.py": "d18d6d23840585df7297349ceaa7aed87e6eff2dbb7a1b34458dc899ca46a405",
+    "verify_vqm_compact_amplitude_split.py": "4935ad79228956fb507da5cc841f35ee958791c2aaf4f509aae813ca320f3606",
+    "verify_vqm_legacy_bit17_consumption.py": "d3410b298187823faed78b4fa14eceba571b2bd20b5960307712c050177c9442",
+    "verify_vqm_legacy_seeded_consumption.py": "87e06f1d3513d57cb1778f52b6807645c809a92eed6e530ab29eb00ffd5929c5",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "probe_frm2.py": "0883d7765acb5d44ed90ddc6692d7a61323abbd2b89e2fa026067ae933c158b8",
+    "verify_region_frame_blend.py": "3af7ba4c9d56cc095a5a06853dcc098bf8731153a16e3230e19b7ce737c53854"
+  }
+}

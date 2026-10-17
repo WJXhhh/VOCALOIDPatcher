@@ -1,0 +1,72 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "fft_entry_rva": "0x14ab30",
+  "input_samples": 512,
+  "input_origin": "owned 2400-amplitude four-cycle sine",
+  "cases": [
+    {
+      "scale_argument": 1.0,
+      "window_kind": 0,
+      "nyquist_index": 256,
+      "bin_count_including_nyquist": 257,
+      "checked_bins": [
+        0,
+        4,
+        8,
+        256
+      ],
+      "direct_dft_magnitude_max_error": 0.22984174622653386,
+      "peak_dft_magnitude_relative_error": 6.092290463356381e-06,
+      "mode0_vs_mode1_log_max_error": 0.0,
+      "mode0_amplitudes": [
+        -111.85794830322266,
+        -22.702600479125977,
+        -103.59324645996094,
+        -3.4028234663852886e+38
+      ]
+    },
+    {
+      "scale_argument": 2.0,
+      "window_kind": 0,
+      "nyquist_index": 512,
+      "bin_count_including_nyquist": 513,
+      "checked_bins": [
+        0,
+        8,
+        16,
+        512
+      ],
+      "direct_dft_magnitude_max_error": 0.22984174622653386,
+      "peak_dft_magnitude_relative_error": 6.092290463356381e-06,
+      "mode0_vs_mode1_log_max_error": 0.0,
+      "mode0_amplitudes": [
+        -111.85794830322266,
+        -22.702600479125977,
+        -103.59324645996094,
+        -3.4028234663852886e+38
+      ]
+    },
+    {
+      "scale_argument": 8.0,
+      "window_kind": 0,
+      "nyquist_index": 2048,
+      "bin_count_including_nyquist": 2049,
+      "checked_bins": [
+        0,
+        32,
+        64,
+        2048
+      ],
+      "direct_dft_magnitude_max_error": 0.22984174622653386,
+      "peak_dft_magnitude_relative_error": 6.092290463356381e-06,
+      "mode0_vs_mode1_log_max_error": 0.0,
+      "mode0_amplitudes": [
+        -111.85794830322266,
+        -22.702600479125977,
+        -103.59324645996094,
+        -3.4028234663852886e+38
+      ]
+    }
+  ],
+  "scope": "Isolated FFT helper and owned PCM; not the complete Growl event pipeline."
+}

@@ -1,0 +1,670 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "fft_runtime_sha256": "7cae07fabcede5a9aa6ddbef596eafb73220d25ff7e343943322c93a4db60860",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "source_sha256": {
+    "verify_vqm_mode5_owned_fft.py": "230ee24755927138543671beecbd34aa7a388389c36cc45bff2877be80a3b88c",
+    "frm2_mode5_math_backend.py": "6cf53081a3d63ef1516eeb3ae890f8ca13152640b9f9aa2fed9626b59d61f611",
+    "frm2_mode5_pcm.py": "cfb133b75e027bee61c6c53c37235e437ff855d93b882f25dbbc4b03f70a6324",
+    "verify_vqm_mode5_pcm.py": "0bbadae245b434771a7194ff804e2953cfe71fbbe4869d78364bf4a3025ed400",
+    "frm2_mode5_scores.py": "ed1ec853481cd265e0156fdd2e9cedcb190d2aa03b4dda5a99a46af69b7b5087",
+    "frm2_mode5_confidence.py": "b0512dd4aaaf000e3ce73f015ffcf453d30dd7a88970c01a6e14a33f4b0aaffa",
+    "verify_frm2_analysis_windows.py": "7495be2e54ba528244f90fa71839db3dda982c44288242153241a37ad793f6da",
+    "verify_vqm_mode5_scores.py": "939823adcaaf20fa3483132033d92414efb84e42731025f96c18c9aeef6330ee",
+    "probe_frm2_batch_outputs.py": "5ba05bdf1e883e5aedb61cb7f1209320327c589d37bc0595d64724ae61b47f2c",
+    "verify_vqm_alternate_score_paths.py": "d0994d395d7ce72b523eca1f68a6e43e5e3e4e1a1b52d8707865ab19f038445d",
+    "verify_vqm_bit16_spectral_power.py": "67e050943693915d144faa03a9419bf9856354064a5f020edc90576c53056b1e",
+    "verify_vqm_bit16_peak_interpolation.py": "72794f1cdb0aaf22d92bda3c0737bafeaa404630949c5ad00055ed8ef8cf4e75",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244"
+  },
+  "cases": [
+    {
+      "case": "steady_110",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady_440",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack_110",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack_440",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "silence_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "dc_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "dc_tone_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "impulse_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise_220",
+      "frames": 44,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 44,
+        "ccs_guards_checked": 44,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 90112,
+        "cache_scores_byte_exact": 59004,
+        "confidence_byte_exact": 44,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 44,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": 0,
+      "frames": 72,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 72,
+        "ccs_guards_checked": 72,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 147456,
+        "cache_scores_byte_exact": 96552,
+        "confidence_byte_exact": 72,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 72,
+      "saved_confidence_comparison": {
+        "frames": 48,
+        "mean_absolute_error": 0.07230725201467673,
+        "max_absolute_error": 0.22506825625896454,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 1,
+      "frames": 87,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 87,
+        "ccs_guards_checked": 87,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 178176,
+        "cache_scores_byte_exact": 116667,
+        "confidence_byte_exact": 87,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 87,
+      "saved_confidence_comparison": {
+        "frames": 63,
+        "mean_absolute_error": 0.15295804966063725,
+        "max_absolute_error": 0.47321589291095734,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 2,
+      "frames": 87,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 87,
+        "ccs_guards_checked": 87,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 178176,
+        "cache_scores_byte_exact": 116667,
+        "confidence_byte_exact": 87,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 87,
+      "saved_confidence_comparison": {
+        "frames": 63,
+        "mean_absolute_error": 0.13132495350307888,
+        "max_absolute_error": 0.30093303322792053,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "TENSE",
+      "frames": 148,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 148,
+        "ccs_guards_checked": 148,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 303104,
+        "cache_scores_byte_exact": 198468,
+        "confidence_byte_exact": 148,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 148,
+      "saved_confidence_comparison": {
+        "frames": 124,
+        "mean_absolute_error": 0.1369693497976949,
+        "max_absolute_error": 0.21463632583618164,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "BRWSP",
+      "frames": 389,
+      "production": {
+        "dse_absent_before_and_after": true,
+        "fft_calls": 389,
+        "ccs_guards_checked": 389,
+        "fft_configuration": {
+          "0": 33,
+          "1": 1,
+          "2": 4096,
+          "3": 35,
+          "10": 40,
+          "11": 43,
+          "21": 54
+        },
+        "system_log": {
+          "name": "ucrtbase.dll",
+          "sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192"
+        },
+        "owned_fft_descriptor_freed_before_oracle": true
+      },
+      "controls": {
+        "power_values_byte_exact": 796672,
+        "cache_scores_byte_exact": 521649,
+        "confidence_byte_exact": 389,
+        "leading_windows": 2,
+        "trailing_windows": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_confidence_byte_exact": 389,
+      "saved_confidence_comparison": {
+        "frames": 365,
+        "mean_absolute_error": 1.805374707669428,
+        "max_absolute_error": 2.280050277709961,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    }
+  ],
+  "summary": {
+    "cases": 17,
+    "frames": 1311,
+    "controls": {
+      "power_values_byte_exact": 2684928,
+      "cache_scores_byte_exact": 1758051,
+      "confidence_byte_exact": 1311,
+      "leading_windows": 34,
+      "trailing_windows": 34
+    },
+    "producer_dse_absent_cases": 17,
+    "owned_descriptors_freed_before_oracle": 17
+  },
+  "scope": "PCM to current default mode5 power, all ready scores and confidence. All predictions are complete before DSE.dll is loaded; FFT uses an owned descriptor in the installed hash-pinned mathematical library and logarithm uses the system CRT export.",
+  "limits": [
+    "Same FFT numerical implementation, not an independently implemented FFT algorithm",
+    "Original maker confidence still differs; original input and authoring contract unverified",
+    "Only default 44.1 kHz, hop256, window1025/kind11/lookup0/factor4 geometry modeled",
+    "Only ready indices [4,1345) compared; logical-outside preparation tail contract unresolved",
+    "FFT results compared for output frames, not the extra analyzer tail processing steps",
+    "Fresh baseline covers returned metadata, six scalars and four feature arrays, not all payloads",
+    "No commercial PCM, spectra, score arrays or proprietary code persisted"
+  ],
+  "installed_files_unchanged": true,
+  "no_windows_temp": true
+}

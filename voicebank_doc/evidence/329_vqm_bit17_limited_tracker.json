@@ -1,0 +1,228 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "candidate_count": 1050,
+  "model": "predicted_step=clamp(alpha*remainder(sign*target_phase+rotation-saved_previous_angle, 2*pi), \u00b10.25)",
+  "phase_source_sizes": [
+    2048,
+    4096
+  ],
+  "frequency_modes": [
+    "frame_f0",
+    "pitch1",
+    "mean_f0"
+  ],
+  "corrections": [
+    "none",
+    "minus_cumulative_f0",
+    "plus_cumulative_f0",
+    "minus_pitch1",
+    "plus_pitch1"
+  ],
+  "lag_frames": [
+    -1,
+    0,
+    1
+  ],
+  "tracking_gains": [
+    0.05,
+    0.1,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "common_margin_frames": 11,
+  "best_full_gain": {
+    "source": "pcm_4096_mean_f0",
+    "correction": "minus_cumulative_f0",
+    "lag_frames": -1,
+    "sign": 1,
+    "alpha": 1.0,
+    "per_sample": [
+      {
+        "steps": 50,
+        "mean_absolute_error": 0.1375890903584002,
+        "median_absolute_error": 0.11550315747055251,
+        "zero_step_control_mae": 0.10495246887207031,
+        "predicted_limit_hits": 9,
+        "actual_limit_hits": 6
+      },
+      {
+        "steps": 65,
+        "mean_absolute_error": 0.20177775042649032,
+        "median_absolute_error": 0.20190036296844482,
+        "zero_step_control_mae": 0.0889836046022436,
+        "predicted_limit_hits": 61,
+        "actual_limit_hits": 4
+      },
+      {
+        "steps": 65,
+        "mean_absolute_error": 0.12913632084878787,
+        "median_absolute_error": 0.0878731454422308,
+        "zero_step_control_mae": 0.05684602443988507,
+        "predicted_limit_hits": 19,
+        "actual_limit_hits": 2
+      }
+    ],
+    "mean_sample_mae": 0.15616772054455946
+  },
+  "best_three_full_fit": [
+    {
+      "source": "pcm_2048_frame_f0",
+      "correction": "minus_cumulative_f0",
+      "lag_frames": -1,
+      "sign": -1,
+      "alpha": 0.05,
+      "per_sample": [
+        {
+          "steps": 50,
+          "mean_absolute_error": 0.08271395881722453,
+          "median_absolute_error": 0.03053679582022362,
+          "zero_step_control_mae": 0.10495246887207031,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 6
+        },
+        {
+          "steps": 65,
+          "mean_absolute_error": 0.08917606374110144,
+          "median_absolute_error": 0.06840771530850454,
+          "zero_step_control_mae": 0.0889836046022436,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 4
+        },
+        {
+          "steps": 65,
+          "mean_absolute_error": 0.05724019216781876,
+          "median_absolute_error": 0.03799722686051758,
+          "zero_step_control_mae": 0.05684602443988507,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 2
+        }
+      ],
+      "mean_sample_mae": 0.07637673824204824
+    },
+    {
+      "source": "pcm_2048_frame_f0",
+      "correction": "minus_cumulative_f0",
+      "lag_frames": 0,
+      "sign": -1,
+      "alpha": 0.05,
+      "per_sample": [
+        {
+          "steps": 50,
+          "mean_absolute_error": 0.08291250807637474,
+          "median_absolute_error": 0.03217269312955029,
+          "zero_step_control_mae": 0.10495246887207031,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 6
+        },
+        {
+          "steps": 65,
+          "mean_absolute_error": 0.09072365281465367,
+          "median_absolute_error": 0.06881173464242493,
+          "zero_step_control_mae": 0.0889836046022436,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 4
+        },
+        {
+          "steps": 65,
+          "mean_absolute_error": 0.05770178959716806,
+          "median_absolute_error": 0.037409614123798104,
+          "zero_step_control_mae": 0.05684602443988507,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 2
+        }
+      ],
+      "mean_sample_mae": 0.07711265016273215
+    },
+    {
+      "source": "pcm_2048_frame_f0",
+      "correction": "minus_cumulative_f0",
+      "lag_frames": 1,
+      "sign": -1,
+      "alpha": 0.05,
+      "per_sample": [
+        {
+          "steps": 50,
+          "mean_absolute_error": 0.08445588977931372,
+          "median_absolute_error": 0.03397500330637815,
+          "zero_step_control_mae": 0.10495246887207031,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 6
+        },
+        {
+          "steps": 65,
+          "mean_absolute_error": 0.0907059612357486,
+          "median_absolute_error": 0.06717449845795861,
+          "zero_step_control_mae": 0.0889836046022436,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 4
+        },
+        {
+          "steps": 65,
+          "mean_absolute_error": 0.056997748523517675,
+          "median_absolute_error": 0.03511154671731412,
+          "zero_step_control_mae": 0.05684602443988507,
+          "predicted_limit_hits": 0,
+          "actual_limit_hits": 2
+        }
+      ],
+      "mean_sample_mae": 0.07738653317952666
+    }
+  ],
+  "leave_one_sequence_out": [
+    {
+      "held_out_sample_index": 0,
+      "selected_source": "pcm_2048_frame_f0",
+      "selected_correction": "minus_cumulative_f0",
+      "selected_lag_frames": -1,
+      "selected_sign": -1,
+      "selected_alpha": 0.05,
+      "offset_calibration_steps": 12,
+      "validation": {
+        "steps": 38,
+        "mean_absolute_error": 0.09234896240414193,
+        "median_absolute_error": 0.029749656688890097,
+        "zero_step_control_mae": 0.11787739552949604,
+        "predicted_limit_hits": 0,
+        "actual_limit_hits": 6
+      }
+    },
+    {
+      "held_out_sample_index": 1,
+      "selected_source": "pcm_2048_pitch1",
+      "selected_correction": "minus_cumulative_f0",
+      "selected_lag_frames": 0,
+      "selected_sign": -1,
+      "selected_alpha": 0.1,
+      "offset_calibration_steps": 12,
+      "validation": {
+        "steps": 53,
+        "mean_absolute_error": 0.13043369564202206,
+        "median_absolute_error": 0.06375235709027863,
+        "zero_step_control_mae": 0.09045937945997745,
+        "predicted_limit_hits": 0,
+        "actual_limit_hits": 4
+      }
+    },
+    {
+      "held_out_sample_index": 2,
+      "selected_source": "pcm_4096_frame_f0",
+      "selected_correction": "minus_cumulative_f0",
+      "selected_lag_frames": -1,
+      "selected_sign": -1,
+      "selected_alpha": 0.05,
+      "offset_calibration_steps": 12,
+      "validation": {
+        "steps": 53,
+        "mean_absolute_error": 0.14884248999983868,
+        "median_absolute_error": 0.1430687860893059,
+        "zero_step_control_mae": 0.04522667291029444,
+        "predicted_limit_hits": 0,
+        "actual_limit_hits": 1
+      }
+    }
+  ],
+  "scope": "One constant phase rotation fitted per sequence; the held-out sequence calibrates that rotation on only its first 12 interior steps. This tests a bounded tracker family, not arbitrary hidden phase state or the production algorithm."
+}

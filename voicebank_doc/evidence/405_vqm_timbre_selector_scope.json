@@ -1,0 +1,2250 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source_sha256": "4c2d8d82f1b00978bfa14abc0c32dbb96c8e15c84f07429ad8298dd0dfce40d5",
+  "saved_bank_templates": {
+    "manifest_sha256": "190376714fe74343c87e0c285bd7eccf7017c00711d7ed05b8e4cfa1a059ef35",
+    "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+    "banks": [
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+        "tdb_offset": "0x22be",
+        "tdb_bytes": 12569,
+        "models": 81,
+        "empty_axis_groups": {
+          "pitch": 81,
+          "dynamics": 81,
+          "opening": 81
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "ddi_sha256": "ad9b21215e959e7a153e15099d6f2d09dba0222716b030e362f9a710270f7e2f",
+        "tdb_offset": "0x1526",
+        "tdb_bytes": 4179,
+        "models": 27,
+        "empty_axis_groups": {
+          "pitch": 27,
+          "dynamics": 27,
+          "opening": 27
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "ddi_sha256": "6d3404c6872e8091ff883970db9ae60728fb909d7ea98b2fcd4f9732a09a687f",
+        "tdb_offset": "0x22be",
+        "tdb_bytes": 12569,
+        "models": 81,
+        "empty_axis_groups": {
+          "pitch": 81,
+          "dynamics": 81,
+          "opening": 81
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+        "tdb_offset": "0x1526",
+        "tdb_bytes": 4179,
+        "models": 27,
+        "empty_axis_groups": {
+          "pitch": 27,
+          "dynamics": 27,
+          "opening": 27
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "ddi_sha256": "54e314cf07624edc56fac5e8fd4d009388411ed8f08945a1a3a5b794dc85e3f6",
+        "tdb_offset": "0x268864",
+        "tdb_bytes": 12569,
+        "models": 81,
+        "empty_axis_groups": {
+          "pitch": 81,
+          "dynamics": 81,
+          "opening": 81
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "ddi_sha256": "91832056adf768e03595e0857391d094bc9087b0730112a10299f6f34a2ef015",
+        "tdb_offset": "0x94174",
+        "tdb_bytes": 4179,
+        "models": 27,
+        "empty_axis_groups": {
+          "pitch": 27,
+          "dynamics": 27,
+          "opening": 27
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "ddi_sha256": "98cbbde183b69f8cd9c6e9eb3603491e0aef84db1288fdb7e242067d31ad09c3",
+        "tdb_offset": "0x1c95dc",
+        "tdb_bytes": 20946,
+        "models": 135,
+        "empty_axis_groups": {
+          "pitch": 135,
+          "dynamics": 135,
+          "opening": 135
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "ddi_sha256": "e8273c9f0ee86858c8aafa27cd1f1d823059e9afbdc7e6cfbd0ba1f1f8f13290",
+        "tdb_offset": "0x1526",
+        "tdb_bytes": 4179,
+        "models": 27,
+        "empty_axis_groups": {
+          "pitch": 27,
+          "dynamics": 27,
+          "opening": 27
+        },
+        "template_frame_leaves": 0,
+        "vqm_parts": 3,
+        "independent_parser_match": true
+      }
+    ],
+    "models": 486,
+    "empty_groups": 1458,
+    "template_frame_leaves": 0,
+    "scope": "All eight pinned V4X saved TDB/TMM directories, checked with two readers. Does not cover transient runtime additions, auxiliary databases, other banks or the template-building capabilities of original authoring software."
+  },
+  "native_selector": {
+    "selector_rva": "0x1101c0",
+    "group_sort_rva": "0x1103e0",
+    "getter_rva": "0x110020",
+    "cases": [
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": -5.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": -0.5,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 0.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 9.999999717180685e-10,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 9.99999993922529e-09,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 1.999999987845058e-08,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 0.25,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 0.5,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 0.75,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 1.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [],
+        "input": 5.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": -5.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": -0.5,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 0.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 9.999999717180685e-10,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 9.99999993922529e-09,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 1.999999987845058e-08,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 0.25,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 0.5,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 0.75,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 1.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [],
+        "input": 5.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": -5.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": -0.5,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 0.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 9.999999717180685e-10,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 9.99999993922529e-09,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 1.999999987845058e-08,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 0.25,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 0.5,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 0.75,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 1.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [],
+        "input": 5.0,
+        "first_index": null,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 0.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 0.25,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 0.75,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 1.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0
+        ],
+        "input": 5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 0.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 0.25,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 0.75,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 1.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0
+        ],
+        "input": 5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 0.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 0.25,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 0.75,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 1.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0
+        ],
+        "input": 5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -1.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": 1,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.0,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 1.999999987845058e-08,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.25,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.5,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.75,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.75,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 5.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -1.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": 1,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.0,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 1.999999987845058e-08,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.25,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.5,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.75,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.75,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 5.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -1.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": 1,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.0,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 1.999999987845058e-08,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.25,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.5,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 0.75,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.75,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -1.0,
+          0.0,
+          1.0
+        ],
+        "input": 5.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -0.25,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.0,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333730697632,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.6666666865348816,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.5,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.75,
+        "first_index": 2,
+        "second_index": 3,
+        "weight": 0.10000000149011612,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": 3,
+        "weight": 0.20000000298023224,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 3.0,
+        "first_index": 3,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 5.0,
+        "first_index": 3,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -0.25,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.0,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333730697632,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.6666666865348816,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.5,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.75,
+        "first_index": 2,
+        "second_index": 3,
+        "weight": 0.10000000149011612,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": 3,
+        "weight": 0.20000000298023224,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 3.0,
+        "first_index": 3,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 5.0,
+        "first_index": 3,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": -0.25,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.0,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333432674408,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.3333333730697632,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.6666666865348816,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.5,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 0.75,
+        "first_index": 2,
+        "second_index": 3,
+        "weight": 0.10000000149011612,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": 3,
+        "weight": 0.20000000298023224,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 3.0,
+        "first_index": 3,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          -0.25,
+          -0.25,
+          0.5,
+          3.0
+        ],
+        "input": 5.0,
+        "first_index": 3,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.2499999850988388,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.5,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.75,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.75,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "dynamics",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 5.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.2499999850988388,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.5,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.75,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.75,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "opening",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 5.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": -5.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": -0.5,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.0,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 9.999999717180685e-10,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 9.99999993922529e-09,
+        "first_index": 0,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 1.999999987845058e-08,
+        "first_index": 1,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.25,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.2499999850988388,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.5,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.5,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 0.75,
+        "first_index": 1,
+        "second_index": 2,
+        "weight": 0.75,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 1.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      },
+      {
+        "axis": "pitch",
+        "values": [
+          0.0,
+          9.99999993922529e-09,
+          1.0
+        ],
+        "input": 5.0,
+        "first_index": 2,
+        "second_index": null,
+        "weight": 0.0,
+        "native_identity_and_float32_exact": true
+      }
+    ],
+    "exact_cases": 174,
+    "missing_axis_cases": 5,
+    "search_epsilon_double": 1e-08,
+    "upper_snap_threshold_double": 0.99999999,
+    "scope": "Owned finite timbre-axis values: empty/single/multiple/duplicate/near-epsilon groups, all three axes, interpolation and clamping. It establishes linear leaf selection, not acoustic synthesis, VQM phase production or actual Editor reachability. Original V4X saved TMM arrays are independently empty."
+  },
+  "conclusion": "The timbre-model getter does feed a linear template selector. All pinned V4X saved TMM axis groups are empty, so they provide no saved template Frame input to this route. This route cannot by itself explain the observed VQMp bit17 production or prove original units."
+}

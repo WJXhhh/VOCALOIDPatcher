@@ -1,0 +1,48 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "entry_rva": "0x1753a0",
+  "interpolator_rva": "0x1307b0",
+  "cases": [
+    {
+      "requested_mask": "0x1ff7",
+      "fraction": 0.25,
+      "output_mask": "0x200",
+      "feature_flags": 0,
+      "feature_scalar_2": 0.8999999761581421,
+      "bit18": 90,
+      "bit19": 1234567,
+      "f0_hz": 261.6255798339844
+    },
+    {
+      "requested_mask": "0x1ff7",
+      "fraction": 0.75,
+      "output_mask": "0x200",
+      "feature_flags": 0,
+      "feature_scalar_2": 0.8999999761581421,
+      "bit18": 90,
+      "bit19": 1234567,
+      "f0_hz": 369.9944152832031
+    },
+    {
+      "requested_mask": "0xc2200",
+      "fraction": 0.25,
+      "output_mask": "0xc2200",
+      "feature_flags": 4,
+      "feature_scalar_2": 0.15000000596046448,
+      "bit18": 10,
+      "bit19": 2049,
+      "f0_hz": 261.6255798339844
+    },
+    {
+      "requested_mask": "0xc2200",
+      "fraction": 0.75,
+      "output_mask": "0xc2200",
+      "feature_flags": 4,
+      "feature_scalar_2": 0.25,
+      "bit18": 10,
+      "bit19": 2049,
+      "f0_hz": 369.9944152832031
+    }
+  ],
+  "scope": "Owned runtime frames and generic interpolation helper. Growl's use of 0x1ff7 is verified separately by call-site inspection."
+}

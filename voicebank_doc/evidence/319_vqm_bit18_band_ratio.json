@@ -1,0 +1,40 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "sample_rate": 44100,
+  "source": "owned PCM; DSE streaming input spectrum and same output frame",
+  "cases": [
+    {
+      "case": "five_harmonics_440",
+      "frames": 44,
+      "paired_frames": 44,
+      "float32_exact": 44,
+      "mean_absolute_error": 0.0,
+      "max_absolute_error": 0.0
+    },
+    {
+      "case": "five_harmonics_880",
+      "frames": 44,
+      "paired_frames": 44,
+      "float32_exact": 44,
+      "mean_absolute_error": 0.0,
+      "max_absolute_error": 0.0
+    },
+    {
+      "case": "sine_440",
+      "frames": 44,
+      "paired_frames": 44,
+      "float32_exact": 44,
+      "mean_absolute_error": 0.0,
+      "max_absolute_error": 0.0
+    },
+    {
+      "case": "sine_plus_noise_440",
+      "frames": 44,
+      "paired_frames": 44,
+      "float32_exact": 44,
+      "mean_absolute_error": 0.0,
+      "max_absolute_error": 0.0
+    }
+  ],
+  "scope": "Validates the DRS internal bit18 band-ratio producer on four controlled signals; does not establish VQM authoring inputs or saved-frame equality."
+}

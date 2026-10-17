@@ -1,0 +1,171 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "design": "Each of the four complete probe processes ran sequentially with a separate owned FRM2/PCM work directory. The earlier shared-directory comparisons may include file-write contention.",
+  "comparisons": {
+    "without_candidate_clear": {
+      "source_reports": [
+        {
+          "name": "breath_spectrum_baseline_isolated_a.json",
+          "sha256": "125924465469253b4a7651ac25349a5d6026090848ed7509b7885373f124e0c3"
+        },
+        {
+          "name": "breath_spectrum_baseline_isolated_b.json",
+          "sha256": "15f4f5bb9071765372befc2322bb7e5d455adb9d46beb086c843fd36e231f27a"
+        }
+      ],
+      "sequential_unique_work_directories": true,
+      "total_blocks": 1646,
+      "output_nonzero_blocks": [
+        11,
+        24
+      ],
+      "differences": {
+        "frame_header": {
+          "blocks": 0,
+          "first": null
+        },
+        "harmonic_arrays": {
+          "blocks": 0,
+          "first": null
+        },
+        "candidate_spectrum": {
+          "blocks": 730,
+          "first": [
+            0,
+            0
+          ]
+        },
+        "final_spectrum": {
+          "blocks": 44,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "selected_context_scalars": {
+          "blocks": 0,
+          "first": null
+        }
+      },
+      "snapshot_time": 98,
+      "snapshot_positions": 15,
+      "snapshot_different_cases": {
+        "input_pcm_sha256": [],
+        "scratch_pcm_sha256": [],
+        "fft_work_sha256": [],
+        "candidate_initial_slot": [],
+        "alternate_initial_slot": [],
+        "candidate_mask": [],
+        "alternate_mask": [],
+        "candidate_spectrum_hex": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          8,
+          10
+        ],
+        "alternate_spectrum_hex": [
+          0,
+          2,
+          3,
+          8,
+          10,
+          14
+        ],
+        "final_spectrum_hex": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "all_fields_outside_full_loop_equal": true
+    },
+    "with_candidate_clear": {
+      "source_reports": [
+        {
+          "name": "breath_spectrum_slots_isolated_a.json",
+          "sha256": "cc7440dac2cb43aa7edf5dd9260aa960a7743f5b72d3f4027cb6497ee1248485"
+        },
+        {
+          "name": "breath_spectrum_slots_isolated_b.json",
+          "sha256": "0870dff74ae11ffff22c14739000b6e2d9ea16764539efedf9da7619b66139ba"
+        }
+      ],
+      "sequential_unique_work_directories": true,
+      "total_blocks": 1646,
+      "output_nonzero_blocks": [
+        44,
+        41
+      ],
+      "differences": {
+        "frame_header": {
+          "blocks": 0,
+          "first": null
+        },
+        "harmonic_arrays": {
+          "blocks": 0,
+          "first": null
+        },
+        "candidate_spectrum": {
+          "blocks": 80,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "final_spectrum": {
+          "blocks": 73,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "selected_context_scalars": {
+          "blocks": 0,
+          "first": null
+        }
+      },
+      "snapshot_time": 98,
+      "snapshot_positions": 15,
+      "snapshot_different_cases": {
+        "input_pcm_sha256": [],
+        "scratch_pcm_sha256": [],
+        "fft_work_sha256": [],
+        "candidate_initial_slot": [],
+        "alternate_initial_slot": [],
+        "candidate_mask": [],
+        "alternate_mask": [],
+        "candidate_spectrum_hex": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          14,
+          15
+        ],
+        "alternate_spectrum_hex": [],
+        "final_spectrum_hex": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          14,
+          15
+        ]
+      },
+      "all_fields_outside_full_loop_equal": true
+    }
+  },
+  "superseded_by": "227_region_breath_full_candidate_initialization.json",
+  "scope": "This comparison cleared only the 16 preallocated candidate bins. It removed pre-voiced divergence, but the first voiced block resized arrays to 2049 bins. Evidence 227 reproduces the native full-size allocation and zeroing, eliminating the observed spectral and PCM variation."
+}

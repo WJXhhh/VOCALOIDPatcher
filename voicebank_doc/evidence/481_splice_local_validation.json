@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "Bounded local Splice candidate inspection and signature primitive verification",
+  "target": {
+    "name": "DSE.dll",
+    "version": "6.13.1.1",
+    "sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "image_base": "0x180000000",
+    "ghidra_program": "/v6/DSE.dll",
+    "matches_installed_file": true,
+    "vdm_version": "6.13.0.1"
+  },
+  "metadata_runtime_comparison": {
+    "voice": "asa",
+    "vdm_create_result": 0,
+    "registry_branch": "HKLM/SOFTWARE/VOCALOID6/Voice/Components/<asa CompID>",
+    "fields": {
+      "0xf8": {"equals_registry_value": "IceProductName", "length": 15},
+      "0x100": {"equals_registry_value": "IceValue", "length": 64, "is_hexadecimal": true}
+    },
+    "actual_field_values_saved": false
+  },
+  "checks": {
+    "metadata_digest": {
+      "algorithm": "SHA256",
+      "expected_hash_field": "IceValue",
+      "expected_text_length": 64,
+      "expected_bytes": 32,
+      "all_combination_inputs_independently_reproduced": false
+    },
+    "lease_path": {
+      "voice_callsite": "0x1801deee3",
+      "identifier_source": "IceProductName",
+      "constructor": "0x1801ed6c0",
+      "pattern": "%LOCALAPPDATA%/SpliceSettings/license/<IceProductName>.lic",
+      "directory_exists_on_current_machine": false,
+      "real_lease_read_or_saved": false
+    },
+    "parser": {
+      "function": "0x1801edee0",
+      "checks": ["Size and format", "Product identifier", "State byte", "Start and expiry timestamps"],
+      "parser_status_is_public_license_result": false
+    },
+    "signature": {
+      "wrapper": "0x1801ef7b0",
+      "primitive": "0x1801ec1d0",
+      "algorithm": "Ed25519",
+      "public_key_initializer": "0x180001fc0",
+      "public_key_source": "Embedded Base64 text initialized by DSE",
+      "public_key_text_length": 44,
+      "public_key_decoded_bytes": 32,
+      "public_key_material_saved": false,
+      "signing_private_key_located": false,
+      "distinct_from_descriptor_key_and_icevalue": true
+    }
+  },
+  "voice_candidate_public_results": {
+    "metadata_digest_failure": "InvalidHash",
+    "parser_status_1": "MissingLeaseFile",
+    "parser_status_2": "ExpiredLeaseFile",
+    "other_nonzero_parser_status": "InvalidLeaseFile",
+    "parser_success_signature_failure": "InvalidLeaseFile",
+    "parser_success_signature_success_kind_2": "PaidOffLeaseFile",
+    "parser_success_signature_success_other_accepted_kind": "ValidLeaseFile"
+  },
+  "primitive_runtime_probe": {
+    "source": "https://www.rfc-editor.org/rfc/rfc8032#section-7.1",
+    "vector": "Ed25519 TEST 1, empty message, public vector only",
+    "native_rva": "0x1ec1d0",
+    "original_accepted": true,
+    "signature_first_byte_bitflip_accepted": false,
+    "message_with_added_zero_byte_accepted": false,
+    "public_key_first_byte_bitflip_accepted": false,
+    "dse_manager_initialized": false,
+    "license_payload_used": false,
+    "authorization_generated": false
+  },
+  "boundaries": {
+    "server_investigated": false,
+    "editor_started_stopped_or_modified": false,
+    "registry_written": false,
+    "ghidra_project_modified": false,
+    "raw_proprietary_source_saved": false,
+    "real_license_end_to_end_verified": false
+  },
+  "remaining_questions": [
+    "All metadata digest combination inputs and independent roundtrip",
+    "Complete outer lease payload contract",
+    "End-to-end verification against an owned real lease",
+    "Signing private key is not present in the traced verification flow; no whole-machine absence claim"
+  ]
+}

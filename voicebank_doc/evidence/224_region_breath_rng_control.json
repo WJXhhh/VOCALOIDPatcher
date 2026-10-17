@@ -1,0 +1,32 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "source_reports": [
+    {
+      "name": "breath_rng_control_a.json",
+      "sha256": "5b2f1e02139bd72905d6124841797259d4a7ea503c26bbd5b5e0756dbfce281b"
+    },
+    {
+      "name": "breath_rng_control_b.json",
+      "sha256": "9e9a3489fd8f585354525d12863af8b2a06768dc374d0652001ecee17fc67a94"
+    }
+  ],
+  "total_blocks": 1646,
+  "output_nonzero_blocks": [
+    9,
+    36
+  ],
+  "differences": {
+    "header_difference_blocks": 0,
+    "harmonic_difference_blocks": 0,
+    "spectrum_difference_blocks": 51
+  },
+  "all_fields_outside_full_loop_equal": true,
+  "crt_import_dll": "api-ms-win-crt-utility-l1-1-0.dll",
+  "crt_iat_rand_rva": "0x224ad8",
+  "crt_iat_srand_rva": "0x224ae0",
+  "diagnostic": "The fixture calls ucrtbase.srand(0x17) before each native output block. In the checked process the DLL IAT rand/srand pointers equal ucrtbase rand/srand pointers.",
+  "provenance_caveat": "The paired runs did not record separate owned-material work directories. Exact difference counts are historical diagnostics; evidence 226 repeats the 16-bin comparison in isolated directories, and evidence 227 supersedes it with full native-sized candidate initialization.",
+  "superseded_by": "227_region_breath_full_candidate_initialization.json",
+  "scope": "Controlled seed remains insufficient for identical spectra or PCM; no claim about the complete source of variation."
+}

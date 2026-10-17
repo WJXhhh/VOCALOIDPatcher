@@ -1,0 +1,175 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdb_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "by_category": {
+    "TENSE": {
+      "bit6_component_band_ratio": {
+        "frames": 148,
+        "float32_exact": 0,
+        "within_1e_6": 0,
+        "saved_mean": 0.07490782044525887,
+        "predicted_mean": 0.04642033511521043,
+        "saved_range": [
+          0.04478560760617256,
+          0.12293332815170288
+        ],
+        "predicted_range": [
+          0.030313393101096153,
+          0.06814330816268921
+        ],
+        "mean_signed_difference": 0.028487485330048447,
+        "mean_absolute_error": 0.028487485330048447,
+        "max_absolute_error": 0.07768808305263519,
+        "pearson_correlation": 0.5447453547996426,
+        "centered_mean_controls": [
+          {
+            "radius_frames": 0,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.028262630344501563
+          },
+          {
+            "radius_frames": 1,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.02824105072234358
+          },
+          {
+            "radius_frames": 2,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.02821649861921157
+          },
+          {
+            "radius_frames": 4,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.028169684830520833
+          }
+        ]
+      },
+      "bit16_first_component_over_ten": {
+        "frames": 148,
+        "float32_exact": 0,
+        "within_1e_6": 0,
+        "saved_mean": -3.200356717045243,
+        "predicted_mean": -3.2139426598677763,
+        "saved_range": [
+          -3.254790782928467,
+          -3.1337568759918213
+        ],
+        "predicted_range": [
+          -3.2746872901916504,
+          -3.1343069076538086
+        ],
+        "mean_signed_difference": 0.013585942822533685,
+        "mean_absolute_error": 0.013585942822533685,
+        "max_absolute_error": 0.030662059783935547,
+        "pearson_correlation": 0.9696396577002284,
+        "centered_mean_controls": [
+          {
+            "radius_frames": 0,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.013517260551452637
+          },
+          {
+            "radius_frames": 1,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.01348875079836162
+          },
+          {
+            "radius_frames": 2,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.013477507318769184
+          },
+          {
+            "radius_frames": 4,
+            "interior_frames": 140,
+            "mean_absolute_error": 0.013694529495542028
+          }
+        ]
+      }
+    },
+    "BRWSP": {
+      "bit6_component_band_ratio": {
+        "frames": 389,
+        "float32_exact": 1,
+        "within_1e_6": 1,
+        "saved_mean": 1.018417043673655,
+        "predicted_mean": 1.0128508726551477,
+        "saved_range": [
+          0.7374131679534912,
+          1.5766687393188477
+        ],
+        "predicted_range": [
+          0.7057363390922546,
+          1.4889070987701416
+        ],
+        "mean_signed_difference": 0.005566171018507303,
+        "mean_absolute_error": 0.09474242254517072,
+        "max_absolute_error": 0.3131524920463562,
+        "pearson_correlation": 0.5469156531240414,
+        "centered_mean_controls": [
+          {
+            "radius_frames": 0,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.09428800622935057
+          },
+          {
+            "radius_frames": 1,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.08698425815487158
+          },
+          {
+            "radius_frames": 2,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.08308246698905164
+          },
+          {
+            "radius_frames": 4,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.0885820683775229
+          }
+        ]
+      },
+      "bit16_first_component_over_ten": {
+        "frames": 389,
+        "float32_exact": 0,
+        "within_1e_6": 1,
+        "saved_mean": -3.9252760563534146,
+        "predicted_mean": -3.8363259255426403,
+        "saved_range": [
+          -4.656188488006592,
+          -3.3388752937316895
+        ],
+        "predicted_range": [
+          -4.425571441650391,
+          -3.3472836017608643
+        ],
+        "mean_signed_difference": -0.08895013081077438,
+        "mean_absolute_error": 0.10163571534242606,
+        "max_absolute_error": 0.9159879684448242,
+        "pearson_correlation": 0.6689316406145526,
+        "centered_mean_controls": [
+          {
+            "radius_frames": 0,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.10345411238082125
+          },
+          {
+            "radius_frames": 1,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.12089639907329623
+          },
+          {
+            "radius_frames": 2,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.14094244714171242
+          },
+          {
+            "radius_frames": 4,
+            "interior_frames": 381,
+            "mean_absolute_error": 0.1690174173286685
+          }
+        ]
+      }
+    }
+  },
+  "scope": "Compares saved auxiliary fields to known DRS component candidates. These statistics do not establish the auxiliary file's voicebank pairing or the authoring formulas."
+}

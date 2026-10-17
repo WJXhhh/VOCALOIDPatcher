@@ -1,0 +1,35 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input": "owned 440 Hz harmonic PCM",
+  "analysis_mode": 4,
+  "native_writer_rva": "0x92f40",
+  "native_reader_rva": "0x93000",
+  "sms2_bytes": 273029,
+  "before_and_after_equal": true,
+  "feature_summary": {
+    "frames": 44,
+    "frame_masks": {
+      "0x801c6fa6": 44
+    },
+    "array_elements": {
+      "10": 1760,
+      "11": 1760,
+      "12": 880,
+      "13": 880
+    },
+    "array_nonzero": {
+      "10": 1760,
+      "11": 1504,
+      "12": 880,
+      "13": 880
+    },
+    "array_sha256": {
+      "10": "2cd64d1a3525f7563f9967c5b4da7f87530d85520abcfa51f1bf4c06442b512e",
+      "11": "bac0f6174d6f16b883e7d354764a211d535a48e7acfb1770dc1b5f63bf1424ee",
+      "12": "054973ef41e4c9bd61e3eda6b04989654b48202c5dd2811138f3d06ac92e7e84",
+      "13": "b93045a524534bcd6b264facfc6974223b008c037103a781ddf25518a5c17492"
+    },
+    "feature_energy_sha256": "9d1956ac6fd9e429441c99dd71962176979c1cb0d96204460b01ffa1c0e27f97"
+  },
+  "scope": "Native DRS collection writer and reader preserve bit-13 arrays on one owned signal. This does not identify the later VQM-specific save path."
+}

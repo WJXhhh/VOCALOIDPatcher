@@ -1,0 +1,1431 @@
+{
+  "reports": [
+    {
+      "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+      "fft_backend": "independent Python",
+      "scope": "Every default mode4 frame from prepared PCM plus independently calculated raw-ring features; candidate/probability histories and prior repaired F0 are independently advanced. Native scheduler and PCM preparation remain upstream inputs. State-stage assertions must pass; final batch pitch is a separate diagnostic and any mismatches remain unresolved, not acceptance.",
+      "cases": [
+        {
+          "shape": "steady",
+          "frequency": 110,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 6.103515625e-05,
+            "history_error_hz": 6.103515625e-05,
+            "probability_error": 1.1920928955078125e-07,
+            "probability_history_error": 1.1920928955078125e-07,
+            "score_error": 1.1920928955078125e-07
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "steady",
+          "frequency": 220,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 35.60891751649163,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 7.62939453125e-05,
+            "history_error_hz": 7.62939453125e-05,
+            "probability_error": 2.384185791015625e-07,
+            "probability_history_error": 2.384185791015625e-07,
+            "score_error": 1.7881393432617188e-07
+          },
+          "final_mismatch_count": 37,
+          "final_mismatch_examples": [
+            {
+              "time": 0.029024943310657598,
+              "predicted": 143.7118682861328,
+              "actual": 127.6649175684105,
+              "error_hz": 16.04695071772231
+            },
+            {
+              "time": 0.034829931972789115,
+              "predicted": 137.33258056640625,
+              "actual": 127.66556569440388,
+              "error_hz": 9.667014872002369
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 142.36322021484375,
+              "actual": 127.66410741554591,
+              "error_hz": 14.699112799297836
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 440,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 3.0517578125e-05,
+            "history_error_hz": 3.0517578125e-05,
+            "probability_error": 1.1920928955078125e-07,
+            "probability_history_error": 1.1920928955078125e-07,
+            "score_error": 1.1920928955078125e-07
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "attack",
+          "frequency": 110,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 261.68755838213167,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 6.103515625e-05,
+            "history_error_hz": 6.103515625e-05,
+            "probability_error": 1.7881393432617188e-07,
+            "probability_history_error": 1.7881393432617188e-07,
+            "score_error": 1.30385160446167e-07
+          },
+          "final_mismatch_count": 2,
+          "final_mismatch_examples": [
+            {
+              "time": 0.040634920634920635,
+              "predicted": 594.0277709960938,
+              "actual": 332.3402126139621,
+              "error_hz": 261.68755838213167
+            },
+            {
+              "time": 0.046439909297052155,
+              "predicted": 670.0493774414062,
+              "actual": 438.3476867896431,
+              "error_hz": 231.70169065176316
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 220,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 35.334558146344705,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 7.62939453125e-05,
+            "history_error_hz": 7.62939453125e-05,
+            "probability_error": 1.7881393432617188e-07,
+            "probability_history_error": 1.7881393432617188e-07,
+            "score_error": 1.2665987014770508e-07
+          },
+          "final_mismatch_count": 37,
+          "final_mismatch_examples": [
+            {
+              "time": 0.029024943310657598,
+              "predicted": 141.95912170410156,
+              "actual": 127.66160497583083,
+              "error_hz": 14.297516728270736
+            },
+            {
+              "time": 0.034829931972789115,
+              "predicted": 137.16061401367188,
+              "actual": 127.66511560655937,
+              "error_hz": 9.495498407112507
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 144.34121704101562,
+              "actual": 127.66459350664773,
+              "error_hz": 16.67662353436789
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 440,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 19.80156109425056,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 3.0517578125e-05,
+            "history_error_hz": 3.0517578125e-05,
+            "probability_error": 1.1920928955078125e-07,
+            "probability_history_error": 1.1920928955078125e-07,
+            "score_error": 1.1920928955078125e-07
+          },
+          "final_mismatch_count": 6,
+          "final_mismatch_examples": [
+            {
+              "time": 0.017414965986394557,
+              "predicted": 268.90704345703125,
+              "actual": 250.74571393662083,
+              "error_hz": 18.16132952041042
+            },
+            {
+              "time": 0.023219954648526078,
+              "predicted": 270.5483093261719,
+              "actual": 250.74674823192132,
+              "error_hz": 19.80156109425056
+            },
+            {
+              "time": 0.029024943310657598,
+              "predicted": 267.86383056640625,
+              "actual": 250.74901132027938,
+              "error_hz": 17.11481924612687
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 110,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 6.103515625e-05,
+            "history_error_hz": 6.103515625e-05,
+            "probability_error": 5.960464477539063e-08,
+            "probability_history_error": 5.960464477539063e-08,
+            "score_error": 1.2665987014770508e-07
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "gap",
+          "frequency": 220,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 31.696514881681367,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 3.0517578125e-05,
+            "history_error_hz": 3.0517578125e-05,
+            "probability_error": 2.384185791015625e-07,
+            "probability_history_error": 2.384185791015625e-07,
+            "score_error": 1.7881393432617188e-07
+          },
+          "final_mismatch_count": 22,
+          "final_mismatch_examples": [
+            {
+              "time": 0.029024943310657598,
+              "predicted": 143.7118682861328,
+              "actual": 127.6649175684105,
+              "error_hz": 16.04695071772231
+            },
+            {
+              "time": 0.034829931972789115,
+              "predicted": 137.33258056640625,
+              "actual": 127.66556569440388,
+              "error_hz": 9.667014872002369
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 142.36322021484375,
+              "actual": 127.66410741554591,
+              "error_hz": 14.699112799297836
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 440,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 1.52587890625e-05,
+            "history_error_hz": 1.52587890625e-05,
+            "probability_error": 2.384185791015625e-07,
+            "probability_history_error": 2.384185791015625e-07,
+            "score_error": 1.1920928955078125e-07
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        }
+      ]
+    },
+    {
+      "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+      "fft_backend": "DSE/MKL",
+      "scope": "Every default mode4 frame from prepared PCM plus independently calculated raw-ring features; candidate/probability histories and prior repaired F0 are independently advanced. Native scheduler and PCM preparation remain upstream inputs. State-stage assertions must pass; final batch pitch is a separate diagnostic and any mismatches remain unresolved, not acceptance.",
+      "cases": [
+        {
+          "shape": "steady",
+          "frequency": 50.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 227.28311560761466,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 4,
+          "final_mismatch_examples": [
+            {
+              "time": 0.07546485260770974,
+              "predicted": 459.1922912597656,
+              "actual": 406.52151466822306,
+              "error_hz": 52.67077659154256
+            },
+            {
+              "time": 0.08126984126984126,
+              "predicted": 434.1470031738281,
+              "actual": 396.07498054213465,
+              "error_hz": 38.07202263169347
+            },
+            {
+              "time": 0.08707482993197277,
+              "predicted": 495.5044860839844,
+              "actual": 268.2213704763697,
+              "error_hz": 227.28311560761466
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 75.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 172.28097744498055,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 23,
+          "final_mismatch_examples": [
+            {
+              "time": 0.011609977324263039,
+              "predicted": 397.8339538574219,
+              "actual": 393.52395738681145,
+              "error_hz": 4.309996470610429
+            },
+            {
+              "time": 0.017414965986394557,
+              "predicted": 398.302734375,
+              "actual": 226.02175693001945,
+              "error_hz": 172.28097744498055
+            },
+            {
+              "time": 0.023219954648526078,
+              "predicted": 396.768798828125,
+              "actual": 390.99514737121916,
+              "error_hz": 5.773651456905839
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 110.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "steady",
+          "frequency": 147.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "steady",
+          "frequency": 196.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 16.583282799007804,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 44,
+          "final_mismatch_examples": [
+            {
+              "time": 0.0,
+              "predicted": 149.90792846679688,
+              "actual": 158.110534730818,
+              "error_hz": 8.202606264021114
+            },
+            {
+              "time": 0.005804988662131519,
+              "predicted": 150.60890197753906,
+              "actual": 164.59288139856199,
+              "error_hz": 13.983979421022923
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 150.9619140625,
+              "actual": 167.36256311652073,
+              "error_hz": 16.400649054020732
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 220.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 35.60891751649163,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 37,
+          "final_mismatch_examples": [
+            {
+              "time": 0.029024943310657598,
+              "predicted": 143.7118682861328,
+              "actual": 127.6649175684105,
+              "error_hz": 16.04695071772231
+            },
+            {
+              "time": 0.034829931972789115,
+              "predicted": 137.33258056640625,
+              "actual": 127.66556569440388,
+              "error_hz": 9.667014872002369
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 142.36322021484375,
+              "actual": 127.66410741554591,
+              "error_hz": 14.699112799297836
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 294.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 43.48143014334087,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 8,
+          "final_mismatch_examples": [
+            {
+              "time": 0.17995464852607712,
+              "predicted": 201.9293212890625,
+              "actual": 243.70901544246712,
+              "error_hz": 41.77969415340462
+            },
+            {
+              "time": 0.18575963718820865,
+              "predicted": 201.68421936035156,
+              "actual": 243.69800929838573,
+              "error_hz": 42.013789938034165
+            },
+            {
+              "time": 0.19156462585034018,
+              "predicted": 201.51034545898438,
+              "actual": 243.6975367584415,
+              "error_hz": 42.18719129945711
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 330.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 3.556165255855177,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 40,
+          "final_mismatch_examples": [
+            {
+              "time": 0.0,
+              "predicted": 89.28620910644531,
+              "actual": 85.73004385059014,
+              "error_hz": 3.556165255855177
+            },
+            {
+              "time": 0.005804988662131519,
+              "predicted": 89.1085433959961,
+              "actual": 87.18951915486635,
+              "error_hz": 1.9190242411297476
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 88.96843719482422,
+              "actual": 87.19275294887287,
+              "error_hz": 1.7756842459513535
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 440.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "steady",
+          "frequency": 660.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 4.170749088617939,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 3,
+          "final_mismatch_examples": [
+            {
+              "time": 0.2205895691609978,
+              "predicted": 88.28325653076172,
+              "actual": 92.18400561027322,
+              "error_hz": 3.900749079511499
+            },
+            {
+              "time": 0.22639455782312934,
+              "predicted": 88.96611022949219,
+              "actual": 92.18816567051655,
+              "error_hz": 3.2220554410243665
+            },
+            {
+              "time": 0.23219954648526087,
+              "predicted": 88.0130615234375,
+              "actual": 92.18381061205544,
+              "error_hz": 4.170749088617939
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 880.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 6.554690853345505,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 20,
+          "final_mismatch_examples": [
+            {
+              "time": 0.005804988662131519,
+              "predicted": 269.9533996582031,
+              "actual": 275.6587830424603,
+              "error_hz": 5.705383384257175
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 269.53570556640625,
+              "actual": 275.87243801589403,
+              "error_hz": 6.3367324494877835
+            },
+            {
+              "time": 0.017414965986394557,
+              "predicted": 269.8312072753906,
+              "actual": 275.88281581302346,
+              "error_hz": 6.051608537632831
+            }
+          ]
+        },
+        {
+          "shape": "steady",
+          "frequency": 1000.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "attack",
+          "frequency": 50.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 227.28311560761466,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 4,
+          "final_mismatch_examples": [
+            {
+              "time": 0.07546485260770974,
+              "predicted": 459.1878662109375,
+              "actual": 406.52151466822306,
+              "error_hz": 52.66635154271444
+            },
+            {
+              "time": 0.08126984126984126,
+              "predicted": 434.1472473144531,
+              "actual": 396.07498054213465,
+              "error_hz": 38.07226677231847
+            },
+            {
+              "time": 0.08707482993197277,
+              "predicted": 495.5044860839844,
+              "actual": 268.2213704763697,
+              "error_hz": 227.28311560761466
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 75.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 172.22252040442945,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 13,
+          "final_mismatch_examples": [
+            {
+              "time": 0.12770975056689338,
+              "predicted": 396.32952880859375,
+              "actual": 230.00108869553287,
+              "error_hz": 166.32844011306088
+            },
+            {
+              "time": 0.1335147392290249,
+              "predicted": 414.88067626953125,
+              "actual": 409.3367312227825,
+              "error_hz": 5.5439450467487745
+            },
+            {
+              "time": 0.13931972789115643,
+              "predicted": 392.7574462890625,
+              "actual": 232.0689309130329,
+              "error_hz": 160.6885153760296
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 110.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 261.68755838213167,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 2,
+          "final_mismatch_examples": [
+            {
+              "time": 0.040634920634920635,
+              "predicted": 594.0277709960938,
+              "actual": 332.3402126139621,
+              "error_hz": 261.68755838213167
+            },
+            {
+              "time": 0.046439909297052155,
+              "predicted": 670.0493774414062,
+              "actual": 438.3476867896431,
+              "error_hz": 231.70169065176316
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 147.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "attack",
+          "frequency": 196.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 18.734918605586785,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 44,
+          "final_mismatch_examples": [
+            {
+              "time": 0.0,
+              "predicted": 149.37867736816406,
+              "actual": 168.11359597375085,
+              "error_hz": 18.734918605586785
+            },
+            {
+              "time": 0.005804988662131519,
+              "predicted": 150.8193359375,
+              "actual": 167.50300469425548,
+              "error_hz": 16.68366875675548
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 150.72943115234375,
+              "actual": 165.3257499702265,
+              "error_hz": 14.596318817882747
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 220.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 35.33457340513377,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 37,
+          "final_mismatch_examples": [
+            {
+              "time": 0.029024943310657598,
+              "predicted": 141.95909118652344,
+              "actual": 127.66160497583083,
+              "error_hz": 14.297486210692611
+            },
+            {
+              "time": 0.034829931972789115,
+              "predicted": 137.16061401367188,
+              "actual": 127.66511560655937,
+              "error_hz": 9.495498407112507
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 144.3411865234375,
+              "actual": 127.66459350664773,
+              "error_hz": 16.676593016789766
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 294.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 43.48143014334087,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 13,
+          "final_mismatch_examples": [
+            {
+              "time": 0.034829931972789115,
+              "predicted": 202.16624450683594,
+              "actual": 243.70209036330465,
+              "error_hz": 41.53584585646871
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 202.0535888671875,
+              "actual": 243.71094865726812,
+              "error_hz": 41.65735979008062
+            },
+            {
+              "time": 0.046439909297052155,
+              "predicted": 201.71987915039062,
+              "actual": 243.70455621880902,
+              "error_hz": 41.98467706841839
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 330.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 3.2649952517066936,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 40,
+          "final_mismatch_examples": [
+            {
+              "time": 0.0,
+              "predicted": 89.19628143310547,
+              "actual": 87.20279937816981,
+              "error_hz": 1.9934820549356544
+            },
+            {
+              "time": 0.005804988662131519,
+              "predicted": 89.03238677978516,
+              "actual": 87.2267211785152,
+              "error_hz": 1.8056656012699506
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 88.6697769165039,
+              "actual": 87.1960237522625,
+              "error_hz": 1.4737531642414012
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 440.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 19.80156109425056,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 6,
+          "final_mismatch_examples": [
+            {
+              "time": 0.017414965986394557,
+              "predicted": 268.90704345703125,
+              "actual": 250.74571393662083,
+              "error_hz": 18.16132952041042
+            },
+            {
+              "time": 0.023219954648526078,
+              "predicted": 270.5483093261719,
+              "actual": 250.74674823192132,
+              "error_hz": 19.80156109425056
+            },
+            {
+              "time": 0.029024943310657598,
+              "predicted": 267.86383056640625,
+              "actual": 250.74901132027938,
+              "error_hz": 17.11481924612687
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 660.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 4.170749088617939,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 3,
+          "final_mismatch_examples": [
+            {
+              "time": 0.2205895691609978,
+              "predicted": 88.28325653076172,
+              "actual": 92.18400561027322,
+              "error_hz": 3.900749079511499
+            },
+            {
+              "time": 0.22639455782312934,
+              "predicted": 88.96611022949219,
+              "actual": 92.18816567051655,
+              "error_hz": 3.2220554410243665
+            },
+            {
+              "time": 0.23219954648526087,
+              "predicted": 88.0130615234375,
+              "actual": 92.18381061205544,
+              "error_hz": 4.170749088617939
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 880.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 6.554690853345505,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 16,
+          "final_mismatch_examples": [
+            {
+              "time": 0.058049886621315196,
+              "predicted": 269.9911193847656,
+              "actual": 275.8747528046693,
+              "error_hz": 5.883633419903674
+            },
+            {
+              "time": 0.06385487528344672,
+              "predicted": 269.4106140136719,
+              "actual": 275.87195171819997,
+              "error_hz": 6.461337704528091
+            },
+            {
+              "time": 0.06965986394557823,
+              "predicted": 269.5866394042969,
+              "actual": 275.8764354154233,
+              "error_hz": 6.289796011126441
+            }
+          ]
+        },
+        {
+          "shape": "attack",
+          "frequency": 1000.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "gap",
+          "frequency": 50.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "gap",
+          "frequency": 75.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 176.47524178026669,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 15,
+          "final_mismatch_examples": [
+            {
+              "time": 0.011609977324263039,
+              "predicted": 397.8339538574219,
+              "actual": 393.52395738681145,
+              "error_hz": 4.309996470610429
+            },
+            {
+              "time": 0.017414965986394557,
+              "predicted": 398.302734375,
+              "actual": 226.02175693001945,
+              "error_hz": 172.28097744498055
+            },
+            {
+              "time": 0.023219954648526078,
+              "predicted": 396.768798828125,
+              "actual": 390.99514737121916,
+              "error_hz": 5.773651456905839
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 110.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "gap",
+          "frequency": 147.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "gap",
+          "frequency": 196.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 30.60913488866248,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 28,
+          "final_mismatch_examples": [
+            {
+              "time": 0.0,
+              "predicted": 149.90792846679688,
+              "actual": 158.110534730818,
+              "error_hz": 8.202606264021114
+            },
+            {
+              "time": 0.005804988662131519,
+              "predicted": 150.60890197753906,
+              "actual": 164.59288139856199,
+              "error_hz": 13.983979421022923
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 150.9619140625,
+              "actual": 167.36256311652073,
+              "error_hz": 16.400649054020732
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 220.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 31.696499622892304,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 22,
+          "final_mismatch_examples": [
+            {
+              "time": 0.029024943310657598,
+              "predicted": 143.7118682861328,
+              "actual": 127.6649175684105,
+              "error_hz": 16.04695071772231
+            },
+            {
+              "time": 0.034829931972789115,
+              "predicted": 137.33258056640625,
+              "actual": 127.66556569440388,
+              "error_hz": 9.667014872002369
+            },
+            {
+              "time": 0.040634920634920635,
+              "predicted": 142.36322021484375,
+              "actual": 127.66410741554591,
+              "error_hz": 14.699112799297836
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 294.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 43.526170593595765,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 13,
+          "final_mismatch_examples": [
+            {
+              "time": 0.040634920634920635,
+              "predicted": 201.72421264648438,
+              "actual": 243.70954814901498,
+              "error_hz": 41.9853355025306
+            },
+            {
+              "time": 0.046439909297052155,
+              "predicted": 201.52027893066406,
+              "actual": 243.69836155603116,
+              "error_hz": 42.1780826253671
+            },
+            {
+              "time": 0.052244897959183675,
+              "predicted": 200.17379760742188,
+              "actual": 243.69996820101764,
+              "error_hz": 43.526170593595765
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 330.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 3.556165255855177,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 23,
+          "final_mismatch_examples": [
+            {
+              "time": 0.0,
+              "predicted": 89.28620910644531,
+              "actual": 85.73004385059014,
+              "error_hz": 3.556165255855177
+            },
+            {
+              "time": 0.005804988662131519,
+              "predicted": 89.1085433959961,
+              "actual": 87.18951915486635,
+              "error_hz": 1.9190242411297476
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 88.96843719482422,
+              "actual": 87.19275294887287,
+              "error_hz": 1.7756842459513535
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 440.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        },
+        {
+          "shape": "gap",
+          "frequency": 660.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 4.170749088617939,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 8,
+          "final_mismatch_examples": [
+            {
+              "time": 0.046439909297052155,
+              "predicted": 88.025390625,
+              "actual": 92.18188665175266,
+              "error_hz": 4.156496026752663
+            },
+            {
+              "time": 0.052244897959183675,
+              "predicted": 89.18013000488281,
+              "actual": 92.18755464990669,
+              "error_hz": 3.0074246450238746
+            },
+            {
+              "time": 0.058049886621315196,
+              "predicted": 88.93473052978516,
+              "actual": 92.18301762355263,
+              "error_hz": 3.2482870937674733
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 880.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": false,
+          "final_max_error_hz": 6.36520721076738,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 13,
+          "final_mismatch_examples": [
+            {
+              "time": 0.005804988662131519,
+              "predicted": 269.9533996582031,
+              "actual": 275.6587830424603,
+              "error_hz": 5.705383384257175
+            },
+            {
+              "time": 0.011609977324263039,
+              "predicted": 269.53570556640625,
+              "actual": 275.87243801589403,
+              "error_hz": 6.3367324494877835
+            },
+            {
+              "time": 0.017414965986394557,
+              "predicted": 269.8312072753906,
+              "actual": 275.88281581302346,
+              "error_hz": 6.051608537632831
+            }
+          ]
+        },
+        {
+          "shape": "gap",
+          "frequency": 1000.0,
+          "frames": 49,
+          "raw_frames": 49,
+          "final_frames": 44,
+          "final_matches": true,
+          "final_max_error_hz": 0.0,
+          "observer_matches_baseline": true,
+          "state_max_errors": {
+            "max_error_hz": 0.0,
+            "history_error_hz": 0.0,
+            "probability_error": 0.0,
+            "probability_history_error": 0.0,
+            "score_error": 0.0
+          },
+          "final_mismatch_count": 0,
+          "final_mismatch_examples": []
+        }
+      ]
+    }
+  ]
+}

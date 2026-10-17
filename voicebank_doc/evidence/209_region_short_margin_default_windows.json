@@ -1,0 +1,125 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "window": 2048,
+  "hop": 256,
+  "sample_shapes": 8,
+  "frame_windows": 383,
+  "mismatches": 0,
+  "guard_failures": 0,
+  "rows": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "frames": 7,
+      "pcm_count": 3328,
+      "core_offset_samples": 512,
+      "max_front_zero_samples": 512,
+      "max_tail_zero_samples": 0,
+      "final_frame_tail_zero_samples": 0,
+      "matched_windows": 7
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "frames": 5,
+      "pcm_count": 2560,
+      "core_offset_samples": 256,
+      "max_front_zero_samples": 768,
+      "max_tail_zero_samples": 0,
+      "final_frame_tail_zero_samples": 0,
+      "matched_windows": 5
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "frames": 35,
+      "pcm_count": 10752,
+      "core_offset_samples": 1024,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 1,
+      "final_frame_tail_zero_samples": 1,
+      "matched_windows": 35
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "frames": 60,
+      "pcm_count": 16896,
+      "core_offset_samples": 1024,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 257,
+      "final_frame_tail_zero_samples": 257,
+      "matched_windows": 60
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "frames": 53,
+      "pcm_count": 14848,
+      "core_offset_samples": 1024,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 513,
+      "final_frame_tail_zero_samples": 513,
+      "matched_windows": 53
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "frames": 50,
+      "pcm_count": 13824,
+      "core_offset_samples": 1024,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 769,
+      "final_frame_tail_zero_samples": 769,
+      "matched_windows": 50
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 58,
+      "pcm_count": 16384,
+      "core_offset_samples": 1024,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 257,
+      "final_frame_tail_zero_samples": 257,
+      "matched_windows": 58
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 115,
+      "pcm_count": 30464,
+      "core_offset_samples": 1024,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 769,
+      "final_frame_tail_zero_samples": 769,
+      "matched_windows": 115
+    }
+  ],
+  "scope": "Direct normal file-backed DSE read windows with owned PCM and V4X metadata shapes; does not observe Editor cache mode or frame requests"
+}

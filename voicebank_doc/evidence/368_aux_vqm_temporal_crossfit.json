@@ -1,0 +1,198 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "v4x_fit_report_sha256": "fd18cb21db6fb43c4c68c1e430512bd711454270e3268be42dc126c7a9e64ffe",
+  "aux_fit_report_sha256": "c864677e9a3e5a84816bd1759fefeb933ec9485e7e90d2599a8bd36e3caf8015",
+  "common_interior_margin_frames": 4,
+  "cross_category_predictions": [
+    {
+      "source_category": "BRWSP",
+      "target_category": "TENSE",
+      "target_frames": 148,
+      "fields": {
+        "6": {
+          "source_fitted_weights": [
+            0.11964759417783766,
+            0.2472894611939439,
+            0.2661258892564369,
+            0.2472894611939439,
+            0.11964759417783766
+          ],
+          "target_identity": {
+            "frames": 140,
+            "mean_absolute_error": 0.02382674061560205,
+            "max_absolute_error": 0.07079374045133591
+          },
+          "target_v4x_fit": {
+            "frames": 140,
+            "mean_absolute_error": 0.02381344341852689,
+            "max_absolute_error": 0.06948376935742373
+          },
+          "target_crossfit": {
+            "frames": 140,
+            "mean_absolute_error": 0.02381624198630487,
+            "max_absolute_error": 0.06986885762425313
+          },
+          "target_local_fit_in_sample": {
+            "frames": 140,
+            "mean_absolute_error": 0.023815261673851663,
+            "max_absolute_error": 0.06999336457408009
+          }
+        },
+        "16": {
+          "source_fitted_weights": [
+            0.19118995055856,
+            0.19879846877260793,
+            0.2200231613376642,
+            0.19879846877260793,
+            0.19118995055856
+          ],
+          "target_identity": {
+            "frames": 140,
+            "mean_absolute_error": 0.005250035013471331,
+            "max_absolute_error": 0.01955866813659668
+          },
+          "target_v4x_fit": {
+            "frames": 140,
+            "mean_absolute_error": 0.0025259151974195274,
+            "max_absolute_error": 0.005043685686279442
+          },
+          "target_crossfit": {
+            "frames": 140,
+            "mean_absolute_error": 0.002545132390465096,
+            "max_absolute_error": 0.005941795448994647
+          },
+          "target_local_fit_in_sample": {
+            "frames": 140,
+            "mean_absolute_error": 0.0025294708541207093,
+            "max_absolute_error": 0.004923843015792517
+          }
+        },
+        "18": {
+          "source_fitted_weights": [
+            0.0937841374069875,
+            0.23714119513134854,
+            0.3381493349233279,
+            0.23714119513134854,
+            0.0937841374069875
+          ],
+          "target_identity": {
+            "frames": 140,
+            "mean_absolute_error": 0.0018669741494315012,
+            "max_absolute_error": 0.005918025970458984
+          },
+          "target_v4x_fit": {
+            "frames": 140,
+            "mean_absolute_error": 0.00020070480545975045,
+            "max_absolute_error": 0.0007942691979216931
+          },
+          "target_crossfit": {
+            "frames": 140,
+            "mean_absolute_error": 0.0002084777087270316,
+            "max_absolute_error": 0.0007733408671874997
+          },
+          "target_local_fit_in_sample": {
+            "frames": 140,
+            "mean_absolute_error": 0.00019793221251480326,
+            "max_absolute_error": 0.0007952054351871851
+          }
+        }
+      }
+    },
+    {
+      "source_category": "TENSE",
+      "target_category": "BRWSP",
+      "target_frames": 389,
+      "fields": {
+        "6": {
+          "source_fitted_weights": [
+            0.047692372860642734,
+            0.5017966584299977,
+            -0.09897806258128083,
+            0.5017966584299977,
+            0.047692372860642734
+          ],
+          "target_identity": {
+            "frames": 381,
+            "mean_absolute_error": 0.1371976087099611,
+            "max_absolute_error": 0.6222474575042725
+          },
+          "target_v4x_fit": {
+            "frames": 381,
+            "mean_absolute_error": 0.06929677636435899,
+            "max_absolute_error": 0.2660864044649811
+          },
+          "target_crossfit": {
+            "frames": 381,
+            "mean_absolute_error": 0.0929423615372816,
+            "max_absolute_error": 0.39254908500120944
+          },
+          "target_local_fit_in_sample": {
+            "frames": 381,
+            "mean_absolute_error": 0.06368717270922734,
+            "max_absolute_error": 0.2879956894458926
+          }
+        },
+        "16": {
+          "source_fitted_weights": [
+            0.14645649141725733,
+            0.21000835114913244,
+            0.28707031486722046,
+            0.21000835114913244,
+            0.14645649141725733
+          ],
+          "target_identity": {
+            "frames": 381,
+            "mean_absolute_error": 0.3335148643633825,
+            "max_absolute_error": 5.853659152984619
+          },
+          "target_v4x_fit": {
+            "frames": 381,
+            "mean_absolute_error": 0.2248873602527621,
+            "max_absolute_error": 1.3300777565580928
+          },
+          "target_crossfit": {
+            "frames": 381,
+            "mean_absolute_error": 0.22549021355732593,
+            "max_absolute_error": 1.5193285365796507
+          },
+          "target_local_fit_in_sample": {
+            "frames": 381,
+            "mean_absolute_error": 0.22628817480208702,
+            "max_absolute_error": 1.113040721973408
+          }
+        },
+        "18": {
+          "source_fitted_weights": [
+            0.08585392844988565,
+            0.2395629359343272,
+            0.3491662712315743,
+            0.2395629359343272,
+            0.08585392844988565
+          ],
+          "target_identity": {
+            "frames": 381,
+            "mean_absolute_error": 0.023340535601918778,
+            "max_absolute_error": 0.12055540084838867
+          },
+          "target_v4x_fit": {
+            "frames": 381,
+            "mean_absolute_error": 0.005116858912341704,
+            "max_absolute_error": 0.023039783075144094
+          },
+          "target_crossfit": {
+            "frames": 381,
+            "mean_absolute_error": 0.0051004975485388565,
+            "max_absolute_error": 0.022671550908610172
+          },
+          "target_local_fit_in_sample": {
+            "frames": 381,
+            "mean_absolute_error": 0.00508911903877907,
+            "max_absolute_error": 0.022306572693850946
+          }
+        }
+      }
+    }
+  ],
+  "scope": "Each symmetric five-tap kernel is fitted on one auxiliary category and evaluated on the other without target refitting. Both are analyzed from their unchanged embedded PCM in offline DRS mode 4. In-sample fits are diagnostic only; only aggregate errors and coefficients are retained, never PCM or frame values."
+}

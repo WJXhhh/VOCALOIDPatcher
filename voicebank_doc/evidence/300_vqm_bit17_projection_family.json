@@ -1,0 +1,49 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "candidate_count": 1176,
+  "common_frame_counts": [
+    50,
+    65,
+    65
+  ],
+  "window_sizes": [
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "frequency_modes": [
+    "frame_f0",
+    "pitch1",
+    "mean_f0"
+  ],
+  "corrections": [
+    "none",
+    "minus_cumulative_f0",
+    "plus_cumulative_f0",
+    "minus_pitch1",
+    "plus_pitch1",
+    "global_frame_f0",
+    "global_pitch1"
+  ],
+  "lag_frames": [
+    -3,
+    3
+  ],
+  "best": {
+    "window_size": 4096,
+    "frequency_mode": "pitch1",
+    "correction": "minus_cumulative_f0",
+    "lag_frames": 0,
+    "phase_sign": -1,
+    "mean_sample_mae_radians": 0.3532066162494883,
+    "per_sample_mae_radians": [
+      0.159994821660577,
+      0.5481085625054067,
+      0.35151646458248126
+    ]
+  },
+  "scope": "Best of a bounded direct fundamental-projection family after independent phase rotation per sample. Nonzero error rejects these simple candidates, not all possible phase producers."
+}

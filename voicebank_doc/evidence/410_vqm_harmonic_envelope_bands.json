@@ -1,0 +1,706 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "entries": {
+    "env_insert": "0x3af0",
+    "env_evaluate": "0x2b30",
+    "env_mean": "0x59260",
+    "overwrite_range": [
+      "0xd696f",
+      "0xd6bea"
+    ],
+    "normalize": "0x86cb0"
+  },
+  "protocol": {
+    "analysis_mode": 4,
+    "estimator_id": 133,
+    "estimator_variant": 1,
+    "alternatives": [
+      0,
+      1
+    ],
+    "overwrite_bands": 40,
+    "overwrite_cepstra": 20,
+    "env_type": 3,
+    "env_interpolation": 3,
+    "env_bounds": [
+      -200.0,
+      0.0,
+      0.0
+    ]
+  },
+  "source_sha256": {
+    "verify_vqm_harmonic_envelope_bands.py": "6b9ad4e8b82dd8003ce9fc4eee22b8edb10259cb3278c18239cdcd588a5d289f",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "probe_frm2_batch_outputs.py": "5ba05bdf1e883e5aedb61cb7f1209320327c589d37bc0595d64724ae61b47f2c",
+    "verify_vqm_array_production_stages.py": "d391ed0fc1e6e3e23592e56e01e0b9f6c91a74cf14ada11ea8ac91bc35a415c4",
+    "verify_vqm_bit16_spectral_power.py": "67e050943693915d144faa03a9419bf9856354064a5f020edc90576c53056b1e",
+    "frm2_classification_geometry.py": "5f842e6ea40b6987b181a0ec2e66acd4b2e1eee071916e3139d5fa312e46a061",
+    "verify_frm2_analysis_windows.py": "7495be2e54ba528244f90fa71839db3dda982c44288242153241a37ad793f6da",
+    "frm2_classification_bands.py": "6fb227ad06c23749c24bf367f83dfde5ccbd41ef1271f115ce4d5e0c563fe86d"
+  },
+  "owned_contracts": [
+    {
+      "name": "two_nodes",
+      "mode": 1,
+      "knot_count": 2,
+      "ordinates": {
+        "values": 203,
+        "exact": 203,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 209,
+        "exact": 209,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "two_nodes",
+      "mode": 3,
+      "knot_count": 2,
+      "ordinates": {
+        "values": 203,
+        "exact": 203,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 209,
+        "exact": 209,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "single_harmonic",
+      "mode": 1,
+      "knot_count": 3,
+      "ordinates": {
+        "values": 204,
+        "exact": 204,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 210,
+        "exact": 210,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "single_harmonic",
+      "mode": 3,
+      "knot_count": 3,
+      "ordinates": {
+        "values": 204,
+        "exact": 204,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 210,
+        "exact": 210,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "out_of_order_duplicates",
+      "mode": 1,
+      "knot_count": 5,
+      "ordinates": {
+        "values": 206,
+        "exact": 206,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 212,
+        "exact": 212,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "out_of_order_duplicates",
+      "mode": 3,
+      "knot_count": 5,
+      "ordinates": {
+        "values": 206,
+        "exact": 206,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 212,
+        "exact": 212,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "clipped_endpoints",
+      "mode": 1,
+      "knot_count": 4,
+      "ordinates": {
+        "values": 205,
+        "exact": 205,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 211,
+        "exact": 211,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "clipped_endpoints",
+      "mode": 3,
+      "knot_count": 4,
+      "ordinates": {
+        "values": 205,
+        "exact": 205,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 211,
+        "exact": 211,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "random_3",
+      "mode": 1,
+      "knot_count": 5,
+      "ordinates": {
+        "values": 206,
+        "exact": 206,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 212,
+        "exact": 212,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "random_3",
+      "mode": 3,
+      "knot_count": 5,
+      "ordinates": {
+        "values": 206,
+        "exact": 206,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 212,
+        "exact": 212,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "random_17",
+      "mode": 1,
+      "knot_count": 19,
+      "ordinates": {
+        "values": 220,
+        "exact": 220,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 226,
+        "exact": 226,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "random_17",
+      "mode": 3,
+      "knot_count": 19,
+      "ordinates": {
+        "values": 220,
+        "exact": 220,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 226,
+        "exact": 226,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "random_65",
+      "mode": 1,
+      "knot_count": 67,
+      "ordinates": {
+        "values": 268,
+        "exact": 268,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 274,
+        "exact": 274,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    },
+    {
+      "name": "random_65",
+      "mode": 3,
+      "knot_count": 67,
+      "ordinates": {
+        "values": 268,
+        "exact": 268,
+        "maximum": 0.0
+      },
+      "means": {
+        "values": 274,
+        "exact": 274,
+        "maximum": 0.0
+      },
+      "rejected_unchanged_output": 2,
+      "insertion_nodes_exact": true,
+      "knots_and_guards_preserved": true
+    }
+  ],
+  "cases": [
+    {
+      "name": "zero",
+      "alternative": 0,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 0,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 44,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1760,
+          "maximum": 0.0
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "362d0b85064a25a352ce9a7e91188059d94501606aa142228950b0d4cd38a9ec"
+    },
+    {
+      "name": "zero",
+      "alternative": 1,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 0,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 44,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1760,
+          "maximum": 0.0
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 1012
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "5a9b53c6f469cadf66e534de75fc377f5cf75f3f81568c086cb8ad145921b7fa"
+    },
+    {
+      "name": "harmonic",
+      "alternative": 0,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 2654,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1234,
+          "maximum": 4.57763671875e-05
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 279,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "2742b5359f5f9a56a6b35e6246229de707e42e0e298b78e35384fcea84d27afb"
+    },
+    {
+      "name": "harmonic",
+      "alternative": 1,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 2654,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1235,
+          "maximum": 4.57763671875e-05
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 304,
+          "maximum": 0.00048828125
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 1012
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "983c831746342d561293bb4ad1bf12e321e124e06311b3d3f2f07b3342f16115"
+    },
+    {
+      "name": "gap",
+      "alternative": 0,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 1979,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 9,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1437,
+          "maximum": 3.4332275390625e-05
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 486,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "0893d17babe03aa14dc399c1d9c30ba7193252feaca72db8159d8352d74ede74"
+    },
+    {
+      "name": "gap",
+      "alternative": 1,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 1979,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 9,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1431,
+          "maximum": 3.814697265625e-05
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 501,
+          "maximum": 0.00048828125
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 1012
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "ef44331f7da12cb642fe5dcb50810255d7a274571e4ba02c564ac7734d88a8b8"
+    },
+    {
+      "name": "noise",
+      "alternative": 0,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 2648,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1573,
+          "maximum": 1.1444091796875e-05
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 349,
+          "maximum": 0.0001220703125
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "dc5429962e4ca3fe43908f9c41edfd197009183106cb515742db9c6db878e224"
+    },
+    {
+      "name": "noise",
+      "alternative": 1,
+      "checks": {
+        "frames": 44,
+        "active_harmonic_slots": 2648,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 1760,
+          "exact": 1575,
+          "maximum": 7.62939453125e-06
+        },
+        "all_20_cepstra": {
+          "values": 880,
+          "exact": 352,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 880,
+          "exact": 880,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 1012
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "7a331917e25db75cb82610960287bd81f5f49740a6061856ce25697910321a39"
+    },
+    {
+      "name": "v4x_0",
+      "alternative": 0,
+      "checks": {
+        "frames": 72,
+        "active_harmonic_slots": 4183,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 2880,
+          "exact": 2147,
+          "maximum": 2.288818359375e-05
+        },
+        "all_20_cepstra": {
+          "values": 1440,
+          "exact": 682,
+          "maximum": 0.0003662109375
+        },
+        "shared_native_bands_dct": {
+          "values": 1440,
+          "exact": 1440,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "bd3e380242ca9c3a162cb1fa97857e5888a3496ba12654eb2a259b2b34a4df3f"
+    },
+    {
+      "name": "v4x_0",
+      "alternative": 1,
+      "checks": {
+        "frames": 72,
+        "active_harmonic_slots": 4183,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 2880,
+          "exact": 2087,
+          "maximum": 1.9073486328125e-05
+        },
+        "all_20_cepstra": {
+          "values": 1440,
+          "exact": 609,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 1440,
+          "exact": 1440,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 1656
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "f6f036e0c80cd649339f6c1219f951083459e073212d4898fc2d69ee8168271e"
+    },
+    {
+      "name": "v4x_1",
+      "alternative": 0,
+      "checks": {
+        "frames": 87,
+        "active_harmonic_slots": 5179,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 3480,
+          "exact": 2646,
+          "maximum": 1.52587890625e-05
+        },
+        "all_20_cepstra": {
+          "values": 1740,
+          "exact": 809,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 1740,
+          "exact": 1740,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "4c3a50c625fdc1c758df845c63409e7133bc6ffc993cb362f7bff114d9a6eb1f"
+    },
+    {
+      "name": "v4x_1",
+      "alternative": 1,
+      "checks": {
+        "frames": 87,
+        "active_harmonic_slots": 5179,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 3480,
+          "exact": 2620,
+          "maximum": 1.52587890625e-05
+        },
+        "all_20_cepstra": {
+          "values": 1740,
+          "exact": 815,
+          "maximum": 0.00048828125
+        },
+        "shared_native_bands_dct": {
+          "values": 1740,
+          "exact": 1740,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 2001
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "abb6387efa899f345276b918c85eeea769a539b778092eeb70046c813689b808"
+    },
+    {
+      "name": "v4x_2",
+      "alternative": 0,
+      "checks": {
+        "frames": 87,
+        "active_harmonic_slots": 5549,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 3480,
+          "exact": 3086,
+          "maximum": 1.52587890625e-05
+        },
+        "all_20_cepstra": {
+          "values": 1740,
+          "exact": 848,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 1740,
+          "exact": 1740,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 0
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "05d4e1ddef935329b0d1a56e45b374715e51acc085ee4394a374937df81359ec"
+    },
+    {
+      "name": "v4x_2",
+      "alternative": 1,
+      "checks": {
+        "frames": 87,
+        "active_harmonic_slots": 5549,
+        "before_harmonic_frames": 0,
+        "no_active_harmonic_frames": 0,
+        "all_40_bands": {
+          "values": 3480,
+          "exact": 3097,
+          "maximum": 1.1444091796875e-05
+        },
+        "all_20_cepstra": {
+          "values": 1740,
+          "exact": 871,
+          "maximum": 0.000244140625
+        },
+        "shared_native_bands_dct": {
+          "values": 1740,
+          "exact": 1740,
+          "maximum": 0.0
+        },
+        "bit17_nonzero": 0,
+        "alternative_zero_delta_tail_values": 2001
+      },
+      "observer_matches_unobserved": true,
+      "feature_sha256": "ed5d2a6a376c67484b2d3225b12637bf04357ef7cf9c79197d9e23259cedf13a"
+    }
+  ],
+  "scope": "Unmodified natural streaming PCM. Independent insertion, interval arithmetic and DCT with shared observed normalized harmonics, cents F0 and gain. Inverse frequency/amplitude normalization cannot recover original harmonic bits uniquely. Shared-band DCT is a separate exact check. Not independent PCM-to-harmonics, all producer settings or PCM-to-bit17. Reference arrays remain in memory."
+}

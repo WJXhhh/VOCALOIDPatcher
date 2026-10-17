@@ -1,0 +1,59 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "cases": [
+    {
+      "state_mode": "default",
+      "source_phase_changed": 136150,
+      "work_phase_nonzero_counts": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "work_phase_blocks_changed": 0,
+      "auxiliary_spectrum_blocks_changed": 0,
+      "output_pcm_blocks_changed": 0,
+      "baseline_output_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958",
+      "mutated_output_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958"
+    },
+    {
+      "state_mode": "clear_10",
+      "source_phase_changed": 136150,
+      "work_phase_nonzero_counts": [
+        [
+          73
+        ],
+        [
+          74
+        ]
+      ],
+      "work_phase_blocks_changed": 56,
+      "auxiliary_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56,
+      "baseline_output_sha256": "85df97a173175cee3c4a3e7e2f79f0a5ba1f2fb52814f12a14a11e4908ffae37",
+      "mutated_output_sha256": "49ff793e7b91737f7ffa3134f5acde6efd44a4d917f30b3a228ad3a0601c345e"
+    },
+    {
+      "state_mode": "clear_both",
+      "source_phase_changed": 136150,
+      "work_phase_nonzero_counts": [
+        [
+          73
+        ],
+        [
+          74
+        ]
+      ],
+      "work_phase_blocks_changed": 56,
+      "auxiliary_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56,
+      "baseline_output_sha256": "85df97a173175cee3c4a3e7e2f79f0a5ba1f2fb52814f12a14a11e4908ffae37",
+      "mutated_output_sha256": "49ff793e7b91737f7ffa3134f5acde6efd44a4d917f30b3a228ad3a0601c345e"
+    }
+  ],
+  "scope": "Offline loaded BRWSP event-state copy of the category record. Only its +0x10/+0x11 mode bytes are changed in memory, alongside loaded source phase. A 300-Hz owned ordinary-primary event runs through final int16 PCM. The default +0x10=1 branch clears and rebuilds working component arrays after interpolation; +0x10=0 exposes saved source phase to the tested output. No Editor process or bank PCM."
+}

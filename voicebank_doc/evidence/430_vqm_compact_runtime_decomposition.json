@@ -1,0 +1,278 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "resource_sha256": "45ac6bb79bf12fd6f79d6739e06154d25585ec7850bd52531fe28d2943057438",
+  "reference_sha256": "5ba52ec05729cabde8bc68d7fc5c0aa4490837eb7b26190213f8bdc9795949b6",
+  "raw_count_diagnostic": {
+    "counts": {
+      "optional_frames": 22038,
+      "count_equals_runtime_radius9_max": 21898
+    },
+    "saved_minus_predicted_count": {
+      "0": 21898,
+      "4": 2,
+      "12": 1,
+      "20": 1,
+      "25": 1,
+      "26": 5,
+      "2": 16,
+      "1": 92,
+      "6": 2,
+      "7": 4,
+      "3": 3,
+      "8": 2,
+      "9": 3,
+      "11": 5,
+      "5": 3
+    },
+    "scope": "Raw original count comparison only; a mismatch excludes a universal identity. Not proof the original author used the current runtime window or eligibility rule."
+  },
+  "runtime": {
+    "random_identity": {
+      "import_module": "api-ms-win-crt-utility-l1-1-0.dll",
+      "iat_rva": "0x224ad8",
+      "loaded_module": "ucrtbase.dll",
+      "loaded_module_sha256": "5c52e3a303baaac0e0af8bd9b96134993da34bc9d834a31ef37e1d2cdc7fe192",
+      "export_equals_loaded_iat": true,
+      "own_repeated_draws": 16,
+      "seed": 430,
+      "verified_audio_path_call_rvas": [
+        "0x2d507",
+        "0x34ca7",
+        "0x39425",
+        "0x39580",
+        "0x39696",
+        "0x39804",
+        "0x52a43",
+        "0x53204",
+        "0x53b10"
+      ],
+      "scope": "Verified genuine CRT exports in this disposable Python process; seed reset immediately before each native audio sequence. Native code and genuine rand implementation unchanged. No claim about host RNG state."
+    },
+    "shared_fft_identity": {
+      "name": "DSE_DFT.dll",
+      "sha256": "7cae07fabcede5a9aa6ddbef596eafb73220d25ff7e343943322c93a4db60860",
+      "identity_source": "GetModuleHandleW/GetModuleFileNameW of the loaded module"
+    },
+    "max_additional_audio_blocks": 0,
+    "owned_feature_control": {
+      "vector13_slot": null,
+      "vector13_value": null,
+      "bit9_value": null
+    },
+    "counts": {
+      "source_frames": 510,
+      "main_amplitude_changed_in_preparation": 0,
+      "metadata_adapted_frames": 5,
+      "generated_frames": 5,
+      "count_matching": 5,
+      "tail_slots": 0,
+      "pitch_blend_nonzero_frames": 5,
+      "pitch_blend_saturated_frames": 0,
+      "array_values": 335,
+      "baseline_float32_bytes_exact": 335,
+      "residual_float32_bytes_exact": 335,
+      "bit18_equals_first_zero": 5,
+      "bit7_equals_second_zero": 5,
+      "tail_residual_zero": 0
+    },
+    "baseline_error": {
+      "compared": 335,
+      "mean_absolute_error": 0.0,
+      "median_absolute_error": 0.0,
+      "max_absolute_error": 0.0,
+      "within_1e_6": 335,
+      "within_1e_3": 335,
+      "within_1e_2": 335
+    },
+    "residual_error": {
+      "compared": 335,
+      "mean_absolute_error": 0.0,
+      "median_absolute_error": 0.0,
+      "max_absolute_error": 0.0,
+      "within_1e_6": 335,
+      "within_1e_3": 335,
+      "within_1e_2": 335
+    },
+    "original_nonfirst_baseline_error": {
+      "compared": 0,
+      "mean_absolute_error": null,
+      "median_absolute_error": null,
+      "max_absolute_error": null,
+      "within_1e_6": 0,
+      "within_1e_3": 0,
+      "within_1e_2": 0
+    },
+    "original_nonfirst_residual_error": {
+      "compared": 0,
+      "mean_absolute_error": null,
+      "median_absolute_error": null,
+      "max_absolute_error": null,
+      "within_1e_6": 0,
+      "within_1e_3": 0,
+      "within_1e_2": 0
+    },
+    "lowpass_sequences": 335,
+    "cases": [
+      {
+        "sample_index": 3,
+        "variant": "baseline",
+        "released_optional_frames": 0,
+        "owned_feature_changes": 0,
+        "radius": 9,
+        "summary": {
+          "source_frames": 200,
+          "main_amplitude_changed_in_preparation": 0,
+          "metadata_adapted_frames": 2,
+          "generated_frames": 2,
+          "count_matching": 2,
+          "tail_slots": 0,
+          "pitch_blend_nonzero_frames": 2,
+          "pitch_blend_saturated_frames": 0,
+          "array_values": 122,
+          "baseline_float32_bytes_exact": 122,
+          "residual_float32_bytes_exact": 122,
+          "bit18_equals_first_zero": 2,
+          "bit7_equals_second_zero": 2,
+          "tail_residual_zero": 0
+        },
+        "frames": [
+          {
+            "source_index": 6,
+            "observed_count": 61,
+            "shape": {
+              "selected": 16,
+              "generated_count": 61,
+              "tail_slots": 0,
+              "pitch_blend_nonzero": true,
+              "pitch_blend_saturated": false
+            },
+            "exact_baseline": 61,
+            "exact_residual": 61
+          },
+          {
+            "source_index": 7,
+            "observed_count": 61,
+            "shape": {
+              "selected": 17,
+              "generated_count": 61,
+              "tail_slots": 0,
+              "pitch_blend_nonzero": true,
+              "pitch_blend_saturated": false
+            },
+            "exact_baseline": 61,
+            "exact_residual": 61
+          }
+        ],
+        "generated_arrays_sha256": "f1ec20f577de222de32d12729a109b5e7f0b3e1b9443f4f592bac079f16d72a3",
+        "audio": {
+          "sha256": "957ef98443d62a0ee919e78a47ecba355fb76b4f1039627c8d98399c50b500a2",
+          "calls": 1,
+          "selected_source_indices": 1,
+          "nonzero_bit17_selections": 1,
+          "status_counts": {
+            "0": 1
+          },
+          "finite_guarded_values": 256,
+          "nonzero_samples": 256,
+          "peak": 603.4181518554688
+        }
+      },
+      {
+        "sample_index": 10,
+        "variant": "baseline",
+        "released_optional_frames": 0,
+        "owned_feature_changes": 0,
+        "radius": 9,
+        "summary": {
+          "source_frames": 310,
+          "main_amplitude_changed_in_preparation": 0,
+          "metadata_adapted_frames": 3,
+          "generated_frames": 3,
+          "count_matching": 3,
+          "tail_slots": 0,
+          "pitch_blend_nonzero_frames": 3,
+          "pitch_blend_saturated_frames": 0,
+          "array_values": 213,
+          "baseline_float32_bytes_exact": 213,
+          "residual_float32_bytes_exact": 213,
+          "bit18_equals_first_zero": 3,
+          "bit7_equals_second_zero": 3,
+          "tail_residual_zero": 0
+        },
+        "frames": [
+          {
+            "source_index": 0,
+            "observed_count": 71,
+            "shape": {
+              "selected": 10,
+              "generated_count": 71,
+              "tail_slots": 0,
+              "pitch_blend_nonzero": true,
+              "pitch_blend_saturated": false
+            },
+            "exact_baseline": 71,
+            "exact_residual": 71
+          },
+          {
+            "source_index": 1,
+            "observed_count": 71,
+            "shape": {
+              "selected": 11,
+              "generated_count": 71,
+              "tail_slots": 0,
+              "pitch_blend_nonzero": true,
+              "pitch_blend_saturated": false
+            },
+            "exact_baseline": 71,
+            "exact_residual": 71
+          },
+          {
+            "source_index": 2,
+            "observed_count": 71,
+            "shape": {
+              "selected": 12,
+              "generated_count": 71,
+              "tail_slots": 0,
+              "pitch_blend_nonzero": true,
+              "pitch_blend_saturated": false
+            },
+            "exact_baseline": 71,
+            "exact_residual": 71
+          }
+        ],
+        "generated_arrays_sha256": "3f110487f6bf48c2eef20b1760ad3bc5e341c7a4db49b9e45851fdc33c4ad4ff",
+        "audio": {
+          "sha256": "4a543faef4a2d5a4297b2787783b1a6728752facd5c9605b4f64ebd2b362f856",
+          "calls": 1,
+          "selected_source_indices": 1,
+          "nonzero_bit17_selections": 1,
+          "status_counts": {
+            "0": 1
+          },
+          "finite_guarded_values": 256,
+          "nonzero_samples": 256,
+          "peak": 3731.114990234375
+        }
+      }
+    ],
+    "scope": "Established initial native audio call plus the specified additional chunks per source. Model uses post-preparation main arrays, timestamps and feature inputs, independently reconstructs scheduling/mapping/mixing and shares only genuine FFT transforms. Original main-array preparation is not modeled. Native field release is confined to owned loaded objects; no installed file/code changes. No whole-host, original authoring or bit17 production claim."
+  },
+  "source_sha256": {
+    "verify_vqm_compact_runtime_decomposition.py": "83f2893331c6e5090e5af9e86726931002852ef6703d65310e1126036a4f4736",
+    "verify_vqm_temporal_lowpass.py": "982afc5f1523132db403115f314be41da0e64277353f9117fd00f79f0d97358a",
+    "verify_frm2_analysis_windows.py": "7495be2e54ba528244f90fa71839db3dda982c44288242153241a37ad793f6da",
+    "verify_vqm_spectrum_stage_precision.py": "d18d6d23840585df7297349ceaa7aed87e6eff2dbb7a1b34458dc899ca46a405",
+    "verify_vqm_compact_amplitude_split.py": "4935ad79228956fb507da5cc841f35ee958791c2aaf4f509aae813ca320f3606",
+    "audit_vqm_compact_array_lifecycle.py": "362f7a1ca034dfc26e1c82c41e7a0d4a629118b191efadb731bf12b4e1e96ba5",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "audit_vqm_compact_load_identity.py": "bd55e39300cc5c8a170b7d12fbaf09c279cb4c14287f137c9abc6b35d52a6dd3",
+    "audit_vqm_legacy_live_features.py": "17657a98c6759cc5a9817be23cf3df9ed5916dc021712b4389033ae5a3cd1561",
+    "audit_vqm_legacy_phase_relations.py": "2126bfd484fb3d3c6c534b6c8342f41cf21c12e5116dcf7c8dd522391319071f",
+    "verify_vqm_legacy_bit17_consumption.py": "d3410b298187823faed78b4fa14eceba571b2bd20b5960307712c050177c9442",
+    "verify_vqm_legacy_seeded_consumption.py": "87e06f1d3513d57cb1778f52b6807645c809a92eed6e530ab29eb00ffd5929c5",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "probe_frm2.py": "0883d7765acb5d44ed90ddc6692d7a61323abbd2b89e2fa026067ae933c158b8",
+    "verify_region_frame_blend.py": "3af7ba4c9d56cc095a5a06853dcc098bf8731153a16e3230e19b7ce737c53854"
+  }
+}

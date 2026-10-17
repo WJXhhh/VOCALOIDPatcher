@@ -1,0 +1,625 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "cases": [
+    {
+      "case": 0,
+      "frames": 64,
+      "bit16_nearest_saved_first_component": {
+        "frames": 64,
+        "mean_absolute_error": 5.4016709327697754e-08,
+        "max_absolute_error": 2.384185791015625e-07,
+        "within_1e_6": 64
+      },
+      "saved_first_frequency_minus_f0": {
+        "frames": 64,
+        "mean_absolute_error": 2.384185791015625e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "within_1e_6": 39
+      },
+      "saved_first_frequency_over_f0": {
+        "count": 64,
+        "minimum": 0.999999882519211,
+        "maximum": 1.0000001173694455,
+        "mean": 0.9999999981689344
+      },
+      "saved_bit2_from_pcm": {
+        "frames": 64,
+        "mean_absolute_error": 2.3865140974521637e-09,
+        "max_absolute_error": 7.450580596923828e-09,
+        "within_1e_6": 64,
+        "mean_signed_error": 5.238689482212067e-10,
+        "signed_error_range": [
+          -7.450580596923828e-09,
+          7.450580596923828e-09
+        ],
+        "saved_below_reconstructed": 13
+      },
+      "amplitude_match_diagnostic": {
+        "frequency_minus_f0": {
+          "count": 64,
+          "minimum": -2.327392578125,
+          "maximum": 2.411865234375,
+          "mean": 0.3920879364013672
+        },
+        "frequency_over_f0": {
+          "count": 64,
+          "minimum": 0.9955729455097997,
+          "maximum": 1.0046164727092348,
+          "mean": 1.0007553009515757
+        },
+        "ranks": {
+          "8": 21,
+          "6": 9,
+          "7": 20,
+          "9": 9,
+          "10": 5
+        },
+        "equals_nearest_f0": 64
+      },
+      "bit17_phase_candidates": {
+        "raw": {
+          "frames": 64,
+          "mean_absolute_error": 1.710300804052591,
+          "max_absolute_error": 3.0871012210845947,
+          "within_1e_6": 0
+        },
+        "center_f0": {
+          "frames": 64,
+          "mean_absolute_error": 1.6930088538165955,
+          "max_absolute_error": 3.040802205221226,
+          "within_1e_6": 0
+        },
+        "center_peak": {
+          "frames": 64,
+          "mean_absolute_error": 1.7051862480683817,
+          "max_absolute_error": 3.0311603680079955,
+          "within_1e_6": 0
+        },
+        "global_f0": {
+          "frames": 64,
+          "mean_absolute_error": 1.763355442251293,
+          "max_absolute_error": 2.9998410241484663,
+          "within_1e_6": 0
+        },
+        "global_peak": {
+          "frames": 64,
+          "mean_absolute_error": 1.8538028690359412,
+          "max_absolute_error": 3.0035062042446583,
+          "within_1e_6": 0
+        }
+      },
+      "bit17_step_candidates": {
+        "peak_minus_f0": {
+          "frames": 63,
+          "mean_absolute_error": 0.10615577309180854,
+          "max_absolute_error": 0.28450587169121444,
+          "within_1e_6": 0
+        },
+        "f0_minus_peak": {
+          "frames": 63,
+          "mean_absolute_error": 0.09249289869109549,
+          "max_absolute_error": 0.3205656207011687,
+          "within_1e_6": 0
+        },
+        "phase_difference": {
+          "frames": 63,
+          "mean_absolute_error": 0.22262110129857657,
+          "max_absolute_error": 0.4019775390625,
+          "within_1e_6": 2
+        },
+        "phase_minus_f0_step": {
+          "frames": 63,
+          "mean_absolute_error": 0.16844321883720148,
+          "max_absolute_error": 0.4283276536668552,
+          "within_1e_6": 1
+        },
+        "zero": {
+          "frames": 63,
+          "mean_absolute_error": 0.09496039435977027,
+          "max_absolute_error": 0.25,
+          "within_1e_6": 0
+        }
+      }
+    },
+    {
+      "case": 1,
+      "frames": 79,
+      "bit16_nearest_saved_first_component": {
+        "frames": 79,
+        "mean_absolute_error": 6.337709064725078e-08,
+        "max_absolute_error": 2.384185791015625e-07,
+        "within_1e_6": 79
+      },
+      "saved_first_frequency_minus_f0": {
+        "frames": 79,
+        "mean_absolute_error": 1.9314922863924052e-05,
+        "max_absolute_error": 3.0517578125e-05,
+        "within_1e_6": 29
+      },
+      "saved_first_frequency_over_f0": {
+        "count": 79,
+        "minimum": 0.9999998949040332,
+        "maximum": 1.0000001053687262,
+        "mean": 1.000000013270046
+      },
+      "saved_bit2_from_pcm": {
+        "frames": 79,
+        "mean_absolute_error": 1.6976006423370747e-09,
+        "max_absolute_error": 7.450580596923828e-09,
+        "within_1e_6": 79,
+        "mean_signed_error": -9.431114679650415e-11,
+        "signed_error_range": [
+          -7.450580596923828e-09,
+          7.450580596923828e-09
+        ],
+        "saved_below_reconstructed": 13
+      },
+      "amplitude_match_diagnostic": {
+        "frequency_minus_f0": {
+          "count": 79,
+          "minimum": -1.451904296875,
+          "maximum": 1.805023193359375,
+          "mean": 0.08123006699960443
+        },
+        "frequency_over_f0": {
+          "count": 79,
+          "minimum": 0.995012792455706,
+          "maximum": 1.0062132693381403,
+          "mean": 1.0002800023309533
+        },
+        "ranks": {
+          "3": 8,
+          "4": 40,
+          "6": 6,
+          "5": 25
+        },
+        "equals_nearest_f0": 79
+      },
+      "bit17_phase_candidates": {
+        "raw": {
+          "frames": 79,
+          "mean_absolute_error": 1.5727275721811107,
+          "max_absolute_error": 3.1364957729922693,
+          "within_1e_6": 0
+        },
+        "center_f0": {
+          "frames": 79,
+          "mean_absolute_error": 1.5541473361555818,
+          "max_absolute_error": 3.1087607638799355,
+          "within_1e_6": 0
+        },
+        "center_peak": {
+          "frames": 79,
+          "mean_absolute_error": 1.5547555645290216,
+          "max_absolute_error": 3.072347899472618,
+          "within_1e_6": 0
+        },
+        "global_f0": {
+          "frames": 79,
+          "mean_absolute_error": 1.8483958986999884,
+          "max_absolute_error": 3.1350355235559917,
+          "within_1e_6": 0
+        },
+        "global_peak": {
+          "frames": 79,
+          "mean_absolute_error": 1.9179177347594336,
+          "max_absolute_error": 3.1258292259694187,
+          "within_1e_6": 0
+        }
+      },
+      "bit17_step_candidates": {
+        "peak_minus_f0": {
+          "frames": 78,
+          "mean_absolute_error": 0.07816806656833306,
+          "max_absolute_error": 0.28046174457356765,
+          "within_1e_6": 0
+        },
+        "f0_minus_peak": {
+          "frames": 78,
+          "mean_absolute_error": 0.08279753156201779,
+          "max_absolute_error": 0.3158362093034915,
+          "within_1e_6": 0
+        },
+        "phase_difference": {
+          "frames": 78,
+          "mean_absolute_error": 0.2118455958163293,
+          "max_absolute_error": 0.5000001192092896,
+          "within_1e_6": 3
+        },
+        "phase_minus_f0_step": {
+          "frames": 78,
+          "mean_absolute_error": 0.08358572498352132,
+          "max_absolute_error": 0.3390413794872593,
+          "within_1e_6": 0
+        },
+        "zero": {
+          "frames": 78,
+          "mean_absolute_error": 0.07800114541984389,
+          "max_absolute_error": 0.25000011920928955,
+          "within_1e_6": 0
+        }
+      }
+    },
+    {
+      "case": 2,
+      "frames": 79,
+      "bit16_nearest_saved_first_component": {
+        "frames": 79,
+        "mean_absolute_error": 4.225139376483386e-08,
+        "max_absolute_error": 2.384185791015625e-07,
+        "within_1e_6": 79
+      },
+      "saved_first_frequency_minus_f0": {
+        "frames": 79,
+        "mean_absolute_error": 3.631205498417721e-05,
+        "max_absolute_error": 6.103515625e-05,
+        "within_1e_6": 11
+      },
+      "saved_first_frequency_over_f0": {
+        "count": 79,
+        "minimum": 0.9999998437661483,
+        "maximum": 1.000000156200199,
+        "mean": 1.000000015760954
+      },
+      "saved_bit2_from_pcm": {
+        "frames": 79,
+        "mean_absolute_error": 2.404934243310856e-09,
+        "max_absolute_error": 1.4901161193847656e-08,
+        "within_1e_6": 79,
+        "mean_signed_error": -1.4146672019475623e-10,
+        "signed_error_range": [
+          -1.4901161193847656e-08,
+          7.450580596923828e-09
+        ],
+        "saved_below_reconstructed": 12
+      },
+      "amplitude_match_diagnostic": {
+        "frequency_minus_f0": {
+          "count": 79,
+          "minimum": -1.437713623046875,
+          "maximum": 1.9029541015625,
+          "mean": 0.2867296436164953
+        },
+        "frequency_over_f0": {
+          "count": 79,
+          "minimum": 0.9963466981940463,
+          "maximum": 1.004857443656933,
+          "mean": 1.0007307489369806
+        },
+        "ranks": {
+          "4": 13,
+          "5": 25,
+          "3": 4,
+          "6": 12,
+          "7": 15,
+          "8": 8,
+          "9": 1,
+          "10": 1
+        },
+        "equals_nearest_f0": 79
+      },
+      "bit17_phase_candidates": {
+        "raw": {
+          "frames": 79,
+          "mean_absolute_error": 1.5850126856982347,
+          "max_absolute_error": 3.08025831380953,
+          "within_1e_6": 0
+        },
+        "center_f0": {
+          "frames": 79,
+          "mean_absolute_error": 1.565002285780722,
+          "max_absolute_error": 3.1061636344557755,
+          "within_1e_6": 0
+        },
+        "center_peak": {
+          "frames": 79,
+          "mean_absolute_error": 1.5726856536515614,
+          "max_absolute_error": 3.122643378800234,
+          "within_1e_6": 0
+        },
+        "global_f0": {
+          "frames": 79,
+          "mean_absolute_error": 1.3706677405669965,
+          "max_absolute_error": 3.0816286810720115,
+          "within_1e_6": 0
+        },
+        "global_peak": {
+          "frames": 79,
+          "mean_absolute_error": 1.1849624968938979,
+          "max_absolute_error": 2.8524646569949965,
+          "within_1e_6": 0
+        }
+      },
+      "bit17_step_candidates": {
+        "peak_minus_f0": {
+          "frames": 78,
+          "mean_absolute_error": 0.060232797078251285,
+          "max_absolute_error": 0.2727805538720127,
+          "within_1e_6": 0
+        },
+        "f0_minus_peak": {
+          "frames": 78,
+          "mean_absolute_error": 0.06850184453642594,
+          "max_absolute_error": 0.2680276483197067,
+          "within_1e_6": 0
+        },
+        "phase_difference": {
+          "frames": 78,
+          "mean_absolute_error": 0.2394563846099071,
+          "max_absolute_error": 0.5,
+          "within_1e_6": 2
+        },
+        "phase_minus_f0_step": {
+          "frames": 78,
+          "mean_absolute_error": 0.08672931107619515,
+          "max_absolute_error": 0.38181276983734946,
+          "within_1e_6": 0
+        },
+        "zero": {
+          "frames": 78,
+          "mean_absolute_error": 0.05880551460461739,
+          "max_absolute_error": 0.25,
+          "within_1e_6": 0
+        }
+      }
+    },
+    {
+      "case": "TENSE",
+      "frames": 140,
+      "bit16_nearest_saved_first_component": {
+        "frames": 140,
+        "mean_absolute_error": 6.471361432756696e-08,
+        "max_absolute_error": 4.76837158203125e-07,
+        "within_1e_6": 140
+      },
+      "saved_first_frequency_minus_f0": {
+        "frames": 140,
+        "mean_absolute_error": 1.553867251422909e-05,
+        "max_absolute_error": 3.6745161025919515e-05,
+        "within_1e_6": 6
+      },
+      "saved_first_frequency_over_f0": {
+        "count": 140,
+        "minimum": 0.9999997954486927,
+        "maximum": 1.0000002030416557,
+        "mean": 0.9999999917359629
+      },
+      "saved_bit2_from_pcm": {
+        "frames": 140,
+        "mean_absolute_error": 3.459198134286063e-10,
+        "max_absolute_error": 1.862645149230957e-09,
+        "within_1e_6": 140,
+        "mean_signed_error": 5.32184328351702e-11,
+        "signed_error_range": [
+          -1.862645149230957e-09,
+          1.862645149230957e-09
+        ],
+        "saved_below_reconstructed": 16
+      },
+      "amplitude_match_diagnostic": {
+        "frequency_minus_f0": {
+          "count": 140,
+          "minimum": -0.42012042250979675,
+          "maximum": 0.5005047292837048,
+          "mean": 0.05759455023536089
+        },
+        "frequency_over_f0": {
+          "count": 140,
+          "minimum": 0.9976778338034048,
+          "maximum": 1.0027881070196394,
+          "mean": 1.0003200169611046
+        },
+        "ranks": {
+          "2": 18,
+          "3": 74,
+          "4": 43,
+          "5": 5
+        },
+        "equals_nearest_f0": 140
+      },
+      "bit17_phase_candidates": {
+        "raw": {
+          "frames": 140,
+          "mean_absolute_error": 1.598870197290858,
+          "max_absolute_error": 3.132327437400818,
+          "within_1e_6": 0
+        },
+        "center_f0": {
+          "frames": 140,
+          "mean_absolute_error": 1.5803904764852879,
+          "max_absolute_error": 3.110265644405974,
+          "within_1e_6": 0
+        },
+        "center_peak": {
+          "frames": 140,
+          "mean_absolute_error": 1.5782422310980404,
+          "max_absolute_error": 3.1398603615735006,
+          "within_1e_6": 0
+        },
+        "global_f0": {
+          "frames": 140,
+          "mean_absolute_error": 1.5774303953315325,
+          "max_absolute_error": 3.0504652963869106,
+          "within_1e_6": 0
+        },
+        "global_peak": {
+          "frames": 140,
+          "mean_absolute_error": 1.4939510833947272,
+          "max_absolute_error": 3.0671657272238306,
+          "within_1e_6": 0
+        }
+      },
+      "bit17_step_candidates": {
+        "peak_minus_f0": {
+          "frames": 139,
+          "mean_absolute_error": 0.011034718558100088,
+          "max_absolute_error": 0.05591114953587658,
+          "within_1e_6": 0
+        },
+        "f0_minus_peak": {
+          "frames": 139,
+          "mean_absolute_error": 0.014641233641223736,
+          "max_absolute_error": 0.07543873065529977,
+          "within_1e_6": 0
+        },
+        "phase_difference": {
+          "frames": 139,
+          "mean_absolute_error": 0.23831964959907725,
+          "max_absolute_error": 0.309140682220459,
+          "within_1e_6": 0
+        },
+        "phase_minus_f0_step": {
+          "frames": 139,
+          "mean_absolute_error": 0.028049629132508223,
+          "max_absolute_error": 0.09767173588465816,
+          "within_1e_6": 0
+        },
+        "zero": {
+          "frames": 139,
+          "mean_absolute_error": 0.00951232326974114,
+          "max_absolute_error": 0.06253838539123535,
+          "within_1e_6": 10
+        }
+      }
+    },
+    {
+      "case": "BRWSP",
+      "frames": 381,
+      "bit16_nearest_saved_first_component": {
+        "frames": 381,
+        "mean_absolute_error": 0.21501272181513428,
+        "max_absolute_error": 2.3701095581054688,
+        "within_1e_6": 3
+      },
+      "saved_first_frequency_minus_f0": {
+        "frames": 381,
+        "mean_absolute_error": 4.8063794224617595e-06,
+        "max_absolute_error": 4.8063794224617595e-06,
+        "within_1e_6": 0
+      },
+      "saved_first_frequency_over_f0": {
+        "count": 381,
+        "minimum": 1.000000016021265,
+        "maximum": 1.000000016021265,
+        "mean": 1.000000016021265
+      },
+      "saved_bit2_from_pcm": {
+        "frames": 381,
+        "mean_absolute_error": 3.817796785374639e-06,
+        "max_absolute_error": 4.498288035392761e-06,
+        "within_1e_6": 0,
+        "mean_signed_error": 3.817796785374639e-06,
+        "signed_error_range": [
+          3.032386302947998e-06,
+          4.498288035392761e-06
+        ],
+        "saved_below_reconstructed": 381
+      },
+      "amplitude_match_diagnostic": {
+        "frequency_minus_f0": {
+          "count": 381,
+          "minimum": -102.50397773756589,
+          "maximum": 21557.74219230638,
+          "mean": 492.0225277001699
+        },
+        "frequency_over_f0": {
+          "count": 381,
+          "minimum": 0.6583200687339691,
+          "maximum": 72.8591417922956,
+          "mean": 2.6400751186099773
+        },
+        "ranks": {
+          "3": 63,
+          "4": 117,
+          "5": 126,
+          "2": 4,
+          "6": 54,
+          "307": 1,
+          "39": 1,
+          "129": 1,
+          "251": 1,
+          "7": 3,
+          "327": 1,
+          "8": 1,
+          "325": 1,
+          "331": 1,
+          "226": 1,
+          "347": 1,
+          "76": 1,
+          "107": 1,
+          "332": 1,
+          "174": 1
+        },
+        "equals_nearest_f0": 244
+      },
+      "bit17_phase_candidates": {
+        "raw": {
+          "frames": 381,
+          "mean_absolute_error": 1.573059978860699,
+          "max_absolute_error": 3.1401729583740234,
+          "within_1e_6": 0
+        },
+        "center_f0": {
+          "frames": 381,
+          "mean_absolute_error": 1.5666979509526984,
+          "max_absolute_error": 3.134822783036249,
+          "within_1e_6": 0
+        },
+        "center_peak": {
+          "frames": 381,
+          "mean_absolute_error": 1.5446072314508301,
+          "max_absolute_error": 3.1304470734852217,
+          "within_1e_6": 0
+        },
+        "global_f0": {
+          "frames": 381,
+          "mean_absolute_error": 1.5504041659083974,
+          "max_absolute_error": 3.1399042666302677,
+          "within_1e_6": 0
+        },
+        "global_peak": {
+          "frames": 381,
+          "mean_absolute_error": 1.6549259700256087,
+          "max_absolute_error": 3.1314302380600907,
+          "within_1e_6": 0
+        }
+      },
+      "bit17_step_candidates": {
+        "peak_minus_f0": {
+          "frames": 380,
+          "mean_absolute_error": 0.26505034102419717,
+          "max_absolute_error": 1.2655139009105127,
+          "within_1e_6": 98
+        },
+        "f0_minus_peak": {
+          "frames": 380,
+          "mean_absolute_error": 0.2523304396795498,
+          "max_absolute_error": 1.2687292098999023,
+          "within_1e_6": 97
+        },
+        "phase_difference": {
+          "frames": 380,
+          "mean_absolute_error": 0.24386213539974097,
+          "max_absolute_error": 1.2542743682861328,
+          "within_1e_6": 128
+        },
+        "phase_minus_f0_step": {
+          "frames": 380,
+          "mean_absolute_error": 0.2545067083011724,
+          "max_absolute_error": 1.2655139009105127,
+          "within_1e_6": 115
+        },
+        "zero": {
+          "frames": 380,
+          "mean_absolute_error": 0.2230077632602773,
+          "max_absolute_error": 1.0187292098999023,
+          "within_1e_6": 0
+        }
+      }
+    }
+  ],
+  "scope": "2049 raw PCM windows and native interpolated peaks. Saved-first-component selection and known phase origins are tested without fitted rotations, gains or time shifts. Closest amplitude peak is diagnostic only. No proprietary PCM or frame payload is saved."
+}

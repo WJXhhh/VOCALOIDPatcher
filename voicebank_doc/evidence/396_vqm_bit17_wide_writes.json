@@ -1,0 +1,209 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "scanner_sha256": "2b19bd252cdfb77cb452dbe74633b08cc442d59ae651b7d34912064bb69dfc0e",
+  "owned_instruction_fixture_checks": 20,
+  "candidate_count": 16,
+  "candidates": [
+    {
+      "rva": "0x10fbb",
+      "offset": "0x210",
+      "width": 16,
+      "family": "legacy_SSE_or_non_temporal",
+      "sib": true,
+      "review": {
+        "function_rva": "0x100a0",
+        "classification": "stack",
+        "note": "RSP+0x210 saves XMM13"
+      }
+    },
+    {
+      "rva": "0x364fc",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x31830",
+        "classification": "stack",
+        "note": "RBP+0x218 is an output-pointer local"
+      }
+    },
+    {
+      "rva": "0x76697",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": true,
+      "review": {
+        "function_rva": "0x763b0",
+        "classification": "stack",
+        "note": "RSP+0x218 saves an allocated ENV pointer"
+      }
+    },
+    {
+      "rva": "0x9ec4b",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x9e350",
+        "classification": "stack",
+        "note": "RBP+0x218 clears an owned local pointer"
+      }
+    },
+    {
+      "rva": "0xc8479",
+      "offset": "0x218",
+      "width": 8,
+      "family": "legacy_SSE_or_non_temporal",
+      "sib": true,
+      "review": {
+        "function_rva": null,
+        "classification": "unresolved_indexed_history",
+        "note": "Undefined Ghidra region; legacy SSE store to RCX+RAX*8+0x218. Nearby byte flag+0xb8 and counter+0x210 bound ten double entries; no direct E8 call or exact absolute-pointer reference found. Object ownership and reachability remain unverified"
+      }
+    },
+    {
+      "rva": "0xc8fef",
+      "offset": "0x210",
+      "width": 16,
+      "family": "legacy_SSE_or_non_temporal",
+      "sib": false,
+      "review": {
+        "function_rva": "0xc8ee0",
+        "classification": "stack",
+        "note": "RBP+0x210 stores local constants"
+      }
+    },
+    {
+      "rva": "0x109bc8",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x109b30",
+        "classification": "other_object_init",
+        "note": "DSE5::CDBDataPhUPart constructor, pointer slots"
+      }
+    },
+    {
+      "rva": "0x10a86b",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x10a830",
+        "classification": "other_object_cleanup",
+        "note": "CDBDataPhUPart-owned pointer cleanup"
+      }
+    },
+    {
+      "rva": "0x12b208",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x12a7b0",
+        "classification": "other_object_pointer",
+        "note": "Frame+0x218 receives a 0x1c8 ENV allocation, invokes its vtable"
+      }
+    },
+    {
+      "rva": "0x12c666",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x12c550",
+        "classification": "other_object_cleanup",
+        "note": "Frame-owned ENV pointer deleted via vtable then cleared"
+      }
+    },
+    {
+      "rva": "0x12d2b7",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x12cf40",
+        "classification": "other_object_cleanup",
+        "note": "Frame mask+0x150 clearing and owned ENV-pointer reset"
+      }
+    },
+    {
+      "rva": "0x130480",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x1303b0",
+        "classification": "other_object_init",
+        "note": "Frame construction clears pointers, feature pointer is +0x208"
+      }
+    },
+    {
+      "rva": "0x136f6a",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x1363a0",
+        "classification": "other_object_pointer",
+        "note": "Frame reader allocates ENV then reads it through vtable+0x18"
+      }
+    },
+    {
+      "rva": "0x13febf",
+      "offset": "0x210",
+      "width": 16,
+      "family": "legacy_SSE_or_non_temporal",
+      "sib": false,
+      "review": {
+        "function_rva": "0x13fd60",
+        "classification": "other_object_copy",
+        "note": "Region-object copy; flags+0x185, frames+0x18/+0x20; not feature+0x228"
+      }
+    },
+    {
+      "rva": "0x1403f0",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x140240",
+        "classification": "other_object_cleanup",
+        "note": "Region reset with flags+0x350 and objects through +0x1058"
+      }
+    },
+    {
+      "rva": "0x1b9f6f",
+      "offset": "0x218",
+      "width": 8,
+      "family": "REX_W_integer",
+      "sib": false,
+      "review": {
+        "function_rva": "0x1b9bd0",
+        "classification": "other_object_pointer",
+        "note": "Allocated double-array pointer; length at +0x208"
+      }
+    }
+  ],
+  "classifications": {
+    "stack": 5,
+    "unresolved_indexed_history": 1,
+    "other_object_init": 2,
+    "other_object_cleanup": 4,
+    "other_object_pointer": 3,
+    "other_object_copy": 1
+  },
+  "scope": "Selected disp32 legacy SSE, non-temporal and REX.W stores starting before +0x21c and overlapping any of its bytes. Byte patterns are candidates, not a complete decoder or proof of object identity. Ghidra read-only instruction/object reviews recorded separately. Does not cover VEX/EVEX, x87, rebased pointers, computed displacements, memcpy/memset, ordinary loops or external producers. The unresolved leaf region cannot be dismissed solely because Ghidra has no function."
+}

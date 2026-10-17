@@ -1,0 +1,243 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "independent_samples": 3,
+  "bit16_projection": "2*log10(abs(sum((pcm-mean)*window*exp(-i*2*pi*f0*n/44100)))/32768)",
+  "window_model": "DSE 2048-point kind-10 coefficients normalized to sum 2",
+  "native_window_2048_max_error": 0.0,
+  "window_weight_sum": 1.9999999450327417,
+  "per_sample_saved_f0": [
+    {
+      "sample_index": 0,
+      "count": 64,
+      "median_absolute_error": 0.002821660024089123,
+      "mean_absolute_error": 0.002662053467445878,
+      "max_absolute_error": 0.0056846483013404114,
+      "correlation": 0.9996199525648609
+    },
+    {
+      "sample_index": 1,
+      "count": 79,
+      "median_absolute_error": 0.000941662308633795,
+      "mean_absolute_error": 0.0011438595512380126,
+      "max_absolute_error": 0.004372846397777241,
+      "correlation": 0.9999600605800463
+    },
+    {
+      "sample_index": 2,
+      "count": 79,
+      "median_absolute_error": 0.002028116901124921,
+      "mean_absolute_error": 0.0021296263868953286,
+      "max_absolute_error": 0.005095534154582193,
+      "correlation": 0.999905835294304
+    }
+  ],
+  "all_saved_f0": {
+    "count": 222,
+    "median_absolute_error": 0.0017335508484409567,
+    "mean_absolute_error": 0.001932327977608424,
+    "max_absolute_error": 0.0056846483013404114
+  },
+  "constant_pitch1_control": {
+    "count": 222,
+    "median_absolute_error": 0.0032514931993249396,
+    "mean_absolute_error": 0.004916611480685464,
+    "max_absolute_error": 0.05810257888378856
+  },
+  "window_family": [
+    {
+      "window_kind": 0,
+      "count": 222,
+      "median_absolute_error": 0.0049599228178927035,
+      "mean_absolute_error": 0.005801439012177444,
+      "max_absolute_error": 0.021400284778248846
+    },
+    {
+      "window_kind": 1,
+      "count": 222,
+      "median_absolute_error": 0.0031659109111955575,
+      "mean_absolute_error": 0.0038884178939685363,
+      "max_absolute_error": 0.012872058761463467
+    },
+    {
+      "window_kind": 2,
+      "count": 222,
+      "median_absolute_error": 0.0027717209505477847,
+      "mean_absolute_error": 0.003241197217081649,
+      "max_absolute_error": 0.01053962430899702
+    },
+    {
+      "window_kind": 3,
+      "count": 222,
+      "median_absolute_error": 0.00268129600222089,
+      "mean_absolute_error": 0.0030557751387157296,
+      "max_absolute_error": 0.011530433059206091
+    },
+    {
+      "window_kind": 4,
+      "count": 222,
+      "median_absolute_error": 0.002430790014933404,
+      "mean_absolute_error": 0.0032982957368986607,
+      "max_absolute_error": 0.014417794281357255
+    },
+    {
+      "window_kind": 5,
+      "count": 222,
+      "median_absolute_error": 0.005725564801562721,
+      "mean_absolute_error": 0.007013347385335359,
+      "max_absolute_error": 0.029358536921929135
+    },
+    {
+      "window_kind": 6,
+      "count": 222,
+      "median_absolute_error": 0.009209479086674799,
+      "mean_absolute_error": 0.01088948291557326,
+      "max_absolute_error": 0.043698689213214736
+    },
+    {
+      "window_kind": 7,
+      "count": 222,
+      "median_absolute_error": 0.011860256118013002,
+      "mean_absolute_error": 0.014222222354839097,
+      "max_absolute_error": 0.0564231070644432
+    },
+    {
+      "window_kind": 8,
+      "count": 222,
+      "median_absolute_error": 0.005047638884707162,
+      "mean_absolute_error": 0.006110715367525826,
+      "max_absolute_error": 0.02643869606880722
+    },
+    {
+      "window_kind": 9,
+      "count": 222,
+      "median_absolute_error": 0.007331567743018352,
+      "mean_absolute_error": 0.00870928832223801,
+      "max_absolute_error": 0.03574288279037319
+    },
+    {
+      "window_kind": 10,
+      "count": 222,
+      "median_absolute_error": 0.0017335508484409567,
+      "mean_absolute_error": 0.001932327977608424,
+      "max_absolute_error": 0.0056846483013404114
+    },
+    {
+      "window_kind": 11,
+      "count": 222,
+      "median_absolute_error": 0.009267772714400158,
+      "mean_absolute_error": 0.010954779484056605,
+      "max_absolute_error": 0.04412950297713025
+    },
+    {
+      "window_kind": 12,
+      "count": 222,
+      "median_absolute_error": 0.013456986346768174,
+      "mean_absolute_error": 0.01608322499749644,
+      "max_absolute_error": 0.06328058546024695
+    },
+    {
+      "window_kind": 13,
+      "count": 222,
+      "median_absolute_error": 0.004637851200732013,
+      "mean_absolute_error": 0.005412122250359179,
+      "max_absolute_error": 0.019567542576679253
+    },
+    {
+      "window_kind": 14,
+      "count": 222,
+      "median_absolute_error": 0.03509775688126826,
+      "mean_absolute_error": 0.03908470911517699,
+      "max_absolute_error": 0.1270217127671165
+    },
+    {
+      "window_kind": 15,
+      "count": 222,
+      "median_absolute_error": 0.03593158836514143,
+      "mean_absolute_error": 0.041493455663508545,
+      "max_absolute_error": 0.1561400161609261
+    }
+  ],
+  "window_size_controls_common_198_frames": [
+    {
+      "window_size": 512,
+      "count": 198,
+      "median_absolute_error": 0.0948886881461739,
+      "mean_absolute_error": 0.11315987658420204,
+      "max_absolute_error": 0.6938540745247583
+    },
+    {
+      "window_size": 1024,
+      "count": 198,
+      "median_absolute_error": 0.028278841767320984,
+      "mean_absolute_error": 0.03359630256621743,
+      "max_absolute_error": 0.12079378865769308
+    },
+    {
+      "window_size": 2048,
+      "count": 198,
+      "median_absolute_error": 0.0017024315216183084,
+      "mean_absolute_error": 0.0019510203930365054,
+      "max_absolute_error": 0.0056846483013404114
+    },
+    {
+      "window_size": 4096,
+      "count": 198,
+      "median_absolute_error": 0.03195281950240103,
+      "mean_absolute_error": 0.03787852824352457,
+      "max_absolute_error": 0.11732812514176238
+    }
+  ],
+  "owned_tonal_checks": [
+    {
+      "frequency_hz": 220,
+      "shape": "sine",
+      "count": 28,
+      "median_absolute_error": 0.00015170367815986463,
+      "mean_absolute_error": 0.0001580371003104264,
+      "max_absolute_error": 0.00024113690479943273
+    },
+    {
+      "frequency_hz": 220,
+      "shape": "five_harmonics",
+      "count": 28,
+      "median_absolute_error": 0.00011055525392011933,
+      "mean_absolute_error": 0.00016313156591752604,
+      "max_absolute_error": 0.00036690828145435894
+    },
+    {
+      "frequency_hz": 440,
+      "shape": "sine",
+      "count": 28,
+      "median_absolute_error": 4.063484705496556e-05,
+      "mean_absolute_error": 4.361432734186924e-05,
+      "max_absolute_error": 8.624898071007969e-05
+    },
+    {
+      "frequency_hz": 440,
+      "shape": "five_harmonics",
+      "count": 28,
+      "median_absolute_error": 2.762152432644882e-05,
+      "mean_absolute_error": 3.9577357773038345e-05,
+      "max_absolute_error": 9.640767008933793e-05
+    },
+    {
+      "frequency_hz": 880,
+      "shape": "sine",
+      "count": 28,
+      "median_absolute_error": 6.926819091090941e-05,
+      "mean_absolute_error": 6.989929522398837e-05,
+      "max_absolute_error": 8.308643836474339e-05
+    },
+    {
+      "frequency_hz": 880,
+      "shape": "five_harmonics",
+      "count": 28,
+      "median_absolute_error": 5.972137960985613e-05,
+      "mean_absolute_error": 6.985797706468169e-05,
+      "max_absolute_error": 0.00011435323621866722
+    }
+  ],
+  "scope": "Direct projection closely models bit16 on 222 interior VQM frames and owned tonal PCM; nonzero residuals and missing first/last windows prevent claiming the original producer is fully reproduced."
+}

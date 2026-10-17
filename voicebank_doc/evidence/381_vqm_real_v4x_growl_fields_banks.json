@@ -1,0 +1,658 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "bank_count": 8,
+  "cases": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 64,
+          "output_sha256": "549ad2a9f06c78e743c57ab9f6b40e22cf75de496550eb5629eed48ae8d6390f"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "e12331c029615f273b1a6d4daa462f36aba1243c39e7e847f662556bd2d0165b"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 63,
+          "output_sha256": "e1d837be2f8cafa4e8b7b46aed05e9e2be0be457e9280b74ba9dd43eef5ec5e6"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 98,
+          "output_sha256": "28e8993a192db7b355a114ba3b8558b94c0e4800370b12e49b86266529dbe35a"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f38d5cac92d54467435984fd6800d383a73bf49978d40f0d4f0049f0291f1aea"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 67,
+          "output_sha256": "effb611c2e39f62ec587c3bc695673e8e295b35f899152a3497dfe495327e52c"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "1bfc2466431752feeadc0f571ebe42da070aa9c30a509d4df43af51c280f2616"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e8b4b2fe1dc50cbbf8d4ecb370d62c9d272aad4d9c41e57587c41bb4642661c9"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 67,
+          "output_sha256": "1a75d9bed80914e5832262b266030a6171bf93aa4c2c18efb2d24bff3fbf8070"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "f68a38c760976c0c3e5ec558a206870c22935a43f3ed149f72fe072e9dc7b315"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "f63b54ef829edab4f2dce2663f72f548500bebc194aba3fca67c6e754d33a711"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 68,
+          "output_sha256": "4fb0796bf7ded1b1d0f87bda0c81070da60d704fb12ed04d136ccf86fcc6a5a8"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "8e01be807a354cbdc8f6d767cb05000995bfbcadfba6d343e29416d391464e30"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "3f362c9e6ebf32edbfe35370069e29badced5b8b1b6b9b2fd45616e8025db1f3"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 69,
+          "output_sha256": "f1186b75d346c57edc557029c9ef46f92a2cda5f24423fc35dcdc5b292b1d886"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "e341e94fb94753a5971a1830cfc585ef2fdcddf300f6c6df454dcd1cbbcb2288"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "0b62b1b8768048ca9113319fd83850588177c747b9f9907cc93347438e9bcf39"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 66,
+          "output_sha256": "14b880ff3cfa15621653c19d6e6184d141f84d43a9960428316400b20f880369"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "4f4ec4372b93d6278e27000d1d628635ba9be70fc4ca8099619063c4ae764855"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "888db143416b9d1c37a1f3d34b2aa78c9cef1088b49110185c18f1dfa0783e8f"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "control": 1.0,
+      "source_frames": 246,
+      "baseline_output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2",
+      "mutations": [
+        {
+          "field": "frequency",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 68,
+          "output_sha256": "a71859fd2fee4e046eff529204b76f931fa007921d966020051f7eb5c07fc44f"
+        },
+        {
+          "field": "amplitude",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "phase",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 100,
+          "output_sha256": "f9e95dc5011b263e6796e80c442ebe561cf74b640efe556c831d675ca48abaae"
+        },
+        {
+          "field": "feature4",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "feature6",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "feature14",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "feature15",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "feature16",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "feature17",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "feature18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "outer18",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        },
+        {
+          "field": "outer19",
+          "mutated_frames": 246,
+          "changed_pcm_blocks": 0,
+          "output_sha256": "e4a8db685cfde2788573f4f2967ec36ade2d97d445481c296075f71578903df2"
+        }
+      ],
+      "scope": "Native-loaded installed V4X Growl FRM2 fields changed in memory in separate offline DSE processes; no bank files changed."
+    }
+  ],
+  "scope": "All installed V4X VQMp Growl frames, native loaded, mutated in memory, and compared in separate offline DSE events.",
+  "valid": false,
+  "invalid_reason": "Fixture v1 used the SND block header address as the PCM address. The 18-byte header was interpreted as nine PCM16 samples, shifting the source by nine samples. Loaded PCM was not independently verified.",
+  "superseded_by": "383_vqm_growl_pcm_verified_fields.json"
+}

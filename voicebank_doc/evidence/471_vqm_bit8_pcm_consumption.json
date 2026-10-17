@@ -1,0 +1,340 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "resource_sha256": "45ac6bb79bf12fd6f79d6739e06154d25585ec7850bd52531fe28d2943057438",
+  "random_identity": {
+    "import_module": "api-ms-win-crt-utility-l1-1-0.dll",
+    "iat_rva": "0x224ad8",
+    "loaded_module": "ucrtbase.dll",
+    "loaded_module_sha256": "dedb7611e1abc1ff3852dcac3d4c93a048d729e25b061973b9969f22698f14ca",
+    "export_equals_loaded_iat": true,
+    "own_repeated_draws": 16,
+    "seed": 419,
+    "verified_audio_path_call_rvas": [
+      "0x2d507",
+      "0x34ca7",
+      "0x39425",
+      "0x39580",
+      "0x39696",
+      "0x39804",
+      "0x52a43",
+      "0x53204",
+      "0x53b10"
+    ],
+    "scope": "Verified genuine CRT exports in this disposable Python process; seed reset immediately before each native audio sequence. Native code and genuine rand implementation unchanged. No claim about host RNG state."
+  },
+  "source_sha256": {
+    "verify_vqm_bit8_pcm_consumption.py": "00677b23c0b3c6c3ebbf6b12803f017af3dd3302e8372f0bff8e463502590919",
+    "verify_vqm_legacy_bit17_consumption.py": "d3410b298187823faed78b4fa14eceba571b2bd20b5960307712c050177c9442",
+    "verify_vqm_legacy_seeded_consumption.py": "87e06f1d3513d57cb1778f52b6807645c809a92eed6e530ab29eb00ffd5929c5",
+    "audit_vqm_legacy_live_features.py": "17657a98c6759cc5a9817be23cf3df9ed5916dc021712b4389033ae5a3cd1561",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "verify_region_frame_blend.py": "3af7ba4c9d56cc095a5a06853dcc098bf8731153a16e3230e19b7ce737c53854",
+    "probe_frm2.py": "0883d7765acb5d44ed90ddc6692d7a61323abbd2b89e2fa026067ae933c158b8"
+  },
+  "cases": [
+    {
+      "sample_index": 0,
+      "baseline_repeatable": true,
+      "trials": [
+        {
+          "variant": "baseline",
+          "changes": {
+            "frames": 370
+          },
+          "audio": {
+            "sha256": "e5b03c1922dcc7755960c934c51be28a3e600ee9648cb90a63664c356fe05701",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 7247.84619140625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "invalid",
+          "changes": {
+            "frames": 370,
+            "bit8_changed": 370
+          },
+          "audio": {
+            "sha256": "e5b03c1922dcc7755960c934c51be28a3e600ee9648cb90a63664c356fe05701",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 7247.84619140625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "minus1200",
+          "changes": {
+            "frames": 370,
+            "bit8_changed": 370
+          },
+          "audio": {
+            "sha256": "e5b03c1922dcc7755960c934c51be28a3e600ee9648cb90a63664c356fe05701",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 7247.84619140625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "changes": {
+            "frames": 370,
+            "bit8_changed": 370
+          },
+          "audio": {
+            "sha256": "e5b03c1922dcc7755960c934c51be28a3e600ee9648cb90a63664c356fe05701",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 7247.84619140625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "plus1200",
+          "changes": {
+            "frames": 370,
+            "bit8_changed": 370
+          },
+          "audio": {
+            "sha256": "e5b03c1922dcc7755960c934c51be28a3e600ee9648cb90a63664c356fe05701",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 7247.84619140625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "changes": {
+            "frames": 370,
+            "amplitudes_changed": 17626
+          },
+          "audio": {
+            "sha256": "78101d4293b330c115dbcec2234d7eb4ebc7650aca9eb714fd53b6b37d7df271",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 9551.09765625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "changes": {
+            "frames": 370
+          },
+          "audio": {
+            "sha256": "e5b03c1922dcc7755960c934c51be28a3e600ee9648cb90a63664c356fe05701",
+            "calls": 65,
+            "selected_source_indices": 65,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 7247.84619140625,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "pcm_changed": {
+        "invalid": false,
+        "minus1200": false,
+        "zero": false,
+        "plus1200": false,
+        "amplitude_plus6": true
+      }
+    },
+    {
+      "sample_index": 1,
+      "baseline_repeatable": true,
+      "trials": [
+        {
+          "variant": "baseline",
+          "changes": {
+            "frames": 121
+          },
+          "audio": {
+            "sha256": "fcdcbd9ca06d00e6c7a49fbdc1062583b9ae20ff09112909f600abf22bf4e6f9",
+            "calls": 65,
+            "selected_source_indices": 45,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 3484.23388671875,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "invalid",
+          "changes": {
+            "frames": 121,
+            "bit8_changed": 121
+          },
+          "audio": {
+            "sha256": "f4664979219e3a2612a14be5b307de57b965eeac493f472be5f9611de06ad7dd",
+            "calls": 65,
+            "selected_source_indices": 19,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 3603.601318359375,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "minus1200",
+          "changes": {
+            "frames": 121,
+            "bit8_changed": 121
+          },
+          "audio": {
+            "sha256": "f4664979219e3a2612a14be5b307de57b965eeac493f472be5f9611de06ad7dd",
+            "calls": 65,
+            "selected_source_indices": 19,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 3603.601318359375,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "changes": {
+            "frames": 121,
+            "bit8_changed": 121
+          },
+          "audio": {
+            "sha256": "f4664979219e3a2612a14be5b307de57b965eeac493f472be5f9611de06ad7dd",
+            "calls": 65,
+            "selected_source_indices": 19,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 3603.601318359375,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "plus1200",
+          "changes": {
+            "frames": 121,
+            "bit8_changed": 121
+          },
+          "audio": {
+            "sha256": "fcdcbd9ca06d00e6c7a49fbdc1062583b9ae20ff09112909f600abf22bf4e6f9",
+            "calls": 65,
+            "selected_source_indices": 45,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 3484.23388671875,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "changes": {
+            "frames": 121,
+            "amplitudes_changed": 16474
+          },
+          "audio": {
+            "sha256": "514926ff8403922af4fcca5c1a20cd121d303b35ae18a22c2aea545f2f84f8cd",
+            "calls": 65,
+            "selected_source_indices": 45,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 6956.9033203125,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "changes": {
+            "frames": 121
+          },
+          "audio": {
+            "sha256": "fcdcbd9ca06d00e6c7a49fbdc1062583b9ae20ff09112909f600abf22bf4e6f9",
+            "calls": 65,
+            "selected_source_indices": 45,
+            "nonzero_bit17_selections": 65,
+            "nonzero_samples": 16640,
+            "peak": 3484.23388671875,
+            "status_counts": {
+              "0": 65
+            },
+            "bit8_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "pcm_changed": {
+        "invalid": true,
+        "minus1200": true,
+        "zero": true,
+        "plus1200": false,
+        "amplitude_plus6": true
+      }
+    }
+  ],
+  "summary": {
+    "samples": 2,
+    "audio_runs": 14,
+    "baseline_repeatable": 2,
+    "audio_calls": 910,
+    "bit8_changed_pcm": 1,
+    "active_amplitude_controls": 2,
+    "installed_resource_unchanged": true
+  },
+  "limits": [
+    "Only catalog samples 0 and 1 of compact attack/release resource; not V4X Growl.",
+    "Uses unmodified established configuration and full native audio entry.",
+    "No program-counter observation proves execution of the isolated reference block.",
+    "No difference bounds only these inputs; does not prove absence of other consumers.",
+    "No claim of original bit8 production or full Editor behavior."
+  ]
+}

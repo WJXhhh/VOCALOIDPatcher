@@ -1,0 +1,3303 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "wrapper_rva": "0x158e40",
+  "mixer_rva": "0x158a60",
+  "inverse_rva": "0x14dea0",
+  "script_sha256": "594478311782d767219bb5512e2017a93081b80156cc02d59303a9d5426fc6b1",
+  "fixture_sha256": "29fa718b565affb23e2703a11b715d6bdbb5792306fb8060b59757d977b058a1",
+  "transition_model_sha256": "3e6f5466da6cf5cab741065f6cc8eb63a33098d7e70cc9d484f7d3db4a27ea3c",
+  "summary": {
+    "trajectories": 11,
+    "tested_steps": 58,
+    "additional_fixture_baseline_calls": 1,
+    "layer_differentials": 174,
+    "prefix_replays": 348,
+    "wrapper_calls": 1242,
+    "active_differentials": 82,
+    "all_baselines_repeat_exact": true,
+    "all_source_predictions_match": true,
+    "all_zero_mix_controls_zero": true,
+    "inverse_dft_probes": 522,
+    "inverse_dft_max_error": 0.0304718017578125
+  },
+  "cases": [
+    {
+      "case": "steady_220",
+      "step": 0,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+      "baseline_spectrum_sha256": "399638777c66fb1ae36814d7be8e2126639f7ff93943aadcb46afeb47591977a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 373812.625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "8d015a9f273a44c9de519b8df2c3de45e1a1d94ea9e72e53035d06d4489a3194",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 604039.40625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.02063284069299698,
+      "inverse_dft_tolerance": 0.074762525
+    },
+    {
+      "case": "steady_220",
+      "step": 1,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "7fe2408823895184b78489001c51941ede52a95deccee267ff6f489b2d211acd",
+      "baseline_spectrum_sha256": "7036eed5ada06b7144bd310be984d16efb54235a8fdf6a854017c68a2475753b",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 376559.40625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "801fa43d5cfb85cf92b73f8f5d9b4224eb50bf5c4cc3709b0a05f28bdbcb9e83",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 574082.15625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "7fe2408823895184b78489001c51941ede52a95deccee267ff6f489b2d211acd",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "7fe2408823895184b78489001c51941ede52a95deccee267ff6f489b2d211acd",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0076520056172739714,
+      "inverse_dft_tolerance": 0.07531188124999999
+    },
+    {
+      "case": "steady_440",
+      "step": 0,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+      "baseline_spectrum_sha256": "aebd697642aed47a7c7fab86f4f12b9ed6c17a6800af6bb3bf44fac5e77ce858",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 165200.546875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "3a208e3bccc71aa3fb4ac47ccc22aa02313fccf3756fc4673ac93644d7134422",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 264519.578125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0052666367778329,
+      "inverse_dft_tolerance": 0.033040109375
+    },
+    {
+      "case": "steady_440",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "2a2d2187b923bd37db3245ae7f3550e00e155bf6c637c592ba7762f52f5f550a",
+      "baseline_spectrum_sha256": "dfa6ac951472483203d11812d553fac66201d998d5d63b422361583d3970ed88",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 158065.28125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "2a2d2187b923bd37db3245ae7f3550e00e155bf6c637c592ba7762f52f5f550a",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "a126e5f2fa237dd8fbdb0016a1e1b7d96e99bbf09291fba697ea52b10698f8bd",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 295825.40625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "2a2d2187b923bd37db3245ae7f3550e00e155bf6c637c592ba7762f52f5f550a",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.007231535375467502,
+      "inverse_dft_tolerance": 0.03161305625
+    },
+    {
+      "case": "steady_660",
+      "step": 0,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+      "baseline_spectrum_sha256": "f78ed8af451f95601b9f042914fd03f1158224048636decb708f13ae2847112f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99610.125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "327ad73cbee0b5d2bd7368a6727edeca1a514e9509274e3959e813e1ab5794bb",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 178736.4140625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.00563120809965767,
+      "inverse_dft_tolerance": 0.019922025
+    },
+    {
+      "case": "steady_660",
+      "step": 1,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "4719782366773eb27e22b12788f8085d1b18997106cb7a4002e35efde487bd1d",
+      "baseline_spectrum_sha256": "21966b801362c16b24873309fdb8000b4bf651aa55bc7a24a05f87028acc2049",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 89966.703125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "4719782366773eb27e22b12788f8085d1b18997106cb7a4002e35efde487bd1d",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "4719782366773eb27e22b12788f8085d1b18997106cb7a4002e35efde487bd1d",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "743a2a120e626815492212996a82ff1556820ab0966a524b077357f63259e42b",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 175778.765625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0033153298645629548,
+      "inverse_dft_tolerance": 0.017993340625
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 0,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+      "baseline_spectrum_sha256": "399638777c66fb1ae36814d7be8e2126639f7ff93943aadcb46afeb47591977a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 373812.625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "8d015a9f273a44c9de519b8df2c3de45e1a1d94ea9e72e53035d06d4489a3194",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 604039.40625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.02063284069299698,
+      "inverse_dft_tolerance": 0.074762525
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "b96633ba5e137794cf30615dbc870ee8c9922d0041822f59fda1fa3e0a6df9de",
+      "baseline_spectrum_sha256": "47c34aad1a3d68cdd69247441f5c9de4bc4c7d291980dbab3ae726481de4be39",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 122930.0078125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "579393bc1b9f8bef01a9c6c2ffec4347549bc7039dde90071b6ed5fd373ad830",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 217054.921875
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "5b4db56aeb9864fc1b5c8dcdb6c7734562e4e057a2fac368e0090e179993e444",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 66129.890625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "b96633ba5e137794cf30615dbc870ee8c9922d0041822f59fda1fa3e0a6df9de",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.005766361951828003,
+      "inverse_dft_tolerance": 0.024586001562499998
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 2,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "bb7254e8f030821543772608a67cbf6425c50914d8e001dc77c10d969f87b024",
+      "baseline_spectrum_sha256": "acde3ed90635499ef5db39da37966b91b278f7eb6a904391ac6f5f3202c456f4",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 355856.4375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "36ffe039f0344b51034d02339b5359aa3939ce30358c4d77cdd2caa003775e8f",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 447181.59375
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "bb7254e8f030821543772608a67cbf6425c50914d8e001dc77c10d969f87b024",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "bb7254e8f030821543772608a67cbf6425c50914d8e001dc77c10d969f87b024",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.015739124642777824,
+      "inverse_dft_tolerance": 0.0711712875
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 3,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "1c00a7052ff996a1da0aeb2952d2fcf7b48fa3dc887522d4b8333c57a6f227a3",
+      "baseline_spectrum_sha256": "3c294007940e974045c94fb9e2c999452878688e3d49da8836ebe2bbb061eed8",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 265441.625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c9a52f77a95bda4ba3f2e01ccae2dcc7db35a6946c46b703cd3c76df24298b63",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 514899.140625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "1c00a7052ff996a1da0aeb2952d2fcf7b48fa3dc887522d4b8333c57a6f227a3",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "1c00a7052ff996a1da0aeb2952d2fcf7b48fa3dc887522d4b8333c57a6f227a3",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.022826043074019253,
+      "inverse_dft_tolerance": 0.053088325
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 4,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "aa951e9ff8c6746cdb822ff64266f61f141fcd4d6ae944773495ff8faf2ec4e6",
+      "baseline_spectrum_sha256": "430ab868cea5ef4176a1bc555ce811e099fe737cd2fa2501b801335c97412ef9",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 121285.34375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "659d530dfe5545a70557b40ae07b903e944d4a4398bac7cb4530b512c699e910",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147186.3916015625
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "a2f5bdde0a67f8674bc452ccf7f187ca846a424ed10dbf8937c63bc36db344ed",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 157781.65625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "aa951e9ff8c6746cdb822ff64266f61f141fcd4d6ae944773495ff8faf2ec4e6",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.008243545889854431,
+      "inverse_dft_tolerance": 0.02425706875
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 5,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "2a49a06b3daf9980159ed2046ab6bfa7433a43717ae4ad19a57fc9b911fe05be",
+      "baseline_spectrum_sha256": "af753bc1096e1f21588f0a9e000472052b552f6ea1f7474deec10a98f4c4aa24",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 138262.875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "561bbe15e64397076c285a31152b74cefe441bd30a6b0b9275bdb33bd26982c6",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 74522.99609375
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "ff90135f55bcced09e81bc11f174d1c929b90793ab73303d11916cc6c7a9d3b3",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 175094.21875
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "2a49a06b3daf9980159ed2046ab6bfa7433a43717ae4ad19a57fc9b911fe05be",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004208683967590332,
+      "inverse_dft_tolerance": 0.027652575
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 6,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+      "baseline_spectrum_sha256": "d09f9a5cf84a50692bce0fb516457bcd6bef60e622aac2410b7c3e4b722d55b6",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 162996.15625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "841e12a981f5e988162efa34a78df23db4cbd01de767eb13e182ab3490e4f62b",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 306092.3125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.008310198783874512,
+      "inverse_dft_tolerance": 0.03259923125
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 0,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+      "baseline_spectrum_sha256": "399638777c66fb1ae36814d7be8e2126639f7ff93943aadcb46afeb47591977a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 373812.625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "8d015a9f273a44c9de519b8df2c3de45e1a1d94ea9e72e53035d06d4489a3194",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 604039.40625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.02063284069299698,
+      "inverse_dft_tolerance": 0.074762525
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "b96633ba5e137794cf30615dbc870ee8c9922d0041822f59fda1fa3e0a6df9de",
+      "baseline_spectrum_sha256": "47c34aad1a3d68cdd69247441f5c9de4bc4c7d291980dbab3ae726481de4be39",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 122930.0078125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "579393bc1b9f8bef01a9c6c2ffec4347549bc7039dde90071b6ed5fd373ad830",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 217054.921875
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "5b4db56aeb9864fc1b5c8dcdb6c7734562e4e057a2fac368e0090e179993e444",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 66129.890625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "b96633ba5e137794cf30615dbc870ee8c9922d0041822f59fda1fa3e0a6df9de",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.005766361951828003,
+      "inverse_dft_tolerance": 0.024586001562499998
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 2,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "e9b534eba61388061c2551134a93ddb0b82bfe44fcdb042a41acca3d8d47024e",
+      "baseline_spectrum_sha256": "58e5c2571f0c6e38d4aa207f105d33d8e43852197a029b4c67d41d0eefad4f23",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 103106.875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "69abadd9c1a404154d60f03ab6efbc20414f44eb94449279b61cf2f956e2992c",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147186.404296875
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "e2f35dd9663f279d8acfeed79d465fa3c56944b362e4278c300d94fbf339e1ab",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147912.70703125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e9b534eba61388061c2551134a93ddb0b82bfe44fcdb042a41acca3d8d47024e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004540086447377689,
+      "inverse_dft_tolerance": 0.020621374999999997
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 3,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "60520db5fff42f356e5ab67b025ce58421d0d7e5865cbbd031f2139e6e8eb94f",
+      "baseline_spectrum_sha256": "9d160e05851707e4c9645662b70444024aeb5886d92138a893f663da1d86dffe",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 356851.8125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "57d3aa0a63824bc089aefd4a7f7e3ef854366b532531fd3c8246b5f069a140be",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 652877.9375
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "60520db5fff42f356e5ab67b025ce58421d0d7e5865cbbd031f2139e6e8eb94f",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "60520db5fff42f356e5ab67b025ce58421d0d7e5865cbbd031f2139e6e8eb94f",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.015114007226657122,
+      "inverse_dft_tolerance": 0.07137036249999999
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 4,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "e95d4b1aba893f299955c5a8fa8b5b74cc6b0d5e696230400a851974769955f8",
+      "baseline_spectrum_sha256": "2600f7ce0f30e7e43f9260604962d6c727ea89b8c9c98407ed1716089c19c05f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 377444.3125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "678b7c5b6c133760c691eacb296bd91094346bfe4a3e5d43d360e4778ea95747",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 763881.90625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e95d4b1aba893f299955c5a8fa8b5b74cc6b0d5e696230400a851974769955f8",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e95d4b1aba893f299955c5a8fa8b5b74cc6b0d5e696230400a851974769955f8",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0304718017578125,
+      "inverse_dft_tolerance": 0.07548886249999999
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 5,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "2a49a06b3daf9980159ed2046ab6bfa7433a43717ae4ad19a57fc9b911fe05be",
+      "baseline_spectrum_sha256": "af753bc1096e1f21588f0a9e000472052b552f6ea1f7474deec10a98f4c4aa24",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 138262.875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "561bbe15e64397076c285a31152b74cefe441bd30a6b0b9275bdb33bd26982c6",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 74522.99609375
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "ff90135f55bcced09e81bc11f174d1c929b90793ab73303d11916cc6c7a9d3b3",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 175094.21875
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "2a49a06b3daf9980159ed2046ab6bfa7433a43717ae4ad19a57fc9b911fe05be",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004208683967590332,
+      "inverse_dft_tolerance": 0.027652575
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 6,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+      "baseline_spectrum_sha256": "d09f9a5cf84a50692bce0fb516457bcd6bef60e622aac2410b7c3e4b722d55b6",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 162996.15625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "841e12a981f5e988162efa34a78df23db4cbd01de767eb13e182ab3490e4f62b",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 306092.3125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.008310198783874512,
+      "inverse_dft_tolerance": 0.03259923125
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 0,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+      "baseline_spectrum_sha256": "399638777c66fb1ae36814d7be8e2126639f7ff93943aadcb46afeb47591977a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 373812.625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "8d015a9f273a44c9de519b8df2c3de45e1a1d94ea9e72e53035d06d4489a3194",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 604039.40625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "40ddaca91aa522e7a9952db8bfe74c151b0fc650d9bac5d355cd83dd780dc7ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.02063284069299698,
+      "inverse_dft_tolerance": 0.074762525
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "b96633ba5e137794cf30615dbc870ee8c9922d0041822f59fda1fa3e0a6df9de",
+      "baseline_spectrum_sha256": "47c34aad1a3d68cdd69247441f5c9de4bc4c7d291980dbab3ae726481de4be39",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 122930.0078125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "579393bc1b9f8bef01a9c6c2ffec4347549bc7039dde90071b6ed5fd373ad830",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 217054.921875
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "5b4db56aeb9864fc1b5c8dcdb6c7734562e4e057a2fac368e0090e179993e444",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 66129.890625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "b96633ba5e137794cf30615dbc870ee8c9922d0041822f59fda1fa3e0a6df9de",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.005766361951828003,
+      "inverse_dft_tolerance": 0.024586001562499998
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 2,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "e9b534eba61388061c2551134a93ddb0b82bfe44fcdb042a41acca3d8d47024e",
+      "baseline_spectrum_sha256": "58e5c2571f0c6e38d4aa207f105d33d8e43852197a029b4c67d41d0eefad4f23",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 103106.875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "69abadd9c1a404154d60f03ab6efbc20414f44eb94449279b61cf2f956e2992c",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147186.404296875
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "e2f35dd9663f279d8acfeed79d465fa3c56944b362e4278c300d94fbf339e1ab",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147912.70703125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e9b534eba61388061c2551134a93ddb0b82bfe44fcdb042a41acca3d8d47024e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004540086447377689,
+      "inverse_dft_tolerance": 0.020621374999999997
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 3,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "d291518e0b688a3b61406073da24f77979cb50c75dfc3af7b19af31b3b1ffb9b",
+      "baseline_spectrum_sha256": "ea8c99946a0e423673c5b2f2141760e769fc8eb554563dfd9f9e3387f92fe9b4",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 157861.375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "003f9e1249c8a0d0d12eeb87c86493b2ac03f99973e04a3b8e56512620b60fca",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 74522.99609375
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "1e2b8f38d7500ccd7a145be2606ef3551b0882b3e7b77892d24da5d1ad9d27a3",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 236672.4765625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "d291518e0b688a3b61406073da24f77979cb50c75dfc3af7b19af31b3b1ffb9b",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.006903798144776374,
+      "inverse_dft_tolerance": 0.031572275
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 4,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "d7ef9683893de1f170c42854c5c0bee375f8f945379e4f5faee09e610505a4ff",
+      "baseline_spectrum_sha256": "f8cca8dcb268d414424fa2ac355b89090a18c389a3353650abfafae6c5e70cc4",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 365931.1875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "1b3f21935900b16a38c5fe565cae0af0346541abc3a5e9b9bf45f9e2c8fe907a",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 630205.21875
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "d7ef9683893de1f170c42854c5c0bee375f8f945379e4f5faee09e610505a4ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "d7ef9683893de1f170c42854c5c0bee375f8f945379e4f5faee09e610505a4ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.022509396076202393,
+      "inverse_dft_tolerance": 0.0731862375
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 5,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "60d2437755ed565c4a5201f1fd3122782b21cb6b011ce0a05dd7f412f5e4d43a",
+      "baseline_spectrum_sha256": "6faaac6f9d0920c50c27a6412cd483bf2632fec75ac1593dfa48074407aabfb3",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 333940.3125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "8121331189e77ca5007705c105f50fe02e249f1dae2ec42e0979afed31fb22ea",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 421943.4453125
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "60d2437755ed565c4a5201f1fd3122782b21cb6b011ce0a05dd7f412f5e4d43a",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "60d2437755ed565c4a5201f1fd3122782b21cb6b011ce0a05dd7f412f5e4d43a",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004948994940605189,
+      "inverse_dft_tolerance": 0.0667880625
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 6,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+      "baseline_spectrum_sha256": "d09f9a5cf84a50692bce0fb516457bcd6bef60e622aac2410b7c3e4b722d55b6",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 162996.15625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "841e12a981f5e988162efa34a78df23db4cbd01de767eb13e182ab3490e4f62b",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 306092.3125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a0c5ceeb323aacb233e93fcbfde855f954b933ae62066766a489355ac731790e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.008310198783874512,
+      "inverse_dft_tolerance": 0.03259923125
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 0,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+      "baseline_spectrum_sha256": "f78ed8af451f95601b9f042914fd03f1158224048636decb708f13ae2847112f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99610.125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "327ad73cbee0b5d2bd7368a6727edeca1a514e9509274e3959e813e1ab5794bb",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 178736.4140625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.00563120809965767,
+      "inverse_dft_tolerance": 0.019922025
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "1efbfc598b9fdd0ddf5f9673465960e9f845e80fd667b3e53daf333a9fba08f9",
+      "baseline_spectrum_sha256": "7d296cf9d9a5c1a27fd6f5d7449b99d0dc74215c4400f49816ae5eef9a050d6a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 133495.65625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "1efbfc598b9fdd0ddf5f9673465960e9f845e80fd667b3e53daf333a9fba08f9",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c65e5bc5fd455675126344de42a0e6dfe9af654f702305c3be34dddd7326e16e",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 66129.8984375
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c173f0714c0cf995bef3575f4d138dd6238d1179f7408c141195f25fda50516f",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 191522.921875
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0030513405799865723,
+      "inverse_dft_tolerance": 0.026699131249999997
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 2,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "f466731b694ad0f7a07ef69b7b04451948c1a4708fd7a6198cf5cc35188f7b33",
+      "baseline_spectrum_sha256": "394898c1649283c1dba80b54a0dc08bda2712d13f885479c1950616e59fa7f19",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99603.9296875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "f466731b694ad0f7a07ef69b7b04451948c1a4708fd7a6198cf5cc35188f7b33",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "f466731b694ad0f7a07ef69b7b04451948c1a4708fd7a6198cf5cc35188f7b33",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "45789878521071bf8b007fd4f45abec531021f2cd518e42e7946e91bd7427cd0",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 187666.75
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0017943379061762244,
+      "inverse_dft_tolerance": 0.019920785937499998
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 3,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "44a07cee0032cde2aa6882ad15657c16390c7e9dfe76ff9d55c9c2a8689cd01f",
+      "baseline_spectrum_sha256": "1a0ae900b2d6b334901457fa8e66b7f42e0b947b204e1c02da8d017b34aaf696",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99612.484375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "44a07cee0032cde2aa6882ad15657c16390c7e9dfe76ff9d55c9c2a8689cd01f",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "44a07cee0032cde2aa6882ad15657c16390c7e9dfe76ff9d55c9c2a8689cd01f",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "9d138ab28c01c52f74267c26dfcdaf1b58239d383245878b8d01e4ea5d21c724",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 183057.5546875
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.001504767315054778,
+      "inverse_dft_tolerance": 0.019922496874999997
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 4,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "17aa5828d5730c2165974d9226d316ae7897e2cf69673c2ed057a5a707741f61",
+      "baseline_spectrum_sha256": "fe3e1695d752e527101b794dd26ce71b3b8d518f48e2eb55d0ec9f0e8bdbfad7",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 120797.3125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "17aa5828d5730c2165974d9226d316ae7897e2cf69673c2ed057a5a707741f61",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "e2e7c40967a36a8f00f6e3c3a73658133ad19a2dba82d1582485347ba042eaa0",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 153046.1640625
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "89336cac34202bee5b31db76749643768c0025857c386f576136c86bee5ae982",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 139692.072265625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0039817094802856445,
+      "inverse_dft_tolerance": 0.0241594625
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 5,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "72daf96692aeff14f45ccdaa45e64f5312a460fb4c2392162ecda554c3516610",
+      "baseline_spectrum_sha256": "c72a46888a3be2fc8384073ec5f7c3f1bfc0d822409cc2d3acd170492627a22f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 123911.453125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "72daf96692aeff14f45ccdaa45e64f5312a460fb4c2392162ecda554c3516610",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "cce331a3aebecaad5d51fb96ef14b2f4f89372dc0ca69de7c38ab819e5569074",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 232748.734375
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "588db3e833c54a0df97254e9023dff18ae0a0e2c9c56c83d178f4ca7e32671c7",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 53097.359375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004809141159057617,
+      "inverse_dft_tolerance": 0.024782290624999998
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 6,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+      "baseline_spectrum_sha256": "42fccd1337f406da0b350e2db197cf723e95142a7fcd0a9468fee33a81e6ace9",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 158065.9375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "89cb402fdffddecbd1d64da06392b729fca3a9be5fb2a89f53656c8576d6b9de",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 239650.171875
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.007203171888249926,
+      "inverse_dft_tolerance": 0.0316131875
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 0,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+      "baseline_spectrum_sha256": "f78ed8af451f95601b9f042914fd03f1158224048636decb708f13ae2847112f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99610.125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "327ad73cbee0b5d2bd7368a6727edeca1a514e9509274e3959e813e1ab5794bb",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 178736.4140625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.00563120809965767,
+      "inverse_dft_tolerance": 0.019922025
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "1efbfc598b9fdd0ddf5f9673465960e9f845e80fd667b3e53daf333a9fba08f9",
+      "baseline_spectrum_sha256": "7d296cf9d9a5c1a27fd6f5d7449b99d0dc74215c4400f49816ae5eef9a050d6a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 133495.65625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "1efbfc598b9fdd0ddf5f9673465960e9f845e80fd667b3e53daf333a9fba08f9",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c65e5bc5fd455675126344de42a0e6dfe9af654f702305c3be34dddd7326e16e",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 66129.8984375
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c173f0714c0cf995bef3575f4d138dd6238d1179f7408c141195f25fda50516f",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 191522.921875
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0030513405799865723,
+      "inverse_dft_tolerance": 0.026699131249999997
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 2,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "7d46bdef3372fbe4269534455c751f4b2d3ffa1ab1983a30f719e68e042aa0ff",
+      "baseline_spectrum_sha256": "11e0ee1ae3ae10e9e497cbe75a6b504661b90138bcc34388ccad45bb3d235d94",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 120725.421875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "7d46bdef3372fbe4269534455c751f4b2d3ffa1ab1983a30f719e68e042aa0ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "71717faf77a2d47b67c31ae5d5839bdb60f9e476093bdd8377839b47e5cfeb26",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147912.703125
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "d68d212ade831a8a5911e26d5ddf2997af71b37fc972454b3b254cdd64e3e9a0",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 139692.072265625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.002682596445083618,
+      "inverse_dft_tolerance": 0.024145084375
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 3,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "64fa7024071fa5c6307078c6ee5c5e05be5663fae79d259ae7151f314406d571",
+      "baseline_spectrum_sha256": "8d7c1cf299a0b054434cc55a5ac80e26d38aeacbc727a4a442ad134ee0d0b67a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 89953.671875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "64fa7024071fa5c6307078c6ee5c5e05be5663fae79d259ae7151f314406d571",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "64fa7024071fa5c6307078c6ee5c5e05be5663fae79d259ae7151f314406d571",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "7011dc60040fda815ffebed1264d307466e04873269fec6e10c9255434982e00",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 168600.2109375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.006202717406267766,
+      "inverse_dft_tolerance": 0.017990734374999998
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 4,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "424789b393d366bf62d23e7b55ba98d6f1db25ae1f009d00a681241481a76e1d",
+      "baseline_spectrum_sha256": "c81f67eec1f7a4e2b532074d4dbbb17b7f01dfae7c83fc17a9da4ba8ee0689b2",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99605.0234375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "424789b393d366bf62d23e7b55ba98d6f1db25ae1f009d00a681241481a76e1d",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "424789b393d366bf62d23e7b55ba98d6f1db25ae1f009d00a681241481a76e1d",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "7f8eac9fbf631b0719cdb3489be9c95ffa2376e1055fd8651f01bbc75a72219a",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 185265.328125
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0031404492037836462,
+      "inverse_dft_tolerance": 0.0199210046875
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 5,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "72daf96692aeff14f45ccdaa45e64f5312a460fb4c2392162ecda554c3516610",
+      "baseline_spectrum_sha256": "c72a46888a3be2fc8384073ec5f7c3f1bfc0d822409cc2d3acd170492627a22f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 123911.453125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "72daf96692aeff14f45ccdaa45e64f5312a460fb4c2392162ecda554c3516610",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "cce331a3aebecaad5d51fb96ef14b2f4f89372dc0ca69de7c38ab819e5569074",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 232748.734375
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "588db3e833c54a0df97254e9023dff18ae0a0e2c9c56c83d178f4ca7e32671c7",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 53097.359375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004809141159057617,
+      "inverse_dft_tolerance": 0.024782290624999998
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 6,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+      "baseline_spectrum_sha256": "42fccd1337f406da0b350e2db197cf723e95142a7fcd0a9468fee33a81e6ace9",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 158065.9375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "89cb402fdffddecbd1d64da06392b729fca3a9be5fb2a89f53656c8576d6b9de",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 239650.171875
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.007203171888249926,
+      "inverse_dft_tolerance": 0.0316131875
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 0,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+      "baseline_spectrum_sha256": "f78ed8af451f95601b9f042914fd03f1158224048636decb708f13ae2847112f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99610.125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "097a9e67ed8e2eb3564d1a41c395b88686b750cb81afa105f1c35070ee26ef1e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "327ad73cbee0b5d2bd7368a6727edeca1a514e9509274e3959e813e1ab5794bb",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 178736.4140625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.00563120809965767,
+      "inverse_dft_tolerance": 0.019922025
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 1,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "1efbfc598b9fdd0ddf5f9673465960e9f845e80fd667b3e53daf333a9fba08f9",
+      "baseline_spectrum_sha256": "7d296cf9d9a5c1a27fd6f5d7449b99d0dc74215c4400f49816ae5eef9a050d6a",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 133495.65625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "1efbfc598b9fdd0ddf5f9673465960e9f845e80fd667b3e53daf333a9fba08f9",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c65e5bc5fd455675126344de42a0e6dfe9af654f702305c3be34dddd7326e16e",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 66129.8984375
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c173f0714c0cf995bef3575f4d138dd6238d1179f7408c141195f25fda50516f",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 191522.921875
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0030513405799865723,
+      "inverse_dft_tolerance": 0.026699131249999997
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 2,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "7d46bdef3372fbe4269534455c751f4b2d3ffa1ab1983a30f719e68e042aa0ff",
+      "baseline_spectrum_sha256": "11e0ee1ae3ae10e9e497cbe75a6b504661b90138bcc34388ccad45bb3d235d94",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 120725.421875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "7d46bdef3372fbe4269534455c751f4b2d3ffa1ab1983a30f719e68e042aa0ff",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "71717faf77a2d47b67c31ae5d5839bdb60f9e476093bdd8377839b47e5cfeb26",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 147912.703125
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "d68d212ade831a8a5911e26d5ddf2997af71b37fc972454b3b254cdd64e3e9a0",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 139692.072265625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.002682596445083618,
+      "inverse_dft_tolerance": 0.024145084375
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 3,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "e0ca46a3cd369863094b7454d939da8f561febabed6e6a067fe85b87455f28ec",
+      "baseline_spectrum_sha256": "3af98c339c1c779e713868868b405a4ea533107ed831fbd72b36f4d33565a9ac",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 130233.078125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e0ca46a3cd369863094b7454d939da8f561febabed6e6a067fe85b87455f28ec",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "a7935fa9ffd44994996ff849c68a244d643ec549a5596a9026ef16de6eb0cf18",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 236672.4765625
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "bdb8210cddfcc18ef085724772269e986967bb7042b3c2bc057383e715be6ef3",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 53097.3671875
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.002243374183308333,
+      "inverse_dft_tolerance": 0.026046615625
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 4,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "d950a354cec7aae133e2a99cf42c7e6837dcafedca5cfbc40e7e37229cccfecd",
+      "baseline_spectrum_sha256": "ee0444524c902971c61bb4d3065b023c81321fdd029e73fc043bcb5e51e9622c",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 73961.21875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "d950a354cec7aae133e2a99cf42c7e6837dcafedca5cfbc40e7e37229cccfecd",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "d950a354cec7aae133e2a99cf42c7e6837dcafedca5cfbc40e7e37229cccfecd",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "bf9db3a2c72e7ea8126f2619e1dbf5adb70af1281ecdc6b9259caf443a6c9108",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 140999.5859375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.007419866262353025,
+      "inverse_dft_tolerance": 0.01479224375
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 5,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "3e85e8ac39dc62b30b75cd1bd88ab7d2c9bda755f46794c337791f3113950de6",
+      "baseline_spectrum_sha256": "50bb35926105d21f79535f3decc46480dad752309a410d70c5dbe062764f3b9f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 89963.5859375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "3e85e8ac39dc62b30b75cd1bd88ab7d2c9bda755f46794c337791f3113950de6",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "3e85e8ac39dc62b30b75cd1bd88ab7d2c9bda755f46794c337791f3113950de6",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "c98729c6458af055477aeac23eaef099e6cdaf66469e00746bf75a20733eda71",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 167210.3984375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004221979594149161,
+      "inverse_dft_tolerance": 0.0179927171875
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 6,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+      "baseline_spectrum_sha256": "42fccd1337f406da0b350e2db197cf723e95142a7fcd0a9468fee33a81e6ace9",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 158065.9375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "89cb402fdffddecbd1d64da06392b729fca3a9be5fb2a89f53656c8576d6b9de",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 239650.171875
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "678d6334c2f859dcefc83cf3b5342296428c922e415785a8c22e7d34fbbcc294",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.007203171888249926,
+      "inverse_dft_tolerance": 0.0316131875
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 0,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+      "baseline_spectrum_sha256": "aebd697642aed47a7c7fab86f4f12b9ed6c17a6800af6bb3bf44fac5e77ce858",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 165200.546875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "3a208e3bccc71aa3fb4ac47ccc22aa02313fccf3756fc4673ac93644d7134422",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 264519.578125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0052666367778329,
+      "inverse_dft_tolerance": 0.033040109375
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 1,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 1,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "1d437ba77b6bbf70c63012fc3db2f6d3154c57c9dff4b6ec372b696f42d94f4c",
+      "baseline_spectrum_sha256": "18f085f6d05b6757456e2f0286f22ecd165e1cc3ad0105bf540233f92156eeff",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 92739.6640625,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "1d437ba77b6bbf70c63012fc3db2f6d3154c57c9dff4b6ec372b696f42d94f4c",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "451136ffcebc24011353113d265fe9c077c66ed89401d3405b31467423cc153b",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 155833.9140625
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "3d756b8b5ccdd1e4b98d9ebd161555e7b41737f59529c9ac2340cf752130d7f9",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 44684.09765625
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.004796658031409606,
+      "inverse_dft_tolerance": 0.018547932812499997
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 2,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 1,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "a07695befd1072c882917f208a70ff102b8c29771338148145b87dddd38044d4",
+      "baseline_spectrum_sha256": "38d3477cae8a1d521ed560a2af9af74d14d5dd7a9c1f11b19dd375265f771f1b",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 264643.375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "72c3e9c77bbd861b8b74a89c5cb62687420ec60ebb16be4297e1d93ffab6b383",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 257449.5673828125
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "32515a605c38fd7d9b21938ffca632e20c1565769ef3e19ef08b4614779e5f57",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 322861.890625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "a07695befd1072c882917f208a70ff102b8c29771338148145b87dddd38044d4",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.00478470791131258,
+      "inverse_dft_tolerance": 0.052928674999999994
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 3,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 1,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "6ae3e081d3b9cb5d17c6ddb146d12971c2094d987a8656f607b0cb144ef49754",
+      "baseline_spectrum_sha256": "5e644fdddece6539d871bccc5c6d2f5bb8a8184256cfbf26bd78f4569037171f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 330517.21875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "692ec6d8ce11dbdc9031f5a80154cabbb66d25d84dc9da990d00a031feba3d4b",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 489658.46875
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "cbd73c753f573852973325802b492c647490df21183d73d126170d0657f8938c",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 123405.48828125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "6ae3e081d3b9cb5d17c6ddb146d12971c2094d987a8656f607b0cb144ef49754",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.02480755321448669,
+      "inverse_dft_tolerance": 0.06610344374999999
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 4,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        0
+      ],
+      "last_window_source": 0,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "e95d4b1aba893f299955c5a8fa8b5b74cc6b0d5e696230400a851974769955f8",
+      "baseline_spectrum_sha256": "2600f7ce0f30e7e43f9260604962d6c727ea89b8c9c98407ed1716089c19c05f",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 377444.3125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "678b7c5b6c133760c691eacb296bd91094346bfe4a3e5d43d360e4778ea95747",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 763881.90625
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e95d4b1aba893f299955c5a8fa8b5b74cc6b0d5e696230400a851974769955f8",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "e95d4b1aba893f299955c5a8fa8b5b74cc6b0d5e696230400a851974769955f8",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0304718017578125,
+      "inverse_dft_tolerance": 0.07548886249999999
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 0,
+      "input_hz": 440.0,
+      "state": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+      "baseline_spectrum_sha256": "aebd697642aed47a7c7fab86f4f12b9ed6c17a6800af6bb3bf44fac5e77ce858",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 165200.546875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "3a208e3bccc71aa3fb4ac47ccc22aa02313fccf3756fc4673ac93644d7134422",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 264519.578125
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "c014fd68b767afe6cc066a774b83b93ed09e21591e7a98ee6b251afaa8bb7d7e",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0052666367778329,
+      "inverse_dft_tolerance": 0.033040109375
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 1,
+      "input_hz": 220.0,
+      "state": {
+        "previous": 1,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "active_sources": [
+        0,
+        1
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "01359143d0fe15a2dd27b6e71ed78f1599ad04ed676690e6863fc7e620a2ecf7",
+      "baseline_spectrum_sha256": "7b6ab58e964934829adaa1f0327f6a9eac8ea46d3c5a142273239f90d0673919",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 277675.71875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "da83c11ee2b35e10e8e4d023c5c4daf9ad5520a65e4989f25c97baf37061bb27",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 151009.859375
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "9358b127a8f8dced13f9f6ea8a86364a6cfcdee898057e22f55894362d2d6c14",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 300628.4765625
+        },
+        {
+          "layer": 2,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "01359143d0fe15a2dd27b6e71ed78f1599ad04ed676690e6863fc7e620a2ecf7",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.010835143621079624,
+      "inverse_dft_tolerance": 0.055535143749999995
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 2,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 1,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "d578d7cb33735fd68a59bbc86cc4da38bf690b3a85858707148a970df82ee948",
+      "baseline_spectrum_sha256": "5c1de293e5a308726fcf2830757335309197fca29b9eaa02a5a0eb8c1103f85b",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 77557.8828125,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "d578d7cb33735fd68a59bbc86cc4da38bf690b3a85858707148a970df82ee948",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "255525badbce2567dc2b1dcb71390705ecc1c6b176a63ab343a173ab9ae1bb79",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 101874.93359375
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "57ff11460639bfe43d16aee6018466506ff5c5c1407bce1831393092e1777527",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 73143.02734375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0013278087790240534,
+      "inverse_dft_tolerance": 0.015511576562499999
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 3,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 1,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "active_sources": [
+        1,
+        2
+      ],
+      "last_window_source": 1,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "49c2e1930149099404b39b903810004403736648cfdf1f2d995ad928fffec6b1",
+      "baseline_spectrum_sha256": "d8bb188ac0e2d866a0dd5fe08c21a84ecbbb01daa7d558fd7bd8f8ca36376575",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 88919.8671875,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "49c2e1930149099404b39b903810004403736648cfdf1f2d995ad928fffec6b1",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "6201216904650b7b2764771b1490a0ee455b4393507d5f0432bb3b5105635288",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 48071.98486328125
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": false,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "bdc67634c1c489ffa98c1ba624108bae2d3d54682592e9293d49146ee847f747",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 126450.15234375
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0032814983132993802,
+      "inverse_dft_tolerance": 0.0177839734375
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 4,
+      "input_hz": 660.0,
+      "state": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "active_sources": [
+        2
+      ],
+      "last_window_source": 2,
+      "window_count": 4097,
+      "baseline_pcm_sha256": "424789b393d366bf62d23e7b55ba98d6f1db25ae1f009d00a681241481a76e1d",
+      "baseline_spectrum_sha256": "c81f67eec1f7a4e2b532074d4dbbb17b7f01dfae7c83fc17a9da4ba8ee0689b2",
+      "baseline_pcm_nonzero": 4096,
+      "pcm_max_absolute": 99605.0234375,
+      "baseline_repeat_exact": true,
+      "zero_mix_pcm_zero": true,
+      "layer_comparisons": [
+        {
+          "layer": 0,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "424789b393d366bf62d23e7b55ba98d6f1db25ae1f009d00a681241481a76e1d",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 1,
+          "expected_active": false,
+          "window_changed": false,
+          "spectrum_changed": false,
+          "pcm_changed": false,
+          "pcm_sha256": "424789b393d366bf62d23e7b55ba98d6f1db25ae1f009d00a681241481a76e1d",
+          "changed_samples": 0,
+          "max_absolute_pcm_difference": 0.0
+        },
+        {
+          "layer": 2,
+          "expected_active": true,
+          "window_changed": true,
+          "spectrum_changed": true,
+          "pcm_changed": true,
+          "pcm_sha256": "7f8eac9fbf631b0719cdb3489be9c95ffa2376e1055fd8651f01bbc75a72219a",
+          "changed_samples": 4096,
+          "max_absolute_pcm_difference": 185265.328125
+        }
+      ],
+      "inverse_dft_probe_count": 9,
+      "inverse_dft_max_error": 0.0031404492037836462,
+      "inverse_dft_tolerance": 0.0199210046875
+    }
+  ],
+  "limits": [
+    "Owned PCM/FRM2 only; original DLL and old fixtures are unchanged.",
+    "Differentials change only one source PCM pointer at the tested step after an identical prefix.",
+    "Verifies native mix spectrum and 4096-sample inverse FFT output, not Editor scheduling or overlap-add/playback.",
+    "Does not claim perceived audio quality or original maker metadata production."
+  ]
+}

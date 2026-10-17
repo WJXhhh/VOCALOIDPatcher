@@ -1,0 +1,682 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "projection": "2048-point kind-10 DSE window, each saved frame F0, 2log10(amplitude/32768)",
+  "common_interior_margin_frames": 8,
+  "frequency_controls": [
+    {
+      "frequency": "frame_f0",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.001963089918597481,
+          "mean_absolute_error": 0.002689763039557052,
+          "max_absolute_error": 0.0056846483013404114
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0005630128095899308,
+          "mean_absolute_error": 0.001116017261160574,
+          "max_absolute_error": 0.004372846397777241
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0021898596396274345,
+          "mean_absolute_error": 0.0022033532685018647,
+          "max_absolute_error": 0.005095534154582193
+        }
+      ]
+    },
+    {
+      "frequency": "first_component_frequency",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.001963080846510788,
+          "mean_absolute_error": 0.002689791677034838,
+          "max_absolute_error": 0.005684632928737887
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0005630186086490791,
+          "mean_absolute_error": 0.0011160219088651553,
+          "max_absolute_error": 0.004372846397777241
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0021898658456094037,
+          "mean_absolute_error": 0.0022033539570193773,
+          "max_absolute_error": 0.005095541902729206
+        }
+      ]
+    },
+    {
+      "frequency": "pitch1",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": -0.005286466936014121,
+          "mean_absolute_error": 0.006521282426222098,
+          "max_absolute_error": 0.03582169200385521
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": -0.0011558672628545533,
+          "mean_absolute_error": 0.0018822037987205836,
+          "max_absolute_error": 0.012369924984280356
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": -0.001966877026291587,
+          "mean_absolute_error": 0.004946682765891253,
+          "max_absolute_error": 0.019107594117115934
+        }
+      ]
+    }
+  ],
+  "component_pitch_differences": [
+    {
+      "sample_index": 0,
+      "different_float_count": 27,
+      "max_absolute_difference_hz": 6.103515625e-05
+    },
+    {
+      "sample_index": 1,
+      "different_float_count": 54,
+      "max_absolute_difference_hz": 3.0517578125e-05
+    },
+    {
+      "sample_index": 2,
+      "different_float_count": 76,
+      "max_absolute_difference_hz": 6.103515625e-05
+    }
+  ],
+  "fixed_kernel_controls": [
+    {
+      "kernel": "identity",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.001963089918597481,
+          "mean_absolute_error": 0.002689763039557052,
+          "max_absolute_error": 0.0056846483013404114
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0005630128095899308,
+          "mean_absolute_error": 0.001116017261160574,
+          "max_absolute_error": 0.004372846397777241
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0021898596396274345,
+          "mean_absolute_error": 0.0022033532685018647,
+          "max_absolute_error": 0.005095534154582193
+        }
+      ]
+    },
+    {
+      "kernel": "identity",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.001963089918597481,
+          "mean_absolute_error": 0.002689763039557052,
+          "max_absolute_error": 0.0056846483013404114
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0005630128095899308,
+          "mean_absolute_error": 0.001116017261160574,
+          "max_absolute_error": 0.004372846397777241
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0021898596396274345,
+          "mean_absolute_error": 0.0022033532685018647,
+          "max_absolute_error": 0.005095534154582193
+        }
+      ]
+    },
+    {
+      "kernel": "identity",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.001963089918597481,
+          "mean_absolute_error": 0.002689763039557052,
+          "max_absolute_error": 0.0056846483013404114
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0005630128095899308,
+          "mean_absolute_error": 0.001116017261160574,
+          "max_absolute_error": 0.004372846397777241
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0021898596396274345,
+          "mean_absolute_error": 0.0022033532685018647,
+          "max_absolute_error": 0.005095534154582193
+        }
+      ]
+    },
+    {
+      "kernel": "three_mean",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.001636461010440107,
+          "mean_absolute_error": 0.008098972084000174,
+          "max_absolute_error": 0.025400899660884546
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.000959709227406432,
+          "mean_absolute_error": 0.0062534951421010865,
+          "max_absolute_error": 0.01792679126966057
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.002362489730455947,
+          "mean_absolute_error": 0.006251112952004698,
+          "max_absolute_error": 0.018744340391736003
+        }
+      ]
+    },
+    {
+      "kernel": "three_mean",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0022335364312689693,
+          "mean_absolute_error": 0.008327210295061544,
+          "max_absolute_error": 0.025713957214177574
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.001402535188135005,
+          "mean_absolute_error": 0.006241094362426968,
+          "max_absolute_error": 0.01821074659914057
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0027720793505286922,
+          "mean_absolute_error": 0.006306487216669314,
+          "max_absolute_error": 0.019067521609094307
+        }
+      ]
+    },
+    {
+      "kernel": "three_mean",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0028294029746022487,
+          "mean_absolute_error": 0.008592177939700784,
+          "max_absolute_error": 0.02603051214703611
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0018442649522129118,
+          "mean_absolute_error": 0.006334055311736827,
+          "max_absolute_error": 0.019608146106016466
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0031809266161388653,
+          "mean_absolute_error": 0.006388893771119319,
+          "max_absolute_error": 0.019394632954694124
+        }
+      ]
+    },
+    {
+      "kernel": "three_binomial",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0017181182374794515,
+          "mean_absolute_error": 0.0061928332013433994,
+          "max_absolute_error": 0.02046023577440903
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0008605351229523208,
+          "mean_absolute_error": 0.004725064769601103,
+          "max_absolute_error": 0.014255217718757596
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.002319332207748844,
+          "mean_absolute_error": 0.004850416925759812,
+          "max_absolute_error": 0.014522877060179962
+        }
+      ]
+    },
+    {
+      "kernel": "three_binomial",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.002176175040383112,
+          "mean_absolute_error": 0.0063865118106245355,
+          "max_absolute_error": 0.02073836209871649
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.001199174766460693,
+          "mean_absolute_error": 0.004733344076828457,
+          "max_absolute_error": 0.014492303499679338
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0026320105084729076,
+          "mean_absolute_error": 0.004891528493261883,
+          "max_absolute_error": 0.014797121946536151
+        }
+      ]
+    },
+    {
+      "kernel": "three_binomial",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.002633814059332543,
+          "mean_absolute_error": 0.006622410279913686,
+          "max_absolute_error": 0.021021507942871276
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.001537559354775693,
+          "mean_absolute_error": 0.004808730361630306,
+          "max_absolute_error": 0.014763903285662128
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.002944461618994086,
+          "mean_absolute_error": 0.004993574044428956,
+          "max_absolute_error": 0.01507653141515819
+        }
+      ]
+    },
+    {
+      "kernel": "five_mean",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0010831221728613719,
+          "mean_absolute_error": 0.01907616856180733,
+          "max_absolute_error": 0.05679729051624127
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0017257883326791186,
+          "mean_absolute_error": 0.016212914768367732,
+          "max_absolute_error": 0.04621480002576561
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.002684565864762871,
+          "mean_absolute_error": 0.015136586437916748,
+          "max_absolute_error": 0.04154496200500457
+        }
+      ]
+    },
+    {
+      "kernel": "five_mean",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0025373636882944878,
+          "mean_absolute_error": 0.019527076540906522,
+          "max_absolute_error": 0.05821722689293041
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.002823680505329487,
+          "mean_absolute_error": 0.016170932615631614,
+          "max_absolute_error": 0.04851999620719649
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0037010706678681188,
+          "mean_absolute_error": 0.015221968155450467,
+          "max_absolute_error": 0.042424579117958494
+        }
+      ]
+    },
+    {
+      "kernel": "five_mean",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.003986210513359845,
+          "mean_absolute_error": 0.02001649605022527,
+          "max_absolute_error": 0.059673615350938514
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.003916251884409145,
+          "mean_absolute_error": 0.01643513621100311,
+          "max_absolute_error": 0.05272608169645521
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.004713597763753399,
+          "mean_absolute_error": 0.015437201060394857,
+          "max_absolute_error": 0.04332413257303136
+        }
+      ]
+    },
+    {
+      "kernel": "five_binomial",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0015043712372164175,
+          "mean_absolute_error": 0.010464409588807233,
+          "max_absolute_error": 0.03274193985994578
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0011495218955771094,
+          "mean_absolute_error": 0.008521562585999039,
+          "max_absolute_error": 0.02348940917799469
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0024415597610732993,
+          "mean_absolute_error": 0.008196165764406177,
+          "max_absolute_error": 0.023433480255890426
+        }
+      ]
+    },
+    {
+      "kernel": "five_binomial",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0023317187215437124,
+          "mean_absolute_error": 0.010727979624261221,
+          "max_absolute_error": 0.03354755164946077
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0017690363793444292,
+          "mean_absolute_error": 0.008521568518451865,
+          "max_absolute_error": 0.024091918202527207
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.003011896965523824,
+          "mean_absolute_error": 0.008254962680052106,
+          "max_absolute_error": 0.023929383634026635
+        }
+      ]
+    },
+    {
+      "kernel": "five_binomial",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0031583816461985587,
+          "mean_absolute_error": 0.011037822154386059,
+          "max_absolute_error": 0.034390820161045
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0023886447192990345,
+          "mean_absolute_error": 0.008661244494997904,
+          "max_absolute_error": 0.0256555545244197
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.003581989053718384,
+          "mean_absolute_error": 0.00839082775779454,
+          "max_absolute_error": 0.024600765001508762
+        }
+      ]
+    },
+    {
+      "kernel": "five_1_3_4_3_1",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0014331222371287303,
+          "mean_absolute_error": 0.011913439938941022,
+          "max_absolute_error": 0.03683584122179151
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.001245850819785364,
+          "mean_absolute_error": 0.009809514484574308,
+          "max_absolute_error": 0.026974759097076806
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0024823022788481286,
+          "mean_absolute_error": 0.009368421011859496,
+          "max_absolute_error": 0.02650226752036522
+        }
+      ]
+    },
+    {
+      "kernel": "five_1_3_4_3_1",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0023756806787169032,
+          "mean_absolute_error": 0.012219151886183915,
+          "max_absolute_error": 0.03777564515721643
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0019530116132804498,
+          "mean_absolute_error": 0.009809004584053541,
+          "max_absolute_error": 0.027653125284873514
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.003133682990645407,
+          "mean_absolute_error": 0.009421604759874353,
+          "max_absolute_error": 0.027076314013334546
+        }
+      ]
+    },
+    {
+      "kernel": "five_1_3_4_3_1",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0033170654920890046,
+          "mean_absolute_error": 0.012570095777975052,
+          "max_absolute_error": 0.0387573377608339
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.002659798199305886,
+          "mean_absolute_error": 0.009971332197764606,
+          "max_absolute_error": 0.030282643726557534
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.003784462151931513,
+          "mean_absolute_error": 0.009576474953416075,
+          "max_absolute_error": 0.027729652776073976
+        }
+      ]
+    },
+    {
+      "kernel": "nine_gaussian_sigma_1_1",
+      "domain": "log_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0014242458874317218,
+          "mean_absolute_error": 0.011928830365412415,
+          "max_absolute_error": 0.03696897740391014
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0012549836788074897,
+          "mean_absolute_error": 0.009823241035344325,
+          "max_absolute_error": 0.02712212182842011
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0024887281591561097,
+          "mean_absolute_error": 0.009398881946611514,
+          "max_absolute_error": 0.026798364712580014
+        }
+      ]
+    },
+    {
+      "kernel": "nine_gaussian_sigma_1_1",
+      "domain": "linear_amplitude",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.002374870530414142,
+          "mean_absolute_error": 0.012215293035424383,
+          "max_absolute_error": 0.03812265035970164
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0019717533971722774,
+          "mean_absolute_error": 0.00982841312400461,
+          "max_absolute_error": 0.027702179161921414
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.003146741977758632,
+          "mean_absolute_error": 0.009457882712915797,
+          "max_absolute_error": 0.02751127887319127
+        }
+      ]
+    },
+    {
+      "kernel": "nine_gaussian_sigma_1_1",
+      "domain": "linear_power",
+      "per_sample": [
+        {
+          "frames": 56,
+          "mean_signed_error": 0.0033251823922138546,
+          "mean_absolute_error": 0.012574570649944947,
+          "max_absolute_error": 0.03935496229795077
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0026895880155817795,
+          "mean_absolute_error": 0.009995407943142867,
+          "max_absolute_error": 0.030555481045643873
+        },
+        {
+          "frames": 71,
+          "mean_signed_error": 0.0038048796552514756,
+          "mean_absolute_error": 0.009610261841264064,
+          "max_absolute_error": 0.028263345611884816
+        }
+      ]
+    }
+  ],
+  "leave_one_sequence_out_fits": [
+    {
+      "held_out_sample_index": 0,
+      "trained_on_sample_indices": [
+        1,
+        2
+      ],
+      "symmetric_five_weights": [
+        -0.008085734213803625,
+        0.024128116907110368,
+        0.9679152346133865,
+        0.024128116907110368,
+        -0.008085734213803625
+      ],
+      "identity": {
+        "frames": 56,
+        "mean_signed_error": 0.001963089918597481,
+        "mean_absolute_error": 0.002689763039557052,
+        "max_absolute_error": 0.0056846483013404114
+      },
+      "fitted": {
+        "frames": 56,
+        "mean_signed_error": 0.0019670999200837986,
+        "mean_absolute_error": 0.0026456511937467913,
+        "max_absolute_error": 0.006204435723826229
+      }
+    },
+    {
+      "held_out_sample_index": 1,
+      "trained_on_sample_indices": [
+        0,
+        2
+      ],
+      "symmetric_five_weights": [
+        -0.009870813232592363,
+        0.028587576158779836,
+        0.9625664741476251,
+        0.028587576158779836,
+        -0.009870813232592363
+      ],
+      "identity": {
+        "frames": 71,
+        "mean_signed_error": 0.0005630128095899308,
+        "mean_absolute_error": 0.001116017261160574,
+        "max_absolute_error": 0.004372846397777241
+      },
+      "fitted": {
+        "frames": 71,
+        "mean_signed_error": 0.0005513940254103116,
+        "mean_absolute_error": 0.0011485797932736597,
+        "max_absolute_error": 0.004285883193590134
+      }
+    },
+    {
+      "held_out_sample_index": 2,
+      "trained_on_sample_indices": [
+        0,
+        1
+      ],
+      "symmetric_five_weights": [
+        -0.007371079058719234,
+        0.024649838848266825,
+        0.9654424804209049,
+        0.024649838848266825,
+        -0.007371079058719234
+      ],
+      "identity": {
+        "frames": 71,
+        "mean_signed_error": 0.0021898596396274345,
+        "mean_absolute_error": 0.0022033532685018647,
+        "max_absolute_error": 0.005095534154582193
+      },
+      "fitted": {
+        "frames": 71,
+        "mean_signed_error": 0.002188210368046273,
+        "mean_absolute_error": 0.002203937604193026,
+        "max_absolute_error": 0.005019844187444278
+      }
+    }
+  ],
+  "scope": "Three independent VQM sequences from one bank. Tests smoothing the already close PCM projection in log amplitude, linear amplitude or linear power domains. Fitted weights are diagnostic; nonzero residuals do not identify original authoring state."
+}

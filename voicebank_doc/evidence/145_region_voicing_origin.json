@@ -1,0 +1,8893 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "group_cases": 8,
+  "allocation_cases": 280,
+  "groups": [
+    {
+      "groups": [
+        [
+          "Left",
+          false,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          false,
+          [
+            "b"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 1
+        },
+        {
+          "name": "b",
+          "byte38": 1
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 137
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          false,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          false,
+          [
+            "b"
+          ]
+        ],
+        [
+          "Duplicate",
+          true,
+          [
+            "a"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 1
+        },
+        {
+          "name": "b",
+          "byte38": 1
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 167
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          false,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          true,
+          [
+            "b"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 1
+        },
+        {
+          "name": "b",
+          "byte38": 0
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 137
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          false,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          true,
+          [
+            "b"
+          ]
+        ],
+        [
+          "Duplicate",
+          true,
+          [
+            "a"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 1
+        },
+        {
+          "name": "b",
+          "byte38": 0
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 167
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          true,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          false,
+          [
+            "b"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 0
+        },
+        {
+          "name": "b",
+          "byte38": 1
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 137
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          true,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          false,
+          [
+            "b"
+          ]
+        ],
+        [
+          "Duplicate",
+          false,
+          [
+            "a"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 0
+        },
+        {
+          "name": "b",
+          "byte38": 1
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 167
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          true,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          true,
+          [
+            "b"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 0
+        },
+        {
+          "name": "b",
+          "byte38": 0
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 137
+    },
+    {
+      "groups": [
+        [
+          "Left",
+          true,
+          [
+            "a"
+          ]
+        ],
+        [
+          "Right",
+          true,
+          [
+            "b"
+          ]
+        ],
+        [
+          "Duplicate",
+          false,
+          [
+            "a"
+          ]
+        ]
+      ],
+      "records": [
+        {
+          "name": "a",
+          "byte38": 0
+        },
+        {
+          "name": "b",
+          "byte38": 0
+        }
+      ],
+      "roundtrip": true,
+      "binary_size": 167
+    }
+  ],
+  "allocations": [
+    {
+      "group_case": 0,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7264038324356079
+    },
+    {
+      "group_case": 0,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.6414875984191895
+    },
+    {
+      "group_case": 0,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.565693199634552
+    },
+    {
+      "group_case": 0,
+      "target": 5,
+      "result": [
+        1,
+        4
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 0,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 0,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3693011701107025
+    },
+    {
+      "group_case": 0,
+      "target": 8,
+      "result": [
+        2,
+        6
+      ],
+      "cost": 0.31058087944984436
+    },
+    {
+      "group_case": 0,
+      "target": 9,
+      "result": [
+        3,
+        6
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 0,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 0,
+      "target": 19,
+      "result": [
+        7,
+        12
+      ],
+      "cost": 0.228322371840477
+    },
+    {
+      "group_case": 0,
+      "target": 20,
+      "result": [
+        8,
+        12
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 0,
+      "target": 21,
+      "result": [
+        8,
+        13
+      ],
+      "cost": 0.27813035249710083
+    },
+    {
+      "group_case": 0,
+      "target": 22,
+      "result": [
+        9,
+        13
+      ],
+      "cost": 0.300174355506897
+    },
+    {
+      "group_case": 0,
+      "target": 23,
+      "result": [
+        9,
+        14
+      ],
+      "cost": 0.32060903310775757
+    },
+    {
+      "group_case": 0,
+      "target": 24,
+      "result": [
+        9,
+        15
+      ],
+      "cost": 0.33961454033851624
+    },
+    {
+      "group_case": 0,
+      "target": 25,
+      "result": [
+        10,
+        15
+      ],
+      "cost": 0.3573443591594696
+    },
+    {
+      "group_case": 0,
+      "target": 26,
+      "result": [
+        10,
+        16
+      ],
+      "cost": 0.3739301860332489
+    },
+    {
+      "group_case": 0,
+      "target": 27,
+      "result": [
+        10,
+        17
+      ],
+      "cost": 0.38948574662208557
+    },
+    {
+      "group_case": 0,
+      "target": 28,
+      "result": [
+        11,
+        17
+      ],
+      "cost": 0.4041097164154053
+    },
+    {
+      "group_case": 0,
+      "target": 29,
+      "result": [
+        11,
+        18
+      ],
+      "cost": 0.4178883135318756
+    },
+    {
+      "group_case": 0,
+      "target": 30,
+      "result": [
+        12,
+        18
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 0,
+      "target": 31,
+      "result": [
+        12,
+        19
+      ],
+      "cost": 0.4432026445865631
+    },
+    {
+      "group_case": 0,
+      "target": 32,
+      "result": [
+        12,
+        20
+      ],
+      "cost": 0.45486384630203247
+    },
+    {
+      "group_case": 0,
+      "target": 33,
+      "result": [
+        13,
+        20
+      ],
+      "cost": 0.46593302488327026
+    },
+    {
+      "group_case": 0,
+      "target": 34,
+      "result": [
+        13,
+        21
+      ],
+      "cost": 0.47645699977874756
+    },
+    {
+      "group_case": 0,
+      "target": 35,
+      "result": [
+        14,
+        21
+      ],
+      "cost": 0.4864773154258728
+    },
+    {
+      "group_case": 0,
+      "target": 36,
+      "result": [
+        14,
+        22
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 1,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7264038324356079
+    },
+    {
+      "group_case": 1,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.6414875984191895
+    },
+    {
+      "group_case": 1,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.565693199634552
+    },
+    {
+      "group_case": 1,
+      "target": 5,
+      "result": [
+        1,
+        4
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 1,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 1,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3693011701107025
+    },
+    {
+      "group_case": 1,
+      "target": 8,
+      "result": [
+        2,
+        6
+      ],
+      "cost": 0.31058087944984436
+    },
+    {
+      "group_case": 1,
+      "target": 9,
+      "result": [
+        3,
+        6
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 1,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 1,
+      "target": 19,
+      "result": [
+        7,
+        12
+      ],
+      "cost": 0.228322371840477
+    },
+    {
+      "group_case": 1,
+      "target": 20,
+      "result": [
+        8,
+        12
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 1,
+      "target": 21,
+      "result": [
+        8,
+        13
+      ],
+      "cost": 0.27813035249710083
+    },
+    {
+      "group_case": 1,
+      "target": 22,
+      "result": [
+        9,
+        13
+      ],
+      "cost": 0.300174355506897
+    },
+    {
+      "group_case": 1,
+      "target": 23,
+      "result": [
+        9,
+        14
+      ],
+      "cost": 0.32060903310775757
+    },
+    {
+      "group_case": 1,
+      "target": 24,
+      "result": [
+        9,
+        15
+      ],
+      "cost": 0.33961454033851624
+    },
+    {
+      "group_case": 1,
+      "target": 25,
+      "result": [
+        10,
+        15
+      ],
+      "cost": 0.3573443591594696
+    },
+    {
+      "group_case": 1,
+      "target": 26,
+      "result": [
+        10,
+        16
+      ],
+      "cost": 0.3739301860332489
+    },
+    {
+      "group_case": 1,
+      "target": 27,
+      "result": [
+        10,
+        17
+      ],
+      "cost": 0.38948574662208557
+    },
+    {
+      "group_case": 1,
+      "target": 28,
+      "result": [
+        11,
+        17
+      ],
+      "cost": 0.4041097164154053
+    },
+    {
+      "group_case": 1,
+      "target": 29,
+      "result": [
+        11,
+        18
+      ],
+      "cost": 0.4178883135318756
+    },
+    {
+      "group_case": 1,
+      "target": 30,
+      "result": [
+        12,
+        18
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 1,
+      "target": 31,
+      "result": [
+        12,
+        19
+      ],
+      "cost": 0.4432026445865631
+    },
+    {
+      "group_case": 1,
+      "target": 32,
+      "result": [
+        12,
+        20
+      ],
+      "cost": 0.45486384630203247
+    },
+    {
+      "group_case": 1,
+      "target": 33,
+      "result": [
+        13,
+        20
+      ],
+      "cost": 0.46593302488327026
+    },
+    {
+      "group_case": 1,
+      "target": 34,
+      "result": [
+        13,
+        21
+      ],
+      "cost": 0.47645699977874756
+    },
+    {
+      "group_case": 1,
+      "target": 35,
+      "result": [
+        14,
+        21
+      ],
+      "cost": 0.4864773154258728
+    },
+    {
+      "group_case": 1,
+      "target": 36,
+      "result": [
+        14,
+        22
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 2,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7183728218078613
+    },
+    {
+      "group_case": 2,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.64009690284729
+    },
+    {
+      "group_case": 2,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.5695403814315796
+    },
+    {
+      "group_case": 2,
+      "target": 5,
+      "result": [
+        2,
+        3
+      ],
+      "cost": 0.4889413118362427
+    },
+    {
+      "group_case": 2,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.42868947982788086
+    },
+    {
+      "group_case": 2,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3714451193809509
+    },
+    {
+      "group_case": 2,
+      "target": 8,
+      "result": [
+        3,
+        5
+      ],
+      "cost": 0.30351588129997253
+    },
+    {
+      "group_case": 2,
+      "target": 9,
+      "result": [
+        3,
+        6
+      ],
+      "cost": 0.25208690762519836
+    },
+    {
+      "group_case": 2,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 2,
+      "target": 19,
+      "result": [
+        7,
+        12
+      ],
+      "cost": 0.24508582055568695
+    },
+    {
+      "group_case": 2,
+      "target": 20,
+      "result": [
+        7,
+        13
+      ],
+      "cost": 0.2843134105205536
+    },
+    {
+      "group_case": 2,
+      "target": 21,
+      "result": [
+        7,
+        14
+      ],
+      "cost": 0.31881284713745117
+    },
+    {
+      "group_case": 2,
+      "target": 22,
+      "result": [
+        7,
+        15
+      ],
+      "cost": 0.34943461418151855
+    },
+    {
+      "group_case": 2,
+      "target": 23,
+      "result": [
+        7,
+        16
+      ],
+      "cost": 0.3768320679664612
+    },
+    {
+      "group_case": 2,
+      "target": 24,
+      "result": [
+        7,
+        17
+      ],
+      "cost": 0.40151605010032654
+    },
+    {
+      "group_case": 2,
+      "target": 25,
+      "result": [
+        7,
+        18
+      ],
+      "cost": 0.42389264702796936
+    },
+    {
+      "group_case": 2,
+      "target": 26,
+      "result": [
+        7,
+        19
+      ],
+      "cost": 0.44428855180740356
+    },
+    {
+      "group_case": 2,
+      "target": 27,
+      "result": [
+        7,
+        20
+      ],
+      "cost": 0.46297013759613037
+    },
+    {
+      "group_case": 2,
+      "target": 28,
+      "result": [
+        7,
+        21
+      ],
+      "cost": 0.48015695810317993
+    },
+    {
+      "group_case": 2,
+      "target": 29,
+      "result": [
+        7,
+        22
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 2,
+      "target": 30,
+      "result": [
+        7,
+        23
+      ],
+      "cost": 0.5107473134994507
+    },
+    {
+      "group_case": 2,
+      "target": 31,
+      "result": [
+        7,
+        24
+      ],
+      "cost": 0.5244338512420654
+    },
+    {
+      "group_case": 2,
+      "target": 32,
+      "result": [
+        7,
+        25
+      ],
+      "cost": 0.5372017025947571
+    },
+    {
+      "group_case": 2,
+      "target": 33,
+      "result": [
+        7,
+        26
+      ],
+      "cost": 0.5491456985473633
+    },
+    {
+      "group_case": 2,
+      "target": 34,
+      "result": [
+        7,
+        27
+      ],
+      "cost": 0.5603477954864502
+    },
+    {
+      "group_case": 2,
+      "target": 35,
+      "result": [
+        7,
+        28
+      ],
+      "cost": 0.5708789825439453
+    },
+    {
+      "group_case": 2,
+      "target": 36,
+      "result": [
+        7,
+        29
+      ],
+      "cost": 0.5808014869689941
+    },
+    {
+      "group_case": 3,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7183728218078613
+    },
+    {
+      "group_case": 3,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.64009690284729
+    },
+    {
+      "group_case": 3,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.5695403814315796
+    },
+    {
+      "group_case": 3,
+      "target": 5,
+      "result": [
+        2,
+        3
+      ],
+      "cost": 0.4889413118362427
+    },
+    {
+      "group_case": 3,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.42868947982788086
+    },
+    {
+      "group_case": 3,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3714451193809509
+    },
+    {
+      "group_case": 3,
+      "target": 8,
+      "result": [
+        3,
+        5
+      ],
+      "cost": 0.30351588129997253
+    },
+    {
+      "group_case": 3,
+      "target": 9,
+      "result": [
+        3,
+        6
+      ],
+      "cost": 0.25208690762519836
+    },
+    {
+      "group_case": 3,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 3,
+      "target": 19,
+      "result": [
+        7,
+        12
+      ],
+      "cost": 0.24508582055568695
+    },
+    {
+      "group_case": 3,
+      "target": 20,
+      "result": [
+        7,
+        13
+      ],
+      "cost": 0.2843134105205536
+    },
+    {
+      "group_case": 3,
+      "target": 21,
+      "result": [
+        7,
+        14
+      ],
+      "cost": 0.31881284713745117
+    },
+    {
+      "group_case": 3,
+      "target": 22,
+      "result": [
+        7,
+        15
+      ],
+      "cost": 0.34943461418151855
+    },
+    {
+      "group_case": 3,
+      "target": 23,
+      "result": [
+        7,
+        16
+      ],
+      "cost": 0.3768320679664612
+    },
+    {
+      "group_case": 3,
+      "target": 24,
+      "result": [
+        7,
+        17
+      ],
+      "cost": 0.40151605010032654
+    },
+    {
+      "group_case": 3,
+      "target": 25,
+      "result": [
+        7,
+        18
+      ],
+      "cost": 0.42389264702796936
+    },
+    {
+      "group_case": 3,
+      "target": 26,
+      "result": [
+        7,
+        19
+      ],
+      "cost": 0.44428855180740356
+    },
+    {
+      "group_case": 3,
+      "target": 27,
+      "result": [
+        7,
+        20
+      ],
+      "cost": 0.46297013759613037
+    },
+    {
+      "group_case": 3,
+      "target": 28,
+      "result": [
+        7,
+        21
+      ],
+      "cost": 0.48015695810317993
+    },
+    {
+      "group_case": 3,
+      "target": 29,
+      "result": [
+        7,
+        22
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 3,
+      "target": 30,
+      "result": [
+        7,
+        23
+      ],
+      "cost": 0.5107473134994507
+    },
+    {
+      "group_case": 3,
+      "target": 31,
+      "result": [
+        7,
+        24
+      ],
+      "cost": 0.5244338512420654
+    },
+    {
+      "group_case": 3,
+      "target": 32,
+      "result": [
+        7,
+        25
+      ],
+      "cost": 0.5372017025947571
+    },
+    {
+      "group_case": 3,
+      "target": 33,
+      "result": [
+        7,
+        26
+      ],
+      "cost": 0.5491456985473633
+    },
+    {
+      "group_case": 3,
+      "target": 34,
+      "result": [
+        7,
+        27
+      ],
+      "cost": 0.5603477954864502
+    },
+    {
+      "group_case": 3,
+      "target": 35,
+      "result": [
+        7,
+        28
+      ],
+      "cost": 0.5708789825439453
+    },
+    {
+      "group_case": 3,
+      "target": 36,
+      "result": [
+        7,
+        29
+      ],
+      "cost": 0.5808014869689941
+    },
+    {
+      "group_case": 4,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7345873117446899
+    },
+    {
+      "group_case": 4,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.6436038613319397
+    },
+    {
+      "group_case": 4,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.563043475151062
+    },
+    {
+      "group_case": 4,
+      "target": 5,
+      "result": [
+        1,
+        4
+      ],
+      "cost": 0.489327073097229
+    },
+    {
+      "group_case": 4,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.4342564344406128
+    },
+    {
+      "group_case": 4,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3686978816986084
+    },
+    {
+      "group_case": 4,
+      "target": 8,
+      "result": [
+        2,
+        6
+      ],
+      "cost": 0.3063746988773346
+    },
+    {
+      "group_case": 4,
+      "target": 9,
+      "result": [
+        2,
+        7
+      ],
+      "cost": 0.2467304766178131
+    },
+    {
+      "group_case": 4,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 4,
+      "target": 19,
+      "result": [
+        8,
+        11
+      ],
+      "cost": 0.2681388854980469
+    },
+    {
+      "group_case": 4,
+      "target": 20,
+      "result": [
+        9,
+        11
+      ],
+      "cost": 0.32340773940086365
+    },
+    {
+      "group_case": 4,
+      "target": 21,
+      "result": [
+        10,
+        11
+      ],
+      "cost": 0.3693011701107025
+    },
+    {
+      "group_case": 4,
+      "target": 22,
+      "result": [
+        11,
+        11
+      ],
+      "cost": 0.4081292748451233
+    },
+    {
+      "group_case": 4,
+      "target": 23,
+      "result": [
+        12,
+        11
+      ],
+      "cost": 0.4414854645729065
+    },
+    {
+      "group_case": 4,
+      "target": 24,
+      "result": [
+        13,
+        11
+      ],
+      "cost": 0.47050756216049194
+    },
+    {
+      "group_case": 4,
+      "target": 25,
+      "result": [
+        14,
+        11
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 4,
+      "target": 26,
+      "result": [
+        15,
+        11
+      ],
+      "cost": 0.5186867117881775
+    },
+    {
+      "group_case": 4,
+      "target": 27,
+      "result": [
+        16,
+        11
+      ],
+      "cost": 0.5389564037322998
+    },
+    {
+      "group_case": 4,
+      "target": 28,
+      "result": [
+        17,
+        11
+      ],
+      "cost": 0.5572185516357422
+    },
+    {
+      "group_case": 4,
+      "target": 29,
+      "result": [
+        18,
+        11
+      ],
+      "cost": 0.5737736225128174
+    },
+    {
+      "group_case": 4,
+      "target": 30,
+      "result": [
+        19,
+        11
+      ],
+      "cost": 0.5888632535934448
+    },
+    {
+      "group_case": 4,
+      "target": 31,
+      "result": [
+        20,
+        11
+      ],
+      "cost": 0.6026846766471863
+    },
+    {
+      "group_case": 4,
+      "target": 32,
+      "result": [
+        21,
+        11
+      ],
+      "cost": 0.6154001355171204
+    },
+    {
+      "group_case": 4,
+      "target": 33,
+      "result": [
+        22,
+        11
+      ],
+      "cost": 0.6271448135375977
+    },
+    {
+      "group_case": 4,
+      "target": 34,
+      "result": [
+        23,
+        11
+      ],
+      "cost": 0.638032078742981
+    },
+    {
+      "group_case": 4,
+      "target": 35,
+      "result": [
+        24,
+        11
+      ],
+      "cost": 0.6481578946113586
+    },
+    {
+      "group_case": 4,
+      "target": 36,
+      "result": [
+        25,
+        11
+      ],
+      "cost": 0.6576040387153625
+    },
+    {
+      "group_case": 5,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7345873117446899
+    },
+    {
+      "group_case": 5,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.6436038613319397
+    },
+    {
+      "group_case": 5,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.563043475151062
+    },
+    {
+      "group_case": 5,
+      "target": 5,
+      "result": [
+        1,
+        4
+      ],
+      "cost": 0.489327073097229
+    },
+    {
+      "group_case": 5,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.4342564344406128
+    },
+    {
+      "group_case": 5,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3686978816986084
+    },
+    {
+      "group_case": 5,
+      "target": 8,
+      "result": [
+        2,
+        6
+      ],
+      "cost": 0.3063746988773346
+    },
+    {
+      "group_case": 5,
+      "target": 9,
+      "result": [
+        2,
+        7
+      ],
+      "cost": 0.2467304766178131
+    },
+    {
+      "group_case": 5,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 5,
+      "target": 19,
+      "result": [
+        8,
+        11
+      ],
+      "cost": 0.2681388854980469
+    },
+    {
+      "group_case": 5,
+      "target": 20,
+      "result": [
+        9,
+        11
+      ],
+      "cost": 0.32340773940086365
+    },
+    {
+      "group_case": 5,
+      "target": 21,
+      "result": [
+        10,
+        11
+      ],
+      "cost": 0.3693011701107025
+    },
+    {
+      "group_case": 5,
+      "target": 22,
+      "result": [
+        11,
+        11
+      ],
+      "cost": 0.4081292748451233
+    },
+    {
+      "group_case": 5,
+      "target": 23,
+      "result": [
+        12,
+        11
+      ],
+      "cost": 0.4414854645729065
+    },
+    {
+      "group_case": 5,
+      "target": 24,
+      "result": [
+        13,
+        11
+      ],
+      "cost": 0.47050756216049194
+    },
+    {
+      "group_case": 5,
+      "target": 25,
+      "result": [
+        14,
+        11
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 5,
+      "target": 26,
+      "result": [
+        15,
+        11
+      ],
+      "cost": 0.5186867117881775
+    },
+    {
+      "group_case": 5,
+      "target": 27,
+      "result": [
+        16,
+        11
+      ],
+      "cost": 0.5389564037322998
+    },
+    {
+      "group_case": 5,
+      "target": 28,
+      "result": [
+        17,
+        11
+      ],
+      "cost": 0.5572185516357422
+    },
+    {
+      "group_case": 5,
+      "target": 29,
+      "result": [
+        18,
+        11
+      ],
+      "cost": 0.5737736225128174
+    },
+    {
+      "group_case": 5,
+      "target": 30,
+      "result": [
+        19,
+        11
+      ],
+      "cost": 0.5888632535934448
+    },
+    {
+      "group_case": 5,
+      "target": 31,
+      "result": [
+        20,
+        11
+      ],
+      "cost": 0.6026846766471863
+    },
+    {
+      "group_case": 5,
+      "target": 32,
+      "result": [
+        21,
+        11
+      ],
+      "cost": 0.6154001355171204
+    },
+    {
+      "group_case": 5,
+      "target": 33,
+      "result": [
+        22,
+        11
+      ],
+      "cost": 0.6271448135375977
+    },
+    {
+      "group_case": 5,
+      "target": 34,
+      "result": [
+        23,
+        11
+      ],
+      "cost": 0.638032078742981
+    },
+    {
+      "group_case": 5,
+      "target": 35,
+      "result": [
+        24,
+        11
+      ],
+      "cost": 0.6481578946113586
+    },
+    {
+      "group_case": 5,
+      "target": 36,
+      "result": [
+        25,
+        11
+      ],
+      "cost": 0.6576040387153625
+    },
+    {
+      "group_case": 6,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7264038324356079
+    },
+    {
+      "group_case": 6,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.6414875984191895
+    },
+    {
+      "group_case": 6,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.565693199634552
+    },
+    {
+      "group_case": 6,
+      "target": 5,
+      "result": [
+        1,
+        4
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 6,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 6,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3693011701107025
+    },
+    {
+      "group_case": 6,
+      "target": 8,
+      "result": [
+        2,
+        6
+      ],
+      "cost": 0.31058087944984436
+    },
+    {
+      "group_case": 6,
+      "target": 9,
+      "result": [
+        3,
+        6
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 6,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 6,
+      "target": 19,
+      "result": [
+        7,
+        12
+      ],
+      "cost": 0.228322371840477
+    },
+    {
+      "group_case": 6,
+      "target": 20,
+      "result": [
+        8,
+        12
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 6,
+      "target": 21,
+      "result": [
+        8,
+        13
+      ],
+      "cost": 0.27813035249710083
+    },
+    {
+      "group_case": 6,
+      "target": 22,
+      "result": [
+        9,
+        13
+      ],
+      "cost": 0.300174355506897
+    },
+    {
+      "group_case": 6,
+      "target": 23,
+      "result": [
+        9,
+        14
+      ],
+      "cost": 0.32060903310775757
+    },
+    {
+      "group_case": 6,
+      "target": 24,
+      "result": [
+        9,
+        15
+      ],
+      "cost": 0.33961454033851624
+    },
+    {
+      "group_case": 6,
+      "target": 25,
+      "result": [
+        10,
+        15
+      ],
+      "cost": 0.3573443591594696
+    },
+    {
+      "group_case": 6,
+      "target": 26,
+      "result": [
+        10,
+        16
+      ],
+      "cost": 0.3739301860332489
+    },
+    {
+      "group_case": 6,
+      "target": 27,
+      "result": [
+        10,
+        17
+      ],
+      "cost": 0.38948574662208557
+    },
+    {
+      "group_case": 6,
+      "target": 28,
+      "result": [
+        11,
+        17
+      ],
+      "cost": 0.4041097164154053
+    },
+    {
+      "group_case": 6,
+      "target": 29,
+      "result": [
+        11,
+        18
+      ],
+      "cost": 0.4178883135318756
+    },
+    {
+      "group_case": 6,
+      "target": 30,
+      "result": [
+        12,
+        18
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 6,
+      "target": 31,
+      "result": [
+        12,
+        19
+      ],
+      "cost": 0.4432026445865631
+    },
+    {
+      "group_case": 6,
+      "target": 32,
+      "result": [
+        12,
+        20
+      ],
+      "cost": 0.45486384630203247
+    },
+    {
+      "group_case": 6,
+      "target": 33,
+      "result": [
+        13,
+        20
+      ],
+      "cost": 0.46593302488327026
+    },
+    {
+      "group_case": 6,
+      "target": 34,
+      "result": [
+        13,
+        21
+      ],
+      "cost": 0.47645699977874756
+    },
+    {
+      "group_case": 6,
+      "target": 35,
+      "result": [
+        14,
+        21
+      ],
+      "cost": 0.4864773154258728
+    },
+    {
+      "group_case": 6,
+      "target": 36,
+      "result": [
+        14,
+        22
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 7,
+      "target": 2,
+      "result": [
+        1,
+        1
+      ],
+      "cost": 0.7264038324356079
+    },
+    {
+      "group_case": 7,
+      "target": 3,
+      "result": [
+        1,
+        2
+      ],
+      "cost": 0.6414875984191895
+    },
+    {
+      "group_case": 7,
+      "target": 4,
+      "result": [
+        1,
+        3
+      ],
+      "cost": 0.565693199634552
+    },
+    {
+      "group_case": 7,
+      "target": 5,
+      "result": [
+        1,
+        4
+      ],
+      "cost": 0.49603158235549927
+    },
+    {
+      "group_case": 7,
+      "target": 6,
+      "result": [
+        2,
+        4
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 7,
+      "target": 7,
+      "result": [
+        2,
+        5
+      ],
+      "cost": 0.3693011701107025
+    },
+    {
+      "group_case": 7,
+      "target": 8,
+      "result": [
+        2,
+        6
+      ],
+      "cost": 0.31058087944984436
+    },
+    {
+      "group_case": 7,
+      "target": 9,
+      "result": [
+        3,
+        6
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 7,
+      "target": 10,
+      "result": [
+        3,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 11,
+      "result": [
+        4,
+        7
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 12,
+      "result": [
+        4,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 13,
+      "result": [
+        5,
+        8
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 14,
+      "result": [
+        5,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 15,
+      "result": [
+        6,
+        9
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 16,
+      "result": [
+        6,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 17,
+      "result": [
+        7,
+        10
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 18,
+      "result": [
+        7,
+        11
+      ],
+      "cost": 0.0
+    },
+    {
+      "group_case": 7,
+      "target": 19,
+      "result": [
+        7,
+        12
+      ],
+      "cost": 0.228322371840477
+    },
+    {
+      "group_case": 7,
+      "target": 20,
+      "result": [
+        8,
+        12
+      ],
+      "cost": 0.2542642056941986
+    },
+    {
+      "group_case": 7,
+      "target": 21,
+      "result": [
+        8,
+        13
+      ],
+      "cost": 0.27813035249710083
+    },
+    {
+      "group_case": 7,
+      "target": 22,
+      "result": [
+        9,
+        13
+      ],
+      "cost": 0.300174355506897
+    },
+    {
+      "group_case": 7,
+      "target": 23,
+      "result": [
+        9,
+        14
+      ],
+      "cost": 0.32060903310775757
+    },
+    {
+      "group_case": 7,
+      "target": 24,
+      "result": [
+        9,
+        15
+      ],
+      "cost": 0.33961454033851624
+    },
+    {
+      "group_case": 7,
+      "target": 25,
+      "result": [
+        10,
+        15
+      ],
+      "cost": 0.3573443591594696
+    },
+    {
+      "group_case": 7,
+      "target": 26,
+      "result": [
+        10,
+        16
+      ],
+      "cost": 0.3739301860332489
+    },
+    {
+      "group_case": 7,
+      "target": 27,
+      "result": [
+        10,
+        17
+      ],
+      "cost": 0.38948574662208557
+    },
+    {
+      "group_case": 7,
+      "target": 28,
+      "result": [
+        11,
+        17
+      ],
+      "cost": 0.4041097164154053
+    },
+    {
+      "group_case": 7,
+      "target": 29,
+      "result": [
+        11,
+        18
+      ],
+      "cost": 0.4178883135318756
+    },
+    {
+      "group_case": 7,
+      "target": 30,
+      "result": [
+        12,
+        18
+      ],
+      "cost": 0.430897057056427
+    },
+    {
+      "group_case": 7,
+      "target": 31,
+      "result": [
+        12,
+        19
+      ],
+      "cost": 0.4432026445865631
+    },
+    {
+      "group_case": 7,
+      "target": 32,
+      "result": [
+        12,
+        20
+      ],
+      "cost": 0.45486384630203247
+    },
+    {
+      "group_case": 7,
+      "target": 33,
+      "result": [
+        13,
+        20
+      ],
+      "cost": 0.46593302488327026
+    },
+    {
+      "group_case": 7,
+      "target": 34,
+      "result": [
+        13,
+        21
+      ],
+      "cost": 0.47645699977874756
+    },
+    {
+      "group_case": 7,
+      "target": 35,
+      "result": [
+        14,
+        21
+      ],
+      "cost": 0.4864773154258728
+    },
+    {
+      "group_case": 7,
+      "target": 36,
+      "result": [
+        14,
+        22
+      ],
+      "cost": 0.49603158235549927
+    }
+  ],
+  "scope": "Owned text groups, actual native table production and binary roundtrip, then native duration allocation; byte38=not voiced; duplicate names use first group; not a claim that commercial labels equal measured frame voicing",
+  "references": {
+    "banks": [
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+        "records": 133,
+        "counts": {
+          "voiced": 81,
+          "unvoiced": 52
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "a#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "k#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "ddi_sha256": "ad9b21215e959e7a153e15099d6f2d09dba0222716b030e362f9a710270f7e2f",
+        "records": 51,
+        "counts": {
+          "voiced": 27,
+          "unvoiced": 24
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "ddi_sha256": "6d3404c6872e8091ff883970db9ae60728fb909d7ea98b2fcd4f9732a09a687f",
+        "records": 133,
+        "counts": {
+          "voiced": 81,
+          "unvoiced": 52
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "a#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "k#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+        "records": 51,
+        "counts": {
+          "voiced": 27,
+          "unvoiced": 24
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "ddi_sha256": "54e314cf07624edc56fac5e8fd4d009388411ed8f08945a1a3a5b794dc85e3f6",
+        "records": 133,
+        "counts": {
+          "voiced": 81,
+          "unvoiced": 52
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "a#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "k#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS#6",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "ddi_sha256": "91832056adf768e03595e0857391d094bc9087b0730112a10299f6f34a2ef015",
+        "records": 51,
+        "counts": {
+          "voiced": 27,
+          "unvoiced": 24
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "ddi_sha256": "98cbbde183b69f8cd9c6e9eb3603491e0aef84db1288fdb7e242067d31ad09c3",
+        "records": 159,
+        "counts": {
+          "voiced": 135,
+          "unvoiced": 24
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "a#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#1",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#2",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#3",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#5",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#6",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#+",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#-",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "a#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\#F",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "ddi_sha256": "e8273c9f0ee86858c8aafa27cd1f1d823059e9afbdc7e6cfbd0ba1f1f8f13290",
+        "records": 51,
+        "counts": {
+          "voiced": 27,
+          "unvoiced": 24
+        },
+        "phonemes": [
+          {
+            "name": "a",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "i",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "M",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "e",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "o",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Vowels"
+            ]
+          },
+          {
+            "name": "n",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "J",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "m'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "N\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Nasals"
+            ]
+          },
+          {
+            "name": "k",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "k'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "t'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "p'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedPlosives"
+            ]
+          },
+          {
+            "name": "g",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "g'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "d'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "b'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedPlosives"
+            ]
+          },
+          {
+            "name": "s",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "S",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "h",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "C",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "p\\'",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedFricatives"
+            ]
+          },
+          {
+            "name": "ts",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "tS",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "UnvoicedAffricates"
+            ]
+          },
+          {
+            "name": "dz",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "dZ",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedAffricates"
+            ]
+          },
+          {
+            "name": "z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "Z",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "h\\",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "VoicedFricatives"
+            ]
+          },
+          {
+            "name": "4",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "4'",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Liquids"
+            ]
+          },
+          {
+            "name": "j",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "w",
+            "byte38": 0,
+            "voiced": true,
+            "classes": [
+              "Semivowels"
+            ]
+          },
+          {
+            "name": "Sil",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "Asp",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "?",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "*#1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "*#2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": [
+              "Silence"
+            ]
+          },
+          {
+            "name": "br1",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br2",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br3",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br4",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          },
+          {
+            "name": "br5",
+            "byte38": 1,
+            "voiced": false,
+            "classes": []
+          }
+        ]
+      }
+    ],
+    "bank_count": 8,
+    "record_count": 762,
+    "scope": "Hash-pinned installed DDI only, native PHDC load vs independent 31-byte record walk; no DDB/PCM read"
+  }
+}

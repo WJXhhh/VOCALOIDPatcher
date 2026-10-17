@@ -1,0 +1,130 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "source_reports": [
+    {
+      "name": "breath_all_items_a.json",
+      "sha256": "f317e337f42b6bc53e3d41688a0bbf07e4bb59edf0f29f2e304a542b97ad8e10",
+      "bytes": 120680672
+    },
+    {
+      "name": "breath_all_items_b.json",
+      "sha256": "8d22b3b074fedb5fec1c9e43f95969a9136612e4ed2e64fdfa2896fb327f408d",
+      "bytes": 16512732
+    }
+  ],
+  "design": "Each of the 576 short-margin work items selects its first position above the mode-1/2 complete-cache-window capacity condition, or its last position when none exists. Every selected position is replayed from block zero in a fresh DSE context with full candidate initialization and the source mode-0 event value.",
+  "work_items": 576,
+  "edges": 8,
+  "work_items_per_edge": 72,
+  "total_output_blocks_each": 122568,
+  "total_nonzero_output_blocks_each": 40920,
+  "total_nonzero_analysis_blocks_each": 40920,
+  "items_with_nonzero_output": 384,
+  "selected_targets_above_mode_1_2_complete_cache_window": 480,
+  "above_capacity_targets_with_nonzero_output": 328,
+  "all_status_ready_length_time_guard_checks_pass": true,
+  "all_576_output_stream_hashes_equal": true,
+  "all_576_results_equal_except_frame_state_trace_representation": true,
+  "first_run_has_complete_per_block_frame_state_trace": true,
+  "second_run_uses_compact_trace": true,
+  "by_edge": [
+    {
+      "bank": "MIKU_V4X_Dark",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 18420,
+      "nonzero_output_blocks": 5976,
+      "items_with_nonzero_output": 48,
+      "selected_targets_above_mode_1_2_complete_cache_window": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "work_items": 72,
+      "output_blocks": 7320,
+      "nonzero_output_blocks": 136,
+      "items_with_nonzero_output": 24,
+      "selected_targets_above_mode_1_2_complete_cache_window": 60
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "work_items": 72,
+      "output_blocks": 7320,
+      "nonzero_output_blocks": 64,
+      "items_with_nonzero_output": 24,
+      "selected_targets_above_mode_1_2_complete_cache_window": 60
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17844,
+      "nonzero_output_blocks": 6652,
+      "items_with_nonzero_output": 48,
+      "selected_targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 18204,
+      "nonzero_output_blocks": 6992,
+      "items_with_nonzero_output": 48,
+      "selected_targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17628,
+      "nonzero_output_blocks": 7160,
+      "items_with_nonzero_output": 72,
+      "selected_targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17988,
+      "nonzero_output_blocks": 6900,
+      "items_with_nonzero_output": 48,
+      "selected_targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17844,
+      "nonzero_output_blocks": 7040,
+      "items_with_nonzero_output": 72,
+      "selected_targets_above_mode_1_2_complete_cache_window": 72
+    }
+  ],
+  "scope": "Self-generated ordinary voiced FRM2 and PCM with V4X DDI geometry, in native mode-0 file-reading fixture. The mode-1/2 capacity comparison is a hypothetical full-window condition, not evidence of Editor-host cache selection or commercial PCM behavior. The 192 work items with zero PCM throughout their replay to the chosen target are recorded, not treated as synthesis failures."
+}

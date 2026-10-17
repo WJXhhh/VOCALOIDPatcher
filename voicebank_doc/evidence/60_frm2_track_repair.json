@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-14",
+  "repair": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "cases": 432,
+    "parameters": {
+      "count": 55026,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 55026
+    },
+    "removed": 1665,
+    "allocated_frames": 282,
+    "filled": 1026,
+    "scope": "Mode 1, 16-frame queues, equal nonempty widths plus empty-frame allocation, static thresholds; mode-2 retirement excluded"
+  },
+  "outer": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "cases": 864,
+    "sequences": 72,
+    "parameters": {
+      "count": 71280,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 71280
+    },
+    "history_coordinates": 34020,
+    "removed": 0,
+    "filled": 825,
+    "assigned_outputs": 2239,
+    "scope": "Mode 0/1, fixed index zero and growing 12-frame queues, static ratio, persistent tracks; includes full historical output repair; FFT peak detection excluded"
+  }
+}

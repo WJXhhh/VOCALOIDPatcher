@@ -1,0 +1,162 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "native_observation": {
+    "allocator": "FUN_18012ba70 calls FUN_18012a7b0; array clearing depends on its final flag, which the fixture previously set to zero",
+    "initial_frame_branch": "FUN_1801757a0 explicitly zeros +0x1b0 and +0x1b8 arrays when preparing the initial frame"
+  },
+  "comparison": {
+    "fixed_seed_without_clear": {
+      "source_reports": [
+        {
+          "name": "breath_context_trace_a.json",
+          "sha256": "b60bc89e4db582581095d4ca3dc1f89a393beac615917d5b70af327117d6e6af"
+        },
+        {
+          "name": "breath_context_trace_b.json",
+          "sha256": "febff597ce330c3648b51e524c138d45bd9fffa724e1936c48c64c109042c749"
+        }
+      ],
+      "total_blocks": 1646,
+      "output_nonzero_blocks": [
+        29,
+        54
+      ],
+      "analysis_nonzero_blocks": [
+        29,
+        54
+      ],
+      "differences": {
+        "frame_header": {
+          "blocks": 0,
+          "first": null
+        },
+        "harmonic_arrays": {
+          "blocks": 0,
+          "first": null
+        },
+        "final_spectrum": {
+          "blocks": 64,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "candidate_spectrum": {
+          "blocks": 761,
+          "first": [
+            0,
+            0
+          ]
+        },
+        "selected_context_scalars": {
+          "blocks": 0,
+          "first": null
+        }
+      },
+      "all_fields_outside_full_loop_equal": true
+    },
+    "clear_without_fixed_seed": {
+      "source_reports": [
+        {
+          "name": "breath_candidate_clear_a.json",
+          "sha256": "94c5efab43d1f9998971764720b1d0bad4922c23931a350a2eeb14c0e05d97fc"
+        },
+        {
+          "name": "breath_candidate_clear_b.json",
+          "sha256": "a428ecb859c6551839e9d957b371f74e24111d8f4e2067ed11d12102e333535d"
+        }
+      ],
+      "total_blocks": 1646,
+      "output_nonzero_blocks": [
+        5,
+        40
+      ],
+      "analysis_nonzero_blocks": [
+        5,
+        40
+      ],
+      "differences": {
+        "frame_header": {
+          "blocks": 0,
+          "first": null
+        },
+        "harmonic_arrays": {
+          "blocks": 0,
+          "first": null
+        },
+        "final_spectrum": {
+          "blocks": 50,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "candidate_spectrum": {
+          "blocks": 70,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "selected_context_scalars": {
+          "blocks": 0,
+          "first": null
+        }
+      },
+      "all_fields_outside_full_loop_equal": true
+    },
+    "clear_with_fixed_seed": {
+      "source_reports": [
+        {
+          "name": "breath_candidate_clear_seed_a.json",
+          "sha256": "01bd3e408cd7c006d4d624fc4694117d7a2208f38926675b592f5c307de13cc4"
+        },
+        {
+          "name": "breath_candidate_clear_seed_b.json",
+          "sha256": "384040e8b41066e6dbe9cb2999789896e96f7f6a713dd5980987e0e0aceb8983"
+        }
+      ],
+      "total_blocks": 1646,
+      "output_nonzero_blocks": [
+        9,
+        44
+      ],
+      "analysis_nonzero_blocks": [
+        9,
+        44
+      ],
+      "differences": {
+        "frame_header": {
+          "blocks": 0,
+          "first": null
+        },
+        "harmonic_arrays": {
+          "blocks": 0,
+          "first": null
+        },
+        "final_spectrum": {
+          "blocks": 63,
+          "first": [
+            1,
+            98
+          ]
+        },
+        "candidate_spectrum": {
+          "blocks": 70,
+          "first": [
+            0,
+            98
+          ]
+        },
+        "selected_context_scalars": {
+          "blocks": 0,
+          "first": null
+        }
+      },
+      "all_fields_outside_full_loop_equal": true
+    }
+  },
+  "provenance_caveat": "Some paired runs wrote their self-generated material into the same work directory concurrently. Their exact difference counts may include file-write contention. Evidence 226 repeats the comparison sequentially in separate directories and supersedes numerical conclusions here.",
+  "scope": "This historical comparison suggested candidate initialization as a contributor. Evidence 226 repeats the 16-bin comparison in isolated directories, and evidence 227 supersedes its synthesis conclusion with native full-size candidate initialization. Seed control is diagnostic only. No Editor-host or commercial-PCM claim."
+}

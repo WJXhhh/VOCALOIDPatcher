@@ -1,0 +1,152 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "cases": [
+    {
+      "sample_index": 0,
+      "config_588": 0,
+      "features": {
+        "6": {
+          "frames": 72,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.0016871123015233832,
+          "max_absolute_error": 0.054856819566339254
+        },
+        "16": {
+          "frames": 72,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.08279586997297075,
+          "max_absolute_error": 0.8109844923019409
+        },
+        "18": {
+          "frames": 72,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.03675678372383118,
+          "max_absolute_error": 0.10209846496582031
+        }
+      }
+    },
+    {
+      "sample_index": 1,
+      "config_588": 0,
+      "features": {
+        "6": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.0006295560361367875,
+          "max_absolute_error": 0.006638553109951317
+        },
+        "16": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.06109498287069386,
+          "max_absolute_error": 0.9606568813323975
+        },
+        "18": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.017911593119303387,
+          "max_absolute_error": 0.045454978942871094
+        }
+      }
+    },
+    {
+      "sample_index": 2,
+      "config_588": 0,
+      "features": {
+        "6": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.001250427057056677,
+          "max_absolute_error": 0.02357612014748156
+        },
+        "16": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.05709603737140524,
+          "max_absolute_error": 0.7691354751586914
+        },
+        "18": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.019951694313137012,
+          "max_absolute_error": 0.09519004821777344
+        }
+      }
+    },
+    {
+      "sample_index": 0,
+      "config_588": 1,
+      "features": {
+        "6": {
+          "frames": 72,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.00377448529858763,
+          "max_absolute_error": 0.008416270837187767
+        },
+        "16": {
+          "frames": 72,
+          "within_1e_6": 0,
+          "mean_absolute_error": 1.539855434662766,
+          "max_absolute_error": 1.689308613538742
+        },
+        "18": {
+          "frames": 72,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.03808280494478014,
+          "max_absolute_error": 0.10209846496582031
+        }
+      }
+    },
+    {
+      "sample_index": 1,
+      "config_588": 1,
+      "features": {
+        "6": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.0032312433401272557,
+          "max_absolute_error": 0.006775272078812122
+        },
+        "16": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 2.2839346214615066,
+          "max_absolute_error": 2.5495950132608414
+        },
+        "18": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.017945443076648932,
+          "max_absolute_error": 0.045454978942871094
+        }
+      }
+    },
+    {
+      "sample_index": 2,
+      "config_588": 1,
+      "features": {
+        "6": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.004062929343239501,
+          "max_absolute_error": 0.009325753897428513
+        },
+        "16": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 1.9291727914549839,
+          "max_absolute_error": 2.133150264620781
+        },
+        "18": {
+          "frames": 87,
+          "within_1e_6": 0,
+          "mean_absolute_error": 0.02006547204379378,
+          "max_absolute_error": 0.09522056579589844
+        }
+      }
+    }
+  ],
+  "scope": "Full DRS streaming analyses of the three saved V4X VQM SND PCM sequences with config +0x588=0/1. Tests whether the documented peak post-filter alone reproduces saved scalar bits6/16/18; other authoring settings remain unknown."
+}

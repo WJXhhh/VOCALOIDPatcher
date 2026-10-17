@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "Ordinary candidate calculation fixtures and installed Splice metadata digest; no activation writes or lease generation",
+  "target": {
+    "dse_version": "6.13.1.1",
+    "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "vdm_version": "6.13.0.1",
+    "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+    "image_base": "0x180000000",
+    "architecture": "x86-64",
+    "ghidra_program": "/v6/DSE.dll",
+    "ghidra_metadata_matches_installed_dse": true,
+    "script_requires_exact_hashes": true
+  },
+  "tool": "voicebank/tools/verify_dse_license_calculations.py",
+  "command": "python voicebank/tools/verify_dse_license_calculations.py --installed",
+  "exit_code": 0,
+  "verification": {
+    "incompatible_binary_rejected_before_native_call": true,
+    "python_optimized_mode_rejected": true,
+    "python_ast_and_evidence_json_valid": true,
+    "new_document_relative_link_targets_exist": true,
+    "targeted_git_diff_check_passed": true,
+    "solution_build": {
+      "command": "dotnet build VOCALOIDPatcher.sln -c Debug --no-restore",
+      "exit_code": 0,
+      "warnings": 0,
+      "errors": 0
+    }
+  },
+  "primitive_checks": {
+    "byte_transform": 19,
+    "md5": 19,
+    "transformed_md5": 19,
+    "context_md5": 38,
+    "context_transformed_md5": 38,
+    "base_key_extraction": 2,
+    "context_initialization": 4,
+    "salt_mt19937": 7,
+    "all_passed": true
+  },
+  "ordinary": {
+    "assembly_input_range": "0x1801df557-0x1801df6bb",
+    "variables": {
+      "C0": "encode(decode(product_compid) with payload[7] set to character 0)",
+      "S": "original encoded ordinary SerialNumber string, after codec validation",
+      "H": "one hardware candidate string",
+      "P": "raw byte string returned from normalized product lookup",
+      "N": "shared context string at context+8",
+      "K0": "K if 32 characters, otherwise K[:3]+K[33:] for 62 characters"
+    },
+    "transform": "rotl8(b XOR 0x1b, 2)",
+    "inverse_transform": "rotr8(b, 2) XOR 0x1b",
+    "md5_representation": "lowercase hexadecimal ASCII, 32 bytes",
+    "key_side": "md5hex(K0 || N)",
+    "data_side": "md5hex(md5hex(S || C0 || H || inverse_transform(P)) || N)",
+    "comparison": "native sum of squared character differences < 1e-5",
+    "fixture_checks": {
+      "positive": 48,
+      "single_field_negative": 240,
+      "negative_fields": ["S", "C0", "H", "P", "K0"],
+      "real_product_data_or_hardware_used": false,
+      "all_passed": true
+    },
+    "normalization_checks": {"ordinary": 4, "splice": 4, "all_passed": true},
+    "hardware_candidates": {
+      "native_and_independent_ordered_equal": true,
+      "count": 6,
+      "volume": 1,
+      "nonempty_adapter_addresses": 5,
+      "volume_rule": "fe00 + lowercase 8-digit hexadecimal Windows-volume serial",
+      "adapter_rule": "concatenated lowercase 2-digit hexadecimal address bytes",
+      "values_saved": false
+    },
+    "expiry": {
+      "key_window": "30 characters starting at zero-based index 3",
+      "start_source": "VDM VoiceBank.Date, vtable+0x38; not ordinary SerialNumber",
+      "date_slot_equals_public_getter": {"matched": 18, "total": 18},
+      "date_payload": "final 6 decimal digits as YYMMDD, year based on 2000, local mktime64 at 00:00:00 with tm_isdst=0",
+      "end_source": "B plus 15 bytes reconstructed by reverse pair traversal of the key window, then the same date decoder",
+      "direct_date_checks": 4,
+      "embedded_62_date_checks": 4,
+      "all_helper_checks_passed": true,
+      "full_expiry_candidate_executed": false
+    },
+    "current_real_ordinary_descriptors": 0,
+    "full_candidate_branch_executed": false,
+    "editor_activation_verified": false,
+    "business_meaning_of_serial_payload": "unknown"
+  },
+  "product_table": {
+    "builder": "0x180180850",
+    "ordinary_lookup": "0x1801d86f0",
+    "splice_lookup": "0x1801d9890",
+    "record_stride": 146,
+    "identity_bytes": 16,
+    "payload_offset": 17,
+    "payload_read_limit": 129,
+    "vdm_create_result": 0,
+    "dse_initialize_result": 0,
+    "snapshot_build_success": true,
+    "records": 20,
+    "banks": 18,
+    "normalized_matches": 18,
+    "installed_normalization_changes": 0,
+    "observed_payload_lengths": {"70": 18},
+    "distinct_payloads_across_banks": 17,
+    "raw_payloads_saved": false,
+    "independent_product_payload_producer_completed": false,
+    "traditional_sources": ["0x18010cf00", "0x18010cfb0", "0x18010d1f0"],
+    "ai_resource_source": "0x180183160",
+    "snapshot_freed_after_use": true,
+    "global_table_pointer_changed": false
+  },
+  "splice": {
+    "composite": "salt1 || UTF8(IceProductName) || salt2 || UTF8(original CompID) || raw_P || salt3",
+    "algorithm": "SHA256",
+    "comparison_field": "hex-decoded IceValue",
+    "salt_algorithm": "standard 32-bit MT19937, 25 selections from a 250-byte local pool using output modulo 250",
+    "salt_seeds": [123456789, 987654321, 20240601],
+    "pool_copied_to_repository": false,
+    "uses_inverse_transformed_product_payload": false,
+    "installed_metadata_checks": {
+      "voice": "asa",
+      "positive": 1,
+      "changed_product_rejected": true,
+      "all_passed": true,
+      "actual_values_saved": false
+    },
+    "all_digest_combination_inputs_reproduced": true,
+    "product_payload_still_obtained_from_native_resource_reader": true,
+    "real_lease_end_to_end_verified": false,
+    "signing_private_key_located": false,
+    "signature_primitive_evidence": "481_splice_local_validation.json"
+  },
+  "boundaries": {
+    "server_investigated": false,
+    "registry_or_license_writes_in_script": false,
+    "editor_started_stopped_or_injected": false,
+    "ghidra_project_modified": false,
+    "proprietary_decompilation_or_lookup_pool_saved": false,
+    "real_keys_serials_hardware_identifiers_or_product_payloads_saved": false
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "Local descriptor classification and validation paths; no server investigation or authorization generation",
+  "target": {
+    "name": "DSE.dll",
+    "file_version": "6.13.1.1",
+    "sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "architecture": "x86-64",
+    "image_base": "0x180000000",
+    "ghidra_program": "/v6/DSE.dll",
+    "ghidra_hash_matches_installed_file": true,
+    "authenticode_status": "Valid",
+    "authenticode_signer": "Yamaha Corporation",
+    "vdm_version": "6.13.0.1"
+  },
+  "method": {
+    "queries": "Read-only Ghidra decompilation, bounded disassembly and xrefs; bounded local PE constants/exports inspection",
+    "main_function": "0x1801dc510",
+    "main_decompilation": "HTTP read timeout; used bounded disassembly and smaller helper decompilations",
+    "raw_proprietary_decompilation_saved": false,
+    "real_keys_serials_or_hardware_ids_saved": false,
+    "registry_writes": false,
+    "editor_started_stopped_or_modified": false,
+    "ghidra_project_modified": false
+  },
+  "branches": {
+    "default": {
+      "selector_in_voice_loop": "0x1801de595",
+      "key_length": 32,
+      "checks": ["product component codec", "product-derived and key-derived comparison", "date window"],
+      "helpers": ["0x1801d7d90", "0x1801d82e0", "0x1801d89f0"],
+      "possible_public_results_observed_statically": ["InvalidTrialKey", "Trial", "Expired"],
+      "not_user_default_voice_selection": true,
+      "uniform_fourteen_day_rule_proven": false
+    },
+    "bundle": {
+      "selector_in_voice_loop": "0x1801df360",
+      "fixed_component_id_derived_from_comparison": "BLKEA452HDSKXLD7",
+      "display_name_confirmed": true,
+      "display_name": "asa",
+      "voice_bank_type": "DNN",
+      "component_codec_payload": "000018I0060000",
+      "component_codec_roundtrip": true,
+      "matching_component_public_result": "NoError",
+      "nonmatching_component_public_result": "Undefined",
+      "general_arbitrary_component_bundle_mode": false
+    },
+    "splice": {
+      "voice_loop_range": "0x1801deb03-0x1801def70",
+      "hash": "SHA256",
+      "expected_hash_text_length": 64,
+      "expected_hash_byte_length": 32,
+      "lease_parser": "0x1801edee0",
+      "local_lease_pattern": "%LOCALAPPDATA%/SpliceSettings/license/<identifier>.lic",
+      "additional_vdm_field_slots": ["0xf8", "0x100"],
+      "additional_vdm_field_names_confirmed": true,
+      "additional_vdm_field_names": {"0xf8": "IceProductName", "0x100": "IceValue"},
+      "followup_evidence": "481_splice_local_validation.json",
+      "ordinary_result_and_splice_result_are_interchangeable": false,
+      "asymmetric_signature_proven_by_hash_call": false
+    },
+    "ordinary": {
+      "voice_loop_entry": "0x1801df44b",
+      "accepted_key_lengths": [32, 62],
+      "serial_codec": "Same component-ID codec helper: 16 encoded characters to 14 payload characters",
+      "serial_business_identity_confirmed": false,
+      "serial_equals_parent_compid_proven": false,
+      "product_normalization_helper": "0x1801d83b0",
+      "product_normalization": "Decode product CompID; set payload[7] to character 0; encode and transform",
+      "normalized_position_business_meaning_confirmed": false,
+      "hardware_candidate_helper": "0x1801d8030",
+      "volume_helper": "0x1801d7920",
+      "hardware_sources": ["GetVolumeInformationA volume serial", "GetAdaptersInfo adapter addresses"],
+      "candidate_strategy": "Try individual candidates in a loop; not one concatenation requiring every adapter",
+      "combination_comparison_range": "0x1801df557-0x1801df6bb",
+      "hash_cores_identified": ["MD5", "MD5 core with byte representation transforms"],
+      "matched_32_character_key_public_result": "NoError",
+      "matched_62_character_key_followup": ["Date checks", "ValidExpiryKey or ExpiredKey"],
+      "complete_independent_authorization_roundtrip": false
+    }
+  },
+  "result_decoding": {
+    "internal_storage_offset": "0x50",
+    "getter_vtable_slot": "0x18",
+    "getter": "0x1801d4860",
+    "helper": "0x1801d4480",
+    "observed_small_nonzero_code_rule": "pow(7, internal_code, 17); zero handled separately",
+    "selected_internal_to_public": {
+      "2": {"value": 15, "name": "NoError"},
+      "5": {"value": 11, "name": "InvalidSerialNumber"},
+      "7": {"value": 12, "name": "InvalidComponent"},
+      "9": {"value": 10, "name": "InvalidKey"},
+      "10": {"value": 2, "name": "Trial"},
+      "11": {"value": 14, "name": "ValidExpiryKey"},
+      "12": {"value": 13, "name": "InvalidHash"}
+    }
+  },
+  "runtime_enumeration": {
+    "operation": "Create VDM manager for read-only descriptor category and length enumeration",
+    "first_attempt": {
+      "path_form": "Forward slashes passed directly to native API",
+      "manager_created": false,
+      "return_code": 13,
+      "return_name": "ExpDBPathNotFound"
+    },
+    "configured_expression_directory_exists": true,
+    "successful_attempt": {
+      "path_form": "Canonical Windows backslashes",
+      "manager_created": true,
+      "return_code": 0,
+      "descriptor_enumeration_executed": true,
+      "manager_destroyed_after_enumeration": true
+    },
+    "groups": {
+      "DSE": {
+        "voice_banks": 15,
+        "descriptor_categories": {"default": 15, "bundle": 7, "splice": 0, "ordinary": 0},
+        "shapes": [
+          {"category": "default", "serial_length": 7, "key_length": 32, "count": 15},
+          {"category": "bundle", "serial_length": 6, "key_length": 32, "count": 7}
+        ]
+      },
+      "DNN": {
+        "voice_banks": 3,
+        "descriptor_categories": {"default": 3, "bundle": 3, "splice": 1, "ordinary": 0},
+        "shapes": [
+          {"category": "default", "serial_length": 7, "key_length": 32, "count": 3},
+          {"category": "bundle", "serial_length": 6, "key_length": 32, "count": 3},
+          {"category": "splice", "serial_length": 6, "key_length": 32, "count": 1}
+        ]
+      }
+    },
+    "total_voice_banks": 18,
+    "total_descriptors": 29,
+    "ordinary_serial_samples_present": false,
+    "key_62_samples_present": false,
+    "bundle_target_matches": [{"group": "DNN", "name": "asa", "component_id": "BLKEA452HDSKXLD7"}],
+    "dse_initialized": false,
+    "new_activation_success_observed": false
+  },
+  "remaining_questions": [
+    "Ordinary serial payload semantics and its relationship to the product identity",
+    "Business meaning of product normalization position",
+    "Exact provenance and order of all ordinary-path combination inputs",
+    "Independent roundtrip against owned reference data",
+    "Candidate priority and full lease protocol"
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "tool_sha256": "15611a268b0766d5e81a2cd6df49951e947cb2ee3011e6fc95a9579ef1564409",
+  "getter_rva": "0x110020",
+  "endpoint_wrapper_rva": "0x10ffb0",
+  "native_frame_constructor_rva": "0x12a670",
+  "feature_query_contract": {
+    "directory_leaf_pointer_offset": "0x160",
+    "frame_feature_pointer_offset": "0x208",
+    "dynamics_feature_offset": "0x21c",
+    "opening_feature_offset": "0x218",
+    "pitch_frame_offset": "0x1d0"
+  },
+  "attribute_cases": [
+    {
+      "input_bit17": -3.0,
+      "leaf_index": 0,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": -3.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -3.0,
+      "leaf_index": 0,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -3.0,
+      "leaf_index": 0,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 333.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -3.0,
+      "leaf_index": 1,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": -2.9375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -3.0,
+      "leaf_index": 1,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -3.0,
+      "leaf_index": 1,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 334.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -0.25,
+      "leaf_index": 0,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": -0.25,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -0.25,
+      "leaf_index": 0,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -0.25,
+      "leaf_index": 0,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 333.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -0.25,
+      "leaf_index": 1,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": -0.1875,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -0.25,
+      "leaf_index": 1,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": -0.25,
+      "leaf_index": 1,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 334.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.0,
+      "leaf_index": 0,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 0.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.0,
+      "leaf_index": 0,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.0,
+      "leaf_index": 0,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 333.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.0,
+      "leaf_index": 1,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 0.0625,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.0,
+      "leaf_index": 1,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.0,
+      "leaf_index": 1,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 334.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.5,
+      "leaf_index": 0,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 0.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.5,
+      "leaf_index": 0,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.5,
+      "leaf_index": 0,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 333.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.5,
+      "leaf_index": 1,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 0.5625,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.5,
+      "leaf_index": 1,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 0.5,
+      "leaf_index": 1,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 334.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 1.25,
+      "leaf_index": 0,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 1.25,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 1.25,
+      "leaf_index": 0,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 1.25,
+      "leaf_index": 0,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 333.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 1.25,
+      "leaf_index": 1,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 1.3125,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 1.25,
+      "leaf_index": 1,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 1.25,
+      "leaf_index": 1,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 334.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 3.0,
+      "leaf_index": 0,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 3.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 3.0,
+      "leaf_index": 0,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.5,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 3.0,
+      "leaf_index": 0,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 333.0,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 3.0,
+      "leaf_index": 1,
+      "attribute": "dynamics",
+      "status": 0,
+      "result": 3.0625,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 3.0,
+      "leaf_index": 1,
+      "attribute": "opening",
+      "status": 0,
+      "result": -2.375,
+      "float32_bits_match": true
+    },
+    {
+      "input_bit17": 3.0,
+      "leaf_index": 1,
+      "attribute": "pitch",
+      "status": 0,
+      "result": 334.0,
+      "float32_bits_match": true
+    }
+  ],
+  "endpoint_cases": [
+    {
+      "attribute": "dynamics",
+      "first": 3.0,
+      "last": 3.0625,
+      "float32_bits_match": true
+    },
+    {
+      "attribute": "opening",
+      "first": -2.5,
+      "last": -2.375,
+      "float32_bits_match": true
+    }
+  ],
+  "boundary_cases": [
+    {
+      "attribute": "dynamics",
+      "leaf_index": -1,
+      "status": 2,
+      "output_preserved": true
+    },
+    {
+      "attribute": "dynamics",
+      "leaf_index": 2,
+      "status": 2,
+      "output_preserved": true
+    },
+    {
+      "attribute": "absent",
+      "leaf_index": 0,
+      "status": 1,
+      "output_preserved": true
+    }
+  ],
+  "scope": "Owned minimal directory with leaves explicitly holding genuine constructed DSE5 Frames. Native isolated query contract and endpoint selection only. Does not establish actual commercial directory leaf construction, general acoustic units, production formula or full synthesis effect. It is too strong to classify this access as certainly unrelated solely from matching numeric offsets."
+}

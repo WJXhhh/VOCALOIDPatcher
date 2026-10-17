@@ -1,0 +1,139 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "source_reports": [
+    {
+      "name": "breath_real232_c.json",
+      "sha256": "144e0a4cab64b277d71f64eaf531be1c4e22328d3f7e99fe3a37b3a696e64d33",
+      "bytes": 292087
+    },
+    {
+      "name": "breath_real232_d.json",
+      "sha256": "144e0a4cab64b277d71f64eaf531be1c4e22328d3f7e99fe3a37b3a696e64d33",
+      "bytes": 292087
+    }
+  ],
+  "repeated_report_equal": true,
+  "all_576_output_stream_hashes_equal": true,
+  "design": "Each of 576 V4X short-margin ART work items selects the first position beyond the alternate complete-cache-window capacity condition, or the final position otherwise. Native event commit and output replay use its original mode-0 event flag, actual installed FRM2/PCM and a fresh DSE output context.",
+  "sources": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "ddb_bytes": 2374247876,
+      "ddb_sha256": "10e4e139f80bcd738e2e318f2d7cc61e5b099a4536455de7005ffcae9b0edb75"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "ddb_bytes": 660424322,
+      "ddb_sha256": "a429b51e2650ba81640d57a7f5e8ef4facd7e7e22ff877502a5bedf34daac196"
+    }
+  ],
+  "work_items": 576,
+  "edges": 8,
+  "work_items_per_edge": 72,
+  "total_output_blocks_each": 122568,
+  "nonzero_output_blocks_each": 66408,
+  "items_with_nonzero_output": 576,
+  "selected_targets_above_mode_1_2_complete_cache_window": 480,
+  "by_edge": [
+    {
+      "bank": "MIKU_V4X_Dark",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 18420,
+      "nonzero_output_blocks": 11580,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "work_items": 72,
+      "output_blocks": 7320,
+      "nonzero_output_blocks": 408,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 60
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "work_items": 72,
+      "output_blocks": 7320,
+      "nonzero_output_blocks": 192,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 60
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17844,
+      "nonzero_output_blocks": 10788,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 18204,
+      "nonzero_output_blocks": 11148,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17628,
+      "nonzero_output_blocks": 10716,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17988,
+      "nonzero_output_blocks": 10860,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 72
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "work_items": 72,
+      "output_blocks": 17844,
+      "nonzero_output_blocks": 10716,
+      "items_with_nonzero_output": 72,
+      "targets_above_mode_1_2_complete_cache_window": 72
+    }
+  ],
+  "scope": "Read-only installed V4X material. Output PCM remains in memory; reports contain hashes/counts only. One selected position per work item, not all 56616 records; no Editor host configuration or listening-quality judgment."
+}

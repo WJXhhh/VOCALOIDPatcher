@@ -1,0 +1,81 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "divisor": 10.0,
+  "native_cases": [
+    {
+      "frames": 44,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_signed_difference": 4.323287167332389,
+      "minimum_signed_difference": 4.267182946205139,
+      "maximum_signed_difference": 4.529391050338745,
+      "mean_absolute_error": 4.323287167332389,
+      "max_absolute_error": 4.529391050338745
+    },
+    {
+      "frames": 72,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_signed_difference": 3.5040606839789286,
+      "minimum_signed_difference": 3.364012598991394,
+      "maximum_signed_difference": 3.88654887676239,
+      "mean_absolute_error": 3.5040606839789286,
+      "max_absolute_error": 3.88654887676239
+    },
+    {
+      "frames": 87,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_signed_difference": 3.8231882130962678,
+      "minimum_signed_difference": 3.6595427989959717,
+      "maximum_signed_difference": 4.1773205399513245,
+      "mean_absolute_error": 3.8231882130962678,
+      "max_absolute_error": 4.1773205399513245
+    },
+    {
+      "frames": 87,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_signed_difference": 3.53747659031002,
+      "minimum_signed_difference": 3.4051506519317627,
+      "maximum_signed_difference": 4.020330905914307,
+      "mean_absolute_error": 3.53747659031002,
+      "max_absolute_error": 4.020330905914307
+    }
+  ],
+  "saved_vqm_cases": [
+    {
+      "frames": 72,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_signed_difference": -0.017969855003886752,
+      "minimum_signed_difference": -0.0340733528137207,
+      "maximum_signed_difference": -4.482269287109375e-05,
+      "mean_absolute_error": 0.017969855003886752,
+      "max_absolute_error": 0.0340733528137207
+    },
+    {
+      "frames": 87,
+      "exact_float32": 1,
+      "within_1e_6": 2,
+      "mean_signed_difference": -0.0062384002510158494,
+      "minimum_signed_difference": -0.024468421936035156,
+      "maximum_signed_difference": 0.0,
+      "mean_absolute_error": 0.0062384002510158494,
+      "max_absolute_error": 0.024468421936035156
+    },
+    {
+      "frames": 87,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_signed_difference": -0.013379105206193596,
+      "minimum_signed_difference": -0.0334470272064209,
+      "maximum_signed_difference": -0.00017952919006347656,
+      "mean_absolute_error": 0.013379105206193596,
+      "max_absolute_error": 0.0334470272064209
+    }
+  ],
+  "scope": "DRS writes first component amplitude / 10 at one intermediate point. This report checks final DRS and saved V4X VQM frames separately; it does not assume the intermediate value survives later processing."
+}

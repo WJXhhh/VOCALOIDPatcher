@@ -1,0 +1,20 @@
+{
+  "harmonics": 0,
+  "no_gate": true,
+  "rows": [
+    {
+      "sample_index": 0,
+      "status": "exited",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher\\voicebank\\tools\\verify_region_dvqm_segments.py\", line 160, in <module>\n    result = run(args.dll, args.directory, args.load_samples or args.configure or args.audio, args.configure or args.audio, args.audio_limit, args.audio_blocks, args.audio_start, args.audio_harmonics, args.audio_no_gate)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\WJC\\Documents\\development\\VOCALOIDPatcher\\voicebank\\tools\\verify_region_dvqm_segments.py\", line 13, in run\n    assert 0 <= audio_start and 1 <= audio_limit <= 119 and 1 <= audio_blocks <= 1024\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "sample_index": 1,
+      "status": "timeout",
+      "timeout_seconds": 20.0,
+      "stdout": "audio sample 0 ['Accent'] multiph\naudio control 0x1bacc87afa0\naudio block 0 begin\naudio block 0 status 0 cursor 2816\naudio sample 0 ['Accent2'] multiph\naudio control 0x1bacc87b1e0\naudio block 0 begin\n"
+    }
+  ],
+  "scope": "Four-block probes on first two samples with process isolation; timeouts are unresolved failures, not evidence of valid synthesis or an engine bug"
+}

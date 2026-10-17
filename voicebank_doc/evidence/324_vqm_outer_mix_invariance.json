@@ -1,0 +1,45 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "tested_outer_pairs": [
+    {
+      "bit18": 0,
+      "bit19": 0
+    },
+    {
+      "bit18": 1,
+      "bit19": 1
+    },
+    {
+      "bit18": 10,
+      "bit19": 2049
+    },
+    {
+      "bit18": 20,
+      "bit19": 513
+    },
+    {
+      "bit18": 255,
+      "bit19": 4097
+    }
+  ],
+  "native_read_preserved_all_pairs": true,
+  "all_non_outer_results_identical": true,
+  "positive_mix": {
+    "working_spectrum_bins": 2049,
+    "mixed_real_nonzero": 2018,
+    "mixed_imag_nonzero": 2018,
+    "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+    "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+    "inverse_fft_length": 4096,
+    "inverse_fft_nonzero": 4096,
+    "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+  },
+  "non_default_zero_gain": {
+    "bit18": 255,
+    "bit19": 4097,
+    "mixed_real_nonzero": 0,
+    "mixed_imag_nonzero": 0,
+    "inverse_fft_nonzero": 0
+  },
+  "scope": "Owned VQM frames through DSE5 native read, native mode-3 target spectrum, Growl event and frequency mixer, and native inverse FFT. The tested outer fields do not affect this active path; their authoring identity and other host paths remain unproven."
+}

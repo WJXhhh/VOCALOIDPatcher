@@ -1,0 +1,296 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "cases": 712,
+  "sequence_cases": 12,
+  "guard_cases": 6,
+  "mismatches": 0,
+  "extended_cases": 20160,
+  "nasal_cases": 63000,
+  "fricative_cases": 2808,
+  "pcm_cases": 0,
+  "blank_consumer_cases": 0,
+  "metadata_origin": "Adjacent outer-length sums and allocated-length sums; peer outer=7",
+  "direct_path_inactive_metadata": {
+    "rva": "0x226100",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "scope": "Full 1a0450 entry, real descriptor allocation and output frame ring; default mapping plus optional coefficient/PHDC matrix when extended; optional owned-PCM boundary/search integration; owned parent callback supplies parent identity; no host reachability claim",
+  "full_evidence_sha256": "5bb8ed16bfa9135742cfbb2eae524010dd4cf358a1349f7335deb578c8f40309",
+  "full_evidence_relative_to_repository": "../VOCALOIDPatcher-research-work/regions/135_region_nasal_caller_full.json",
+  "positions_checked": 739800,
+  "preceding_writes_checked": 26880,
+  "coefficient_pairs": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5
+    ],
+    [
+      0.0,
+      0.75
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.5
+    ],
+    [
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.5,
+      0.75
+    ],
+    [
+      0.5,
+      1.0
+    ],
+    [
+      0.5,
+      1.5
+    ],
+    [
+      0.75,
+      0.0
+    ],
+    [
+      0.75,
+      0.5
+    ],
+    [
+      0.75,
+      0.75
+    ],
+    [
+      0.75,
+      1.0
+    ],
+    [
+      0.75,
+      1.5
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.5
+    ],
+    [
+      1.0,
+      0.75
+    ],
+    [
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.5
+    ],
+    [
+      1.5,
+      0.0
+    ],
+    [
+      1.5,
+      0.5
+    ],
+    [
+      1.5,
+      0.75
+    ],
+    [
+      1.5,
+      1.0
+    ],
+    [
+      1.5,
+      1.5
+    ]
+  ],
+  "activation_counts": {
+    "(False, False)": 20600,
+    "(False, True)": 11950,
+    "(True, False)": 20050,
+    "(True, True)": 10400
+  },
+  "categories": {
+    "Nasals": 31500,
+    "Liquids": 31500
+  },
+  "representative_rows": [
+    {
+      "layout": 0,
+      "stage": 0,
+      "reverse": 0,
+      "category": "Nasals",
+      "lengths": [
+        0,
+        1
+      ],
+      "positions": [
+        9.0
+      ],
+      "preceding_frame_writes": [],
+      "metadata": [
+        14,
+        20,
+        0,
+        1
+      ],
+      "active": [
+        false,
+        false
+      ],
+      "peer_allocations": [
+        0,
+        0
+      ],
+      "coefficients": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "layout": 0,
+      "stage": 0,
+      "reverse": 0,
+      "category": "Nasals",
+      "lengths": [
+        0,
+        9
+      ],
+      "positions": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ],
+      "preceding_frame_writes": [],
+      "metadata": [
+        14,
+        20,
+        0,
+        9
+      ],
+      "active": [
+        false,
+        false
+      ],
+      "peer_allocations": [
+        0,
+        0
+      ],
+      "coefficients": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "layout": 2,
+      "stage": 1,
+      "reverse": 1,
+      "category": "Liquids",
+      "lengths": [
+        4,
+        5
+      ],
+      "positions": [
+        9.0,
+        9.0,
+        9.0,
+        9.0,
+        6.0,
+        5.0,
+        4.0,
+        4.0,
+        4.0
+      ],
+      "preceding_frame_writes": [],
+      "metadata": [
+        12,
+        8,
+        25,
+        26
+      ],
+      "active": [
+        true,
+        true
+      ],
+      "peer_allocations": [
+        21,
+        21
+      ],
+      "coefficients": [
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "layout": 2,
+      "stage": 1,
+      "reverse": 1,
+      "category": "Liquids",
+      "lengths": [
+        4,
+        8
+      ],
+      "positions": [
+        9.0,
+        9.0,
+        9.0,
+        9.0,
+        6.0,
+        5.0,
+        4.0,
+        4.0,
+        4.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "preceding_frame_writes": [],
+      "metadata": [
+        12,
+        8,
+        25,
+        29
+      ],
+      "active": [
+        true,
+        true
+      ],
+      "peer_allocations": [
+        21,
+        21
+      ],
+      "coefficients": [
+        1.5,
+        1.5
+      ]
+    }
+  ]
+}

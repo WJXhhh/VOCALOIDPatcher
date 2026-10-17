@@ -1,0 +1,147 @@
+{
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "phase_step_model": "clamp(sign*2*pi*(source_frequency-reference_hz)*256/44100, -0.25, 0.25)",
+  "fitted_reference_grid": "pitch1 \u00b120 Hz in 0.05 Hz increments, fitted within each sequence",
+  "samples": [
+    {
+      "sample_index": 0,
+      "adjacent_steps": 71,
+      "pitch1_hz": 520.5999755859375,
+      "median_frame_f0_hz": 522.5323181152344,
+      "observed_saturation_count": 6,
+      "zero_step_control_mae": 0.09351346862148231,
+      "best_fixed_pitch1": {
+        "source": "mean_f0",
+        "sign": -1,
+        "fixed_pitch1": {
+          "mean_absolute_error": 0.11430098637473313,
+          "median_absolute_error": 0.06761444540401035,
+          "max_absolute_error": 0.39220314961003544,
+          "correlation": -0.23488096162865194,
+          "predicted_saturation_count": 0
+        },
+        "best_reference_offset_hz": 0.85,
+        "best_fitted": {
+          "mean_absolute_error": 0.10995859221981699,
+          "median_absolute_error": 0.06650977796050336,
+          "max_absolute_error": 0.3612004030603231,
+          "correlation": -0.23488096162865194,
+          "predicted_saturation_count": 0
+        }
+      },
+      "best_fitted_reference": {
+        "source": "mean_f0",
+        "sign": 1,
+        "fixed_pitch1": {
+          "mean_absolute_error": 0.1263386993569499,
+          "median_absolute_error": 0.1161951799861134,
+          "max_absolute_error": 0.37045128063911803,
+          "correlation": 0.23488096162865194,
+          "predicted_saturation_count": 0
+        },
+        "best_reference_offset_hz": 2.45,
+        "best_fitted": {
+          "mean_absolute_error": 0.09338707265338247,
+          "median_absolute_error": 0.07405555348503552,
+          "max_absolute_error": 0.3050364201104346,
+          "correlation": 0.23357425998744272,
+          "predicted_saturation_count": 2
+        }
+      }
+    },
+    {
+      "sample_index": 1,
+      "adjacent_steps": 86,
+      "pitch1_hz": 292.6000061035156,
+      "median_frame_f0_hz": 292.4975891113281,
+      "observed_saturation_count": 4,
+      "zero_step_control_mae": 0.07211253190219283,
+      "best_fixed_pitch1": {
+        "source": "mean_f0",
+        "sign": 1,
+        "fixed_pitch1": {
+          "mean_absolute_error": 0.07577865514707165,
+          "median_absolute_error": 0.06969492712561298,
+          "max_absolute_error": 0.28422493501011586,
+          "correlation": 0.2958026417696059,
+          "predicted_saturation_count": 0
+        },
+        "best_reference_offset_hz": 0.75,
+        "best_fitted": {
+          "mean_absolute_error": 0.0723463297881384,
+          "median_absolute_error": 0.055849097735910014,
+          "max_absolute_error": 0.3115802996128025,
+          "correlation": 0.29580264176960597,
+          "predicted_saturation_count": 0
+        }
+      },
+      "best_fitted_reference": {
+        "source": "previous_component",
+        "sign": 1,
+        "fixed_pitch1": {
+          "mean_absolute_error": 0.07620973510312083,
+          "median_absolute_error": 0.0701092547975664,
+          "max_absolute_error": 0.24225633374619993,
+          "correlation": 0.32730845376911427,
+          "predicted_saturation_count": 0
+        },
+        "best_reference_offset_hz": 0.8,
+        "best_fitted": {
+          "mean_absolute_error": 0.07144553440381746,
+          "median_absolute_error": 0.057314010650701214,
+          "max_absolute_error": 0.2714353893223994,
+          "correlation": 0.3273084537691142,
+          "predicted_saturation_count": 0
+        }
+      }
+    },
+    {
+      "sample_index": 2,
+      "adjacent_steps": 86,
+      "pitch1_hz": 394.1000061035156,
+      "median_frame_f0_hz": 394.0523986816406,
+      "observed_saturation_count": 3,
+      "zero_step_control_mae": 0.05366564351458882,
+      "best_fixed_pitch1": {
+        "source": "mean_f0",
+        "sign": 1,
+        "fixed_pitch1": {
+          "mean_absolute_error": 0.09075078017139075,
+          "median_absolute_error": 0.08111390991960907,
+          "max_absolute_error": 0.34817477042468103,
+          "correlation": 0.13432674344768994,
+          "predicted_saturation_count": 0
+        },
+        "best_reference_offset_hz": -1.2,
+        "best_fitted": {
+          "mean_absolute_error": 0.08671275693284611,
+          "median_absolute_error": 0.07531779564408594,
+          "max_absolute_error": 0.39194335378897927,
+          "correlation": 0.13432674344768994,
+          "predicted_saturation_count": 0
+        }
+      },
+      "best_fitted_reference": {
+        "source": "mean_f0",
+        "sign": 1,
+        "fixed_pitch1": {
+          "mean_absolute_error": 0.09075078017139075,
+          "median_absolute_error": 0.08111390991960907,
+          "max_absolute_error": 0.34817477042468103,
+          "correlation": 0.13432674344768994,
+          "predicted_saturation_count": 0
+        },
+        "best_reference_offset_hz": -1.2,
+        "best_fitted": {
+          "mean_absolute_error": 0.08671275693284611,
+          "median_absolute_error": 0.07531779564408594,
+          "max_absolute_error": 0.39194335378897927,
+          "correlation": 0.13432674344768994,
+          "predicted_saturation_count": 0
+        }
+      }
+    }
+  ],
+  "scope": "Three independent VQM sequences in one V4X bank. A fitted reference is diagnostic only, not evidence of an authoring parameter. This tests pitch drift, not PCM phase or other stateful phase trackers."
+}

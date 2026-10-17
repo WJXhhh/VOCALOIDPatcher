@@ -1,0 +1,96 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "window_size": 2048,
+  "window_kind": 10,
+  "bands_hz": {
+    "low_control": [
+      5000,
+      6500
+    ],
+    "target": [
+      7250,
+      8750
+    ],
+    "high_control": [
+      10000,
+      11500
+    ]
+  },
+  "per_sample": [
+    {
+      "sample_index": 0,
+      "compared_frames": 64,
+      "correlations": {
+        "low_control": {
+          "raw": -0.7942016732985004,
+          "normalized_by_window_energy": -0.7806830205383155
+        },
+        "target": {
+          "raw": 0.9261725195158325,
+          "normalized_by_window_energy": 0.9372202697447004
+        },
+        "high_control": {
+          "raw": -0.3740611934584435,
+          "normalized_by_window_energy": -0.3794109892771012
+        }
+      },
+      "global_linear_fit": {
+        "mean_absolute_error": 0.00039183062229848403,
+        "r_squared": 0.8612569484581581
+      }
+    },
+    {
+      "sample_index": 1,
+      "compared_frames": 79,
+      "correlations": {
+        "low_control": {
+          "raw": -0.5800688411504075,
+          "normalized_by_window_energy": -0.4330924452604852
+        },
+        "target": {
+          "raw": 0.9674147034456898,
+          "normalized_by_window_energy": 0.974633492099422
+        },
+        "high_control": {
+          "raw": -0.4382262832648619,
+          "normalized_by_window_energy": -0.40454106009147
+        }
+      },
+      "global_linear_fit": {
+        "mean_absolute_error": 0.00045101752303908357,
+        "r_squared": 0.818791255866911
+      }
+    },
+    {
+      "sample_index": 2,
+      "compared_frames": 79,
+      "correlations": {
+        "low_control": {
+          "raw": -0.5942004862855591,
+          "normalized_by_window_energy": -0.4431300398337566
+        },
+        "target": {
+          "raw": 0.9203229864645224,
+          "normalized_by_window_energy": 0.930195452578892
+        },
+        "high_control": {
+          "raw": -0.47848548206082897,
+          "normalized_by_window_energy": -0.4582199676660177
+        }
+      },
+      "global_linear_fit": {
+        "mean_absolute_error": 0.0005328045278227211,
+        "r_squared": 0.7577740980674964
+      }
+    }
+  ],
+  "global_linear_fit": {
+    "slope": 0.03425365592236569,
+    "intercept": 0.0008137476145504904,
+    "mean_absolute_error": 0.0004630590173206556,
+    "correlation": 0.9051946405309608
+  },
+  "scope": "2048-point centered PCM windows and direct DFT band magnitudes. A single least-squares calibration still leaves material error, so correlation supports a frequency-band candidate but not the exact producer or normalization."
+}

@@ -1,0 +1,2810 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "fields": {
+    "4": [
+      20,
+      24
+    ],
+    "14": [
+      524,
+      528
+    ],
+    "15": [
+      532,
+      536
+    ]
+  },
+  "source_sha256": {
+    "audit_vqm_score_field_writes_cfg.py": "5942ef8df1b599006cc121db9155ff0c76f869a032f304baf2d420dc57a8795f",
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244",
+    "audit_vqm_feature_pointer_accesses.py": "30d8efca252006e6143dbbfb99230b8aa90721fc7793e9bfea50747ae0b69993",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67"
+  },
+  "decoder_version": "5.0.3",
+  "owned_checks": [
+    {
+      "case": "confidence_store",
+      "passed": true
+    },
+    {
+      "case": "ratio_store",
+      "passed": true
+    },
+    {
+      "case": "strength_store",
+      "passed": true
+    },
+    {
+      "case": "strength_load",
+      "passed": true
+    },
+    {
+      "case": "cross_field_wide",
+      "passed": true
+    },
+    {
+      "case": "adjacent_reserved",
+      "passed": true
+    },
+    {
+      "case": "split_pointer",
+      "passed": true
+    },
+    {
+      "case": "same_branch_join",
+      "passed": true
+    },
+    {
+      "case": "kill_branch_join",
+      "passed": true
+    },
+    {
+      "case": "spill_call_restore",
+      "passed": true
+    },
+    {
+      "case": "shadow_call_invalidated",
+      "passed": true
+    },
+    {
+      "case": "partial_register_invalidated",
+      "passed": true
+    },
+    {
+      "case": "confidence_address_only",
+      "passed": true
+    },
+    {
+      "case": "indexed_excluded",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "exception_ranges": 6090,
+    "runtime_groups": 3585,
+    "transfer_visits": 304852,
+    "reached_instructions": 161109,
+    "selected_groups": 185,
+    "selected_fragments": 521,
+    "decoded_instructions": 161810,
+    "indexed_operands_excluded": 196,
+    "unreachable_instructions": 701
+  },
+  "accesses": [
+    {
+      "root_rva": "0x6b57a",
+      "instruction_rva": "0x6b8b9",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x6b4e0"
+    },
+    {
+      "root_rva": "0x6bdbe",
+      "instruction_rva": "0x6bdc5",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x6b4e0"
+    },
+    {
+      "root_rva": "0x7bde3",
+      "instruction_rva": "0x7bdea",
+      "effective_offset": 20,
+      "operand_bytes": 8,
+      "operation": "lea",
+      "address_only": true,
+      "read": false,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": false,
+      "group_rva": "0x7b4b0"
+    },
+    {
+      "root_rva": "0x839fd",
+      "instruction_rva": "0x83a04",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83a09",
+      "instruction_rva": "0x83a10",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83a22",
+      "instruction_rva": "0x83a29",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70",
+      "stage_review": "DRS interpolation; existing endpoint transfer, not a new score producer"
+    },
+    {
+      "root_rva": "0x84ef7",
+      "instruction_rva": "0x84efe",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x84f06",
+      "instruction_rva": "0x84f0d",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x84f22",
+      "instruction_rva": "0x84f29",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70",
+      "stage_review": "DRS interpolation; existing endpoint transfer, not a new score producer"
+    },
+    {
+      "root_rva": "0x84f6b",
+      "instruction_rva": "0x84f72",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x84f7a",
+      "instruction_rva": "0x84f81",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x84f96",
+      "instruction_rva": "0x84f9d",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x80b70",
+      "stage_review": "DRS interpolation; existing endpoint transfer, not a new score producer"
+    },
+    {
+      "root_rva": "0xaae8e",
+      "instruction_rva": "0xaae98",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xa67d0"
+    },
+    {
+      "root_rva": "0xaaede",
+      "instruction_rva": "0xaaee8",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xa67d0"
+    },
+    {
+      "root_rva": "0xbf15e",
+      "instruction_rva": "0xbf165",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xbf090"
+    },
+    {
+      "root_rva": "0xd3cc4",
+      "instruction_rva": "0xd3ccb",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd463c",
+      "instruction_rva": "0xd4643",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd6014",
+      "instruction_rva": "0xd601b",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd61e3",
+      "instruction_rva": "0xd61ea",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd620f",
+      "instruction_rva": "0xd6236",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd620f",
+      "instruction_rva": "0xd623e",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd6255",
+      "instruction_rva": "0xd627a",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6255",
+      "instruction_rva": "0xd6282",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd6299",
+      "instruction_rva": "0xd62c0",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6299",
+      "instruction_rva": "0xd62c8",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd62df",
+      "instruction_rva": "0xd6306",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd62df",
+      "instruction_rva": "0xd630e",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd6325",
+      "instruction_rva": "0xd634c",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6325",
+      "instruction_rva": "0xd6354",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd636b",
+      "instruction_rva": "0xd6392",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd636b",
+      "instruction_rva": "0xd639a",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd63b1",
+      "instruction_rva": "0xd63d8",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd63b1",
+      "instruction_rva": "0xd63e0",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd63f7",
+      "instruction_rva": "0xd641e",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd63f7",
+      "instruction_rva": "0xd6426",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd6454",
+      "instruction_rva": "0xd6479",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6454",
+      "instruction_rva": "0xd6481",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd64a5",
+      "instruction_rva": "0xd64ac",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd64c8",
+      "instruction_rva": "0xd64cf",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd64e6",
+      "instruction_rva": "0xd64ed",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd64e6",
+      "instruction_rva": "0xd64fd",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd2cc0",
+      "stage_review": "Batch initialization, external fallback, raw strength and adjacent-array flux stages"
+    },
+    {
+      "root_rva": "0xd936b",
+      "instruction_rva": "0xd9377",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd92e0",
+      "stage_review": "Raw feature initialization and crossing-distribution strength; verified391"
+    },
+    {
+      "root_rva": "0xd98ac",
+      "instruction_rva": "0xd98dc",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xd92e0",
+      "stage_review": "Raw feature initialization and crossing-distribution strength; verified391"
+    },
+    {
+      "root_rva": "0xe8a45",
+      "instruction_rva": "0xe8a65",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70",
+      "stage_review": "Additional candidate-analysis confidence writes; linked from e60a0; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xe8a6a",
+      "instruction_rva": "0xe8a72",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xe8a6a",
+      "instruction_rva": "0xe8a88",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70",
+      "stage_review": "Additional candidate-analysis confidence writes; linked from e60a0; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xe8a8d",
+      "instruction_rva": "0xe8a9a",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xe8a8d",
+      "instruction_rva": "0xe8abd",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70",
+      "stage_review": "Additional candidate-analysis confidence writes; linked from e60a0; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xe8ac2",
+      "instruction_rva": "0xe8acd",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xe8ac2",
+      "instruction_rva": "0xe8afc",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70",
+      "stage_review": "Additional candidate-analysis confidence writes; linked from e60a0; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xe8b01",
+      "instruction_rva": "0xe8b09",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xf8e93",
+      "instruction_rva": "0xf8ea0",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xf7eb0",
+      "stage_review": "Additional confidence calculation/clamping, linked from f6220; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xf8eb3",
+      "instruction_rva": "0xf8ebc",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xf7eb0"
+    },
+    {
+      "root_rva": "0xf8eb3",
+      "instruction_rva": "0xf8eca",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xf7eb0",
+      "stage_review": "Additional confidence calculation/clamping, linked from f6220; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xf8e93",
+      "instruction_rva": "0xf8ed7",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xf7eb0",
+      "stage_review": "Additional confidence calculation/clamping, linked from f6220; numerical rule not verified here"
+    },
+    {
+      "root_rva": "0xfef60",
+      "instruction_rva": "0xfef75",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xfef7a",
+      "instruction_rva": "0xfef85",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff121",
+      "instruction_rva": "0xff137",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mulss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff121",
+      "instruction_rva": "0xff144",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff156",
+      "instruction_rva": "0xff161",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mulss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff156",
+      "instruction_rva": "0xff166",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff1cf",
+      "instruction_rva": "0xff1de",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "mulss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff1cf",
+      "instruction_rva": "0xff1e3",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff3f6",
+      "instruction_rva": "0xff41b",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff3f6",
+      "instruction_rva": "0xff444",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff44c",
+      "instruction_rva": "0xff453",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff45b",
+      "instruction_rva": "0xff462",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "mulss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff45b",
+      "instruction_rva": "0xff46b",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0",
+      "stage_review": "Mode4 score contrast/moments and alternative branches; default verified395"
+    },
+    {
+      "root_rva": "0xff474",
+      "instruction_rva": "0xff484",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff474",
+      "instruction_rva": "0xff52e",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff474",
+      "instruction_rva": "0xff5fb",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xff474",
+      "instruction_rva": "0xff6e5",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0x133267",
+      "instruction_rva": "0x13326e",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133273",
+      "instruction_rva": "0x13327a",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x13328b",
+      "instruction_rva": "0x133292",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0",
+      "stage_review": "DSE5 interpolation; existing endpoint transfer, not a new score producer"
+    },
+    {
+      "root_rva": "0x13470b",
+      "instruction_rva": "0x134712",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x13471a",
+      "instruction_rva": "0x134721",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x134735",
+      "instruction_rva": "0x13473c",
+      "effective_offset": 524,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        14
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0",
+      "stage_review": "DSE5 interpolation; existing endpoint transfer, not a new score producer"
+    },
+    {
+      "root_rva": "0x13477d",
+      "instruction_rva": "0x134784",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x13478c",
+      "instruction_rva": "0x134793",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x1347a7",
+      "instruction_rva": "0x1347ae",
+      "effective_offset": 532,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "fields": [
+        15
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x1307b0",
+      "stage_review": "DSE5 interpolation; existing endpoint transfer, not a new score producer"
+    },
+    {
+      "root_rva": "0x13e86e",
+      "instruction_rva": "0x13e875",
+      "effective_offset": 20,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "fields": [
+        4
+      ],
+      "exact_scalar": true,
+      "group_rva": "0x13e7a0"
+    }
+  ],
+  "feature_calls": [
+    {
+      "root_rva": "0x2b542",
+      "call_rva": "0x2b551",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0x2b500"
+    },
+    {
+      "root_rva": "0x33380",
+      "call_rva": "0x3338c",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "transfer_kind": "call",
+      "group_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x33454",
+      "call_rva": "0x33460",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "transfer_kind": "call",
+      "group_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x33518",
+      "call_rva": "0x33524",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "transfer_kind": "call",
+      "group_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x357c7",
+      "call_rva": "0x35807",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2320",
+      "transfer_kind": "call",
+      "group_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x3584a",
+      "call_rva": "0x3588f",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "transfer_kind": "call",
+      "group_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x49ff9",
+      "call_rva": "0x4a005",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x49f30"
+    },
+    {
+      "root_rva": "0x63c99",
+      "call_rva": "0x63ca0",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "transfer_kind": "call",
+      "group_rva": "0x636c0"
+    },
+    {
+      "root_rva": "0x63c92",
+      "call_rva": "0x63ca0",
+      "argument_register": "rdx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "transfer_kind": "call",
+      "group_rva": "0x636c0"
+    },
+    {
+      "root_rva": "0x6ad33",
+      "call_rva": "0x6ad3d",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x6c9f0",
+      "transfer_kind": "call",
+      "group_rva": "0x6a400"
+    },
+    {
+      "root_rva": "0x6b062",
+      "call_rva": "0x6b078",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": null,
+      "transfer_kind": "call",
+      "group_rva": "0x6a400"
+    },
+    {
+      "root_rva": "0x7b148",
+      "call_rva": "0x7b157",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0x7b0f0"
+    },
+    {
+      "root_rva": "0x7b52e",
+      "call_rva": "0x7b53d",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0x7b4b0"
+    },
+    {
+      "root_rva": "0x7efc8",
+      "call_rva": "0x7efd9",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x7eeb0"
+    },
+    {
+      "root_rva": "0x7f0bc",
+      "call_rva": "0x7f0c8",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x7eeb0"
+    },
+    {
+      "root_rva": "0x7fe18",
+      "call_rva": "0x7fe29",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x7f1a0"
+    },
+    {
+      "root_rva": "0x8089a",
+      "call_rva": "0x808a5",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "transfer_kind": "call",
+      "group_rva": "0x80250"
+    },
+    {
+      "root_rva": "0x80893",
+      "call_rva": "0x808a5",
+      "argument_register": "rdx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "transfer_kind": "call",
+      "group_rva": "0x80250"
+    },
+    {
+      "root_rva": "0x833ea",
+      "call_rva": "0x833f6",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x85590",
+      "call_rva": "0x855ad",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "transfer_kind": "call",
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x86a8c",
+      "call_rva": "0x86a98",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x86ab2",
+      "call_rva": "0x86abe",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x88054",
+      "call_rva": "0x8805b",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x87750"
+    },
+    {
+      "root_rva": "0x88081",
+      "call_rva": "0x8808b",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x6cef0",
+      "transfer_kind": "call",
+      "group_rva": "0x87750"
+    },
+    {
+      "root_rva": "0x884e8",
+      "call_rva": "0x884f9",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x87750"
+    },
+    {
+      "root_rva": "0x891a2",
+      "call_rva": "0x891b3",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x88f40"
+    },
+    {
+      "root_rva": "0x89396",
+      "call_rva": "0x893a7",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x88f40"
+    },
+    {
+      "root_rva": "0x9ecf3",
+      "call_rva": "0x9ecff",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0x9e350"
+    },
+    {
+      "root_rva": "0xbc67f",
+      "call_rva": "0xbc68b",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0xbc630"
+    },
+    {
+      "root_rva": "0xd28fd",
+      "call_rva": "0xd2904",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0xd2710"
+    },
+    {
+      "root_rva": "0xd64a5",
+      "call_rva": "0xd64b4",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x496d0",
+      "transfer_kind": "call",
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6b3a",
+      "call_rva": "0xd6b52",
+      "argument_register": "rcx",
+      "alias_offset": 364,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd9357",
+      "call_rva": "0xd9366",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0xd92e0"
+    },
+    {
+      "root_rva": "0xe3495",
+      "call_rva": "0xe34a1",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0xe3340"
+    },
+    {
+      "root_rva": "0xfb316",
+      "call_rva": "0xfb322",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "transfer_kind": "call",
+      "group_rva": "0xfb100"
+    },
+    {
+      "root_rva": "0xfef40",
+      "call_rva": "0xfef4f",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "transfer_kind": "call",
+      "group_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0x12c619",
+      "call_rva": "0x12c62a",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x12c550"
+    },
+    {
+      "root_rva": "0x12d226",
+      "call_rva": "0x12d237",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x12cf40"
+    },
+    {
+      "root_rva": "0x136e52",
+      "call_rva": "0x136e5f",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x135eb0",
+      "transfer_kind": "call",
+      "group_rva": "0x1363a0"
+    },
+    {
+      "root_rva": "0x138de1",
+      "call_rva": "0x138dee",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x1380a0",
+      "transfer_kind": "call",
+      "group_rva": "0x138560"
+    },
+    {
+      "root_rva": "0x2192ee",
+      "call_rva": "0x2192f5",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "transfer_kind": "call",
+      "group_rva": "0x2192e0"
+    }
+  ],
+  "direct_callee_audits": [
+    {
+      "target_rva": "0x6c9f0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 317,
+      "accesses": [
+        {
+          "root_rva": "0x6c9f0",
+          "instruction_rva": "0x6cb07",
+          "effective_offset": 20,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            4
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "instruction_rva": "0x6ccf6",
+          "effective_offset": 524,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            14
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "instruction_rva": "0x6cd2a",
+          "effective_offset": 532,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            15
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x6c9f0"
+        }
+      ],
+      "calls": [
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ca25",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ca56",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ca86",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cab6",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cae6",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cb16",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cb46",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cb76",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cba5",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cbd6",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cc07",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cc38",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cc6c",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cca0",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ccd4",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cd08",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cd3c",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cd70",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cda4",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cdd8",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ce11",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6c9f0"
+        }
+      ],
+      "counts": {
+        "transfer_visits": 791,
+        "reached_instructions": 317
+      }
+    },
+    {
+      "target_rva": "0x6cef0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 353,
+      "accesses": [
+        {
+          "root_rva": "0x6cef0",
+          "instruction_rva": "0x6d00a",
+          "effective_offset": 20,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            4
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "instruction_rva": "0x6d21f",
+          "effective_offset": 524,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            14
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "instruction_rva": "0x6d257",
+          "effective_offset": 532,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            15
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x6cef0"
+        }
+      ],
+      "calls": [
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cf1c",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cf4d",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cf80",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cfb3",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cfe6",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d019",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d04c",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d07f",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d0b2",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d0e7",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d11c",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d151",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d189",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d1c1",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d1f9",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d231",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d269",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d2a1",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d2d9",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d311",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d349",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x6cef0"
+        }
+      ],
+      "counts": {
+        "transfer_visits": 881,
+        "reached_instructions": 353
+      }
+    },
+    {
+      "target_rva": "0x135eb0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 332,
+      "accesses": [
+        {
+          "root_rva": "0x135eb0",
+          "instruction_rva": "0x135fbb",
+          "effective_offset": 20,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            4
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "instruction_rva": "0x1361b2",
+          "effective_offset": 524,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            14
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "instruction_rva": "0x1361e7",
+          "effective_offset": 532,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            15
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x135eb0"
+        }
+      ],
+      "calls": [
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135edc",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f0a",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f3a",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f6a",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f9a",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135fca",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135ffa",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13602a",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13605a",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13608c",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1360be",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1360f0",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x136125",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13615a",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13618f",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1361c4",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1361f9",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13622e",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x136263",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x136298",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1362cd",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x135eb0"
+        }
+      ],
+      "counts": {
+        "transfer_visits": 840,
+        "reached_instructions": 332
+      }
+    },
+    {
+      "target_rva": "0x1380a0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 296,
+      "accesses": [
+        {
+          "root_rva": "0x1380a0",
+          "instruction_rva": "0x1381a8",
+          "effective_offset": 20,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            4
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "instruction_rva": "0x138379",
+          "effective_offset": 524,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            14
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "instruction_rva": "0x1383aa",
+          "effective_offset": 532,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false,
+          "fields": [
+            15
+          ],
+          "exact_scalar": false,
+          "group_rva": "0x1380a0"
+        }
+      ],
+      "calls": [
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1380d5",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138103",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138130",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13815d",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13818a",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1381b7",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1381e4",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138211",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13823d",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13826b",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138299",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1382c7",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1382f8",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138329",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13835a",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13838b",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1383bc",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1383ed",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13841e",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13844f",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138485",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "transfer_kind": "call",
+          "group_rva": "0x1380a0"
+        }
+      ],
+      "counts": {
+        "transfer_visits": 750,
+        "reached_instructions": 296
+      }
+    }
+  ],
+  "decode_gaps": [
+    {
+      "group_rva": "0x1b2ab0",
+      "fragment_rva": "0x1b38f2",
+      "undecoded_start_rva": "0x1b3a88",
+      "undecoded_bytes": 380
+    },
+    {
+      "group_rva": "0xcdde0",
+      "fragment_rva": "0xcdde0",
+      "undecoded_start_rva": "0xcf6bd",
+      "undecoded_bytes": 23
+    }
+  ],
+  "aligned_direct_call_links": [
+    {
+      "caller_rva": "0xd2cc0",
+      "site_rva": "0xd580b",
+      "target_rva": "0xe60a0"
+    },
+    {
+      "caller_rva": "0xd2cc0",
+      "site_rva": "0xd5a80",
+      "target_rva": "0xe60a0"
+    },
+    {
+      "caller_rva": "0xe60a0",
+      "site_rva": "0xe61c5",
+      "target_rva": "0xe6a70"
+    },
+    {
+      "caller_rva": "0xe60a0",
+      "site_rva": "0xe67aa",
+      "target_rva": "0xe6a70"
+    },
+    {
+      "caller_rva": "0xd2cc0",
+      "site_rva": "0xd6ed9",
+      "target_rva": "0xf6220"
+    },
+    {
+      "caller_rva": "0xf6220",
+      "site_rva": "0xf6327",
+      "target_rva": "0xf7eb0"
+    },
+    {
+      "caller_rva": "0xcdde0",
+      "site_rva": "0xce6bc",
+      "target_rva": "0xe5ce0"
+    }
+  ],
+  "constructor_binding": {
+    "constructor_rva": "0xcdde0",
+    "factory_rva": "0xe5ce0",
+    "factory_call_rva": "0xce6bc",
+    "return_store_rva": "0xce6c4",
+    "context_offset": "0xc88"
+  },
+  "scalar_write_groups": [
+    "0x1307b0",
+    "0x80b70",
+    "0xd2cc0",
+    "0xd92e0",
+    "0xe6a70",
+    "0xf7eb0",
+    "0xfb4a0"
+  ],
+  "limits": [
+    "Pointer-shaped roots at Frame+128/+208 are untyped until independently verified",
+    "Direct branch joins and private spills; indirect branches, indexed accesses and pointer returns not covered",
+    "Two direct callee levels, four register arguments; not all ABI or whole-program paths",
+    "Writes include initialization, copied endpoints and intermediate stages; not original maker identification",
+    "No commercial arrays, PCM, proprietary disassembly or code bytes retained"
+  ],
+  "installed_files_unchanged": true,
+  "no_windows_temp": true
+}

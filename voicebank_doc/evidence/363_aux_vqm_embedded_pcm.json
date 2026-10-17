@@ -1,0 +1,46 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "categories": [
+    {
+      "category": "TENSE",
+      "pcm_frame_kind": 1,
+      "sample_count": 37888,
+      "feature_frame_count": 148,
+      "samples_per_feature_frame": 256,
+      "feature_frame_last_time_seconds": 0.8533333333333266,
+      "pcm_sha256": "5da41b2e2ba544ed12a72c43f70470b01b280698a51d2add4014c27c42474402",
+      "pcm_peak_abs": 16520,
+      "native_sample_start_seconds": 0.743038535118103,
+      "native_sample_end_seconds": 1.6021769046783447,
+      "native_span_seconds": 0.8591383695602417,
+      "sample_count_duration_seconds": 0.8591383219954648,
+      "span_difference_seconds": 4.756477689493721e-08,
+      "native_event_state_mode": [
+        0,
+        0
+      ]
+    },
+    {
+      "category": "BRWSP",
+      "pcm_frame_kind": 3,
+      "sample_count": 99584,
+      "feature_frame_count": 389,
+      "samples_per_feature_frame": 256,
+      "feature_frame_last_time_seconds": 2.252335600907025,
+      "pcm_sha256": "80fa13df87040cd77e4fa8a8ccad63d553c15c80ae2977a0dfa4a40c4cda0e64",
+      "pcm_peak_abs": 8231,
+      "native_sample_start_seconds": 0.743038535118103,
+      "native_sample_end_seconds": 3.0011792182922363,
+      "native_span_seconds": 2.2581406831741333,
+      "sample_count_duration_seconds": 2.258140589569161,
+      "span_difference_seconds": 9.360497221777564e-08,
+      "native_event_state_mode": [
+        1,
+        1
+      ]
+    }
+  ],
+  "scope": "The two mask-0x40 FRM2 chunks contain native-reader 16-bit PCM arrays. Each sample count equals the associated feature-frame count times 256, and feature times follow a 256-sample hop at 44100 Hz. PCM durations match loaded auxiliary sample spans within float32 precision. This supports association, not a claim that the PCM alone reproduces saved features. No source PCM is exported or saved."
+}

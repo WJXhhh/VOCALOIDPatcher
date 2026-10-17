@@ -1,0 +1,121 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "growl_constructor_rva": "0x155e70",
+  "sample_window_rva": "0x152ae0",
+  "table_width": 16,
+  "constant_response_table_sum_max_relative_error": 6.98625798058654e-08,
+  "coefficient_sum_min_max": [
+    32751.039657592773,
+    32798.414291381836
+  ],
+  "cases": [
+    {
+      "sample_position": 320.25,
+      "sample_step": 1.0,
+      "output_count": 64,
+      "input_shift_samples": 11,
+      "translation_max_error": 0.0,
+      "output_min": -10977984.0,
+      "output_max": 13416086.0,
+      "table_dot_max_absolute_error": 2.149459082633257
+    },
+    {
+      "sample_position": 512.75,
+      "sample_step": 0.75,
+      "output_count": 64,
+      "input_shift_samples": 11,
+      "translation_max_error": 0.0,
+      "output_min": -13325641.0,
+      "output_max": 12053912.0,
+      "table_dot_max_absolute_error": 1.2911316193640232
+    },
+    {
+      "sample_position": 777.5,
+      "sample_step": 1.25,
+      "output_count": 64,
+      "input_shift_samples": 11,
+      "translation_max_error": 0.0,
+      "output_min": -10548996.0,
+      "output_max": 7607740.0,
+      "table_dot_max_absolute_error": 1.2142920959740877
+    }
+  ],
+  "connected_window_fft": {
+    "input_count": 512,
+    "nyquist_index": 256,
+    "checked_bins": [
+      0,
+      4,
+      8,
+      256
+    ],
+    "mode0_vs_mode1_log_max_error": 0.0,
+    "mode1_vs_direct_dft_max_relative_error": 2.499674981064581e-07,
+    "excluded_final_input_samples": 2,
+    "nyquist_amplitude": 0.0
+  },
+  "scale2_tail_probe": {
+    "nyquist_index": 512,
+    "tail_dc_amplitudes": [
+      [
+        509,
+        0.0005870899185538292
+      ],
+      [
+        510,
+        0.0
+      ],
+      [
+        511,
+        0.0
+      ]
+    ],
+    "mode1_vs_direct_dft_max_relative_error": 2.499674981064581e-07,
+    "mode0_vs_mode1_log_max_error": 0.0
+  },
+  "runtime_size_matrix": [
+    {
+      "input_count": 1025,
+      "scale": 1,
+      "nyquist_index": 512,
+      "bin_count_including_nyquist": 513,
+      "mode0_vs_mode1_log_max_error": 0.0
+    },
+    {
+      "input_count": 2049,
+      "scale": 1,
+      "nyquist_index": 1024,
+      "bin_count_including_nyquist": 1025,
+      "mode0_vs_mode1_log_max_error": 0.0
+    },
+    {
+      "input_count": 4097,
+      "scale": 1,
+      "nyquist_index": 2048,
+      "bin_count_including_nyquist": 2049,
+      "mode0_vs_mode1_log_max_error": 0.0
+    },
+    {
+      "input_count": 1025,
+      "scale": 2,
+      "nyquist_index": 1024,
+      "bin_count_including_nyquist": 1025,
+      "mode0_vs_mode1_log_max_error": 0.0
+    },
+    {
+      "input_count": 2049,
+      "scale": 2,
+      "nyquist_index": 2048,
+      "bin_count_including_nyquist": 2049,
+      "mode0_vs_mode1_log_max_error": 0.0
+    },
+    {
+      "input_count": 4097,
+      "scale": 2,
+      "nyquist_index": 4096,
+      "bin_count_including_nyquist": 4097,
+      "mode0_vs_mode1_log_max_error": 0.0
+    }
+  ],
+  "scope": "Owned PCM and connected window/FFT helpers on a constructed Growl object; not the complete Growl event."
+}

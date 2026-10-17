@@ -1,0 +1,172 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "source_reports": [
+    {
+      "name": "short_margin_real231_a.json",
+      "sha256": "3b1fe4be7a69a921563452630a99d1c3ca6952177f3018c605aa339f183c0781",
+      "bytes": 5176
+    },
+    {
+      "name": "short_margin_real231_b.json",
+      "sha256": "3b1fe4be7a69a921563452630a99d1c3ca6952177f3018c605aa339f183c0781",
+      "bytes": 5176
+    }
+  ],
+  "repeated_report_equal": true,
+  "design": "Installed V4X DDI/DDB and DSE normal file-backed frame loader; every frame of eight short-margin ART parts is read once per run and its 2049-sample PCM window compared byte-for-byte with the SND-bounded file model.",
+  "shapes": 8,
+  "native_frame_reads_each": 383,
+  "nonzero_pcm_windows_each": 375,
+  "pcm_mismatches": 0,
+  "guard_failures": 0,
+  "banks": {
+    "MIKU_V4X_Original_EVEC": {
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "ddb_sha256": "10e4e139f80bcd738e2e318f2d7cc61e5b099a4536455de7005ffcae9b0edb75"
+    },
+    "MIKU_V4X_Dark": {
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "ddb_sha256": "a429b51e2650ba81640d57a7f5e8ef4facd7e7e22ff877502a5bedf34daac196"
+    }
+  },
+  "by_edge": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "frames": 7,
+      "native_reads": 7,
+      "pcm_count": 3328,
+      "source_mask_counts": {
+        "0000000000000200": 7
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 7,
+      "max_front_zero_samples": 512,
+      "max_tail_zero_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "frames": 5,
+      "native_reads": 5,
+      "pcm_count": 2560,
+      "source_mask_counts": {
+        "0000000000000200": 5
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 5,
+      "max_front_zero_samples": 768,
+      "max_tail_zero_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "frames": 35,
+      "native_reads": 35,
+      "pcm_count": 10752,
+      "source_mask_counts": {
+        "0000000000000200": 35
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 35,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 1
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "frames": 60,
+      "native_reads": 60,
+      "pcm_count": 16896,
+      "source_mask_counts": {
+        "0000000000000200": 60
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 60,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 257
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "frames": 53,
+      "native_reads": 53,
+      "pcm_count": 14848,
+      "source_mask_counts": {
+        "0000000000000200": 53
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 53,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 513
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "frames": 50,
+      "native_reads": 50,
+      "pcm_count": 13824,
+      "source_mask_counts": {
+        "0000000000000200": 50
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 50,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 769
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 58,
+      "native_reads": 58,
+      "pcm_count": 16384,
+      "source_mask_counts": {
+        "0000000000000200": 58
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 58,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 257
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 115,
+      "native_reads": 115,
+      "pcm_count": 30464,
+      "source_mask_counts": {
+        "0000000000000200": 115
+      },
+      "source_positive_f0_frames": 0,
+      "nonzero_pcm_windows": 107,
+      "max_front_zero_samples": 0,
+      "max_tail_zero_samples": 769
+    }
+  ],
+  "scope": "Installed files opened read-only; no frame or PCM payload in the report, no Editor playback or host configuration observation."
+}

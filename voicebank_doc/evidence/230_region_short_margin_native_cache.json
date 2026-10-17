@@ -1,0 +1,150 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "source_reports": [
+    {
+      "name": "short_margin_cache230_a.json",
+      "sha256": "4a31381370638ad10776ca311bd15944e5ff19155bb2ad18881300e8e6b7fadd",
+      "bytes": 9649
+    },
+    {
+      "name": "short_margin_cache230_b.json",
+      "sha256": "4a31381370638ad10776ca311bd15944e5ff19155bb2ad18881300e8e6b7fadd",
+      "bytes": 9649
+    },
+    {
+      "name": "short_margin_cache230_c.json",
+      "sha256": "4a31381370638ad10776ca311bd15944e5ff19155bb2ad18881300e8e6b7fadd",
+      "bytes": 9649
+    }
+  ],
+  "repeated_report_equal": true,
+  "design": "Native ART builder and frame loader; eight V4X DDI short-margin shapes, local synthetic FRM2/PCM, modes 0/1/2. Cache-active reads stop at the last complete 2049-sample window; the file-backed branch also reads later frames.",
+  "window": 2048,
+  "hop": 256,
+  "shapes": 8,
+  "cases": 24,
+  "native_frame_reads_each": 1905,
+  "cached_frame_reads_each": 724,
+  "file_frame_reads_each": 1181,
+  "mismatches": 0,
+  "guard_failures": 0,
+  "mode_0_has_no_complete_pcm_cache": true,
+  "modes_1_and_2_have_complete_pcm_cache_for_all_shapes": true,
+  "mode_0_or_disabled_cache_flag_reads_file_window": true,
+  "cache_active_complete_windows_match_owned_pcm": true,
+  "capacity_matches_evidence_117": true,
+  "by_edge": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "frames": 7,
+      "pcm_count": 3328,
+      "core_offset_samples": 512,
+      "max_complete_cache_frame": 4,
+      "incomplete_cache_frames": 2,
+      "first_cache_file_difference": {
+        "frame": 0,
+        "samples": 512
+      }
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "frames": 5,
+      "pcm_count": 2560,
+      "core_offset_samples": 256,
+      "max_complete_cache_frame": 1,
+      "incomplete_cache_frames": 3,
+      "first_cache_file_difference": {
+        "frame": 0,
+        "samples": 768
+      }
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "frames": 35,
+      "pcm_count": 10752,
+      "core_offset_samples": 1024,
+      "max_complete_cache_frame": 33,
+      "incomplete_cache_frames": 1,
+      "first_cache_file_difference": null
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "frames": 60,
+      "pcm_count": 16896,
+      "core_offset_samples": 1024,
+      "max_complete_cache_frame": 57,
+      "incomplete_cache_frames": 2,
+      "first_cache_file_difference": null
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "frames": 53,
+      "pcm_count": 14848,
+      "core_offset_samples": 1024,
+      "max_complete_cache_frame": 49,
+      "incomplete_cache_frames": 3,
+      "first_cache_file_difference": null
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "frames": 50,
+      "pcm_count": 13824,
+      "core_offset_samples": 1024,
+      "max_complete_cache_frame": 45,
+      "incomplete_cache_frames": 4,
+      "first_cache_file_difference": null
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 58,
+      "pcm_count": 16384,
+      "core_offset_samples": 1024,
+      "max_complete_cache_frame": 55,
+      "incomplete_cache_frames": 2,
+      "first_cache_file_difference": null
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 115,
+      "pcm_count": 30464,
+      "core_offset_samples": 1024,
+      "max_complete_cache_frame": 110,
+      "incomplete_cache_frames": 4,
+      "first_cache_file_difference": null
+    }
+  ],
+  "scope": "Owned synthetic material and DSE native builder/loader. Does not observe Editor configuration or commercial PCM; no cache-active incomplete-window call is made."
+}

@@ -1,0 +1,57 @@
+{
+  "harmonics": 0,
+  "no_gate": true,
+  "rows": [
+    {
+      "sample_index": 0,
+      "status": "exited",
+      "exit_code": 0,
+      "stdout": "audio sample 0 ['Accent'] multiph\naudio control 0x20fb63a79c0\naudio block 0 begin\naudio block 0 status 0 cursor 2816\naudio block 1 begin\naudio block 1 status 0 cursor 3072\naudio block 2 begin\naudio block 2 status 0 cursor 3328\naudio block 3 begin\naudio block 3 status 0 cursor 3584\n{\"dse_sha256\": \"7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5\", \"resource_sha256\": \"45ac6bb79bf12fd6f79d6739e06154d25585ec7850bd52531fe28d2943057438\", \"cases\": 119, \"properties\": 78, \"mismatches\": 0, \"loaded_samples\": 119, \"configured_samples\": 119, \"scope\": \"Native property resolution and segmentation matched in-memory metadata; optional native sample load/configuration/synf0/info/destruction; configuration checks return status, count and finiteness only; no PCM/frame export or synthesis accuracy claim\"}\n",
+      "stderr": "",
+      "audio": [
+        {
+          "side": 0,
+          "property": [
+            "Accent"
+          ],
+          "phoneme": "multiph",
+          "calls": 4,
+          "return_zero_blocks": 4,
+          "block_size": 256,
+          "peak": 2726.26904296875,
+          "nonzero_samples": 1024,
+          "terminal_status": null,
+          "first_cursor": 2816,
+          "last_cursor": 3584,
+          "bounded_stop": true
+        }
+      ]
+    },
+    {
+      "sample_index": 1,
+      "status": "exited",
+      "exit_code": 0,
+      "stdout": "audio sample 0 ['Accent2'] multiph\naudio control 0x1f4a93b30d0\naudio block 0 begin\naudio block 0 status 0 cursor 6912\naudio block 1 begin\naudio block 1 status 0 cursor 7168\naudio block 2 begin\naudio block 2 status 0 cursor 7424\naudio block 3 begin\naudio block 3 status 0 cursor 7680\n{\"dse_sha256\": \"7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5\", \"resource_sha256\": \"45ac6bb79bf12fd6f79d6739e06154d25585ec7850bd52531fe28d2943057438\", \"cases\": 119, \"properties\": 78, \"mismatches\": 0, \"loaded_samples\": 119, \"configured_samples\": 119, \"scope\": \"Native property resolution and segmentation matched in-memory metadata; optional native sample load/configuration/synf0/info/destruction; configuration checks return status, count and finiteness only; no PCM/frame export or synthesis accuracy claim\"}\n",
+      "stderr": "",
+      "audio": [
+        {
+          "side": 0,
+          "property": [
+            "Accent2"
+          ],
+          "phoneme": "multiph",
+          "calls": 4,
+          "return_zero_blocks": 4,
+          "block_size": 256,
+          "peak": 1752.761474609375,
+          "nonzero_samples": 1024,
+          "terminal_status": null,
+          "first_cursor": 6912,
+          "last_cursor": 7680,
+          "bounded_stop": true
+        }
+      ]
+    }
+  ],
+  "scope": "Four-block probes on first two samples with process isolation; timeouts are unresolved failures, not evidence of valid synthesis or an engine bug"
+}

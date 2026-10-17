@@ -1,0 +1,120 @@
+{
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "assumed_window_size": 2048,
+  "assumed_hop": 256,
+  "scope": "Conditional capacity calculation only: assumes full PCM cache and final-frame window request; does not observe host mode, window size, requests or out-of-bounds reads",
+  "rows": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "frames": 7,
+      "pcm_count": 3328,
+      "required_samples_for_final_window": 3585,
+      "final_window_shortfall": 257,
+      "maximum_in_bounds_frame": 4,
+      "cache_read_start_relative_to_snd_samples": -512
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "frames": 5,
+      "pcm_count": 2560,
+      "required_samples_for_final_window": 3073,
+      "final_window_shortfall": 513,
+      "maximum_in_bounds_frame": 1,
+      "cache_read_start_relative_to_snd_samples": -768
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "frames": 35,
+      "pcm_count": 10752,
+      "required_samples_for_final_window": 10753,
+      "final_window_shortfall": 1,
+      "maximum_in_bounds_frame": 33,
+      "cache_read_start_relative_to_snd_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "frames": 60,
+      "pcm_count": 16896,
+      "required_samples_for_final_window": 17153,
+      "final_window_shortfall": 257,
+      "maximum_in_bounds_frame": 57,
+      "cache_read_start_relative_to_snd_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "frames": 53,
+      "pcm_count": 14848,
+      "required_samples_for_final_window": 15361,
+      "final_window_shortfall": 513,
+      "maximum_in_bounds_frame": 49,
+      "cache_read_start_relative_to_snd_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "frames": 50,
+      "pcm_count": 13824,
+      "required_samples_for_final_window": 14593,
+      "final_window_shortfall": 769,
+      "maximum_in_bounds_frame": 45,
+      "cache_read_start_relative_to_snd_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 58,
+      "pcm_count": 16384,
+      "required_samples_for_final_window": 16641,
+      "final_window_shortfall": 257,
+      "maximum_in_bounds_frame": 55,
+      "cache_read_start_relative_to_snd_samples": 0
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "frames": 115,
+      "pcm_count": 30464,
+      "required_samples_for_final_window": 31233,
+      "final_window_shortfall": 769,
+      "maximum_in_bounds_frame": 110,
+      "cache_read_start_relative_to_snd_samples": 0
+    }
+  ]
+}

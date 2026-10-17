@@ -1,0 +1,111 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "categories": [
+    {
+      "category_code": 2,
+      "loaded_source_frames": 148,
+      "loaded_phase_values_changed": 51800,
+      "active_frequency_counts": [
+        1021
+      ],
+      "selected_sample_indices": [
+        0
+      ],
+      "interpolated_harmonic_counts": [
+        122,
+        123,
+        124
+      ],
+      "source_phase_nonzero_counts": [
+        121,
+        122,
+        123,
+        124
+      ],
+      "source_first_active_phase_nonzero_counts": [
+        121,
+        122,
+        123,
+        124
+      ],
+      "interpolated_phase_nonzero_counts": [
+        121,
+        122,
+        123,
+        124
+      ],
+      "frame_masks": {
+        "source_a_mask": [
+          "0x800e2287"
+        ],
+        "source_b_mask": [
+          "0x800e2287"
+        ],
+        "interpolated_mask": [
+          "0x80020287"
+        ]
+      },
+      "blocks_compared": 56,
+      "changed_blocks": {
+        "source_a_phase_sha256": 56,
+        "source_b_phase_sha256": 56,
+        "phase_sha256": 56,
+        "amplitude_sha256": 0,
+        "frequency_sha256": 0,
+        "auxiliary_spectrum_sha256": 56,
+        "output_pcm_sha256": 56
+      },
+      "baseline_output_sha256": "6b8a7843819bcfdbaf230d70b570fc634d995b778f8af0fbbf8d61fc52741d09",
+      "mutated_output_sha256": "83cfdfe6eebee6e9059a5ebb14fe1f7184c94d45c5e405278932aeed1ab5e126"
+    },
+    {
+      "category_code": 3,
+      "loaded_source_frames": 389,
+      "loaded_phase_values_changed": 136150,
+      "active_frequency_counts": [
+        1021
+      ],
+      "selected_sample_indices": [
+        0
+      ],
+      "interpolated_harmonic_counts": [
+        50
+      ],
+      "source_phase_nonzero_counts": [
+        73
+      ],
+      "source_first_active_phase_nonzero_counts": [
+        50
+      ],
+      "interpolated_phase_nonzero_counts": [
+        0
+      ],
+      "frame_masks": {
+        "source_a_mask": [
+          "0x800e2287"
+        ],
+        "source_b_mask": [
+          "0x800e2287"
+        ],
+        "interpolated_mask": [
+          "0x80020287"
+        ]
+      },
+      "blocks_compared": 56,
+      "changed_blocks": {
+        "source_a_phase_sha256": 56,
+        "source_b_phase_sha256": 56,
+        "phase_sha256": 0,
+        "amplitude_sha256": 0,
+        "frequency_sha256": 0,
+        "auxiliary_spectrum_sha256": 0,
+        "output_pcm_sha256": 0
+      },
+      "baseline_output_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958",
+      "mutated_output_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958"
+    }
+  ],
+  "scope": "Offline loaded auxiliary frames and owned ordinary-primary event. In-memory phase change only; post-block hashes cover native source copies, interpolated frame, auxiliary spectrum, and final int16 PCM. The copies may be refreshed after the current block's interpolation. No Editor process or bank PCM."
+}

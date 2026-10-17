@@ -1,0 +1,93 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "sources": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "ddb_bytes": 2374247876,
+      "ddb_sha256": "10e4e139f80bcd738e2e318f2d7cc61e5b099a4536455de7005ffcae9b0edb75"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "ddb_bytes": 660424322,
+      "ddb_sha256": "a429b51e2650ba81640d57a7f5e8ef4facd7e7e22ff877502a5bedf34daac196"
+    }
+  ],
+  "source_reports": [
+    {
+      "name": "breath_real235_a.json",
+      "sha256": "b959b1ec0dc80d737ad20acd6db14e23c249e0eef69d2c19ccbe87877a5cd3e7",
+      "bytes": 255265
+    },
+    {
+      "name": "breath_real235_b.json",
+      "sha256": "b959b1ec0dc80d737ad20acd6db14e23c249e0eef69d2c19ccbe87877a5cd3e7",
+      "bytes": 255265
+    }
+  ],
+  "repeated_report_equal": true,
+  "all_432_output_stream_hashes_equal_to_evidence_233": true,
+  "design": "Replay each of 432 installed V4X breath events from block zero to its last short-margin ART record with the original mode-0 event flag. After every short-margin record-time output-block call, compare DSE context input PCM buffer (2049 samples) byte-for-byte with the selected frame window independently read from the installed DDB and bounded by SND metadata.",
+  "events": 432,
+  "short_items": 576,
+  "short_record_times": 56616,
+  "output_blocks_each": 108432,
+  "nonzero_output_blocks_each": 66240,
+  "events_with_nonzero_output": 432,
+  "observed_pcm_windows_each": 56616,
+  "matching_pcm_windows_each": 56616,
+  "pcm_mismatches": 0,
+  "by_token": [
+    {
+      "bank": "MIKU_V4X_Dark",
+      "token": "br5",
+      "events": 72,
+      "short_records": 5844,
+      "observed_pcm_windows": 5844,
+      "matching_pcm_windows": 5844
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br1",
+      "events": 72,
+      "short_records": 9168,
+      "observed_pcm_windows": 9168,
+      "matching_pcm_windows": 9168
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br2",
+      "events": 72,
+      "short_records": 9900,
+      "observed_pcm_windows": 9900,
+      "matching_pcm_windows": 9900
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br3",
+      "events": 72,
+      "short_records": 10860,
+      "observed_pcm_windows": 10860,
+      "matching_pcm_windows": 10860
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br4",
+      "events": 72,
+      "short_records": 10056,
+      "observed_pcm_windows": 10056,
+      "matching_pcm_windows": 10056
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "token": "br5",
+      "events": 72,
+      "short_records": 10788,
+      "observed_pcm_windows": 10788,
+      "matching_pcm_windows": 10788
+    }
+  ],
+  "scope": "Read-only installed V4X sources; direct mode-0 whole-event input-buffer observation at all short-margin record times. The result proves those PCM windows, not all downstream acoustic field semantics or Editor host configuration. PCM stays in process memory; reports contain counts and hashes only."
+}

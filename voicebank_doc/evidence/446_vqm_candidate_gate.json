@@ -1,0 +1,4524 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "source_sha256": {
+    "verify_vqm_candidate_gate.py": "66508ff7bdc6f40c759cbcdc67539180c5c087ab09d6789423db81ea3b0609b9",
+    "frm2_candidate_gate.py": "66770772c06d6f124d4299235b04dcf825646f02205a854a4e974f94242bfc3c",
+    "frm2_candidate_history_cost.py": "61609e9ca8d1d01536e98eea9c01e40ea925dcd895bd6bb3ae90902f122e3548",
+    "frm2_candidate_confidence.py": "1b57cc6f6c86ce5c101ab96ab44428f6dae2fdfa55c476de2857f4a5ca921d5c",
+    "verify_vqm_candidate_confidence_protocol.py": "8ba926a61178e839963a361453af7f0f04b014685e98669cfb18254fcd2687ce",
+    "probe_frm2_batch_outputs.py": "5ba05bdf1e883e5aedb61cb7f1209320327c589d37bc0595d64724ae61b47f2c",
+    "verify_vqm_mode5_pcm.py": "0bbadae245b434771a7194ff804e2953cfe71fbbe4869d78364bf4a3025ed400",
+    "verify_vqm_alternate_score_paths.py": "d0994d395d7ce72b523eca1f68a6e43e5e3e4e1a1b52d8707865ab19f038445d",
+    "verify_vqm_bit16_spectral_power.py": "67e050943693915d144faa03a9419bf9856354064a5f020edc90576c53056b1e",
+    "verify_vqm_bit16_peak_interpolation.py": "72794f1cdb0aaf22d92bda3c0737bafeaa404630949c5ad00055ed8ef8cf4e75",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244"
+  },
+  "reviewed_contract": {
+    "caller_rva": "0xd2cc0",
+    "call_rvas": [
+      "0xd580b",
+      "0xd5a80"
+    ],
+    "dispatcher_rva": "0xe60a0",
+    "writer_rva": "0xe6a70",
+    "history_repair_rva": "0xe8c90",
+    "object_offset": "0xc88",
+    "descriptor_queue_offset": "0xc30",
+    "confidence_store_rvas": [
+      "0xe8a65",
+      "0xe8a88",
+      "0xe8abd",
+      "0xe8afc"
+    ],
+    "bin_stride": 2,
+    "native_peak_loop_includes_sentinel": true,
+    "constants_checked": 12,
+    "decoder_version": "5.0.3",
+    "additional_gate_constants_checked": 31,
+    "reviewed_gate_curve_ids": [
+      "0xf",
+      "0x14",
+      "0x16",
+      "0x17",
+      "0x18",
+      "0x19",
+      "0x1c"
+    ]
+  },
+  "cases": [
+    {
+      "case": 0,
+      "mode": 1,
+      "profile": "default",
+      "frequency": 520.5999755859375,
+      "frames": 72,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 218,
+        "dispatcher_calls": 73,
+        "predicted_write_calls": 21,
+        "predicted_no_write_calls": 52,
+        "exact_gate_calls": 73,
+        "byte_exact_confidence_calls": 21,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 73,
+        "exact_history_cost_calls": 73,
+        "history_replacement_calls": 3
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 52,
+        "write": 21
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 68
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 48,
+          "mean_absolute_error": 0.9964741343552275,
+          "max_absolute_error": 1.449641615152359,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 48,
+          "mean_absolute_error": 0.606710155804952,
+          "max_absolute_error": 1.7589247226715088,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 48,
+          "mean_absolute_error": 0.24798289948375896,
+          "max_absolute_error": 0.38138469122350216,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 48,
+          "mean_absolute_error": 5.183648864428203,
+          "max_absolute_error": 5.489630699157715,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 20,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 72,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 0,
+      "mode": 2,
+      "profile": "default",
+      "frequency": 520.5999755859375,
+      "frames": 72,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 218,
+        "dispatcher_calls": 73,
+        "predicted_write_calls": 45,
+        "predicted_no_write_calls": 28,
+        "exact_gate_calls": 73,
+        "byte_exact_confidence_calls": 45,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 73,
+        "exact_history_cost_calls": 73,
+        "history_replacement_calls": 9
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 28,
+        "write": 45
+      },
+      "history_reasons": {
+        "inactive_history": 19,
+        "primary_kept": 4,
+        "reference_replacement": 50
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 48,
+          "mean_absolute_error": 0.7464741049641677,
+          "max_absolute_error": 1.4149624109268188,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 48,
+          "mean_absolute_error": 0.606710155804952,
+          "max_absolute_error": 1.7589247226715088,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 48,
+          "mean_absolute_error": 0.24798289948375896,
+          "max_absolute_error": 0.38138469122350216,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 48,
+          "mean_absolute_error": 5.183648864428203,
+          "max_absolute_error": 5.489630699157715,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 44,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 72,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 1,
+      "mode": 1,
+      "profile": "default",
+      "frequency": 292.6000061035156,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 263,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 36,
+        "predicted_no_write_calls": 52,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 36,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 52,
+        "write": 36
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 83
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 63,
+          "mean_absolute_error": 1.0225415095884993,
+          "max_absolute_error": 1.610157549381256,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 63,
+          "mean_absolute_error": 1.048744004870218,
+          "max_absolute_error": 3.923539876937866,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 63,
+          "mean_absolute_error": 0.2721079235216455,
+          "max_absolute_error": 0.43470294773578644,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 63,
+          "mean_absolute_error": 2.2036974375683163,
+          "max_absolute_error": 6.170125961303711,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 35,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 1,
+      "mode": 2,
+      "profile": "default",
+      "frequency": 292.6000061035156,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 263,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 46,
+        "predicted_no_write_calls": 42,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 46,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 8
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 42,
+        "write": 46
+      },
+      "history_reasons": {
+        "inactive_history": 15,
+        "primary_kept": 1,
+        "reference_replacement": 72
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 63,
+          "mean_absolute_error": 0.8638113694300076,
+          "max_absolute_error": 1.610157549381256,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 63,
+          "mean_absolute_error": 1.048744004870218,
+          "max_absolute_error": 3.923539876937866,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 63,
+          "mean_absolute_error": 0.2721079235216455,
+          "max_absolute_error": 0.43470294773578644,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 63,
+          "mean_absolute_error": 2.2036974375683163,
+          "max_absolute_error": 6.170125961303711,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 45,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 2,
+      "mode": 1,
+      "profile": "default",
+      "frequency": 394.1000061035156,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 263,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 44,
+        "predicted_no_write_calls": 44,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 44,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 7
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 44,
+        "write": 44
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "reference_replacement": 81
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 63,
+          "mean_absolute_error": 1.0329180392634403,
+          "max_absolute_error": 1.5997779369354248,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 63,
+          "mean_absolute_error": 1.3483336766560872,
+          "max_absolute_error": 3.452374219894409,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 63,
+          "mean_absolute_error": 0.26238404997875764,
+          "max_absolute_error": 0.42301956564188004,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 63,
+          "mean_absolute_error": 5.107425182584732,
+          "max_absolute_error": 5.479767322540283,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 43,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 2,
+      "mode": 2,
+      "profile": "default",
+      "frequency": 394.1000061035156,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 263,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 43,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 43,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 45,
+        "write": 43
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 83
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 63,
+          "mean_absolute_error": 1.0329180719372553,
+          "max_absolute_error": 1.5997779369354248,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 63,
+          "mean_absolute_error": 1.3483336766560872,
+          "max_absolute_error": 3.452374219894409,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 63,
+          "mean_absolute_error": 0.26238404997875764,
+          "max_absolute_error": 0.42301956564188004,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 63,
+          "mean_absolute_error": 5.107425182584732,
+          "max_absolute_error": 5.479767322540283,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 42,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "TENSE",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 179.63266365959538,
+      "frames": 148,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 446,
+        "dispatcher_calls": 149,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 147,
+        "exact_gate_calls": 149,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 149,
+        "exact_history_cost_calls": 149,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 147,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 144
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 124,
+          "mean_absolute_error": 1.599244844769278,
+          "max_absolute_error": 1.7455480098724365,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 124,
+          "mean_absolute_error": 0.8358380544570184,
+          "max_absolute_error": 2.0449874997138977,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 124,
+          "mean_absolute_error": 0.2676452323493938,
+          "max_absolute_error": 0.4173596613109112,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 124,
+          "mean_absolute_error": 2.917961262887524,
+          "max_absolute_error": 2.9845147132873535,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 1,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 148,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "TENSE",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 179.63266365959538,
+      "frames": 148,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 446,
+        "dispatcher_calls": 149,
+        "predicted_write_calls": 42,
+        "predicted_no_write_calls": 107,
+        "exact_gate_calls": 149,
+        "byte_exact_confidence_calls": 42,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 149,
+        "exact_history_cost_calls": 149,
+        "history_replacement_calls": 11
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 107,
+        "write": 42
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 144
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 124,
+          "mean_absolute_error": 1.3734382713702993,
+          "max_absolute_error": 1.7455480098724365,
+          "within_1e_6": 0
+        },
+        "14": {
+          "frames": 124,
+          "mean_absolute_error": 0.8358380544570184,
+          "max_absolute_error": 2.0449874997138977,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 124,
+          "mean_absolute_error": 0.2676452323493938,
+          "max_absolute_error": 0.4173596613109112,
+          "within_1e_6": 0
+        },
+        "17": {
+          "frames": 124,
+          "mean_absolute_error": 2.917961262887524,
+          "max_absolute_error": 2.9845147132873535,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 41,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 148,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "BRWSP",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 299.9999951936206,
+      "frames": 389,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 1169,
+        "dispatcher_calls": 390,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 390,
+        "exact_gate_calls": 390,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 387,
+        "feature8_limit": 2,
+        "maximum_peak_frequency": 1
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 365,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 365
+        },
+        "14": {
+          "frames": 365,
+          "mean_absolute_error": 0.809558776143479,
+          "max_absolute_error": 1.3733516931533813,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 365,
+          "mean_absolute_error": 0.016504425341135835,
+          "max_absolute_error": 1.327272705733776,
+          "within_1e_6": 351
+        },
+        "17": {
+          "frames": 365,
+          "mean_absolute_error": 4.084104139561931,
+          "max_absolute_error": 6.273694038391113,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 0,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 389,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "BRWSP",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 299.9999951936206,
+      "frames": 389,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 1169,
+        "dispatcher_calls": 390,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 390,
+        "exact_gate_calls": 390,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 387,
+        "feature8_limit": 2,
+        "maximum_peak_frequency": 1
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {
+        "4": {
+          "frames": 365,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 365
+        },
+        "14": {
+          "frames": 365,
+          "mean_absolute_error": 0.809558776143479,
+          "max_absolute_error": 1.3733516931533813,
+          "within_1e_6": 0
+        },
+        "15": {
+          "frames": 365,
+          "mean_absolute_error": 0.016504425341135835,
+          "max_absolute_error": 1.327272705733776,
+          "within_1e_6": 351
+        },
+        "17": {
+          "frames": 365,
+          "mean_absolute_error": 4.084104139561931,
+          "max_absolute_error": 6.273694038391113,
+          "within_1e_6": 0
+        }
+      },
+      "final_write_frames": 0,
+      "joint_saved_score_matches": 0,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 389,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "steady",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 110.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 13,
+        "predicted_no_write_calls": 32,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 13,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 44,
+        "exact_history_cost_calls": 44,
+        "history_replacement_calls": 11
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 1,
+        "confidence_cost_floor": 31,
+        "write": 13
+      },
+      "history_reasons": {
+        "inactive_history": 6,
+        "primary_kept": 1,
+        "reference_replacement": 37
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 12,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 110.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 12,
+        "predicted_no_write_calls": 33,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 12,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 43,
+        "exact_history_cost_calls": 43,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 31,
+        "write": 12
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 38
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 12,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 43,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 40
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 43,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 40
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 440.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 1,
+        "predicted_no_write_calls": 44,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 1,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 44,
+        "write": 1
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 40
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 440.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 1,
+        "predicted_no_write_calls": 44,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 1,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 44,
+        "write": 1
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 40
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 880.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 45
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 40
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 880.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 41,
+        "exact_history_cost_calls": 41,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 4,
+        "confidence_cost_floor": 41
+      },
+      "history_reasons": {
+        "inactive_history": 6,
+        "reference_replacement": 35
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 110.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 11,
+        "predicted_no_write_calls": 34,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 11,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 32,
+        "exact_history_cost_calls": 32,
+        "history_replacement_calls": 7
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 3,
+        "confidence_cost_floor": 21,
+        "feature4_limit": 1,
+        "no_original_peaks": 9,
+        "write": 11
+      },
+      "history_reasons": {
+        "inactive_history": 12,
+        "primary_kept": 1,
+        "reference_replacement": 19
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 10,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 110.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 9,
+        "predicted_no_write_calls": 36,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 9,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 30,
+        "exact_history_cost_calls": 30,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 5,
+        "confidence_cost_floor": 21,
+        "feature4_limit": 1,
+        "no_original_peaks": 9,
+        "write": 9
+      },
+      "history_reasons": {
+        "inactive_history": 11,
+        "reference_replacement": 19
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 9,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 440.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 32,
+        "feature4_limit": 1,
+        "no_filtered_peaks": 1,
+        "no_original_peaks": 9,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 440.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 32,
+        "feature4_limit": 1,
+        "no_filtered_peaks": 1,
+        "no_original_peaks": 9,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 1,
+        "predicted_no_write_calls": 44,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 1,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 44,
+        "write": 1
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 40
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 45,
+        "exact_history_cost_calls": 45,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 43,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 6,
+        "reference_replacement": 39
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 43,
+        "maximum_peak_frequency": 2
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 43,
+        "maximum_peak_frequency": 2
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "silence",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "no_original_peaks": 45
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "silence",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "no_original_peaks": 45
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "dc_tone",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 1,
+        "predicted_no_write_calls": 44,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 1,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 44,
+        "exact_history_cost_calls": 44,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 1,
+        "confidence_cost_floor": 43,
+        "write": 1
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "reference_replacement": 37
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "dc_tone",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 41,
+        "exact_history_cost_calls": 41,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 4,
+        "confidence_cost_floor": 41
+      },
+      "history_reasons": {
+        "inactive_history": 4,
+        "reference_replacement": 37
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "impulse",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 7,
+        "exact_history_cost_calls": 7,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 3,
+        "feature4_limit": 3,
+        "late_crossing_limit": 4,
+        "no_filtered_peaks": 1,
+        "no_original_peaks": 34
+      },
+      "history_reasons": {
+        "inactive_history": 7
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "impulse",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 7,
+        "exact_history_cost_calls": 7,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 3,
+        "feature4_limit": 3,
+        "late_crossing_limit": 4,
+        "no_filtered_peaks": 1,
+        "no_original_peaks": 34
+      },
+      "history_reasons": {
+        "inactive_history": 7
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "pitch_up",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 262,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 3,
+        "predicted_no_write_calls": 85,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 3,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 85,
+        "write": 3
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "primary_kept": 1,
+        "reference_replacement": 80
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 2,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "pitch_up",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 262,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 6,
+        "predicted_no_write_calls": 82,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 6,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 4
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 82,
+        "write": 6
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "primary_kept": 1,
+        "reference_replacement": 80
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 5,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "pitch_down",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 262,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 86,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 86,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "primary_kept": 1,
+        "reference_replacement": 80
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 1,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "pitch_down",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 262,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 84,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 84,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "primary_kept": 1,
+        "reference_replacement": 80
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "pitch_octave",
+      "mode": 1,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 262,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 3,
+        "predicted_no_write_calls": 85,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 3,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 85,
+        "write": 3
+      },
+      "history_reasons": {
+        "inactive_history": 7,
+        "primary_kept": 1,
+        "reference_replacement": 80
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 2,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "pitch_octave",
+      "mode": 2,
+      "profile": "default",
+      "frequency": 220.0,
+      "frames": 87,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 262,
+        "dispatcher_calls": 88,
+        "predicted_write_calls": 45,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 88,
+        "byte_exact_confidence_calls": 45,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 88,
+        "exact_history_cost_calls": 88,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "confidence_cost_floor": 43,
+        "write": 45
+      },
+      "history_reasons": {
+        "inactive_history": 5,
+        "reference_replacement": 83
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 44,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 87,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "manual_pitch",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 0.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 0,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 0,
+        "exact_gate_calls": 0,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 44,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {},
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "manual_pitch",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 0.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 45,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "manual_pitch": 45
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "manual_pitch",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 0.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 0,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 0,
+        "exact_gate_calls": 0,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 44,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {},
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "manual_pitch",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 0.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 45,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "manual_pitch": 45
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "tight_cost",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 2.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 28,
+        "exact_history_cost_calls": 28,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 8,
+        "confidence_cost_floor": 28,
+        "no_original_peaks": 9
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 18
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "tight_cost",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 2.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 28,
+        "exact_history_cost_calls": 28,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 8,
+        "confidence_cost_floor": 28,
+        "no_original_peaks": 9
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 18
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "tight_cost",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 2.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 45
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "tight_cost",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 2.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 45
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "tiny_feature4",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 9.999999974752427e-07,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "feature4_limit": 34,
+        "no_original_peaks": 9
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "tiny_feature4",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 9.999999974752427e-07,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "feature4_limit": 34,
+        "no_original_peaks": 9
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "tiny_feature4",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 9.999999974752427e-07,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 1,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 1,
+        "exact_history_cost_calls": 1,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 44,
+        "spectral_mask": 1
+      },
+      "history_reasons": {
+        "inactive_history": 1
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "tiny_feature4",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 9.999999974752427e-07,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 1,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 1,
+        "exact_history_cost_calls": 1,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 44,
+        "spectral_mask": 1
+      },
+      "history_reasons": {
+        "inactive_history": 1
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "high_energy_floor",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 0.009999999776482582,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 32,
+        "exact_history_cost_calls": 32,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "low_energy": 1,
+        "no_original_peaks": 9,
+        "rising_low_energy": 1,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 22
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 2,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "high_energy_floor",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 0.009999999776482582,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 2,
+        "predicted_no_write_calls": 43,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 2,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 32,
+        "exact_history_cost_calls": 32,
+        "history_replacement_calls": 1
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "low_energy": 1,
+        "no_original_peaks": 9,
+        "rising_low_energy": 1,
+        "write": 2
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 22
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 2,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "high_energy_floor",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 0.009999999776482582,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "amplitude_energy_pair": 1,
+        "feature4_limit": 43,
+        "low_energy": 1
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "high_energy_floor",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 0.009999999776482582,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "amplitude_energy_pair": 1,
+        "feature4_limit": 43,
+        "low_energy": 1
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "low_maximum_peak",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 100.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "maximum_peak_frequency": 34,
+        "no_original_peaks": 9
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "low_maximum_peak",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 100.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "maximum_peak_frequency": 34,
+        "no_original_peaks": 9
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "low_maximum_peak",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 100.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 43,
+        "maximum_peak_frequency": 2
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "low_maximum_peak",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 100.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 43,
+        "maximum_peak_frequency": 2
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "skip_crossing_limit",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "skip_crossing_limit",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "skip_crossing_limit",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 43,
+        "maximum_peak_frequency": 2
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "skip_crossing_limit",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.25,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 0,
+        "exact_history_cost_calls": 0,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature4_limit": 43,
+        "maximum_peak_frequency": 2
+      },
+      "history_reasons": {},
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "skip_feature_gates",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 4,
+        "nonfinite_confidence_calls": 4,
+        "nan_confidence_calls": 4,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 3,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "skip_feature_gates",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 4,
+        "nonfinite_confidence_calls": 4,
+        "nan_confidence_calls": 4,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 3,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "skip_feature_gates",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 4,
+        "nonfinite_confidence_calls": 4,
+        "nan_confidence_calls": 4,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 25,
+        "exact_history_cost_calls": 25,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "late_crossing_limit": 21,
+        "maximum_peak_frequency": 20,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 25
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 4,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 4,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "skip_feature_gates",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 3000.0,
+          "0x17": 0.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 1.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 4,
+        "nonfinite_confidence_calls": 4,
+        "nan_confidence_calls": 4,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 25,
+        "exact_history_cost_calls": 25,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "late_crossing_limit": 21,
+        "maximum_peak_frequency": 20,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 25
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 4,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 4,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 1,
+      "profile": "late_feature_pair",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 22050.0,
+          "0x17": 1.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "gap",
+      "mode": 2,
+      "profile": "late_feature_pair",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 22050.0,
+          "0x17": 1.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 4,
+        "predicted_no_write_calls": 41,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 4,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 34,
+        "exact_history_cost_calls": 34,
+        "history_replacement_calls": 2
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "confidence_cost_floor": 30,
+        "no_original_peaks": 9,
+        "write": 4
+      },
+      "history_reasons": {
+        "inactive_history": 10,
+        "reference_replacement": 24
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 3,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 1,
+      "profile": "late_feature_pair",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 22050.0,
+          "0x17": 1.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 1,
+        "predicted_no_write_calls": 44,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 1,
+        "spectral_mask_calls": 0,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 2,
+        "exact_history_cost_calls": 2,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "feature8_limit": 43,
+        "late_feature_pair": 1,
+        "write": 1
+      },
+      "history_reasons": {
+        "inactive_history": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "noise",
+      "mode": 2,
+      "profile": "late_feature_pair",
+      "frequency": 220.0,
+      "frames": 44,
+      "contract": {
+        "delay": 1,
+        "history_entries": 20,
+        "curves": {
+          "0xf": 20.0,
+          "0x14": 1.0,
+          "0x16": 22050.0,
+          "0x17": 1.0,
+          "0x18": 0.15000000596046448,
+          "0x19": 4.999999873689376e-06,
+          "0x1c": 0.0
+        },
+        "prepared_peak_flag": 0,
+        "reanalysis_flag": 0
+      },
+      "controls": {
+        "steps": 133,
+        "dispatcher_calls": 45,
+        "predicted_write_calls": 0,
+        "predicted_no_write_calls": 45,
+        "exact_gate_calls": 45,
+        "byte_exact_confidence_calls": 0,
+        "spectral_mask_calls": 1,
+        "manual_dispatch_bypass_frames": 0,
+        "manual_leaf_skipped_dispatch_calls": 0,
+        "zero_energy_write_calls": 0,
+        "nonfinite_confidence_calls": 0,
+        "nan_confidence_calls": 0,
+        "infinite_confidence_calls": 0,
+        "predicted_history_cost_calls": 2,
+        "exact_history_cost_calls": 2,
+        "history_replacement_calls": 0
+      },
+      "gate_reasons": {
+        "candidate_cost_limit": 2,
+        "feature8_limit": 41,
+        "late_feature_pair": 1,
+        "spectral_mask": 1
+      },
+      "history_reasons": {
+        "inactive_history": 2
+      },
+      "observed_matches_fresh_baseline": true,
+      "final_output_matches_prediction": true,
+      "saved_comparisons": {},
+      "final_write_frames": 0,
+      "joint_saved_score_matches": null,
+      "bit17_nonzero": 0,
+      "final_nonfinite_confidence_frames": 0,
+      "nonzero_array_frames": 44,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    }
+  ],
+  "summary": {
+    "cases": 72,
+    "frames": 4552,
+    "controls": {
+      "steps": 13738,
+      "dispatcher_calls": 4534,
+      "predicted_write_calls": 446,
+      "predicted_no_write_calls": 4088,
+      "exact_gate_calls": 4534,
+      "byte_exact_confidence_calls": 446,
+      "spectral_mask_calls": 3,
+      "manual_dispatch_bypass_frames": 88,
+      "manual_leaf_skipped_dispatch_calls": 90,
+      "zero_energy_write_calls": 16,
+      "nonfinite_confidence_calls": 16,
+      "nan_confidence_calls": 16,
+      "infinite_confidence_calls": 0,
+      "predicted_history_cost_calls": 2444,
+      "exact_history_cost_calls": 2444,
+      "history_replacement_calls": 83
+    },
+    "gate_reasons": {
+      "amplitude_energy_pair": 2,
+      "candidate_cost_limit": 156,
+      "confidence_cost_floor": 1943,
+      "feature4_limit": 1284,
+      "feature8_limit": 88,
+      "late_crossing_limit": 50,
+      "late_feature_pair": 2,
+      "low_energy": 4,
+      "manual_pitch": 90,
+      "maximum_peak_frequency": 122,
+      "no_filtered_peaks": 4,
+      "no_original_peaks": 338,
+      "rising_low_energy": 2,
+      "spectral_mask": 3,
+      "write": 446
+    },
+    "history_reasons": {
+      "inactive_history": 403,
+      "primary_kept": 12,
+      "reference_replacement": 2029
+    },
+    "final_write_frames": 413,
+    "bit17_nonzero": 0,
+    "nonzero_array_frames": 4552,
+    "final_nonfinite_confidence_frames": 14,
+    "joint_saved_score_matches": 0,
+    "saved_interior_frames": 1326
+  },
+  "scope": "Independent late history-cost correction, gate and confidence from native candidates/filter/cache, pre-step history, features and constructor curves",
+  "limits": [
+    "Candidate generation, filtering, the prior-reference candidate cache and preceding feature production remain native inputs",
+    "The model predicts before reading observed bit4; it does not claim independent PCM-to-decision production",
+    "Prepared-peak and reanalysis flags0, history20/delay1 and PSD2048 only",
+    "Constant reviewed constructor curves; zero-energy exception covered only with its observed +0 energy and positive final scale",
+    "Native sentinel peak iteration not modeled beyond the logical list; same limits as445",
+    "Original maker scores, bit17 and zero-array production remain unresolved",
+    "No commercial payloads, proprietary code or decompilation persisted"
+  ],
+  "installed_files_unchanged": true,
+  "no_windows_temp": true
+}

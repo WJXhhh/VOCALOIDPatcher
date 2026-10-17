@@ -1,0 +1,1135 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "repeat_runs": 2,
+  "raw_report_sha256": "ed41e4d1559bc2cd2a754816be3944c67e42fcfa68dadcef6f4db29702928370",
+  "banks": 8,
+  "edges": 80,
+  "frame_reads": 3780,
+  "nonzero_pcm_windows": 3745,
+  "pcm_mismatches": 0,
+  "guard_failures": 0,
+  "by_bank": {
+    "MIKU_V4X_Original_EVEC": {
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "ddb_sha256": "10e4e139f80bcd738e2e318f2d7cc61e5b099a4536455de7005ffcae9b0edb75",
+      "edges": 10,
+      "frames": 288,
+      "nonzero_pcm_windows": 288,
+      "short_margin_exceptions": 7,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 7,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 7,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 8,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 8,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 7,
+          "pcm_margin": 1536,
+          "core_delta_bytes": 1024,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 7,
+          "max_front_zero_samples": 512,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 5,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 5,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 5,
+          "pcm_margin": 1280,
+          "core_delta_bytes": 512,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 5,
+          "max_front_zero_samples": 768,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 35,
+          "pcm_margin": 1792,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 35,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 1
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 60,
+          "pcm_margin": 1536,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 60,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 257
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 53,
+          "pcm_margin": 1280,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 53,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 513
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 50,
+          "pcm_margin": 1024,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 50,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 769
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 58,
+          "pcm_margin": 1536,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 58,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 257
+        }
+      ]
+    },
+    "MIKU_V4X_Sweet": {
+      "ddi_sha256": "ad9b21215e959e7a153e15099d6f2d09dba0222716b030e362f9a710270f7e2f",
+      "ddb_sha256": "24731cdc41e1ef31d290884ffaa3f981eeb22969aef431bc5e0d32913a999432",
+      "edges": 10,
+      "frames": 586,
+      "nonzero_pcm_windows": 586,
+      "short_margin_exceptions": 0,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 71,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 71,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 52,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 52,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 45,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 45,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 57,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 57,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 49,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 49,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 83,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 83,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 47,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 47,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 55,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 55,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 59,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 59,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 68,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 68,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        }
+      ]
+    },
+    "MIKU_V4X_Soft_EVEC": {
+      "ddi_sha256": "6d3404c6872e8091ff883970db9ae60728fb909d7ea98b2fcd4f9732a09a687f",
+      "ddb_sha256": "7a3c6e978af35e66efeb2fe63f184faff493d15f69eb0d17c447a7db479fa0ee",
+      "edges": 10,
+      "frames": 737,
+      "nonzero_pcm_windows": 737,
+      "short_margin_exceptions": 0,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 55,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 55,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 86,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 86,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 70,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 70,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 86,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 86,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 93,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 93,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 66,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 66,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 40,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 40,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 71,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 71,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 88,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 88,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 82,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 82,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        }
+      ]
+    },
+    "MIKU_V4X_Dark": {
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "ddb_sha256": "a429b51e2650ba81640d57a7f5e8ef4facd7e7e22ff877502a5bedf34daac196",
+      "edges": 10,
+      "frames": 662,
+      "nonzero_pcm_windows": 654,
+      "short_margin_exceptions": 1,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 54,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 54,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 66,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 66,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 66,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 66,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 59,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 59,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 83,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 83,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 35,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 35,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 60,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 60,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 55,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 55,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 69,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 69,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 115,
+          "pcm_margin": 1024,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": true,
+          "nonzero_pcm_windows": 107,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 769
+        }
+      ]
+    },
+    "MIKU_V4X_Solid_EVEC": {
+      "ddi_sha256": "54e314cf07624edc56fac5e8fd4d009388411ed8f08945a1a3a5b794dc85e3f6",
+      "ddb_sha256": "47db5cd61ccde1a25560767e8319cf491336dfa6dc01ae9f4460ae2fd660eb7e",
+      "edges": 10,
+      "frames": 567,
+      "nonzero_pcm_windows": 542,
+      "short_margin_exceptions": 0,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 78,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 74,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 63,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 60,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 47,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 45,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 41,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 41,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 56,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 53,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 59,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 55,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 72,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 70,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 46,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 43,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 47,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 47,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 58,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 54,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        }
+      ]
+    },
+    "RIN_V4X_Warm": {
+      "ddi_sha256": "91832056adf768e03595e0857391d094bc9087b0730112a10299f6f34a2ef015",
+      "ddb_sha256": "8803ddfef54e9f55877795657a3feb8b55eb0abcfeeba887443f18b42f509ebe",
+      "edges": 10,
+      "frames": 311,
+      "nonzero_pcm_windows": 311,
+      "short_margin_exceptions": 0,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 41,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 41,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 34,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 34,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 23,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 23,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 29,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 29,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 30,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 30,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 44,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 44,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 31,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 31,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 22,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 22,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 28,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 28,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 29,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 29,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        }
+      ]
+    },
+    "RIN_V4X_Power_EVEC": {
+      "ddi_sha256": "98cbbde183b69f8cd9c6e9eb3603491e0aef84db1288fdb7e242067d31ad09c3",
+      "ddb_sha256": "56c4fe545b8cc924ad15896fac7962b57e3105c2eb9d3ced8fd4bc65bae2fb7f",
+      "edges": 10,
+      "frames": 319,
+      "nonzero_pcm_windows": 317,
+      "short_margin_exceptions": 0,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 26,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 26,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 27,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 27,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 30,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 30,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 32,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 32,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 33,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 33,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 29,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 29,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 32,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 32,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 38,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 38,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 38,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 36,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 34,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 34,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        }
+      ]
+    },
+    "RIN_V4X_Sweet": {
+      "ddi_sha256": "e8273c9f0ee86858c8aafa27cd1f1d823059e9afbdc7e6cfbd0ba1f1f8f13290",
+      "ddb_sha256": "c801847ffbe02a7c0a4c55d0f45f298ed6f5598bedb355b02a172216102ed4a9",
+      "edges": 10,
+      "frames": 310,
+      "nonzero_pcm_windows": 310,
+      "short_margin_exceptions": 0,
+      "entries": [
+        {
+          "key": [
+            "Sil",
+            "br1"
+          ],
+          "frames": 36,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 36,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br2"
+          ],
+          "frames": 25,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 25,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br3"
+          ],
+          "frames": 28,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 28,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br4"
+          ],
+          "frames": 30,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 30,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "Sil",
+            "br5"
+          ],
+          "frames": 34,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 34,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br1",
+            "Sil"
+          ],
+          "frames": 37,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 37,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br2",
+            "Sil"
+          ],
+          "frames": 24,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 24,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br3",
+            "Sil"
+          ],
+          "frames": 29,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 29,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br4",
+            "Sil"
+          ],
+          "frames": 32,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 32,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        },
+        {
+          "key": [
+            "br5",
+            "Sil"
+          ],
+          "frames": 35,
+          "pcm_margin": 2048,
+          "core_delta_bytes": 2048,
+          "short_margin_exception": false,
+          "nonzero_pcm_windows": 35,
+          "max_front_zero_samples": 0,
+          "max_tail_zero_samples": 0
+        }
+      ]
+    }
+  },
+  "scope": "Installed V4X DDI/DDB opened read-only. All frames of 80 Silence/breath entry and exit ART materials compared through native mode-0 frame loader with DDB frame time and bounded 2049-sample PCM window. This is direct frame reading, not an Editor event or final audio output."
+}

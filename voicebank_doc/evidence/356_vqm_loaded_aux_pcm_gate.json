@@ -1,0 +1,284 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "comparisons_to_off": {
+    "unbound": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 0,
+      "output_pcm_blocks_changed": 0
+    },
+    "tense": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 0,
+      "output_pcm_blocks_changed": 0
+    },
+    "breath_d": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56
+    },
+    "breath_14": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 0,
+      "output_pcm_blocks_changed": 0
+    },
+    "breath": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56
+    },
+    "both": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56
+    },
+    "post_zero": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56
+    },
+    "post_one": {
+      "auxiliary_spectrum_blocks_changed": 0,
+      "final_spectrum_blocks_changed": 56,
+      "output_pcm_blocks_changed": 56
+    }
+  },
+  "cases": [
+    {
+      "mode": "unbound",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "7ec8ef2010d36b4c7ad61d8c675dba9983c6d2871eb45e6c003e27b7fa05f0fd",
+      "auxiliary_object_counts": [
+        0
+      ],
+      "native_controller_values": [
+        [
+          0.0,
+          0.5,
+          0.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 2724,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "off",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "7ec8ef2010d36b4c7ad61d8c675dba9983c6d2871eb45e6c003e27b7fa05f0fd",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          0.0,
+          0.5,
+          0.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 2724,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "tense",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "7ec8ef2010d36b4c7ad61d8c675dba9983c6d2871eb45e6c003e27b7fa05f0fd",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          0.0,
+          0.5,
+          0.0,
+          1.0
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 2724,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "breath_d",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "3ec3c84e1e2d34d5a49eb09b14da354d462239f2320608ec7ee76c7f2e03f357",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          1.0,
+          0.5,
+          0.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 862,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "breath_14",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "7ec8ef2010d36b4c7ad61d8c675dba9983c6d2871eb45e6c003e27b7fa05f0fd",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          0.0,
+          0.5,
+          1.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 2724,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "breath",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "3ec3c84e1e2d34d5a49eb09b14da354d462239f2320608ec7ee76c7f2e03f357",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          1.0,
+          0.5,
+          1.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 862,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "both",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "3ec3c84e1e2d34d5a49eb09b14da354d462239f2320608ec7ee76c7f2e03f357",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          1.0,
+          0.5,
+          1.0,
+          1.0
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 862,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "post_zero",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "68d71220c72db826b44bbe90adf3163692287deff1101b5be284d0cc4e7e071e",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 684,
+      "clipped_pcm_samples": 0
+    },
+    {
+      "mode": "post_one",
+      "blocks_run": 106,
+      "nonzero_blocks": 56,
+      "output_stream_sha256": "5a13981643a9a956bb4b6e111306fabec7d40d5f2f38409bbf79bac7aac0b256",
+      "auxiliary_object_counts": [
+        3
+      ],
+      "native_controller_values": [
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.5
+        ]
+      ],
+      "lookahead_gate_true_blocks": 0,
+      "auxiliary_spectrum_present_blocks": 0,
+      "distinct_auxiliary_spectrum_digests": 1,
+      "candidate_first_harmonic_positive_blocks": 56,
+      "candidate_phase_nodes": [
+        0
+      ],
+      "peak_abs_pcm": 3848,
+      "clipped_pcm_samples": 0
+    }
+  ],
+  "scope": "Offline DSE with genuinely loaded auxiliary category objects and an owned two-layer ordinary event through final int16 PCM. The current event shape does not enter the source-frame frequency dispatch; its category post-processing stage does affect final PCM. This does not establish auxiliary source-frame use. No Editor process or installed bank PCM."
+}

@@ -1,0 +1,407 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "cases": 712,
+  "sequence_cases": 12,
+  "guard_cases": 6,
+  "mismatches": 0,
+  "extended_cases": 0,
+  "nasal_cases": 0,
+  "fricative_cases": 0,
+  "pcm_cases": 108000,
+  "blank_consumer_cases": 9,
+  "metadata_origin": "Fixed synthetic expansion metadata",
+  "direct_path_inactive_metadata": {
+    "rva": "0x226100",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "scope": "Full 1a0450 entry, real descriptor allocation and output frame ring; default mapping plus optional coefficient/PHDC matrix when extended; optional owned-PCM boundary/search integration; owned parent callback supplies parent identity; no host reachability claim",
+  "full_evidence_sha256": "189a93b6fd9115024206c115c04720aae95f8d880be8d8e4484f05f8486429fd",
+  "full_evidence_relative_to_repository": "../VOCALOIDPatcher-research-work/regions/138_region_stop_coefficients_full.json",
+  "positions_checked": 1728000,
+  "outside_writes_checked": 354920,
+  "blank_consumptions": 184600,
+  "coefficient_pairs": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.5
+    ],
+    [
+      0.0,
+      0.75
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.5
+    ],
+    [
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.5,
+      0.75
+    ],
+    [
+      0.5,
+      1.0
+    ],
+    [
+      0.5,
+      1.5
+    ],
+    [
+      0.75,
+      0.0
+    ],
+    [
+      0.75,
+      0.5
+    ],
+    [
+      0.75,
+      0.75
+    ],
+    [
+      0.75,
+      1.0
+    ],
+    [
+      0.75,
+      1.5
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.5
+    ],
+    [
+      1.0,
+      0.75
+    ],
+    [
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.5
+    ],
+    [
+      1.5,
+      0.0
+    ],
+    [
+      1.5,
+      0.5
+    ],
+    [
+      1.5,
+      0.75
+    ],
+    [
+      1.5,
+      1.0
+    ],
+    [
+      1.5,
+      1.5
+    ]
+  ],
+  "categories": {
+    "UnvoicedPlosives": 27000,
+    "VoicedPlosives": 27000,
+    "UnvoicedAffricates": 27000,
+    "VoicedAffricates": 27000
+  },
+  "representative_rows": [
+    {
+      "profile": "silence",
+      "core": 0,
+      "stage": 0,
+      "reverse": 0,
+      "category": "UnvoicedPlosives",
+      "members": [
+        0
+      ],
+      "lengths": [
+        0,
+        1
+      ],
+      "minimum_offsets": [
+        0,
+        0
+      ],
+      "positions": [
+        9.0
+      ],
+      "stop_pivot": null,
+      "outside_writes": [],
+      "consumed_blank_indices": [],
+      "coefficients": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "profile": "silence",
+      "core": 0,
+      "stage": 0,
+      "reverse": 0,
+      "category": "UnvoicedPlosives",
+      "members": [
+        0
+      ],
+      "lengths": [
+        0,
+        13
+      ],
+      "minimum_offsets": [
+        0,
+        0
+      ],
+      "positions": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ],
+      "stop_pivot": null,
+      "outside_writes": [],
+      "consumed_blank_indices": [],
+      "coefficients": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "profile": "valleys",
+      "core": 64,
+      "stage": 1,
+      "reverse": 1,
+      "category": "VoicedAffricates",
+      "members": [
+        0,
+        1
+      ],
+      "lengths": [
+        22,
+        11
+      ],
+      "minimum_offsets": [
+        0,
+        5
+      ],
+      "positions": [
+        47.0,
+        46.238094329833984,
+        45.47618865966797,
+        44.71428680419922,
+        43.9523811340332,
+        43.19047546386719,
+        42.42856979370117,
+        41.66666793823242,
+        40.904762268066406,
+        40.14285659790039,
+        39.380950927734375,
+        38.619049072265625,
+        37.85714340209961,
+        37.095237731933594,
+        36.33333206176758,
+        35.57142639160156,
+        34.80952453613281,
+        34.0476188659668,
+        33.28571319580078,
+        32.52381134033203,
+        31.761905670166016,
+        31.0,
+        25.0,
+        24.0,
+        23.0,
+        22.0,
+        21.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0
+      ],
+      "stop_pivot": 20,
+      "outside_writes": [
+        {
+          "relative_slot": 33,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 34,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 35,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 36,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 37,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 38,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 39,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 40,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 41,
+          "position": 20.0
+        }
+      ],
+      "consumed_blank_indices": [],
+      "coefficients": [
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "profile": "valleys",
+      "core": 64,
+      "stage": 1,
+      "reverse": 1,
+      "category": "VoicedAffricates",
+      "members": [
+        0,
+        1
+      ],
+      "lengths": [
+        22,
+        16
+      ],
+      "minimum_offsets": [
+        0,
+        5
+      ],
+      "positions": [
+        47.0,
+        46.238094329833984,
+        45.47618865966797,
+        44.71428680419922,
+        43.9523811340332,
+        43.19047546386719,
+        42.42856979370117,
+        41.66666793823242,
+        40.904762268066406,
+        40.14285659790039,
+        39.380950927734375,
+        38.619049072265625,
+        37.85714340209961,
+        37.095237731933594,
+        36.33333206176758,
+        35.57142639160156,
+        34.80952453613281,
+        34.0476188659668,
+        33.28571319580078,
+        32.52381134033203,
+        31.761905670166016,
+        31.0,
+        25.0,
+        24.0,
+        23.0,
+        22.0,
+        21.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0
+      ],
+      "stop_pivot": 20,
+      "outside_writes": [
+        {
+          "relative_slot": 38,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 39,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 40,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 41,
+          "position": 20.0
+        },
+        {
+          "relative_slot": 42,
+          "position": -3.4028234663852886e+38
+        },
+        {
+          "relative_slot": 43,
+          "position": -3.4028234663852886e+38
+        },
+        {
+          "relative_slot": 44,
+          "position": -3.4028234663852886e+38
+        },
+        {
+          "relative_slot": 45,
+          "position": -3.4028234663852886e+38
+        },
+        {
+          "relative_slot": 46,
+          "position": -3.4028234663852886e+38
+        }
+      ],
+      "consumed_blank_indices": [],
+      "coefficients": [
+        1.5,
+        1.5
+      ]
+    }
+  ]
+}

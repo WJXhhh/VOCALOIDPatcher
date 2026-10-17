@@ -1,0 +1,5467 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "decoder_version": "5.0.3",
+  "source_sha256": {
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244",
+    "audit_vqm_feature_pointer_accesses.py": "30d8efca252006e6143dbbfb99230b8aa90721fc7793e9bfea50747ae0b69993",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67"
+  },
+  "owned_checks": [
+    {
+      "case": "direct",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "through_jump",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "conditional_same_alias",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "conditional_kill_join",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "spill_restore",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "spill_partial_overwrite",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "spill_call",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "shadow_spill_call",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "rebase_stack",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "partial_register_kill",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "unreachable",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "join_different_offset",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "rbp_not_stack_origin",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "rbp_known_stack_slot",
+      "overlaps": 0,
+      "passed": true
+    },
+    {
+      "case": "constant_register_rebase",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "constant_index_lea",
+      "overlaps": 1,
+      "passed": true
+    },
+    {
+      "case": "zero_offset_argument",
+      "passed": true
+    },
+    {
+      "case": "no_fallthrough_across_fragment_gap",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "exception_ranges": 6090,
+    "runtime_groups": 3585,
+    "chained_fragments": 2505,
+    "selected_groups": 185,
+    "selected_fragments": 521,
+    "decoded_instructions": 161810,
+    "transfer_visits": 304852,
+    "reached_instructions": 161109,
+    "indexed_operands_excluded": 196,
+    "unreachable_instructions": 701
+  },
+  "bit17_overlaps": [
+    {
+      "root_rva": "0x84fdf",
+      "instruction_rva": "0x84fe6",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70",
+      "known_role": "DRS feature interpolation source 1"
+    },
+    {
+      "root_rva": "0x84fee",
+      "instruction_rva": "0x84ff5",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70",
+      "known_role": "DRS feature interpolation source 2"
+    },
+    {
+      "root_rva": "0x8500a",
+      "instruction_rva": "0x85011",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0x80b70",
+      "known_role": "DRS feature interpolation destination"
+    },
+    {
+      "root_rva": "0x1100d1",
+      "instruction_rva": "0x1100d8",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x110020",
+      "known_role": "TimbreModel dynamics getter"
+    },
+    {
+      "root_rva": "0x1347ef",
+      "instruction_rva": "0x1347f6",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0",
+      "known_role": "DSE5 feature interpolation source 1"
+    },
+    {
+      "root_rva": "0x1347fe",
+      "instruction_rva": "0x134805",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0",
+      "known_role": "DSE5 feature interpolation source 2"
+    },
+    {
+      "root_rva": "0x134819",
+      "instruction_rva": "0x134820",
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0x1307b0",
+      "known_role": "DSE5 feature interpolation destination"
+    }
+  ],
+  "indexed_feature_pointer_leads": [
+    {
+      "root_rva": "0x32510",
+      "instruction_rva": "0x32517",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x39299",
+      "instruction_rva": "0x392c8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x31830"
+    },
+    {
+      "root_rva": "0x6ff41",
+      "instruction_rva": "0x6ff50",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 8,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x6f770"
+    },
+    {
+      "root_rva": "0x70318",
+      "instruction_rva": "0x70320",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 8,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x6f770"
+    },
+    {
+      "root_rva": "0x70767",
+      "instruction_rva": "0x70770",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 8,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x6f770"
+    },
+    {
+      "root_rva": "0x7b826",
+      "instruction_rva": "0x7b84b",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x7b4b0"
+    },
+    {
+      "root_rva": "0x7b826",
+      "instruction_rva": "0x7b851",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0x7b4b0",
+      "review": "Frequency-band helper; existing native boundary verification in 408"
+    },
+    {
+      "root_rva": "0x7b826",
+      "instruction_rva": "0x7b878",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x7b4b0"
+    },
+    {
+      "root_rva": "0x7b826",
+      "instruction_rva": "0x7b87e",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0x7b4b0",
+      "review": "Frequency-band helper; existing native boundary verification in 408"
+    },
+    {
+      "root_rva": "0x7b887",
+      "instruction_rva": "0x7b8b5",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x7b4b0"
+    },
+    {
+      "root_rva": "0x7b887",
+      "instruction_rva": "0x7b8c1",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0x7b4b0",
+      "review": "Frequency-band helper; existing native boundary verification in 408"
+    },
+    {
+      "root_rva": "0x7bbf0",
+      "instruction_rva": "0x7bbf7",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbp",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x7b4b0"
+    },
+    {
+      "root_rva": "0x83b17",
+      "instruction_rva": "0x83bb8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83bcd",
+      "instruction_rva": "0x83bd4",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83c32",
+      "instruction_rva": "0x83c39",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r10",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83cce",
+      "instruction_rva": "0x83cd5",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83d01",
+      "instruction_rva": "0x83d08",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83e1e",
+      "instruction_rva": "0x83e2a",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83e5b",
+      "instruction_rva": "0x83e66",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83e97",
+      "instruction_rva": "0x83ea2",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83ed3",
+      "instruction_rva": "0x83ede",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x83fc3",
+      "instruction_rva": "0x83fce",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x8401c",
+      "instruction_rva": "0x84118",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x8506c",
+      "instruction_rva": "0x85077",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 2,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x850d4",
+      "instruction_rva": "0x850db",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x86790",
+      "instruction_rva": "0x86797",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x86790",
+      "instruction_rva": "0x867aa",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0x86a60",
+      "instruction_rva": "0x86a67",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x80b70"
+    },
+    {
+      "root_rva": "0xa0fa3",
+      "instruction_rva": "0xa0faa",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 8,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xa0060"
+    },
+    {
+      "root_rva": "0xa0fa3",
+      "instruction_rva": "0xa0fba",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rcx",
+      "index_scale": 8,
+      "operand_bytes": 8,
+      "operation": "mov",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xa0060"
+    },
+    {
+      "root_rva": "0xb06da",
+      "instruction_rva": "0xb0768",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xac870"
+    },
+    {
+      "root_rva": "0xd61e3",
+      "instruction_rva": "0xd61f7",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 2,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd620f",
+      "instruction_rva": "0xd6224",
+      "alias_offset": 0,
+      "displacement": -4,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd621d",
+      "instruction_rva": "0xd622b",
+      "alias_offset": 0,
+      "displacement": -4,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6263",
+      "instruction_rva": "0xd6270",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6299",
+      "instruction_rva": "0xd62ae",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd62a7",
+      "instruction_rva": "0xd62b5",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd62df",
+      "instruction_rva": "0xd62f4",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd62ed",
+      "instruction_rva": "0xd62fb",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6325",
+      "instruction_rva": "0xd633a",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6333",
+      "instruction_rva": "0xd6341",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd636b",
+      "instruction_rva": "0xd6380",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6379",
+      "instruction_rva": "0xd6387",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd63b1",
+      "instruction_rva": "0xd63c6",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd63bf",
+      "instruction_rva": "0xd63cd",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd63f7",
+      "instruction_rva": "0xd640c",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6405",
+      "instruction_rva": "0xd6413",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6454",
+      "instruction_rva": "0xd6469",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6462",
+      "instruction_rva": "0xd646f",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "subss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6b80",
+      "instruction_rva": "0xd6ba5",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r14",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6b80",
+      "instruction_rva": "0xd6bb2",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r15",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd6b80",
+      "instruction_rva": "0xd6bc3",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r15",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xd2cc0",
+      "review": "At d6bc3: r15 begins 16c; outer loop advances 4 for 20 iterations; writes 16c..1b8"
+    },
+    {
+      "root_rva": "0xd793d",
+      "instruction_rva": "0xd7944",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_register": "rdi",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xd7967",
+      "instruction_rva": "0xd796e",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_register": "rdi",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xd2cc0"
+    },
+    {
+      "root_rva": "0xe3eb5",
+      "instruction_rva": "0xe3edc",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3eb5",
+      "instruction_rva": "0xe3ee2",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe3eb5",
+      "instruction_rva": "0xe3f14",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3eb5",
+      "instruction_rva": "0xe3f1a",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe3f2c",
+      "instruction_rva": "0xe3f39",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3f2c",
+      "instruction_rva": "0xe3f3f",
+      "alias_offset": 0,
+      "displacement": 44,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe3f70",
+      "instruction_rva": "0xe3f77",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbp",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3f9e",
+      "instruction_rva": "0xe3fa5",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3f9e",
+      "instruction_rva": "0xe3fbe",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe3fc3",
+      "instruction_rva": "0xe3fca",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3fc3",
+      "instruction_rva": "0xe3fe4",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe3fea",
+      "instruction_rva": "0xe3ff1",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe3fea",
+      "instruction_rva": "0xe400b",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe4011",
+      "instruction_rva": "0xe4018",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe4011",
+      "instruction_rva": "0xe4032",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe4038",
+      "instruction_rva": "0xe403f",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe4038",
+      "instruction_rva": "0xe4059",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe405f",
+      "instruction_rva": "0xe4066",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe405f",
+      "instruction_rva": "0xe4080",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe4086",
+      "instruction_rva": "0xe408d",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe4086",
+      "instruction_rva": "0xe40a7",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe40ad",
+      "instruction_rva": "0xe40b4",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe40ad",
+      "instruction_rva": "0xe40ce",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe40d4",
+      "instruction_rva": "0xe40db",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe40d4",
+      "instruction_rva": "0xe40f5",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe40fb",
+      "instruction_rva": "0xe4102",
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe40fb",
+      "instruction_rva": "0xe411c",
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe4122",
+      "instruction_rva": "0xe4129",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe4122",
+      "instruction_rva": "0xe4143",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe3640",
+      "review": "Band/cepstral classification helper; native stage verification in 409-410"
+    },
+    {
+      "root_rva": "0xe4190",
+      "instruction_rva": "0xe41b6",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbp",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe3640"
+    },
+    {
+      "root_rva": "0xe42c3",
+      "instruction_rva": "0xe42d1",
+      "alias_offset": 0,
+      "displacement": -160,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe42ef",
+      "instruction_rva": "0xe4305",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe42ef",
+      "instruction_rva": "0xe4316",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4320",
+      "instruction_rva": "0xe432b",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4331",
+      "instruction_rva": "0xe4342",
+      "alias_offset": 0,
+      "displacement": -160,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4320",
+      "instruction_rva": "0xe436c",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4376",
+      "instruction_rva": "0xe437d",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4376",
+      "instruction_rva": "0xe438e",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe454b",
+      "instruction_rva": "0xe4556",
+      "alias_offset": 0,
+      "displacement": -80,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4572",
+      "instruction_rva": "0xe4579",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4572",
+      "instruction_rva": "0xe458a",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe45da",
+      "instruction_rva": "0xe45e5",
+      "alias_offset": 0,
+      "displacement": -76,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4601",
+      "instruction_rva": "0xe4608",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4601",
+      "instruction_rva": "0xe461a",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe466b",
+      "instruction_rva": "0xe4676",
+      "alias_offset": 0,
+      "displacement": -72,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4692",
+      "instruction_rva": "0xe4699",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4692",
+      "instruction_rva": "0xe46ab",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe46fc",
+      "instruction_rva": "0xe4707",
+      "alias_offset": 0,
+      "displacement": -68,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe470e",
+      "instruction_rva": "0xe4719",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r13",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4723",
+      "instruction_rva": "0xe472a",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4723",
+      "instruction_rva": "0xe473c",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe478d",
+      "instruction_rva": "0xe4798",
+      "alias_offset": 0,
+      "displacement": -64,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe479f",
+      "instruction_rva": "0xe47aa",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbp",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe47b3",
+      "instruction_rva": "0xe47ba",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe47b3",
+      "instruction_rva": "0xe47cc",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe481d",
+      "instruction_rva": "0xe4828",
+      "alias_offset": 0,
+      "displacement": -60,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4843",
+      "instruction_rva": "0xe484a",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4843",
+      "instruction_rva": "0xe485c",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe48a9",
+      "instruction_rva": "0xe48b0",
+      "alias_offset": 0,
+      "displacement": -56,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe48d8",
+      "instruction_rva": "0xe48df",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe48d8",
+      "instruction_rva": "0xe48f1",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4942",
+      "instruction_rva": "0xe494d",
+      "alias_offset": 0,
+      "displacement": -52,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe496d",
+      "instruction_rva": "0xe4974",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe496d",
+      "instruction_rva": "0xe4986",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe49d7",
+      "instruction_rva": "0xe49e2",
+      "alias_offset": 0,
+      "displacement": -48,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe49fe",
+      "instruction_rva": "0xe4a05",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe49fe",
+      "instruction_rva": "0xe4a17",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4a68",
+      "instruction_rva": "0xe4a73",
+      "alias_offset": 0,
+      "displacement": -44,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4ac4",
+      "instruction_rva": "0xe4acb",
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4ac4",
+      "instruction_rva": "0xe4add",
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4c01",
+      "instruction_rva": "0xe4c0c",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4c12",
+      "instruction_rva": "0xe4c1d",
+      "alias_offset": 0,
+      "displacement": 160,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4c6b",
+      "instruction_rva": "0xe4c76",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4c7d",
+      "instruction_rva": "0xe4c88",
+      "alias_offset": 0,
+      "displacement": 164,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4cd6",
+      "instruction_rva": "0xe4ce1",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4ce8",
+      "instruction_rva": "0xe4cf3",
+      "alias_offset": 0,
+      "displacement": 168,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4d41",
+      "instruction_rva": "0xe4d4c",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4d53",
+      "instruction_rva": "0xe4d5e",
+      "alias_offset": 0,
+      "displacement": 172,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4dac",
+      "instruction_rva": "0xe4db7",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4dbe",
+      "instruction_rva": "0xe4dc9",
+      "alias_offset": 0,
+      "displacement": 176,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4e17",
+      "instruction_rva": "0xe4e22",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4e29",
+      "instruction_rva": "0xe4e34",
+      "alias_offset": 0,
+      "displacement": 180,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4e82",
+      "instruction_rva": "0xe4e8d",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4e94",
+      "instruction_rva": "0xe4e9f",
+      "alias_offset": 0,
+      "displacement": 184,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4eed",
+      "instruction_rva": "0xe4ef8",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4eff",
+      "instruction_rva": "0xe4f0a",
+      "alias_offset": 0,
+      "displacement": 188,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4f58",
+      "instruction_rva": "0xe4f63",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4f6a",
+      "instruction_rva": "0xe4f75",
+      "alias_offset": 0,
+      "displacement": 192,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe4fc7",
+      "instruction_rva": "0xe4fd2",
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe4fd9",
+      "instruction_rva": "0xe4fe4",
+      "alias_offset": 0,
+      "displacement": 196,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe558a",
+      "instruction_rva": "0xe5595",
+      "alias_offset": 0,
+      "displacement": -80,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe55b1",
+      "instruction_rva": "0xe55b8",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe55b1",
+      "instruction_rva": "0xe55c9",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe56c1",
+      "instruction_rva": "0xe56cc",
+      "alias_offset": 0,
+      "displacement": -4,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe56d3",
+      "instruction_rva": "0xe56de",
+      "alias_offset": 0,
+      "displacement": 156,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe572b",
+      "instruction_rva": "0xe5736",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe573c",
+      "instruction_rva": "0xe5747",
+      "alias_offset": 0,
+      "displacement": 160,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5795",
+      "instruction_rva": "0xe57a0",
+      "alias_offset": 0,
+      "displacement": 4,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe57a7",
+      "instruction_rva": "0xe57b2",
+      "alias_offset": 0,
+      "displacement": 164,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5800",
+      "instruction_rva": "0xe580b",
+      "alias_offset": 0,
+      "displacement": 8,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe5812",
+      "instruction_rva": "0xe581d",
+      "alias_offset": 0,
+      "displacement": 168,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe586b",
+      "instruction_rva": "0xe5876",
+      "alias_offset": 0,
+      "displacement": 12,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe587d",
+      "instruction_rva": "0xe5888",
+      "alias_offset": 0,
+      "displacement": 172,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe58d6",
+      "instruction_rva": "0xe58e1",
+      "alias_offset": 0,
+      "displacement": 16,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe58e8",
+      "instruction_rva": "0xe58f3",
+      "alias_offset": 0,
+      "displacement": 176,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5941",
+      "instruction_rva": "0xe594c",
+      "alias_offset": 0,
+      "displacement": 20,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe5953",
+      "instruction_rva": "0xe595e",
+      "alias_offset": 0,
+      "displacement": 180,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe59ac",
+      "instruction_rva": "0xe59b7",
+      "alias_offset": 0,
+      "displacement": 24,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe59be",
+      "instruction_rva": "0xe59c9",
+      "alias_offset": 0,
+      "displacement": 184,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5a17",
+      "instruction_rva": "0xe5a22",
+      "alias_offset": 0,
+      "displacement": 28,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe5a29",
+      "instruction_rva": "0xe5a34",
+      "alias_offset": 0,
+      "displacement": 188,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5a8a",
+      "instruction_rva": "0xe5a95",
+      "alias_offset": 0,
+      "displacement": 32,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe5a9c",
+      "instruction_rva": "0xe5aa7",
+      "alias_offset": 0,
+      "displacement": 192,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5af5",
+      "instruction_rva": "0xe5b00",
+      "alias_offset": 0,
+      "displacement": 36,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe5b07",
+      "instruction_rva": "0xe5b12",
+      "alias_offset": 0,
+      "displacement": 196,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe5b60",
+      "instruction_rva": "0xe5b6b",
+      "alias_offset": 0,
+      "displacement": 40,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "addss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe4240"
+    },
+    {
+      "root_rva": "0xe5b72",
+      "instruction_rva": "0xe5b7d",
+      "alias_offset": 0,
+      "displacement": 200,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "range_start_rva": "0xe4240",
+      "review": "Temporal array helper; native indexed-history verification in 408-409"
+    },
+    {
+      "root_rva": "0xe8288",
+      "instruction_rva": "0xe82c7",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 2,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xe8808",
+      "instruction_rva": "0xe8856",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 2,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xe8b01",
+      "instruction_rva": "0xe8b3a",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 2,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xe6a70"
+    },
+    {
+      "root_rva": "0xfcd41",
+      "instruction_rva": "0xfcdba",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xfcd41",
+      "instruction_rva": "0xfcdd0",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xfcd41",
+      "instruction_rva": "0xfcdec",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xfcd41",
+      "instruction_rva": "0xfce05",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rcx",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0xfcd41",
+      "instruction_rva": "0xfce5e",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 4,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0xfb4a0"
+    },
+    {
+      "root_rva": "0x13355c",
+      "instruction_rva": "0x133563",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r13",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133637",
+      "instruction_rva": "0x133643",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x1336af",
+      "instruction_rva": "0x1336ba",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133725",
+      "instruction_rva": "0x133730",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133760",
+      "instruction_rva": "0x13376b",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x13379b",
+      "instruction_rva": "0x1337a6",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x13384d",
+      "instruction_rva": "0x133859",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x13386a",
+      "instruction_rva": "0x13396a",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 2,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x1339df",
+      "instruction_rva": "0x1339e6",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133a12",
+      "instruction_rva": "0x133a19",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r9",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133ade",
+      "instruction_rva": "0x133ae5",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "r13",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133b11",
+      "instruction_rva": "0x133b18",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rdi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133c31",
+      "instruction_rva": "0x133c38",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rbx",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133c63",
+      "instruction_rva": "0x133c6e",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x133d8a",
+      "instruction_rva": "0x133d96",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rsi",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x1348e4",
+      "instruction_rva": "0x1348eb",
+      "alias_offset": 0,
+      "displacement": 0,
+      "index_register": "rax",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "nop",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x1307b0"
+    },
+    {
+      "root_rva": "0x137ee0",
+      "instruction_rva": "0x137ee7",
+      "alias_offset": 0,
+      "displacement": 80,
+      "index_register": "r8",
+      "index_scale": 1,
+      "operand_bytes": 4,
+      "operation": "movss",
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "range_start_rva": "0x137dc0"
+    }
+  ],
+  "decode_gaps": [
+    {
+      "fragment_rva": "0x1b38f2",
+      "group_rva": "0x1b2ab0",
+      "undecoded_start_rva": "0x1b3a88",
+      "undecoded_bytes": 380
+    }
+  ],
+  "feature_argument_calls": [
+    {
+      "root_rva": "0x2b542",
+      "call_rva": "0x2b551",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 552
+      },
+      "range_start_rva": "0x2b500",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          0,
+          552
+        ],
+        "overlaps_bit17": true
+      }
+    },
+    {
+      "root_rva": "0x33380",
+      "call_rva": "0x3338c",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x31830",
+      "review": {
+        "callee": "float_absolute_value",
+        "classification": "integer_register_not_consumed",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x33454",
+      "call_rva": "0x33460",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x31830",
+      "review": {
+        "callee": "float_absolute_value",
+        "classification": "integer_register_not_consumed",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x33518",
+      "call_rva": "0x33524",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x31830",
+      "review": {
+        "callee": "float_absolute_value",
+        "classification": "integer_register_not_consumed",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x357c7",
+      "call_rva": "0x35807",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2320",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x31830",
+      "review": {
+        "callee": "logf",
+        "classification": "integer_register_not_consumed",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x3584a",
+      "call_rva": "0x3588f",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2880",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x31830",
+      "review": {
+        "callee": "float_absolute_value",
+        "classification": "integer_register_not_consumed",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x49ff9",
+      "call_rva": "0x4a005",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x49f30",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x63c99",
+      "call_rva": "0x63ca0",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x636c0",
+      "review": {
+        "callee": "memcpy",
+        "classification": "bulk_copy_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x63c92",
+      "call_rva": "0x63ca0",
+      "argument_register": "rdx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x636c0",
+      "review": {
+        "callee": "memcpy",
+        "classification": "bulk_copy_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x6ad33",
+      "call_rva": "0x6ad3d",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x6c9f0",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x6a400",
+      "review": {
+        "callee": "DRS_feature_writer",
+        "classification": "serialization",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x6b062",
+      "call_rva": "0x6b078",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": null,
+      "indirect_slot_rva": "0x2249a8",
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 1
+      },
+      "range_start_rva": "0x6a400",
+      "review": {
+        "callee": "fwrite",
+        "classification": "file_io",
+        "basis": "Pinned PE import table",
+        "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+      }
+    },
+    {
+      "root_rva": "0x7b148",
+      "call_rva": "0x7b157",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 552
+      },
+      "range_start_rva": "0x7b0f0",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          0,
+          552
+        ],
+        "overlaps_bit17": true
+      }
+    },
+    {
+      "root_rva": "0x7b52e",
+      "call_rva": "0x7b53d",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 552
+      },
+      "range_start_rva": "0x7b4b0",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          0,
+          552
+        ],
+        "overlaps_bit17": true
+      }
+    },
+    {
+      "root_rva": "0x7efc8",
+      "call_rva": "0x7efd9",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 552
+      },
+      "range_start_rva": "0x7eeb0",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x7f0bc",
+      "call_rva": "0x7f0c8",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x7eeb0",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x7fe18",
+      "call_rva": "0x7fe29",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 4
+      },
+      "range_start_rva": "0x7f1a0",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x8089a",
+      "call_rva": "0x808a5",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x80250",
+      "review": {
+        "callee": "memcpy",
+        "classification": "bulk_copy_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x80893",
+      "call_rva": "0x808a5",
+      "argument_register": "rdx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x80250",
+      "review": {
+        "callee": "memcpy",
+        "classification": "bulk_copy_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x833ea",
+      "call_rva": "0x833f6",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x80b70",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x85590",
+      "call_rva": "0x855ad",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c76",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x80b70",
+      "review": {
+        "callee": "memcpy",
+        "classification": "bulk_copy_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x86a8c",
+      "call_rva": "0x86a98",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x80b70",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x86ab2",
+      "call_rva": "0x86abe",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x80b70",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x88054",
+      "call_rva": "0x8805b",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x87750",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x88081",
+      "call_rva": "0x8808b",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x6cef0",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x87750",
+      "review": {
+        "callee": "DRS_feature_reader",
+        "classification": "serialization",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x884e8",
+      "call_rva": "0x884f9",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 4
+      },
+      "range_start_rva": "0x87750",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x891a2",
+      "call_rva": "0x891b3",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 552
+      },
+      "range_start_rva": "0x88f40",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x89396",
+      "call_rva": "0x893a7",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 4
+      },
+      "range_start_rva": "0x88f40",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x9ecf3",
+      "call_rva": "0x9ecff",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x9e350",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0xbc67f",
+      "call_rva": "0xbc68b",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0xbc630",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0xd28fd",
+      "call_rva": "0xd2904",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 552
+      },
+      "range_start_rva": "0xd2710",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          0,
+          552
+        ],
+        "overlaps_bit17": true
+      }
+    },
+    {
+      "root_rva": "0xd64a5",
+      "call_rva": "0xd64b4",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x496d0",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0xd2cc0",
+      "review": {
+        "callee": "sqrtf",
+        "classification": "integer_register_not_consumed",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0xd6b3a",
+      "call_rva": "0xd6b52",
+      "argument_register": "rcx",
+      "alias_offset": 364,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 160
+      },
+      "range_start_rva": "0xd2cc0",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          364,
+          524
+        ],
+        "overlaps_bit17": false
+      }
+    },
+    {
+      "root_rva": "0xd9357",
+      "call_rva": "0xd9366",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 552
+      },
+      "range_start_rva": "0xd92e0",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          0,
+          552
+        ],
+        "overlaps_bit17": true
+      }
+    },
+    {
+      "root_rva": "0xe3495",
+      "call_rva": "0xe34a1",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0xe3340",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0xfb316",
+      "call_rva": "0xfb322",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x2161b4",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0xfb100",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0xfef40",
+      "call_rva": "0xfef4f",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x217c94",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 0,
+        "r8": 552
+      },
+      "range_start_rva": "0xfb4a0",
+      "review": {
+        "callee": "memset",
+        "classification": "bulk_initialization_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program",
+        "zero_interval": [
+          0,
+          552
+        ],
+        "overlaps_bit17": true
+      }
+    },
+    {
+      "root_rva": "0x12c619",
+      "call_rva": "0x12c62a",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 552
+      },
+      "range_start_rva": "0x12c550",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x12d226",
+      "call_rva": "0x12d237",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 552
+      },
+      "range_start_rva": "0x12cf40",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x136e52",
+      "call_rva": "0x136e5f",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x135eb0",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x1363a0",
+      "review": {
+        "callee": "DSE5_feature_reader",
+        "classification": "serialization",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x138de1",
+      "call_rva": "0x138dee",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "target_rva": "0x1380a0",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {},
+      "range_start_rva": "0x138560",
+      "review": {
+        "callee": "DSE5_feature_writer",
+        "classification": "serialization",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    },
+    {
+      "root_rva": "0x2192ee",
+      "call_rva": "0x2192f5",
+      "argument_register": "rcx",
+      "alias_offset": 0,
+      "target_rva": "0x216490",
+      "indirect_slot_rva": null,
+      "transfer_kind": "call",
+      "literal_integer_arguments": {
+        "rdx": 560
+      },
+      "range_start_rva": "0x2192e0",
+      "review": {
+        "callee": "free",
+        "classification": "lifetime_cleanup_lead",
+        "basis": "Successful Ghidra function query in the pinned V6 program"
+      }
+    }
+  ],
+  "direct_callee_audits": [
+    {
+      "target_rva": "0x6c9f0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 317,
+      "bit17_overlaps": [
+        {
+          "root_rva": "0x6c9f0",
+          "instruction_rva": "0x6cd92",
+          "effective_offset": 540,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false
+        }
+      ],
+      "feature_argument_calls": [
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ca25",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ca56",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ca86",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cab6",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cae6",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cb16",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cb46",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cb76",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cba5",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cbd6",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cc07",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cc38",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cc6c",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cca0",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ccd4",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cd08",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cd3c",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cd70",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cda4",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6cdd8",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6c9f0",
+          "call_rva": "0x6ce11",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        }
+      ],
+      "counts": {
+        "transfer_visits": 791,
+        "reached_instructions": 317
+      }
+    },
+    {
+      "target_rva": "0x6cef0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 353,
+      "bit17_overlaps": [
+        {
+          "root_rva": "0x6cef0",
+          "instruction_rva": "0x6d2c7",
+          "effective_offset": 540,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false
+        }
+      ],
+      "feature_argument_calls": [
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cf1c",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cf4d",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cf80",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cfb3",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6cfe6",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d019",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d04c",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d07f",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d0b2",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d0e7",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d11c",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d151",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d189",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d1c1",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d1f9",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d231",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d269",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d2a1",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d2d9",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d311",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x6cef0",
+          "call_rva": "0x6d349",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        }
+      ],
+      "counts": {
+        "transfer_visits": 881,
+        "reached_instructions": 353
+      }
+    },
+    {
+      "target_rva": "0x135eb0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 332,
+      "bit17_overlaps": [
+        {
+          "root_rva": "0x135eb0",
+          "instruction_rva": "0x136251",
+          "effective_offset": 540,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false
+        }
+      ],
+      "feature_argument_calls": [
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135edc",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f0a",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f3a",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f6a",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135f9a",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135fca",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x135ffa",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13602a",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13605a",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13608c",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1360be",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1360f0",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x136125",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13615a",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13618f",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1361c4",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1361f9",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x13622e",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x136263",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x136298",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x135eb0",
+          "call_rva": "0x1362cd",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "indirect_slot_rva": "0x224998",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fread",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        }
+      ],
+      "counts": {
+        "transfer_visits": 840,
+        "reached_instructions": 332
+      }
+    },
+    {
+      "target_rva": "0x1380a0",
+      "argument_register": "r8",
+      "alias_offset": 0,
+      "depth": 1,
+      "decoded_instructions": 296,
+      "bit17_overlaps": [
+        {
+          "root_rva": "0x1380a0",
+          "instruction_rva": "0x13840c",
+          "effective_offset": 540,
+          "operand_bytes": 8,
+          "operation": "lea",
+          "address_only": true,
+          "read": false,
+          "write": false
+        }
+      ],
+      "feature_argument_calls": [
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1380d5",
+          "argument_register": "rcx",
+          "alias_offset": 0,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138103",
+          "argument_register": "rcx",
+          "alias_offset": 4,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138130",
+          "argument_register": "rcx",
+          "alias_offset": 8,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13815d",
+          "argument_register": "rcx",
+          "alias_offset": 12,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13818a",
+          "argument_register": "rcx",
+          "alias_offset": 16,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1381b7",
+          "argument_register": "rcx",
+          "alias_offset": 20,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1381e4",
+          "argument_register": "rcx",
+          "alias_offset": 24,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138211",
+          "argument_register": "rcx",
+          "alias_offset": 28,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13823d",
+          "argument_register": "rcx",
+          "alias_offset": 32,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13826b",
+          "argument_register": "rcx",
+          "alias_offset": 36,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138299",
+          "argument_register": "rcx",
+          "alias_offset": 40,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1382c7",
+          "argument_register": "rcx",
+          "alias_offset": 44,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1382f8",
+          "argument_register": "rcx",
+          "alias_offset": 204,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 160
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138329",
+          "argument_register": "rcx",
+          "alias_offset": 364,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13835a",
+          "argument_register": "rcx",
+          "alias_offset": 444,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 80
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13838b",
+          "argument_register": "rcx",
+          "alias_offset": 524,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1383bc",
+          "argument_register": "rcx",
+          "alias_offset": 532,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x1383ed",
+          "argument_register": "rcx",
+          "alias_offset": 536,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13841e",
+          "argument_register": "rcx",
+          "alias_offset": 540,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x13844f",
+          "argument_register": "rcx",
+          "alias_offset": 544,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        },
+        {
+          "root_rva": "0x1380a0",
+          "call_rva": "0x138485",
+          "argument_register": "rcx",
+          "alias_offset": 548,
+          "target_rva": null,
+          "indirect_slot_rva": "0x2249a8",
+          "transfer_kind": "call",
+          "literal_integer_arguments": {
+            "rdx": 1,
+            "r8": 4
+          },
+          "review": {
+            "callee": "fwrite",
+            "classification": "file_io",
+            "basis": "Pinned PE import table",
+            "import_module": "api-ms-win-crt-stdio-l1-1-0.dll"
+          }
+        }
+      ],
+      "counts": {
+        "transfer_visits": 750,
+        "reached_instructions": 296
+      }
+    }
+  ],
+  "caller_classifications": {
+    "bulk_initialization_lead": 7,
+    "integer_register_not_consumed": 6,
+    "lifetime_cleanup_lead": 18,
+    "bulk_copy_lead": 5,
+    "serialization": 4,
+    "file_io": 1
+  },
+  "indexed_write_groups": {
+    "0x7b4b0": 3,
+    "0xd2cc0": 1,
+    "0xe3640": 14,
+    "0xe4240": 38
+  },
+  "callee_classifications": {
+    "file_io": 84
+  },
+  "scope": "PE chained-unwind grouping; must-alias intersections at direct CFG joins, affine aliases, constant integer rebasing, private stack spills; all four integer argument-register leads including zero offsets; two exact-entry direct callee levels.",
+  "limits": [
+    "Pointer-shaped loads are untyped leads, not proof of Frame ownership",
+    "Only PE chained-unwind fragments are grouped; unrelated ranges and indirect branches are not joined",
+    "Undecoded tails are explicitly recorded, not treated as audited code",
+    "Indexed accesses, escaping stack spill addresses and unknown callees are not modeled",
+    "A live integer register is not necessarily consumed by the called function",
+    "RBP without a resolved stack origin remains an untyped pointer-shaped-load candidate",
+    "No returned-pointer tracking, indirect-callee recovery or producer absence proof"
+  ]
+}

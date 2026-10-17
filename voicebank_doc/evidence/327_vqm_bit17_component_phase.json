@@ -1,0 +1,70 @@
+{
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "samples": [
+    {
+      "sample_index": 0,
+      "frames": 72,
+      "phase_min": -3.0685534477233887,
+      "phase_max": 3.0321404933929443,
+      "best_fixed_rotation": {
+        "sign": -1,
+        "mean_absolute_circular_error": 1.290314003854492,
+        "median_absolute_circular_error": 1.1722016351031668,
+        "max_absolute_circular_error": 3.0242129865652396,
+        "concentration": 0.20173832171775602
+      },
+      "best_adjacent_step": {
+        "sign": -1,
+        "clipped": true,
+        "mean_absolute_step_error": 0.2076914265400562,
+        "median_absolute_step_error": 0.1684173345565796,
+        "max_absolute_step_error": 0.5
+      },
+      "zero_step_control_mae": 0.09351346862148231
+    },
+    {
+      "sample_index": 1,
+      "frames": 87,
+      "phase_min": -3.1396868228912354,
+      "phase_max": 3.0261642932891846,
+      "best_fixed_rotation": {
+        "sign": 1,
+        "mean_absolute_circular_error": 1.5555480840741784,
+        "median_absolute_circular_error": 1.541457734195057,
+        "max_absolute_circular_error": 3.0474289314770298,
+        "concentration": 0.01052040081644597
+      },
+      "best_adjacent_step": {
+        "sign": 1,
+        "clipped": true,
+        "mean_absolute_step_error": 0.21494713005175545,
+        "median_absolute_step_error": 0.22036463022232056,
+        "max_absolute_step_error": 0.5000001192092896
+      },
+      "zero_step_control_mae": 0.07211253190219283
+    },
+    {
+      "sample_index": 2,
+      "frames": 87,
+      "phase_min": -3.1006953716278076,
+      "phase_max": 3.086108446121216,
+      "best_fixed_rotation": {
+        "sign": -1,
+        "mean_absolute_circular_error": 1.5380855101560726,
+        "median_absolute_circular_error": 1.669591577196124,
+        "max_absolute_circular_error": 2.974757642889026,
+        "concentration": 0.010207664790181899
+      },
+      "best_adjacent_step": {
+        "sign": 1,
+        "clipped": true,
+        "mean_absolute_step_error": 0.2407675953798516,
+        "median_absolute_step_error": 0.2505686283111572,
+        "max_absolute_step_error": 0.5
+      },
+      "zero_step_control_mae": 0.05366564351458882
+    }
+  ],
+  "scope": "Saved first-component phase versus internal feature bit17, allowing one rotation and sign per sequence or a quarter-radian cap on direct phase steps. This does not test hidden production state or PCM-derived phase tracks."
+}

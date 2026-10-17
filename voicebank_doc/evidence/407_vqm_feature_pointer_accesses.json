@@ -1,0 +1,226 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "decoder_version": "5.0.3",
+  "source_sha256": "30d8efca252006e6143dbbfb99230b8aa90721fc7793e9bfea50747ae0b69993",
+  "owned_decoder_checks": [
+    {
+      "case": "lea_split_offset",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "add_split_offset",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "sub_split_offset",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "partial_register_kill",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "branch_reset",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "volatile_call_kill",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "nonvolatile_call_survival",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "indexed_operand_excluded",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "wide_overlap",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "wide_overlap_read",
+      "accesses": 1,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "partial_tail_store",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "upper_boundary_no_overlap",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "adjacent_narrow_no_overlap",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "lea_is_not_read",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "exact_address_only",
+      "accesses": 1,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "alias_age_boundary",
+      "accesses": 1,
+      "memory_write": true,
+      "passed": true
+    },
+    {
+      "case": "alias_age_expiry",
+      "accesses": 0,
+      "memory_write": false,
+      "passed": true
+    },
+    {
+      "case": "shifted_argument_pass",
+      "shifted_calls": 1,
+      "passed": true
+    }
+  ],
+  "counts": {
+    "exception_ranges": 6090,
+    "selected_ranges": 213,
+    "decoded_instructions": 139514,
+    "undecoded_tail_bytes": 0,
+    "expired_aliases": 2,
+    "branch_or_return_alias_resets": 204,
+    "pointer_shaped_loads": 1248,
+    "indexed_operands_excluded": 157
+  },
+  "bit17_overlaps": [
+    {
+      "root_load_rva": "0x84fdf",
+      "instruction_rva": "0x84fe6",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "instruction_kind": "movss",
+      "range_start_rva": "0x80b70",
+      "range_end_rva": "0x86ca5",
+      "known_role": "DRS feature interpolation source 1"
+    },
+    {
+      "root_load_rva": "0x84fee",
+      "instruction_rva": "0x84ff5",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "instruction_kind": "movss",
+      "range_start_rva": "0x80b70",
+      "range_end_rva": "0x86ca5",
+      "known_role": "DRS feature interpolation source 2"
+    },
+    {
+      "root_load_rva": "0x8500a",
+      "instruction_rva": "0x85011",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "instruction_kind": "movss",
+      "range_start_rva": "0x80b70",
+      "range_end_rva": "0x86ca5",
+      "known_role": "DRS feature interpolation destination"
+    },
+    {
+      "root_load_rva": "0x1100d1",
+      "instruction_rva": "0x1100d8",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "instruction_kind": "mov",
+      "range_start_rva": "0x110020",
+      "range_end_rva": "0x11012b",
+      "known_role": "TimbreModel dynamics getter"
+    },
+    {
+      "root_load_rva": "0x1347ef",
+      "instruction_rva": "0x1347f6",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "instruction_kind": "movss",
+      "range_start_rva": "0x1307b0",
+      "range_end_rva": "0x135e2e",
+      "known_role": "DSE5 feature interpolation source 1"
+    },
+    {
+      "root_load_rva": "0x1347fe",
+      "instruction_rva": "0x134805",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": true,
+      "write": false,
+      "instruction_kind": "movss",
+      "range_start_rva": "0x1307b0",
+      "range_end_rva": "0x135e2e",
+      "known_role": "DSE5 feature interpolation source 2"
+    },
+    {
+      "root_load_rva": "0x134819",
+      "instruction_rva": "0x134820",
+      "alias_offset": 0,
+      "effective_offset": 540,
+      "operand_bytes": 4,
+      "address_only": false,
+      "read": false,
+      "write": true,
+      "instruction_kind": "movss",
+      "range_start_rva": "0x1307b0",
+      "range_end_rva": "0x135e2e",
+      "known_role": "DSE5 feature interpolation destination"
+    }
+  ],
+  "shifted_argument_calls": [],
+  "scope": "Local MOV/LEA/ADD/SUB affine aliases, at most 64 instructions from pointer-shaped loads at +0x128/+0x208. Reset at branches, returns and exception range boundaries; kill volatile aliases at calls and canonicalize partial-register writes. Pointer loads are untyped leads, not proof of Frame ownership. Excludes indexed addressing, stack spills, pointers produced as function results, function arguments, other offsets and callee memory effects. Exception records can be fragments rather than complete functions. Empty shifted results do not prove absence of a producer."
+}

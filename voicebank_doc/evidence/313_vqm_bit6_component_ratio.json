@@ -1,0 +1,48 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "bands_hz": [
+    [
+      100,
+      1500
+    ],
+    [
+      7000,
+      9000
+    ]
+  ],
+  "saved_vqm_cases": [
+    {
+      "frames": 72,
+      "actual_negative_one": 0,
+      "actual_mean": 0.00377448529858763,
+      "predicted_mean": 0.0018569842278439966,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_absolute_error": 0.0019175010707436337,
+      "max_absolute_error": 0.0045667970553040504
+    },
+    {
+      "frames": 87,
+      "actual_negative_one": 0,
+      "actual_mean": 0.0032312433401272557,
+      "predicted_mean": 0.002107772637618941,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_absolute_error": 0.0011234707025083147,
+      "max_absolute_error": 0.002667415887117386
+    },
+    {
+      "frames": 87,
+      "actual_negative_one": 0,
+      "actual_mean": 0.004062929343239501,
+      "predicted_mean": 0.0021544113559862493,
+      "exact_float32": 0,
+      "within_1e_6": 0,
+      "mean_absolute_error": 0.0019085179872532514,
+      "max_absolute_error": 0.005525615997612476
+    }
+  ],
+  "scope": "Assembly gives the two component bands and their intermediate ratio. This check applies that ratio with the native dB-to-linear helper to saved V4X components. Intermediate records may differ; no payload is written."
+}

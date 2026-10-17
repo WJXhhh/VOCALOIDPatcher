@@ -1,0 +1,143 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "native_dse5_read_write_cases": [
+    {
+      "requested_bit18": 0,
+      "requested_bit19": 0,
+      "readback_bit18": 0,
+      "readback_bit19": 0,
+      "fixture_file_mask": "0xe2287",
+      "roundtrip_file_mask": "0x800e2287",
+      "arrays_and_controls_preserved": true
+    },
+    {
+      "requested_bit18": 1,
+      "requested_bit19": 1,
+      "readback_bit18": 1,
+      "readback_bit19": 1,
+      "fixture_file_mask": "0xe2287",
+      "roundtrip_file_mask": "0x800e2287",
+      "arrays_and_controls_preserved": true
+    },
+    {
+      "requested_bit18": 10,
+      "requested_bit19": 2049,
+      "readback_bit18": 10,
+      "readback_bit19": 2049,
+      "fixture_file_mask": "0xe2287",
+      "roundtrip_file_mask": "0x800e2287",
+      "arrays_and_controls_preserved": true
+    },
+    {
+      "requested_bit18": 20,
+      "requested_bit19": 513,
+      "readback_bit18": 20,
+      "readback_bit19": 513,
+      "fixture_file_mask": "0xe2287",
+      "roundtrip_file_mask": "0x800e2287",
+      "arrays_and_controls_preserved": true
+    },
+    {
+      "requested_bit18": 255,
+      "requested_bit19": 4097,
+      "readback_bit18": 255,
+      "readback_bit19": 4097,
+      "fixture_file_mask": "0xe2287",
+      "roundtrip_file_mask": "0x800e2287",
+      "arrays_and_controls_preserved": true
+    }
+  ],
+  "native_interpolation_cases": [
+    {
+      "first_bit18": 0,
+      "second_bit18": 37,
+      "first_bit19": 0,
+      "second_bit19": 101,
+      "fraction": 0.25,
+      "output_bit18": 0,
+      "output_bit19": 0
+    },
+    {
+      "first_bit18": 0,
+      "second_bit18": 37,
+      "first_bit19": 0,
+      "second_bit19": 101,
+      "fraction": 0.75,
+      "output_bit18": 0,
+      "output_bit19": 0
+    },
+    {
+      "first_bit18": 1,
+      "second_bit18": 38,
+      "first_bit19": 1,
+      "second_bit19": 102,
+      "fraction": 0.25,
+      "output_bit18": 1,
+      "output_bit19": 1
+    },
+    {
+      "first_bit18": 1,
+      "second_bit18": 38,
+      "first_bit19": 1,
+      "second_bit19": 102,
+      "fraction": 0.75,
+      "output_bit18": 1,
+      "output_bit19": 1
+    },
+    {
+      "first_bit18": 10,
+      "second_bit18": 47,
+      "first_bit19": 2049,
+      "second_bit19": 2150,
+      "fraction": 0.25,
+      "output_bit18": 10,
+      "output_bit19": 2049
+    },
+    {
+      "first_bit18": 10,
+      "second_bit18": 47,
+      "first_bit19": 2049,
+      "second_bit19": 2150,
+      "fraction": 0.75,
+      "output_bit18": 10,
+      "output_bit19": 2049
+    },
+    {
+      "first_bit18": 20,
+      "second_bit18": 57,
+      "first_bit19": 513,
+      "second_bit19": 614,
+      "fraction": 0.25,
+      "output_bit18": 20,
+      "output_bit19": 513
+    },
+    {
+      "first_bit18": 20,
+      "second_bit18": 57,
+      "first_bit19": 513,
+      "second_bit19": 614,
+      "fraction": 0.75,
+      "output_bit18": 20,
+      "output_bit19": 513
+    },
+    {
+      "first_bit18": 255,
+      "second_bit18": 36,
+      "first_bit19": 4097,
+      "second_bit19": 4198,
+      "fraction": 0.25,
+      "output_bit18": 255,
+      "output_bit19": 4097
+    },
+    {
+      "first_bit18": 255,
+      "second_bit18": 36,
+      "first_bit19": 4097,
+      "second_bit19": 4198,
+      "fraction": 0.75,
+      "output_bit18": 255,
+      "output_bit19": 4097
+    }
+  ],
+  "scope": "Owned nondefault VQM frame controls through DSE5 read/write/read and generic frame interpolation. These paths preserve/copy values but do not establish authoring names or complete Growl-event consumption."
+}

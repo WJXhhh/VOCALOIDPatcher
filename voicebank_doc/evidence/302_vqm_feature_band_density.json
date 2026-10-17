@@ -1,0 +1,113 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "sample_rate": 44100,
+  "sample_count": 11025,
+  "target_total_rms_pcm16_units": 5000,
+  "cases": [
+    {
+      "fundamental_hz": 200,
+      "added_to_primary_rms_ratio": 0.1,
+      "median_energy_relative_span": 0.0016667658928608876,
+      "shapes": {
+        "high_single": {
+          "frequency_count": 1,
+          "first_frequency_hz": 8000,
+          "last_frequency_hz": 8000,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023079009726643562,
+          "median_bit6": 0.06609826907515526,
+          "median_bit18": 2.5213459730148315
+        },
+        "high_harmonic_group": {
+          "frequency_count": 8,
+          "first_frequency_hz": 7200,
+          "last_frequency_hz": 8600,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023046836256980896,
+          "median_bit6": 0.5082358419895172,
+          "median_bit18": 2.5216777324676514
+        },
+        "high_shifted_group": {
+          "frequency_count": 8,
+          "first_frequency_hz": 7273,
+          "last_frequency_hz": 8673,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.02306097000837326,
+          "median_bit6": 0.507861316204071,
+          "median_bit18": 2.5211896896362305
+        },
+        "low_harmonic_group": {
+          "frequency_count": 8,
+          "first_frequency_hz": 1000,
+          "last_frequency_hz": 2400,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023085284046828747,
+          "median_bit6": 0.00017475890490459278,
+          "median_bit18": 3.456082820892334
+        },
+        "low_shifted_group": {
+          "frequency_count": 8,
+          "first_frequency_hz": 1073,
+          "last_frequency_hz": 2473,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023064402863383293,
+          "median_bit6": 0.00018087084026774392,
+          "median_bit18": 3.4503122568130493
+        }
+      }
+    },
+    {
+      "fundamental_hz": 250,
+      "added_to_primary_rms_ratio": 0.1,
+      "median_energy_relative_span": 0.00402132300315143,
+      "shapes": {
+        "high_single": {
+          "frequency_count": 1,
+          "first_frequency_hz": 8250,
+          "last_frequency_hz": 8250,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.02342627104371786,
+          "median_bit6": 0.06771383434534073,
+          "median_bit18": 2.5219162702560425
+        },
+        "high_harmonic_group": {
+          "frequency_count": 6,
+          "first_frequency_hz": 7500,
+          "last_frequency_hz": 8750,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.02342541702091694,
+          "median_bit6": 0.41315963864326477,
+          "median_bit18": 2.521936535835266
+        },
+        "high_shifted_group": {
+          "frequency_count": 6,
+          "first_frequency_hz": 7573,
+          "last_frequency_hz": 8823,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023423872888088226,
+          "median_bit6": 0.413168266415596,
+          "median_bit18": 2.5217361450195312
+        },
+        "low_harmonic_group": {
+          "frequency_count": 6,
+          "first_frequency_hz": 1000,
+          "last_frequency_hz": 2250,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023517634719610214,
+          "median_bit6": 0.00015982262993929908,
+          "median_bit18": 3.5164713859558105
+        },
+        "low_shifted_group": {
+          "frequency_count": 6,
+          "first_frequency_hz": 1073,
+          "last_frequency_hz": 2323,
+          "interior_frames": 28,
+          "median_feature2_energy": 0.023423361591994762,
+          "median_bit6": 0.00017120074335252866,
+          "median_bit18": 3.516188859939575
+        }
+      }
+    }
+  ],
+  "scope": "Default external-pitch DRS batch and owned equal-RMS signals. Bit6 responds to the number/distribution of in-band components, not just band RMS or harmonic alignment; its exact transform remains unknown."
+}

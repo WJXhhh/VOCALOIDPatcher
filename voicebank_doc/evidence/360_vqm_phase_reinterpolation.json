@@ -1,0 +1,74 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "categories": [
+    {
+      "category_code": 2,
+      "loaded_source_frames": 148,
+      "source_phase_values_changed": 51800,
+      "baseline_source_phase_nonzero_min": 120,
+      "baseline_source_phase_nonzero_max": 124,
+      "event_output": {
+        "baseline": {
+          "count": 124,
+          "nonzero": 123,
+          "sha256": "fb2f7dafc3a6402bc1aa1631b1f46d9d92997a82d39c0ab3765e1de33aad9a9a"
+        },
+        "mutated": {
+          "count": 124,
+          "nonzero": 124,
+          "sha256": "005a847f9455b791efcbb65a36226d7a201c533d70639ade0f9279ace2efa6aa"
+        },
+        "phase_changed": true
+      },
+      "direct_interpolation_replay": {
+        "baseline": {
+          "count": 350,
+          "nonzero": 123,
+          "sha256": "0b85422666871495069c7f2304c4d2beaaae0eafe44cb156687e3d02b5683ad6"
+        },
+        "mutated": {
+          "count": 350,
+          "nonzero": 350,
+          "sha256": "795f9eb2b1da8b3611169a58f4e969c6b6d212c65d1b5cd6af7411a32cf7b2c8"
+        },
+        "phase_changed": true
+      }
+    },
+    {
+      "category_code": 3,
+      "loaded_source_frames": 389,
+      "source_phase_values_changed": 136150,
+      "baseline_source_phase_nonzero_min": 73,
+      "baseline_source_phase_nonzero_max": 73,
+      "event_output": {
+        "baseline": {
+          "count": 73,
+          "nonzero": 0,
+          "sha256": "3453f578e4f10a1cafd84b6500620ae42aeb9b31d700b3b9c3ef5498062a25d4"
+        },
+        "mutated": {
+          "count": 73,
+          "nonzero": 0,
+          "sha256": "3453f578e4f10a1cafd84b6500620ae42aeb9b31d700b3b9c3ef5498062a25d4"
+        },
+        "phase_changed": false
+      },
+      "direct_interpolation_replay": {
+        "baseline": {
+          "count": 350,
+          "nonzero": 73,
+          "sha256": "f4d366f559bffb541318797e24e23c06989bd0bd3f060b1cce0bed69f99b8d81"
+        },
+        "mutated": {
+          "count": 350,
+          "nonzero": 350,
+          "sha256": "1662fa455d93ea41e61a01d41e9c81e9812b4f25cf49c401c63507590fd7d212"
+        },
+        "phase_changed": true
+      }
+    }
+  ],
+  "scope": "Offline loaded TENSE/BRWSP source phase changed in memory. The native source-frame interpolation function is replayed after the original wrapper using its post-wrapper source copies. This proves the replay can transfer phase, not which source copies or parameters the wrapper used earlier. No Editor process or bank PCM."
+}

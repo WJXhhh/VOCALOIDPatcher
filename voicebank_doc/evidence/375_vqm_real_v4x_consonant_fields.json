@@ -1,0 +1,2111 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "manifest_sha256": "190376714fe74343c87e0c285bd7eccf7017c00711d7ed05b8e4cfa1a059ef35",
+  "bank_count": 8,
+  "banks": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 102,
+          "baseline_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+          "art_pcm_checks": 28,
+          "sta_pcm_checks": 74,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 31,
+              "output_stream_sha256": "56ccdca400a711291217639910c7076c68a3bd9237f47cd3cfe515b4337d0061",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "f64c45a25aa0dce2ea8c679b4c2ff5cec847bfb97bdacd9b16082a8d4c3a2d96",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "3a23b5eaceae41ad0a1f0865e7d57edb5c746cbf278487b0afb114fd672b5814",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 102,
+          "baseline_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+          "art_pcm_checks": 28,
+          "sta_pcm_checks": 74,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c80d3990f1980a1445a4ad7bca925a54dd6eda02627a3e775d5f55d242f9f879",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "ddi_sha256": "ad9b21215e959e7a153e15099d6f2d09dba0222716b030e362f9a710270f7e2f",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+          "art_pcm_checks": 38,
+          "sta_pcm_checks": 65,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 30,
+              "output_stream_sha256": "60232c52934ad48248186c21a4a39f2298c73acb0c0be54f037976c182fbb9da",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 98,
+              "output_stream_sha256": "f82552b846756241e7515b1cbdafe74c4e9054f682a103d93de9deabc67f3419",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "8114a2ea9a1518c1a6886ed44a2ca8720af9a4d0b1b7b88f83f936f46321a498",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+          "art_pcm_checks": 38,
+          "sta_pcm_checks": 65,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "1c57595835c480ff26fee41bcd540d6207dc06d11ceb6925d5d015522d02862f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "ddi_sha256": "6d3404c6872e8091ff883970db9ae60728fb909d7ea98b2fcd4f9732a09a687f",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+          "art_pcm_checks": 35,
+          "sta_pcm_checks": 67,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 30,
+              "output_stream_sha256": "eba5f02bb30d315a1b21941c1b2739db78d409f4db7d0f8cc30cadba54de42ae",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "3fc14e35f287dc279afd03b0cd4c0e71067d7abc95754e2fc3f87e43ffb77641",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "4eec9295aa37ce62b7b6076578055e64a0955f21e64d132692b976bc35bf0c92",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+          "art_pcm_checks": 35,
+          "sta_pcm_checks": 67,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "c9b804e52c5ce5e79b20b890f473be73fcb6f9d0bcffa93b9463325146e516d3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 102,
+          "baseline_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+          "art_pcm_checks": 42,
+          "sta_pcm_checks": 60,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 32,
+              "output_stream_sha256": "30ad72f8ac8df21b0d1d2712f1fcd65b834af68cfb4e8c119c1ae60f17f3c4e3",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "f93c3be87cf9a755d03a3af903653f82419aecd6dc14863ed77b99c25623e372",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "7cf934a3de85b28051b0b5fc65479ef9f08ab3979756884e768c90b97bcad3a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 102,
+          "baseline_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+          "art_pcm_checks": 42,
+          "sta_pcm_checks": 60,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "00924a521cd5301ca41ef47703168901e2dda334b59e2342f85b1cc429e5ba6f",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "ddi_sha256": "54e314cf07624edc56fac5e8fd4d009388411ed8f08945a1a3a5b794dc85e3f6",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+          "art_pcm_checks": 35,
+          "sta_pcm_checks": 67,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 31,
+              "output_stream_sha256": "315ae7a4fb76c2203ba65964313e4dc81bc435f7711efbc6853f66d4c8cd5468",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "9e2ced093eab9259a7661dc0783e6b78af0045ecfb1ffe9c618a0be77a682970",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "95e93cfb6c3496a61f91559072acce85d21101b96960ee784d1a1ed8947fd2d9",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+          "art_pcm_checks": 35,
+          "sta_pcm_checks": 67,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f1aadcd841ef13a28cbaea7b6536e471b25afd00a858f1ded7c85cc59a66de50",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "ddi_sha256": "91832056adf768e03595e0857391d094bc9087b0730112a10299f6f34a2ef015",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+          "art_pcm_checks": 38,
+          "sta_pcm_checks": 63,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 32,
+              "output_stream_sha256": "32490aa74ef92074d5b4b5fff5b5d26c3740e6d6d8e662c1c81423bc83a10989",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "187eecce442346eab3326e3935b7039484167d13a358fb8106e99113bc49bbdb",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "038e48abc1313de91bbc6610cc1ec5dd8b42c4fe2268cc1082437436e314a1e2",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+          "art_pcm_checks": 38,
+          "sta_pcm_checks": 63,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "d07667d7315c6d6347adcfb606b584d15f9745f423dbe1c473dc781225bef7ed",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "ddi_sha256": "98cbbde183b69f8cd9c6e9eb3603491e0aef84db1288fdb7e242067d31ad09c3",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+          "art_pcm_checks": 33,
+          "sta_pcm_checks": 69,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 32,
+              "output_stream_sha256": "86e1edc0a8555558af38ccf93d1913ed4a09888f5e0a320adfaf57aecf979c2a",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "a3416d50174219d221335d5c29755cf801e083a5afc09efd6a6ad01c40063369",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "bdce105e51b9132afa271ea9ae9f2040a212499d64752805a2cf4d3c65f673a4",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+          "art_pcm_checks": 33,
+          "sta_pcm_checks": 69,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "f65000568e6e1a403aa361ebe2966d655d7b5c33bc6a04ef1dee5214a09aa332",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "ddi_sha256": "e8273c9f0ee86858c8aafa27cd1f1d823059e9afbdc7e6cfbd0ba1f1f8f13290",
+      "categories": [
+        {
+          "category": 2,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+          "art_pcm_checks": 34,
+          "sta_pcm_checks": 69,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 148,
+              "values_changed": 18103,
+              "pcm_blocks_changed": 32,
+              "output_stream_sha256": "529c61e752308f5ba6248c96deb177a5026152ca095aff495ff5cf7c9dc2ea3d",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 148,
+              "values_changed": 51800,
+              "pcm_blocks_changed": 100,
+              "output_stream_sha256": "8c94fd685182f239e852c944a1434f821262e89f3d2c7c3fb75f48766ec6bdec",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 148,
+              "values_changed": 148,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "49da287abb7409d805d91c1d24006452092f6827e8d7a3f5dd45c422af9cbd14",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        },
+        {
+          "category": 3,
+          "baseline_blocks": 200,
+          "baseline_nonzero_blocks": 100,
+          "baseline_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+          "art_pcm_checks": 34,
+          "sta_pcm_checks": 69,
+          "baseline_source_copies_present": 100,
+          "mutations": [
+            {
+              "mutation": "frequency",
+              "source_frames_mutated": 389,
+              "values_changed": 28397,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "amplitude",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "phase",
+              "source_frames_mutated": 389,
+              "values_changed": 136150,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature4",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature6",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature14",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature15",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature16",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature17",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "feature19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer18",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            },
+            {
+              "mutation": "outer19",
+              "source_frames_mutated": 389,
+              "values_changed": 389,
+              "pcm_blocks_changed": 0,
+              "output_stream_sha256": "dbebebc4ccbd15562fa0eb252f0416d4ad981b0d38d6c319392c5820654f21fa",
+              "source_copies_present": 100,
+              "work_harmonics_present": 100
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "route": [
+    "k",
+    "a",
+    "Sil"
+  ],
+  "scope": "Eight installed V4X banks, one real DDI/DDB source event each. Each TENSE/BRWSP field mutation runs in an independent offline DSE process with a repeated baseline. Only aggregate output block differences and hashes retained, no source payloads."
+}

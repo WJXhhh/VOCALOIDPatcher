@@ -1,0 +1,486 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "common_interior_margin_frames": 4,
+  "features": [
+    {
+      "feature_bit": 6,
+      "fixed_kernel_controls": [
+        {
+          "kernel": "identity",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.000650174808470183,
+              "max_absolute_error": 0.0029083583503961563
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0005406760654848399,
+              "max_absolute_error": 0.0016912003047764301
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.000951839008227085,
+              "max_absolute_error": 0.002997436560690403
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_mean",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.0003313615769002354,
+              "max_absolute_error": 0.001211972255259752
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0003407002765614586,
+              "max_absolute_error": 0.001034592371433973
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.000793298299990217,
+              "max_absolute_error": 0.002235223352909088
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_binomial",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.00034856723436860193,
+              "max_absolute_error": 0.0013257478130981326
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0003673315174948377,
+              "max_absolute_error": 0.0011441924725659192
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0008089500446243896,
+              "max_absolute_error": 0.002436253475025296
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_1_3_4_3_1",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.00033047857050405577,
+              "max_absolute_error": 0.0012486138148233294
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0003611304164070338,
+              "max_absolute_error": 0.0011402933547894163
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0008044997212980022,
+              "max_absolute_error": 0.002418668125756085
+            }
+          ]
+        }
+      ],
+      "leave_one_sequence_out_fits": [
+        {
+          "sample_index": 0,
+          "trained_on_sample_indices": [
+            1,
+            2
+          ],
+          "symmetric_weights_left_to_right": [
+            0.2180771099359641,
+            0.19565361897178565,
+            0.1725385421845005,
+            0.19565361897178565,
+            0.2180771099359641
+          ],
+          "identity_error": {
+            "frames": 64,
+            "mean_absolute_error": 0.000650174808470183,
+            "max_absolute_error": 0.0029083583503961563
+          },
+          "held_out_error": {
+            "frames": 64,
+            "mean_absolute_error": 0.000335441561411172,
+            "max_absolute_error": 0.0012057087834972495
+          }
+        },
+        {
+          "sample_index": 1,
+          "trained_on_sample_indices": [
+            0,
+            2
+          ],
+          "symmetric_weights_left_to_right": [
+            0.1926481687050909,
+            0.2370904031986406,
+            0.1405228561925369,
+            0.2370904031986406,
+            0.1926481687050909
+          ],
+          "identity_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.0005406760654848399,
+            "max_absolute_error": 0.0016912003047764301
+          },
+          "held_out_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.00034405304010397996,
+            "max_absolute_error": 0.0010981807414989619
+          }
+        },
+        {
+          "sample_index": 2,
+          "trained_on_sample_indices": [
+            0,
+            1
+          ],
+          "symmetric_weights_left_to_right": [
+            0.1642276400696029,
+            0.2750201565553715,
+            0.12150440675005125,
+            0.2750201565553715,
+            0.1642276400696029
+          ],
+          "identity_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.000951839008227085,
+            "max_absolute_error": 0.002997436560690403
+          },
+          "held_out_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.0008020264415480667,
+            "max_absolute_error": 0.002408973369208721
+          }
+        }
+      ]
+    },
+    {
+      "feature_bit": 16,
+      "fixed_kernel_controls": [
+        {
+          "kernel": "identity",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.06672880798578262,
+              "max_absolute_error": 0.2396920919418335
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.04626526410066629,
+              "max_absolute_error": 0.14324212074279785
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.048064698146868354,
+              "max_absolute_error": 0.11353087425231934
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_mean",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.011674149706959722,
+              "max_absolute_error": 0.037104773521423384
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.00689297507080852,
+              "max_absolute_error": 0.027063608169555664
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.006987522221818754,
+              "max_absolute_error": 0.02098147869110112
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_binomial",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.015958391944877803,
+              "max_absolute_error": 0.057463087141513824
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.012591502334498152,
+              "max_absolute_error": 0.043193742632865906
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.011646870382224457,
+              "max_absolute_error": 0.03317520022392273
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_1_3_4_3_1",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.012489881521711755,
+              "max_absolute_error": 0.04549810290336609
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.009738328336160399,
+              "max_absolute_error": 0.03486432631810521
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.008864241939053762,
+              "max_absolute_error": 0.024902085463206047
+            }
+          ]
+        }
+      ],
+      "leave_one_sequence_out_fits": [
+        {
+          "sample_index": 0,
+          "trained_on_sample_indices": [
+            1,
+            2
+          ],
+          "symmetric_weights_left_to_right": [
+            0.15098387597913432,
+            0.22138621029187444,
+            0.2552598274579825,
+            0.22138621029187444,
+            0.15098387597913432
+          ],
+          "identity_error": {
+            "frames": 64,
+            "mean_absolute_error": 0.06672880798578262,
+            "max_absolute_error": 0.2396920919418335
+          },
+          "held_out_error": {
+            "frames": 64,
+            "mean_absolute_error": 0.006814570597042536,
+            "max_absolute_error": 0.02361000961776938
+          }
+        },
+        {
+          "sample_index": 1,
+          "trained_on_sample_indices": [
+            0,
+            2
+          ],
+          "symmetric_weights_left_to_right": [
+            0.1483044376978556,
+            0.22374359233475966,
+            0.25590393993476956,
+            0.22374359233475966,
+            0.1483044376978556
+          ],
+          "identity_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.04626526410066629,
+            "max_absolute_error": 0.14324212074279785
+          },
+          "held_out_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.003421762335218274,
+            "max_absolute_error": 0.019017937214468095
+          }
+        },
+        {
+          "sample_index": 2,
+          "trained_on_sample_indices": [
+            0,
+            1
+          ],
+          "symmetric_weights_left_to_right": [
+            0.14958547188446378,
+            0.22263601477906553,
+            0.25555702667294145,
+            0.22263601477906553,
+            0.14958547188446378
+          ],
+          "identity_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.048064698146868354,
+            "max_absolute_error": 0.11353087425231934
+          },
+          "held_out_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.003359631937815291,
+            "max_absolute_error": 0.008115830531138624
+          }
+        }
+      ]
+    },
+    {
+      "feature_bit": 18,
+      "fixed_kernel_controls": [
+        {
+          "kernel": "identity",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.03472794219851494,
+              "max_absolute_error": 0.10209846496582031
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.017160276823405977,
+              "max_absolute_error": 0.045454978942871094
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.01829147942458527,
+              "max_absolute_error": 0.050307273864746094
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_mean",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.0069450683891773,
+              "max_absolute_error": 0.019017887115478693
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.004257887828199179,
+              "max_absolute_error": 0.015378284454345525
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0042665107340752505,
+              "max_absolute_error": 0.014151668548583629
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_binomial",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.0022736680693924427,
+              "max_absolute_error": 0.007801353931427002
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.001727859053430678,
+              "max_absolute_error": 0.006402373313903809
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0015199357950234716,
+              "max_absolute_error": 0.006195276975631714
+            }
+          ]
+        },
+        {
+          "kernel": "five_frame_1_3_4_3_1",
+          "per_sample": [
+            {
+              "frames": 64,
+              "mean_absolute_error": 0.0022143324216206822,
+              "max_absolute_error": 0.00857698917388916
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0015904978860782335,
+              "max_absolute_error": 0.006388545036315918
+            },
+            {
+              "frames": 79,
+              "mean_absolute_error": 0.0013668185044944387,
+              "max_absolute_error": 0.005266269048054717
+            }
+          ]
+        }
+      ],
+      "leave_one_sequence_out_fits": [
+        {
+          "sample_index": 0,
+          "trained_on_sample_indices": [
+            1,
+            2
+          ],
+          "symmetric_weights_left_to_right": [
+            0.08290730645271989,
+            0.243532708387202,
+            0.3471199703201562,
+            0.243532708387202,
+            0.08290730645271989
+          ],
+          "identity_error": {
+            "frames": 64,
+            "mean_absolute_error": 0.03472794219851494,
+            "max_absolute_error": 0.10209846496582031
+          },
+          "held_out_error": {
+            "frames": 64,
+            "mean_absolute_error": 0.002101194062562456,
+            "max_absolute_error": 0.007139103943449854
+          }
+        },
+        {
+          "sample_index": 1,
+          "trained_on_sample_indices": [
+            0,
+            2
+          ],
+          "symmetric_weights_left_to_right": [
+            0.08089011169252575,
+            0.24439798665063275,
+            0.34942380331368295,
+            0.24439798665063275,
+            0.08089011169252575
+          ],
+          "identity_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.017160276823405977,
+            "max_absolute_error": 0.045454978942871094
+          },
+          "held_out_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.0015627390359096664,
+            "max_absolute_error": 0.005992912077556589
+          }
+        },
+        {
+          "sample_index": 2,
+          "trained_on_sample_indices": [
+            0,
+            1
+          ],
+          "symmetric_weights_left_to_right": [
+            0.08251478492895878,
+            0.244085677324284,
+            0.3467990754935144,
+            0.244085677324284,
+            0.08251478492895878
+          ],
+          "identity_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.01829147942458527,
+            "max_absolute_error": 0.050307273864746094
+          },
+          "held_out_error": {
+            "frames": 79,
+            "mean_absolute_error": 0.0013477128682283332,
+            "max_absolute_error": 0.005929634305824827
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Three independent sequences in one V4X bank; field-specific temporal relationships transfer across those sequences but are not exact authoring formulas."
+}

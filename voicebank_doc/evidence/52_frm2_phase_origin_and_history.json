@@ -1,0 +1,5649 @@
+{
+  "date": "2026-09-13",
+  "phase_origin": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "search": {
+      "count": 432,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 432
+    },
+    "smoothing": {
+      "count": 432,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 432
+    },
+    "failed_cases": [],
+    "scope": "balanced amplitudes; explicit history-lock and continuity inputs"
+  },
+  "phase_history": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "status": "conditional transition audit; current origins and predecessor states observed",
+    "ordinary_frames": 14543,
+    "initial_state_frames": 243,
+    "banks": [
+      {
+        "bank": "MIKU_V4X_Dark",
+        "transitions": 1729,
+        "default_matches": 1719,
+        "points": 112361
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "transitions": 1865,
+        "default_matches": 1857,
+        "points": 115248
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "transitions": 1863,
+        "default_matches": 1852,
+        "points": 114245
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "transitions": 2072,
+        "default_matches": 2067,
+        "points": 136077
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "transitions": 1642,
+        "default_matches": 1634,
+        "points": 103170
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "transitions": 1329,
+        "default_matches": 1325,
+        "points": 84037
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "transitions": 1889,
+        "default_matches": 1880,
+        "points": 125169
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "transitions": 1911,
+        "default_matches": 1907,
+        "points": 127507
+      }
+    ],
+    "endpoint_mismatches": 0,
+    "sparse_harmonic_frames": 1,
+    "best_of_native_branches": {
+      "matches": 14300,
+      "max_error": 3.337860107421875e-05,
+      "caveat": "branch selected using saved output; selection not independently recovered"
+    },
+    "configurations": [
+      {
+        "threshold": 5.183628082275391,
+        "decay": 0.2,
+        "frames": 14300,
+        "matches": 14241,
+        "points": 917814,
+        "point_matches": 914944,
+        "max_error": 18.849558115005493
+      },
+      {
+        "threshold": 5.183628082275391,
+        "decay": 0.4,
+        "frames": 14300,
+        "matches": 12372,
+        "points": 917814,
+        "point_matches": 907912,
+        "max_error": 15.307966470718384
+      },
+      {
+        "threshold": 5.183628082275391,
+        "decay": 3.1415927410125732,
+        "frames": 14300,
+        "matches": 12414,
+        "points": 917814,
+        "point_matches": 851793,
+        "max_error": 18.84956455230713
+      },
+      {
+        "threshold": 5.183628082275391,
+        "decay": 6.2831854820251465,
+        "frames": 14300,
+        "matches": 12397,
+        "points": 917814,
+        "point_matches": 842099,
+        "max_error": 22.485320568084717
+      },
+      {
+        "threshold": 5.654866695404053,
+        "decay": 0.2,
+        "frames": 14300,
+        "matches": 14160,
+        "points": 917814,
+        "point_matches": 911086,
+        "max_error": 25.13274383544922
+      },
+      {
+        "threshold": 5.654866695404053,
+        "decay": 0.4,
+        "frames": 14300,
+        "matches": 12382,
+        "points": 917814,
+        "point_matches": 904178,
+        "max_error": 21.591145515441895
+      },
+      {
+        "threshold": 5.654866695404053,
+        "decay": 3.1415927410125732,
+        "frames": 14300,
+        "matches": 12419,
+        "points": 917814,
+        "point_matches": 851532,
+        "max_error": 21.79114842414856
+      },
+      {
+        "threshold": 5.654866695404053,
+        "decay": 6.2831854820251465,
+        "frames": 14300,
+        "matches": 12397,
+        "points": 917814,
+        "point_matches": 842043,
+        "max_error": 22.485320568084717
+      },
+      {
+        "threshold": 5.9690260887146,
+        "decay": 0.2,
+        "frames": 14300,
+        "matches": 14105,
+        "points": 917814,
+        "point_matches": 907784,
+        "max_error": 25.13274383544922
+      },
+      {
+        "threshold": 5.9690260887146,
+        "decay": 0.4,
+        "frames": 14300,
+        "matches": 12388,
+        "points": 917814,
+        "point_matches": 894435,
+        "max_error": 21.591145515441895
+      },
+      {
+        "threshold": 5.9690260887146,
+        "decay": 3.1415927410125732,
+        "frames": 14300,
+        "matches": 12418,
+        "points": 917814,
+        "point_matches": 851586,
+        "max_error": 21.79114842414856
+      },
+      {
+        "threshold": 5.9690260887146,
+        "decay": 6.2831854820251465,
+        "frames": 14300,
+        "matches": 12397,
+        "points": 917814,
+        "point_matches": 842042,
+        "max_error": 22.485320568084717
+      }
+    ],
+    "exceptions": [
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 104,
+        "index": 30,
+        "offset": "0x29d9e48",
+        "default_error": 6.283185958862305,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 207,
+        "index": 29,
+        "offset": "0x5532556",
+        "default_error": 2.941591501235962,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 2.0503997802734375e-05
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 311,
+        "index": 29,
+        "offset": "0x82e491e",
+        "default_error": 12.566370248794556,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 4.76837158203125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 622,
+        "index": 28,
+        "offset": "0x100c9ed4",
+        "default_error": 6.2831830978393555,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.430511474609375e-05
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 622,
+        "index": 29,
+        "offset": "0x100ccb54",
+        "default_error": 6.283186435699463,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 9.5367431640625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 933,
+        "index": 6,
+        "offset": "0x18b3fc32",
+        "default_error": 6.283185005187988,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 5.7220458984375e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 933,
+        "index": 7,
+        "offset": "0x18b428e2",
+        "default_error": 6.2831878662109375,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 933,
+        "index": 9,
+        "offset": "0x18b4822a",
+        "default_error": 12.566373825073242,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 1037,
+        "index": 2,
+        "offset": "0x1b80ec4a",
+        "default_error": 6.2831871509552,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.4901161193847656e-06
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "category": "ART",
+        "part": 1140,
+        "index": 13,
+        "offset": "0x1e3a9a00",
+        "default_error": 6.283185124397278,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 5.245208740234375e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 3040,
+        "index": 2,
+        "offset": "0x49d6f460",
+        "default_error": 18.849558115005493,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 3040,
+        "index": 3,
+        "offset": "0x49d72118",
+        "default_error": 6.283190488815308,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 4.76837158203125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 3420,
+        "index": 22,
+        "offset": "0x51390978",
+        "default_error": 2.94159197807312,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 2.384185791015625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 3420,
+        "index": 23,
+        "offset": "0x513934d8",
+        "default_error": 1.7059240341186523,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.430511474609375e-05
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 3800,
+        "index": 24,
+        "offset": "0x59e9caa8",
+        "default_error": 4.163298606872559,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 3800,
+        "index": 25,
+        "offset": "0x59e9f658",
+        "default_error": 5.104321241378784,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.337860107421875e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 4560,
+        "index": 23,
+        "offset": "0x6b9e27f0",
+        "default_error": 9.224776983261108,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.1920928955078125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "category": "ART",
+        "part": 5320,
+        "index": 23,
+        "offset": "0x7ea68fd0",
+        "default_error": 9.224780082702637,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 8.58306884765625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 322,
+        "index": 30,
+        "offset": "0x8804ee4",
+        "default_error": 2.94159197807312,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 644,
+        "index": 29,
+        "offset": "0x10f02800",
+        "default_error": 15.507966756820679,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 4.76837158203125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 644,
+        "index": 30,
+        "offset": "0x10f05480",
+        "default_error": 9.224782943725586,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.147125244140625e-05
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 966,
+        "index": 7,
+        "offset": "0x19daba44",
+        "default_error": 12.566370725631714,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.814697265625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 966,
+        "index": 8,
+        "offset": "0x19dae614",
+        "default_error": 13.131957411766052,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 1288,
+        "index": 6,
+        "offset": "0x22ae08e8",
+        "default_error": 6.283185184001923,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 7.62939453125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 1610,
+        "index": 5,
+        "offset": "0x2a1846dc",
+        "default_error": 6.283191680908203,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 5.7220458984375e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 1932,
+        "index": 10,
+        "offset": "0x31bbcfc8",
+        "default_error": 6.283190727233887,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 4.76837158203125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 1932,
+        "index": 12,
+        "offset": "0x31bc27d0",
+        "default_error": 6.2831950187683105,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 9.775161743164062e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 3865,
+        "index": 29,
+        "offset": "0x5e383352",
+        "default_error": 6.2831854820251465,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "category": "ART",
+        "part": 3865,
+        "index": 30,
+        "offset": "0x5e385f9a",
+        "default_error": 2.0246450901031494,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.0994415283203125e-06
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "category": "ART",
+        "part": 891,
+        "index": 9,
+        "offset": "0x1889ecd6",
+        "default_error": 6.283185243606567,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 2.86102294921875e-06
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "category": "ART",
+        "part": 1188,
+        "index": 5,
+        "offset": "0x219922d6",
+        "default_error": 6.283198356628418,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.33514404296875e-05
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "category": "ART",
+        "part": 1782,
+        "index": 16,
+        "offset": "0x311a027a",
+        "default_error": 12.566370725631714,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 2.86102294921875e-06
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "category": "ART",
+        "part": 2971,
+        "index": 29,
+        "offset": "0x4f8223ce",
+        "default_error": 9.224777698516846,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.814697265625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "category": "ART",
+        "part": 2971,
+        "index": 30,
+        "offset": "0x4f82505e",
+        "default_error": 12.56637692451477,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 5.7220458984375e-06
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 103,
+        "index": 30,
+        "offset": "0x282080e",
+        "default_error": 6.283183574676514,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.1444091796875e-05
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 310,
+        "index": 30,
+        "offset": "0x7a0d614",
+        "default_error": 6.28318977355957,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.814697265625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 620,
+        "index": 29,
+        "offset": "0xf4e4e48",
+        "default_error": 9.624777793884277,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 9.5367431640625e-07
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 1137,
+        "index": 10,
+        "offset": "0x1be35182",
+        "default_error": 6.283188819885254,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 3.814697265625e-06
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 1241,
+        "index": 9,
+        "offset": "0x1e57d892",
+        "default_error": 6.283185958862305,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 9.5367431640625e-07
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 1344,
+        "index": 10,
+        "offset": "0x2071a838",
+        "default_error": 9.224778175354004,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 2.86102294921875e-06
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 1344,
+        "index": 11,
+        "offset": "0x2071d4e0",
+        "default_error": 12.79689073562622,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 5.7220458984375e-06
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "category": "ART",
+        "part": 1344,
+        "index": 12,
+        "offset": "0x20720178",
+        "default_error": 6.28318452835083,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 7.62939453125e-06
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "category": "ART",
+        "part": 468,
+        "index": 29,
+        "offset": "0xbac9ef8",
+        "default_error": 6.283198356628418,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.239776611328125e-05
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "category": "ART",
+        "part": 1170,
+        "index": 6,
+        "offset": "0x1d343c42",
+        "default_error": 6.2831878662109375,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "category": "ART",
+        "part": 2341,
+        "index": 25,
+        "offset": "0x38a613fa",
+        "default_error": 2.941592216491699,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "category": "ART",
+        "part": 2341,
+        "index": 26,
+        "offset": "0x38a63fda",
+        "default_error": 8.087618827819824,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 7.62939453125e-06
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 76,
+        "index": 33,
+        "offset": "0x215c3e0",
+        "default_error": 2.941594123840332,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.0013580322265625e-05
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 152,
+        "index": 29,
+        "offset": "0x4267d18",
+        "default_error": 2.9415931701660156,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.9073486328125e-06
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 228,
+        "index": 29,
+        "offset": "0x63c3878",
+        "default_error": 9.224778175354004,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.814697265625e-06
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 380,
+        "index": 10,
+        "offset": "0xa105a68",
+        "default_error": 2.9415929317474365,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 7.62939453125e-06
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 380,
+        "index": 11,
+        "offset": "0xa1086d8",
+        "default_error": 6.283193588256836,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 8.58306884765625e-06
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 380,
+        "index": 12,
+        "offset": "0xa10b348",
+        "default_error": 6.2831950187683105,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 9.5367431640625e-06
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 835,
+        "index": 4,
+        "offset": "0x162c632e",
+        "default_error": 6.28318452835083,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.430511474609375e-05
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 835,
+        "index": 6,
+        "offset": "0x162cbbfe",
+        "default_error": 6.283186078071594,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 9.5367431640625e-07
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "category": "ART",
+        "part": 987,
+        "index": 10,
+        "offset": "0x19ae7c7e",
+        "default_error": 6.283183932304382,
+        "best_configuration": [
+          5.183628082275391,
+          6.2831854820251465
+        ],
+        "best_error": 1.33514404296875e-05
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "category": "ART",
+        "part": 75,
+        "index": 29,
+        "offset": "0x1d081d6",
+        "default_error": 1.2039201259613037,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 4.0531158447265625e-06
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "category": "ART",
+        "part": 75,
+        "index": 32,
+        "offset": "0x1d10516",
+        "default_error": 2.9415931701660156,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 4.0531158447265625e-06
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "category": "ART",
+        "part": 226,
+        "index": 31,
+        "offset": "0x58ac76c",
+        "default_error": 6.283185958862305,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 1.1920928955078125e-06
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "category": "ART",
+        "part": 226,
+        "index": 32,
+        "offset": "0x58af3d4",
+        "default_error": 1.4064784049987793,
+        "best_configuration": [
+          5.183628082275391,
+          3.1415927410125732
+        ],
+        "best_error": 3.814697265625e-06
+      }
+    ]
+  },
+  "manifest_source": "669 stratified identifiers originally used by audit_frm2_numeric; included in this report",
+  "scope": "conditional phase transitions; origin search/smoothing independently compared to native; full commercial phase generation remains open",
+  "manifest": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x8652c89a"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 26,
+      "offset": "0x86575362"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 52,
+      "offset": "0x865bde82"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 10,
+      "index": 0,
+      "offset": "0x86e9bd3e"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 10,
+      "index": 32,
+      "offset": "0x86ef363e"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 10,
+      "index": 63,
+      "offset": "0x86f48376"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 19,
+      "index": 0,
+      "offset": "0x87678b18"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 19,
+      "index": 77,
+      "offset": "0x87749830"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 19,
+      "index": 154,
+      "offset": "0x8781a5e8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 29,
+      "index": 0,
+      "offset": "0x87e1b2a4"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 29,
+      "index": 55,
+      "offset": "0x87eb309c"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 29,
+      "index": 110,
+      "offset": "0x87f4adfc"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 38,
+      "index": 0,
+      "offset": "0x884d075e"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 38,
+      "index": 29,
+      "offset": "0x8851fdee"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 38,
+      "index": 58,
+      "offset": "0x8856f48e"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 0,
+      "offset": "0x88b4744a"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 26,
+      "offset": "0x88b8ff12"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 52,
+      "offset": "0x88bd8a32"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 57,
+      "index": 0,
+      "offset": "0x89201534"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 57,
+      "index": 78,
+      "offset": "0x892d86f4"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 57,
+      "index": 156,
+      "offset": "0x893af8b4"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 0,
+      "offset": "0x89c562d8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 77,
+      "offset": "0x89d26ff0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 154,
+      "offset": "0x89df7da8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 76,
+      "index": 0,
+      "offset": "0x8a37a3ba"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 76,
+      "index": 20,
+      "offset": "0x8a3b217a"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 76,
+      "index": 39,
+      "offset": "0x8a3e731a"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 86,
+      "index": 0,
+      "offset": "0x8aa5d286"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 86,
+      "index": 29,
+      "offset": "0x8aaac916"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 86,
+      "index": 58,
+      "offset": "0x8aafbfb6"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 0,
+      "offset": "0x8b055898"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 15,
+      "offset": "0x8b07e340"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 30,
+      "offset": "0x8b0a6de0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 105,
+      "index": 0,
+      "offset": "0x8b805ca4"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 105,
+      "index": 78,
+      "offset": "0x8b8dce64"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 105,
+      "index": 156,
+      "offset": "0x8b9b4024"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 114,
+      "index": 0,
+      "offset": "0x8c06b236"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 114,
+      "index": 71,
+      "offset": "0x8c12d8e6"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 114,
+      "index": 141,
+      "offset": "0x8c1ed3c6"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 124,
+      "index": 0,
+      "offset": "0x8c92f70a"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 124,
+      "index": 20,
+      "offset": "0x8c9674ca"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 124,
+      "index": 39,
+      "offset": "0x8c99c66a"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 133,
+      "index": 0,
+      "offset": "0x8cf19254"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 133,
+      "index": 55,
+      "offset": "0x8cfb104c"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 133,
+      "index": 110,
+      "offset": "0x8d048dac"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 143,
+      "index": 0,
+      "offset": "0x8d678620"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 143,
+      "index": 15,
+      "offset": "0x8d6a10c8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "STA",
+      "part": 143,
+      "index": 30,
+      "offset": "0x8d6c9b68"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 16,
+      "offset": "0x2cb40"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 31,
+      "offset": "0x56a78"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 380,
+      "index": 0,
+      "offset": "0x97f9fa0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 380,
+      "index": 13,
+      "offset": "0x981e4c8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 380,
+      "index": 25,
+      "offset": "0x983fd90"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 760,
+      "index": 0,
+      "offset": "0x12bf0cf0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 760,
+      "index": 17,
+      "offset": "0x12c20648"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 760,
+      "index": 34,
+      "offset": "0x12c4fe78"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1140,
+      "index": 0,
+      "offset": "0x1c165340"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1140,
+      "index": 21,
+      "offset": "0x1c19f388"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1140,
+      "index": 42,
+      "offset": "0x1c1d9348"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1520,
+      "index": 0,
+      "offset": "0x26d5acc0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1520,
+      "index": 32,
+      "offset": "0x26db1f48"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1520,
+      "index": 63,
+      "offset": "0x26e06708"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1900,
+      "index": 20,
+      "offset": "0x2f9125d0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 1900,
+      "index": 39,
+      "offset": "0x2f946a68"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 2660,
+      "index": 24,
+      "offset": "0x40dfb828"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 2660,
+      "index": 47,
+      "offset": "0x40e3a6e8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3040,
+      "index": 0,
+      "offset": "0x49d69ae8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3040,
+      "index": 17,
+      "offset": "0x49d994a8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3040,
+      "index": 33,
+      "offset": "0x49dc6180"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3420,
+      "index": 0,
+      "offset": "0x51354f68"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3420,
+      "index": 15,
+      "offset": "0x5137d9f8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3800,
+      "index": 0,
+      "offset": "0x59e5b170"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 3800,
+      "index": 18,
+      "offset": "0x59e8c460"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4180,
+      "index": 0,
+      "offset": "0x6236dfe0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4180,
+      "index": 9,
+      "offset": "0x623865f8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4180,
+      "index": 18,
+      "offset": "0x6239ec10"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4560,
+      "index": 0,
+      "offset": "0x6b9a3ca8"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4560,
+      "index": 18,
+      "offset": "0x6b9d4de0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4560,
+      "index": 36,
+      "offset": "0x6ba05f10"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4940,
+      "index": 0,
+      "offset": "0x757b4478"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4940,
+      "index": 17,
+      "offset": "0x757e3e70"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 4940,
+      "index": 34,
+      "offset": "0x758138e0"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 5320,
+      "index": 0,
+      "offset": "0x7ea28a68"
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "category": "ART",
+      "part": 5320,
+      "index": 15,
+      "offset": "0x7ea52a38"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x21455258"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 0,
+      "index": 26,
+      "offset": "0x2149dd20"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 0,
+      "index": 52,
+      "offset": "0x214e6840"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 3,
+      "index": 0,
+      "offset": "0x2170c096"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 3,
+      "index": 38,
+      "offset": "0x21773206"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 3,
+      "index": 75,
+      "offset": "0x217d7776"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 6,
+      "index": 0,
+      "offset": "0x21a552b4"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 6,
+      "index": 18,
+      "offset": "0x21a86754"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 6,
+      "index": 36,
+      "offset": "0x21ab7bf4"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 9,
+      "index": 0,
+      "offset": "0x21bfed4a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 9,
+      "index": 78,
+      "offset": "0x21cd5f0a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 9,
+      "index": 156,
+      "offset": "0x21dad0ca"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 13,
+      "index": 0,
+      "offset": "0x21ffb262"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 13,
+      "index": 57,
+      "offset": "0x22098802"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 13,
+      "index": 113,
+      "offset": "0x221330da"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 16,
+      "index": 0,
+      "offset": "0x222c3370"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 16,
+      "index": 21,
+      "offset": "0x222fdde0"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 16,
+      "index": 41,
+      "offset": "0x22335ba0"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 19,
+      "index": 0,
+      "offset": "0x225a14d6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 19,
+      "index": 77,
+      "offset": "0x226721ee"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 19,
+      "index": 154,
+      "offset": "0x22742fa6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 22,
+      "index": 0,
+      "offset": "0x229112dc"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 22,
+      "index": 29,
+      "offset": "0x2296096c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 22,
+      "index": 58,
+      "offset": "0x229b000c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 25,
+      "index": 0,
+      "offset": "0x22a89cd2"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 25,
+      "index": 55,
+      "offset": "0x22b21aca"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 25,
+      "index": 110,
+      "offset": "0x22bb982a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 28,
+      "index": 0,
+      "offset": "0x22cce038"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 28,
+      "index": 20,
+      "offset": "0x22d05df8"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 28,
+      "index": 39,
+      "offset": "0x22d3af98"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 31,
+      "index": 0,
+      "offset": "0x22f2f10e"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 31,
+      "index": 15,
+      "offset": "0x22f57bb6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 31,
+      "index": 30,
+      "offset": "0x22f80656"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 34,
+      "index": 0,
+      "offset": "0x2313f18c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 34,
+      "index": 29,
+      "offset": "0x2318e81c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 34,
+      "index": 58,
+      "offset": "0x231ddebc"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 38,
+      "index": 0,
+      "offset": "0x233f911c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 38,
+      "index": 29,
+      "offset": "0x234487ac"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 38,
+      "index": 58,
+      "offset": "0x23497e4c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 41,
+      "index": 0,
+      "offset": "0x23571b12"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 41,
+      "index": 55,
+      "offset": "0x2360990a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 41,
+      "index": 110,
+      "offset": "0x236a166a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 44,
+      "index": 0,
+      "offset": "0x237b5e78"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 44,
+      "index": 20,
+      "offset": "0x237edc38"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 44,
+      "index": 39,
+      "offset": "0x23822dd8"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 47,
+      "index": 0,
+      "offset": "0x23a16f4e"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 47,
+      "index": 15,
+      "offset": "0x23a3f9f6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "STA",
+      "part": 47,
+      "index": 30,
+      "offset": "0x23a68496"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 0,
+      "index": 12,
+      "offset": "0x216c0"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 0,
+      "index": 24,
+      "offset": "0x42d80"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 103,
+      "index": 0,
+      "offset": "0x27cdf06"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 103,
+      "index": 18,
+      "offset": "0x27ff796"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 103,
+      "index": 36,
+      "offset": "0x283106e"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 207,
+      "index": 0,
+      "offset": "0x50d03f6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 207,
+      "index": 19,
+      "offset": "0x510429e"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 207,
+      "index": 38,
+      "offset": "0x51380ee"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 310,
+      "index": 0,
+      "offset": "0x79bb664"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 310,
+      "index": 18,
+      "offset": "0x79ec954"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 414,
+      "index": 0,
+      "offset": "0xa47e31c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 414,
+      "index": 26,
+      "offset": "0xa4c680c"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 414,
+      "index": 51,
+      "offset": "0xa50c054"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 517,
+      "index": 0,
+      "offset": "0xcc4455a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 517,
+      "index": 18,
+      "offset": "0xcc7565a"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 620,
+      "index": 0,
+      "offset": "0xf495040"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 620,
+      "index": 17,
+      "offset": "0xf4c3d88"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 724,
+      "index": 0,
+      "offset": "0x11c98000"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 724,
+      "index": 30,
+      "offset": "0x11ceb220"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 827,
+      "index": 0,
+      "offset": "0x1493e136"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 827,
+      "index": 14,
+      "offset": "0x149644fe"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 827,
+      "index": 27,
+      "offset": "0x14987cee"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 931,
+      "index": 22,
+      "offset": "0x1732d8b6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 931,
+      "index": 44,
+      "offset": "0x1736a1a6"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1137,
+      "index": 24,
+      "offset": "0x1be5bad2"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1137,
+      "index": 48,
+      "offset": "0x1be9dc62"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1241,
+      "index": 21,
+      "offset": "0x1e59e902"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1241,
+      "index": 42,
+      "offset": "0x1e5d8652"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1344,
+      "index": 0,
+      "offset": "0x206fe888"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1344,
+      "index": 23,
+      "offset": "0x2073eba8"
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "category": "ART",
+      "part": 1344,
+      "index": 45,
+      "offset": "0x2077c040"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x712801f8"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 26,
+      "offset": "0x712c8cc0"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 52,
+      "offset": "0x713117e0"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 10,
+      "index": 0,
+      "offset": "0x71b9d0fc"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 10,
+      "index": 32,
+      "offset": "0x71bf49fc"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 10,
+      "index": 63,
+      "offset": "0x71c49734"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 19,
+      "index": 0,
+      "offset": "0x723d4646"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 19,
+      "index": 77,
+      "offset": "0x724a535e"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 19,
+      "index": 154,
+      "offset": "0x72576116"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 29,
+      "index": 0,
+      "offset": "0x72b76dd2"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 29,
+      "index": 55,
+      "offset": "0x72c0ebca"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 29,
+      "index": 110,
+      "offset": "0x72ca692a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 38,
+      "index": 0,
+      "offset": "0x7322c28c"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 38,
+      "index": 29,
+      "offset": "0x7327b91c"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 38,
+      "index": 58,
+      "offset": "0x732cafbc"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 0,
+      "offset": "0x738a2f78"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 26,
+      "offset": "0x738eba40"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 52,
+      "offset": "0x73934560"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 57,
+      "index": 0,
+      "offset": "0x73ffa4ca"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 57,
+      "index": 78,
+      "offset": "0x740d168a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 57,
+      "index": 156,
+      "offset": "0x741a884a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 0,
+      "offset": "0x749f73c6"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 77,
+      "offset": "0x74ac80de"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 154,
+      "offset": "0x74b98e96"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 76,
+      "index": 0,
+      "offset": "0x75123f28"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 76,
+      "index": 20,
+      "offset": "0x7515bce8"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 76,
+      "index": 39,
+      "offset": "0x75190e88"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 86,
+      "index": 0,
+      "offset": "0x7584f00c"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 86,
+      "index": 29,
+      "offset": "0x7589e69c"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 86,
+      "index": 58,
+      "offset": "0x758edd3c"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 0,
+      "offset": "0x75e6ce3e"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 15,
+      "offset": "0x75e958e6"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 30,
+      "offset": "0x75ebe386"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 105,
+      "index": 0,
+      "offset": "0x7666f7ea"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 105,
+      "index": 78,
+      "offset": "0x767469aa"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 105,
+      "index": 156,
+      "offset": "0x7681db6a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 114,
+      "index": 0,
+      "offset": "0x76e7a604"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 114,
+      "index": 71,
+      "offset": "0x76f3ccb4"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 114,
+      "index": 141,
+      "offset": "0x76ffc794"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 124,
+      "index": 0,
+      "offset": "0x7773ead8"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 124,
+      "index": 20,
+      "offset": "0x77776898"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 124,
+      "index": 39,
+      "offset": "0x777aba38"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 133,
+      "index": 0,
+      "offset": "0x77d28622"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 133,
+      "index": 55,
+      "offset": "0x77dc041a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 133,
+      "index": 110,
+      "offset": "0x77e5817a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 143,
+      "index": 0,
+      "offset": "0x784879ee"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 143,
+      "index": 15,
+      "offset": "0x784b0496"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "STA",
+      "part": 143,
+      "index": 30,
+      "offset": "0x784d8f36"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 13,
+      "offset": "0x24388"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 25,
+      "offset": "0x45a40"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 322,
+      "index": 0,
+      "offset": "0x87b152c"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 322,
+      "index": 20,
+      "offset": "0x87e90f4"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 644,
+      "index": 0,
+      "offset": "0x10eb1d18"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 644,
+      "index": 19,
+      "offset": "0x10ee6b00"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 966,
+      "index": 0,
+      "offset": "0x19d986e4"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 966,
+      "index": 20,
+      "offset": "0x19dcf424"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 966,
+      "index": 39,
+      "offset": "0x19e03594"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 1288,
+      "index": 20,
+      "offset": "0x22b07388"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 1288,
+      "index": 39,
+      "offset": "0x22b3bb18"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 1610,
+      "index": 18,
+      "offset": "0x2a1a7b24"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 1610,
+      "index": 36,
+      "offset": "0x2a1d88b4"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 1932,
+      "index": 23,
+      "offset": "0x31be0f48"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 1932,
+      "index": 46,
+      "offset": "0x31c20a88"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2254,
+      "index": 23,
+      "offset": "0x398cae34"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2254,
+      "index": 45,
+      "offset": "0x399076f4"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2577,
+      "index": 0,
+      "offset": "0x410aef12"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2577,
+      "index": 2,
+      "offset": "0x410b4692"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2577,
+      "index": 3,
+      "offset": "0x410b7252"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2899,
+      "index": 0,
+      "offset": "0x477b323e"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 2899,
+      "index": 19,
+      "offset": "0x477e7686"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3221,
+      "index": 0,
+      "offset": "0x4fb005a2"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3221,
+      "index": 15,
+      "offset": "0x4fb2956a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3221,
+      "index": 30,
+      "offset": "0x4fb52532"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3543,
+      "index": 0,
+      "offset": "0x573071ee"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3543,
+      "index": 19,
+      "offset": "0x5733b096"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3543,
+      "index": 38,
+      "offset": "0x5736ef3e"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3865,
+      "index": 0,
+      "offset": "0x5e33330a"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 3865,
+      "index": 19,
+      "offset": "0x5e3679e2"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 4187,
+      "index": 0,
+      "offset": "0x651bc36e"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 4187,
+      "index": 17,
+      "offset": "0x651ea4f6"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 4509,
+      "index": 0,
+      "offset": "0x6beb6ea2"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 4509,
+      "index": 19,
+      "offset": "0x6beec0c2"
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "category": "ART",
+      "part": 4509,
+      "index": 37,
+      "offset": "0x6bf1e632"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x24e489e8"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 0,
+      "index": 26,
+      "offset": "0x24e914b0"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 0,
+      "index": 52,
+      "offset": "0x24ed9fd0"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 3,
+      "index": 0,
+      "offset": "0x250ff826"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 3,
+      "index": 38,
+      "offset": "0x25166996"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 3,
+      "index": 75,
+      "offset": "0x251caf06"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 6,
+      "index": 0,
+      "offset": "0x25448a44"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 6,
+      "index": 18,
+      "offset": "0x25479ee4"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 6,
+      "index": 36,
+      "offset": "0x254ab384"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 9,
+      "index": 0,
+      "offset": "0x255f24da"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 9,
+      "index": 78,
+      "offset": "0x256c969a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 9,
+      "index": 156,
+      "offset": "0x257a085a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 13,
+      "index": 0,
+      "offset": "0x259ee9f2"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 13,
+      "index": 57,
+      "offset": "0x25a8bf92"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 13,
+      "index": 113,
+      "offset": "0x25b2686a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 16,
+      "index": 0,
+      "offset": "0x25cb6b00"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 16,
+      "index": 21,
+      "offset": "0x25cf1570"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 16,
+      "index": 41,
+      "offset": "0x25d29330"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 19,
+      "index": 0,
+      "offset": "0x25f94c66"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 19,
+      "index": 77,
+      "offset": "0x2606597e"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 19,
+      "index": 154,
+      "offset": "0x26136736"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 22,
+      "index": 0,
+      "offset": "0x26304a6c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 22,
+      "index": 29,
+      "offset": "0x263540fc"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 22,
+      "index": 58,
+      "offset": "0x263a379c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 25,
+      "index": 0,
+      "offset": "0x2647d462"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 25,
+      "index": 55,
+      "offset": "0x2651525a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 25,
+      "index": 110,
+      "offset": "0x265acfba"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 28,
+      "index": 0,
+      "offset": "0x266c17c8"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 28,
+      "index": 20,
+      "offset": "0x266f9588"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 28,
+      "index": 39,
+      "offset": "0x2672e728"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 31,
+      "index": 0,
+      "offset": "0x2692289e"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 31,
+      "index": 15,
+      "offset": "0x2694b346"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 31,
+      "index": 30,
+      "offset": "0x26973de6"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 34,
+      "index": 0,
+      "offset": "0x26b3291c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 34,
+      "index": 29,
+      "offset": "0x26b81fac"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 34,
+      "index": 58,
+      "offset": "0x26bd164c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 38,
+      "index": 0,
+      "offset": "0x26dec8ac"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 38,
+      "index": 29,
+      "offset": "0x26e3bf3c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 38,
+      "index": 58,
+      "offset": "0x26e8b5dc"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 41,
+      "index": 0,
+      "offset": "0x26f652a2"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 41,
+      "index": 55,
+      "offset": "0x26ffd09a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 41,
+      "index": 110,
+      "offset": "0x27094dfa"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 44,
+      "index": 0,
+      "offset": "0x271a9608"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 44,
+      "index": 20,
+      "offset": "0x271e13c8"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 44,
+      "index": 39,
+      "offset": "0x27216568"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 47,
+      "index": 0,
+      "offset": "0x2740a6de"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 47,
+      "index": 15,
+      "offset": "0x27433186"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "STA",
+      "part": 47,
+      "index": 30,
+      "offset": "0x2745bc26"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 0,
+      "index": 21,
+      "offset": "0x3a650"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 0,
+      "index": 42,
+      "offset": "0x74c98"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 104,
+      "index": 0,
+      "offset": "0x2987e38"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 104,
+      "index": 19,
+      "offset": "0x29bbd70"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 207,
+      "index": 0,
+      "offset": "0x54e3196"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 207,
+      "index": 18,
+      "offset": "0x5514486"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 311,
+      "index": 0,
+      "offset": "0x8293c8e"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 311,
+      "index": 19,
+      "offset": "0x82c8b7e"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 415,
+      "index": 0,
+      "offset": "0xae5d746"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 415,
+      "index": 23,
+      "offset": "0xae9ccb6"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 415,
+      "index": 45,
+      "offset": "0xaed96be"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 518,
+      "index": 0,
+      "offset": "0xd5c1534"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 518,
+      "index": 26,
+      "offset": "0xd6096cc"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 518,
+      "index": 51,
+      "offset": "0xd64ebec"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 622,
+      "index": 0,
+      "offset": "0x1007c06c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 622,
+      "index": 18,
+      "offset": "0x100ae1d4"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 726,
+      "index": 0,
+      "offset": "0x12b1875c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 726,
+      "index": 26,
+      "offset": "0x12b60e7c"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 726,
+      "index": 52,
+      "offset": "0x12ba94a4"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 829,
+      "index": 0,
+      "offset": "0x15d5f92a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 829,
+      "index": 19,
+      "offset": "0x15d93dc2"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 933,
+      "index": 20,
+      "offset": "0x18b66d2a"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 933,
+      "index": 40,
+      "offset": "0x18b9ea12"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1037,
+      "index": 27,
+      "offset": "0x1b8545da"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1037,
+      "index": 54,
+      "offset": "0x1b89f812"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1140,
+      "index": 31,
+      "offset": "0x1e3dae10"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1140,
+      "index": 61,
+      "offset": "0x1e42cec0"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1244,
+      "index": 29,
+      "offset": "0x2132d5c8"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1244,
+      "index": 57,
+      "offset": "0x2137b418"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1348,
+      "index": 0,
+      "offset": "0x23e23628"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1348,
+      "index": 23,
+      "offset": "0x23e636e0"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "category": "ART",
+      "part": 1348,
+      "index": 45,
+      "offset": "0x23ea0b30"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x75722292"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 51,
+      "offset": "0x757b01aa"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 102,
+      "offset": "0x7583e0c2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 8,
+      "index": 0,
+      "offset": "0x7629403a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 8,
+      "index": 55,
+      "offset": "0x7632a4c2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 8,
+      "index": 109,
+      "offset": "0x763bdd92"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 16,
+      "index": 0,
+      "offset": "0x76f0f572"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 16,
+      "index": 53,
+      "offset": "0x76fa12a2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 16,
+      "index": 106,
+      "offset": "0x7703300a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 24,
+      "index": 0,
+      "offset": "0x77a4762a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 24,
+      "index": 58,
+      "offset": "0x77ae8cfa"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 24,
+      "index": 116,
+      "offset": "0x77b8a3ca"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 32,
+      "index": 0,
+      "offset": "0x7852fa62"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 32,
+      "index": 73,
+      "offset": "0x785f71da"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 32,
+      "index": 146,
+      "offset": "0x786be952"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 40,
+      "index": 0,
+      "offset": "0x78e93552"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 40,
+      "index": 27,
+      "offset": "0x78edef42"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 40,
+      "index": 54,
+      "offset": "0x78f2a932"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 0,
+      "offset": "0x795cddea"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 37,
+      "offset": "0x7963547a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 48,
+      "index": 74,
+      "offset": "0x7969ca02"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 56,
+      "index": 0,
+      "offset": "0x79e08b82"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 56,
+      "index": 20,
+      "offset": "0x79e40942"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 56,
+      "index": 39,
+      "offset": "0x79e75ae2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 63,
+      "index": 0,
+      "offset": "0x7a323be8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 63,
+      "index": 15,
+      "offset": "0x7a34c690"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 63,
+      "index": 30,
+      "offset": "0x7a375130"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 71,
+      "index": 0,
+      "offset": "0x7a897b08"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 71,
+      "index": 15,
+      "offset": "0x7a8c05b0"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 71,
+      "index": 30,
+      "offset": "0x7a8e9050"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 79,
+      "index": 0,
+      "offset": "0x7ae0ba28"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 79,
+      "index": 15,
+      "offset": "0x7ae344d0"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 79,
+      "index": 30,
+      "offset": "0x7ae5cf70"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 87,
+      "index": 0,
+      "offset": "0x7b53d220"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 87,
+      "index": 57,
+      "offset": "0x7b5dbc68"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 87,
+      "index": 113,
+      "offset": "0x7b677a28"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 0,
+      "offset": "0x7c08b8c8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 84,
+      "offset": "0x7c171110"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 95,
+      "index": 167,
+      "offset": "0x7c253d70"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 103,
+      "index": 0,
+      "offset": "0x7cd3acf8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 103,
+      "index": 53,
+      "offset": "0x7cdcca28"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 103,
+      "index": 106,
+      "offset": "0x7ce5e790"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 111,
+      "index": 0,
+      "offset": "0x7d872db0"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 111,
+      "index": 58,
+      "offset": "0x7d914480"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 111,
+      "index": 116,
+      "offset": "0x7d9b5b50"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 119,
+      "index": 0,
+      "offset": "0x7e35b1e8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 119,
+      "index": 73,
+      "offset": "0x7e422960"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "STA",
+      "part": 119,
+      "index": 146,
+      "offset": "0x7e4ea0d8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 19,
+      "offset": "0x34cb0"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 37,
+      "offset": "0x66d30"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 297,
+      "index": 0,
+      "offset": "0x7e2a262"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 297,
+      "index": 18,
+      "offset": "0x7e5baa2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 297,
+      "index": 36,
+      "offset": "0x7e8d47a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 594,
+      "index": 0,
+      "offset": "0xfd90164"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 594,
+      "index": 19,
+      "offset": "0xfdc3ffc"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 891,
+      "index": 0,
+      "offset": "0x1888634e"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 891,
+      "index": 29,
+      "offset": "0x188d56de"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 891,
+      "index": 57,
+      "offset": "0x18921efe"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 1188,
+      "index": 28,
+      "offset": "0x219d1116"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 1188,
+      "index": 55,
+      "offset": "0x21a1ade6"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 1485,
+      "index": 21,
+      "offset": "0x2989a012"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 1485,
+      "index": 41,
+      "offset": "0x298d104a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 1782,
+      "index": 34,
+      "offset": "0x311d27b2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 1782,
+      "index": 67,
+      "offset": "0x3122e6b2"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2079,
+      "index": 29,
+      "offset": "0x391aec46"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2079,
+      "index": 58,
+      "offset": "0x391ff716"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2674,
+      "index": 0,
+      "offset": "0x471be28c"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2674,
+      "index": 26,
+      "offset": "0x472052f4"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2674,
+      "index": 51,
+      "offset": "0x472497ec"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2971,
+      "index": 0,
+      "offset": "0x4f7d180e"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 2971,
+      "index": 19,
+      "offset": "0x4f806676"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3268,
+      "index": 0,
+      "offset": "0x577005e8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3268,
+      "index": 26,
+      "offset": "0x57747eb8"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3268,
+      "index": 51,
+      "offset": "0x5778cb80"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3565,
+      "index": 0,
+      "offset": "0x5fd93b82"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3565,
+      "index": 18,
+      "offset": "0x5fdc5c5a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3565,
+      "index": 35,
+      "offset": "0x5fdf525a"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3862,
+      "index": 0,
+      "offset": "0x67c0118c"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3862,
+      "index": 18,
+      "offset": "0x67c3325c"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 3862,
+      "index": 36,
+      "offset": "0x67c653dc"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 4159,
+      "index": 0,
+      "offset": "0x6f7f5dc6"
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "category": "ART",
+      "part": 4159,
+      "index": 19,
+      "offset": "0x6f82a376"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x1abc9d4e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 0,
+      "index": 97,
+      "offset": "0x1acd7cd6"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 0,
+      "index": 194,
+      "offset": "0x1ade5c5e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 2,
+      "index": 0,
+      "offset": "0x1b0a143a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 2,
+      "index": 44,
+      "offset": "0x1b1197da"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 2,
+      "index": 88,
+      "offset": "0x1b191b7a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 5,
+      "index": 0,
+      "offset": "0x1b48f480"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 5,
+      "index": 77,
+      "offset": "0x1b561ad8"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 5,
+      "index": 154,
+      "offset": "0x1b634130"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 7,
+      "index": 0,
+      "offset": "0x1b73d924"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 7,
+      "index": 76,
+      "offset": "0x1b80eb84"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 7,
+      "index": 151,
+      "offset": "0x1b8dd12c"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 9,
+      "index": 0,
+      "offset": "0x1ba2f260"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 9,
+      "index": 44,
+      "offset": "0x1baa99c0"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 9,
+      "index": 88,
+      "offset": "0x1bb24120"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 12,
+      "index": 0,
+      "offset": "0x1bed0056"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 12,
+      "index": 82,
+      "offset": "0x1bfb43e6"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 12,
+      "index": 163,
+      "offset": "0x1c095aee"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 14,
+      "index": 0,
+      "offset": "0x1c23edf2"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 14,
+      "index": 83,
+      "offset": "0x1c32181a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 14,
+      "index": 165,
+      "offset": "0x1c40167a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 16,
+      "index": 0,
+      "offset": "0x1c4b5076"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 16,
+      "index": 16,
+      "offset": "0x1c4e10f6"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 16,
+      "index": 31,
+      "offset": "0x1c50a56e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 19,
+      "index": 0,
+      "offset": "0x1c5f8824"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 19,
+      "index": 16,
+      "offset": "0x1c6248a4"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 19,
+      "index": 31,
+      "offset": "0x1c64dd1c"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 21,
+      "index": 0,
+      "offset": "0x1c6a0d98"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 21,
+      "index": 26,
+      "offset": "0x1c6e9368"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 21,
+      "index": 52,
+      "offset": "0x1c731938"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 23,
+      "index": 0,
+      "offset": "0x1c7990e4"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 23,
+      "index": 13,
+      "offset": "0x1c7bc904"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 23,
+      "index": 25,
+      "offset": "0x1c7dd57c"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 26,
+      "index": 0,
+      "offset": "0x1c8dc892"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 26,
+      "index": 13,
+      "offset": "0x1c9000b2"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 26,
+      "index": 25,
+      "offset": "0x1c920d2a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 28,
+      "index": 0,
+      "offset": "0x1c9c2f2e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 28,
+      "index": 16,
+      "offset": "0x1c9eefae"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 28,
+      "index": 31,
+      "offset": "0x1ca18426"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 30,
+      "index": 0,
+      "offset": "0x1ca6b4a2"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 30,
+      "index": 26,
+      "offset": "0x1cab3a72"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 30,
+      "index": 52,
+      "offset": "0x1cafc042"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 33,
+      "index": 0,
+      "offset": "0x1cbaec50"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 33,
+      "index": 26,
+      "offset": "0x1cbf7220"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 33,
+      "index": 52,
+      "offset": "0x1cc3f7f0"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 35,
+      "index": 0,
+      "offset": "0x1cca6f9c"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 35,
+      "index": 13,
+      "offset": "0x1ccca7bc"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "STA",
+      "part": 35,
+      "index": 25,
+      "offset": "0x1cceb434"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 0,
+      "index": 18,
+      "offset": "0x31ee0"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 0,
+      "index": 35,
+      "offset": "0x611c8"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 75,
+      "index": 0,
+      "offset": "0x1cb8e96"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 75,
+      "index": 19,
+      "offset": "0x1ceccde"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 75,
+      "index": 37,
+      "offset": "0x1d1e096"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 151,
+      "index": 0,
+      "offset": "0x3a91986"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 151,
+      "index": 19,
+      "offset": "0x3ac64e6"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 226,
+      "index": 0,
+      "offset": "0x585688c"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 226,
+      "index": 21,
+      "offset": "0x5890bc4"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 301,
+      "index": 0,
+      "offset": "0x74ff06a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 301,
+      "index": 20,
+      "offset": "0x7535e8a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 301,
+      "index": 39,
+      "offset": "0x756a0c2"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 377,
+      "index": 0,
+      "offset": "0x92025ea"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 377,
+      "index": 20,
+      "offset": "0x9239de2"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 377,
+      "index": 40,
+      "offset": "0x927168a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 452,
+      "index": 0,
+      "offset": "0xaeb7d20"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 452,
+      "index": 19,
+      "offset": "0xaeebbc8"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 527,
+      "index": 0,
+      "offset": "0xcd5230e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 527,
+      "index": 19,
+      "offset": "0xcd86ec6"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 603,
+      "index": 0,
+      "offset": "0xee78066"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 603,
+      "index": 26,
+      "offset": "0xeebf57e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 603,
+      "index": 52,
+      "offset": "0xef06b7e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 678,
+      "index": 0,
+      "offset": "0x10beac64"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 678,
+      "index": 19,
+      "offset": "0x10c1eb0c"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 753,
+      "index": 24,
+      "offset": "0x12a99492"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 753,
+      "index": 47,
+      "offset": "0x12ad919a"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 829,
+      "index": 27,
+      "offset": "0x145af622"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 829,
+      "index": 53,
+      "offset": "0x145f7802"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 904,
+      "index": 30,
+      "offset": "0x1655e110"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 904,
+      "index": 59,
+      "offset": "0x165ae9b0"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 979,
+      "index": 22,
+      "offset": "0x1850962e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 979,
+      "index": 43,
+      "offset": "0x18542bf6"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 1055,
+      "index": 0,
+      "offset": "0x1a4c6c06"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 1055,
+      "index": 25,
+      "offset": "0x1a50c17e"
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "category": "ART",
+      "part": 1055,
+      "index": 49,
+      "offset": "0x1a54ea7e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x551002d0"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 30,
+      "offset": "0x55152260"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 0,
+      "index": 59,
+      "offset": "0x551a1638"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 7,
+      "index": 0,
+      "offset": "0x5597d49e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 7,
+      "index": 11,
+      "offset": "0x5599be76"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 7,
+      "index": 21,
+      "offset": "0x559b7bc6"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 15,
+      "index": 0,
+      "offset": "0x55f64c96"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 15,
+      "index": 27,
+      "offset": "0x55faf7ce"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 15,
+      "index": 54,
+      "offset": "0x55ffa366"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 22,
+      "index": 0,
+      "offset": "0x56354b74"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 22,
+      "index": 26,
+      "offset": "0x5639d144"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 22,
+      "index": 52,
+      "offset": "0x563e5714"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 30,
+      "index": 0,
+      "offset": "0x566d3e1c"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 30,
+      "index": 13,
+      "offset": "0x566f763c"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 30,
+      "index": 25,
+      "offset": "0x567182b4"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 37,
+      "index": 0,
+      "offset": "0x569a61da"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 37,
+      "index": 15,
+      "offset": "0x569cfdd2"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 37,
+      "index": 29,
+      "offset": "0x569f6d42"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 44,
+      "index": 0,
+      "offset": "0x56e6d408"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 44,
+      "index": 72,
+      "offset": "0x56f33648"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 44,
+      "index": 144,
+      "offset": "0x56ff9888"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 52,
+      "index": 0,
+      "offset": "0x575903e0"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 52,
+      "index": 27,
+      "offset": "0x575daf18"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 52,
+      "index": 54,
+      "offset": "0x57625ab0"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 59,
+      "index": 0,
+      "offset": "0x578ffeb6"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 59,
+      "index": 16,
+      "offset": "0x5792bf36"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 59,
+      "index": 31,
+      "offset": "0x579553ae"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 0,
+      "offset": "0x57bd4316"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 15,
+      "offset": "0x57bfdf0e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 67,
+      "index": 29,
+      "offset": "0x57c24e7e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 74,
+      "index": 0,
+      "offset": "0x57e4a204"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 74,
+      "index": 16,
+      "offset": "0x57e76284"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 74,
+      "index": 31,
+      "offset": "0x57e9f6fc"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 81,
+      "index": 0,
+      "offset": "0x58613d7a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 81,
+      "index": 77,
+      "offset": "0x586e63d2"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 81,
+      "index": 154,
+      "offset": "0x587b8a2a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 89,
+      "index": 0,
+      "offset": "0x58e599f2"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 89,
+      "index": 34,
+      "offset": "0x58eb7302"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 89,
+      "index": 67,
+      "offset": "0x58f1200a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 96,
+      "index": 0,
+      "offset": "0x591fdd28"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 96,
+      "index": 13,
+      "offset": "0x59221548"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 96,
+      "index": 25,
+      "offset": "0x592421c0"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 104,
+      "index": 0,
+      "offset": "0x5956b320"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 104,
+      "index": 16,
+      "offset": "0x595973a0"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 104,
+      "index": 31,
+      "offset": "0x595c0818"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 111,
+      "index": 0,
+      "offset": "0x5984f38e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 111,
+      "index": 13,
+      "offset": "0x59872bae"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "STA",
+      "part": 111,
+      "index": 25,
+      "offset": "0x59893826"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 17,
+      "offset": "0x2f0b8"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 0,
+      "index": 33,
+      "offset": "0x5b538"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 234,
+      "index": 0,
+      "offset": "0x5d13f64"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 234,
+      "index": 19,
+      "offset": "0x5d47c44"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 468,
+      "index": 0,
+      "offset": "0xba79b18"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 468,
+      "index": 18,
+      "offset": "0xbaab7f8"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 702,
+      "index": 0,
+      "offset": "0x118c13dc"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 702,
+      "index": 17,
+      "offset": "0x118f045c"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 702,
+      "index": 34,
+      "offset": "0x1191f524"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 936,
+      "index": 0,
+      "offset": "0x16cc509a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 936,
+      "index": 19,
+      "offset": "0x16cf9152"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 936,
+      "index": 38,
+      "offset": "0x16d2d132"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1170,
+      "index": 19,
+      "offset": "0x1d367c72"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1170,
+      "index": 38,
+      "offset": "0x1d39c67a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1404,
+      "index": 23,
+      "offset": "0x225f13b6"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1404,
+      "index": 45,
+      "offset": "0x2262e316"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1638,
+      "index": 22,
+      "offset": "0x284869ba"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1638,
+      "index": 44,
+      "offset": "0x284c3752"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1873,
+      "index": 11,
+      "offset": "0x2dbba92a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 1873,
+      "index": 22,
+      "offset": "0x2dbd9032"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2107,
+      "index": 0,
+      "offset": "0x329c8c66"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2107,
+      "index": 15,
+      "offset": "0x329f1dbe"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2107,
+      "index": 30,
+      "offset": "0x32a1af26"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2341,
+      "index": 0,
+      "offset": "0x38a1cbe2"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2341,
+      "index": 16,
+      "offset": "0x38a48962"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2341,
+      "index": 31,
+      "offset": "0x38a71b4a"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2575,
+      "index": 0,
+      "offset": "0x3e2b0b56"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2575,
+      "index": 17,
+      "offset": "0x3e2df10e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2575,
+      "index": 33,
+      "offset": "0x3e30aace"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2809,
+      "index": 0,
+      "offset": "0x44369572"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 2809,
+      "index": 19,
+      "offset": "0x4439d5e2"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 3043,
+      "index": 0,
+      "offset": "0x49fe6e6e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 3043,
+      "index": 26,
+      "offset": "0x4a02ee16"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 3043,
+      "index": 51,
+      "offset": "0x4a07411e"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 3277,
+      "index": 0,
+      "offset": "0x4f7e7332"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 3277,
+      "index": 17,
+      "offset": "0x4f815c12"
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "category": "ART",
+      "part": 3277,
+      "index": 33,
+      "offset": "0x4f841912"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 0,
+      "index": 0,
+      "offset": "0x1c241eb8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 0,
+      "index": 97,
+      "offset": "0x1c34fe40"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 0,
+      "index": 194,
+      "offset": "0x1c45ddc8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 2,
+      "index": 0,
+      "offset": "0x1c7195a4"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 2,
+      "index": 44,
+      "offset": "0x1c791944"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 2,
+      "index": 88,
+      "offset": "0x1c809ce4"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 5,
+      "index": 0,
+      "offset": "0x1cb075ea"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 5,
+      "index": 77,
+      "offset": "0x1cbd9c42"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 5,
+      "index": 154,
+      "offset": "0x1ccac29a"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 7,
+      "index": 0,
+      "offset": "0x1cdb5a8e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 7,
+      "index": 76,
+      "offset": "0x1ce86cee"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 7,
+      "index": 151,
+      "offset": "0x1cf55296"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 9,
+      "index": 0,
+      "offset": "0x1d0a73ca"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 9,
+      "index": 44,
+      "offset": "0x1d121b2a"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 9,
+      "index": 88,
+      "offset": "0x1d19c28a"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 12,
+      "index": 0,
+      "offset": "0x1d5481c0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 12,
+      "index": 82,
+      "offset": "0x1d62c550"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 12,
+      "index": 163,
+      "offset": "0x1d70dc58"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 14,
+      "index": 0,
+      "offset": "0x1d8b6f5c"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 14,
+      "index": 83,
+      "offset": "0x1d999984"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 14,
+      "index": 165,
+      "offset": "0x1da797e4"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 16,
+      "index": 0,
+      "offset": "0x1db2d1e0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 16,
+      "index": 16,
+      "offset": "0x1db59260"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 16,
+      "index": 31,
+      "offset": "0x1db826d8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 19,
+      "index": 0,
+      "offset": "0x1dc6ae16"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 19,
+      "index": 16,
+      "offset": "0x1dc96e96"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 19,
+      "index": 31,
+      "offset": "0x1dcc030e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 21,
+      "index": 0,
+      "offset": "0x1dd0d812"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 21,
+      "index": 26,
+      "offset": "0x1dd55de2"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 21,
+      "index": 52,
+      "offset": "0x1dd9e3b2"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 23,
+      "index": 0,
+      "offset": "0x1de05b5e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 23,
+      "index": 12,
+      "offset": "0x1de267f6"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 23,
+      "index": 23,
+      "offset": "0x1de44886"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 26,
+      "index": 0,
+      "offset": "0x1df43794"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 26,
+      "index": 12,
+      "offset": "0x1df6442c"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 26,
+      "index": 23,
+      "offset": "0x1df824bc"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 28,
+      "index": 0,
+      "offset": "0x1e0242b8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 28,
+      "index": 16,
+      "offset": "0x1e050338"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 28,
+      "index": 31,
+      "offset": "0x1e0797b0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 30,
+      "index": 0,
+      "offset": "0x1e0c6cb4"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 30,
+      "index": 26,
+      "offset": "0x1e10f284"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 30,
+      "index": 52,
+      "offset": "0x1e157854"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 33,
+      "index": 0,
+      "offset": "0x1e2048ea"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 33,
+      "index": 26,
+      "offset": "0x1e24ceba"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 33,
+      "index": 52,
+      "offset": "0x1e29548a"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 35,
+      "index": 0,
+      "offset": "0x1e2fcc36"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 35,
+      "index": 12,
+      "offset": "0x1e31d8ce"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "STA",
+      "part": 35,
+      "index": 23,
+      "offset": "0x1e33b95e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 0,
+      "index": 0,
+      "offset": "0x0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 0,
+      "index": 26,
+      "offset": "0x48258"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 0,
+      "index": 51,
+      "offset": "0x8d7b8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 76,
+      "index": 0,
+      "offset": "0x21020b0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 76,
+      "index": 19,
+      "offset": "0x2135fa0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 76,
+      "index": 37,
+      "offset": "0x2167318"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 152,
+      "index": 0,
+      "offset": "0x42175a8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 152,
+      "index": 18,
+      "offset": "0x4249468"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 228,
+      "index": 0,
+      "offset": "0x6373038"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 228,
+      "index": 19,
+      "offset": "0x63a7bf0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 304,
+      "index": 0,
+      "offset": "0x8251518"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 304,
+      "index": 26,
+      "offset": "0x8298608"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 304,
+      "index": 51,
+      "offset": "0x82dcb00"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 380,
+      "index": 0,
+      "offset": "0xa0e9e48"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 380,
+      "index": 6,
+      "offset": "0xa0fa8b8"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 380,
+      "index": 12,
+      "offset": "0xa10b348"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 456,
+      "index": 0,
+      "offset": "0xc1f75b0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 456,
+      "index": 20,
+      "offset": "0xc22ee40"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 532,
+      "index": 0,
+      "offset": "0xe5172d0"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 532,
+      "index": 19,
+      "offset": "0xe54b178"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 532,
+      "index": 37,
+      "offset": "0xe57c468"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 607,
+      "index": 0,
+      "offset": "0x108c9d0e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 607,
+      "index": 25,
+      "offset": "0x1090e726"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 607,
+      "index": 50,
+      "offset": "0x109530ce"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 683,
+      "index": 0,
+      "offset": "0x12e2ef7e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 683,
+      "index": 16,
+      "offset": "0x12e5b5be"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 683,
+      "index": 32,
+      "offset": "0x12e87c3e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 759,
+      "index": 25,
+      "offset": "0x14ad45c6"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 759,
+      "index": 50,
+      "offset": "0x14b19c06"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 835,
+      "index": 24,
+      "offset": "0x162fdace"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 835,
+      "index": 47,
+      "offset": "0x1633d7e6"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 911,
+      "index": 23,
+      "offset": "0x17fdc836"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 911,
+      "index": 46,
+      "offset": "0x1801b536"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 987,
+      "index": 22,
+      "offset": "0x19b0918e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 987,
+      "index": 44,
+      "offset": "0x19b4632e"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 1063,
+      "index": 0,
+      "offset": "0x1bbf71ce"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 1063,
+      "index": 22,
+      "offset": "0x1bc33416"
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "category": "ART",
+      "part": 1063,
+      "index": 44,
+      "offset": "0x1bc6f5e6"
+    }
+  ]
+}

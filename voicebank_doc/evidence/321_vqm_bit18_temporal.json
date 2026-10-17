@@ -1,0 +1,379 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "common_interior_margin_frames": 4,
+  "fixed_kernel_controls": [
+    {
+      "kernel": "identity",
+      "source": "drs_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.03472794219851494,
+          "max_absolute_error": 0.10209846496582031
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.017160276823405977,
+          "max_absolute_error": 0.045454978942871094
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.01829147942458527,
+          "max_absolute_error": 0.050307273864746094
+        }
+      ]
+    },
+    {
+      "kernel": "identity",
+      "source": "saved_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.03467489406466484,
+          "max_absolute_error": 0.10203409194946289
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.017146810700621785,
+          "max_absolute_error": 0.0458073616027832
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.018414479267748095,
+          "max_absolute_error": 0.05041980743408203
+        }
+      ]
+    },
+    {
+      "kernel": "three_frame_mean",
+      "source": "drs_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.011276601503292696,
+          "max_absolute_error": 0.02838548024495413
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.005122979482014936,
+          "max_absolute_error": 0.013676325480143525
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.005686955109930198,
+          "max_absolute_error": 0.014194806416829131
+        }
+      ]
+    },
+    {
+      "kernel": "three_frame_mean",
+      "source": "saved_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.011260170489549609,
+          "max_absolute_error": 0.028459787368774414
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.005096477798268776,
+          "max_absolute_error": 0.01405413945515921
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0058431404049386045,
+          "max_absolute_error": 0.014336585998535156
+        }
+      ]
+    },
+    {
+      "kernel": "five_frame_mean",
+      "source": "drs_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0069450683891773,
+          "max_absolute_error": 0.019017887115478693
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.004257887828199179,
+          "max_absolute_error": 0.015378284454345525
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0042665107340752505,
+          "max_absolute_error": 0.014151668548583629
+        }
+      ]
+    },
+    {
+      "kernel": "five_frame_mean",
+      "source": "saved_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.006950803846120818,
+          "max_absolute_error": 0.01894745826721156
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.004278097273428233,
+          "max_absolute_error": 0.015387439727783558
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.004367603833162291,
+          "max_absolute_error": 0.014956569671630504
+        }
+      ]
+    },
+    {
+      "kernel": "five_frame_binomial",
+      "source": "drs_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0022736680693924427,
+          "max_absolute_error": 0.007801353931427002
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.001727859053430678,
+          "max_absolute_error": 0.006402373313903809
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0015199357950234716,
+          "max_absolute_error": 0.006195276975631714
+        }
+      ]
+    },
+    {
+      "kernel": "five_frame_binomial",
+      "source": "saved_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.002162377815693617,
+          "max_absolute_error": 0.007663458585739136
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.001725537112996548,
+          "max_absolute_error": 0.0065292418003082275
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0017961033537418028,
+          "max_absolute_error": 0.006282836198806763
+        }
+      ]
+    },
+    {
+      "kernel": "five_frame_1_3_4_3_1",
+      "source": "drs_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0022143324216206822,
+          "max_absolute_error": 0.00857698917388916
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0015904978860782335,
+          "max_absolute_error": 0.006388545036315918
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0013668185044944387,
+          "max_absolute_error": 0.005266269048054717
+        }
+      ]
+    },
+    {
+      "kernel": "five_frame_1_3_4_3_1",
+      "source": "saved_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0020420694102843695,
+          "max_absolute_error": 0.008603294690449736
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.001589402367797079,
+          "max_absolute_error": 0.00651005903879831
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0016336204633431242,
+          "max_absolute_error": 0.005320270856221221
+        }
+      ]
+    },
+    {
+      "kernel": "nine_frame_gaussian_sigma_1_1",
+      "source": "drs_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0021829352146710695,
+          "max_absolute_error": 0.007175977678227419
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.001600845917784836,
+          "max_absolute_error": 0.006120341649218375
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0014011660038715122,
+          "max_absolute_error": 0.005861335884213226
+        }
+      ]
+    },
+    {
+      "kernel": "nine_frame_gaussian_sigma_1_1",
+      "source": "saved_pitch",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0020488677086767937,
+          "max_absolute_error": 0.007036688562016558
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0015980225381899862,
+          "max_absolute_error": 0.006241538516589706
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0016273989225772446,
+          "max_absolute_error": 0.005947891122882076
+        }
+      ]
+    }
+  ],
+  "smoothing_domain_controls": [
+    {
+      "domain": "feature",
+      "kernel": "five_frame_1_3_4_3_1",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.0022143324216206822,
+          "max_absolute_error": 0.00857698917388916
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0015904978860782335,
+          "max_absolute_error": 0.006388545036315918
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.0013668185044944387,
+          "max_absolute_error": 0.005266269048054717
+        }
+      ]
+    },
+    {
+      "domain": "pre_log_ratio",
+      "kernel": "five_frame_1_3_4_3_1",
+      "per_sample": [
+        {
+          "frames": 64,
+          "mean_absolute_error": 0.009277243673486202,
+          "max_absolute_error": 0.034626914203028214
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.00414935427578442,
+          "max_absolute_error": 0.012854549787644665
+        },
+        {
+          "frames": 79,
+          "mean_absolute_error": 0.004530194380993857,
+          "max_absolute_error": 0.013124047080134815
+        }
+      ]
+    }
+  ],
+  "leave_one_sequence_out_fits": [
+    {
+      "held_out_sample_index": 0,
+      "trained_on_sample_indices": [
+        1,
+        2
+      ],
+      "symmetric_weights_left_to_right": [
+        0.08290730645271989,
+        0.243532708387202,
+        0.3471199703201562,
+        0.243532708387202,
+        0.08290730645271989
+      ],
+      "held_out_error": {
+        "frames": 64,
+        "mean_absolute_error": 0.002101194062562456,
+        "max_absolute_error": 0.007139103943449854
+      },
+      "held_out_identity_error": {
+        "frames": 64,
+        "mean_absolute_error": 0.03472794219851494,
+        "max_absolute_error": 0.10209846496582031
+      }
+    },
+    {
+      "held_out_sample_index": 1,
+      "trained_on_sample_indices": [
+        0,
+        2
+      ],
+      "symmetric_weights_left_to_right": [
+        0.08089011169252575,
+        0.24439798665063275,
+        0.34942380331368295,
+        0.24439798665063275,
+        0.08089011169252575
+      ],
+      "held_out_error": {
+        "frames": 79,
+        "mean_absolute_error": 0.0015627390359096664,
+        "max_absolute_error": 0.005992912077556589
+      },
+      "held_out_identity_error": {
+        "frames": 79,
+        "mean_absolute_error": 0.017160276823405977,
+        "max_absolute_error": 0.045454978942871094
+      }
+    },
+    {
+      "held_out_sample_index": 2,
+      "trained_on_sample_indices": [
+        0,
+        1
+      ],
+      "symmetric_weights_left_to_right": [
+        0.08251478492895878,
+        0.244085677324284,
+        0.3467990754935144,
+        0.244085677324284,
+        0.08251478492895878
+      ],
+      "held_out_error": {
+        "frames": 79,
+        "mean_absolute_error": 0.0013477128682283332,
+        "max_absolute_error": 0.005929634305824827
+      },
+      "held_out_identity_error": {
+        "frames": 79,
+        "mean_absolute_error": 0.01829147942458527,
+        "max_absolute_error": 0.050307273864746094
+      }
+    }
+  ],
+  "scope": "Three independent sequences from one V4X bank; cross-validation bounds a temporal relationship, not the authoring filter or an exact saved-value formula."
+}

@@ -1,0 +1,1072 @@
+{
+  "manifest_sha256": "190376714fe74343c87e0c285bd7eccf7017c00711d7ed05b8e4cfa1a059ef35",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "banks": 8,
+  "uniform_sta_banks": 6,
+  "pair_keys": 7437,
+  "pair_single_other": 758,
+  "pair_partial_vs_modal": 3000,
+  "release_sources_without_sta": 256,
+  "triple_keys": 994,
+  "rows": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "sta_keys": 36,
+      "sta_layer_histogram": {
+        "4": 36
+      },
+      "modal_sta_layers": 4,
+      "sta_layers_uniform": true,
+      "pair_keys": 1327,
+      "pair_layer_histogram": {
+        "1": 148,
+        "2": 74,
+        "3": 9,
+        "4": 1096
+      },
+      "pair_single_layer": 148,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_other": 24,
+        "nonSil_to_unvoiced": 94
+      },
+      "pair_single_layer_pitched": 0,
+      "pair_single_layer_pitched_examples": [],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 129,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k",
+          "k#2"
+        ],
+        [
+          "k",
+          "k#6"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'#2"
+        ],
+        [
+          "k'",
+          "k'#6"
+        ]
+      ],
+      "pair_partial_vs_modal": 83,
+      "pair_partial_examples": [
+        [
+          "a",
+          "*#1"
+        ],
+        [
+          "a",
+          "*#2"
+        ],
+        [
+          "i",
+          "*#1"
+        ],
+        [
+          "i",
+          "*#2"
+        ],
+        [
+          "M",
+          "*#1"
+        ],
+        [
+          "M",
+          "*#2"
+        ],
+        [
+          "e",
+          "*#1"
+        ],
+        [
+          "e",
+          "*#2"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -914.2938232421875,
+        -528.9666748046875,
+        -211.72787475585938,
+        272.9815979003906
+      ],
+      "full_modal_pair_pitch1_grid": [
+        -927.4526672363281,
+        -526.6686401367188,
+        -210.9329071044922,
+        267.7304229736328
+      ],
+      "full_modal_grid_median_difference_max": 13.158843994140625,
+      "full_modal_pair_pitched_keys": 1060,
+      "full_modal_pair_grid_max_error_median": 63.799407958984375,
+      "full_modal_pair_grid_max_error_p95": 156.07376098632812,
+      "full_modal_pair_grid_max_error_max": 635.2859191894531,
+      "full_modal_pair_over_100_cent": 303,
+      "pair_graph_nodes": 131,
+      "pair_graph_nodes_without_route_to_sil": 58,
+      "release_sources": 70,
+      "release_sources_without_sta": 34,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "Z",
+        "b",
+        "b'",
+        "br1"
+      ],
+      "triple_keys": 284
+    },
+    {
+      "bank": "MIKU_V4X_Sweet",
+      "ddi_sha256": "ad9b21215e959e7a153e15099d6f2d09dba0222716b030e362f9a710270f7e2f",
+      "sta_keys": 12,
+      "sta_layer_histogram": {
+        "4": 12
+      },
+      "modal_sta_layers": 4,
+      "sta_layers_uniform": true,
+      "pair_keys": 610,
+      "pair_layer_histogram": {
+        "1": 127,
+        "2": 24,
+        "3": 459
+      },
+      "pair_single_layer": 127,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_other": 25,
+        "nonSil_to_unvoiced": 72
+      },
+      "pair_single_layer_pitched": 0,
+      "pair_single_layer_pitched_examples": [],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 108,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "t",
+          "t"
+        ],
+        [
+          "t",
+          "Sil"
+        ],
+        [
+          "t'",
+          "t'"
+        ],
+        [
+          "t'",
+          "Sil"
+        ]
+      ],
+      "pair_partial_vs_modal": 483,
+      "pair_partial_examples": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "a",
+          "i"
+        ],
+        [
+          "a",
+          "M"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "a",
+          "o"
+        ],
+        [
+          "a",
+          "n"
+        ],
+        [
+          "a",
+          "J"
+        ],
+        [
+          "a",
+          "m"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -914.2938232421875,
+        -528.9718017578125,
+        -211.72787475585938,
+        272.9815979003906
+      ],
+      "full_modal_pair_pitch1_grid": null,
+      "full_modal_grid_median_difference_max": null,
+      "full_modal_pair_pitched_keys": 0,
+      "full_modal_pair_grid_max_error_median": null,
+      "full_modal_pair_grid_max_error_p95": null,
+      "full_modal_pair_grid_max_error_max": null,
+      "full_modal_pair_over_100_cent": 0,
+      "pair_graph_nodes": 49,
+      "pair_graph_nodes_without_route_to_sil": 0,
+      "release_sources": 46,
+      "release_sources_without_sta": 34,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "Z",
+        "b",
+        "b'",
+        "br1"
+      ],
+      "triple_keys": 0
+    },
+    {
+      "bank": "MIKU_V4X_Soft_EVEC",
+      "ddi_sha256": "6d3404c6872e8091ff883970db9ae60728fb909d7ea98b2fcd4f9732a09a687f",
+      "sta_keys": 36,
+      "sta_layer_histogram": {
+        "4": 36
+      },
+      "modal_sta_layers": 4,
+      "sta_layers_uniform": true,
+      "pair_keys": 1326,
+      "pair_layer_histogram": {
+        "1": 155,
+        "2": 72,
+        "3": 857,
+        "4": 242
+      },
+      "pair_single_layer": 155,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_other": 25,
+        "nonSil_to_unvoiced": 100
+      },
+      "pair_single_layer_pitched": 0,
+      "pair_single_layer_pitched_examples": [],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 136,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k",
+          "k#2"
+        ],
+        [
+          "k",
+          "k#6"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'#2"
+        ],
+        [
+          "k'",
+          "k'#6"
+        ]
+      ],
+      "pair_partial_vs_modal": 929,
+      "pair_partial_examples": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "a",
+          "i"
+        ],
+        [
+          "a",
+          "M"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "a",
+          "o"
+        ],
+        [
+          "a",
+          "n"
+        ],
+        [
+          "a",
+          "J"
+        ],
+        [
+          "a",
+          "m"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -914.2938232421875,
+        -528.9718017578125,
+        -211.72787475585938,
+        272.9815979003906
+      ],
+      "full_modal_pair_pitch1_grid": [
+        -941.79248046875,
+        -531.7305603027344,
+        -216.62420654296875,
+        263.04388427734375
+      ],
+      "full_modal_grid_median_difference_max": 27.4986572265625,
+      "full_modal_pair_pitched_keys": 242,
+      "full_modal_pair_grid_max_error_median": 44.66998291015625,
+      "full_modal_pair_grid_max_error_p95": 91.03778076171875,
+      "full_modal_pair_grid_max_error_max": 137.7203369140625,
+      "full_modal_pair_over_100_cent": 6,
+      "pair_graph_nodes": 131,
+      "pair_graph_nodes_without_route_to_sil": 58,
+      "release_sources": 70,
+      "release_sources_without_sta": 34,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "Z",
+        "b",
+        "b'",
+        "br1"
+      ],
+      "triple_keys": 284
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "sta_keys": 12,
+      "sta_layer_histogram": {
+        "4": 12
+      },
+      "modal_sta_layers": 4,
+      "sta_layers_uniform": true,
+      "pair_keys": 610,
+      "pair_layer_histogram": {
+        "1": 125,
+        "2": 24,
+        "3": 461
+      },
+      "pair_single_layer": 125,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_other": 23,
+        "nonSil_to_unvoiced": 72
+      },
+      "pair_single_layer_pitched": 0,
+      "pair_single_layer_pitched_examples": [],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 106,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "t",
+          "t"
+        ],
+        [
+          "t",
+          "Sil"
+        ],
+        [
+          "t'",
+          "t'"
+        ],
+        [
+          "t'",
+          "Sil"
+        ]
+      ],
+      "pair_partial_vs_modal": 485,
+      "pair_partial_examples": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "a",
+          "i"
+        ],
+        [
+          "a",
+          "M"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "a",
+          "o"
+        ],
+        [
+          "a",
+          "n"
+        ],
+        [
+          "a",
+          "J"
+        ],
+        [
+          "a",
+          "m"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -914.2938232421875,
+        -528.9718017578125,
+        -211.72787475585938,
+        272.9815979003906
+      ],
+      "full_modal_pair_pitch1_grid": null,
+      "full_modal_grid_median_difference_max": null,
+      "full_modal_pair_pitched_keys": 0,
+      "full_modal_pair_grid_max_error_median": null,
+      "full_modal_pair_grid_max_error_p95": null,
+      "full_modal_pair_grid_max_error_max": null,
+      "full_modal_pair_over_100_cent": 0,
+      "pair_graph_nodes": 49,
+      "pair_graph_nodes_without_route_to_sil": 0,
+      "release_sources": 46,
+      "release_sources_without_sta": 34,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "Z",
+        "b",
+        "b'",
+        "br1"
+      ],
+      "triple_keys": 0
+    },
+    {
+      "bank": "MIKU_V4X_Solid_EVEC",
+      "ddi_sha256": "54e314cf07624edc56fac5e8fd4d009388411ed8f08945a1a3a5b794dc85e3f6",
+      "sta_keys": 36,
+      "sta_layer_histogram": {
+        "3": 24,
+        "4": 12
+      },
+      "modal_sta_layers": 3,
+      "sta_layers_uniform": false,
+      "pair_keys": 1323,
+      "pair_layer_histogram": {
+        "1": 146,
+        "2": 72,
+        "3": 1105
+      },
+      "pair_single_layer": 146,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_other": 25,
+        "nonSil_to_unvoiced": 91
+      },
+      "pair_single_layer_pitched": 0,
+      "pair_single_layer_pitched_examples": [],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 127,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k",
+          "k#2"
+        ],
+        [
+          "k",
+          "k#6"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'#2"
+        ],
+        [
+          "k'",
+          "k'#6"
+        ]
+      ],
+      "pair_partial_vs_modal": 72,
+      "pair_partial_examples": [
+        [
+          "a",
+          "*#1"
+        ],
+        [
+          "a",
+          "*#2"
+        ],
+        [
+          "i",
+          "*#1"
+        ],
+        [
+          "i",
+          "*#2"
+        ],
+        [
+          "M",
+          "*#1"
+        ],
+        [
+          "M",
+          "*#2"
+        ],
+        [
+          "e",
+          "*#1"
+        ],
+        [
+          "e",
+          "*#2"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -799.6114501953125,
+        -397.5710144042969,
+        -99.57949829101562
+      ],
+      "full_modal_pair_pitch1_grid": [
+        -795.7308959960938,
+        -416.61419677734375,
+        -108.86585998535156
+      ],
+      "full_modal_grid_median_difference_max": 19.043182373046875,
+      "full_modal_pair_pitched_keys": 1065,
+      "full_modal_pair_grid_max_error_median": 34.064788818359375,
+      "full_modal_pair_grid_max_error_p95": 77.46160888671875,
+      "full_modal_pair_grid_max_error_max": 424.4239196777344,
+      "full_modal_pair_over_100_cent": 34,
+      "pair_graph_nodes": 131,
+      "pair_graph_nodes_without_route_to_sil": 58,
+      "release_sources": 67,
+      "release_sources_without_sta": 31,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "b",
+        "b'",
+        "br1",
+        "br2"
+      ],
+      "triple_keys": 284
+    },
+    {
+      "bank": "RIN_V4X_Warm",
+      "ddi_sha256": "91832056adf768e03595e0857391d094bc9087b0730112a10299f6f34a2ef015",
+      "sta_keys": 12,
+      "sta_layer_histogram": {
+        "3": 12
+      },
+      "modal_sta_layers": 3,
+      "sta_layers_uniform": true,
+      "pair_keys": 525,
+      "pair_layer_histogram": {
+        "1": 73,
+        "2": 298,
+        "3": 154
+      },
+      "pair_single_layer": 73,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_other": 2,
+        "nonSil_to_unvoiced": 41
+      },
+      "pair_single_layer_pitched": 4,
+      "pair_single_layer_pitched_examples": [
+        [
+          "Sil",
+          "dz"
+        ],
+        [
+          "Sil",
+          "dZ"
+        ],
+        [
+          "Sil",
+          "z"
+        ],
+        [
+          "Sil",
+          "Z"
+        ]
+      ],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 54,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "t",
+          "t"
+        ],
+        [
+          "t",
+          "Sil"
+        ],
+        [
+          "t'",
+          "t'"
+        ],
+        [
+          "t'",
+          "Sil"
+        ]
+      ],
+      "pair_partial_vs_modal": 298,
+      "pair_partial_examples": [
+        [
+          "a",
+          "n"
+        ],
+        [
+          "a",
+          "J"
+        ],
+        [
+          "a",
+          "m"
+        ],
+        [
+          "a",
+          "m'"
+        ],
+        [
+          "a",
+          "k"
+        ],
+        [
+          "a",
+          "k'"
+        ],
+        [
+          "a",
+          "t"
+        ],
+        [
+          "a",
+          "t'"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -800.1497802734375,
+        -404.57611083984375,
+        -96.90045166015625
+      ],
+      "full_modal_pair_pitch1_grid": [
+        -717.9384155273438,
+        -316.8626708984375,
+        -116.35192108154297
+      ],
+      "full_modal_grid_median_difference_max": 87.71343994140625,
+      "full_modal_pair_pitched_keys": 148,
+      "full_modal_pair_grid_max_error_median": 96.19711303710938,
+      "full_modal_pair_grid_max_error_p95": 119.46697998046875,
+      "full_modal_pair_grid_max_error_max": 370.09051513671875,
+      "full_modal_pair_over_100_cent": 58,
+      "pair_graph_nodes": 49,
+      "pair_graph_nodes_without_route_to_sil": 2,
+      "release_sources": 43,
+      "release_sources_without_sta": 31,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "b",
+        "b'",
+        "br1",
+        "br2"
+      ],
+      "triple_keys": 0
+    },
+    {
+      "bank": "RIN_V4X_Power_EVEC",
+      "ddi_sha256": "98cbbde183b69f8cd9c6e9eb3603491e0aef84db1288fdb7e242067d31ad09c3",
+      "sta_keys": 36,
+      "sta_layer_histogram": {
+        "3": 32,
+        "4": 4
+      },
+      "modal_sta_layers": 3,
+      "sta_layers_uniform": false,
+      "pair_keys": 1195,
+      "pair_layer_histogram": {
+        "1": 65,
+        "2": 369,
+        "3": 761
+      },
+      "pair_single_layer": 65,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_unvoiced": 35
+      },
+      "pair_single_layer_pitched": 6,
+      "pair_single_layer_pitched_examples": [
+        [
+          "Sil",
+          "g"
+        ],
+        [
+          "Sil",
+          "g'"
+        ],
+        [
+          "Sil",
+          "dz"
+        ],
+        [
+          "Sil",
+          "dZ"
+        ],
+        [
+          "Sil",
+          "z"
+        ],
+        [
+          "Sil",
+          "Z"
+        ]
+      ],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 46,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "t",
+          "t"
+        ],
+        [
+          "t",
+          "Sil"
+        ],
+        [
+          "t'",
+          "t'"
+        ],
+        [
+          "t'",
+          "Sil"
+        ]
+      ],
+      "pair_partial_vs_modal": 369,
+      "pair_partial_examples": [
+        [
+          "a",
+          "*#1"
+        ],
+        [
+          "a",
+          "*#2"
+        ],
+        [
+          "i",
+          "*#1"
+        ],
+        [
+          "i",
+          "*#2"
+        ],
+        [
+          "M",
+          "*#1"
+        ],
+        [
+          "M",
+          "*#2"
+        ],
+        [
+          "e",
+          "*#1"
+        ],
+        [
+          "e",
+          "*#2"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -800.1497802734375,
+        -404.57611083984375,
+        -96.90045166015625
+      ],
+      "full_modal_pair_pitch1_grid": [
+        -608.808349609375,
+        -212.2098388671875,
+        -3.6436033248901367
+      ],
+      "full_modal_grid_median_difference_max": 192.36627197265625,
+      "full_modal_pair_pitched_keys": 749,
+      "full_modal_pair_grid_max_error_median": 198.0263214111328,
+      "full_modal_pair_grid_max_error_p95": 220.841796875,
+      "full_modal_pair_grid_max_error_max": 436.9703674316406,
+      "full_modal_pair_over_100_cent": 748,
+      "pair_graph_nodes": 73,
+      "pair_graph_nodes_without_route_to_sil": 2,
+      "release_sources": 67,
+      "release_sources_without_sta": 31,
+      "release_sources_without_sta_examples": [
+        "4",
+        "4'",
+        "C",
+        "S",
+        "b",
+        "b'",
+        "br1",
+        "br2"
+      ],
+      "triple_keys": 142
+    },
+    {
+      "bank": "RIN_V4X_Sweet",
+      "ddi_sha256": "e8273c9f0ee86858c8aafa27cd1f1d823059e9afbdc7e6cfbd0ba1f1f8f13290",
+      "sta_keys": 12,
+      "sta_layer_histogram": {
+        "3": 12
+      },
+      "modal_sta_layers": 3,
+      "sta_layers_uniform": true,
+      "pair_keys": 521,
+      "pair_layer_histogram": {
+        "1": 71,
+        "2": 281,
+        "3": 169
+      },
+      "pair_single_layer": 71,
+      "pair_single_layer_categories": {
+        "Sil_to_other": 11,
+        "Sil_to_unvoiced": 19,
+        "nonSil_to_unvoiced": 41
+      },
+      "pair_single_layer_pitched": 0,
+      "pair_single_layer_pitched_examples": [],
+      "pair_single_sil_to_unvoiced": 19,
+      "pair_single_other": 52,
+      "pair_single_other_examples": [
+        [
+          "k",
+          "k"
+        ],
+        [
+          "k",
+          "Sil"
+        ],
+        [
+          "k'",
+          "k'"
+        ],
+        [
+          "k'",
+          "Sil"
+        ],
+        [
+          "t",
+          "t"
+        ],
+        [
+          "t",
+          "Sil"
+        ],
+        [
+          "t'",
+          "t'"
+        ],
+        [
+          "t'",
+          "Sil"
+        ]
+      ],
+      "pair_partial_vs_modal": 281,
+      "pair_partial_examples": [
+        [
+          "a",
+          "n"
+        ],
+        [
+          "a",
+          "J"
+        ],
+        [
+          "a",
+          "m"
+        ],
+        [
+          "a",
+          "m'"
+        ],
+        [
+          "a",
+          "k"
+        ],
+        [
+          "a",
+          "k'"
+        ],
+        [
+          "a",
+          "t"
+        ],
+        [
+          "a",
+          "t'"
+        ]
+      ],
+      "sta_modal_pitch1_grid": [
+        -800.1497802734375,
+        -404.57611083984375,
+        -95.118408203125
+      ],
+      "full_modal_pair_pitch1_grid": [
+        -713.0944213867188,
+        -321.7388916015625,
+        -125.9654541015625
+      ],
+      "full_modal_grid_median_difference_max": 87.05535888671875,
+      "full_modal_pair_pitched_keys": 161,
+      "full_modal_pair_grid_max_error_median": 96.23602294921875,
+      "full_modal_pair_grid_max_error_p95": 144.36691284179688,
+      "full_modal_pair_grid_max_error_max": 371.87255859375,
+      "full_modal_pair_over_100_cent": 71,
+      "pair_graph_nodes": 49,
+      "pair_graph_nodes_without_route_to_sil": 2,
+      "release_sources": 39,
+      "release_sources_without_sta": 27,
+      "release_sources_without_sta_examples": [
+        "C",
+        "S",
+        "b",
+        "b'",
+        "br1",
+        "br2",
+        "br3",
+        "br4"
+      ],
+      "triple_keys": 0
+    }
+  ],
+  "scope": "Read-only installed V4X DDI comparison metrics. Historical Chinese-bank findings are cited in the accompanying document and are not remeasured on this device. Layer counts, pitch1 coordinates, and graph structure do not by themselves prove Editor timing or acoustic quality."
+}

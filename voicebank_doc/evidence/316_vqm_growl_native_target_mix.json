@@ -1,0 +1,66 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "cases": [
+    {
+      "working_frame_primary_count": 2,
+      "working_frame_1a8": 2049,
+      "target_spectrum_seeded": true,
+      "target_spectrum_source": "native_pcm",
+      "target_producer_half_count": 2048,
+      "target_producer_nonzero": 4096,
+      "analysis_window_length": 2048,
+      "analysis_window_mode": 0,
+      "active_count_minus_one": 2043,
+      "advanced_time_seconds": 0.29000000000000004,
+      "event_output_nonzero": 0,
+      "first_nonzero": 0,
+      "second_nonzero": 0,
+      "mix_gain": 1.0,
+      "pcm_amplitude": 5000.0,
+      "mixed_buffer_bins": 2049,
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_third_nonzero": 108,
+      "mixed_real_max_absolute": 2661589.25,
+      "mixed_imag_max_absolute": 3668647.25,
+      "inverse_fft_length": 4096,
+      "inverse_fft_nonzero": 4096,
+      "inverse_fft_max_absolute": 130748.28125,
+      "inverse_replay_max_errors": {
+        "-1": 0.008417733013629913,
+        "1": 161362.7914926604
+      }
+    },
+    {
+      "working_frame_primary_count": 2,
+      "working_frame_1a8": 2049,
+      "target_spectrum_seeded": true,
+      "target_spectrum_source": "native_pcm",
+      "target_producer_half_count": 2048,
+      "target_producer_nonzero": 4096,
+      "analysis_window_length": 2048,
+      "analysis_window_mode": 0,
+      "active_count_minus_one": 2043,
+      "advanced_time_seconds": 0.29000000000000004,
+      "event_output_nonzero": 0,
+      "first_nonzero": 0,
+      "second_nonzero": 0,
+      "mix_gain": 0.0,
+      "pcm_amplitude": 5000.0,
+      "mixed_buffer_bins": 2049,
+      "mixed_real_nonzero": 0,
+      "mixed_imag_nonzero": 0,
+      "mixed_third_nonzero": 2049,
+      "mixed_real_max_absolute": 0.0,
+      "mixed_imag_max_absolute": 0.0,
+      "inverse_fft_length": 4096,
+      "inverse_fft_nonzero": 0,
+      "inverse_fft_max_absolute": 0.0,
+      "inverse_replay_max_errors": {
+        "-1": 0.0,
+        "1": 0.0
+      }
+    }
+  ],
+  "scope": "The ordinary target frame spectrum is calculated from owned PCM by the native mode-3 producer and copied into a native allocated frame. Growl event, frequency-domain mixer, and native inverse FFT produce a time-domain block that matches an independent Fourier replay at sampled indices. Full host orchestration and final audio output are not verified."
+}

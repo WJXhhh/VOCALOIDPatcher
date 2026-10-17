@@ -1,0 +1,89 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "synthetic_cases": [
+    {
+      "case": "five_harmonics_440",
+      "frames": 44,
+      "float32_exact_to_drs": 44,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 180,
+      "intermediate_record_count_max": 485
+    },
+    {
+      "case": "five_harmonics_880",
+      "frames": 44,
+      "float32_exact_to_drs": 44,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 67,
+      "intermediate_record_count_max": 489
+    },
+    {
+      "case": "sine_440",
+      "frames": 44,
+      "float32_exact_to_drs": 44,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 219,
+      "intermediate_record_count_max": 508
+    },
+    {
+      "case": "sine_plus_noise_440",
+      "frames": 44,
+      "float32_exact_to_drs": 44,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 90,
+      "intermediate_record_count_max": 151
+    },
+    {
+      "case": "silence_440_pitch_seed",
+      "frames": 44,
+      "float32_exact_to_drs": 44,
+      "negative_one_outputs": 44,
+      "intermediate_record_count_min": 0,
+      "intermediate_record_count_max": 0
+    }
+  ],
+  "saved_pcm_cases": [
+    {
+      "case": "independent_vqm_0",
+      "frames": 72,
+      "float32_exact_to_drs": 72,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 92,
+      "intermediate_record_count_max": 183,
+      "saved_vqm_comparison": {
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.0016871123015233832,
+        "max_absolute_error": 0.054856819566339254
+      }
+    },
+    {
+      "case": "independent_vqm_1",
+      "frames": 87,
+      "float32_exact_to_drs": 87,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 81,
+      "intermediate_record_count_max": 181,
+      "saved_vqm_comparison": {
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.0006295560361367875,
+        "max_absolute_error": 0.006638553109951317
+      }
+    },
+    {
+      "case": "independent_vqm_2",
+      "frames": 87,
+      "float32_exact_to_drs": 87,
+      "negative_one_outputs": 0,
+      "intermediate_record_count_min": 92,
+      "intermediate_record_count_max": 194,
+      "saved_vqm_comparison": {
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.001250427057056677,
+        "max_absolute_error": 0.02357612014748156
+      }
+    }
+  ],
+  "scope": "Exact DRS bit6 replay from live processed component records on valid tested frames. The saved VQM final bit6 values and production configuration remain separate questions."
+}

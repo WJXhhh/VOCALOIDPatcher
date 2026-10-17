@@ -1,0 +1,239 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source_sha256": "88932ab88e97ebbdab80e75f3f191db3c74f6ddf78afd9b14184c126be268331",
+  "decoder_version": "5.0.3",
+  "static": {
+    "function_rva": "0x31830",
+    "bytes": 36411,
+    "instructions": 8227,
+    "function_sha256": "6abadc22cb925ab436630ff1a0c45f3cb0e2adfc1268c5f8ee6a0fa1b2240881",
+    "threshold_cent": 600.0,
+    "threshold_write_rva": "0x33201",
+    "threshold_load_rva": "0x331f9",
+    "register_inputs": {
+      "xmm8": {
+        "read_rva": "0x35860",
+        "value": 0.0,
+        "stack_slot": "0x50",
+        "stack_write_rva": "0x31bd8",
+        "origin_rva": "0x31bd4",
+        "reaching_definition_rvas": [
+          "0x31bd4",
+          "0x32fd6",
+          "0x33426",
+          "0x334ea",
+          "0x34837",
+          "0x34da2",
+          "0x358cf",
+          "0x367ec",
+          "0x370d5",
+          "0x37279",
+          "0x3738a",
+          "0x381c8",
+          "0x382d6",
+          "0x3915c",
+          "0x39315",
+          "0x394e6",
+          "0x3973d",
+          "0x3a3bd"
+        ]
+      },
+      "xmm12": {
+        "read_rva": "0x358e6",
+        "value": -3.4028234663852886e+38,
+        "stack_slot": "0x58",
+        "stack_write_rva": "0x3194d",
+        "origin_rva": "0x31944",
+        "reaching_definition_rvas": [
+          "0x31944",
+          "0x33017",
+          "0x345a2",
+          "0x3476b",
+          "0x38608",
+          "0x3931c",
+          "0x3932a",
+          "0x39338",
+          "0x394b0",
+          "0x39634",
+          "0x3988b",
+          "0x3a2d2",
+          "0x3a3b6"
+        ]
+      }
+    },
+    "midpoint": 0.5,
+    "midpoint_write_rva": "0x32175",
+    "midpoint_origin_rva": "0x3216c",
+    "limits": [
+      "Intraprocedural direct control flow; calls assumed to obey Win64 nonvolatile register ABI.",
+      "Direct stack-slot definitions only; not a whole-program escaped-alias proof.",
+      "No indirect jumps occurred in the bounded decoded function."
+    ]
+  },
+  "constructor_span": {
+    "start_rva": "0x2d93a",
+    "end_exclusive_rva": "0x2d98f",
+    "original_span_sha256": "58831bba37196f8e726c75b1566e9303ea4094bdc97ab05ec7588f0866961ddd",
+    "instructions": 20
+  },
+  "cases": [
+    {
+      "config12": -1000.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 1.0,
+      "period_samples": 44100,
+      "independent_scalar": 1.0,
+      "independent_period": 44100,
+      "exact": true
+    },
+    {
+      "config12": 0.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 1.0,
+      "period_samples": 44100,
+      "independent_scalar": 1.0,
+      "independent_period": 44100,
+      "exact": true
+    },
+    {
+      "config12": 0.5,
+      "sample_rate": 44100.0,
+      "context_scalar": 1.0,
+      "period_samples": 44100,
+      "independent_scalar": 1.0,
+      "independent_period": 44100,
+      "exact": true
+    },
+    {
+      "config12": 1.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 1.0,
+      "period_samples": 44100,
+      "independent_scalar": 1.0,
+      "independent_period": 44100,
+      "exact": true
+    },
+    {
+      "config12": 55.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 55.0,
+      "period_samples": 802,
+      "independent_scalar": 55.0,
+      "independent_period": 802,
+      "exact": true
+    },
+    {
+      "config12": 110.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 110.0,
+      "period_samples": 401,
+      "independent_scalar": 110.0,
+      "independent_period": 401,
+      "exact": true
+    },
+    {
+      "config12": 440.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 440.0,
+      "period_samples": 100,
+      "independent_scalar": 440.0,
+      "independent_period": 100,
+      "exact": true
+    },
+    {
+      "config12": 880.0,
+      "sample_rate": 44100.0,
+      "context_scalar": 880.0,
+      "period_samples": 50,
+      "independent_scalar": 880.0,
+      "independent_period": 50,
+      "exact": true
+    },
+    {
+      "config12": -1000.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 1.0,
+      "period_samples": 48000,
+      "independent_scalar": 1.0,
+      "independent_period": 48000,
+      "exact": true
+    },
+    {
+      "config12": 0.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 1.0,
+      "period_samples": 48000,
+      "independent_scalar": 1.0,
+      "independent_period": 48000,
+      "exact": true
+    },
+    {
+      "config12": 0.5,
+      "sample_rate": 48000.0,
+      "context_scalar": 1.0,
+      "period_samples": 48000,
+      "independent_scalar": 1.0,
+      "independent_period": 48000,
+      "exact": true
+    },
+    {
+      "config12": 1.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 1.0,
+      "period_samples": 48000,
+      "independent_scalar": 1.0,
+      "independent_period": 48000,
+      "exact": true
+    },
+    {
+      "config12": 55.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 55.0,
+      "period_samples": 873,
+      "independent_scalar": 55.0,
+      "independent_period": 873,
+      "exact": true
+    },
+    {
+      "config12": 110.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 110.0,
+      "period_samples": 436,
+      "independent_scalar": 110.0,
+      "independent_period": 436,
+      "exact": true
+    },
+    {
+      "config12": 440.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 440.0,
+      "period_samples": 109,
+      "independent_scalar": 440.0,
+      "independent_period": 109,
+      "exact": true
+    },
+    {
+      "config12": 880.0,
+      "sample_rate": 48000.0,
+      "context_scalar": 880.0,
+      "period_samples": 55,
+      "independent_scalar": 880.0,
+      "independent_period": 55,
+      "exact": true
+    }
+  ],
+  "summary": {
+    "cases": 16,
+    "exact": 16,
+    "threshold_cent": 600.0,
+    "guard_is_invalid_sentinel": true,
+    "context_source_config_id": 12,
+    "original_span_unchanged": true
+  },
+  "limits": [
+    "Constructor arithmetic span only; not the full constructor or final audio.",
+    "Curve12 is evaluated at t=0; fixtures use one constant point and configuration type1.",
+    "Frequency role follows sample_rate/period and downstream Hz calculations; original UI label remains unknown.",
+    "No feature maker formula or DDI part pitch assignment recovered."
+  ]
+}

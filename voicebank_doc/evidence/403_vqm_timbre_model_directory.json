@@ -1,0 +1,217 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source_sha256": "f264944c91a2def3c86146f1cdbd4177cc08731916eb98fbeaf66d24c6305b35",
+  "owned_fixture_source_sha256": "68b169ffc5200152f6075386747b1a0d93fb914af37d86fd9323c693a9317ed5",
+  "types": {
+    "model": {
+      "vtable_rva": "0x226610",
+      "type_name": ".?AVCDBTimbreModel@DSE5@@"
+    },
+    "array": {
+      "vtable_rva": "0x226420",
+      "type_name": ".?AVCDBTimbreFrameArray@DSE5@@"
+    },
+    "leaf": {
+      "vtable_rva": "0x226250",
+      "type_name": ".?AVCDBTimbreFrame@DSE5@@"
+    }
+  },
+  "native_entries": {
+    "model_constructor": "0x10fb30",
+    "leaf_constructor": "0x10ec80",
+    "append": "0x10fd10",
+    "sort": "0x1103e0",
+    "getter": "0x110020",
+    "dynamics_comparator": "0x110690",
+    "opening_comparator": "0x1106e0",
+    "pitch_comparator": "0x110730",
+    "leaf_factory": "0x10f880",
+    "content_reader": "0x10f590"
+  },
+  "frame_pointer_offset": "0x160",
+  "frame_feature_pointer_offset": "0x208",
+  "native_groups": [
+    {
+      "attribute": "dynamics",
+      "leaf_count": 6,
+      "native_names": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "insertion_values": [
+        1.25,
+        -0.25,
+        3.0,
+        0.5,
+        -0.25,
+        0.0
+      ],
+      "sorted_values": [
+        -0.25,
+        -0.25,
+        0.0,
+        0.5,
+        1.25,
+        3.0
+      ],
+      "mutated_sorted_values": [
+        -9.0,
+        -0.25,
+        -0.25,
+        0.0,
+        0.5,
+        1.25
+      ],
+      "endpoints_exact": true,
+      "leaf_identity_preserved": true,
+      "unrelated_fields_preserved": true
+    },
+    {
+      "attribute": "opening",
+      "leaf_count": 6,
+      "native_names": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "insertion_values": [
+        1.25,
+        -0.25,
+        3.0,
+        0.5,
+        -0.25,
+        0.0
+      ],
+      "sorted_values": [
+        -0.25,
+        -0.25,
+        0.0,
+        0.5,
+        1.25,
+        3.0
+      ],
+      "mutated_sorted_values": [
+        -9.0,
+        -0.25,
+        -0.25,
+        0.0,
+        0.5,
+        1.25
+      ],
+      "endpoints_exact": true,
+      "leaf_identity_preserved": true,
+      "unrelated_fields_preserved": true
+    },
+    {
+      "attribute": "pitch",
+      "leaf_count": 6,
+      "native_names": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "insertion_values": [
+        1.25,
+        -0.25,
+        3.0,
+        0.5,
+        -0.25,
+        0.0
+      ],
+      "sorted_values": [
+        -0.25,
+        -0.25,
+        0.0,
+        0.5,
+        1.25,
+        3.0
+      ],
+      "mutated_sorted_values": [
+        -9.0,
+        -0.25,
+        -0.25,
+        0.0,
+        0.5,
+        1.25
+      ],
+      "endpoints_exact": true,
+      "leaf_identity_preserved": true,
+      "unrelated_fields_preserved": true
+    }
+  ],
+  "exact_query_count": 60,
+  "owned_content_read_cases": [
+    {
+      "metadata_index": 0,
+      "consumed_bytes": 666,
+      "allocated_frame": true,
+      "metadata_exact": true,
+      "dynamics": 17.125,
+      "opening": 16.125,
+      "pitch": -1200.0,
+      "native_directory_query_exact": true
+    },
+    {
+      "metadata_index": 1,
+      "consumed_bytes": 666,
+      "allocated_frame": true,
+      "metadata_exact": true,
+      "dynamics": 17.125,
+      "opening": 16.125,
+      "pitch": -1200.0,
+      "native_directory_query_exact": true
+    },
+    {
+      "metadata_index": 2,
+      "consumed_bytes": 666,
+      "allocated_frame": true,
+      "metadata_exact": true,
+      "dynamics": 17.125,
+      "opening": 16.125,
+      "pitch": -1200.0,
+      "native_directory_query_exact": true
+    },
+    {
+      "metadata_index": 3,
+      "consumed_bytes": 666,
+      "allocated_frame": true,
+      "metadata_exact": true,
+      "dynamics": 17.125,
+      "opening": 16.125,
+      "pitch": -1200.0,
+      "native_directory_query_exact": true
+    },
+    {
+      "metadata_index": 4,
+      "consumed_bytes": 666,
+      "allocated_frame": true,
+      "metadata_exact": true,
+      "dynamics": 17.125,
+      "opening": 16.125,
+      "pitch": -1200.0,
+      "native_directory_query_exact": true
+    },
+    {
+      "metadata_index": 5,
+      "consumed_bytes": 666,
+      "allocated_frame": true,
+      "metadata_exact": true,
+      "dynamics": 17.125,
+      "opening": 16.125,
+      "pitch": -1200.0,
+      "native_directory_query_exact": true
+    }
+  ],
+  "scratch_removed": true,
+  "scope": "Genuine native TimbreModel groups and leaves holding CSMSFrames; construction, ownership assignment, unique naming, append, finite-value sorting, getter, endpoints and six independent content loads verified. No directory pointers, names or child arrays were manually patched. Feature values are owned inputs, not produced from PCM. The dynamics name belongs to this timbre-model interface; original VQM authoring formula, units, other copy paths and full synthesis effect remain unknown."
+}

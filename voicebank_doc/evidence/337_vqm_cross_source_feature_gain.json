@@ -1,0 +1,316 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "native_cross_source_rva": "0x1722c0",
+  "pcm_source": "owned constant int16 PCM; scratch source removed after run",
+  "target_pcm_fallback_energy": 0.09313225746154785,
+  "fixture_model_max_absolute_error": 8.318220723335656e-08,
+  "cases": [
+    {
+      "case": "p100_fallback",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": null,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": null,
+      "fixture_model_absolute_error": null
+    },
+    {
+      "case": "p100_saved_equal",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": 0.09313204,
+      "gain": 1.000000238418579,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.000000291872332,
+        "effective_fraction": 0.25,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 5.3453752979493174e-08
+    },
+    {
+      "case": "p100_saved_three_quarters",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": 0.06984903,
+      "gain": 1.036615014076233,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0366149521872128,
+        "effective_fraction": 0.25,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 6.188902013093411e-08
+    },
+    {
+      "case": "p100_saved_half",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": 0.04656602,
+      "gain": 1.0901833772659302,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0901833805772287,
+        "effective_fraction": 0.24914082522318384,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 3.3112985686756247e-09
+    },
+    {
+      "case": "p100_saved_quarter",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": 0.02328301,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0,
+        "effective_fraction": 0.0,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 0.0
+    },
+    {
+      "case": "p100_saved_twofold",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": 0.18626408,
+      "gain": 0.9170042872428894,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.91700431085278,
+        "effective_fraction": 0.24914251533684753,
+        "downward_correction_db": -0.0025812773488276264
+      },
+      "fixture_model_absolute_error": 2.360989059813079e-08
+    },
+    {
+      "case": "p100_saved_fourfold",
+      "score_pitch": 100,
+      "source_target_fraction": 0.25,
+      "saved_energy": 0.37252816,
+      "gain": 0.8408966660499573,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.8408966606881123,
+        "effective_fraction": 0.0,
+        "downward_correction_db": -1.5051474431494105
+      },
+      "fixture_model_absolute_error": 5.361844968021501e-09
+    },
+    {
+      "case": "p200_fallback",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": null,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": null,
+      "fixture_model_absolute_error": null
+    },
+    {
+      "case": "p200_saved_equal",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.09313204,
+      "gain": 1.0000005960464478,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0000005837447496,
+        "effective_fraction": 0.5,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 1.2301698104622005e-08
+    },
+    {
+      "case": "p200_saved_three_quarters",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.06984903,
+      "gain": 1.0745705366134644,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0745705590980976,
+        "effective_fraction": 0.5,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 2.2484633266373066e-08
+    },
+    {
+      "case": "p200_saved_half",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.04656602,
+      "gain": 1.1884998083114624,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.1884998032867948,
+        "effective_fraction": 0.4982816504463677,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 5.024667570907582e-09
+    },
+    {
+      "case": "p200_saved_quarter",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.02328301,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0,
+        "effective_fraction": 0.0,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 0.0
+    },
+    {
+      "case": "p200_saved_twofold",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.18626408,
+      "gain": 0.8408968448638916,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.8408969061225819,
+        "effective_fraction": 0.49828503067369506,
+        "downward_correction_db": -0.005162554697655253
+      },
+      "fixture_model_absolute_error": 6.125869034256937e-08
+    },
+    {
+      "case": "p200_saved_fourfold",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.37252816,
+      "gain": 0.7071071863174438,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.7071071939564184,
+        "effective_fraction": 0.0,
+        "downward_correction_db": -3.01029488629882
+      },
+      "fixture_model_absolute_error": 7.638974564017076e-09
+    },
+    {
+      "case": "p300_fallback",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": null,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": null,
+      "fixture_model_absolute_error": null
+    },
+    {
+      "case": "p300_saved_equal",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": 0.09313204,
+      "gain": 1.0000008344650269,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.000000875617252,
+        "effective_fraction": 0.75,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 4.1152225183083146e-08
+    },
+    {
+      "case": "p300_saved_three_quarters",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": 0.06984903,
+      "gain": 1.1139159202575684,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.1139159087412611,
+        "effective_fraction": 0.75,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 1.1516307241166146e-08
+    },
+    {
+      "case": "p300_saved_half",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": 0.04656602,
+      "gain": 1.295682668685913,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.2956827333625696,
+        "effective_fraction": 0.7474224756695516,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 6.467665647491572e-08
+    },
+    {
+      "case": "p300_saved_quarter",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": 0.02328301,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 1.0,
+        "effective_fraction": 0.0,
+        "downward_correction_db": 0.0
+      },
+      "fixture_model_absolute_error": 0.0
+    },
+    {
+      "case": "p300_saved_twofold",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": 0.18626408,
+      "gain": 0.7711060047149658,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.771106087897173,
+        "effective_fraction": 0.7474275460105426,
+        "downward_correction_db": -0.007743832046482879
+      },
+      "fixture_model_absolute_error": 8.318220723335656e-08
+    },
+    {
+      "case": "p300_saved_fourfold",
+      "score_pitch": 300,
+      "source_target_fraction": 0.75,
+      "saved_energy": 0.37252816,
+      "gain": 0.5946040153503418,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.5946040781464936,
+        "effective_fraction": 0.0,
+        "downward_correction_db": -4.5154423294482315
+      },
+      "fixture_model_absolute_error": 6.279615183402143e-08
+    },
+    {
+      "case": "p200_fallback_repeat",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": null,
+      "gain": 1.0,
+      "secondary_frame_time": 27.0,
+      "fixture_model": null,
+      "fixture_model_absolute_error": null
+    },
+    {
+      "case": "p200_saved_fourfold_repeat",
+      "score_pitch": 200,
+      "source_target_fraction": 0.5,
+      "saved_energy": 0.37252816,
+      "gain": 0.7071071863174438,
+      "secondary_frame_time": 27.0,
+      "fixture_model": {
+        "gain": 0.7071071939564184,
+        "effective_fraction": 0.0,
+        "downward_correction_db": -3.01029488629882
+      },
+      "fixture_model_absolute_error": 7.638974564017076e-09
+    }
+  ],
+  "scope": "Owned same-parent cross-source fixture with one controlled saved energy and a PCM fallback on the other side. The reported 6 dB contrast/downward-correction model covers this exact reached branch and settings; this observes native gain output, not final overlap-add PCM."
+}

@@ -1,0 +1,167 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "independent_samples": 3,
+  "total_interior_frames": 243,
+  "cases": [
+    {
+      "sample_index": 0,
+      "frame_count": 72,
+      "baseline_mismatch_indices": {
+        "0": [
+          69,
+          70
+        ],
+        "1": [
+          71
+        ],
+        "2": []
+      },
+      "tail_repeat_only_mismatch_indices": {
+        "0": [
+          69,
+          70
+        ],
+        "1": [],
+        "2": []
+      },
+      "admissible_wrap_count": 15,
+      "admissible_wrap_min": 17723,
+      "admissible_wrap_max": 17737,
+      "representative_wrap": 17723,
+      "owned_lookahead_rule": "repeat_last_saved_pcm_sample",
+      "synthetic_ring_size": 18433,
+      "model_matches": {
+        "0": 71,
+        "1": 71,
+        "2": 71
+      },
+      "model_maximum_absolute_error": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 1.4901161193847656e-08
+      },
+      "native": {
+        "constructed_ring_capacity": 45124,
+        "representative_material_start_index": 27401,
+        "compared_frames": 71,
+        "saved_matches": {
+          "0": 71,
+          "1": 71,
+          "2": 71
+        },
+        "maximum_absolute_error": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 1.4901161193847656e-08
+        }
+      }
+    },
+    {
+      "sample_index": 1,
+      "frame_count": 87,
+      "baseline_mismatch_indices": {
+        "0": [
+          75,
+          76
+        ],
+        "1": [
+          86
+        ],
+        "2": []
+      },
+      "tail_repeat_only_mismatch_indices": {
+        "0": [
+          75,
+          76
+        ],
+        "1": [],
+        "2": []
+      },
+      "admissible_wrap_count": 27,
+      "admissible_wrap_min": 19256,
+      "admissible_wrap_max": 19282,
+      "representative_wrap": 19256,
+      "owned_lookahead_rule": "repeat_last_saved_pcm_sample",
+      "synthetic_ring_size": 22273,
+      "model_matches": {
+        "0": 86,
+        "1": 86,
+        "2": 86
+      },
+      "model_maximum_absolute_error": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 7.450580596923828e-09
+      },
+      "native": {
+        "constructed_ring_capacity": 45124,
+        "representative_material_start_index": 25868,
+        "compared_frames": 86,
+        "saved_matches": {
+          "0": 86,
+          "1": 86,
+          "2": 86
+        },
+        "maximum_absolute_error": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 7.450580596923828e-09
+        }
+      }
+    },
+    {
+      "sample_index": 2,
+      "frame_count": 87,
+      "baseline_mismatch_indices": {
+        "0": [
+          77,
+          78
+        ],
+        "1": [],
+        "2": []
+      },
+      "tail_repeat_only_mismatch_indices": {
+        "0": [
+          77,
+          78
+        ],
+        "1": [],
+        "2": []
+      },
+      "admissible_wrap_count": 4,
+      "admissible_wrap_min": 19777,
+      "admissible_wrap_max": 19780,
+      "representative_wrap": 19777,
+      "owned_lookahead_rule": "repeat_last_saved_pcm_sample",
+      "synthetic_ring_size": 22273,
+      "model_matches": {
+        "0": 86,
+        "1": 86,
+        "2": 86
+      },
+      "model_maximum_absolute_error": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 1.4901161193847656e-08
+      },
+      "native": {
+        "constructed_ring_capacity": 45124,
+        "representative_material_start_index": 25347,
+        "compared_frames": 86,
+        "saved_matches": {
+          "0": 86,
+          "1": 86,
+          "2": 86
+        },
+        "maximum_absolute_error": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 1.4901161193847656e-08
+        }
+      }
+    }
+  ],
+  "scope": "Existence test for a physical ring-index crossing guard. Native checks use a DRS-constructed default 45124-sample ring seeded with read-only saved VQM PCM at representative physical positions and one owned unsaved lookahead sample. This does not identify the original authoring ring capacity, write pointer, or lookahead sample, nor reconstruct first-frame prehistory."
+}

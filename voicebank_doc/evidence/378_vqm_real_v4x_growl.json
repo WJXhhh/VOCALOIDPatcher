@@ -1,0 +1,31 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "bank": "MIKU_V4X_Original_EVEC",
+  "route": [
+    "a",
+    "Sil"
+  ],
+  "loaded": {
+    "sample_frames": [
+      72,
+      87,
+      87
+    ],
+    "bound": true,
+    "sample_pitches": [
+      520.5999755859375,
+      292.6000061035156,
+      394.1000061035156
+    ]
+  },
+  "blocks": 200,
+  "zero_control_sha256": "b42c467186022ec376878ffc88c8feea6ca1e468bd2dabebcb5ada1b5ef7dd44",
+  "full_control_sha256": "5b1f510868c8566692137162f5518e9164b8a3ed13a99d1ae875685281101992",
+  "changed_pcm_blocks": 100,
+  "scope": "Installed V4X DDI/DDB VQMp loaded by native DSE into an independent offline note event. Output digests only; no Editor host.",
+  "valid": false,
+  "invalid_reason": "Fixture v1 used the SND block header address as the PCM address. The 18-byte header was interpreted as nine PCM16 samples, shifting the source by nine samples. Loaded PCM was not independently verified.",
+  "superseded_by": "382_vqm_growl_pcm_verified_banks.json"
+}

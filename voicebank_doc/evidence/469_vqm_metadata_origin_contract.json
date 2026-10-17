@@ -1,0 +1,345 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source_sha256": "e3a777dd1aaeaa3137ce023ed15f90fe1dc75104791e0391803a25f27a1f45e3",
+  "constructor_rva": "0x109b30",
+  "part_reader_rva": "0x10b1a0",
+  "part_writer_rva": "0x10b5d0",
+  "frame_reader_rva": "0x106e20",
+  "timbre_getter_rva": "0x110020",
+  "reviewed_native_edges": [
+    {
+      "caller_rva": "0x959b0",
+      "call_rva": "0x95a11",
+      "callee_rva": "0xc84f0",
+      "role": "DRS region finalization; collection statistic recalculation"
+    },
+    {
+      "caller_rva": "0x8d6e0",
+      "call_rvas": [
+        "0x8e44c",
+        "0x8e467"
+      ],
+      "callee_rva": "0xc84f0",
+      "role": "Adjacent region boundary movement; recalculates both collections"
+    },
+    {
+      "caller_rvas": [
+        "0x112220",
+        "0x113cc0",
+        "0x1148e0"
+      ],
+      "callee_rva": "0x10b1a0",
+      "role": "Derived part readers; common pitch fields are input bytes"
+    },
+    {
+      "caller_rva": "0x10ffb0",
+      "callee_rva": "0x110020",
+      "role": "Reads first/last property values; not a producer"
+    }
+  ],
+  "part_type": {
+    "vtable_rva": "0x225b28",
+    "rtti_name": ".?AVCDBDataPhUPart@DSE5@@"
+  },
+  "part_cases": [
+    {
+      "pitch1_bits": "00000000",
+      "pitch2_bits": "4523c17f",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "00000000",
+      "pitch2_bits": "4523c17f",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "00000080",
+      "pitch2_bits": "0000807f",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "00000080",
+      "pitch2_bits": "0000807f",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "0000003f",
+      "pitch2_bits": "ffff7fff",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "0000003f",
+      "pitch2_bits": "ffff7fff",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "0000dc43",
+      "pitch2_bits": "000096c4",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "0000dc43",
+      "pitch2_bits": "000096c4",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "00009644",
+      "pitch2_bits": "00009644",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "00009644",
+      "pitch2_bits": "00009644",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "000096c4",
+      "pitch2_bits": "0000dc43",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "000096c4",
+      "pitch2_bits": "0000dc43",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "ffff7fff",
+      "pitch2_bits": "0000003f",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "ffff7fff",
+      "pitch2_bits": "0000003f",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "0000807f",
+      "pitch2_bits": "00000080",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "0000807f",
+      "pitch2_bits": "00000080",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "4523c17f",
+      "pitch2_bits": "00000000",
+      "alternate": false,
+      "consumed": 30,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    },
+    {
+      "pitch1_bits": "4523c17f",
+      "pitch2_bits": "00000000",
+      "alternate": true,
+      "consumed": 22,
+      "pitch_fields_raw_exact": true,
+      "source_unchanged": true
+    }
+  ],
+  "frame_cases": [
+    {
+      "physical_hz": 55.0,
+      "input_encoded_cent": false,
+      "native_cent": -3600.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 55.0,
+      "input_encoded_cent": true,
+      "native_cent": -3600.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 110.0,
+      "input_encoded_cent": false,
+      "native_cent": -2400.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 110.0,
+      "input_encoded_cent": true,
+      "native_cent": -2400.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 220.0,
+      "input_encoded_cent": false,
+      "native_cent": -1200.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 220.0,
+      "input_encoded_cent": true,
+      "native_cent": -1200.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 330.0,
+      "input_encoded_cent": false,
+      "native_cent": -498.0450134277344,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 330.0,
+      "input_encoded_cent": true,
+      "native_cent": -498.0450134277344,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 440.0,
+      "input_encoded_cent": false,
+      "native_cent": 0.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 440.0,
+      "input_encoded_cent": true,
+      "native_cent": 0.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 520.5999755859375,
+      "input_encoded_cent": false,
+      "native_cent": 291.2060546875,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 520.5999755859375,
+      "input_encoded_cent": true,
+      "native_cent": 291.2060546875,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 880.0,
+      "input_encoded_cent": false,
+      "native_cent": 1200.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    },
+    {
+      "physical_hz": 880.0,
+      "input_encoded_cent": true,
+      "native_cent": 1200.0,
+      "timbre_pitch_cent_exact": true,
+      "properties_raw_exact": {
+        "dynamics": 17.125,
+        "opening": 16.125
+      }
+    }
+  ],
+  "summary": {
+    "part_transport_cases": 18,
+    "frame_normalization_cases": 14,
+    "raw_pitch_fields_exact": true,
+    "paired_frame_encodings_same_cent": true
+  },
+  "limits": [
+    "Part constructor defaults and transport do not estimate original pitch1/pitch2.",
+    "Timbre pitch reads normalized Frame cents; this is distinct from Growl part pitch1 Hz.",
+    "The getter does not itself normalize manually assembled unnormalized Frames.",
+    "dynamics/opening are raw property-axis names, not proof of VQMp maker units.",
+    "No commercial maker metadata assignment or nonzero bit17 production is established."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "builders": [
+    "0x1b9bd0",
+    "0x1ba960"
+  ],
+  "caller": "0x1ba3d0",
+  "cache_offset": "0x258",
+  "mode_offset": "0x200",
+  "eligible_modes": [
+    1,
+    2
+  ],
+  "read_start": "core-2*(window_size/2)",
+  "allocation_and_read_bytes": "PCM_count*2",
+  "snd_clip_in_builder": false,
+  "consumer": "0x175dd0",
+  "evidence_type": "static and bounded assembly",
+  "dynamic_validation": false
+}

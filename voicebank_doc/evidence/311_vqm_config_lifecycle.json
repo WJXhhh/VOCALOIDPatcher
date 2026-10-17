@@ -1,0 +1,69 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "cases": [
+    {
+      "construct_5a0": 0,
+      "analyze_5a0": 0,
+      "frames": 44,
+      "full_path_allocations": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "energy_nonzero_frames": 44,
+      "angle_nonzero_frames": 0,
+      "array_nonzero": {
+        "10": 1760,
+        "11": 1504,
+        "12": 880,
+        "13": 880
+      }
+    },
+    {
+      "construct_5a0": 1,
+      "analyze_5a0": 1,
+      "frames": 44,
+      "full_path_allocations": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "energy_nonzero_frames": 0,
+      "angle_nonzero_frames": 0,
+      "array_nonzero": {
+        "10": 292,
+        "11": 0,
+        "12": 0,
+        "13": 0
+      }
+    },
+    {
+      "construct_5a0": 0,
+      "analyze_5a0": 1,
+      "frames": 44,
+      "full_path_allocations": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "energy_nonzero_frames": 0,
+      "angle_nonzero_frames": 0,
+      "array_nonzero": {
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0
+      }
+    }
+  ],
+  "scope": "Owned 440 Hz PCM, mode 4. The constructor reads +0x5a0 to allocate full-path state; the analysis-stage switch also affects feature production. Not a VQM authoring path."
+}

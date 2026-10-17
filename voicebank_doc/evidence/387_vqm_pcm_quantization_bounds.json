@@ -1,0 +1,293 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "cases": [
+    {
+      "category": "TENSE",
+      "controls": [
+        {
+          "pcm_mapping": "raw",
+          "checks": {
+            "bit2": {
+              "frames": 140,
+              "mean_absolute_error": 3.459198134286063e-10,
+              "max_absolute_error": 1.862645149230957e-09,
+              "within_1e_6": 140,
+              "mean_signed_error": 5.32184328351702e-11
+            },
+            "bit6": {
+              "frames": 140,
+              "mean_absolute_error": 9.845410074506487e-09,
+              "max_absolute_error": 4.470348358154297e-08,
+              "within_1e_6": 140,
+              "mean_signed_error": 6.386211940220424e-10
+            },
+            "bit16_nearest_peak": {
+              "frames": 140,
+              "mean_absolute_error": 6.471361432756696e-08,
+              "max_absolute_error": 4.76837158203125e-07,
+              "within_1e_6": 140,
+              "mean_signed_error": 5.790165492466518e-08
+            },
+            "bit16_best_peak_diagnostic": {
+              "frames": 140,
+              "mean_absolute_error": 6.471361432756696e-08,
+              "max_absolute_error": 4.76837158203125e-07,
+              "within_1e_6": 140,
+              "mean_signed_error": 5.790165492466518e-08
+            },
+            "bit18": {
+              "frames": 140,
+              "mean_absolute_error": 4.76837158203125e-08,
+              "max_absolute_error": 4.76837158203125e-07,
+              "within_1e_6": 140,
+              "mean_signed_error": 0.0
+            }
+          }
+        },
+        {
+          "pcm_mapping": "toward_zero_half_lsb",
+          "checks": {
+            "bit2": {
+              "frames": 140,
+              "mean_absolute_error": 3.264012879558972e-06,
+              "max_absolute_error": 3.602355718612671e-06,
+              "within_1e_6": 0,
+              "mean_signed_error": -3.264012879558972e-06
+            },
+            "bit6": {
+              "frames": 140,
+              "mean_absolute_error": 8.325079189879554e-05,
+              "max_absolute_error": 0.0038427039980888367,
+              "within_1e_6": 22,
+              "mean_signed_error": -4.1243194469383784e-05
+            },
+            "bit16_nearest_peak": {
+              "frames": 140,
+              "mean_absolute_error": 0.00010040146963936942,
+              "max_absolute_error": 0.0002040863037109375,
+              "within_1e_6": 0,
+              "mean_signed_error": -0.00010040146963936942
+            },
+            "bit16_best_peak_diagnostic": {
+              "frames": 140,
+              "mean_absolute_error": 0.00010040146963936942,
+              "max_absolute_error": 0.0002040863037109375,
+              "within_1e_6": 0,
+              "mean_signed_error": -0.00010040146963936942
+            },
+            "bit18": {
+              "frames": 140,
+              "mean_absolute_error": 5.919592721121652e-06,
+              "max_absolute_error": 2.0503997802734375e-05,
+              "within_1e_6": 8,
+              "mean_signed_error": 7.425035749162947e-07
+            }
+          }
+        },
+        {
+          "pcm_mapping": "away_zero_half_lsb",
+          "checks": {
+            "bit2": {
+              "frames": 140,
+              "mean_absolute_error": 3.2656892601932797e-06,
+              "max_absolute_error": 3.593042492866516e-06,
+              "within_1e_6": 0,
+              "mean_signed_error": 3.2656892601932797e-06
+            },
+            "bit6": {
+              "frames": 140,
+              "mean_absolute_error": 0.00016735738941601344,
+              "max_absolute_error": 0.004678353667259216,
+              "within_1e_6": 21,
+              "mean_signed_error": -2.4120456406048367e-05
+            },
+            "bit16_nearest_peak": {
+              "frames": 140,
+              "mean_absolute_error": 0.0001005070550101144,
+              "max_absolute_error": 0.00020384788513183594,
+              "within_1e_6": 0,
+              "mean_signed_error": 0.0001005070550101144
+            },
+            "bit16_best_peak_diagnostic": {
+              "frames": 140,
+              "mean_absolute_error": 0.0001005070550101144,
+              "max_absolute_error": 0.00020384788513183594,
+              "within_1e_6": 0,
+              "mean_signed_error": 0.0001005070550101144
+            },
+            "bit18": {
+              "frames": 140,
+              "mean_absolute_error": 5.878720964704241e-06,
+              "max_absolute_error": 2.002716064453125e-05,
+              "within_1e_6": 10,
+              "mean_signed_error": -7.084437779017857e-07
+            }
+          }
+        }
+      ],
+      "energy_quantization_diagnostic": {
+        "frames": 140,
+        "assumed_sample_error_max_lsb": 0.5,
+        "bound_mean": 6.533406367353536e-06,
+        "bound_min": 5.553053552899947e-06,
+        "bound_max": 7.205019163244829e-06,
+        "outside_bound": 0,
+        "saved_energy_below_reconstructed": 16,
+        "saved_over_reconstructed_range": [
+          0.9999998891227044,
+          1.0000001170056614
+        ],
+        "rms_equivalent_lsb_range": [
+          -0.00023545413750980515,
+          0.00024187357757909922
+        ],
+        "qualification": "Bound describes real-valued energy sensitivity, not the exact native float32 quantizer or proof of the original source. No observed error exceeded the bound; no floating-point roundoff allowance was needed to classify these samples."
+      }
+    },
+    {
+      "category": "BRWSP",
+      "controls": [
+        {
+          "pcm_mapping": "raw",
+          "checks": {
+            "bit2": {
+              "frames": 381,
+              "mean_absolute_error": 3.817796785374639e-06,
+              "max_absolute_error": 4.498288035392761e-06,
+              "within_1e_6": 0,
+              "mean_signed_error": 3.817796785374639e-06
+            },
+            "bit6": {
+              "frames": 381,
+              "mean_absolute_error": 0.00010127611360524896,
+              "max_absolute_error": 0.030451416969299316,
+              "within_1e_6": 13,
+              "mean_signed_error": 7.562202418570131e-05
+            },
+            "bit16_nearest_peak": {
+              "frames": 381,
+              "mean_absolute_error": 0.21501272181513428,
+              "max_absolute_error": 2.3701095581054688,
+              "within_1e_6": 3,
+              "mean_signed_error": -0.2149089878312559
+            },
+            "bit16_best_peak_diagnostic": {
+              "frames": 381,
+              "mean_absolute_error": 7.788590558870571e-05,
+              "max_absolute_error": 0.000247955322265625,
+              "within_1e_6": 3,
+              "mean_signed_error": 7.320138726021674e-05
+            },
+            "bit18": {
+              "frames": 381,
+              "mean_absolute_error": 4.321571410171629e-06,
+              "max_absolute_error": 1.52587890625e-05,
+              "within_1e_6": 58,
+              "mean_signed_error": 4.180147266137631e-07
+            }
+          }
+        },
+        {
+          "pcm_mapping": "toward_zero_half_lsb",
+          "checks": {
+            "bit2": {
+              "frames": 381,
+              "mean_absolute_error": 1.511431428704049e-07,
+              "max_absolute_error": 6.314367055892944e-07,
+              "within_1e_6": 381,
+              "mean_signed_error": -1.0432768368658431e-08
+            },
+            "bit6": {
+              "frames": 381,
+              "mean_absolute_error": 1.8628250582637436e-05,
+              "max_absolute_error": 0.0013734102249145508,
+              "within_1e_6": 12,
+              "mean_signed_error": -4.38446135032834e-06
+            },
+            "bit16_nearest_peak": {
+              "frames": 381,
+              "mean_absolute_error": 0.21501393643576955,
+              "max_absolute_error": 2.370364189147949,
+              "within_1e_6": 8,
+              "mean_signed_error": -0.21499148629155998
+            },
+            "bit16_best_peak_diagnostic": {
+              "frames": 381,
+              "mean_absolute_error": 3.545240467301817e-05,
+              "max_absolute_error": 0.000194549560546875,
+              "within_1e_6": 15,
+              "mean_signed_error": -3.320338532054831e-06
+            },
+            "bit18": {
+              "frames": 381,
+              "mean_absolute_error": 3.727715159338603e-06,
+              "max_absolute_error": 1.621246337890625e-05,
+              "within_1e_6": 68,
+              "mean_signed_error": -7.571823640758284e-08
+            }
+          }
+        },
+        {
+          "pcm_mapping": "away_zero_half_lsb",
+          "checks": {
+            "bit2": {
+              "frames": 381,
+              "mean_absolute_error": 7.645752564502827e-06,
+              "max_absolute_error": 8.592382073402405e-06,
+              "within_1e_6": 0,
+              "mean_signed_error": 7.645752564502827e-06
+            },
+            "bit6": {
+              "frames": 381,
+              "mean_absolute_error": 0.00018547025565400212,
+              "max_absolute_error": 0.030447721481323242,
+              "within_1e_6": 13,
+              "mean_signed_error": -1.7383905846302904e-06
+            },
+            "bit16_nearest_peak": {
+              "frames": 381,
+              "mean_absolute_error": 0.21503512690386434,
+              "max_absolute_error": 2.369856357574463,
+              "within_1e_6": 1,
+              "mean_signed_error": -0.21482650501521552
+            },
+            "bit16_best_peak_diagnostic": {
+              "frames": 381,
+              "mean_absolute_error": 0.00015151406836321973,
+              "max_absolute_error": 0.0003743171691894531,
+              "within_1e_6": 1,
+              "mean_signed_error": 0.00014191975430866553
+            },
+            "bit18": {
+              "frames": 381,
+              "mean_absolute_error": 5.496768500861221e-06,
+              "max_absolute_error": 1.9073486328125e-05,
+              "within_1e_6": 48,
+              "mean_signed_error": 8.936003437192421e-07
+            }
+          }
+        }
+      ],
+      "energy_quantization_diagnostic": {
+        "frames": 381,
+        "assumed_sample_error_max_lsb": 0.5,
+        "bound_mean": 7.662853899212595e-06,
+        "bound_min": 7.197078181680842e-06,
+        "bound_max": 8.215132093277109e-06,
+        "outside_bound": 0,
+        "saved_energy_below_reconstructed": 381,
+        "saved_over_reconstructed_range": [
+          0.9997919558675666,
+          0.9998476340079022
+        ],
+        "rms_equivalent_lsb_range": [
+          -0.4950231587754388,
+          -0.3521865516086109
+        ],
+        "qualification": "Bound describes real-valued energy sensitivity, not the exact native float32 quantizer or proof of the original source. No observed error exceeded the bound; no floating-point roundoff allowance was needed to classify these samples."
+      }
+    }
+  ],
+  "scope": "Fixed raw and +/-0.5 signed LSB hypotheses, with kind-10 2049 PCM windows. A within-bound result shows compatibility with missing quantization detail, not recovered PCM, an identified quantizer, or a completed VQM producer. Diagnostic amplitude matching consumes saved bit16 and must not be used to select production peaks."
+}

@@ -1,0 +1,94 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "pcm_origin": "owned 44.1 kHz harmonic signals",
+  "gain_cases": [
+    {
+      "frequency_hz": 440,
+      "gain": 0.5,
+      "compared_frames": 44,
+      "bit16_log_power_shift_max_residual": 2.0745591211568382e-07,
+      "gain_invariant_field_max_deltas": {
+        "0": 0.0,
+        "1": 0.0,
+        "6": 1.862645149230957e-09,
+        "18": 4.76837158203125e-07
+      }
+    },
+    {
+      "frequency_hz": 440,
+      "gain": 2.0,
+      "compared_frames": 44,
+      "bit16_log_power_shift_max_residual": 2.0745591211568382e-07,
+      "gain_invariant_field_max_deltas": {
+        "0": 0.0,
+        "1": 0.0,
+        "6": 9.313225746154785e-10,
+        "18": 4.76837158203125e-07
+      }
+    },
+    {
+      "frequency_hz": 880,
+      "gain": 0.5,
+      "compared_frames": 44,
+      "bit16_log_power_shift_max_residual": 2.0745591211568382e-07,
+      "gain_invariant_field_max_deltas": {
+        "0": 0.0,
+        "1": 0.0,
+        "6": 9.313225746154785e-10,
+        "18": 2.384185791015625e-07
+      }
+    },
+    {
+      "frequency_hz": 880,
+      "gain": 2.0,
+      "compared_frames": 44,
+      "bit16_log_power_shift_max_residual": 1.5017195653665993e-07,
+      "gain_invariant_field_max_deltas": {
+        "0": 0.0,
+        "1": 0.0,
+        "6": 4.656612873077393e-10,
+        "18": 2.384185791015625e-07
+      }
+    }
+  ],
+  "pitch_seed_comparison": {
+    "signal_hz": 440,
+    "seed_hz": [
+      220,
+      440,
+      880
+    ],
+    "compared_frames": 44,
+    "field_responses": {
+      "0": {
+        "changed_over_1e_6": 0,
+        "max_delta": 0.0
+      },
+      "1": {
+        "changed_over_1e_6": 0,
+        "max_delta": 0.0
+      },
+      "2": {
+        "changed_over_1e_6": 0,
+        "max_delta": 0.0
+      },
+      "6": {
+        "changed_over_1e_6": 0,
+        "max_delta": 0.0
+      },
+      "16": {
+        "changed_over_1e_6": 44,
+        "max_delta": 8.3214271068573
+      },
+      "17": {
+        "changed_over_1e_6": 0,
+        "max_delta": 0.0
+      },
+      "18": {
+        "changed_over_1e_6": 44,
+        "max_delta": 0.9848527908325195
+      }
+    }
+  },
+  "scope": "DRS external-pitch mode with controlled PCM; identifies numerical dependencies, not VQM authoring configuration."
+}

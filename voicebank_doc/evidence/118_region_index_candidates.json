@@ -1,0 +1,6405 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "lookup_cases": 30,
+  "filter_cases": 324,
+  "stage_cases": 40,
+  "stages": [
+    {
+      "pattern": "full_start",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          "triple",
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          "triple",
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_start",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "full_end",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          "triple",
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "pattern": "full_end",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          "triple",
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "pattern": "full_end",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "full_end",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "full_end",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "full_end",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "full_end",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "full_end",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_start",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_start",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "pattern": "only_end",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "only_end",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "previous_end",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "previous_end",
+      "join": 0,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "previous_end",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "previous_end",
+      "join": 0,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "previous_end",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 0,
+      "accepted": true,
+      "selected": [
+        [
+          "triple",
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "pattern": "previous_end",
+      "join": 1,
+      "first_only": 0,
+      "last_only": 1,
+      "accepted": true,
+      "selected": [
+        [
+          "triple",
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "pattern": "previous_end",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 0,
+      "accepted": false,
+      "selected": []
+    },
+    {
+      "pattern": "previous_end",
+      "join": 1,
+      "first_only": 1,
+      "last_only": 1,
+      "accepted": false,
+      "selected": []
+    }
+  ],
+  "mismatches": 0,
+  "compaction": [
+    {
+      "present": [
+        false
+      ],
+      "remaining": 0,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        true
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        false
+      ],
+      "remaining": 0,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        true
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        false
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        true
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        false,
+        false
+      ],
+      "remaining": 0,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        false,
+        true
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        true,
+        false
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        true,
+        true
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        false,
+        false
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        false,
+        true
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        true,
+        false
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        true,
+        true
+      ],
+      "remaining": 3,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "remaining": 0,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        0,
+        0
+      ]
+    },
+    {
+      "present": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "remaining": 3,
+      "boundary_flags": [
+        0,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "remaining": 1,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "remaining": 3,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        true,
+        false,
+        false
+      ],
+      "remaining": 2,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "remaining": 3,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    },
+    {
+      "present": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "remaining": 3,
+      "boundary_flags": [
+        1,
+        0
+      ]
+    },
+    {
+      "present": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "remaining": 4,
+      "boundary_flags": [
+        1,
+        1
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        -600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        -200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2,
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2,
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2,
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2,
+        0,
+        1
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        600.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -400.0,
+        400.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -200.0,
+        200.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        -600.0,
+        0.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2,
+        0
+      ],
+      "used_union": true
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.4
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.8,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        1.1,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.2,
+        1.0
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.4,
+        0.8
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        0,
+        1
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.1,
+        0.6
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        0,
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 0.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.0,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    },
+    {
+      "pitch": [
+        0.0,
+        600.0
+      ],
+      "dynamics": [
+        0.6,
+        1.1
+      ],
+      "pitch_width": 400.0,
+      "dynamics_width": 0.4,
+      "selected": [
+        1,
+        2
+      ],
+      "used_union": false
+    }
+  ],
+  "scope": "Native index builder, full lookup with silence substitution disabled, indexed candidate sets and two-stage eligibility including previous-list linkage; not joint final cost selection"
+}

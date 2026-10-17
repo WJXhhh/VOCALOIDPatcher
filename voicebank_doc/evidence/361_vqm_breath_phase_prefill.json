@@ -1,0 +1,36 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "cases": [
+    {
+      "variant": "baseline",
+      "prefilled_phase_nonzero": null,
+      "source_values_changed": 0,
+      "post_event_work_phase_nonzero": 0,
+      "output_stream_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958"
+    },
+    {
+      "variant": "source_prefilled",
+      "prefilled_phase_nonzero": null,
+      "source_values_changed": 0,
+      "post_event_work_phase_nonzero": 0,
+      "output_stream_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958"
+    },
+    {
+      "variant": "work_prefilled",
+      "prefilled_phase_nonzero": 73,
+      "source_values_changed": 0,
+      "post_event_work_phase_nonzero": 0,
+      "output_stream_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958"
+    },
+    {
+      "variant": "work_prefilled_source_changed",
+      "prefilled_phase_nonzero": 350,
+      "source_values_changed": 136150,
+      "post_event_work_phase_nonzero": 0,
+      "output_stream_sha256": "b53367011bdefd96bdb32f38a18faa22240e75ef5f6ea8811bce24b3e8887958"
+    }
+  ],
+  "scope": "Offline loaded BRWSP and owned 300-Hz ordinary-primary event. The native copier/interpolator prefills object state before event processing. Post-event work-frame phase, auxiliary spectrum, and final PCM are compared. This tests only the event's preparation boundary; no Editor process or bank PCM."
+}

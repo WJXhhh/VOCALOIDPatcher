@@ -1,0 +1,2708 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "wrapper_rva": "0x158e40",
+  "missing_amplitude_constant_rva": "0x5bfdcc",
+  "script_sha256": "3e6f5466da6cf5cab741065f6cc8eb63a33098d7e70cc9d484f7d3db4a27ea3c",
+  "fixture_sha256": "29fa718b565affb23e2703a11b715d6bdbb5792306fb8060b59757d977b058a1",
+  "nearest_model_sha256": "901a87a20bca5efed6d2a26cee8b8d343610d6cea087e5c3fb656245006f1ccd",
+  "reference_cases": [
+    {
+      "case": "harmonic_1",
+      "count": 1,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0
+      ],
+      "input_amplitudes": [
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0
+        ],
+        "amplitudes": [
+          -20.0
+        ],
+        "included_indices": [
+          0
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0
+      ],
+      "actual_amplitudes": [
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "detuned_last_included_1",
+      "count": 1,
+      "input_hz": 880.0,
+      "input_frequencies": [
+        880.0
+      ],
+      "input_amplitudes": [
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 880.0,
+        "cent": 1200.0,
+        "reconstructed_hz": 880.0,
+        "frequencies": [
+          880.0
+        ],
+        "amplitudes": [
+          -20.0
+        ],
+        "included_indices": [
+          0
+        ]
+      },
+      "actual_cent": 1200.0,
+      "actual_frequencies": [
+        880.0
+      ],
+      "actual_amplitudes": [
+        -20.0
+      ],
+      "selected_index": 2,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "harmonic_15",
+      "count": 15,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0,
+          880.0,
+          1320.0,
+          1760.0,
+          2200.0,
+          2640.0,
+          3080.0,
+          3520.0,
+          3960.0,
+          4400.0,
+          4840.0,
+          5280.0,
+          5720.0,
+          6160.0,
+          6600.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "detuned_last_included_15",
+      "count": 15,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        13200.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 469.3333435058594,
+        "cent": 111.7313232421875,
+        "reconstructed_hz": 469.3333435058594,
+        "frequencies": [
+          469.3333435058594,
+          938.6666870117188,
+          1408.0,
+          1877.3333740234375,
+          2346.666748046875,
+          2816.0,
+          3285.33349609375,
+          3754.666748046875,
+          4224.0,
+          4693.33349609375,
+          5162.6669921875,
+          5632.0,
+          6101.33349609375,
+          6570.6669921875,
+          7040.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "actual_cent": 111.7313232421875,
+      "actual_frequencies": [
+        469.3333435058594,
+        938.6666870117188,
+        1408.0,
+        1877.3333740234375,
+        2346.666748046875,
+        2816.0,
+        3285.33349609375,
+        3754.666748046875,
+        4224.0,
+        4693.33349609375,
+        5162.6669921875,
+        5632.0,
+        6101.33349609375,
+        6570.6669921875,
+        7040.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "harmonic_16",
+      "count": 16,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0,
+        7040.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0,
+          880.0,
+          1320.0,
+          1760.0,
+          2200.0,
+          2640.0,
+          3080.0,
+          3520.0,
+          3960.0,
+          4400.0,
+          4840.0,
+          5280.0,
+          5720.0,
+          6160.0,
+          6600.0,
+          7040.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0,
+        7040.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "detuned_last_included_16",
+      "count": 16,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        13200.0,
+        64000.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 469.3333435058594,
+        "cent": 111.7313232421875,
+        "reconstructed_hz": 469.3333435058594,
+        "frequencies": [
+          469.3333435058594,
+          938.6666870117188,
+          1408.0,
+          1877.3333740234375,
+          2346.666748046875,
+          2816.0,
+          3285.33349609375,
+          3754.666748046875,
+          4224.0,
+          4693.33349609375,
+          5162.6669921875,
+          5632.0,
+          6101.33349609375,
+          6570.6669921875,
+          7040.0,
+          7509.33349609375
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "actual_cent": 111.7313232421875,
+      "actual_frequencies": [
+        469.3333435058594,
+        938.6666870117188,
+        1408.0,
+        1877.3333740234375,
+        2346.666748046875,
+        2816.0,
+        3285.33349609375,
+        3754.666748046875,
+        4224.0,
+        4693.33349609375,
+        5162.6669921875,
+        5632.0,
+        6101.33349609375,
+        6570.6669921875,
+        7040.0,
+        7509.33349609375
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "ignored_16th_tail_a",
+      "count": 16,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0,
+        16000.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0,
+          880.0,
+          1320.0,
+          1760.0,
+          2200.0,
+          2640.0,
+          3080.0,
+          3520.0,
+          3960.0,
+          4400.0,
+          4840.0,
+          5280.0,
+          5720.0,
+          6160.0,
+          6600.0,
+          7040.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0,
+        7040.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "ignored_16th_tail_b",
+      "count": 16,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0,
+        64000.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0,
+          880.0,
+          1320.0,
+          1760.0,
+          2200.0,
+          2640.0,
+          3080.0,
+          3520.0,
+          3960.0,
+          4400.0,
+          4840.0,
+          5280.0,
+          5720.0,
+          6160.0,
+          6600.0,
+          7040.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0,
+        880.0,
+        1320.0,
+        1760.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        3520.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        6600.0,
+        7040.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "zero_missing_excluded",
+      "count": 3,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        0.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0,
+          0.0,
+          1320.0
+        ],
+        "amplitudes": [
+          -20.0,
+          10000.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          2
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0,
+        0.0,
+        1320.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "zero_present_included",
+      "count": 3,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        0.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 293.3333435058594,
+        "cent": -701.9549560546875,
+        "reconstructed_hz": 293.3333435058594,
+        "frequencies": [
+          293.3333435058594,
+          0.0,
+          880.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2
+        ]
+      },
+      "actual_cent": -701.9549560546875,
+      "actual_frequencies": [
+        293.3333435058594,
+        0.0,
+        880.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 0,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "negative_missing_excluded",
+      "count": 3,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        -440.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0,
+          -440.0,
+          1320.0
+        ],
+        "amplitudes": [
+          -20.0,
+          10000.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          2
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0,
+        -440.0,
+        1320.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "negative_present_included",
+      "count": 3,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        -440.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 220.0,
+        "cent": -1200.0,
+        "reconstructed_hz": 220.0,
+        "frequencies": [
+          220.0,
+          -440.0,
+          660.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2
+        ]
+      },
+      "actual_cent": -1200.0,
+      "actual_frequencies": [
+        220.0,
+        -440.0,
+        660.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 0,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "positive_missing_included",
+      "count": 3,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        1760.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 586.6666870117188,
+        "cent": 498.0450439453125,
+        "reconstructed_hz": 586.6666870117188,
+        "frequencies": [
+          586.6666870117188,
+          1173.3333740234375,
+          1760.0
+        ],
+        "amplitudes": [
+          -20.0,
+          10000.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1,
+          2
+        ]
+      },
+      "actual_cent": 498.0450439453125,
+      "actual_frequencies": [
+        586.6666870117188,
+        1173.3333740234375,
+        1760.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "selected_index": 2,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "first_missing_reset",
+      "count": 1,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0
+      ],
+      "input_amplitudes": [
+        10000.0
+      ],
+      "independently_expected": {
+        "mean_hz": 440.0,
+        "cent": 0.0,
+        "reconstructed_hz": 440.0,
+        "frequencies": [
+          440.0
+        ],
+        "amplitudes": [
+          -200.0
+        ],
+        "included_indices": [
+          0
+        ]
+      },
+      "actual_cent": 0.0,
+      "actual_frequencies": [
+        440.0
+      ],
+      "actual_amplitudes": [
+        -200.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "zero_first_keeps_stored_pitch",
+      "count": 3,
+      "input_hz": 0.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": null,
+        "cent": 1200.0,
+        "reconstructed_hz": 880.0,
+        "frequencies": [
+          0.0,
+          1760.0,
+          2640.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": []
+      },
+      "actual_cent": 1200.0,
+      "actual_frequencies": [
+        0.0,
+        1760.0,
+        2640.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 0,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "negative_first_keeps_stored_pitch",
+      "count": 3,
+      "input_hz": -220.0,
+      "input_frequencies": [
+        440.0,
+        880.0,
+        1320.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": null,
+        "cent": 1200.0,
+        "reconstructed_hz": 880.0,
+        "frequencies": [
+          -220.0,
+          1760.0,
+          2640.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0,
+          -20.0
+        ],
+        "included_indices": []
+      },
+      "actual_cent": 1200.0,
+      "actual_frequencies": [
+        -220.0,
+        1760.0,
+        2640.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 0,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "zero_computed_reference",
+      "count": 2,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        -880.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 0.0,
+        "cent": -3.4028234663852886e+38,
+        "reconstructed_hz": 0.0,
+        "frequencies": [
+          0.0,
+          -880.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1
+        ]
+      },
+      "actual_cent": -3.4028234663852886e+38,
+      "actual_frequencies": [
+        0.0,
+        -880.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 0,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "negative_computed_reference",
+      "count": 2,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        -1760.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": -220.0,
+        "cent": -3.4028234663852886e+38,
+        "reconstructed_hz": 0.0,
+        "frequencies": [
+          0.0,
+          -1760.0
+        ],
+        "amplitudes": [
+          -20.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          1
+        ]
+      },
+      "actual_cent": -3.4028234663852886e+38,
+      "actual_frequencies": [
+        0.0,
+        -1760.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        -20.0
+      ],
+      "selected_index": 0,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "sparse_indices_15",
+      "count": 15,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        0.0,
+        1320.0,
+        -440.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        0.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        0.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0
+      ],
+      "independently_expected": {
+        "mean_hz": 394.1666564941406,
+        "cent": -190.43734741210938,
+        "reconstructed_hz": 394.1666564941406,
+        "frequencies": [
+          394.1666564941406,
+          0.0,
+          1182.5,
+          -440.0,
+          1970.833251953125,
+          2365.0,
+          2759.16650390625,
+          0.0,
+          3547.5,
+          3941.66650390625,
+          4335.8330078125,
+          4730.0,
+          5124.16650390625,
+          5518.3330078125,
+          0.0
+        ],
+        "amplitudes": [
+          -20.0,
+          10000.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          10000.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          10000.0
+        ],
+        "included_indices": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "actual_cent": -190.43734741210938,
+      "actual_frequencies": [
+        394.1666564941406,
+        0.0,
+        1182.5,
+        -440.0,
+        1970.833251953125,
+        2365.0,
+        2759.16650390625,
+        0.0,
+        3547.5,
+        3941.66650390625,
+        4335.8330078125,
+        4730.0,
+        5124.16650390625,
+        5518.3330078125,
+        0.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    },
+    {
+      "case": "sparse_indices_16",
+      "count": 16,
+      "input_hz": 440.0,
+      "input_frequencies": [
+        440.0,
+        0.0,
+        1320.0,
+        -440.0,
+        2200.0,
+        2640.0,
+        3080.0,
+        0.0,
+        3960.0,
+        4400.0,
+        4840.0,
+        5280.0,
+        5720.0,
+        6160.0,
+        0.0,
+        -64000.0
+      ],
+      "input_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "independently_expected": {
+        "mean_hz": 394.1666564941406,
+        "cent": -190.43734741210938,
+        "reconstructed_hz": 394.1666564941406,
+        "frequencies": [
+          394.1666564941406,
+          0.0,
+          1182.5,
+          -440.0,
+          1970.833251953125,
+          2365.0,
+          2759.16650390625,
+          0.0,
+          3547.5,
+          3941.66650390625,
+          4335.8330078125,
+          4730.0,
+          5124.16650390625,
+          5518.3330078125,
+          0.0,
+          -64000.0
+        ],
+        "amplitudes": [
+          -20.0,
+          10000.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          10000.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          -20.0,
+          10000.0,
+          -20.0
+        ],
+        "included_indices": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "actual_cent": -190.43734741210938,
+      "actual_frequencies": [
+        394.1666564941406,
+        0.0,
+        1182.5,
+        -440.0,
+        1970.833251953125,
+        2365.0,
+        2759.16650390625,
+        0.0,
+        3547.5,
+        3941.66650390625,
+        4335.8330078125,
+        4730.0,
+        5124.16650390625,
+        5518.3330078125,
+        0.0,
+        -64000.0
+      ],
+      "actual_amplitudes": [
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        -20.0,
+        10000.0,
+        -20.0
+      ],
+      "selected_index": 1,
+      "all_float32_bits_and_guards_exact": true
+    }
+  ],
+  "reversal_steps": [
+    {
+      "case": "up_return_old_at_2",
+      "step": 0,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 1,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 2,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 3,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 4,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 5,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_2",
+      "step": 6,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 0,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 1,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 2,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 3,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 4,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 5,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_3",
+      "step": 6,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 0,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 1,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 2,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 3,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 4,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 5,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "up_return_old_at_4",
+      "step": 6,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 0,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 0,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 1,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 2,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 3,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 4,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 5,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_2",
+      "step": 6,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 0,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 1,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 2,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 3,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 4,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 5,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_3",
+      "step": 6,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 0,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 1,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 2,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 3,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 4,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 5,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "same_previous",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 4,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "down_return_old_at_4",
+      "step": 6,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": 2,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 0,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 1,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 2,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 2,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 3,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_up_then_opposite",
+      "step": 4,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 0,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 0,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 0,
+      "input_hz": 440.0,
+      "candidate": 1,
+      "branch": "initialize",
+      "swapped": false,
+      "state_a_index": 1,
+      "state_b_index": -1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 1,
+      "input_hz": 220.0,
+      "candidate": 0,
+      "branch": "transition",
+      "swapped": true,
+      "state_a_index": 0,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 2,
+        "weight": 0.75
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 2,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 3,
+        "weight": 0.5
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 3,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "transition",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 1,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "actual": {
+        "previous": 1,
+        "counter": 4,
+        "weight": 0.25
+      },
+      "all_state_and_pitch_checks_exact": true
+    },
+    {
+      "case": "middle_down_then_opposite",
+      "step": 4,
+      "input_hz": 660.0,
+      "candidate": 2,
+      "branch": "commit",
+      "swapped": false,
+      "state_a_index": 2,
+      "state_b_index": 1,
+      "independently_expected": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "actual": {
+        "previous": 2,
+        "counter": 0,
+        "weight": 0.0
+      },
+      "all_state_and_pitch_checks_exact": true
+    }
+  ],
+  "summary": {
+    "reference_cases": 20,
+    "reversal_trajectories": 8,
+    "reversal_calls": 52,
+    "additional_fixture_baseline_calls": 1,
+    "all_checks_passed": true
+  },
+  "limits": [
+    "Only owned valid arrays with counts 1/2/3/15/16 and flags bit0/bit1 set.",
+    "No NaN/Inf input, zero-count or null-pointer contract is claimed.",
+    "Tests wrapper reference preparation and state transitions, not audio crossfade quality.",
+    "Material audio is shared across records; state indices do not alone prove which PCM was rendered.",
+    "No new maker metadata or bit17 production inference."
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "ring_report_sha256": "e433666eb90ea582f2a4bfe17033b33e9ac09fac2c6786d84c836d9de8979bed",
+  "cases": [
+    {
+      "index": 14,
+      "near_mean_candidates": 1,
+      "pcm16_roundtrip_samples": 514,
+      "maximum_input_difference_lsb": 0.49609375,
+      "comparisons": {
+        "saved_pcm": {
+          "bit0_error": -0.003921568393707275,
+          "bit15_error": -0.0071921199560165405,
+          "bit2_error": 3.4105032682418823e-06
+        },
+        "quantization_witness": {
+          "bit0_error": 0.0,
+          "bit15_error": 0.0,
+          "bit2_error": 3.4105032682418823e-06
+        }
+      }
+    },
+    {
+      "index": 46,
+      "near_mean_candidates": 1,
+      "pcm16_roundtrip_samples": 514,
+      "maximum_input_difference_lsb": 0.49609375,
+      "comparisons": {
+        "saved_pcm": {
+          "bit0_error": -0.003921568393707275,
+          "bit15_error": 0.00929751992225647,
+          "bit2_error": 3.6153942346572876e-06
+        },
+        "quantization_witness": {
+          "bit0_error": 0.0,
+          "bit15_error": -7.450580596923828e-09,
+          "bit2_error": 3.6153942346572876e-06
+        }
+      }
+    },
+    {
+      "index": 161,
+      "near_mean_candidates": 1,
+      "pcm16_roundtrip_samples": 514,
+      "maximum_input_difference_lsb": 0.49609375,
+      "comparisons": {
+        "saved_pcm": {
+          "bit0_error": 0.003921568393707275,
+          "bit15_error": 0.008686408400535583,
+          "bit2_error": 4.036352038383484e-06
+        },
+        "quantization_witness": {
+          "bit0_error": 0.0,
+          "bit15_error": 0.0,
+          "bit2_error": 4.034489393234253e-06
+        }
+      }
+    },
+    {
+      "index": 165,
+      "near_mean_candidates": 1,
+      "pcm16_roundtrip_samples": 514,
+      "maximum_input_difference_lsb": 0.49609375,
+      "comparisons": {
+        "saved_pcm": {
+          "bit0_error": 0.003921568393707275,
+          "bit15_error": -0.002278141677379608,
+          "bit2_error": 3.5725533962249756e-06
+        },
+        "quantization_witness": {
+          "bit0_error": 0.0,
+          "bit15_error": 0.0,
+          "bit2_error": 3.5725533962249756e-06
+        }
+      }
+    },
+    {
+      "index": 251,
+      "near_mean_candidates": 1,
+      "pcm16_roundtrip_samples": 514,
+      "maximum_input_difference_lsb": 0.49609375,
+      "comparisons": {
+        "saved_pcm": {
+          "bit0_error": -0.003921568393707275,
+          "bit15_error": 0.0020041167736053467,
+          "bit2_error": 3.5241246223449707e-06
+        },
+        "quantization_witness": {
+          "bit0_error": 0.0,
+          "bit15_error": 0.0,
+          "bit2_error": 3.5278499126434326e-06
+        }
+      }
+    },
+    {
+      "index": 298,
+      "near_mean_candidates": 1,
+      "pcm16_roundtrip_samples": 514,
+      "maximum_input_difference_lsb": 0.49609375,
+      "comparisons": {
+        "saved_pcm": {
+          "bit0_error": -0.003921568393707275,
+          "bit15_error": -0.007141217589378357,
+          "bit2_error": 4.151836037635803e-06
+        },
+        "quantization_witness": {
+          "bit0_error": 0.0,
+          "bit15_error": 7.450580596923828e-09,
+          "bit2_error": 4.151836037635803e-06
+        }
+      }
+    }
+  ],
+  "quantization_step_lsb": 0.49609375,
+  "native_checks": 12,
+  "scope": "Independent per-window existence witnesses within strictly less than half an LSB. Every altered float32 sample rounds back to its saved integer; selecting the first bit0-compatible candidate precedes the separate native bit15 check. Proves non-uniqueness of the producer inputs from PCM16, not an identified original quantizer, recovered PCM, a single global waveform, or simultaneous reproduction of other saved fields. Bit2 residuals are reported without fitting them."
+}

@@ -1,0 +1,260 @@
+{
+  "date": "2026-09-13",
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "scope": "Ordinary FRM2 only; sampled reference frames, not full-bank semantic acceptance",
+  "selection": "16 evenly spaced STA and ART parts per bank, first/middle/last frame; ordinary mask only",
+  "synthetic": {
+    "envelope_interpolation": {
+      "count": 1608,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 1608
+    },
+    "bit37_phase_consumer": {
+      "count": 64,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 64
+    },
+    "bit22_array_estimator": {
+      "count": 72,
+      "max": 7.578637458533714e-13,
+      "mean": 1.6841416574519364e-13,
+      "within_1e-4": 72
+    }
+  },
+  "reference_summary": {
+    "low": {
+      "frames": 669,
+      "complete_matches": 0,
+      "points": 9653,
+      "max": 18.27426528930664
+    },
+    "high": {
+      "frames": 669,
+      "complete_matches": 0,
+      "points": 33775,
+      "max": 12.902961730957031
+    },
+    "formula": {
+      "frames": 669,
+      "complete_matches": 669,
+      "points": 43428,
+      "max": 1.223740633804482e-05
+    },
+    "threshold_amplitude": {
+      "frames": 669,
+      "complete_matches": 669,
+      "points": 43428,
+      "max": 0.0
+    },
+    "linear_env": {
+      "frames": 669,
+      "complete_matches": 669,
+      "points": 43428,
+      "max": 0.0
+    },
+    "phase_modulo_linear_term": {
+      "frames": 669,
+      "complete_matches": 551,
+      "points": 43428,
+      "max": 3.1381519516203724
+    }
+  },
+  "owned_signal_verification": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "signals": [
+      {
+        "frequency": 110,
+        "peak": 0.1,
+        "harmonic_weights": [
+          1
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -20.000926971435547
+        ],
+        "expected_levels": [
+          -20.000265076360378
+        ],
+        "max_level_error": 0.0006618950751686725,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true
+      },
+      {
+        "frequency": 110,
+        "peak": 0.2,
+        "harmonic_weights": [
+          1
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -13.980422973632812
+        ],
+        "expected_levels": [
+          -13.979665163080755
+        ],
+        "max_level_error": 0.0007578105520575917,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true,
+        "doubling_gain_error": 9.59154768898074e-05
+      },
+      {
+        "frequency": 220,
+        "peak": 0.1,
+        "harmonic_weights": [
+          1
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -20.002235412597656
+        ],
+        "expected_levels": [
+          -20.000265076360378
+        ],
+        "max_level_error": 0.0019703362372780475,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true
+      },
+      {
+        "frequency": 220,
+        "peak": 0.2,
+        "harmonic_weights": [
+          1
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -13.981727600097656
+        ],
+        "expected_levels": [
+          -13.979665163080755
+        ],
+        "max_level_error": 0.0020624370169013417,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true,
+        "doubling_gain_error": 9.21007796241824e-05
+      },
+      {
+        "frequency": 440,
+        "peak": 0.1,
+        "harmonic_weights": [
+          1
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -20.000656127929688
+        ],
+        "expected_levels": [
+          -20.000265076360378
+        ],
+        "max_level_error": 0.0003910515693092975,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true
+      },
+      {
+        "frequency": 440,
+        "peak": 0.2,
+        "harmonic_weights": [
+          1
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -13.98065185546875
+        ],
+        "expected_levels": [
+          -13.979665163080755
+        ],
+        "max_level_error": 0.0009866923879950917,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true,
+        "doubling_gain_error": 0.0005956408186866824
+      },
+      {
+        "frequency": 220,
+        "peak": 0.1,
+        "harmonic_weights": [
+          1,
+          0.5,
+          0.25,
+          0.125
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -20.002029418945312,
+          -26.020326614379883,
+          -32.041595458984375,
+          -38.06034469604492
+        ],
+        "expected_levels": [
+          -20.000265076360378,
+          -26.020864989640003,
+          -32.04146490291963,
+          -38.06206481619925
+        ],
+        "max_level_error": 0.0017643425849342975,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true
+      },
+      {
+        "frequency": 220,
+        "peak": 0.2,
+        "harmonic_weights": [
+          1,
+          0.5,
+          0.25,
+          0.125
+        ],
+        "frames": 87,
+        "central_frames": 35,
+        "measured_levels": [
+          -13.981372833251953,
+          -19.999509811401367,
+          -26.021007537841797,
+          -32.039405822753906
+        ],
+        "expected_levels": [
+          -13.979665163080755,
+          -20.000265076360378,
+          -26.020864989640003,
+          -32.04146490291963
+        ],
+        "max_level_error": 0.0020590801657220936,
+        "native_readback_frames": 87,
+        "neutral_phase_all_frames": true,
+        "doubling_gain_error": 0.0003389600113914426
+      }
+    ],
+    "max_level_error": 0.0020624370169013417,
+    "native_readback_frames": 696
+  },
+  "bit22_temporal_candidate_summary": {
+    "sta_parts": 16,
+    "frames": 1112,
+    "max_AB_error_by_candidate": {
+      "1": 2.0887298583984375,
+      "3": 1.94781494140625,
+      "5": 0.9412170410156264,
+      "7": 0.7256977081298821,
+      "9": 0.7884019215901699,
+      "tri": 1.9378471374511719,
+      "bin5": 1.5550346374511719
+    }
+  },
+  "limitations": [
+    "Commercial bit37 phase origin and local processing remain unresolved",
+    "Commercial bit22/23 production pipeline is not reproduced",
+    "Zero bit37 is an explicitly experimental neutral placeholder",
+    "No Editor-host rendering or arbitrary FFT-window normalization acceptance"
+  ],
+  "followup": {
+    "report": "50_frm2_generation_audit.json",
+    "note": "Earlier failed non-in-place temporal candidates are historical. The follow-up recovers in-place smoothing, audits all ordinary STA/ART frames, and verifies residual DC and resonance-fit candidates."
+  }
+}

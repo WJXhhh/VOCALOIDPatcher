@@ -1,0 +1,119 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "cases": 192,
+  "parameters": {
+    "count": 5217,
+    "max": 0.0,
+    "mean": 0.0,
+    "within_1e-4": 5217
+  },
+  "peaks": 1739,
+  "scope": "51e60 supplied nonnegative power and complex bins, 44100 Hz, both interpolation scales, cutoff and phase-origin correction; upstream FFT-to-spectrum wrapper not yet compared",
+  "pcm_pipeline": {
+    "cases": 48,
+    "peaks": 156,
+    "frequency_hz": {
+      "count": 156,
+      "max": 0.0001220703125,
+      "mean": 3.423446264022436e-06,
+      "within_1e-4": 154
+    },
+    "amplitude_db": {
+      "count": 156,
+      "max": 3.814697265625e-06,
+      "mean": 2.567584698016827e-07,
+      "within_1e-4": 156
+    },
+    "independent_fft_span_mismatches": 8,
+    "span_cases": [
+      {
+        "size": 256,
+        "window": 10,
+        "logarithmic": 0,
+        "centered": 0,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 86,
+        "independent": 115
+      },
+      {
+        "size": 256,
+        "window": 10,
+        "logarithmic": 0,
+        "centered": 1,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 89,
+        "independent": 90
+      },
+      {
+        "size": 256,
+        "window": 10,
+        "logarithmic": 1,
+        "centered": 0,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 86,
+        "independent": 115
+      },
+      {
+        "size": 256,
+        "window": 10,
+        "logarithmic": 1,
+        "centered": 1,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 89,
+        "independent": 90
+      },
+      {
+        "size": 512,
+        "window": 10,
+        "logarithmic": 0,
+        "centered": 0,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 82,
+        "independent": 94
+      },
+      {
+        "size": 512,
+        "window": 10,
+        "logarithmic": 0,
+        "centered": 1,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 78,
+        "independent": 82
+      },
+      {
+        "size": 512,
+        "window": 10,
+        "logarithmic": 1,
+        "centered": 0,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 82,
+        "independent": 94
+      },
+      {
+        "size": 512,
+        "window": 10,
+        "logarithmic": 1,
+        "centered": 1,
+        "factor": 1.0,
+        "peak": 1,
+        "native": 78,
+        "independent": 82
+      }
+    ],
+    "phase_radians": {
+      "count": 156,
+      "max": 1.52587890625e-05,
+      "mean": 2.628717667017228e-07,
+      "within_1e-4": 156
+    },
+    "scope": "Owned PCM -> analytic window -> independent FFT -> independent peak model vs native FFT+51e60; 3 windows, centering and padding; excludes d04c0 post-filter"
+  },
+  "date": "2026-09-14"
+}

@@ -1,0 +1,3433 @@
+{
+  "date": "2026-09-13",
+  "scope": "Full V4X ordinary STA/ART bit22; 669 stratified frames bit23; self-generated runtime-model boundary tests",
+  "bit22_STA": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "complete": true,
+    "category": "STA",
+    "parts_per_bank": 0,
+    "synthetic_filter": {
+      "count": 138,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 138
+    },
+    "grouping": "DDI unit, split only at nonordinary frames",
+    "v4x_slope": true,
+    "tolerances_ABC": [
+      0.0001,
+      0.0001,
+      1e-09
+    ],
+    "frames": 51681,
+    "matches": 51681,
+    "banks": [
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "parts": 144,
+        "ordinary_runs": 144,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 10061,
+          "max": 7.62939453125e-06,
+          "mean": 1.1223278232137272e-07,
+          "within_1e-4": 10061
+        },
+        "matches": 10061,
+        "axis_errors": [
+          {
+            "count": 10061,
+            "max": 7.62939453125e-06,
+            "mean": 5.327154018689122e-08,
+            "within_1e-4": 10061
+          },
+          {
+            "count": 10061,
+            "max": 7.62939453125e-06,
+            "mean": 9.706415863234271e-08,
+            "within_1e-4": 10061
+          },
+          {
+            "count": 10061,
+            "max": 5.820766091346741e-11,
+            "mean": 2.591892663674923e-12,
+            "within_1e-4": 10061
+          }
+        ],
+        "raw_slope_range": [
+          -0.0009066379279829562,
+          -5.9097994380863383e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "parts": 48,
+        "ordinary_runs": 48,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 3374,
+          "max": 7.62939453125e-06,
+          "mean": 1.6026815237222372e-07,
+          "within_1e-4": 3374
+        },
+        "matches": 3374,
+        "axis_errors": [
+          {
+            "count": 3374,
+            "max": 7.62939453125e-06,
+            "mean": 7.320736453740924e-08,
+            "within_1e-4": 3374
+          },
+          {
+            "count": 3374,
+            "max": 7.62939453125e-06,
+            "mean": 1.424575742349585e-07,
+            "within_1e-4": 3374
+          },
+          {
+            "count": 3374,
+            "max": 5.820766091346741e-11,
+            "mean": 3.743646241322592e-12,
+            "within_1e-4": 3374
+          }
+        ],
+        "raw_slope_range": [
+          -0.0009066379279829562,
+          -6.82040918036364e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "parts": 144,
+        "ordinary_runs": 144,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 10126,
+          "max": 7.62939453125e-06,
+          "mean": 1.6020484281173696e-07,
+          "within_1e-4": 10126
+        },
+        "matches": 10126,
+        "axis_errors": [
+          {
+            "count": 10126,
+            "max": 7.62939453125e-06,
+            "mean": 7.317844596559908e-08,
+            "within_1e-4": 10126
+          },
+          {
+            "count": 10126,
+            "max": 7.62939453125e-06,
+            "mean": 1.4240130025738198e-07,
+            "within_1e-4": 10126
+          },
+          {
+            "count": 10126,
+            "max": 5.820766091346741e-11,
+            "mean": 3.7421674160248154e-12,
+            "within_1e-4": 10126
+          }
+        ],
+        "raw_slope_range": [
+          -0.0009066379279829562,
+          -6.699484947603196e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "parts": 48,
+        "ordinary_runs": 48,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 3374,
+          "max": 7.62939453125e-06,
+          "mean": 1.6026815237222372e-07,
+          "within_1e-4": 3374
+        },
+        "matches": 3374,
+        "axis_errors": [
+          {
+            "count": 3374,
+            "max": 7.62939453125e-06,
+            "mean": 7.320736453740924e-08,
+            "within_1e-4": 3374
+          },
+          {
+            "count": 3374,
+            "max": 7.62939453125e-06,
+            "mean": 1.424575742349585e-07,
+            "within_1e-4": 3374
+          },
+          {
+            "count": 3374,
+            "max": 5.820766091346741e-11,
+            "mean": 3.743646241322592e-12,
+            "within_1e-4": 3374
+          }
+        ],
+        "raw_slope_range": [
+          -0.0009066379279829562,
+          -6.82040918036364e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "parts": 120,
+        "ordinary_runs": 120,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 12576,
+          "max": 7.62939453125e-06,
+          "mean": 4.299815093065226e-08,
+          "within_1e-4": 12576
+        },
+        "matches": 12576,
+        "axis_errors": [
+          {
+            "count": 12576,
+            "max": 7.62939453125e-06,
+            "mean": 1.9640716280949327e-08,
+            "within_1e-4": 12576
+          },
+          {
+            "count": 12576,
+            "max": 7.62939453125e-06,
+            "mean": 3.821977222238788e-08,
+            "within_1e-4": 12576
+          },
+          {
+            "count": 12576,
+            "max": 5.820766091346741e-11,
+            "mean": 1.0043783729502566e-12,
+            "within_1e-4": 12576
+          }
+        ],
+        "raw_slope_range": [
+          -0.0009066379279829562,
+          -3.0181932743289508e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "parts": 36,
+        "ordinary_runs": 36,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 2933,
+          "max": 0.0,
+          "mean": 0.0,
+          "within_1e-4": 2933
+        },
+        "matches": 2933,
+        "axis_errors": [
+          {
+            "count": 2933,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 2933
+          },
+          {
+            "count": 2933,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 2933
+          },
+          {
+            "count": 2933,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 2933
+          }
+        ],
+        "raw_slope_range": [
+          -0.0003953681734856218,
+          -3.0181932743289508e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "parts": 112,
+        "ordinary_runs": 112,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 6318,
+          "max": 1.9073486328125e-06,
+          "mean": 1.5094560247012503e-09,
+          "within_1e-4": 6318
+        },
+        "matches": 6318,
+        "axis_errors": [
+          {
+            "count": 6318,
+            "max": 1.9073486328125e-06,
+            "mean": 1.5094560247012503e-09,
+            "within_1e-4": 6318
+          },
+          {
+            "count": 6318,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 6318
+          },
+          {
+            "count": 6318,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 6318
+          }
+        ],
+        "raw_slope_range": [
+          -0.0003953681734856218,
+          -3.047215250262525e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "parts": 36,
+        "ordinary_runs": 36,
+        "nonordinary_frames": 0,
+        "error": {
+          "count": 2919,
+          "max": 0.0,
+          "mean": 0.0,
+          "within_1e-4": 2919
+        },
+        "matches": 2919,
+        "axis_errors": [
+          {
+            "count": 2919,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 2919
+          },
+          {
+            "count": 2919,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 2919
+          },
+          {
+            "count": 2919,
+            "max": 0.0,
+            "mean": 0.0,
+            "within_1e-4": 2919
+          }
+        ],
+        "raw_slope_range": [
+          -0.0003953681734856218,
+          -3.0181932743289508e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      }
+    ]
+  },
+  "bit22_ART": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "complete": true,
+    "category": "ART",
+    "parts_per_bank": 0,
+    "synthetic_filter": {
+      "count": 138,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 138
+    },
+    "grouping": "DDI unit, split only at nonordinary frames",
+    "v4x_slope": true,
+    "tolerances_ABC": [
+      0.0001,
+      0.0001,
+      1e-09
+    ],
+    "frames": 805302,
+    "matches": 805302,
+    "banks": [
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "parts": 5701,
+        "ordinary_runs": 5409,
+        "nonordinary_frames": 24967,
+        "error": {
+          "count": 188110,
+          "max": 3.814697265625e-05,
+          "mean": 1.8559407784076904e-08,
+          "within_1e-4": 188110
+        },
+        "matches": 188110,
+        "axis_errors": [
+          {
+            "count": 188110,
+            "max": 3.814697265625e-05,
+            "mean": 1.2140830201551577e-08,
+            "within_1e-4": 188110
+          },
+          {
+            "count": 188110,
+            "max": 3.814697265625e-05,
+            "mean": 1.2765679276545306e-08,
+            "within_1e-4": 188110
+          },
+          {
+            "count": 188110,
+            "max": 1.1641532182693481e-10,
+            "mean": 3.000737822063421e-13,
+            "within_1e-4": 188110
+          }
+        ],
+        "raw_slope_range": [
+          -0.001982848858460784,
+          6.155201845103875e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "parts": 1552,
+        "ordinary_runs": 1385,
+        "nonordinary_frames": 6155,
+        "error": {
+          "count": 46483,
+          "max": 1.52587890625e-05,
+          "mean": 8.824927336664576e-08,
+          "within_1e-4": 46483
+        },
+        "matches": 46483,
+        "axis_errors": [
+          {
+            "count": 46483,
+            "max": 1.52587890625e-05,
+            "mean": 5.864677480901116e-08,
+            "within_1e-4": 46483
+          },
+          {
+            "count": 46483,
+            "max": 1.52587890625e-05,
+            "mean": 6.364257318787917e-08,
+            "within_1e-4": 46483
+          },
+          {
+            "count": 46483,
+            "max": 2.3283064365386963e-10,
+            "mean": 2.662017795013455e-12,
+            "within_1e-4": 46483
+          }
+        ],
+        "raw_slope_range": [
+          -0.0021233144216239452,
+          0.0004861046327278018
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "parts": 4832,
+        "ordinary_runs": 4595,
+        "nonordinary_frames": 22901,
+        "error": {
+          "count": 158200,
+          "max": 1.52587890625e-05,
+          "mean": 1.5215677845435435e-08,
+          "within_1e-4": 158200
+        },
+        "matches": 158200,
+        "axis_errors": [
+          {
+            "count": 158200,
+            "max": 1.239776611328125e-05,
+            "mean": 9.672379523854793e-09,
+            "within_1e-4": 158200
+          },
+          {
+            "count": 158200,
+            "max": 1.52587890625e-05,
+            "mean": 1.0368646170788558e-08,
+            "within_1e-4": 158200
+          },
+          {
+            "count": 158200,
+            "max": 2.3283064365386963e-10,
+            "mean": 3.6177422625263483e-13,
+            "within_1e-4": 158200
+          }
+        ],
+        "raw_slope_range": [
+          -0.002244721632450819,
+          0.00010341613960918039
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "parts": 1556,
+        "ordinary_runs": 1389,
+        "nonordinary_frames": 7714,
+        "error": {
+          "count": 51542,
+          "max": 1.52587890625e-05,
+          "mean": 3.918492566442675e-08,
+          "within_1e-4": 51542
+        },
+        "matches": 51542,
+        "axis_errors": [
+          {
+            "count": 51542,
+            "max": 9.5367431640625e-06,
+            "mean": 2.471519281633713e-08,
+            "within_1e-4": 51542
+          },
+          {
+            "count": 51542,
+            "max": 1.52587890625e-05,
+            "mean": 2.542292714179092e-08,
+            "within_1e-4": 51542
+          },
+          {
+            "count": 51542,
+            "max": 1.1641532182693481e-10,
+            "mean": 6.389155283418219e-13,
+            "within_1e-4": 51542
+          }
+        ],
+        "raw_slope_range": [
+          -0.0019981749355793,
+          -4.388832621771144e-06
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "parts": 4457,
+        "ordinary_runs": 4195,
+        "nonordinary_frames": 18515,
+        "error": {
+          "count": 164566,
+          "max": 1.52587890625e-05,
+          "mean": 2.2966190102093258e-08,
+          "within_1e-4": 164566
+        },
+        "matches": 164566,
+        "axis_errors": [
+          {
+            "count": 164566,
+            "max": 1.52587890625e-05,
+            "mean": 1.7654733085398202e-08,
+            "within_1e-4": 164566
+          },
+          {
+            "count": 164566,
+            "max": 1.52587890625e-05,
+            "mean": 1.4858603522389953e-08,
+            "within_1e-4": 164566
+          },
+          {
+            "count": 164566,
+            "max": 1.1641532182693481e-10,
+            "mean": 3.080762287205748e-13,
+            "within_1e-4": 164566
+          }
+        ],
+        "raw_slope_range": [
+          -0.0022045262157917023,
+          1.2426698049239349e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "parts": 1131,
+        "ordinary_runs": 1037,
+        "nonordinary_frames": 4307,
+        "error": {
+          "count": 37461,
+          "max": 3.0517578125e-05,
+          "mean": 2.0862990080960626e-08,
+          "within_1e-4": 37461
+        },
+        "matches": 37461,
+        "axis_errors": [
+          {
+            "count": 37461,
+            "max": 3.0517578125e-05,
+            "mean": 1.526194582860967e-08,
+            "within_1e-4": 37461
+          },
+          {
+            "count": 37461,
+            "max": 3.0517578125e-05,
+            "mean": 1.4816434482486786e-08,
+            "within_1e-4": 37461
+          },
+          {
+            "count": 37461,
+            "max": 2.3283064365386963e-10,
+            "mean": 4.692537197583395e-13,
+            "within_1e-4": 37461
+          }
+        ],
+        "raw_slope_range": [
+          -0.002114972798153758,
+          1.7426835256628692e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "parts": 3512,
+        "ordinary_runs": 3419,
+        "nonordinary_frames": 13267,
+        "error": {
+          "count": 119511,
+          "max": 1.52587890625e-05,
+          "mean": 1.546502267374316e-08,
+          "within_1e-4": 119511
+        },
+        "matches": 119511,
+        "axis_errors": [
+          {
+            "count": 119511,
+            "max": 1.1444091796875e-05,
+            "mean": 1.0309906341649514e-08,
+            "within_1e-4": 119511
+          },
+          {
+            "count": 119511,
+            "max": 1.52587890625e-05,
+            "mean": 1.1028088671950176e-08,
+            "within_1e-4": 119511
+          },
+          {
+            "count": 119511,
+            "max": 1.1641532182693481e-10,
+            "mean": 2.0285572684070233e-13,
+            "within_1e-4": 119511
+          }
+        ],
+        "raw_slope_range": [
+          -0.0016886580269783735,
+          1.2426698049239349e-05
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "parts": 1140,
+        "ordinary_runs": 1047,
+        "nonordinary_frames": 4800,
+        "error": {
+          "count": 39429,
+          "max": 1.52587890625e-05,
+          "mean": 5.0720733559906704e-08,
+          "within_1e-4": 39429
+        },
+        "matches": 39429,
+        "axis_errors": [
+          {
+            "count": 39429,
+            "max": 9.5367431640625e-06,
+            "mean": 3.224144319585917e-08,
+            "within_1e-4": 39429
+          },
+          {
+            "count": 39429,
+            "max": 1.52587890625e-05,
+            "mean": 3.768354726117673e-08,
+            "within_1e-4": 39429
+          },
+          {
+            "count": 39429,
+            "max": 1.1641532182693481e-10,
+            "mean": 5.23705082783042e-13,
+            "within_1e-4": 39429
+          }
+        ],
+        "raw_slope_range": [
+          -0.0020376660395413637,
+          9.666295227361843e-06
+        ],
+        "unsupported_slope_inputs": [],
+        "failure_examples": []
+      }
+    ]
+  },
+  "generation": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "summary": {
+      "native_bit23": {
+        "frames": 669,
+        "matches": 0,
+        "points": 492384,
+        "point_matches": 102049,
+        "max": 30.160564422607422
+      },
+      "dc_corrected_candidate": {
+        "frames": 669,
+        "matches": 0,
+        "points": 492384,
+        "point_matches": 103316,
+        "max": 0.005107879638671875
+      },
+      "harmonic_knots_candidate": {
+        "frames": 669,
+        "matches": 0,
+        "points": 43428,
+        "point_matches": 6874,
+        "max": 0.005100250244140625
+      },
+      "phase_linear_alignment": {
+        "frames": 669,
+        "matches": 551,
+        "points": 43428,
+        "point_matches": 43186,
+        "max": 3.1381519516203724
+      },
+      "dse_bit23_rebuild": {
+        "frames": 669,
+        "matches": 669,
+        "points": 492384,
+        "point_matches": 492384,
+        "max": 1.52587890625e-05
+      },
+      "dse_independent_formula": {
+        "frames": 669,
+        "matches": 669,
+        "points": 43428,
+        "point_matches": 43428,
+        "max": 7.62939453125e-06
+      },
+      "dc_candidate": {
+        "count": 669,
+        "max": 0.00179290771484375,
+        "mean": 0.00034362781564572825,
+        "within_1e-4": 98
+      }
+    },
+    "manifest": [
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8652c89a"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x86575362"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x865bde82"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x86e9bd3e"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x86ef363e"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x86f48376"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x87678b18"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x87749830"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8781a5e8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x87e1b2a4"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x87eb309c"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x87f4adfc"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x884d075e"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8851fdee"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8856f48e"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x88b4744a"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x88b8ff12"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x88bd8a32"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x89201534"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x892d86f4"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x893af8b4"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x89c562d8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x89d26ff0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x89df7da8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8a37a3ba"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8a3b217a"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8a3e731a"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8aa5d286"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8aaac916"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8aafbfb6"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8b055898"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8b07e340"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8b0a6de0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8b805ca4"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8b8dce64"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8b9b4024"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8c06b236"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8c12d8e6"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8c1ed3c6"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8c92f70a"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8c9674ca"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8c99c66a"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8cf19254"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8cfb104c"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8d048dac"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8d678620"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8d6a10c8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x8d6c9b68"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x2cb40"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x56a78"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x97f9fa0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x981e4c8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x983fd90"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x12bf0cf0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x12c20648"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x12c4fe78"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x1c165340"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x1c19f388"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x1c1d9348"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x26d5acc0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x26db1f48"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x26e06708"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x2f9125d0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x2f946a68"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x40dfb828"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x40e3a6e8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x49d69ae8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x49d994a8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x49dc6180"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x51354f68"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x5137d9f8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x59e5b170"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x59e8c460"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x6236dfe0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x623865f8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x6239ec10"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x6b9a3ca8"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x6b9d4de0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x6ba05f10"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x757b4478"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x757e3e70"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x758138e0"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x7ea28a68"
+      },
+      {
+        "bank": "MIKU_V4X_Original_EVEC",
+        "offset": "0x7ea52a38"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21455258"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2149dd20"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x214e6840"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2170c096"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21773206"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x217d7776"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21a552b4"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21a86754"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21ab7bf4"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21bfed4a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21cd5f0a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21dad0ca"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x21ffb262"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22098802"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x221330da"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x222c3370"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x222fdde0"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22335ba0"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x225a14d6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x226721ee"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22742fa6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x229112dc"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2296096c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x229b000c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22a89cd2"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22b21aca"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22bb982a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22cce038"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22d05df8"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22d3af98"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22f2f10e"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22f57bb6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x22f80656"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2313f18c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2318e81c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x231ddebc"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x233f911c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x234487ac"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x23497e4c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x23571b12"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2360990a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x236a166a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x237b5e78"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x237edc38"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x23822dd8"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x23a16f4e"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x23a3f9f6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x23a68496"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x0"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x216c0"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x42d80"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x27cdf06"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x27ff796"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x283106e"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x50d03f6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x510429e"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x51380ee"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x79bb664"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x79ec954"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xa47e31c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xa4c680c"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xa50c054"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xcc4455a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xcc7565a"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xf495040"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0xf4c3d88"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x11c98000"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x11ceb220"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1493e136"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x149644fe"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x14987cee"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1732d8b6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1736a1a6"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1be5bad2"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1be9dc62"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1e59e902"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x1e5d8652"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x206fe888"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2073eba8"
+      },
+      {
+        "bank": "MIKU_V4X_Sweet",
+        "offset": "0x2077c040"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x712801f8"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x712c8cc0"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x713117e0"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x71b9d0fc"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x71bf49fc"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x71c49734"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x723d4646"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x724a535e"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x72576116"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x72b76dd2"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x72c0ebca"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x72ca692a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7322c28c"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7327b91c"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x732cafbc"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x738a2f78"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x738eba40"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x73934560"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x73ffa4ca"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x740d168a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x741a884a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x749f73c6"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x74ac80de"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x74b98e96"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x75123f28"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7515bce8"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x75190e88"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7584f00c"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7589e69c"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x758edd3c"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x75e6ce3e"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x75e958e6"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x75ebe386"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7666f7ea"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x767469aa"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7681db6a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x76e7a604"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x76f3ccb4"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x76ffc794"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x7773ead8"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x77776898"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x777aba38"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x77d28622"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x77dc041a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x77e5817a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x784879ee"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x784b0496"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x784d8f36"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x0"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x24388"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x45a40"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x87b152c"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x87e90f4"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x10eb1d18"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x10ee6b00"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x19d986e4"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x19dcf424"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x19e03594"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x22b07388"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x22b3bb18"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x2a1a7b24"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x2a1d88b4"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x31be0f48"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x31c20a88"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x398cae34"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x399076f4"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x410aef12"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x410b4692"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x410b7252"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x477b323e"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x477e7686"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x4fb005a2"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x4fb2956a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x4fb52532"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x573071ee"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x5733b096"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x5736ef3e"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x5e33330a"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x5e3679e2"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x651bc36e"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x651ea4f6"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x6beb6ea2"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x6beec0c2"
+      },
+      {
+        "bank": "MIKU_V4X_Soft_EVEC",
+        "offset": "0x6bf1e632"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x24e489e8"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x24e914b0"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x24ed9fd0"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x250ff826"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25166996"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x251caf06"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25448a44"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25479ee4"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x254ab384"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x255f24da"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x256c969a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x257a085a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x259ee9f2"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25a8bf92"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25b2686a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25cb6b00"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25cf1570"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25d29330"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x25f94c66"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2606597e"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26136736"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26304a6c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x263540fc"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x263a379c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2647d462"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2651525a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x265acfba"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x266c17c8"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x266f9588"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2672e728"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2692289e"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2694b346"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26973de6"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26b3291c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26b81fac"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26bd164c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26dec8ac"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26e3bf3c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26e8b5dc"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26f652a2"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x26ffd09a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x27094dfa"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x271a9608"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x271e13c8"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x27216568"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2740a6de"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x27433186"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2745bc26"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x0"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x3a650"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x74c98"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2987e38"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x29bbd70"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x54e3196"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x5514486"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x8293c8e"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x82c8b7e"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0xae5d746"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0xae9ccb6"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0xaed96be"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0xd5c1534"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0xd6096cc"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0xd64ebec"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x1007c06c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x100ae1d4"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x12b1875c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x12b60e7c"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x12ba94a4"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x15d5f92a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x15d93dc2"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x18b66d2a"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x18b9ea12"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x1b8545da"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x1b89f812"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x1e3dae10"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x1e42cec0"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2132d5c8"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x2137b418"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x23e23628"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x23e636e0"
+      },
+      {
+        "bank": "MIKU_V4X_Dark",
+        "offset": "0x23ea0b30"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x75722292"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x757b01aa"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7583e0c2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7629403a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7632a4c2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x763bdd92"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x76f0f572"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x76fa12a2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7703300a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x77a4762a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x77ae8cfa"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x77b8a3ca"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7852fa62"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x785f71da"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x786be952"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x78e93552"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x78edef42"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x78f2a932"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x795cddea"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7963547a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7969ca02"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x79e08b82"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x79e40942"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x79e75ae2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7a323be8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7a34c690"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7a375130"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7a897b08"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7a8c05b0"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7a8e9050"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7ae0ba28"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7ae344d0"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7ae5cf70"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7b53d220"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7b5dbc68"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7b677a28"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7c08b8c8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7c171110"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7c253d70"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7cd3acf8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7cdcca28"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7ce5e790"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7d872db0"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7d914480"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7d9b5b50"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7e35b1e8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7e422960"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7e4ea0d8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x0"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x34cb0"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x66d30"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7e2a262"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7e5baa2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x7e8d47a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0xfd90164"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0xfdc3ffc"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x1888634e"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x188d56de"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x18921efe"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x219d1116"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x21a1ade6"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x2989a012"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x298d104a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x311d27b2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x3122e6b2"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x391aec46"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x391ff716"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x471be28c"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x472052f4"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x472497ec"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x4f7d180e"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x4f806676"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x577005e8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x57747eb8"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x5778cb80"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x5fd93b82"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x5fdc5c5a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x5fdf525a"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x67c0118c"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x67c3325c"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x67c653dc"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x6f7f5dc6"
+      },
+      {
+        "bank": "MIKU_V4X_Solid_EVEC",
+        "offset": "0x6f82a376"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1abc9d4e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1acd7cd6"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1ade5c5e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b0a143a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b1197da"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b191b7a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b48f480"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b561ad8"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b634130"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b73d924"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b80eb84"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1b8dd12c"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1ba2f260"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1baa99c0"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1bb24120"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1bed0056"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1bfb43e6"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c095aee"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c23edf2"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c32181a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c40167a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c4b5076"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c4e10f6"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c50a56e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c5f8824"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c6248a4"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c64dd1c"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c6a0d98"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c6e9368"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c731938"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c7990e4"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c7bc904"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c7dd57c"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c8dc892"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c9000b2"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c920d2a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c9c2f2e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1c9eefae"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1ca18426"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1ca6b4a2"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cab3a72"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cafc042"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cbaec50"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cbf7220"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cc3f7f0"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cca6f9c"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1ccca7bc"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cceb434"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x0"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x31ee0"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x611c8"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1cb8e96"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1ceccde"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1d1e096"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x3a91986"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x3ac64e6"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x585688c"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x5890bc4"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x74ff06a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x7535e8a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x756a0c2"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x92025ea"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x9239de2"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x927168a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xaeb7d20"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xaeebbc8"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xcd5230e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xcd86ec6"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xee78066"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xeebf57e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0xef06b7e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x10beac64"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x10c1eb0c"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x12a99492"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x12ad919a"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x145af622"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x145f7802"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1655e110"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x165ae9b0"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1850962e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x18542bf6"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1a4c6c06"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1a50c17e"
+      },
+      {
+        "bank": "RIN_V4X_Warm",
+        "offset": "0x1a54ea7e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x551002d0"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x55152260"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x551a1638"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5597d49e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5599be76"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x559b7bc6"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x55f64c96"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x55faf7ce"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x55ffa366"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x56354b74"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5639d144"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x563e5714"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x566d3e1c"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x566f763c"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x567182b4"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x569a61da"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x569cfdd2"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x569f6d42"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x56e6d408"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x56f33648"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x56ff9888"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x575903e0"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x575daf18"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57625ab0"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x578ffeb6"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5792bf36"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x579553ae"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57bd4316"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57bfdf0e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57c24e7e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57e4a204"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57e76284"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x57e9f6fc"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x58613d7a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x586e63d2"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x587b8a2a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x58e599f2"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x58eb7302"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x58f1200a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x591fdd28"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x59221548"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x592421c0"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5956b320"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x595973a0"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x595c0818"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5984f38e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x59872bae"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x59893826"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x0"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x2f0b8"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5b538"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5d13f64"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x5d47c44"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0xba79b18"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0xbaab7f8"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x118c13dc"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x118f045c"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x1191f524"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x16cc509a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x16cf9152"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x16d2d132"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x1d367c72"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x1d39c67a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x225f13b6"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x2262e316"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x284869ba"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x284c3752"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x2dbba92a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x2dbd9032"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x329c8c66"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x329f1dbe"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x32a1af26"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x38a1cbe2"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x38a48962"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x38a71b4a"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x3e2b0b56"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x3e2df10e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x3e30aace"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x44369572"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x4439d5e2"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x49fe6e6e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x4a02ee16"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x4a07411e"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x4f7e7332"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x4f815c12"
+      },
+      {
+        "bank": "RIN_V4X_Power_EVEC",
+        "offset": "0x4f841912"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1c241eb8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1c34fe40"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1c45ddc8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1c7195a4"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1c791944"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1c809ce4"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1cb075ea"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1cbd9c42"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1ccac29a"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1cdb5a8e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1ce86cee"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1cf55296"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d0a73ca"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d121b2a"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d19c28a"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d5481c0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d62c550"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d70dc58"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d8b6f5c"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1d999984"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1da797e4"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1db2d1e0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1db59260"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1db826d8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1dc6ae16"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1dc96e96"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1dcc030e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1dd0d812"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1dd55de2"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1dd9e3b2"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1de05b5e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1de267f6"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1de44886"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1df43794"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1df6442c"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1df824bc"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e0242b8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e050338"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e0797b0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e0c6cb4"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e10f284"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e157854"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e2048ea"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e24ceba"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e29548a"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e2fcc36"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e31d8ce"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1e33b95e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x48258"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x8d7b8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x21020b0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x2135fa0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x2167318"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x42175a8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x4249468"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x6373038"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x63a7bf0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x8251518"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x8298608"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x82dcb00"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xa0e9e48"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xa0fa8b8"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xa10b348"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xc1f75b0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xc22ee40"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xe5172d0"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xe54b178"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0xe57c468"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x108c9d0e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1090e726"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x109530ce"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x12e2ef7e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x12e5b5be"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x12e87c3e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x14ad45c6"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x14b19c06"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x162fdace"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1633d7e6"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x17fdc836"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1801b536"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x19b0918e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x19b4632e"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1bbf71ce"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1bc33416"
+      },
+      {
+        "bank": "RIN_V4X_Sweet",
+        "offset": "0x1bc6f5e6"
+      }
+    ]
+  },
+  "dse_synthetic": {
+    "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "scope": "Self-generated set-0 model; independent interpolation of DLL-owned cells",
+    "single_lookup_absolute": {
+      "count": 936,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 936
+    },
+    "single_lookup_relative": {
+      "count": 936,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 936
+    },
+    "model": {
+      "count": 648,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 648
+    },
+    "threshold_amplitude": {
+      "count": 648,
+      "max": 0.0,
+      "mean": 0.0,
+      "within_1e-4": 648
+    }
+  }
+}

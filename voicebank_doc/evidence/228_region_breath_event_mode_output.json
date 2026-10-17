@@ -1,0 +1,193 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "native_branch": "FUN_1801757a0 clears harmonic selection when control-object +0x78 is nonzero; with controller 0x12 equal to zero, the residual branch also does not fill interior spectrum bins.",
+  "fixture_correction": "The event producer created mode-0 events. Earlier boundary-read verification temporarily set control-object +0x78 to 1 and did not restore the event mode before full output-block replay. The full-loop probe now uses the source event mode by default.",
+  "default_event_mode_pair": {
+    "source_reports": [
+      {
+        "name": "breath_event_mode_a.json",
+        "sha256": "297a28df2f35a7094b5b038df5148c341ec6a1145070ffc822573b1d70f9c350"
+      },
+      {
+        "name": "breath_event_mode_b.json",
+        "sha256": "297a28df2f35a7094b5b038df5148c341ec6a1145070ffc822573b1d70f9c350"
+      }
+    ],
+    "total_blocks_each": 1646,
+    "nonzero_output_blocks": [
+      86,
+      86
+    ],
+    "nonzero_analysis_blocks": [
+      86,
+      86
+    ],
+    "all_16_output_stream_hashes_equal": true,
+    "all_full_loop_fields_equal": true,
+    "output_stream_sha256_by_position": [
+      "73471de05252b31e6bb87100d6ef500f32593fb530823b9916f417859dcc06cf",
+      "0c9a6879fb31c6e108f406bd898c25b04b011322933d07f1173f6ef7a20a6897",
+      "6ef94245b65e33963b21bfb33270ad3956a31d28401fdb465ed61a48bfa9a55c",
+      "3cd0e5ed1c57c1f734a323aed537e733f3b22b3a7a21f3b9e519aa1a5f2fd0ee",
+      "df38cbd291d7f5a03220cd3dfe7254cc55156d0c4d9c9e6a2779601da2b6b9c5",
+      "49d9671e8d598d46fdb03446adcd04de5730f786f9b92ccf1e37afb40ba00f6c",
+      "fd0046d20db90a42a01f6bc19f813b819feb954b809cbb678f759ec4b32def6f",
+      "be3d24724170b71807f1712714719fd81eda00c4b80d646b36bf46dd8c9ed3c5",
+      "68f9d2d6d1a5cdc5f0e1fbc3b6d21ff88debef88df136c6b484a2d456b98123d",
+      "44787f347ee6971b2be5e9659983f79ee4f8dfdb3c679fc0d3d9adbe77d315d9",
+      "31ecc6c1d490a5ffeed3ba5b06d15f97fe31a8a4d5724f7aa18020f2bd66b68f",
+      "264bed7fab925fa7118acd4a7ce3ceac32836c192b2dab13d8e516855cb4726e",
+      "cd052e1a25abf0e81f27988116eeec9053c128cecf2c261a2f3e3eba288993c6",
+      "6a2dd6949d673a10ce28af4be517fb8805177ede86f669ce3c2b17917178ba40",
+      "d4a086fc9591a1077faf240eeeb1658f9250e15977fcd802e19c3f03a1354949",
+      "8776edaa6a395ffe2a51c2c069b41f61f7040ecc91960c5543b5fa2d9428c319"
+    ],
+    "case_modes": [
+      0
+    ],
+    "source_event_modes": [
+      0
+    ],
+    "temporary_modes": [
+      1
+    ],
+    "effective_modes": [
+      0
+    ]
+  },
+  "explicit_mode_zero_pairs": {
+    "unseeded": {
+      "source_reports": [
+        {
+          "name": "breath_harmonic_digest_a.json",
+          "sha256": "19962470656ac1b4dbbdd9c66b8de8b6a2e7d1b9dba1b215cba182f0bc382174"
+        },
+        {
+          "name": "breath_harmonic_digest_b.json",
+          "sha256": "19962470656ac1b4dbbdd9c66b8de8b6a2e7d1b9dba1b215cba182f0bc382174"
+        }
+      ],
+      "total_blocks_each": 1646,
+      "nonzero_output_blocks": [
+        86,
+        86
+      ],
+      "nonzero_analysis_blocks": [
+        86,
+        86
+      ],
+      "all_16_output_stream_hashes_equal": true,
+      "all_full_loop_fields_equal": true,
+      "output_stream_sha256_by_position": [
+        "73471de05252b31e6bb87100d6ef500f32593fb530823b9916f417859dcc06cf",
+        "0c9a6879fb31c6e108f406bd898c25b04b011322933d07f1173f6ef7a20a6897",
+        "6ef94245b65e33963b21bfb33270ad3956a31d28401fdb465ed61a48bfa9a55c",
+        "3cd0e5ed1c57c1f734a323aed537e733f3b22b3a7a21f3b9e519aa1a5f2fd0ee",
+        "df38cbd291d7f5a03220cd3dfe7254cc55156d0c4d9c9e6a2779601da2b6b9c5",
+        "49d9671e8d598d46fdb03446adcd04de5730f786f9b92ccf1e37afb40ba00f6c",
+        "fd0046d20db90a42a01f6bc19f813b819feb954b809cbb678f759ec4b32def6f",
+        "be3d24724170b71807f1712714719fd81eda00c4b80d646b36bf46dd8c9ed3c5",
+        "68f9d2d6d1a5cdc5f0e1fbc3b6d21ff88debef88df136c6b484a2d456b98123d",
+        "44787f347ee6971b2be5e9659983f79ee4f8dfdb3c679fc0d3d9adbe77d315d9",
+        "31ecc6c1d490a5ffeed3ba5b06d15f97fe31a8a4d5724f7aa18020f2bd66b68f",
+        "264bed7fab925fa7118acd4a7ce3ceac32836c192b2dab13d8e516855cb4726e",
+        "cd052e1a25abf0e81f27988116eeec9053c128cecf2c261a2f3e3eba288993c6",
+        "6a2dd6949d673a10ce28af4be517fb8805177ede86f669ce3c2b17917178ba40",
+        "d4a086fc9591a1077faf240eeeb1658f9250e15977fcd802e19c3f03a1354949",
+        "8776edaa6a395ffe2a51c2c069b41f61f7040ecc91960c5543b5fa2d9428c319"
+      ],
+      "case_modes": [],
+      "source_event_modes": [],
+      "temporary_modes": [
+        1
+      ],
+      "effective_modes": []
+    },
+    "seeded_each_block": {
+      "source_reports": [
+        {
+          "name": "breath_harmonic_digest_seed_a.json",
+          "sha256": "d7622aa299e45feac070a2f483a7cfae5cb8e485a75e1c4e8454b193ece80dbb"
+        },
+        {
+          "name": "breath_harmonic_digest_seed_b.json",
+          "sha256": "d7622aa299e45feac070a2f483a7cfae5cb8e485a75e1c4e8454b193ece80dbb"
+        }
+      ],
+      "total_blocks_each": 1646,
+      "nonzero_output_blocks": [
+        86,
+        86
+      ],
+      "nonzero_analysis_blocks": [
+        86,
+        86
+      ],
+      "all_16_output_stream_hashes_equal": true,
+      "all_full_loop_fields_equal": true,
+      "output_stream_sha256_by_position": [
+        "73471de05252b31e6bb87100d6ef500f32593fb530823b9916f417859dcc06cf",
+        "0c9a6879fb31c6e108f406bd898c25b04b011322933d07f1173f6ef7a20a6897",
+        "6ef94245b65e33963b21bfb33270ad3956a31d28401fdb465ed61a48bfa9a55c",
+        "3cd0e5ed1c57c1f734a323aed537e733f3b22b3a7a21f3b9e519aa1a5f2fd0ee",
+        "df38cbd291d7f5a03220cd3dfe7254cc55156d0c4d9c9e6a2779601da2b6b9c5",
+        "49d9671e8d598d46fdb03446adcd04de5730f786f9b92ccf1e37afb40ba00f6c",
+        "fd0046d20db90a42a01f6bc19f813b819feb954b809cbb678f759ec4b32def6f",
+        "be3d24724170b71807f1712714719fd81eda00c4b80d646b36bf46dd8c9ed3c5",
+        "68f9d2d6d1a5cdc5f0e1fbc3b6d21ff88debef88df136c6b484a2d456b98123d",
+        "44787f347ee6971b2be5e9659983f79ee4f8dfdb3c679fc0d3d9adbe77d315d9",
+        "31ecc6c1d490a5ffeed3ba5b06d15f97fe31a8a4d5724f7aa18020f2bd66b68f",
+        "264bed7fab925fa7118acd4a7ce3ceac32836c192b2dab13d8e516855cb4726e",
+        "cd052e1a25abf0e81f27988116eeec9053c128cecf2c261a2f3e3eba288993c6",
+        "6a2dd6949d673a10ce28af4be517fb8805177ede86f669ce3c2b17917178ba40",
+        "d4a086fc9591a1077faf240eeeb1658f9250e15977fcd802e19c3f03a1354949",
+        "8776edaa6a395ffe2a51c2c069b41f61f7040ecc91960c5543b5fa2d9428c319"
+      ],
+      "case_modes": [],
+      "source_event_modes": [],
+      "temporary_modes": [
+        1
+      ],
+      "effective_modes": []
+    }
+  },
+  "temporary_mode_one_control": {
+    "source_reports": [
+      {
+        "name": "breath_native_candidate_a.json",
+        "sha256": "3d2b336a763498f3227b8bce3ea49f6cfd9f5d7822678d7f74db8c7435312aa1"
+      },
+      {
+        "name": "breath_native_candidate_b.json",
+        "sha256": "3d2b336a763498f3227b8bce3ea49f6cfd9f5d7822678d7f74db8c7435312aa1"
+      },
+      {
+        "name": "breath_native_candidate_noseed_a.json",
+        "sha256": "90e2d87d69d7b8975471133558c190b076e3f6468bc3e361968f0d4ac6094c71"
+      },
+      {
+        "name": "breath_native_candidate_noseed_b.json",
+        "sha256": "90e2d87d69d7b8975471133558c190b076e3f6468bc3e361968f0d4ac6094c71"
+      }
+    ],
+    "nonzero_output_blocks_each": 0,
+    "nonzero_analysis_blocks_each": 0,
+    "snapshot_report": {
+      "name": "breath_native_control18.json",
+      "sha256": "b488268a9b2a4a255d6032b1e11a1d750b991260e96672dd4d72adba64fc53e4"
+    },
+    "snapshot_time": 98,
+    "spectrum_selection_byte": 1,
+    "controller_18": 0.0
+  },
+  "scope": "In self-generated FRM2/PCM mode-0 events with full-sized candidate initialization and the event selection byte restored, the DSE output-block loop yields identical 86 nonzero PCM blocks and identical whole-stream hashes in two default and four explicit mode-0 runs. This is not Editor-host cache configuration, commercial voicebank audio, or perceptual quality validation.",
+  "restored_ring_value_regression": {
+    "source_report": {
+      "name": "breath_event_mode_final.json",
+      "sha256": "297a28df2f35a7094b5b038df5148c341ec6a1145070ffc822573b1d70f9c350"
+    },
+    "nonzero_output_blocks": 86,
+    "all_16_output_stream_hashes_match_default_pair": true
+  }
+}

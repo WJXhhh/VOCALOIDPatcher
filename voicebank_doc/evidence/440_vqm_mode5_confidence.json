@@ -1,0 +1,478 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "source_sha256": {
+    "verify_vqm_mode5_confidence.py": "3227a9a47b9c903c1cc4107b05bd71aa389c7a08f536cb7b614be5751bc4ac34",
+    "frm2_mode5_confidence.py": "b0512dd4aaaf000e3ce73f015ffcf453d30dd7a88970c01a6e14a33f4b0aaffa",
+    "probe_frm2_batch_outputs.py": "5ba05bdf1e883e5aedb61cb7f1209320327c589d37bc0595d64724ae61b47f2c",
+    "verify_vqm_alternate_score_paths.py": "d0994d395d7ce72b523eca1f68a6e43e5e3e4e1a1b52d8707865ab19f038445d",
+    "verify_vqm_bit16_spectral_power.py": "67e050943693915d144faa03a9419bf9856354064a5f020edc90576c53056b1e",
+    "verify_vqm_bit16_peak_interpolation.py": "72794f1cdb0aaf22d92bda3c0737bafeaa404630949c5ad00055ed8ef8cf4e75",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244"
+  },
+  "owned_checks": {
+    "cases": 120,
+    "exact": 120,
+    "above_one": 31,
+    "inputs_and_guards_unchanged": true,
+    "scope": "Owned fully populated cache and finite nonempty ranges; native4170 versus independent moments. This checks both boundary protocols and uncapped confidence, not PCM-to-cache production."
+  },
+  "writer_review": {
+    "aligned_direct_confidence_call": true,
+    "aligned_return_value_store": true,
+    "ratio_mode4_branch_skips_call": true,
+    "missing_cache_calls_score_helper": true,
+    "confidence_leaf_decoded_instructions": 192,
+    "decoder_version": "5.0.3"
+  },
+  "cases": [
+    {
+      "case": "steady_110",
+      "frames": 44,
+      "calls": 133,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 44,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 44
+      },
+      "scores_consumed": 3916,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady_220",
+      "frames": 44,
+      "calls": 133,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 44,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 44
+      },
+      "scores_consumed": 3916,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "steady_440",
+      "frames": 44,
+      "calls": 133,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 44,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 44
+      },
+      "scores_consumed": 3916,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack_110",
+      "frames": 44,
+      "calls": 133,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 44,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 44
+      },
+      "scores_consumed": 3916,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack_220",
+      "frames": 44,
+      "calls": 133,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 44,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 44
+      },
+      "scores_consumed": 3916,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": "attack_440",
+      "frames": 44,
+      "calls": 133,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 44,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 44
+      },
+      "scores_consumed": 3916,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": null,
+      "parser_sha256": null,
+      "ddi_sha256": null
+    },
+    {
+      "case": 0,
+      "frames": 72,
+      "calls": 218,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 72,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 72
+      },
+      "scores_consumed": 6408,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": {
+        "frames": 48,
+        "mean_absolute_error": 0.07230725201467673,
+        "max_absolute_error": 0.22506825625896454,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 1,
+      "frames": 87,
+      "calls": 263,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 87,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 87
+      },
+      "scores_consumed": 7743,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": {
+        "frames": 63,
+        "mean_absolute_error": 0.15295804966063725,
+        "max_absolute_error": 0.47321589291095734,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 2,
+      "frames": 87,
+      "calls": 263,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 87,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 87
+      },
+      "scores_consumed": 7743,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": {
+        "frames": 63,
+        "mean_absolute_error": 0.13132495350307888,
+        "max_absolute_error": 0.30093303322792053,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "TENSE",
+      "frames": 148,
+      "calls": 446,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 148,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 148
+      },
+      "scores_consumed": 13172,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": {
+        "frames": 124,
+        "mean_absolute_error": 0.1369693497976949,
+        "max_absolute_error": 0.21463632583618164,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "BRWSP",
+      "frames": 389,
+      "calls": 1169,
+      "contract": {
+        "outer_analysis_mode": 5,
+        "ratio_object_internal_mode": 4,
+        "confidence_object_offset": "0xc70",
+        "ratio_object_offset": "0xca0"
+      },
+      "geometries": [
+        [
+          4458,
+          2048,
+          22050.0,
+          40.0,
+          1000.0,
+          4,
+          93
+        ]
+      ],
+      "independent_to_native": {
+        "frames": 389,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0,
+        "within_1e_6": 389
+      },
+      "scores_consumed": 34621,
+      "ready_cache_flags_verified": true,
+      "selected_candidate_not_an_input": true,
+      "observed_matches_fresh_baseline": true,
+      "stage_value_survives_to_output": true,
+      "saved_confidence_comparison": {
+        "frames": 365,
+        "mean_absolute_error": 1.805374707669428,
+        "max_absolute_error": 2.280050277709961,
+        "within_1e_6": 0
+      },
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    }
+  ],
+  "summary": {
+    "cases": 11,
+    "frames": 1047,
+    "scores_consumed": 93183,
+    "exact": 1047
+  },
+  "actual_writer": {
+    "caller_rva": "0xd2cc0",
+    "confidence_call_rva": "0xd600f",
+    "callee_rva": "0xf4170",
+    "feature_store_rva": "0xd601b",
+    "feature_offset": "0x14",
+    "context_object_offset": "0xc70"
+  },
+  "scope": "Mode5 automatic confidence from fully prepared live cache; independent float32 moments and range conversion, natural owned/installed PCM and unchanged final state versus fresh baseline.",
+  "limits": [
+    "PCM-to-cache production still native; not an independent full confidence producer from PCM",
+    "Only ordinary default mode5 protocol; other algorithms, settings and maker inputs not inferred",
+    "A fixed cache makes selected candidate irrelevant to this moment statistic; changing upstream analysis or frequency range may change cache and is not excluded",
+    "Saved confidence compared only on interior frames; original maker rule still unverified",
+    "No commercial cache arrays, PCM, proprietary code bytes or disassembly persisted"
+  ],
+  "installed_files_unchanged": true,
+  "no_windows_temp": true
+}

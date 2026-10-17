@@ -1,0 +1,108 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "native_initial_frame_path": {
+    "function": "FUN_1801757a0",
+    "spectrum_bin_count": 2049,
+    "operation": "FUN_18012ba70 allocates the full spectrum arrays, followed by explicit zeroing of both arrays"
+  },
+  "comparisons": {
+    "seeded": {
+      "source_reports": [
+        {
+          "name": "breath_native_candidate_a.json",
+          "sha256": "3d2b336a763498f3227b8bce3ea49f6cfd9f5d7822678d7f74db8c7435312aa1"
+        },
+        {
+          "name": "breath_native_candidate_b.json",
+          "sha256": "3d2b336a763498f3227b8bce3ea49f6cfd9f5d7822678d7f74db8c7435312aa1"
+        }
+      ],
+      "total_blocks_each": 1646,
+      "output_nonzero_blocks": [
+        0,
+        0
+      ],
+      "analysis_nonzero_blocks": [
+        0,
+        0
+      ],
+      "differences": {
+        "frame_header": 0,
+        "harmonic_arrays": 0,
+        "candidate_spectrum": 0,
+        "final_spectrum": 0,
+        "selected_context_scalars": 0
+      },
+      "all_fields_outside_full_loop_equal": true
+    },
+    "unseeded": {
+      "source_reports": [
+        {
+          "name": "breath_native_candidate_noseed_a.json",
+          "sha256": "90e2d87d69d7b8975471133558c190b076e3f6468bc3e361968f0d4ac6094c71"
+        },
+        {
+          "name": "breath_native_candidate_noseed_b.json",
+          "sha256": "90e2d87d69d7b8975471133558c190b076e3f6468bc3e361968f0d4ac6094c71"
+        }
+      ],
+      "total_blocks_each": 1646,
+      "output_nonzero_blocks": [
+        0,
+        0
+      ],
+      "analysis_nonzero_blocks": [
+        0,
+        0
+      ],
+      "differences": {
+        "frame_header": 0,
+        "harmonic_arrays": 0,
+        "candidate_spectrum": 0,
+        "final_spectrum": 0,
+        "selected_context_scalars": 0
+      },
+      "all_fields_outside_full_loop_equal": true
+    }
+  },
+  "comparison_to_prior_16_bin_clearing": {
+    "snapshot_time": 98,
+    "positions": 15,
+    "different_cases": {
+      "input_pcm_sha256": [],
+      "scratch_pcm_sha256": [],
+      "fft_work_sha256": [],
+      "candidate_initial_slot": [],
+      "candidate_mask": [],
+      "candidate_spectrum_hex": [
+        0,
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "final_spectrum_hex": [
+        0,
+        1,
+        2,
+        3,
+        14,
+        15
+      ]
+    },
+    "native_candidate_nonzero_byte_counts": [
+      0,
+      4
+    ]
+  },
+  "superseded_by": "228_region_breath_event_mode_output.json",
+  "scope": "With full native-sized candidate arrays initialized but the earlier boundary check's temporary selection byte 1 retained, these four isolated 1646-block runs produce zero analysis and final PCM. Evidence 228 restores the source event's mode 0 and yields stable nonzero output. No Editor-host or commercial-audio claim."
+}

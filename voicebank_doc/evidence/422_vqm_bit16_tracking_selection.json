@@ -1,0 +1,956 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "source_sha256": {
+    "verify_vqm_bit16_tracking_selection.py": "55858083f67fdd127130cca374d7e0bc11fb4ece723017637e3ee60df530a055",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "frm2_peak_selection.py": "d57fbcf15a83cc1fe94c48522c21f3fae12cdc9e7c928887072d9ed5e67aa9df",
+    "verify_vqm_bit16_peak_interpolation.py": "72794f1cdb0aaf22d92bda3c0737bafeaa404630949c5ad00055ed8ef8cf4e75",
+    "verify_vqm_bit16_spectral_power.py": "67e050943693915d144faa03a9419bf9856354064a5f020edc90576c53056b1e",
+    "verify_vqm_pcm_quantization_bounds.py": "3ddb7b5e2e4afc4768912a565e7acaa99082656f2c39f4ed41276322aad44b10"
+  },
+  "cases": [
+    {
+      "case": "V4X_0",
+      "pcm_mapping": "raw",
+      "selector_score": 1,
+      "frames": 64,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 64,
+      "exact_track_assignments": 12800,
+      "exact_harmonic_acoustic_values": 9852,
+      "available_first_output_checks": 64,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "ff600344cf593b688571e8ad3bcb72e8795bf9c485b615a61079c4b9634d6860",
+      "selected_index_range": [
+        6,
+        10
+      ],
+      "selected_frequency_minus_f0_range": [
+        -2.327392578125,
+        2.411865234375
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "mean_signed_error": 4.284083843231201e-08
+        },
+        "nearest_f0": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "mean_signed_error": 4.284083843231201e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "mean_signed_error": 4.284083843231201e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "V4X_1",
+      "pcm_mapping": "raw",
+      "selector_score": 1,
+      "frames": 79,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 79,
+      "exact_track_assignments": 15800,
+      "exact_harmonic_acoustic_values": 21714,
+      "available_first_output_checks": 79,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "e38d583abb85dd9b411853e2120d48c2141402326cee2a30c3f404642d98dba6",
+      "selected_index_range": [
+        3,
+        6
+      ],
+      "selected_frequency_minus_f0_range": [
+        -1.451904296875,
+        1.805023193359375
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 5.130526385729826e-08
+        },
+        "nearest_f0": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 5.130526385729826e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 5.130526385729826e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "V4X_2",
+      "pcm_mapping": "raw",
+      "selector_score": 1,
+      "frames": 79,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 79,
+      "exact_track_assignments": 15800,
+      "exact_harmonic_acoustic_values": 16254,
+      "available_first_output_checks": 79,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "7ddc94b0e0fdab14f04574aae1b208228bd4dccc8c09deb68915d6ab732ab021",
+      "selected_index_range": [
+        3,
+        10
+      ],
+      "selected_frequency_minus_f0_range": [
+        -1.437713623046875,
+        1.9029541015625
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 3.017956697488133e-08
+        },
+        "nearest_f0": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 3.017956697488133e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 3.017956697488133e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "TENSE",
+      "pcm_mapping": "raw",
+      "selector_score": 1,
+      "frames": 140,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 140,
+      "exact_track_assignments": 28000,
+      "exact_harmonic_acoustic_values": 61545,
+      "available_first_output_checks": 140,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "30d907d30d2e80899f2d1a3dbee451e36f8724df6bdc8aa5c89b2825c222e02a",
+      "selected_index_range": [
+        2,
+        5
+      ],
+      "selected_frequency_minus_f0_range": [
+        -0.4201202392578125,
+        0.5005035400390625
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "mean_signed_error": 5.790165492466518e-08
+        },
+        "nearest_f0": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "mean_signed_error": 5.790165492466518e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "mean_signed_error": 5.790165492466518e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "BRWSP",
+      "pcm_mapping": "raw",
+      "selector_score": 1,
+      "frames": 381,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 381,
+      "exact_track_assignments": 76200,
+      "exact_harmonic_acoustic_values": 101748,
+      "available_first_output_checks": 381,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 12,
+      "selected_indices_sha256": "cbf54a44001566f5a2258d45b11ca4c2615d97231cb5cf636463b849626887c9",
+      "selected_index_range": [
+        2,
+        7
+      ],
+      "selected_frequency_minus_f0_range": [
+        -61.43763732910156,
+        62.806182861328125
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 381,
+          "mean_absolute_error": 0.20493604254534864,
+          "max_absolute_error": 2.3701095581054688,
+          "within_1e_6": 3,
+          "mean_signed_error": -0.20483002449896706
+        },
+        "nearest_f0": {
+          "frames": 381,
+          "mean_absolute_error": 0.21501272181513428,
+          "max_absolute_error": 2.3701095581054688,
+          "within_1e_6": 3,
+          "mean_signed_error": -0.2149089878312559
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 381,
+          "mean_absolute_error": 7.788590558870571e-05,
+          "max_absolute_error": 0.000247955322265625,
+          "within_1e_6": 3,
+          "mean_signed_error": 7.320138726021674e-05
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "TENSE",
+      "pcm_mapping": "toward_zero_half_lsb",
+      "selector_score": 1,
+      "frames": 140,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 140,
+      "exact_track_assignments": 28000,
+      "exact_harmonic_acoustic_values": 61584,
+      "available_first_output_checks": 140,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "30d907d30d2e80899f2d1a3dbee451e36f8724df6bdc8aa5c89b2825c222e02a",
+      "selected_index_range": [
+        2,
+        5
+      ],
+      "selected_frequency_minus_f0_range": [
+        -0.420257568359375,
+        0.500640869140625
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 140,
+          "mean_absolute_error": 0.00010040146963936942,
+          "max_absolute_error": 0.0002040863037109375,
+          "within_1e_6": 0,
+          "mean_signed_error": -0.00010040146963936942
+        },
+        "nearest_f0": {
+          "frames": 140,
+          "mean_absolute_error": 0.00010040146963936942,
+          "max_absolute_error": 0.0002040863037109375,
+          "within_1e_6": 0,
+          "mean_signed_error": -0.00010040146963936942
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 140,
+          "mean_absolute_error": 0.00010040146963936942,
+          "max_absolute_error": 0.0002040863037109375,
+          "within_1e_6": 0,
+          "mean_signed_error": -0.00010040146963936942
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "BRWSP",
+      "pcm_mapping": "toward_zero_half_lsb",
+      "selector_score": 1,
+      "frames": 381,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 1.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 381,
+      "exact_track_assignments": 76200,
+      "exact_harmonic_acoustic_values": 101748,
+      "available_first_output_checks": 381,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 12,
+      "selected_indices_sha256": "cbf54a44001566f5a2258d45b11ca4c2615d97231cb5cf636463b849626887c9",
+      "selected_index_range": [
+        2,
+        7
+      ],
+      "selected_frequency_minus_f0_range": [
+        -61.437164306640625,
+        62.8060302734375
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 381,
+          "mean_absolute_error": 0.20493507009791576,
+          "max_absolute_error": 2.370364189147949,
+          "within_1e_6": 8,
+          "mean_signed_error": -0.20491275887476804
+        },
+        "nearest_f0": {
+          "frames": 381,
+          "mean_absolute_error": 0.21501393643576955,
+          "max_absolute_error": 2.370364189147949,
+          "within_1e_6": 8,
+          "mean_signed_error": -0.21499148629155998
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 381,
+          "mean_absolute_error": 3.545240467301817e-05,
+          "max_absolute_error": 0.000194549560546875,
+          "within_1e_6": 15,
+          "mean_signed_error": -3.320338532054831e-06
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "V4X_0",
+      "pcm_mapping": "raw",
+      "selector_score": 2,
+      "frames": 64,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 64,
+      "exact_track_assignments": 12800,
+      "exact_harmonic_acoustic_values": 9897,
+      "available_first_output_checks": 64,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "ff600344cf593b688571e8ad3bcb72e8795bf9c485b615a61079c4b9634d6860",
+      "selected_index_range": [
+        6,
+        10
+      ],
+      "selected_frequency_minus_f0_range": [
+        -2.327392578125,
+        2.411865234375
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "mean_signed_error": 4.284083843231201e-08
+        },
+        "nearest_f0": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "mean_signed_error": 4.284083843231201e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "mean_signed_error": 4.284083843231201e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "V4X_1",
+      "pcm_mapping": "raw",
+      "selector_score": 2,
+      "frames": 79,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 79,
+      "exact_track_assignments": 15800,
+      "exact_harmonic_acoustic_values": 21675,
+      "available_first_output_checks": 79,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "e38d583abb85dd9b411853e2120d48c2141402326cee2a30c3f404642d98dba6",
+      "selected_index_range": [
+        3,
+        6
+      ],
+      "selected_frequency_minus_f0_range": [
+        -1.451904296875,
+        1.805023193359375
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 5.130526385729826e-08
+        },
+        "nearest_f0": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 5.130526385729826e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 5.130526385729826e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "V4X_2",
+      "pcm_mapping": "raw",
+      "selector_score": 2,
+      "frames": 79,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 79,
+      "exact_track_assignments": 15800,
+      "exact_harmonic_acoustic_values": 16215,
+      "available_first_output_checks": 79,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "7ddc94b0e0fdab14f04574aae1b208228bd4dccc8c09deb68915d6ab732ab021",
+      "selected_index_range": [
+        3,
+        10
+      ],
+      "selected_frequency_minus_f0_range": [
+        -1.437713623046875,
+        1.9029541015625
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 3.017956697488133e-08
+        },
+        "nearest_f0": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 3.017956697488133e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "mean_signed_error": 3.017956697488133e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "TENSE",
+      "pcm_mapping": "raw",
+      "selector_score": 2,
+      "frames": 140,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 140,
+      "exact_track_assignments": 28000,
+      "exact_harmonic_acoustic_values": 61440,
+      "available_first_output_checks": 140,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "30d907d30d2e80899f2d1a3dbee451e36f8724df6bdc8aa5c89b2825c222e02a",
+      "selected_index_range": [
+        2,
+        5
+      ],
+      "selected_frequency_minus_f0_range": [
+        -0.4201202392578125,
+        0.5005035400390625
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "mean_signed_error": 5.790165492466518e-08
+        },
+        "nearest_f0": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "mean_signed_error": 5.790165492466518e-08
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "mean_signed_error": 5.790165492466518e-08
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "BRWSP",
+      "pcm_mapping": "raw",
+      "selector_score": 2,
+      "frames": 381,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 381,
+      "exact_track_assignments": 76200,
+      "exact_harmonic_acoustic_values": 101892,
+      "available_first_output_checks": 381,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 258,
+      "selected_indices_sha256": "464579e6123497e508c18361d05d306b3f9b319459673e0404ab022045322466",
+      "selected_index_range": [
+        1,
+        8
+      ],
+      "selected_frequency_minus_f0_range": [
+        -147.409423828125,
+        141.69088745117188
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 381,
+          "mean_absolute_error": 0.10264465564817894,
+          "max_absolute_error": 0.9213051795959473,
+          "within_1e_6": 1,
+          "mean_signed_error": 0.10012695294978424
+        },
+        "nearest_f0": {
+          "frames": 381,
+          "mean_absolute_error": 0.21501272181513428,
+          "max_absolute_error": 2.3701095581054688,
+          "within_1e_6": 3,
+          "mean_signed_error": -0.2149089878312559
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 381,
+          "mean_absolute_error": 7.788590558870571e-05,
+          "max_absolute_error": 0.000247955322265625,
+          "within_1e_6": 3,
+          "mean_signed_error": 7.320138726021674e-05
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "TENSE",
+      "pcm_mapping": "toward_zero_half_lsb",
+      "selector_score": 2,
+      "frames": 140,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 140,
+      "exact_track_assignments": 28000,
+      "exact_harmonic_acoustic_values": 61449,
+      "available_first_output_checks": 140,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 0,
+      "selected_indices_sha256": "30d907d30d2e80899f2d1a3dbee451e36f8724df6bdc8aa5c89b2825c222e02a",
+      "selected_index_range": [
+        2,
+        5
+      ],
+      "selected_frequency_minus_f0_range": [
+        -0.420257568359375,
+        0.500640869140625
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 140,
+          "mean_absolute_error": 0.00010040146963936942,
+          "max_absolute_error": 0.0002040863037109375,
+          "within_1e_6": 0,
+          "mean_signed_error": -0.00010040146963936942
+        },
+        "nearest_f0": {
+          "frames": 140,
+          "mean_absolute_error": 0.00010040146963936942,
+          "max_absolute_error": 0.0002040863037109375,
+          "within_1e_6": 0,
+          "mean_signed_error": -0.00010040146963936942
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 140,
+          "mean_absolute_error": 0.00010040146963936942,
+          "max_absolute_error": 0.0002040863037109375,
+          "within_1e_6": 0,
+          "mean_signed_error": -0.00010040146963936942
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    },
+    {
+      "case": "BRWSP",
+      "pcm_mapping": "toward_zero_half_lsb",
+      "selector_score": 2,
+      "frames": 381,
+      "supplied_f0": "Saved Frame F0 converted to physical Hz",
+      "config": {
+        "0x0": 1.0,
+        "0x2": 22050.0,
+        "0x4": 200.0,
+        "0x8": 2.0,
+        "0x9": 0.30000001192092896,
+        "0xa": 1.0,
+        "0xd": 75.0,
+        "0x11": 0.699999988079071,
+        "0x12": 0.0,
+        "0x13": 1.0,
+        "0x21": 0.5,
+        "0x22": 0.009999999776482582,
+        "0x27": 20.0,
+        "0x28": 50.0,
+        "0x29": 0.009999999776482582,
+        "0x33": 0.0
+      },
+      "harmonic_ratio": 1.0,
+      "tracking_calls": 381,
+      "exact_track_assignments": 76200,
+      "exact_harmonic_acoustic_values": 101892,
+      "available_first_output_checks": 381,
+      "missing_first": 0,
+      "tracking_differs_from_nearest": 257,
+      "selected_indices_sha256": "b11940f1adc3aeaa5eb33e90a23894a12fb7e9aabe5004db15c1597249583542",
+      "selected_index_range": [
+        1,
+        8
+      ],
+      "selected_frequency_minus_f0_range": [
+        -147.41099548339844,
+        141.69094848632812
+      ],
+      "checks": {
+        "tracked_first": {
+          "frames": 381,
+          "mean_absolute_error": 0.10258643771093974,
+          "max_absolute_error": 0.9212281703948975,
+          "within_1e_6": 9,
+          "mean_signed_error": 0.10004809835138596
+        },
+        "nearest_f0": {
+          "frames": 381,
+          "mean_absolute_error": 0.21501393643576955,
+          "max_absolute_error": 2.370364189147949,
+          "within_1e_6": 8,
+          "mean_signed_error": -0.21499148629155998
+        },
+        "best_amplitude_diagnostic": {
+          "frames": 381,
+          "mean_absolute_error": 3.545240467301817e-05,
+          "max_absolute_error": 0.000194549560546875,
+          "within_1e_6": 15,
+          "mean_signed_error": -3.320338532054831e-06
+        }
+      },
+      "source_and_guards_preserved": true,
+      "scope": "Native FFT/peaks -> mode1 harmonic scheduler; queue index zero, no temporal repair. Model shares the native peak/F0 inputs."
+    }
+  ],
+  "summary": {
+    "cases": 14,
+    "tracking_calls": 2528,
+    "exact_track_assignments": 505600,
+    "exact_harmonic_acoustic_values": 748905
+  },
+  "limits": [
+    "Neither default score1 nor the reviewed amplitude score2 is known to be the original maker configuration",
+    "First complete window initializes history; preceding four frames are not reconstructed",
+    "No temporal queue repair or full DRS entry is claimed",
+    "Amplitude-matched peak is an oracle diagnostic only, not a selection algorithm",
+    "Half-LSB source is a fixed hypothesis, not the original unquantized PCM"
+  ],
+  "no_windows_temp": true,
+  "installed_files_unchanged": true
+}

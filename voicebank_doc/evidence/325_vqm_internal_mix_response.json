@@ -1,0 +1,145 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "feature_fields": {
+    "2": "outer bit13/internal bit2 at +0x0c",
+    "17": "outer bit13/internal bit17 at +0x21c",
+    "18": "outer bit13/internal bit18 at +0x220"
+  },
+  "cases": {
+    "baseline": {
+      "requested_changes": {},
+      "native_feature_float32_hex": {
+        "2": "00000840",
+        "17": "00008941",
+        "18": "00009141"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "feature2_005": {
+      "requested_changes": {
+        "feature2": 0.05
+      },
+      "native_feature_float32_hex": {
+        "2": "cdcc4c3d",
+        "17": "00008941",
+        "18": "00009141"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "feature2_010": {
+      "requested_changes": {
+        "feature2": 0.1
+      },
+      "native_feature_float32_hex": {
+        "2": "cdcccc3d",
+        "17": "00008941",
+        "18": "00009141"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "feature17_zero": {
+      "requested_changes": {
+        "feature17": 0.0
+      },
+      "native_feature_float32_hex": {
+        "2": "00000840",
+        "17": "00000000",
+        "18": "00009141"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "feature17_pi": {
+      "requested_changes": {
+        "feature17": 3.14159265
+      },
+      "native_feature_float32_hex": {
+        "2": "00000840",
+        "17": "db0f4940",
+        "18": "00009141"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "feature18_zero": {
+      "requested_changes": {
+        "feature18": 0.0
+      },
+      "native_feature_float32_hex": {
+        "2": "00000840",
+        "17": "00008941",
+        "18": "00000000"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "feature18_five": {
+      "requested_changes": {
+        "feature18": 5.0
+      },
+      "native_feature_float32_hex": {
+        "2": "00000840",
+        "17": "00008941",
+        "18": "0000a040"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    },
+    "combined": {
+      "requested_changes": {
+        "feature2": 0.05,
+        "feature17": 3.14159265,
+        "feature18": 5.0
+      },
+      "native_feature_float32_hex": {
+        "2": "cdcc4c3d",
+        "17": "db0f4940",
+        "18": "0000a040"
+      },
+      "changed_result_keys": [],
+      "mixed_real_nonzero": 2018,
+      "mixed_imag_nonzero": 2018,
+      "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+      "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+      "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327"
+    }
+  },
+  "all_non_feature_results_identical": true,
+  "zero_gain_control": {
+    "mixed_real_nonzero": 0,
+    "mixed_imag_nonzero": 0,
+    "inverse_fft_nonzero": 0
+  },
+  "scope": "Owned no-spectrum VQM frames through native DSE5 read, native PCM target spectrum, Growl event and frequency mixer, and native inverse FFT. Tests these three saved feature values in one active path only; authoring formulas and other paths remain unverified."
+}

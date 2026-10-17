@@ -1,0 +1,223 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_vqm_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "v4x_fit_report_sha256": "fd18cb21db6fb43c4c68c1e430512bd711454270e3268be42dc126c7a9e64ffe",
+  "transferred_weights": {
+    "6": [
+      0.19165097290355262,
+      0.23592139290859926,
+      0.1448552683756962,
+      0.23592139290859926,
+      0.19165097290355262
+    ],
+    "16": [
+      0.14962459518715124,
+      0.22258860580189987,
+      0.25557359802189783,
+      0.22258860580189987,
+      0.14962459518715124
+    ],
+    "18": [
+      0.08210406769140148,
+      0.24400545745403956,
+      0.3477809497091178,
+      0.24400545745403956,
+      0.08210406769140148
+    ]
+  },
+  "analysis_mode": 4,
+  "common_interior_margin_frames": 4,
+  "categories": [
+    {
+      "category": "TENSE",
+      "source_pcm_samples": 37888,
+      "saved_feature_frames": 148,
+      "produced_feature_frames": 148,
+      "temporal_transfer": {
+        "6": {
+          "identity": {
+            "frames": 140,
+            "mean_absolute_error": 0.02382674061560205,
+            "max_absolute_error": 0.07079374045133591
+          },
+          "v4x_fitted_five": {
+            "frames": 140,
+            "mean_absolute_error": 0.02381344341852689,
+            "max_absolute_error": 0.06948376935742373
+          },
+          "five_frame_mean": {
+            "frames": 140,
+            "mean_absolute_error": 0.023814111940030542,
+            "max_absolute_error": 0.0694761648774147
+          },
+          "local_fitted_five_weights": [
+            0.047692372860642734,
+            0.5017966584299977,
+            -0.09897806258128083,
+            0.5017966584299977,
+            0.047692372860642734
+          ],
+          "local_fitted_five_in_sample": {
+            "frames": 140,
+            "mean_absolute_error": 0.023815261673851663,
+            "max_absolute_error": 0.06999336457408009
+          }
+        },
+        "16": {
+          "identity": {
+            "frames": 140,
+            "mean_absolute_error": 0.005250035013471331,
+            "max_absolute_error": 0.01955866813659668
+          },
+          "v4x_fitted_five": {
+            "frames": 140,
+            "mean_absolute_error": 0.0025259151974195274,
+            "max_absolute_error": 0.005043685686279442
+          },
+          "five_frame_mean": {
+            "frames": 140,
+            "mean_absolute_error": 0.0025608158111572197,
+            "max_absolute_error": 0.006384658813476385
+          },
+          "local_fitted_five_weights": [
+            0.14645649141725733,
+            0.21000835114913244,
+            0.28707031486722046,
+            0.21000835114913244,
+            0.14645649141725733
+          ],
+          "local_fitted_five_in_sample": {
+            "frames": 140,
+            "mean_absolute_error": 0.0025294708541207093,
+            "max_absolute_error": 0.004923843015792517
+          }
+        },
+        "18": {
+          "identity": {
+            "frames": 140,
+            "mean_absolute_error": 0.0018669741494315012,
+            "max_absolute_error": 0.005918025970458984
+          },
+          "v4x_fitted_five": {
+            "frames": 140,
+            "mean_absolute_error": 0.00020070480545975045,
+            "max_absolute_error": 0.0007942691979216931
+          },
+          "five_frame_mean": {
+            "frames": 140,
+            "mean_absolute_error": 0.0008911330359322392,
+            "max_absolute_error": 0.0029322624206544745
+          },
+          "local_fitted_five_weights": [
+            0.08585392844988565,
+            0.2395629359343272,
+            0.3491662712315743,
+            0.2395629359343272,
+            0.08585392844988565
+          ],
+          "local_fitted_five_in_sample": {
+            "frames": 140,
+            "mean_absolute_error": 0.00019793221251480326,
+            "max_absolute_error": 0.0007952054351871851
+          }
+        }
+      }
+    },
+    {
+      "category": "BRWSP",
+      "source_pcm_samples": 99584,
+      "saved_feature_frames": 389,
+      "produced_feature_frames": 389,
+      "temporal_transfer": {
+        "6": {
+          "identity": {
+            "frames": 381,
+            "mean_absolute_error": 0.1371976087099611,
+            "max_absolute_error": 0.6222474575042725
+          },
+          "v4x_fitted_five": {
+            "frames": 381,
+            "mean_absolute_error": 0.06929677636435899,
+            "max_absolute_error": 0.2660864044649811
+          },
+          "five_frame_mean": {
+            "frames": 381,
+            "mean_absolute_error": 0.06904172891081162,
+            "max_absolute_error": 0.26946749687194815
+          },
+          "local_fitted_five_weights": [
+            0.11964759417783766,
+            0.2472894611939439,
+            0.2661258892564369,
+            0.2472894611939439,
+            0.11964759417783766
+          ],
+          "local_fitted_five_in_sample": {
+            "frames": 381,
+            "mean_absolute_error": 0.06368717270922734,
+            "max_absolute_error": 0.2879956894458926
+          }
+        },
+        "16": {
+          "identity": {
+            "frames": 381,
+            "mean_absolute_error": 0.3335148643633825,
+            "max_absolute_error": 5.853659152984619
+          },
+          "v4x_fitted_five": {
+            "frames": 381,
+            "mean_absolute_error": 0.2248873602527621,
+            "max_absolute_error": 1.3300777565580928
+          },
+          "five_frame_mean": {
+            "frames": 381,
+            "mean_absolute_error": 0.2272688161043983,
+            "max_absolute_error": 1.1162961483001705
+          },
+          "local_fitted_five_weights": [
+            0.19118995055856,
+            0.19879846877260793,
+            0.2200231613376642,
+            0.19879846877260793,
+            0.19118995055856
+          ],
+          "local_fitted_five_in_sample": {
+            "frames": 381,
+            "mean_absolute_error": 0.22628817480208702,
+            "max_absolute_error": 1.113040721973408
+          }
+        },
+        "18": {
+          "identity": {
+            "frames": 381,
+            "mean_absolute_error": 0.023340535601918778,
+            "max_absolute_error": 0.12055540084838867
+          },
+          "v4x_fitted_five": {
+            "frames": 381,
+            "mean_absolute_error": 0.005116858912341704,
+            "max_absolute_error": 0.023039783075144094
+          },
+          "five_frame_mean": {
+            "frames": 381,
+            "mean_absolute_error": 0.009177011955441449,
+            "max_absolute_error": 0.046584939956664684
+          },
+          "local_fitted_five_weights": [
+            0.0937841374069875,
+            0.23714119513134854,
+            0.3381493349233279,
+            0.23714119513134854,
+            0.0937841374069875
+          ],
+          "local_fitted_five_in_sample": {
+            "frames": 381,
+            "mean_absolute_error": 0.00508911903877907,
+            "max_absolute_error": 0.022306572693850946
+          }
+        }
+      }
+    }
+  ],
+  "scope": "Mean of three V4X leave-one-sequence-out five-tap fits from the named evidence report, transferred without auxiliary refitting to TENSE/BRWSP mode-4 DRS outputs from their unchanged embedded PCM. Separate local fits are in-sample diagnostics, not transfer evidence. Only aggregate interior errors and coefficients retained; no PCM or per-frame fields exported."
+}

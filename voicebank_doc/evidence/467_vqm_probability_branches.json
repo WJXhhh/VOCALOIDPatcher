@@ -1,0 +1,2385 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "span": {
+    "start_rva": "0xff474",
+    "end_exclusive_rva": "0xff737",
+    "original_span_sha256": "1f40b4a1d8d1f4c5d6a6c3bc99a07191d7c88c644ffc84229b998ced8060d2d6",
+    "instructions": 156,
+    "external_call_rvas": [
+      "0x217d5a",
+      "0x217dcc"
+    ],
+    "constant_rvas": [
+      "0x5befdc",
+      "0x5befe8",
+      "0x5bf010",
+      "0x5bf01c",
+      "0x5bf05c",
+      "0x5bf0c8",
+      "0x5bf0e0",
+      "0x5bf0fc",
+      "0x5bf108",
+      "0x5bf118",
+      "0x5bf2b0",
+      "0x5bf358",
+      "0x5bf3b0",
+      "0x5bf3c0",
+      "0x5bf458",
+      "0x5bf4a8",
+      "0x5bf550",
+      "0x5bf748"
+    ],
+    "decoder_version": "5.0.3"
+  },
+  "summary": {
+    "cases": 97,
+    "float32_exact": 97,
+    "predicted_active_branch_counts": {
+      "confidence": 17,
+      "crossing": 17,
+      "noise": 34,
+      "low_energy": 18,
+      "ratio": 18
+    },
+    "original_dll_span_unchanged": true
+  },
+  "cases": [
+    {
+      "case": "baseline",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "confidence_threshold_-1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.19999998807907104,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "confidence_threshold_0",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.20000000298023224,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "confidence_threshold_1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.20000001788139343,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature4_threshold_-1",
+      "inputs": {
+        "feature4": 0.09999999403953552,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature4_threshold_0",
+      "inputs": {
+        "feature4": 0.10000000149011612,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature4_threshold_1",
+      "inputs": {
+        "feature4": 0.10000000894069672,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature8_threshold_-1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.19999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.19999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature8_threshold_0",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature8_threshold_1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000001788139343,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000001788139343
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature12_threshold_-1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 1.99999976757681e-05,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature12_threshold_0",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 1.9999999494757503e-05,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "feature12_threshold_1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 2.0000001313746907e-05,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "ratio_threshold_-1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.5199999213218689
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "ratio_threshold_0",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.5199999809265137
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "ratio_threshold_1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.5200000405311584
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "strength_threshold_-1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999998733401299,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1724216192960739,
+      "actual": 0.1724216192960739,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.5
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "strength_threshold_0",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999999664723873,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1724216192960739,
+      "actual": 0.1724216192960739,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.5
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "strength_threshold_1",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.015000000596046448,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.17242173850536346,
+      "actual": 0.17242173850536346,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.1641531472150746e-07,
+        "effective_noise": 0.4999999403953552
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999998733401299,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999999664723873,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.015000000596046448,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.01899999938905239,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.022999998182058334,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000000044703484,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000001907348633,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.1899999976158142,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.05000000074505806,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.1899999976158142
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999998733401299,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999999664723873,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.015000000596046448,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.01899999938905239,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.022999998182058334,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000000044703484,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000001907348633,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20000000298023224,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.05000000074505806,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20000000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.9980487823486328,
+      "actual": 0.9980487823486328,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20999999344348907
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999998733401299,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.9980487823486328,
+      "actual": 0.9980487823486328,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20999999344348907
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999999664723873,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.9980487823486328,
+      "actual": 0.9980487823486328,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.20999999344348907
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.015000000596046448,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.9980487823486328,
+      "actual": 0.9980487823486328,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.1641531472150746e-07,
+        "effective_noise": 0.2099999636411667
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.01899999938905239,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.4999999403953552,
+        "effective_noise": 0.10500001162290573
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.022999998182058334,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.9999997615814209,
+        "effective_noise": 5.0067900048134106e-08
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000000044703484,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000001907348633,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.20999999344348907,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.05000000074505806,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1724216192960739,
+      "actual": 0.1724216192960739,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.5
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999998733401299,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1724216192960739,
+      "actual": 0.1724216192960739,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.5
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999999664723873,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1724216192960739,
+      "actual": 0.1724216192960739,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.5
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.015000000596046448,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.17242173850536346,
+      "actual": 0.17242173850536346,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.1641531472150746e-07,
+        "effective_noise": 0.4999999403953552
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.01899999938905239,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.9523447751998901,
+      "actual": 0.9523447751998901,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.4999999403953552,
+        "effective_noise": 0.2500000298023224
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.022999998182058334,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.9999997615814209,
+        "effective_noise": 1.1920928955078125e-07
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000000044703484,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000001907348633,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.5,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.05000000074505806,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 3.7266513572831172e-06,
+      "actual": 3.7266513572831172e-06,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 1.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999998733401299,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 3.7266513572831172e-06,
+      "actual": 3.7266513572831172e-06,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 1.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.014999999664723873,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 3.7266513572831172e-06,
+      "actual": 3.7266513572831172e-06,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 1.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.015000000596046448,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 3.7266652270773193e-06,
+      "actual": 3.7266652270773193e-06,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.1641531472150746e-07,
+        "effective_noise": 0.9999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.01899999938905239,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.17242150008678436,
+      "actual": 0.17242150008678436,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.4999999403953552,
+        "effective_noise": 0.5000000596046448
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.022999998182058334,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.9999997615814209,
+        "effective_noise": 2.384185791015625e-07
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000000044703484,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.023000001907348633,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "noise_suppression",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 1.0,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.05000000074505806,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 1.0,
+        "effective_noise": 0.0
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 1.0,
+      "actual": 1.0,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.13533525168895721,
+      "actual": 0.13533525168895721,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.32465246319770813,
+      "actual": 0.32465246319770813,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.043936923146247864,
+      "actual": 0.043936923146247864,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.2950226962566376,
+      "actual": 0.2950226962566376,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.03992697224020958,
+      "actual": 0.03992697224020958,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.09577984362840652,
+      "actual": 0.09577984362840652,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.01296238973736763,
+      "actual": 0.01296238973736763,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": true,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.6065306663513184,
+      "actual": 0.6065306663513184,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.08208498358726501,
+      "actual": 0.08208498358726501,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": false,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.19691167771816254,
+      "actual": 0.19691167771816254,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": false,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.02664909139275551,
+      "actual": 0.02664909139275551,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": false,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1789403110742569,
+      "actual": 0.1789403110742569,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.02421693317592144,
+      "actual": 0.02421693317592144,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": true,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.05809341371059418,
+      "actual": 0.05809341371059418,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": true,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.007862087339162827,
+      "actual": 0.007862087339162827,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": true,
+        "noise": true,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.6065306663513184,
+      "actual": 0.6065306663513184,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.08208498358726501,
+      "actual": 0.08208498358726501,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": false,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.19691167771816254,
+      "actual": 0.19691167771816254,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": false,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.02664909139275551,
+      "actual": 0.02664909139275551,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": false,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1789403110742569,
+      "actual": 0.1789403110742569,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.02421693317592144,
+      "actual": 0.02421693317592144,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": true,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.05809341371059418,
+      "actual": 0.05809341371059418,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": true,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.007862087339162827,
+      "actual": 0.007862087339162827,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": false,
+        "noise": true,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.3678794205188751,
+      "actual": 0.3678794205188751,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": false,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.04978705570101738,
+      "actual": 0.04978705570101738,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": false,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1194329634308815,
+      "actual": 0.1194329634308815,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": false,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.10000000149011612,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.01616349071264267,
+      "actual": 0.01616349071264267,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": false,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.10853277146816254,
+      "actual": 0.10853277146816254,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": true,
+        "low_energy": false,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 0.0010000000474974513,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.014688310213387012,
+      "actual": 0.014688310213387012,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": true,
+        "low_energy": false,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.03523543104529381,
+      "actual": 0.03523543104529381,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": true,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "penalty_combination",
+      "inputs": {
+        "feature4": 0.30000001192092896,
+        "feature8": 0.44999998807907104,
+        "feature12": 4.999999873689376e-06,
+        "confidence": 0.05000000074505806,
+        "strength": 0.0,
+        "ratio": 0.4399999976158142
+      },
+      "independently_expected": 0.004768596030771732,
+      "actual": 0.004768596030771732,
+      "branch_conditions": {
+        "confidence": true,
+        "crossing": true,
+        "noise": true,
+        "low_energy": true,
+        "ratio": true,
+        "suppression": 0.0,
+        "effective_noise": 0.44999998807907104
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    },
+    {
+      "case": "zero_energy_without_noise",
+      "inputs": {
+        "feature4": 0.05000000074505806,
+        "feature8": 0.10000000149011612,
+        "feature12": 0.0,
+        "confidence": 0.30000001192092896,
+        "strength": 0.0,
+        "ratio": 0.800000011920929
+      },
+      "independently_expected": 0.1353352814912796,
+      "actual": 0.1353352814912796,
+      "branch_conditions": {
+        "confidence": false,
+        "crossing": false,
+        "noise": false,
+        "low_energy": true,
+        "ratio": false,
+        "suppression": 0.0,
+        "effective_noise": 0.10000000149011612
+      },
+      "float32_exact": true,
+      "other_bytes_unchanged": true
+    }
+  ],
+  "script_sha256": "73abd33e617435216306ec39ef29246c5b99eea208bf7ed6a013940627f46daa",
+  "model_sha256": "f65d570dc232971f1c85956eb93ec8212ab097e5ff70e17ceb6e2e720e79f1b7",
+  "limits": [
+    "Default estimator fields +0x44/+0x48 are zero.",
+    "Private in-memory relocation tests the original inline probability span, not the entire native estimator call.",
+    "Branch labels/counts are independent predicates, not sampled program-counter telemetry.",
+    "Owned feature inputs test conditional consumption, not natural PCM production of those features.",
+    "No history/gating, nonfinite input or original commercial scores are claimed."
+  ]
+}

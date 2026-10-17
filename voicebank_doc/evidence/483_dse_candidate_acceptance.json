@@ -1,0 +1,674 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "Original native candidate pipeline, private-process VDM input adapter",
+  "targets": {
+    "DSE.dll": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "VDM.dll": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2"
+  },
+  "native_function": "0x1801dc510",
+  "public_result_getter": "VIS_DSE_GetResultFromLicense",
+  "owned_cases": [
+    {
+      "case": "ordinary32_hardware_0",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_1",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_2",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_3",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_4",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_5",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_normalized_variant",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_changed_serial",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_invalid_serial_codec",
+      "kind": "DSE",
+      "expected": 11,
+      "actual": 11,
+      "result": "InvalidSerialNumber",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_invalid_component_codec",
+      "kind": "DSE",
+      "expected": 12,
+      "actual": 12,
+      "result": "InvalidComponent",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_wrong_key_length",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_changed_key",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_wrong_hardware",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_changed_product_data",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_missing_product_table_entry",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "no_candidates",
+      "kind": "DSE",
+      "expected": 0,
+      "actual": 0,
+      "result": "Undefined",
+      "passed": true
+    },
+    {
+      "case": "bad_then_good_candidate",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "good_then_bad_candidate",
+      "kind": "DSE",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "expiry_future",
+      "kind": "DSE",
+      "expected": 14,
+      "actual": 14,
+      "result": "ValidExpiryKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "expiry_past",
+      "kind": "DSE",
+      "expected": 7,
+      "actual": 7,
+      "result": "ExpiredKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "start_future",
+      "kind": "DSE",
+      "expected": 7,
+      "actual": 7,
+      "result": "ExpiredKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "expiry_today",
+      "kind": "DSE",
+      "expected": 14,
+      "actual": 14,
+      "result": "ValidExpiryKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "start_and_expiry_today",
+      "kind": "DSE",
+      "expected": 14,
+      "actual": 14,
+      "result": "ValidExpiryKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "expiry_wrong_digest",
+      "kind": "DSE",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "splice_digest_valid_missing_lease",
+      "kind": "DSE",
+      "expected": 1,
+      "actual": 1,
+      "result": "MissingLeaseFile",
+      "passed": true
+    },
+    {
+      "case": "splice_digest_changed",
+      "kind": "DSE",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "splice_ice_name_changed",
+      "kind": "DSE",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "splice_product_data_changed",
+      "kind": "DSE",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "splice_hash_wrong_length",
+      "kind": "DSE",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_0",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_1",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_2",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_3",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_4",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_hardware_5",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_normalized_variant",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_changed_serial",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_invalid_serial_codec",
+      "kind": "DNN",
+      "expected": 11,
+      "actual": 11,
+      "result": "InvalidSerialNumber",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_invalid_component_codec",
+      "kind": "DNN",
+      "expected": 12,
+      "actual": 12,
+      "result": "InvalidComponent",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_wrong_key_length",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_changed_key",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_wrong_hardware",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_changed_product_data",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "ordinary32_missing_product_table_entry",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "no_candidates",
+      "kind": "DNN",
+      "expected": 0,
+      "actual": 0,
+      "result": "Undefined",
+      "passed": true
+    },
+    {
+      "case": "bad_then_good_candidate",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "good_then_bad_candidate",
+      "kind": "DNN",
+      "expected": 15,
+      "actual": 15,
+      "result": "NoError",
+      "passed": true
+    },
+    {
+      "case": "expiry_future",
+      "kind": "DNN",
+      "expected": 14,
+      "actual": 14,
+      "result": "ValidExpiryKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "expiry_past",
+      "kind": "DNN",
+      "expected": 7,
+      "actual": 7,
+      "result": "ExpiredKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "start_future",
+      "kind": "DNN",
+      "expected": 7,
+      "actual": 7,
+      "result": "ExpiredKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "expiry_today",
+      "kind": "DNN",
+      "expected": 14,
+      "actual": 14,
+      "result": "ValidExpiryKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "start_and_expiry_today",
+      "kind": "DNN",
+      "expected": 14,
+      "actual": 14,
+      "result": "ValidExpiryKey",
+      "passed": true,
+      "public_expiry_matches": true
+    },
+    {
+      "case": "expiry_wrong_digest",
+      "kind": "DNN",
+      "expected": 10,
+      "actual": 10,
+      "result": "InvalidKey",
+      "passed": true
+    },
+    {
+      "case": "splice_digest_valid_missing_lease",
+      "kind": "DNN",
+      "expected": 1,
+      "actual": 1,
+      "result": "MissingLeaseFile",
+      "passed": true
+    },
+    {
+      "case": "splice_digest_changed",
+      "kind": "DNN",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "splice_ice_name_changed",
+      "kind": "DNN",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "splice_product_data_changed",
+      "kind": "DNN",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    },
+    {
+      "case": "splice_hash_wrong_length",
+      "kind": "DNN",
+      "expected": 13,
+      "actual": 13,
+      "result": "InvalidHash",
+      "passed": true
+    }
+  ],
+  "installed_resource_cases": [
+    {
+      "name": "Luo_Tianyi_Ning",
+      "compid": "BD79E492NWWK3DDF",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "Luo_Tianyi_Wan",
+      "compid": "BL8CEAM5N4XN3LFK",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "Yan_He_Mu",
+      "compid": "BMA8DBBZM5ZH2MDE",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "Yuezheng_Ling_You",
+      "compid": "BMBNDB8EM5222MK3",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "Yan_He_Qing",
+      "compid": "BN69LCH2W6TK8NEF",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "Luo_Tianyi_Meng",
+      "compid": "BP8CDDH5M7XN2PED",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "Yuezheng_Ling_Chi",
+      "compid": "BY98KLLZTDYH7YEE",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "MIKU_V4X_Original_EVEC",
+      "compid": "BCNFCY43LB2LZCD4",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "MIKU_V4X_Sweet",
+      "compid": "BDGE8ZB2FCTKTDBA",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "RIN_V4X_Warm",
+      "compid": "BDHEBZG2KCWKYDC5",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "MIKU_V4X_Soft_EVEC",
+      "compid": "BFPL93T7GE3RWFC9",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "MIKU_V4X_Dark",
+      "compid": "BHNME578NG2S3HD8",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "MIKU_V4X_Solid_EVEC",
+      "compid": "BKGHF6Y5PHTN4KD6",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "RIN_V4X_Power_EVEC",
+      "compid": "BKKP765AEHXWSKDB",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "RIN_V4X_Sweet",
+      "compid": "BLECA76YHKRGXLB7",
+      "kind": "DSE",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "HATSUNE_MIKU_V6_ORIGINAL",
+      "compid": "BHKCEKSYNBXG3HB2",
+      "kind": "DNN",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    },
+    {
+      "name": "asa",
+      "compid": "BLKEA452HDSKXLD7",
+      "kind": "DNN",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate",
+      "splice_result": 1,
+      "splice_independent_digest_matches": true
+    },
+    {
+      "name": "HATSUNE_MIKU_V6_SOFT",
+      "compid": "BNFDGP9ZRFSH5N9F",
+      "kind": "DNN",
+      "positive_result": 15,
+      "changed_key_result": 10,
+      "descriptor_source": "synthetic in-memory candidate"
+    }
+  ],
+  "summary": {
+    "owned_cases": 58,
+    "installed_ordinary_positive": 18,
+    "installed_ordinary_negative": 18,
+    "installed_splice": 1,
+    "total": 95
+  },
+  "hardware_candidates_used": 6,
+  "all_passed": true,
+  "native_candidate_code_unchanged": true,
+  "native_code_check": {
+    "rva": "0x1dc510",
+    "size": "0x3b60",
+    "before_sha256": "0d6ec455deead81e86bee562ef2b2f84500496702da701d3e30a4b0349a1589c",
+    "after_sha256": "0d6ec455deead81e86bee562ef2b2f84500496702da701d3e30a4b0349a1589c"
+  },
+  "adapter_callback_counts": {
+    "num_banks": 190,
+    "bank": 95,
+    "num_licenses": 95,
+    "license": 97,
+    "key": 97,
+    "serial": 97,
+    "ice_value": 97,
+    "ice_name": 97,
+    "date": 97,
+    "comp": 192,
+    "name": 95,
+    "version": 95
+  },
+  "callback_errors": [],
+  "boundaries": {
+    "registry_or_installed_descriptor_writes": false,
+    "key_serial_hardware_or_product_data_values_exported": false,
+    "lease_created_or_signed": false,
+    "editor_launched_or_modified": false,
+    "independent_resource_payload_production_verified": false,
+    "editor_discovery_or_render_verified": false
+  }
+}

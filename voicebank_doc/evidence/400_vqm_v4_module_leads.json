@@ -1,0 +1,1074 @@
+{
+  "tool_sha256": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+  "v4_api_modules": [
+    {
+      "name": "OpenVS4.dll",
+      "sha256": "3a3faf18c9ad554fc96884894682fabd881eea2fff8d447012a2793ea87e2c04",
+      "size": 108032,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.4",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_DBM4.dll",
+      "sha256": "e1ed2ddb16310f0f848055d95e292a619297dd0eeb4a44010e355023ebc3d567",
+      "size": 204800,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_DSE4.dll",
+      "sha256": "b96fec982d0a57b383835590d6ee852eb4ffc607933a33b52728edf35101b0eb",
+      "size": 8328192,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.4",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 5,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 8,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 17,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 1,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 2,
+          "utf16le": 0
+        }
+      },
+      "exports": [
+        {
+          "name": "DSECreate",
+          "rva": "0xfb80",
+          "ordinal": 1,
+          "forwarded": false
+        },
+        {
+          "name": "DSEDelete",
+          "rva": "0xfc90",
+          "ordinal": 2,
+          "forwarded": false
+        },
+        {
+          "name": "DSEDeleteVoiceVerify",
+          "rva": "0xfd80",
+          "ordinal": 3,
+          "forwarded": false
+        },
+        {
+          "name": "DSEDoExportScore",
+          "rva": "0xfdb0",
+          "ordinal": 4,
+          "forwarded": false
+        },
+        {
+          "name": "DSEDoStepSynthesis",
+          "rva": "0xfe00",
+          "ordinal": 5,
+          "forwarded": false
+        },
+        {
+          "name": "DSEGetPreSynthTime",
+          "rva": "0xff70",
+          "ordinal": 6,
+          "forwarded": false
+        },
+        {
+          "name": "DSEGetState",
+          "rva": "0xffb0",
+          "ordinal": 7,
+          "forwarded": false
+        },
+        {
+          "name": "DSEGetVersion",
+          "rva": "0xffd0",
+          "ordinal": 8,
+          "forwarded": false
+        },
+        {
+          "name": "DSEGetVoiceVerify",
+          "rva": "0x10080",
+          "ordinal": 9,
+          "forwarded": false
+        },
+        {
+          "name": "DSEInitialize",
+          "rva": "0x102d0",
+          "ordinal": 10,
+          "forwarded": false
+        },
+        {
+          "name": "DSEReset",
+          "rva": "0x10350",
+          "ordinal": 11,
+          "forwarded": false
+        },
+        {
+          "name": "DSESetDBMPath",
+          "rva": "0x105e0",
+          "ordinal": 12,
+          "forwarded": false
+        },
+        {
+          "name": "DSESetDynamicSetting",
+          "rva": "0x10690",
+          "ordinal": 13,
+          "forwarded": false
+        },
+        {
+          "name": "DSESetPreSynthTime",
+          "rva": "0x10730",
+          "ordinal": 14,
+          "forwarded": false
+        },
+        {
+          "name": "DSESetStaticSetting",
+          "rva": "0x10770",
+          "ordinal": 15,
+          "forwarded": false
+        },
+        {
+          "name": "DSESetVVoiceTable",
+          "rva": "0x10a50",
+          "ordinal": 16,
+          "forwarded": false
+        },
+        {
+          "name": "DSESetVVoiceTableV4",
+          "rva": "0x10ae0",
+          "ordinal": 17,
+          "forwarded": false
+        },
+        {
+          "name": "DSEStart",
+          "rva": "0x10b70",
+          "ordinal": 18,
+          "forwarded": false
+        },
+        {
+          "name": "DSEStop",
+          "rva": "0x10c20",
+          "ordinal": 19,
+          "forwarded": false
+        },
+        {
+          "name": "DSETerminate",
+          "rva": "0x10c80",
+          "ordinal": 20,
+          "forwarded": false
+        }
+      ],
+      "name_table_leads": [
+        {
+          "marker_string_rva": "0x3a3834",
+          "pointer_reference_rva": "0x764f74",
+          "neighbors": [
+            {
+              "relative_slot": -5,
+              "slot_rva": "0x764f60",
+              "name": "Mel16"
+            },
+            {
+              "relative_slot": -4,
+              "slot_rva": "0x764f64",
+              "name": "Mel17"
+            },
+            {
+              "relative_slot": -3,
+              "slot_rva": "0x764f68",
+              "name": "Mel18"
+            },
+            {
+              "relative_slot": -2,
+              "slot_rva": "0x764f6c",
+              "name": "Mel19"
+            },
+            {
+              "relative_slot": -1,
+              "slot_rva": "0x764f70",
+              "name": "DeltaTimbre"
+            },
+            {
+              "relative_slot": 0,
+              "slot_rva": "0x764f74",
+              "name": "PitchMFPhaseFlatness"
+            },
+            {
+              "relative_slot": 1,
+              "slot_rva": "0x764f78",
+              "name": "VibratoProb"
+            },
+            {
+              "relative_slot": 2,
+              "slot_rva": "0x764f7c",
+              "name": "VibratoDepth"
+            },
+            {
+              "relative_slot": 3,
+              "slot_rva": "0x764f80",
+              "name": "VibratoFreq"
+            },
+            {
+              "relative_slot": 4,
+              "slot_rva": "0x764f84",
+              "name": "AvgPitch"
+            },
+            {
+              "relative_slot": 5,
+              "slot_rva": "0x764f88",
+              "name": "PitchInterval"
+            },
+            {
+              "relative_slot": 6,
+              "slot_rva": "0x764f8c",
+              "name": "Duration"
+            }
+          ]
+        },
+        {
+          "marker_string_rva": "0x3a3834",
+          "pointer_reference_rva": "0x7653c4",
+          "neighbors": [
+            {
+              "relative_slot": -5,
+              "slot_rva": "0x7653b0",
+              "name": "Mel16"
+            },
+            {
+              "relative_slot": -4,
+              "slot_rva": "0x7653b4",
+              "name": "Mel17"
+            },
+            {
+              "relative_slot": -3,
+              "slot_rva": "0x7653b8",
+              "name": "Mel18"
+            },
+            {
+              "relative_slot": -2,
+              "slot_rva": "0x7653bc",
+              "name": "Mel19"
+            },
+            {
+              "relative_slot": -1,
+              "slot_rva": "0x7653c0",
+              "name": "DeltaTimbre"
+            },
+            {
+              "relative_slot": 0,
+              "slot_rva": "0x7653c4",
+              "name": "PitchMFPhaseFlatness"
+            },
+            {
+              "relative_slot": 1,
+              "slot_rva": "0x7653c8",
+              "name": "VibratoProb"
+            },
+            {
+              "relative_slot": 2,
+              "slot_rva": "0x7653cc",
+              "name": "VibratoDepth"
+            },
+            {
+              "relative_slot": 3,
+              "slot_rva": "0x7653d0",
+              "name": "VibratoFreq"
+            },
+            {
+              "relative_slot": 4,
+              "slot_rva": "0x7653d4",
+              "name": "AvgPitch"
+            },
+            {
+              "relative_slot": 5,
+              "slot_rva": "0x7653d8",
+              "name": "PitchInterval"
+            },
+            {
+              "relative_slot": 6,
+              "slot_rva": "0x7653dc",
+              "name": "Duration"
+            }
+          ]
+        }
+      ],
+      "unreviewed_0x21c_byte_candidates": [
+        "0x66d4",
+        "0x1acec",
+        "0x71653",
+        "0x717c2",
+        "0x71909",
+        "0x719b3",
+        "0x75335",
+        "0x7f5b9",
+        "0x7f9e6",
+        "0x7fa00",
+        "0x8d4e5",
+        "0x8fafe",
+        "0x95b97",
+        "0x97a0b",
+        "0x97a3d",
+        "0x97a7c",
+        "0x97a88",
+        "0x9f302",
+        "0xa18ed",
+        "0xa18fb",
+        "0xa1915",
+        "0xa2fdd",
+        "0xa5023",
+        "0xaba04"
+      ]
+    },
+    {
+      "name": "va_DSE4_DFT.dll",
+      "sha256": "fcd7f1e33ecb3d02febc1e7740c18afc3a801502891180c634323994aacb0011",
+      "size": 23762440,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": null,
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 16,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_g2pa4_CHS.dll",
+      "sha256": "d7d4d3c8608995f90e8bdb80560ccca350002eeea05521180987eea3be985ac4",
+      "size": 215048,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_g2pa4_ENG.dll",
+      "sha256": "3ba2c967aeb784a4995bacf55783f7018ce4a3d5568399bd5b169233a52e2c63",
+      "size": 4976648,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_g2pa4_ESP.dll",
+      "sha256": "a9729e8af7d31fa776142267f37fd5762b99041d7a1b1565249ac06435c7581a",
+      "size": 535560,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_g2pa4_JPN.dll",
+      "sha256": "66b1e8d84b1f8a9035f9be9797b7e803ba33c2a5f99516a1477a916480d14989",
+      "size": 209416,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_g2pa4_KOR.dll",
+      "sha256": "decde68ce98eb7758ebd7040c5ddb9b254901aab92a16ac727c33487ce03dfd9",
+      "size": 284168,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_udm4_ENG.dll",
+      "sha256": "5b9003da019d7146d9b919702091dcf703c3515f13da966e998fb8d0c9fdaf27",
+      "size": 98824,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": "4.2.0.1",
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    },
+    {
+      "name": "va_VSQ4.dll",
+      "sha256": "69161fe709c31e71251fef099b881419fd914dd042eda3fd97f5f0d815e01560",
+      "size": 1791488,
+      "machine": "0x14c",
+      "pointer_bytes": 4,
+      "image_base": "0x10000000",
+      "file_version": null,
+      "literal_hits": {
+        "FRM2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "SMS2": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "VQM": {
+          "ascii": 5,
+          "utf16le": 0
+        },
+        "DRS": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "PitchMFPhaseFlatness": {
+          "ascii": 0,
+          "utf16le": 0
+        },
+        "CSMSFrame": {
+          "ascii": 0,
+          "utf16le": 0
+        }
+      }
+    }
+  ],
+  "v6_comparison": {
+    "name": "DSE.dll",
+    "sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "size": 10703616,
+    "machine": "0x8664",
+    "pointer_bytes": 8,
+    "image_base": "0x180000000",
+    "file_version": "6.13.1.1",
+    "literal_hits": {
+      "FRM2": {
+        "ascii": 10,
+        "utf16le": 0
+      },
+      "SMS2": {
+        "ascii": 35,
+        "utf16le": 0
+      },
+      "VQM": {
+        "ascii": 61,
+        "utf16le": 0
+      },
+      "DRS": {
+        "ascii": 28,
+        "utf16le": 0
+      },
+      "PitchMFPhaseFlatness": {
+        "ascii": 1,
+        "utf16le": 0
+      },
+      "CSMSFrame": {
+        "ascii": 4,
+        "utf16le": 0
+      }
+    },
+    "exports": [
+      {
+        "name": "VIS_DSE_CreateManager",
+        "rva": "0x1d1210",
+        "ordinal": 1,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_DestroyManager",
+        "rva": "0x1d1290",
+        "ordinal": 2,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetCompIDFromLicense",
+        "rva": "0x1d12e0",
+        "ordinal": 3,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetCompNameFromLicense",
+        "rva": "0x1d12f0",
+        "ordinal": 4,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetCompTypeFromLicense",
+        "rva": "0x1d1300",
+        "ordinal": 5,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetCompVersionFromLicense",
+        "rva": "0x1d1320",
+        "ordinal": 6,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetCredential",
+        "rva": "0x1d13b0",
+        "ordinal": 7,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetExpiryDateFromLicense",
+        "rva": "0x1d13f0",
+        "ordinal": 8,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetLicense",
+        "rva": "0x1d1410",
+        "ordinal": 9,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetNameFromCredential",
+        "rva": "0x1d1450",
+        "ordinal": 10,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetRemainingTrialDaysFromLicense",
+        "rva": "0x1d1460",
+        "ordinal": 11,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetResultFromLicense",
+        "rva": "0x1d1470",
+        "ordinal": 12,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetSpliceResultFromLicense",
+        "rva": "0x1d1490",
+        "ordinal": 13,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_GetValueFromCredential",
+        "rva": "0x1d14b0",
+        "ordinal": 14,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_HasManager",
+        "rva": "0x1d14c0",
+        "ordinal": 15,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_InitializeManager",
+        "rva": "0x1d14d0",
+        "ordinal": 16,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_NumLicenses",
+        "rva": "0x1d14f0",
+        "ordinal": 17,
+        "forwarded": false
+      },
+      {
+        "name": "VIS_DSE_TerminateManager",
+        "rva": "0x1d1530",
+        "ordinal": 18,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_CDVQMloadSample",
+        "rva": "0x100a0",
+        "ordinal": 19,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_CDVQMreadSegmentation",
+        "rva": "0x11180",
+        "ordinal": 20,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_Create",
+        "rva": "0xb400",
+        "ordinal": 21,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_Destroy",
+        "rva": "0xb480",
+        "ordinal": 22,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_applyTimbreRegression",
+        "rva": "0xe810",
+        "ordinal": 23,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_compute_gain_and_f0",
+        "rva": "0xdae0",
+        "ordinal": 24,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_free_compact_dvqm_db",
+        "rva": "0x10080",
+        "ordinal": 25,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_getAudioChunk",
+        "rva": "0xeb00",
+        "ordinal": 26,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_getSampleInf",
+        "rva": "0xb5b0",
+        "ordinal": 27,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_getTimeMap",
+        "rva": "0xd190",
+        "ordinal": 28,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_getsynf0",
+        "rva": "0xd140",
+        "ordinal": 29,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_modifysynf0",
+        "rva": "0xd340",
+        "ordinal": 30,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_read_compact_dvqm_db",
+        "rva": "0xfea0",
+        "ordinal": 31,
+        "forwarded": false
+      },
+      {
+        "name": "wbhsm_setconfig",
+        "rva": "0xb6b0",
+        "ordinal": 32,
+        "forwarded": false
+      }
+    ],
+    "name_table_leads": [
+      {
+        "marker_string_rva": "0x5be4e8",
+        "pointer_reference_rva": "0x5aaf28",
+        "neighbors": [
+          {
+            "relative_slot": -5,
+            "slot_rva": "0x5aaf00",
+            "name": "Mel16"
+          },
+          {
+            "relative_slot": -4,
+            "slot_rva": "0x5aaf08",
+            "name": "Mel17"
+          },
+          {
+            "relative_slot": -3,
+            "slot_rva": "0x5aaf10",
+            "name": "Mel18"
+          },
+          {
+            "relative_slot": -2,
+            "slot_rva": "0x5aaf18",
+            "name": "Mel19"
+          },
+          {
+            "relative_slot": -1,
+            "slot_rva": "0x5aaf20",
+            "name": "DeltaTimbre"
+          },
+          {
+            "relative_slot": 0,
+            "slot_rva": "0x5aaf28",
+            "name": "PitchMFPhaseFlatness"
+          },
+          {
+            "relative_slot": 1,
+            "slot_rva": "0x5aaf30",
+            "name": "VibratoProb"
+          },
+          {
+            "relative_slot": 2,
+            "slot_rva": "0x5aaf38",
+            "name": "VibratoDepth"
+          },
+          {
+            "relative_slot": 3,
+            "slot_rva": "0x5aaf40",
+            "name": "VibratoFreq"
+          },
+          {
+            "relative_slot": 4,
+            "slot_rva": "0x5aaf48",
+            "name": "AvgPitch"
+          },
+          {
+            "relative_slot": 5,
+            "slot_rva": "0x5aaf50",
+            "name": "PitchInterval"
+          },
+          {
+            "relative_slot": 6,
+            "slot_rva": "0x5aaf58",
+            "name": "Duration"
+          }
+        ]
+      },
+      {
+        "marker_string_rva": "0x5be4e8",
+        "pointer_reference_rva": "0x5ac5f8",
+        "neighbors": [
+          {
+            "relative_slot": -5,
+            "slot_rva": "0x5ac5d0",
+            "name": "Mel16"
+          },
+          {
+            "relative_slot": -4,
+            "slot_rva": "0x5ac5d8",
+            "name": "Mel17"
+          },
+          {
+            "relative_slot": -3,
+            "slot_rva": "0x5ac5e0",
+            "name": "Mel18"
+          },
+          {
+            "relative_slot": -2,
+            "slot_rva": "0x5ac5e8",
+            "name": "Mel19"
+          },
+          {
+            "relative_slot": -1,
+            "slot_rva": "0x5ac5f0",
+            "name": "DeltaTimbre"
+          },
+          {
+            "relative_slot": 0,
+            "slot_rva": "0x5ac5f8",
+            "name": "PitchMFPhaseFlatness"
+          },
+          {
+            "relative_slot": 1,
+            "slot_rva": "0x5ac600",
+            "name": "VibratoProb"
+          },
+          {
+            "relative_slot": 2,
+            "slot_rva": "0x5ac608",
+            "name": "VibratoDepth"
+          },
+          {
+            "relative_slot": 3,
+            "slot_rva": "0x5ac610",
+            "name": "VibratoFreq"
+          },
+          {
+            "relative_slot": 4,
+            "slot_rva": "0x5ac618",
+            "name": "AvgPitch"
+          },
+          {
+            "relative_slot": 5,
+            "slot_rva": "0x5ac620",
+            "name": "PitchInterval"
+          },
+          {
+            "relative_slot": 6,
+            "slot_rva": "0x5ac628",
+            "name": "Duration"
+          }
+        ]
+      }
+    ],
+    "unreviewed_0x21c_byte_candidates": [
+      "0x6cd95",
+      "0x6d2ca",
+      "0x84fea",
+      "0x84ff9",
+      "0x85015",
+      "0x8b10e",
+      "0x8b16d",
+      "0xaf319",
+      "0xd4bf0",
+      "0xd69ca",
+      "0x1100da",
+      "0x1106a5",
+      "0x1106be",
+      "0x11b57c",
+      "0x1347fa",
+      "0x134809",
+      "0x134824",
+      "0x136254",
+      "0x13840f",
+      "0x1fb3d8",
+      "0x1fdb5f"
+    ]
+  },
+  "identical_neighbor_names": [
+    "Mel16",
+    "Mel17",
+    "Mel18",
+    "Mel19",
+    "DeltaTimbre",
+    "PitchMFPhaseFlatness",
+    "VibratoProb",
+    "VibratoDepth",
+    "VibratoFreq",
+    "AvgPitch",
+    "PitchInterval",
+    "Duration"
+  ],
+  "name_tables_matched": 4,
+  "scope": "Explicit local V4 API folder and pinned V6 DSE. Module identifiers, exports, bounded name-table neighborhoods and unreviewed byte candidates only. Names are not mapped to serialized feature bits. No claim of an analysis producer from literal presence or absence; Ghidra object/function queries remain required."
+}

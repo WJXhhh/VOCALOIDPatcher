@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "source_sha256": {
+    "audit_vqm_score_scale_contract.py": "74f7fa99cf0558c26986ddbdb128d617b61e5e3fb00bec20b1c27a60aeb5ae7a",
+    "verify_vqm_score_conditioning.py": "19ce68cdbb6e8440abc77cab606af786425300f6a0bb73c62999cd5102d3cf33",
+    "frm2_pitch_voicing.py": "f65d570dc232971f1c85956eb93ec8212ab097e5ff70e17ceb6e2e720e79f1b7",
+    "frm2_pitch_candidate.py": "bd51e393be79c1610fc5a9be235b3abdd3a86443fa32f75b592258d4f7c0e980",
+    "probe_frm2_batch_outputs.py": "5ba05bdf1e883e5aedb61cb7f1209320327c589d37bc0595d64724ae61b47f2c",
+    "verify_vqm_estimator_producer_variants.py": "6ec9ff14abf5f065e2505ee08e2315f5a68aaaf3ed71a20cccfb9f28c5c0a242",
+    "verify_vqm_bit16_spectral_power.py": "67e050943693915d144faa03a9419bf9856354064a5f020edc90576c53056b1e",
+    "verify_vqm_bit16_peak_interpolation.py": "72794f1cdb0aaf22d92bda3c0737bafeaa404630949c5ad00055ed8ef8cf4e75",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67"
+  },
+  "owned_checks": {
+    "cases": 68,
+    "passed": true,
+    "scope": "Scaled float32 fixtures: low-bin weights, both confidence degrees, rounding-tied minima, exact-zero and sign infeasibility; not native maker recovery"
+  },
+  "cases": [
+    {
+      "case": 0,
+      "special_pcm": 0,
+      "counts": {
+        "frames": 48,
+        "indices": 4416,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 48,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 439
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 48,
+        "minimum": 0.028002682361504654,
+        "maximum": 0.23562812397371785
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 0,
+        "nominal_size": 2817,
+        "window_size": 705,
+        "half_window": 352,
+        "window_kind": 10,
+        "fft_factor": 1.0,
+        "queue_index": 5
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 72,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 72
+        },
+        "14": {
+          "frames": 72,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 72
+        },
+        "15": {
+          "frames": 72,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 72
+        }
+      },
+      "captured_score_rows": 72,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 1,
+      "special_pcm": 0,
+      "counts": {
+        "frames": 63,
+        "indices": 5796,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 63,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 645
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 63,
+        "minimum": 0.03354262440285497,
+        "maximum": 0.29405136041386093
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 0,
+        "nominal_size": 2817,
+        "window_size": 705,
+        "half_window": 352,
+        "window_kind": 10,
+        "fft_factor": 1.0,
+        "queue_index": 5
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "14": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "15": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        }
+      },
+      "captured_score_rows": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 2,
+      "special_pcm": 0,
+      "counts": {
+        "frames": 63,
+        "indices": 5796,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 63,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 662
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 63,
+        "minimum": 0.07033055832788589,
+        "maximum": 0.3450118338089893
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 0,
+        "nominal_size": 2817,
+        "window_size": 705,
+        "half_window": 352,
+        "window_kind": 10,
+        "fft_factor": 1.0,
+        "queue_index": 5
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "14": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "15": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        }
+      },
+      "captured_score_rows": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "TENSE",
+      "special_pcm": 0,
+      "counts": {
+        "frames": 124,
+        "indices": 11408,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 124,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 1032
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 124,
+        "minimum": 0.0016160291591405598,
+        "maximum": 0.2691122877658258
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 0,
+        "nominal_size": 2817,
+        "window_size": 705,
+        "half_window": 352,
+        "window_kind": 10,
+        "fft_factor": 1.0,
+        "queue_index": 5
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 148,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 148
+        },
+        "14": {
+          "frames": 148,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 148
+        },
+        "15": {
+          "frames": 148,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 148
+        }
+      },
+      "captured_score_rows": 148,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "BRWSP",
+      "special_pcm": 0,
+      "counts": {
+        "frames": 365,
+        "indices": 33580,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 365,
+        "negative_target_confidence_frames": 365,
+        "confidence_infeasible_indices": 33580
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 0,
+        "minimum": null,
+        "maximum": null
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 0,
+        "nominal_size": 2817,
+        "window_size": 705,
+        "half_window": 352,
+        "window_kind": 10,
+        "fft_factor": 1.0,
+        "queue_index": 5
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 389,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 389
+        },
+        "14": {
+          "frames": 389,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 389
+        },
+        "15": {
+          "frames": 389,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 389
+        }
+      },
+      "captured_score_rows": 389,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 0,
+      "special_pcm": 1,
+      "counts": {
+        "frames": 48,
+        "indices": 4416,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 48,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 464
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 48,
+        "minimum": 0.007503753893644598,
+        "maximum": 0.10794646532571026
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 1,
+        "nominal_size": 2561,
+        "window_size": 641,
+        "half_window": 320,
+        "window_kind": 15,
+        "fft_factor": 1.0,
+        "queue_index": 0
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 72,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 72
+        },
+        "14": {
+          "frames": 72,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 72
+        },
+        "15": {
+          "frames": 72,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 72
+        }
+      },
+      "captured_score_rows": 72,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 1,
+      "special_pcm": 1,
+      "counts": {
+        "frames": 63,
+        "indices": 5796,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 63,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 661
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 63,
+        "minimum": 0.0018589484162777822,
+        "maximum": 0.1417416315195571
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 1,
+        "nominal_size": 2561,
+        "window_size": 641,
+        "half_window": 320,
+        "window_kind": 15,
+        "fft_factor": 1.0,
+        "queue_index": 0
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "14": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "15": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        }
+      },
+      "captured_score_rows": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": 2,
+      "special_pcm": 1,
+      "counts": {
+        "frames": 63,
+        "indices": 5796,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 63,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 614
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 63,
+        "minimum": 0.002037993172989524,
+        "maximum": 0.10462693322004632
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 1,
+        "nominal_size": 2561,
+        "window_size": 641,
+        "half_window": 320,
+        "window_kind": 15,
+        "fft_factor": 1.0,
+        "queue_index": 0
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "14": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        },
+        "15": {
+          "frames": 87,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 87
+        }
+      },
+      "captured_score_rows": 87,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "TENSE",
+      "special_pcm": 1,
+      "counts": {
+        "frames": 124,
+        "indices": 11408,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 124,
+        "negative_target_confidence_frames": 0,
+        "confidence_infeasible_indices": 1306
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 124,
+        "minimum": 0.0011806962617260872,
+        "maximum": 0.2966264273193235
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 1,
+        "nominal_size": 2561,
+        "window_size": 641,
+        "half_window": 320,
+        "window_kind": 15,
+        "fft_factor": 1.0,
+        "queue_index": 0
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 148,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 148
+        },
+        "14": {
+          "frames": 148,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 148
+        },
+        "15": {
+          "frames": 148,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 148
+        }
+      },
+      "captured_score_rows": 148,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    },
+    {
+      "case": "BRWSP",
+      "special_pcm": 1,
+      "counts": {
+        "frames": 365,
+        "indices": 33580,
+        "unresolved_indices": 0,
+        "compatible_indices": 0,
+        "frames_with_scale_candidate": 0,
+        "frames_with_unresolved_index": 0,
+        "regular_scale_excluded_frames": 365,
+        "negative_target_confidence_frames": 365,
+        "confidence_infeasible_indices": 33580
+      },
+      "conditional_minimum_strength_gap": {
+        "count": 0,
+        "minimum": null,
+        "maximum": null
+      },
+      "live395_observer_matches_baseline": true,
+      "original395_contract": {
+        "sample_rate": 11025.0,
+        "decimation_factor": 4,
+        "candidate_mode": 0,
+        "voicing_mode": 0,
+        "special_pcm": 1,
+        "nominal_size": 2561,
+        "window_size": 641,
+        "half_window": 320,
+        "window_kind": 15,
+        "fft_factor": 1.0,
+        "queue_index": 0
+      },
+      "original395_replay": {
+        "4": {
+          "frames": 389,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 389
+        },
+        "14": {
+          "frames": 389,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 389
+        },
+        "15": {
+          "frames": 389,
+          "mean_absolute_error": 0.0,
+          "max_absolute_error": 0.0,
+          "within_1e_6": 389
+        }
+      },
+      "captured_score_rows": 389,
+      "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757"
+    }
+  ],
+  "summary": {
+    "frames": 1326,
+    "indices": 121992,
+    "unresolved_indices": 0,
+    "compatible_indices": 0,
+    "frames_with_scale_candidate": 0,
+    "frames_with_unresolved_index": 0,
+    "regular_scale_excluded_frames": 1326,
+    "negative_target_confidence_frames": 730,
+    "confidence_infeasible_indices": 72983
+  },
+  "scope": "Actual395 live score arrays and native replay; superset40..1000Hz plus fallback0; gain eliminated by polynomial and conservative roundoff intervals, independently for each frame/index. Only bit4/bit15 pair is required; bit14 is not assumed to survive its later overwrites.",
+  "limits": [
+    "Finite regular float32 score scaling and intermediate operations; subnormal/overflow cases not certified",
+    "Same score shape, moments, geometry and default scoring formula, not another producer or nonlinear transform",
+    "An interval-compatible candidate is not an identified gain, original maker setting or reconstructed score array",
+    "Positive gain allowed independently per frame; edges12 excluded; zero PCM cannot be silently reindexed",
+    "No commercial score arrays, PCM, gain witnesses or proprietary code persisted"
+  ],
+  "installed_files_unchanged": true,
+  "no_windows_temp": true
+}

@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "decoder_version": "5.0.3",
+  "owned_checks": [
+    {
+      "case": "heap_store",
+      "passed": true
+    },
+    {
+      "case": "stack_fifth",
+      "passed": true
+    },
+    {
+      "case": "shadow_space_excluded",
+      "passed": true
+    },
+    {
+      "case": "partial_register_kill",
+      "passed": true
+    },
+    {
+      "case": "stack_rebased",
+      "passed": true
+    },
+    {
+      "case": "short_store_excluded",
+      "passed": true
+    },
+    {
+      "case": "stack_argument_write_32",
+      "passed": true
+    },
+    {
+      "case": "stack_argument_write_56",
+      "passed": true
+    },
+    {
+      "case": "nonzero_argument_alias_offset",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "exception_ranges": 6090,
+    "runtime_groups": 3585,
+    "transfer_visits": 304852,
+    "decoded_instructions": 161810,
+    "reachable_instructions": 161109,
+    "selected_groups": 185
+  },
+  "escaped_heap_stores": [],
+  "outgoing_stack_slot_candidates": [
+    {
+      "group_rva": "0x55390",
+      "call_rva": "0x553a7",
+      "target_rva": "0x553c0",
+      "argument_index": 5,
+      "caller_rsp_offset": 32,
+      "callee_entry_rsp_offset": 40,
+      "alias_offset": 0,
+      "root_load_rva": "0x55394",
+      "scope": "Slot matches outgoing argument position, but may still be a private spill"
+    }
+  ],
+  "direct_stack_callee_audits": [
+    {
+      "target_rva": "0x553c0",
+      "caller_rsp_offset": 32,
+      "callee_entry_rsp_offset": 40,
+      "argument_alias_offset": 0,
+      "bit17_cell_shaped_accesses": [],
+      "onward_stack_slots": [],
+      "onward_register_calls": [
+        {
+          "root_rva": "-0x1",
+          "call_rva": "0x553fc",
+          "argument_register": "rdx",
+          "alias_offset": 0,
+          "target_rva": "0x217c76",
+          "indirect_slot_rva": null,
+          "transfer_kind": "call",
+          "literal_integer_arguments": {},
+          "review": {
+            "classification": "bulk_copy_lead",
+            "callee": "memcpy",
+            "basis": "Same hash target already identified in evidence421; no new Ghidra query"
+          }
+        }
+      ],
+      "counts": {
+        "transfer_visits": 472,
+        "incoming_slot_read_operands": 1,
+        "incoming_pointer_register_argument_candidates": 1,
+        "decoded_instructions": 379,
+        "reachable_instructions": 379
+      }
+    }
+  ],
+  "decode_gaps": [
+    {
+      "group_rva": "0x1b2ab0",
+      "fragment_rva": "0x1b38f2",
+      "undecoded_bytes": 380
+    }
+  ],
+  "source_sha256": {
+    "audit_vqm_feature_escaped_aliases.py": "0bd0853cf3a70e9a344d02abf9df75703d50ee48ddd44cae142a03edfb94bcad",
+    "audit_vqm_feature_calls_cfg.py": "453d838c0e2192fb3186f925d729bf80260bef9b59edd04305df865da10ab244",
+    "audit_vqm_feature_pointer_accesses.py": "30d8efca252006e6143dbbfb99230b8aa90721fc7793e9bfea50747ae0b69993",
+    "audit_vqm_v4_module_leads.py": "0c822866280100f0250f19e676432d9179a527c35995120cf0ab0dcec261fe84",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67"
+  },
+  "scope": "Selected185 PE runtime groups with feature-shaped loads, direct CFG and existing must-alias rules. The sole fifth-slot candidate is consumed as the source argument of the existing memcpy target. Heap owner/class identity, indirect callees, tail calls, escaping addresses of spill cells and indexed accesses are not resolved here. Slots are bounded to fifth through sixteenth arguments; stack slots assume Windows x64 entry return-address layout. Register forwarding uses existing421 rules. No absence or producer inference from zero matches. No installed mutation or code/payload output."
+}

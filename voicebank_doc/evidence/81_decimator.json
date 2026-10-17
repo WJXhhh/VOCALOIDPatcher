@@ -1,0 +1,578 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "scope": "Independent FIR state/arithmetic and constructor asset selection; embedded coefficient values remain explicit external DLL assets, not independently designed",
+  "cases": [
+    {
+      "rate": 11025,
+      "factor": 2,
+      "taps": 46,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 11025,
+      "factor": 2,
+      "taps": 46,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 11025,
+      "factor": 2,
+      "taps": 46,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 11025,
+      "factor": 4,
+      "taps": 58,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 11025,
+      "factor": 4,
+      "taps": 58,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 11025,
+      "factor": 4,
+      "taps": 58,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 4,
+      "taps": 92,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 4,
+      "taps": 92,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 4,
+      "taps": 92,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 8,
+      "taps": 106,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 8,
+      "taps": 106,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 22050,
+      "factor": 8,
+      "taps": 106,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 4,
+      "taps": 110,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 4,
+      "taps": 110,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 4,
+      "taps": 110,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 8,
+      "taps": 222,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 8,
+      "taps": 222,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 8,
+      "taps": 222,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 16,
+      "taps": 579,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 169,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 16,
+      "taps": 579,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 169,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 44100,
+      "factor": 16,
+      "taps": 579,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 169,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 2,
+      "taps": 12,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 1358,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 4,
+      "taps": 110,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 4,
+      "taps": 110,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 4,
+      "taps": 110,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 679,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 8,
+      "taps": 222,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 8,
+      "taps": 222,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 8,
+      "taps": 222,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 339,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 16,
+      "taps": 579,
+      "chunks": [
+        128
+      ],
+      "calls": 22,
+      "input_samples": 2717,
+      "output_samples": 169,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 16,
+      "taps": 579,
+      "chunks": [
+        1,
+        3,
+        7,
+        31,
+        129
+      ],
+      "calls": 80,
+      "input_samples": 2717,
+      "output_samples": 169,
+      "max_error": 0.0,
+      "state_matches": true
+    },
+    {
+      "rate": 48000,
+      "factor": 16,
+      "taps": 579,
+      "chunks": [
+        2048,
+        19
+      ],
+      "calls": 3,
+      "input_samples": 2717,
+      "output_samples": 169,
+      "max_error": 0.0,
+      "state_matches": true
+    }
+  ]
+}

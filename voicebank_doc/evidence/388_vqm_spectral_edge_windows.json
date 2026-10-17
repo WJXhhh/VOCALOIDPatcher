@@ -1,0 +1,1835 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "window_endpoint_coefficient": -7.929670007011566e-20,
+  "cases": [
+    {
+      "case": 0,
+      "controls": [
+        {
+          "padding": "zero",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.017313719901721925,
+                  "max_absolute_error": 0.03188796108588576,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.3429775834083557,
+                  "max_absolute_error": 0.7925499677658081,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.021778106689453125,
+                  "max_absolute_error": 0.05106067657470703,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.005597716604825109,
+                  "max_absolute_error": 0.01424533175304532,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10331633687019348,
+                  "max_absolute_error": 0.2961423397064209,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.006542086601257324,
+                  "max_absolute_error": 0.02055644989013672,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": -5.3551048040390015e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "repeat",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.000435634923633188,
+                  "max_absolute_error": 0.0007912884466350079,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.2625955641269684,
+                  "max_absolute_error": 0.6021484136581421,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.12582844495773315,
+                  "max_absolute_error": 0.2588977813720703,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0010295709944330156,
+                  "max_absolute_error": 0.0027663405053317547,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.09418979287147522,
+                  "max_absolute_error": 0.27277064323425293,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.015038251876831055,
+                  "max_absolute_error": 0.05024576187133789,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": -5.3551048040390015e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "mirror",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.00043627800187096,
+                  "max_absolute_error": 0.0005614433903247118,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.1553783118724823,
+                  "max_absolute_error": 0.27863848209381104,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.022574305534362793,
+                  "max_absolute_error": 0.052675724029541016,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0015033382805995643,
+                  "max_absolute_error": 0.003681089263409376,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.031700462102890015,
+                  "max_absolute_error": 0.07486128807067871,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.007008910179138184,
+                  "max_absolute_error": 0.022563457489013672,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": -5.3551048040390015e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "circular",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.006682660605292767,
+                  "max_absolute_error": 0.011345632839947939,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.36259931325912476,
+                  "max_absolute_error": 0.6056886911392212,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.01956939697265625,
+                  "max_absolute_error": 0.0429844856262207,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.003997711872216314,
+                  "max_absolute_error": 0.008921800646930933,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.12915751338005066,
+                  "max_absolute_error": 0.3362894058227539,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.007330775260925293,
+                  "max_absolute_error": 0.023786544799804688,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": -5.3551048040390015e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "positive_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009229704679455608,
+                  "max_absolute_error": 0.01603207876905799,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.18286994099617004,
+                  "max_absolute_error": 0.43373095989227295,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.20650237798690796,
+                  "max_absolute_error": 0.37183475494384766,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009888663596939296,
+                  "max_absolute_error": 0.02359010512009263,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.046378254890441895,
+                  "max_absolute_error": 0.14661550521850586,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10795176029205322,
+                  "max_absolute_error": 0.272763729095459,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": -5.3551048040390015e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "negative_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.039590374159161,
+                  "max_absolute_error": 0.07021207129582763,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.33078768849372864,
+                  "max_absolute_error": 0.7404497861862183,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.20275163650512695,
+                  "max_absolute_error": 0.36204957962036133,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.020681220281403512,
+                  "max_absolute_error": 0.046943426597863436,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.08993011713027954,
+                  "max_absolute_error": 0.24386930465698242,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.11006295680999756,
+                  "max_absolute_error": 0.27533674240112305,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": -5.3551048040390015e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 1,
+      "controls": [
+        {
+          "padding": "zero",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.002308880357304588,
+                  "max_absolute_error": 0.0046030544908717275,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.3389012813568115,
+                  "max_absolute_error": 0.8158924579620361,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0059680938720703125,
+                  "max_absolute_error": 0.015861034393310547,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0012624944793060422,
+                  "max_absolute_error": 0.0029699532315135,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10458201169967651,
+                  "max_absolute_error": 0.2992677688598633,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0029398202896118164,
+                  "max_absolute_error": 0.009212970733642578,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 7.450580596923828e-09,
+                  "bit16": 2.384185791015625e-07,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "repeat",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0016417991428170353,
+                  "max_absolute_error": 0.003323912271298468,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.329662561416626,
+                  "max_absolute_error": 0.7090396881103516,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.11182260513305664,
+                  "max_absolute_error": 0.24770402908325195,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0003971316618844867,
+                  "max_absolute_error": 0.000705215148627758,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.08192545175552368,
+                  "max_absolute_error": 0.24214553833007812,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.014091730117797852,
+                  "max_absolute_error": 0.047333717346191406,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 7.450580596923828e-09,
+                  "bit16": 2.384185791015625e-07,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "mirror",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0015859721170272678,
+                  "max_absolute_error": 0.0028267434099689126,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.15463322401046753,
+                  "max_absolute_error": 0.249741792678833,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.004639029502868652,
+                  "max_absolute_error": 0.009793281555175781,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0004572662292048335,
+                  "max_absolute_error": 0.0007281419821083546,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.086916983127594,
+                  "max_absolute_error": 0.20618009567260742,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0018887519836425781,
+                  "max_absolute_error": 0.006001472473144531,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 7.450580596923828e-09,
+                  "bit16": 2.384185791015625e-07,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "circular",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.005565674306126311,
+                  "max_absolute_error": 0.008944740635342896,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.052989840507507324,
+                  "max_absolute_error": 0.08679080009460449,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.010959863662719727,
+                  "max_absolute_error": 0.027982711791992188,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0024864559527486563,
+                  "max_absolute_error": 0.005567386746406555,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.09596318006515503,
+                  "max_absolute_error": 0.2559194564819336,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.006189942359924316,
+                  "max_absolute_error": 0.019817829132080078,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 7.450580596923828e-09,
+                  "bit16": 2.384185791015625e-07,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "positive_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.02104523024172522,
+                  "max_absolute_error": 0.03500086453277618,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.06613165140151978,
+                  "max_absolute_error": 0.11413884162902832,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.3344789147377014,
+                  "max_absolute_error": 0.5479516983032227,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.012506073922850192,
+                  "max_absolute_error": 0.028094531036913395,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.11445319652557373,
+                  "max_absolute_error": 0.2071530818939209,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.15077310800552368,
+                  "max_absolute_error": 0.3626580238342285,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 7.450580596923828e-09,
+                  "bit16": 2.384185791015625e-07,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "negative_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.025377738435054198,
+                  "max_absolute_error": 0.04074588057119399,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.20447850227355957,
+                  "max_absolute_error": 0.28933095932006836,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.33014535903930664,
+                  "max_absolute_error": 0.5391671657562256,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009153368067927659,
+                  "max_absolute_error": 0.020669824443757534,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.08408933877944946,
+                  "max_absolute_error": 0.15482187271118164,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.15155303478240967,
+                  "max_absolute_error": 0.36393260955810547,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 7.450580596923828e-09,
+                  "bit16": 2.384185791015625e-07,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "controls": [
+        {
+          "padding": "zero",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009665749734267592,
+                  "max_absolute_error": 0.017212730133906007,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.26049453020095825,
+                  "max_absolute_error": 0.6545650959014893,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009569168090820312,
+                  "max_absolute_error": 0.029273033142089844,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0004349956288933754,
+                  "max_absolute_error": 0.0008418927900493145,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.05090838670730591,
+                  "max_absolute_error": 0.16327929496765137,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0051937103271484375,
+                  "max_absolute_error": 0.0154571533203125,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 5.587935447692871e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "repeat",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0007387939840555191,
+                  "max_absolute_error": 0.001583180157467723,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.21796518564224243,
+                  "max_absolute_error": 0.5541825294494629,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.12134385108947754,
+                  "max_absolute_error": 0.25524234771728516,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.000428647268563509,
+                  "max_absolute_error": 0.0008789394050836563,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.05139267444610596,
+                  "max_absolute_error": 0.1645059585571289,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.005228757858276367,
+                  "max_absolute_error": 0.015566825866699219,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 5.587935447692871e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "mirror",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.00021201901836320758,
+                  "max_absolute_error": 0.00036920816637575626,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.025620222091674805,
+                  "max_absolute_error": 0.054755449295043945,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.010860681533813477,
+                  "max_absolute_error": 0.027296066284179688,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0010665100999176502,
+                  "max_absolute_error": 0.0023685400374233723,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.008487015962600708,
+                  "max_absolute_error": 0.021142959594726562,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0048406124114990234,
+                  "max_absolute_error": 0.01446533203125,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 5.587935447692871e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "circular",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.007663506432436407,
+                  "max_absolute_error": 0.01125050731934607,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.05281507968902588,
+                  "max_absolute_error": 0.13819169998168945,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.006396651268005371,
+                  "max_absolute_error": 0.013335227966308594,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.003343270975165069,
+                  "max_absolute_error": 0.007549956440925598,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.003995656967163086,
+                  "max_absolute_error": 0.009685754776000977,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.001353144645690918,
+                  "max_absolute_error": 0.0037546157836914062,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 5.587935447692871e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "positive_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.030362944351509213,
+                  "max_absolute_error": 0.052109534153714776,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0898447036743164,
+                  "max_absolute_error": 0.2361767292022705,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.2713663578033447,
+                  "max_absolute_error": 0.4593052864074707,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009243347099982202,
+                  "max_absolute_error": 0.01950065791606903,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.045319199562072754,
+                  "max_absolute_error": 0.07906913757324219,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.13030242919921875,
+                  "max_absolute_error": 0.3214609622955322,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 5.587935447692871e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "negative_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.013234310899861157,
+                  "max_absolute_error": 0.021691207075491548,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.05888921022415161,
+                  "max_absolute_error": 0.17102336883544922,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.27562177181243896,
+                  "max_absolute_error": 0.46760034561157227,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.010037192958407104,
+                  "max_absolute_error": 0.023456264287233353,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.08435526490211487,
+                  "max_absolute_error": 0.21098089218139648,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.1321660280227661,
+                  "max_absolute_error": 0.32630252838134766,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 5.587935447692871e-09,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "TENSE",
+      "controls": [
+        {
+          "padding": "zero",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.009213116019964218,
+                  "max_absolute_error": 0.015632960945367813,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.2546924948692322,
+                  "max_absolute_error": 0.6284341812133789,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.002614140510559082,
+                  "max_absolute_error": 0.0070629119873046875,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.01894835289567709,
+                  "max_absolute_error": 0.0544084869325161,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.09687703847885132,
+                  "max_absolute_error": 0.2800161838531494,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.00016558170318603516,
+                  "max_absolute_error": 0.0005016326904296875,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 0.0,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "repeat",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.00881449319422245,
+                  "max_absolute_error": 0.012714814394712448,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4523826837539673,
+                  "max_absolute_error": 1.0094976425170898,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.12918627262115479,
+                  "max_absolute_error": 0.275540828704834,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.01831725798547268,
+                  "max_absolute_error": 0.054345011711120605,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10097908973693848,
+                  "max_absolute_error": 0.2902665138244629,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0004037618637084961,
+                  "max_absolute_error": 0.0013241767883300781,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 0.0,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "mirror",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.008930359967052937,
+                  "max_absolute_error": 0.01821780949831009,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.20808452367782593,
+                  "max_absolute_error": 0.3187577724456787,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0019742250442504883,
+                  "max_absolute_error": 0.005855083465576172,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.024030214175581932,
+                  "max_absolute_error": 0.052927371114492416,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.07708728313446045,
+                  "max_absolute_error": 0.17236065864562988,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0005997419357299805,
+                  "max_absolute_error": 0.001712799072265625,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 0.0,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "circular",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.008437007665634155,
+                  "max_absolute_error": 0.01136767864227295,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.14333891868591309,
+                  "max_absolute_error": 0.2108769416809082,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.01128852367401123,
+                  "max_absolute_error": 0.03275346755981445,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.023821107111871243,
+                  "max_absolute_error": 0.05503649637103081,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.11793994903564453,
+                  "max_absolute_error": 0.2956247329711914,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.00974118709564209,
+                  "max_absolute_error": 0.031380653381347656,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 0.0,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "positive_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.007550807669758797,
+                  "max_absolute_error": 0.013427753001451492,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4911878705024719,
+                  "max_absolute_error": 0.7810649871826172,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.43525993824005127,
+                  "max_absolute_error": 0.6286735534667969,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.023779699578881264,
+                  "max_absolute_error": 0.037990503013134,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.3371930718421936,
+                  "max_absolute_error": 0.6431899070739746,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.2526875138282776,
+                  "max_absolute_error": 0.47965192794799805,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 0.0,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "negative_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.01593494787812233,
+                  "max_absolute_error": 0.0353030189871788,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 1.3486614122521132,
+                  "max_absolute_error": 3.206697183661163,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4248424172401428,
+                  "max_absolute_error": 0.6062302589416504,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.021327920258045197,
+                  "max_absolute_error": 0.03931863605976105,
+                  "within_1e_6": 1
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4868556261062622,
+                  "max_absolute_error": 0.9344022274017334,
+                  "within_1e_6": 1
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.2564800977706909,
+                  "max_absolute_error": 0.48912906646728516,
+                  "within_1e_6": 1
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 0.0,
+                  "bit16": 0.0,
+                  "bit18": 0.0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "BRWSP",
+      "controls": [
+        {
+          "padding": "zero",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10405603051185608,
+                  "max_absolute_error": 0.21700727939605713,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4382322430610657,
+                  "max_absolute_error": 0.8023557662963867,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.011514663696289062,
+                  "max_absolute_error": 0.0346064567565918,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0790063887834549,
+                  "max_absolute_error": 0.24113380908966064,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.13784372806549072,
+                  "max_absolute_error": 0.34355831146240234,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.004303932189941406,
+                  "max_absolute_error": 0.014822959899902344,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 4.470348358154297e-06,
+                  "bit16": 5.6743621826171875e-05,
+                  "bit18": 7.62939453125e-06
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "repeat",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.056081146001815796,
+                  "max_absolute_error": 0.13959860801696777,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.26946496963500977,
+                  "max_absolute_error": 0.6205911636352539,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.18106979131698608,
+                  "max_absolute_error": 0.339569091796875,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.132706418633461,
+                  "max_absolute_error": 0.3960980176925659,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.2459760308265686,
+                  "max_absolute_error": 0.7879848480224609,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10563874244689941,
+                  "max_absolute_error": 0.25644564628601074,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 4.470348358154297e-06,
+                  "bit16": 5.6743621826171875e-05,
+                  "bit18": 7.62939453125e-06
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "mirror",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.08471402525901794,
+                  "max_absolute_error": 0.12447738647460938,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.7025967836380005,
+                  "max_absolute_error": 1.5414013862609863,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.01222681999206543,
+                  "max_absolute_error": 0.035776615142822266,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.06679315865039825,
+                  "max_absolute_error": 0.1282353401184082,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.10574829578399658,
+                  "max_absolute_error": 0.3471260070800781,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.006520628929138184,
+                  "max_absolute_error": 0.022125720977783203,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 4.470348358154297e-06,
+                  "bit16": 5.6743621826171875e-05,
+                  "bit18": 7.62939453125e-06
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "circular",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.02308070659637451,
+                  "max_absolute_error": 0.04423832893371582,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.5345917344093323,
+                  "max_absolute_error": 0.9874577522277832,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.00423431396484375,
+                  "max_absolute_error": 0.006819725036621094,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.007346317172050476,
+                  "max_absolute_error": 0.016680479049682617,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.12253963947296143,
+                  "max_absolute_error": 0.3239912986755371,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.0066030025482177734,
+                  "max_absolute_error": 0.02399301528930664,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 4.470348358154297e-06,
+                  "bit16": 5.6743621826171875e-05,
+                  "bit18": 7.62939453125e-06
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "positive_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.5601149201393127,
+                  "max_absolute_error": 0.7958323359489441,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.9281480312347412,
+                  "max_absolute_error": 1.4729092121124268,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4039590358734131,
+                  "max_absolute_error": 0.5416665077209473,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4412941262125969,
+                  "max_absolute_error": 0.8483612239360809,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.7172366976737976,
+                  "max_absolute_error": 1.3966667652130127,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.25773119926452637,
+                  "max_absolute_error": 0.44807004928588867,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 4.470348358154297e-06,
+                  "bit16": 5.6743621826171875e-05,
+                  "bit18": 7.62939453125e-06
+                }
+              }
+            }
+          ]
+        },
+        {
+          "padding": "negative_full_scale",
+          "sides": [
+            {
+              "side": "head",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.5614987537264824,
+                  "max_absolute_error": 0.74258753657341,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.9070594906806946,
+                  "max_absolute_error": 1.2528162002563477,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.41399669647216797,
+                  "max_absolute_error": 0.5540244579315186,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {}
+            },
+            {
+              "side": "tail",
+              "checks": {
+                "bit6": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.4181515574455261,
+                  "max_absolute_error": 0.8404111862182617,
+                  "within_1e_6": 0
+                },
+                "bit16": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.5202508568763733,
+                  "max_absolute_error": 1.203324556350708,
+                  "within_1e_6": 0
+                },
+                "bit18": {
+                  "frames": 4,
+                  "mean_absolute_error": 0.26126569509506226,
+                  "max_absolute_error": 0.4527747631072998,
+                  "within_1e_6": 0
+                }
+              },
+              "first_tail_frame": {
+                "missing_samples": 1,
+                "errors": {
+                  "bit6": 4.470348358154297e-06,
+                  "bit16": 5.6743621826171875e-05,
+                  "bit18": 7.62939453125e-06
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "First and last four spectral frames, four conventional padding policies and two full-scale guards. A pass under a guessed policy does not prove original context. The first tail frame lacks only the final window endpoint; endpoint and guard invariance are reported separately. No source PCM or frame payload is saved."
+}

@@ -1,0 +1,158 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "scenarios": 11,
+  "commits": 396,
+  "results": [
+    {
+      "group": "single-note",
+      "edges": [],
+      "lookahead": null,
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "f887bf55e2c849c317294e0645ff32b61dfbf763c6e1e10c9e3f71037ead850d"
+    },
+    {
+      "group": "single-note",
+      "edges": [
+        [
+          "Sil",
+          "a"
+        ]
+      ],
+      "lookahead": null,
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "f887bf55e2c849c317294e0645ff32b61dfbf763c6e1e10c9e3f71037ead850d"
+    },
+    {
+      "group": "single-note",
+      "edges": [
+        [
+          "a",
+          "Sil"
+        ]
+      ],
+      "lookahead": null,
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "f887bf55e2c849c317294e0645ff32b61dfbf763c6e1e10c9e3f71037ead850d"
+    },
+    {
+      "group": "single-note",
+      "edges": [
+        [
+          "Sil",
+          "a"
+        ],
+        [
+          "a",
+          "Sil"
+        ]
+      ],
+      "lookahead": null,
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "f887bf55e2c849c317294e0645ff32b61dfbf763c6e1e10c9e3f71037ead850d"
+    },
+    {
+      "group": "single-note",
+      "edges": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "lookahead": null,
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "f887bf55e2c849c317294e0645ff32b61dfbf763c6e1e10c9e3f71037ead850d"
+    },
+    {
+      "group": "lookahead-nonzero",
+      "edges": [],
+      "lookahead": [
+        "a"
+      ],
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "15fb4ed9d0d78689a78e6794579dc9e40c1e7c83407c88426197099f3b3e5c1d"
+    },
+    {
+      "group": "lookahead-nonzero",
+      "edges": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "lookahead": [
+        "a"
+      ],
+      "control3": 64,
+      "commits": 36,
+      "resulting_work_items": 1,
+      "result_sha256": "15fb4ed9d0d78689a78e6794579dc9e40c1e7c83407c88426197099f3b3e5c1d"
+    },
+    {
+      "group": "lookahead-zero",
+      "edges": [],
+      "lookahead": [
+        "a"
+      ],
+      "control3": 0,
+      "commits": 36,
+      "resulting_work_items": 0,
+      "result_sha256": "33037597fe239246692dc74adefb90bcfe39ffc8d2c922269fb3ff172e5cbde7"
+    },
+    {
+      "group": "lookahead-zero",
+      "edges": [
+        [
+          "Sil",
+          "a"
+        ]
+      ],
+      "lookahead": [
+        "a"
+      ],
+      "control3": 0,
+      "commits": 36,
+      "resulting_work_items": 0,
+      "result_sha256": "33037597fe239246692dc74adefb90bcfe39ffc8d2c922269fb3ff172e5cbde7"
+    },
+    {
+      "group": "lookahead-zero",
+      "edges": [
+        [
+          "a",
+          "a"
+        ]
+      ],
+      "lookahead": [
+        "a"
+      ],
+      "control3": 0,
+      "commits": 36,
+      "resulting_work_items": 0,
+      "result_sha256": "33037597fe239246692dc74adefb90bcfe39ffc8d2c922269fb3ff172e5cbde7"
+    },
+    {
+      "group": "lookahead-silence-zero",
+      "edges": [],
+      "lookahead": [
+        "Sil"
+      ],
+      "control3": 0,
+      "commits": 36,
+      "resulting_work_items": 0,
+      "result_sha256": "673c2b5f8a9a6640197d6b913a23cf7f69b2bf5ba56e0d3b034f6445124aec26"
+    }
+  ],
+  "scope": "Owned first-note direct-tree commits with native event producer. The zero-control lookahead work slot is associated with the registered bank explicitly. Release-edge variants are excluded from zero-control matrix pending their further fixture contract; host scheduling and later acoustic output are untested."
+}

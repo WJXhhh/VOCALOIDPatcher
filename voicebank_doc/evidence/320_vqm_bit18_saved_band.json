@@ -1,0 +1,284 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "cases": [
+    {
+      "sample_index": 0,
+      "drs_formula_to_drs": {
+        "frames": 72,
+        "within_1e_6": 72,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0
+      },
+      "drs_value_to_saved_vqm": {
+        "frames": 72,
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.03675678372383118,
+        "max_absolute_error": 0.10209846496582031
+      },
+      "drs_minus_saved_signed_mean": -0.00019793046845330132,
+      "drs_minus_saved_signed_stddev": 0.043371633295532654,
+      "drs_spectrum_with_saved_f0_to_saved_vqm": {
+        "frames": 72,
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.036641971932517156,
+        "max_absolute_error": 0.10203409194946289
+      },
+      "frame_shift_controls": [
+        {
+          "lag_frames": -4,
+          "frames": 68,
+          "mean_absolute_error": 0.041912545176113356
+        },
+        {
+          "lag_frames": -3,
+          "frames": 69,
+          "mean_absolute_error": 0.0415354293325673
+        },
+        {
+          "lag_frames": -2,
+          "frames": 70,
+          "mean_absolute_error": 0.03906451293400356
+        },
+        {
+          "lag_frames": -1,
+          "frames": 71,
+          "mean_absolute_error": 0.03823795788724658
+        },
+        {
+          "lag_frames": 0,
+          "frames": 72,
+          "mean_absolute_error": 0.03675678372383118
+        },
+        {
+          "lag_frames": 1,
+          "frames": 71,
+          "mean_absolute_error": 0.039565841916581274
+        },
+        {
+          "lag_frames": 2,
+          "frames": 70,
+          "mean_absolute_error": 0.040209146908351354
+        },
+        {
+          "lag_frames": 3,
+          "frames": 69,
+          "mean_absolute_error": 0.04447676824486774
+        },
+        {
+          "lag_frames": 4,
+          "frames": 68,
+          "mean_absolute_error": 0.04440381597070133
+        }
+      ],
+      "temporal_mean_controls": [
+        {
+          "radius_frames": 0,
+          "frames": 72,
+          "mean_absolute_error": 0.03675678372383118
+        },
+        {
+          "radius_frames": 1,
+          "frames": 70,
+          "mean_absolute_error": 0.01170966852278933
+        },
+        {
+          "radius_frames": 2,
+          "frames": 68,
+          "mean_absolute_error": 0.006860597694621336
+        },
+        {
+          "radius_frames": 4,
+          "frames": 64,
+          "mean_absolute_error": 0.01029087064994709
+        }
+      ]
+    },
+    {
+      "sample_index": 1,
+      "drs_formula_to_drs": {
+        "frames": 87,
+        "within_1e_6": 87,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0
+      },
+      "drs_value_to_saved_vqm": {
+        "frames": 87,
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.017911593119303387,
+        "max_absolute_error": 0.045454978942871094
+      },
+      "drs_minus_saved_signed_mean": 0.0017178414881914511,
+      "drs_minus_saved_signed_stddev": 0.021157570976747996,
+      "drs_spectrum_with_saved_f0_to_saved_vqm": {
+        "frames": 87,
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.017911949376950318,
+        "max_absolute_error": 0.0458073616027832
+      },
+      "frame_shift_controls": [
+        {
+          "lag_frames": -4,
+          "frames": 83,
+          "mean_absolute_error": 0.03263953220413392
+        },
+        {
+          "lag_frames": -3,
+          "frames": 84,
+          "mean_absolute_error": 0.029543655259268626
+        },
+        {
+          "lag_frames": -2,
+          "frames": 85,
+          "mean_absolute_error": 0.025345504985136144
+        },
+        {
+          "lag_frames": -1,
+          "frames": 86,
+          "mean_absolute_error": 0.020005913667900617
+        },
+        {
+          "lag_frames": 0,
+          "frames": 87,
+          "mean_absolute_error": 0.017911593119303387
+        },
+        {
+          "lag_frames": 1,
+          "frames": 86,
+          "mean_absolute_error": 0.020586823308190633
+        },
+        {
+          "lag_frames": 2,
+          "frames": 85,
+          "mean_absolute_error": 0.0259828623603372
+        },
+        {
+          "lag_frames": 3,
+          "frames": 84,
+          "mean_absolute_error": 0.03074072656177339
+        },
+        {
+          "lag_frames": 4,
+          "frames": 83,
+          "mean_absolute_error": 0.034322049244340645
+        }
+      ],
+      "temporal_mean_controls": [
+        {
+          "radius_frames": 0,
+          "frames": 87,
+          "mean_absolute_error": 0.017911593119303387
+        },
+        {
+          "radius_frames": 1,
+          "frames": 85,
+          "mean_absolute_error": 0.005290126800537067
+        },
+        {
+          "radius_frames": 2,
+          "frames": 83,
+          "mean_absolute_error": 0.004438349712325872
+        },
+        {
+          "radius_frames": 4,
+          "frames": 79,
+          "mean_absolute_error": 0.010186235612957775
+        }
+      ]
+    },
+    {
+      "sample_index": 2,
+      "drs_formula_to_drs": {
+        "frames": 87,
+        "within_1e_6": 87,
+        "mean_absolute_error": 0.0,
+        "max_absolute_error": 0.0
+      },
+      "drs_value_to_saved_vqm": {
+        "frames": 87,
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.019951694313137012,
+        "max_absolute_error": 0.09519004821777344
+      },
+      "drs_minus_saved_signed_mean": 0.001568591457673873,
+      "drs_minus_saved_signed_stddev": 0.024676322759148432,
+      "drs_spectrum_with_saved_f0_to_saved_vqm": {
+        "frames": 87,
+        "within_1e_6": 0,
+        "mean_absolute_error": 0.020055211823562097,
+        "max_absolute_error": 0.09406471252441406
+      },
+      "frame_shift_controls": [
+        {
+          "lag_frames": -4,
+          "frames": 83,
+          "mean_absolute_error": 0.033361314290977384
+        },
+        {
+          "lag_frames": -3,
+          "frames": 84,
+          "mean_absolute_error": 0.030534449077787854
+        },
+        {
+          "lag_frames": -2,
+          "frames": 85,
+          "mean_absolute_error": 0.027254272909725413
+        },
+        {
+          "lag_frames": -1,
+          "frames": 86,
+          "mean_absolute_error": 0.022500243297843045
+        },
+        {
+          "lag_frames": 0,
+          "frames": 87,
+          "mean_absolute_error": 0.019951694313137012
+        },
+        {
+          "lag_frames": 1,
+          "frames": 86,
+          "mean_absolute_error": 0.022040616634280183
+        },
+        {
+          "lag_frames": 2,
+          "frames": 85,
+          "mean_absolute_error": 0.026058202631333294
+        },
+        {
+          "lag_frames": 3,
+          "frames": 84,
+          "mean_absolute_error": 0.02970981030237107
+        },
+        {
+          "lag_frames": 4,
+          "frames": 83,
+          "mean_absolute_error": 0.03242443843060229
+        }
+      ],
+      "temporal_mean_controls": [
+        {
+          "radius_frames": 0,
+          "frames": 87,
+          "mean_absolute_error": 0.019951694313137012
+        },
+        {
+          "radius_frames": 1,
+          "frames": 85,
+          "mean_absolute_error": 0.006232087752398281
+        },
+        {
+          "radius_frames": 2,
+          "frames": 83,
+          "mean_absolute_error": 0.004340671631227067
+        },
+        {
+          "radius_frames": 4,
+          "frames": 79,
+          "mean_absolute_error": 0.010099747680578187
+        }
+      ]
+    }
+  ],
+  "scope": "Three independent saved V4X VQM sequences, 246 frames; reuses the DRS spectrum on saved PCM and tests saved F0, frame shifts, and simple temporal means. No voicebank payload is saved."
+}

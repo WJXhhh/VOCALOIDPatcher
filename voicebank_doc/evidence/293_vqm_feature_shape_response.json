@@ -1,0 +1,161 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "sample_rate": 44100,
+  "signal_frequency_hz": 440,
+  "target_rms_pcm16_units": 5000,
+  "shapes": {
+    "sine": {
+      "interior_frames": 28,
+      "median_feature2_energy": 0.02338880579918623,
+      "median_bit6": 0.0003411235229577869,
+      "median_bit16": -1.3319507241249084,
+      "median_bit17": 0.0,
+      "median_bit18": 2.506893754005432
+    },
+    "five_harmonics": {
+      "interior_frames": 28,
+      "median_feature2_energy": 0.02328544482588768,
+      "median_bit6": 9.60502184170764e-05,
+      "median_bit16": -1.497372031211853,
+      "median_bit17": 0.0,
+      "median_bit18": 3.8424229621887207
+    },
+    "white_noise": {
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023277252912521362,
+      "median_bit6": 1.041077196598053,
+      "median_bit16": -3.7583818435668945,
+      "median_bit17": 0.0,
+      "median_bit18": 4.06599497795105
+    }
+  },
+  "sine_noise_mixtures": [
+    {
+      "noise_coefficient": 0.0,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.02338880579918623,
+      "median_bit6": 0.0003411235229577869,
+      "median_bit16": -1.3319507241249084,
+      "median_bit17": 0.0,
+      "median_bit18": 2.506893754005432
+    },
+    {
+      "noise_coefficient": 0.01,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.02338055707514286,
+      "median_bit6": 0.006990219000726938,
+      "median_bit16": -1.3320770859718323,
+      "median_bit17": 0.0,
+      "median_bit18": 2.9181541204452515
+    },
+    {
+      "noise_coefficient": 0.03,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023357952013611794,
+      "median_bit6": 0.01499981852248311,
+      "median_bit16": -1.332552433013916,
+      "median_bit17": 0.0,
+      "median_bit18": 3.108503580093384
+    },
+    {
+      "noise_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023312486708164215,
+      "median_bit6": 0.043739376589655876,
+      "median_bit16": -1.3358948826789856,
+      "median_bit17": 0.0,
+      "median_bit18": 3.3174285888671875
+    },
+    {
+      "noise_coefficient": 0.3,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023366828449070454,
+      "median_bit6": 0.12130966037511826,
+      "median_bit16": -1.3602719902992249,
+      "median_bit17": 0.0,
+      "median_bit18": 3.5080230236053467
+    },
+    {
+      "noise_coefficient": 1.0,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023020777851343155,
+      "median_bit6": 0.3237396776676178,
+      "median_bit16": -1.5648516416549683,
+      "median_bit17": 0.0,
+      "median_bit18": 3.717456340789795
+    },
+    {
+      "noise_coefficient": 3.0,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023018009960651398,
+      "median_bit6": 0.6175047755241394,
+      "median_bit16": -2.2167214155197144,
+      "median_bit17": 0.0,
+      "median_bit18": 3.9026706218719482
+    }
+  ],
+  "sine_secondary_tones": [
+    {
+      "secondary_frequency_hz": 500,
+      "secondary_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023496204055845737,
+      "median_bit6": 0.00032416245085187256,
+      "median_bit16": -1.3323522806167603,
+      "median_bit17": 0.0,
+      "median_bit18": 2.511619210243225
+    },
+    {
+      "secondary_frequency_hz": 1000,
+      "secondary_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023347334936261177,
+      "median_bit6": 0.00025030247343238443,
+      "median_bit16": -1.336273193359375,
+      "median_bit17": 0.0,
+      "median_bit18": 2.780805230140686
+    },
+    {
+      "secondary_frequency_hz": 2000,
+      "secondary_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023366007022559643,
+      "median_bit6": 0.00032905257830861956,
+      "median_bit16": -1.3362720608711243,
+      "median_bit17": 0.0,
+      "median_bit18": 3.57649827003479
+    },
+    {
+      "secondary_frequency_hz": 5000,
+      "secondary_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.02338054869323969,
+      "median_bit6": 0.0003450469521339983,
+      "median_bit16": -1.336272418498993,
+      "median_bit17": 0.0,
+      "median_bit18": 2.506591320037842
+    },
+    {
+      "secondary_frequency_hz": 10000,
+      "secondary_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.023391212336719036,
+      "median_bit6": 0.00036737289337906986,
+      "median_bit16": -1.3362721800804138,
+      "median_bit17": 0.0,
+      "median_bit18": 2.5067195892333984
+    },
+    {
+      "secondary_frequency_hz": 15000,
+      "secondary_coefficient": 0.1,
+      "interior_frames": 28,
+      "median_feature2_energy": 0.02339268196374178,
+      "median_bit6": 0.00033620212343521416,
+      "median_bit16": -1.336272418498993,
+      "median_bit17": 0.0,
+      "median_bit18": 2.5071195363998413
+    }
+  ],
+  "median_energy_relative_span": 0.020502952694903338,
+  "scope": "Equal-RMS synthetic PCM in the default external-pitch DRS batch; monotonicity identifies sensitivity, not a complete feature-production formula."
+}

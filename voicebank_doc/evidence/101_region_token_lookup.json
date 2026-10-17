@@ -1,0 +1,788 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "cases": [
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "a",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "A",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "a#2",
+      "index": 2,
+      "canonical": "a#2"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "a#6",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "a#",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "a##2",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "a*#2",
+      "index": 0,
+      "canonical": "Sil"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "*#2",
+      "index": 0,
+      "canonical": "Sil"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "missing*#2",
+      "index": 0,
+      "canonical": "Sil"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "^a",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "^a#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "br1",
+      "index": 4,
+      "canonical": "br1"
+    },
+    {
+      "tokens": [
+        "Sil",
+        "a",
+        "a#2",
+        "n",
+        "br1"
+      ],
+      "silence": [
+        "Sil"
+      ],
+      "query": "missing",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "a",
+      "index": 2,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "A",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "a#2",
+      "index": 2,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "a#6",
+      "index": 2,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "a#",
+      "index": 2,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "a##2",
+      "index": 2,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "#2",
+      "index": 4,
+      "canonical": "#2"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "a*#2",
+      "index": 3,
+      "canonical": "a*#2"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "*#2",
+      "index": 1,
+      "canonical": "silAlt"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "missing*#2",
+      "index": 1,
+      "canonical": "silAlt"
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "^a",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "^a#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "br1",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "silAlt",
+        "a",
+        "a*#2",
+        "#2"
+      ],
+      "silence": [
+        "pause",
+        "silAlt"
+      ],
+      "query": "missing",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "a",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "A",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "a#2",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "a#6",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "a#",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "a##2",
+      "index": 1,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "a*#2",
+      "index": 0,
+      "canonical": "pause"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "*#2",
+      "index": 0,
+      "canonical": "pause"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "missing*#2",
+      "index": 0,
+      "canonical": "pause"
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "^a",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "^a#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "br1",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "pause",
+        "a"
+      ],
+      "silence": [
+        "pause"
+      ],
+      "query": "missing",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "a",
+      "index": 0,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "A",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "a#2",
+      "index": 0,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "a#6",
+      "index": 0,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "a#",
+      "index": 0,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "a##2",
+      "index": 0,
+      "canonical": "a"
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "a*#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "*#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "missing*#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "^a",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "^a#2",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "br1",
+      "index": -1,
+      "canonical": null
+    },
+    {
+      "tokens": [
+        "a"
+      ],
+      "silence": [],
+      "query": "missing",
+      "index": -1,
+      "canonical": null
+    }
+  ],
+  "count": 60,
+  "mismatches": 0,
+  "scope": "Synthetic token lookup only; not full articulation selection"
+}

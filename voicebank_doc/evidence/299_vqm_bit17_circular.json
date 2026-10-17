@@ -1,0 +1,98 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "samples": [
+    {
+      "sample_index": 0,
+      "frames": 72,
+      "bit17_min": 4.402858257293701,
+      "bit17_median": 5.163260221481323,
+      "bit17_max": 5.696022987365723,
+      "adjacent_pairs": 71,
+      "max_raw_delta": 0.25,
+      "max_circular_delta": 0.25,
+      "median_absolute_circular_delta": 0.07163858413696289,
+      "near_quarter_radian_step_count": 6,
+      "wraps": [],
+      "projection_controls": {
+        "compared_full_window_frames": 64,
+        "candidates": {
+          "local_f0_projection": {
+            "phase_sign": -1,
+            "circular_mean_absolute_error": 1.3917637094805078,
+            "circular_concentration": 0.1286249344366847
+          },
+          "projection_minus_cumulative_f0": {
+            "phase_sign": -1,
+            "circular_mean_absolute_error": 0.2872690287675221,
+            "circular_concentration": 0.9286464533836176
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 1,
+      "frames": 87,
+      "bit17_min": 0.05869342386722565,
+      "bit17_median": 1.9553990364074707,
+      "bit17_max": 6.170125961303711,
+      "adjacent_pairs": 86,
+      "max_raw_delta": 6.111432537436485,
+      "max_circular_delta": 0.25000011920928955,
+      "median_absolute_circular_delta": 0.04892086982727051,
+      "near_quarter_radian_step_count": 4,
+      "wraps": [
+        {
+          "frame_index": 67,
+          "raw_delta": 6.111432537436485,
+          "circular_delta": -0.17175276974310094
+        }
+      ],
+      "projection_controls": {
+        "compared_full_window_frames": 79,
+        "candidates": {
+          "local_f0_projection": {
+            "phase_sign": 1,
+            "circular_mean_absolute_error": 1.5547578900046146,
+            "circular_concentration": 0.010389664059805816
+          },
+          "projection_minus_cumulative_f0": {
+            "phase_sign": -1,
+            "circular_mean_absolute_error": 0.6405536645511312,
+            "circular_concentration": 0.6811831820717348
+          }
+        }
+      }
+    },
+    {
+      "sample_index": 2,
+      "frames": 87,
+      "bit17_min": 4.067382335662842,
+      "bit17_median": 5.117334842681885,
+      "bit17_max": 5.479767322540283,
+      "adjacent_pairs": 86,
+      "max_raw_delta": 0.25,
+      "max_circular_delta": 0.25,
+      "median_absolute_circular_delta": 0.030729055404663086,
+      "near_quarter_radian_step_count": 3,
+      "wraps": [],
+      "projection_controls": {
+        "compared_full_window_frames": 79,
+        "candidates": {
+          "local_f0_projection": {
+            "phase_sign": -1,
+            "circular_mean_absolute_error": 1.5670764292045523,
+            "circular_concentration": 0.004714272926192269
+          },
+          "projection_minus_cumulative_f0": {
+            "phase_sign": 1,
+            "circular_mean_absolute_error": 0.37414016025753166,
+            "circular_concentration": 0.9048588402006118
+          }
+        }
+      }
+    }
+  ],
+  "scope": "The saved field behaves as a wrapped, quarter-radian-step-limited angle. Direct 2048-point PCM fundamental projection controls do not exactly reproduce it, even after an optimized per-sample rotation and sign choice. Its producer, exact phase convention, and consumer remain unproven."
+}

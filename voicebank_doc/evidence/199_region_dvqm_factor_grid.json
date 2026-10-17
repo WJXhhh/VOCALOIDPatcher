@@ -1,0 +1,3587 @@
+{
+  "dse": "DSE.dll",
+  "resource": "dvqm.dat",
+  "factors": [
+    1.0,
+    0.5,
+    1.5,
+    2.0
+  ],
+  "start": 0,
+  "end": 119,
+  "timeout_seconds": 3.0,
+  "total_seconds": 300.0,
+  "complete": true,
+  "rows": [
+    {
+      "index": 0,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Accent'] multiph\naudio control 0x177359b1010\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Accent"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2706.8037109375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 2816,
+            "last_cursor": 3584,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Accent2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1742.94921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Accent3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 6092.93505859375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6400,
+            "last_cursor": 7168,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Airy"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 681.3861083984375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3328,
+            "last_cursor": 4096,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Airy2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4960.357421875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 7424,
+            "last_cursor": 8192,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Catty"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7210.75244140625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3840,
+            "last_cursor": 4608,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Clear'] multiph\naudio control 0x1e625659de0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Clear'] multiph\naudio control 0x238b629a370\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Clear'] multiph\naudio control 0x24b536dede0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 2.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Clear'] multiph\naudio control 0x1ab2fb17850\naudio block 0 begin\n"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Crescendo'] multiph\naudio control 0x1c3e9c85650\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Crescendo'] multiph\naudio control 0x27a0f987750\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Crescendo'] multiph\naudio control 0x16868ba47b0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 2.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Crescendo'] multiph\naudio control 0x2850f0d7aa0\naudio block 0 begin\n"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Crescendo2'] multiph\naudio control 0x189604ccc00\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Crescendo2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 404.14654541015625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5888,
+            "last_cursor": 6656,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "DoubleAccent"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3351.8662109375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['DoubleAccent2'] multiph\naudio control 0x1e998317140\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "DoubleAccent2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3951.493896484375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3840,
+            "last_cursor": 4608,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['DoubleAccent3'] multiph\naudio control 0x2c7b0dfa150\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "DoubleAccent3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2728.90234375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 1792,
+            "last_cursor": 2560,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Down'] multiph\naudio control 0x2139295e8c0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Down"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5039.02978515625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3328,
+            "last_cursor": 4096,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Down2'] multiph\naudio control 0x1f9d8999900\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Down2'] multiph\naudio control 0x1fb0099b0a0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Down2'] multiph\naudio control 0x21b07ea2ba0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 2.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Down2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1533.757080078125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5120,
+            "last_cursor": 5888,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Down3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 6140.67578125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 2560,
+            "last_cursor": 3328,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Enka"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3459.397216796875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5632,
+            "last_cursor": 6400,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Floggy"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7664.24609375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 7168,
+            "last_cursor": 7936,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Foxy"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5855.52294921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6400,
+            "last_cursor": 7168,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Growly'] multiph\naudio control 0x21e1b349ad0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Growly"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 9776.005859375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Growly2'] multiph\naudio control 0x20082fde9b0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Growly2'] multiph\naudio control 0x1fb89412db0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Growly2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 8755.63671875,
+            "nonzero_samples": 1023,
+            "terminal_status": null,
+            "first_cursor": 5632,
+            "last_cursor": 6400,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Growly3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 6528.08740234375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Growly4"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 357.1507873535156,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3840,
+            "last_cursor": 4608,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Narrowed"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5204.556640625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Oh-uh'] multiph\naudio control 0x215f169d820\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Oh-uh"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4336.0263671875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5376,
+            "last_cursor": 6144,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Opend'] multiph\naudio control 0x23f411d3cb0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Opend'] multiph\naudio control 0x23b4430c330\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Opend"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3207.807861328125,
+            "nonzero_samples": 1023,
+            "terminal_status": null,
+            "first_cursor": 7680,
+            "last_cursor": 8448,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Piggy'] multiph\naudio control 0x263f2526df0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Piggy'] multiph\naudio control 0x2491c3185f0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Piggy"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5424.96630859375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4352,
+            "last_cursor": 5120,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Trill'] multiph\naudio control 0x1d62e05f5a0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Trill"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1646.5323486328125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 7424,
+            "last_cursor": 8192,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Up"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3393.122314453125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Up2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3915.462890625,
+            "nonzero_samples": 1023,
+            "terminal_status": null,
+            "first_cursor": 3072,
+            "last_cursor": 3840,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Up3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4866.7724609375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Up4"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5990.904296875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Up5'] multiph\naudio control 0x27aa33f7320\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Up5'] multiph\naudio control 0x278ff94f5f0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Up5"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2748.356201171875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5376,
+            "last_cursor": 6144,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "@",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2446.34326171875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "I",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 697.7186279296875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "OI",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2696.7734375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "U",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 457.7237854003906,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "e",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 236.31451416015625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2446.34326171875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "@",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 598.8233032226562,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "I",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 774.6709594726562,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "OI",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 712.387451171875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "Q",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 649.0466918945312,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "U",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2813.32177734375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "eI",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2700.220703125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 598.8233032226562,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "M",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 130.8373565673828,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 46,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "N\\",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 141.40724182128906,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6656,
+            "last_cursor": 7424,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 47,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "a",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7.553764343261719,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "e",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 242.51834106445312,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6400,
+            "last_cursor": 7168,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "i",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 0.00031396537087857723,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7.553764343261719,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "o",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 150.91079711914062,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 6912,
+            "last_cursor": 7680,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 52,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Wow'] M\naudio control 0x246ef2df500\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Wow"
+            ],
+            "phoneme": "M",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2078.81689453125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 11008,
+            "last_cursor": 11776,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Wow"
+            ],
+            "phoneme": "a",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3519.586669921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 7936,
+            "last_cursor": 8704,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Wow"
+            ],
+            "phoneme": "e",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 13210.1357421875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 10752,
+            "last_cursor": 11520,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Wow'] i\naudio control 0x1d2adbd7b90\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Wow"
+            ],
+            "phoneme": "i",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1320.0772705078125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 11776,
+            "last_cursor": 12544,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Wow"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2110.47900390625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 11008,
+            "last_cursor": 11776,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 57,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Wow'] o\naudio control 0x2479f4f46c0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 0 ['Wow'] o\naudio control 0x24282793f40\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 0,
+            "property": [
+              "Wow"
+            ],
+            "phoneme": "o",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1347.26708984375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 8448,
+            "last_cursor": 9216,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 58,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Airy"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3554.933349609375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3328,
+            "last_cursor": 4096,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Air_with_Vib"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1343.148193359375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 2560,
+            "last_cursor": 3328,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 60,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Air_with_Vib2'] multiph\naudio control 0x196b1f44110\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Air_with_Vib2'] multiph\naudio control 0x2a3033e5e80\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Air_with_Vib2'] multiph\naudio control 0x2408e9c62a0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 2.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Air_with_Vib2'] multiph\naudio control 0x2256da67400\naudio block 0 begin\n"
+        }
+      ]
+    },
+    {
+      "index": 61,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Breathe_Out"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2828.7744140625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36352,
+            "last_cursor": 37120,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Decrescendo"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2854.28662109375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 63,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Decrescendo2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 215.48175048828125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Decrescendo3'] multiph\naudio control 0x209acd07fc0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Decrescendo3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5581.28125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3328,
+            "last_cursor": 4096,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Down'] multiph\naudio control 0x1ebc98e1180\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Down'] multiph\naudio control 0x12412defd50\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Down"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2376.6533203125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 66,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Down2'] multiph\naudio control 0x2c991ef8a60\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Down2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4160.80419921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 67,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Down3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 6332.97021484375,
+            "nonzero_samples": 1023,
+            "terminal_status": null,
+            "first_cursor": 2816,
+            "last_cursor": 3584,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 68,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Growly'] multiph\naudio control 0x2765ab3d700\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Growly'] multiph\naudio control 0x1374791a480\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Growly"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4870.2177734375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3072,
+            "last_cursor": 3840,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 69,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Growly2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1556.02392578125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 70,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Melisma'] multiph\naudio control 0x20c47070c00\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Melisma"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4049.84423828125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3328,
+            "last_cursor": 4096,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 71,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Melisma2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4597.57666015625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3840,
+            "last_cursor": 4608,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 72,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Melisma3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 3443.719970703125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 2560,
+            "last_cursor": 3328,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 73,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Melisma4'] multiph\naudio control 0x28c2f115ef0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Melisma4"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4255.7158203125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3072,
+            "last_cursor": 3840,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 74,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Melisma5"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2537.044921875,
+            "nonzero_samples": 1023,
+            "terminal_status": null,
+            "first_cursor": 2560,
+            "last_cursor": 3328,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 75,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Stop"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5297.45849609375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 25088,
+            "last_cursor": 25856,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 76,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Stop_HE'] multiph\naudio control 0x18fb35c5a20\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Stop_HE'] multiph\naudio control 0x1b7d8da6d30\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Stop_HE'] multiph\naudio control 0x22fbe64a2b0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 2.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Stop_HE'] multiph\naudio control 0x258a8e82f40\naudio block 0 begin\n"
+        }
+      ]
+    },
+    {
+      "index": 77,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Stop_W'] multiph\naudio control 0x29324ee46a0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Stop_W'] multiph\naudio control 0x13ce0dd2860\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Stop_W"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4553.02685546875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 38400,
+            "last_cursor": 39168,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 78,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Tremolo"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7397.6650390625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 14848,
+            "last_cursor": 15616,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 79,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Trill"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4644.56640625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 35072,
+            "last_cursor": 35840,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 80,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Uh-wa"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2058.39794921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 41216,
+            "last_cursor": 41984,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 81,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Up"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4363.51806640625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3840,
+            "last_cursor": 4608,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 82,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Up2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4616.8310546875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 83,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Up3'] multiph\naudio control 0x2221f1888e0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Up3'] multiph\naudio control 0x20f3c0848d0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Up3"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2680.35791015625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 84,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Vib', 'Down'] multiph\naudio control 0x1e5b933a650\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Vib', 'Down'] multiph\naudio control 0x2804f8792f0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Down"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1120.675537109375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3072,
+            "last_cursor": 3840,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 85,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Vib', 'Down2'] multiph\naudio control 0x2364fff3a40\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Down2"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 132.73854064941406,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5632,
+            "last_cursor": 6400,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 86,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Extreme"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1380.3299560546875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4864,
+            "last_cursor": 5632,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 87,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Extreme_F.O"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1463.4554443359375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 5120,
+            "last_cursor": 5888,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 88,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Vib', 'Fast'] multiph\naudio control 0x294371e7eb0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Fast"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1571.4071044921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4608,
+            "last_cursor": 5376,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 89,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Fast_F.O"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1408.4449462890625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4608,
+            "last_cursor": 5376,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 90,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Normal"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1961.6864013671875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4608,
+            "last_cursor": 5376,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 91,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Normal_F.O"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1341.6678466796875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4352,
+            "last_cursor": 5120,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 92,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Slight"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1685.4119873046875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4608,
+            "last_cursor": 5376,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 93,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Slight_F.O"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1386.5419921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4608,
+            "last_cursor": 5376,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 94,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Soft"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 154.15219116210938,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 4096,
+            "last_cursor": 4864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 95,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "Up"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 789.0043334960938,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 3584,
+            "last_cursor": 4352,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 96,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['Vib', 'UpDown'] multiph\naudio control 0x1b38643cb40\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "Vib",
+              "UpDown"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1359.9171142578125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 2816,
+            "last_cursor": 3584,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 97,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Power'] @\naudio control 0x17de549a960\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "@",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 9821.1533203125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 30464,
+            "last_cursor": 31232,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 98,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Power'] @r\naudio control 0x22277690130\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "@r",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4583.69287109375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36608,
+            "last_cursor": 37376,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 99,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "OI",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 8442.484375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 31488,
+            "last_cursor": 32256,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 100,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "Q",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 10581.521484375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 32768,
+            "last_cursor": 33536,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 101,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "U",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7011.63427734375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36864,
+            "last_cursor": 37632,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 102,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Power'] e\naudio control 0x1d6f8782d20\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "e",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7275.7841796875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 34560,
+            "last_cursor": 35328,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 103,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "i:",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 10420.5751953125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36096,
+            "last_cursor": 36864,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 104,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Power"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 10030.138671875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 32512,
+            "last_cursor": 33280,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 105,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Soft'] @\naudio control 0x1cabe26a010\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "@",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 4495.34130859375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 34816,
+            "last_cursor": 35584,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 106,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "@r",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 6472.208984375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36352,
+            "last_cursor": 37120,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 107,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "I",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2389.289794921875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 40960,
+            "last_cursor": 41728,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 108,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Soft'] O:\naudio control 0x10fcd489000\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "O:",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 7977.71826171875,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 39424,
+            "last_cursor": 40192,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 109,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Soft'] V\naudio control 0x202cb7f4380\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "V",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5522.0234375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 37632,
+            "last_cursor": 38400,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 110,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "e",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2801.32275390625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 39680,
+            "last_cursor": 40448,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 111,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 6472.208984375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36352,
+            "last_cursor": 37120,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 112,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Soft'] u:\naudio control 0x2109b007e50\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'F', 'Soft'] u:\naudio control 0x26a75df5200\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "F",
+              "Soft"
+            ],
+            "phoneme": "u:",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 5519.880859375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 39424,
+            "last_cursor": 40192,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 113,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] M\naudio control 0x2134a5d6be0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] M\naudio control 0x2067eea6930\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "M",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1022.8573608398438,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 36864,
+            "last_cursor": 37632,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 114,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] a\naudio control 0x17a276fc980\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "a",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2326.828369140625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 33792,
+            "last_cursor": 34560,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 115,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] e\naudio control 0x1bb4c1382c0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] e\naudio control 0x289acc812c0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 1.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "e",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1503.9349365234375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 37376,
+            "last_cursor": 38144,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 116,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] i\naudio control 0x17d388afcc0\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "i",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 1321.73095703125,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 37376,
+            "last_cursor": 38144,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 117,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] multiph\naudio control 0x1f0e669bb90\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "multiph",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2326.828369140625,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 33792,
+            "last_cursor": 34560,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    },
+    {
+      "index": 118,
+      "attempts": [
+        {
+          "factor": 1.0,
+          "status": "timeout",
+          "stdout_tail": "audio sample 1 ['VocalFry', 'M'] o\naudio control 0x24cc41a6420\naudio block 0 begin\n"
+        },
+        {
+          "factor": 0.5,
+          "status": "exited",
+          "exit_code": 0,
+          "audio": {
+            "side": 1,
+            "property": [
+              "VocalFry",
+              "M"
+            ],
+            "phoneme": "o",
+            "calls": 4,
+            "return_zero_blocks": 4,
+            "block_size": 256,
+            "peak": 2334.839599609375,
+            "nonzero_samples": 1024,
+            "terminal_status": null,
+            "first_cursor": 34304,
+            "last_cursor": 35072,
+            "bounded_stop": true,
+            "prepass_status": null
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Four-block direct API fixture per independent process; a successful factor is not host parameter validation"
+}

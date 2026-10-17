@@ -1,0 +1,80 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source_sha256": "3f2e3a43fc285ece8fe36e49fa22a4d2c33220df44c1edb45cc70cb8786b11aa",
+  "native_constructor_rva": "0xbc3c0",
+  "native_content_writer_rva": "0xbca10",
+  "native_content_reader_rva": "0xbcef0",
+  "content_this_adjustment": "0x40",
+  "region_allocation_size": "0x838",
+  "layout": {
+    "flag_offset": "0xb8",
+    "flag_mask": "0x10",
+    "count_offset": "0x210",
+    "list_offset": "0x218",
+    "element_type": "double",
+    "maximum_count": 10,
+    "end_exclusive": "0x268"
+  },
+  "leaf_candidate": {
+    "entry_rva": "0xc8450",
+    "store_rva": "0xc8479",
+    "status": "Matches the Region optional double-list layout",
+    "invoked": false,
+    "semantic_name_unknown": true,
+    "indirect_reachability_unknown": true
+  },
+  "static_basis": [
+    "95780 allocates 0x838, invokes bc3c0 and assigns the result to analysis+cd8.",
+    "bc3c0 sets CSMSRegion vtables, resets +210 and initializes flags at +b8.",
+    "bca10/bcef0 use this=Region+40; flag+78, count+1d0 and doubles+1d8 map back to +b8/+210/+218.",
+    "bcef0 clamps the loaded list count to ten; c8450 appends only while count is below ten."
+  ],
+  "cases": [
+    {
+      "enabled": false,
+      "count": 0,
+      "bytes": 11,
+      "independent_disk_exact": true,
+      "native_roundtrip_exact": true,
+      "constructor_counter": 0,
+      "constructor_flags": 1
+    },
+    {
+      "enabled": true,
+      "count": 0,
+      "bytes": 15,
+      "independent_disk_exact": true,
+      "native_roundtrip_exact": true,
+      "constructor_counter": 0,
+      "constructor_flags": 1
+    },
+    {
+      "enabled": true,
+      "count": 1,
+      "bytes": 23,
+      "independent_disk_exact": true,
+      "native_roundtrip_exact": true,
+      "constructor_counter": 0,
+      "constructor_flags": 1
+    },
+    {
+      "enabled": true,
+      "count": 5,
+      "bytes": 55,
+      "independent_disk_exact": true,
+      "native_roundtrip_exact": true,
+      "constructor_counter": 0,
+      "constructor_flags": 1
+    },
+    {
+      "enabled": true,
+      "count": 10,
+      "bytes": 95,
+      "independent_disk_exact": true,
+      "native_roundtrip_exact": true,
+      "constructor_counter": 0,
+      "constructor_flags": 1
+    }
+  ],
+  "scope": "Five owned Region content cases establish the constructor and optional double-list I/O schema. The candidate leaf matches this schema, rather than a dedicated per-frame feature-bit17 calculation. This does not recover the list semantic name, prove leaf callers, exclude rebased or computed feature stores, or complete VQM/Growl production semantics."
+}

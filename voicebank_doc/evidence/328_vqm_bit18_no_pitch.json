@@ -1,0 +1,149 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source": "owned silence or deterministic noise through native DRS streaming",
+  "cases": [
+    {
+      "case": "silence_auto_zero",
+      "frames": 44,
+      "zero_pitch_frames": 44,
+      "positive_pitch_frames": 0,
+      "zero_pitch_bit18_unique": [
+        0.0
+      ],
+      "positive_pitch_bit18_min": null,
+      "positive_pitch_bit18_max": null,
+      "all_bit18_finite": true,
+      "bit18_median": 0.0,
+      "other_feature_summaries": {
+        "6": {
+          "min": -1.0,
+          "median": -1.0,
+          "max": -1.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "16": {
+          "min": -10.0,
+          "median": -10.0,
+          "max": -10.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "17": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "unique_count": 1,
+          "all_finite": true
+        }
+      }
+    },
+    {
+      "case": "silence_external_zero",
+      "frames": 44,
+      "zero_pitch_frames": 44,
+      "positive_pitch_frames": 0,
+      "zero_pitch_bit18_unique": [
+        0.0
+      ],
+      "positive_pitch_bit18_min": null,
+      "positive_pitch_bit18_max": null,
+      "all_bit18_finite": true,
+      "bit18_median": 0.0,
+      "other_feature_summaries": {
+        "6": {
+          "min": -1.0,
+          "median": -1.0,
+          "max": -1.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "16": {
+          "min": -10.0,
+          "median": -10.0,
+          "max": -10.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "17": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "unique_count": 1,
+          "all_finite": true
+        }
+      }
+    },
+    {
+      "case": "silence_external_440",
+      "frames": 44,
+      "zero_pitch_frames": 0,
+      "positive_pitch_frames": 44,
+      "zero_pitch_bit18_unique": [],
+      "positive_pitch_bit18_min": 4.096909999847412,
+      "positive_pitch_bit18_max": 4.096909999847412,
+      "all_bit18_finite": true,
+      "bit18_median": 4.096909999847412,
+      "other_feature_summaries": {
+        "6": {
+          "min": -1.0,
+          "median": -1.0,
+          "max": -1.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "16": {
+          "min": -10.0,
+          "median": -10.0,
+          "max": -10.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "17": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "unique_count": 1,
+          "all_finite": true
+        }
+      }
+    },
+    {
+      "case": "noise_auto_zero",
+      "frames": 44,
+      "zero_pitch_frames": 44,
+      "positive_pitch_frames": 0,
+      "zero_pitch_bit18_unique": [
+        0.0
+      ],
+      "positive_pitch_bit18_min": null,
+      "positive_pitch_bit18_max": null,
+      "all_bit18_finite": true,
+      "bit18_median": 0.0,
+      "other_feature_summaries": {
+        "6": {
+          "min": 0.7049100399017334,
+          "median": 0.957423597574234,
+          "max": 1.6452672481536865,
+          "unique_count": 44,
+          "all_finite": true
+        },
+        "16": {
+          "min": -10.0,
+          "median": -10.0,
+          "max": -10.0,
+          "unique_count": 1,
+          "all_finite": true
+        },
+        "17": {
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "unique_count": 1,
+          "all_finite": true
+        }
+      }
+    }
+  ],
+  "scope": "Observed internal bits6/16/17/18 under four owned silence/noise and pitch controls. Does not prove saved VQM authoring inputs or other DRS configurations."
+}

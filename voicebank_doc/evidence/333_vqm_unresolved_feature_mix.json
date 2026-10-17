@@ -1,0 +1,158 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "feature_bits": {
+    "4": "+0x14",
+    "6": "+0x1c",
+    "14": "+0x20c",
+    "15": "+0x214",
+    "16": "+0x218",
+    "17": "+0x21c",
+    "18": "+0x220"
+  },
+  "variants": [
+    {
+      "name": "baseline",
+      "changed_scalars": {}
+    },
+    {
+      "name": "bit4_low",
+      "changed_scalars": {
+        "feature4": 0.01
+      }
+    },
+    {
+      "name": "bit4_high",
+      "changed_scalars": {
+        "feature4": 0.9
+      }
+    },
+    {
+      "name": "bit6_zero",
+      "changed_scalars": {
+        "feature6": 0.0
+      }
+    },
+    {
+      "name": "bit6_high",
+      "changed_scalars": {
+        "feature6": 1.0
+      }
+    },
+    {
+      "name": "bit14_low",
+      "changed_scalars": {
+        "feature14": 0.1
+      }
+    },
+    {
+      "name": "bit14_high",
+      "changed_scalars": {
+        "feature14": 10.0
+      }
+    },
+    {
+      "name": "bit15_zero",
+      "changed_scalars": {
+        "feature15": 0.0
+      }
+    },
+    {
+      "name": "bit15_high",
+      "changed_scalars": {
+        "feature15": 0.5
+      }
+    },
+    {
+      "name": "bit16_low",
+      "changed_scalars": {
+        "feature16": -10.0
+      }
+    },
+    {
+      "name": "bit16_high",
+      "changed_scalars": {
+        "feature16": 5.0
+      }
+    },
+    {
+      "name": "bit17_zero",
+      "changed_scalars": {
+        "feature17": 0.0
+      }
+    },
+    {
+      "name": "bit17_pi",
+      "changed_scalars": {
+        "feature17": 3.14159265
+      }
+    },
+    {
+      "name": "bit18_zero",
+      "changed_scalars": {
+        "feature18": 0.0
+      }
+    },
+    {
+      "name": "bit18_five",
+      "changed_scalars": {
+        "feature18": 5.0
+      }
+    },
+    {
+      "name": "combined",
+      "changed_scalars": {
+        "feature4": 0.9,
+        "feature6": 1.0,
+        "feature14": 10.0,
+        "feature15": 0.5,
+        "feature16": 5.0,
+        "feature17": 3.14159265,
+        "feature18": 5.0
+      }
+    }
+  ],
+  "spectrum_cases": [
+    {
+      "vqm_disk_spectrum": false,
+      "interpolated_spectrum_bins": 0,
+      "case_count": 32,
+      "different_output_variants": [],
+      "launcher_mismatches": [],
+      "alternate_buffer_fill_controls": {
+        "baseline": true,
+        "combined": true
+      },
+      "baseline_output": {
+        "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+        "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+        "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327",
+        "mixed_real_nonzero": 2018,
+        "mixed_imag_nonzero": 2018,
+        "inverse_fft_nonzero": 4096
+      },
+      "zero_gain_control": true
+    },
+    {
+      "vqm_disk_spectrum": true,
+      "interpolated_spectrum_bins": 2049,
+      "case_count": 32,
+      "different_output_variants": [],
+      "launcher_mismatches": [],
+      "alternate_buffer_fill_controls": {
+        "baseline": true,
+        "combined": true
+      },
+      "baseline_output": {
+        "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+        "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+        "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327",
+        "mixed_real_nonzero": 2018,
+        "mixed_imag_nonzero": 2018,
+        "inverse_fft_nonzero": 4096
+      },
+      "zero_gain_control": true
+    }
+  ],
+  "distinct_positive_output_signatures": 1,
+  "scope": "Three owned VQM frames per case, constructed Growl work buffers explicitly zeroed, native read and interpolation, native PCM target spectrum, frequency mix, inverse FFT. Each positive case is run with buffered and unbuffered Python output; baseline and combined variants also use a different prefill byte. This tests the listed scalar perturbations in one active path, not full host audio or authoring formulas."
+}

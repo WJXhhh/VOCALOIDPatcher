@@ -1,0 +1,54 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "outer_pairs": [
+    {
+      "bit18": 0,
+      "bit19": 0
+    },
+    {
+      "bit18": 1,
+      "bit19": 1
+    },
+    {
+      "bit18": 10,
+      "bit19": 2049
+    },
+    {
+      "bit18": 20,
+      "bit19": 513
+    },
+    {
+      "bit18": 255,
+      "bit19": 4097
+    }
+  ],
+  "spectrum_variants": [
+    {
+      "name": "none",
+      "peak_db": null,
+      "interpolated_amplitude_sha256": null
+    },
+    {
+      "name": "low_peak",
+      "peak_db": -15.0,
+      "interpolated_amplitude_sha256": "ea039a3b25352023d3136589be42d1ede760ce30e782f8ce45d952d38757cba2"
+    },
+    {
+      "name": "high_peak",
+      "peak_db": 45.0,
+      "interpolated_amplitude_sha256": "e137582fcc2162430627587a6b0e719213cd851c32114f9a250af9a28df8fc53"
+    }
+  ],
+  "case_count": 15,
+  "all_frequency_and_inverse_outputs_identical": true,
+  "positive_output": {
+    "mixed_real_sha256": "cd1696d182d0c6f22f5ca75e82b1c5a896f603067c8a23ae849d6c7415ca67a9",
+    "mixed_imag_sha256": "820e221dbfc58f9d9c52e8ec8489a40f7cac268c4313183b550d6dfa8c6664ff",
+    "inverse_fft_sha256": "50b54f423059ad8e8968d44036e777117f8af67819541df1242e47ca5fd45327",
+    "mixed_real_nonzero": 2018,
+    "mixed_imag_nonzero": 2018,
+    "inverse_fft_nonzero": 4096
+  },
+  "zero_gain_with_spectrum_and_nondefault_outer_fields": true,
+  "scope": "Owned three-frame VQM read and interpolation, native mode-3 target spectrum, active Growl frequency mix, and inverse FFT. Results do not establish the authoring meaning of outer fields or all host paths."
+}

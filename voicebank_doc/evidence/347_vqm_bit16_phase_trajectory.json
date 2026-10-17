@@ -1,0 +1,182 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "window": "native kind-10, 2048 samples",
+  "model_definitions": {
+    "fixed": "single saved F0 at frame center",
+    "nearest": "phase integral of nearest saved F0 at each sample",
+    "left": "phase integral of left saved F0 at each sample",
+    "linear": "phase integral of linearly interpolated saved F0 at each sample"
+  },
+  "pooled": {
+    "fixed": {
+      "count": 222,
+      "median_absolute_error": 0.0017335508484409567,
+      "mean_absolute_error": 0.001932327977608424,
+      "max_absolute_error": 0.0056846483013404114
+    },
+    "nearest": {
+      "count": 222,
+      "median_absolute_error": 0.0024618567169474304,
+      "mean_absolute_error": 0.002830542181294243,
+      "max_absolute_error": 0.011144444289887145
+    },
+    "left": {
+      "count": 222,
+      "median_absolute_error": 0.002574765624832054,
+      "mean_absolute_error": 0.0028749631172593584,
+      "max_absolute_error": 0.011499314321320675
+    },
+    "linear": {
+      "count": 222,
+      "median_absolute_error": 0.0024012616556070565,
+      "mean_absolute_error": 0.0027414658027589914,
+      "max_absolute_error": 0.0106436432311241
+    }
+  },
+  "fixed_frequency_bias_mae": {
+    "-1.0": 0.002182889588858654,
+    "-0.5": 0.001877818963150691,
+    "-0.25": 0.0018844671432562544,
+    "0.0": 0.001932327977608424,
+    "0.25": 0.001957593668580835,
+    "0.5": 0.0019842407491986918,
+    "1.0": 0.0020714361407871934
+  },
+  "per_sample": [
+    {
+      "sample_index": 0,
+      "evaluated_frames": 64,
+      "models": {
+        "fixed": {
+          "count": 64,
+          "median_absolute_error": 0.002821660024089123,
+          "mean_absolute_error": 0.002662053467445878,
+          "max_absolute_error": 0.0056846483013404114
+        },
+        "nearest": {
+          "count": 64,
+          "median_absolute_error": 0.005236256001855066,
+          "mean_absolute_error": 0.005040876725450599,
+          "max_absolute_error": 0.011144444289887145
+        },
+        "left": {
+          "count": 64,
+          "median_absolute_error": 0.004486962320478072,
+          "mean_absolute_error": 0.004926446394602976,
+          "max_absolute_error": 0.011499314321320675
+        },
+        "linear": {
+          "count": 64,
+          "median_absolute_error": 0.0049392873345338595,
+          "mean_absolute_error": 0.004809736959651423,
+          "max_absolute_error": 0.0106436432311241
+        }
+      },
+      "better_than_fixed_count": {
+        "nearest": 6,
+        "left": 7,
+        "linear": 6
+      },
+      "frequency_bias_mae": {
+        "-1.0": 0.0033558239829155276,
+        "-0.5": 0.0027875203411273503,
+        "-0.25": 0.0026800228646937513,
+        "0.0": 0.002662053467445878,
+        "0.25": 0.0026408241953478837,
+        "0.5": 0.0027259215410096772,
+        "1.0": 0.002834469638963378
+      }
+    },
+    {
+      "sample_index": 1,
+      "evaluated_frames": 79,
+      "models": {
+        "fixed": {
+          "count": 79,
+          "median_absolute_error": 0.000941662308633795,
+          "mean_absolute_error": 0.0011438595512380126,
+          "max_absolute_error": 0.004372846397777241
+        },
+        "nearest": {
+          "count": 79,
+          "median_absolute_error": 0.0013876385916735678,
+          "mean_absolute_error": 0.0013086644429390823,
+          "max_absolute_error": 0.0037169145392481617
+        },
+        "left": {
+          "count": 79,
+          "median_absolute_error": 0.0012485734141813865,
+          "mean_absolute_error": 0.001353739932519334,
+          "max_absolute_error": 0.003561633303757805
+        },
+        "linear": {
+          "count": 79,
+          "median_absolute_error": 0.0012104667491983356,
+          "mean_absolute_error": 0.0012356752672771933,
+          "max_absolute_error": 0.0035539279886984687
+        }
+      },
+      "better_than_fixed_count": {
+        "nearest": 25,
+        "left": 26,
+        "linear": 30
+      },
+      "frequency_bias_mae": {
+        "-1.0": 0.001642397556364914,
+        "-0.5": 0.0012074105792946504,
+        "-0.25": 0.0011549791994427095,
+        "0.0": 0.0011438595512380126,
+        "0.25": 0.0011555490988580425,
+        "0.5": 0.0012065973159239274,
+        "1.0": 0.0015127417486688916
+      }
+    },
+    {
+      "sample_index": 2,
+      "evaluated_frames": 79,
+      "models": {
+        "fixed": {
+          "count": 79,
+          "median_absolute_error": 0.002028116901124921,
+          "mean_absolute_error": 0.0021296263868953286,
+          "max_absolute_error": 0.005095534154582193
+        },
+        "nearest": {
+          "count": 79,
+          "median_absolute_error": 0.0025277043878473293,
+          "mean_absolute_error": 0.0025617691496999523,
+          "max_absolute_error": 0.005844726747916695
+        },
+        "left": {
+          "count": 79,
+          "median_absolute_error": 0.002955114609333176,
+          "mean_absolute_error": 0.002734225165923541,
+          "max_absolute_error": 0.005844805676117115
+        },
+        "linear": {
+          "count": 79,
+          "median_absolute_error": 0.0025900242718654987,
+          "mean_absolute_error": 0.002571694894682364,
+          "max_absolute_error": 0.005692537229827543
+        }
+      },
+      "better_than_fixed_count": {
+        "nearest": 20,
+        "left": 20,
+        "linear": 17
+      },
+      "frequency_bias_mae": {
+        "-1.0": 0.0017731562894582184,
+        "-0.5": 0.0018112540787724757,
+        "-0.25": 0.001969454249449549,
+        "0.0": 0.0021296263868953286,
+        "0.25": 0.002206135026745512,
+        "0.5": 0.0021610288574620243,
+        "1.0": 0.002011976812864029
+      }
+    }
+  ],
+  "scope": "Read-only comparison on 222 complete interior V4X VQM windows; does not fit any coefficients or use proprietary payload in report."
+}

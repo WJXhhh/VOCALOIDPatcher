@@ -1,0 +1,64 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "native_fallback_rva": "0x173f70",
+  "native_pcm_window_rva": "0x175c90",
+  "pcm_source": "owned constant-level int16 blocks; scratch file removed after run",
+  "cases": [
+    {
+      "center_sample": 0,
+      "actual_center": 0,
+      "window_start": -256,
+      "window_count": 513,
+      "sample_level": 10000,
+      "zero_padded_samples": 256,
+      "native_mean_square": 0.04665680229663849,
+      "predicted_mean_square": 0.04665680229663849,
+      "absolute_error": 0.0
+    },
+    {
+      "center_sample": 2048,
+      "actual_center": 2048,
+      "window_start": 1792,
+      "window_count": 513,
+      "sample_level": 10000,
+      "zero_padded_samples": 0,
+      "native_mean_square": 0.09313204139471054,
+      "predicted_mean_square": 0.09313204139471054,
+      "absolute_error": 0.0
+    },
+    {
+      "center_sample": 6144,
+      "actual_center": 6144,
+      "window_start": 5888,
+      "window_count": 513,
+      "sample_level": 5000,
+      "zero_padded_samples": 0,
+      "native_mean_square": 0.023283010348677635,
+      "predicted_mean_square": 0.023283010348677635,
+      "absolute_error": 0.0
+    },
+    {
+      "center_sample": 10240,
+      "actual_center": 10240,
+      "window_start": 9984,
+      "window_count": 513,
+      "sample_level": 0,
+      "zero_padded_samples": 0,
+      "native_mean_square": 0.0,
+      "predicted_mean_square": 0.0,
+      "absolute_error": 0.0
+    },
+    {
+      "center_sample": 16383,
+      "actual_center": 16383,
+      "window_start": 16127,
+      "window_count": 513,
+      "sample_level": 2000,
+      "zero_padded_samples": 256,
+      "native_mean_square": 0.0018662760267034173,
+      "predicted_mean_square": 0.0018662760267034173,
+      "absolute_error": 0.0
+    }
+  ],
+  "scope": "The cross-source fallback reads an owned PCM window and returns its normalized mean square when no saved frame feature object is available. This isolated helper test does not reproduce the entire host cross-source branch."
+}

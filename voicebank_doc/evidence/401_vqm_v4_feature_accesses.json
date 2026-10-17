@@ -1,0 +1,297 @@
+{
+  "dll_sha256": "b96fec982d0a57b383835590d6ee852eb4ffc607933a33b52728edf35101b0eb",
+  "tool_sha256": "8181a5cad86cb947cc2c9d443794462d489e96e0953627d1d68e04df6e33a436",
+  "decoder_version": "5.0.3",
+  "owned_instruction_stream_checks": 7,
+  "candidate_count": 24,
+  "candidates": [
+    {
+      "candidate_rva": "0x66d4",
+      "instruction_rva": "0x66d3",
+      "inferred_alignment_anchor_rva": "0x6260",
+      "mnemonic": "jmp",
+      "memory_base": null,
+      "memory_width": null,
+      "classification": "non_field_encoding",
+      "note": "Relative JMP displacement"
+    },
+    {
+      "candidate_rva": "0x1acec",
+      "instruction_rva": "0x1acea",
+      "inferred_alignment_anchor_rva": "0x1abd0",
+      "mnemonic": "je",
+      "memory_base": null,
+      "memory_width": null,
+      "classification": "non_field_encoding",
+      "note": "Relative JE displacement"
+    },
+    {
+      "candidate_rva": "0x71653",
+      "instruction_rva": "0x71650",
+      "inferred_alignment_anchor_rva": "0x71550",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Exception/unwind state byte"
+    },
+    {
+      "candidate_rva": "0x717c2",
+      "instruction_rva": "0x717bf",
+      "inferred_alignment_anchor_rva": "0x71550",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Exception/unwind state byte"
+    },
+    {
+      "candidate_rva": "0x71909",
+      "instruction_rva": "0x71906",
+      "inferred_alignment_anchor_rva": "0x71550",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Exception/unwind state byte"
+    },
+    {
+      "candidate_rva": "0x719b3",
+      "instruction_rva": "0x719b0",
+      "inferred_alignment_anchor_rva": "0x71550",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Exception/unwind state byte"
+    },
+    {
+      "candidate_rva": "0x75335",
+      "instruction_rva": "0x75332",
+      "inferred_alignment_anchor_rva": "0x75190",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 4,
+      "classification": "stack",
+      "note": "Stack pointer-sized local"
+    },
+    {
+      "candidate_rva": "0x7f5b9",
+      "instruction_rva": "0x7f5b7",
+      "inferred_alignment_anchor_rva": "0x7f4d0",
+      "mnemonic": "mov",
+      "memory_base": "eax",
+      "memory_width": 4,
+      "classification": "attribute_via_frame_layout",
+      "note": "Getter selects dynamics through child+0x150 then object+0x1b0, matching the Frame feature pointer layout"
+    },
+    {
+      "candidate_rva": "0x7f9e6",
+      "instruction_rva": "0x7f9e2",
+      "inferred_alignment_anchor_rva": "0x7f9d0",
+      "mnemonic": "movss",
+      "memory_base": "eax",
+      "memory_width": 4,
+      "classification": "attribute_via_frame_layout",
+      "note": "First comparison operand through the same chain; leaf ownership still needs runtime confirmation"
+    },
+    {
+      "candidate_rva": "0x7fa00",
+      "instruction_rva": "0x7f9fc",
+      "inferred_alignment_anchor_rva": "0x7f9d0",
+      "mnemonic": "movss",
+      "memory_base": "eax",
+      "memory_width": 4,
+      "classification": "attribute_via_frame_layout",
+      "note": "Second comparison operand through the same chain; leaf ownership still needs runtime confirmation"
+    },
+    {
+      "candidate_rva": "0x8d4e5",
+      "instruction_rva": "0x8d4e3",
+      "inferred_alignment_anchor_rva": "0x8d2c0",
+      "mnemonic": "je",
+      "memory_base": null,
+      "memory_width": null,
+      "classification": "non_field_encoding",
+      "note": "Relative JE displacement"
+    },
+    {
+      "candidate_rva": "0x8fafe",
+      "instruction_rva": "0x8fafb",
+      "inferred_alignment_anchor_rva": "0x8f7e0",
+      "mnemonic": "lea",
+      "memory_base": "esp",
+      "memory_width": 4,
+      "classification": "stack",
+      "note": "Address of stack local"
+    },
+    {
+      "candidate_rva": "0x95b97",
+      "instruction_rva": "0x95b94",
+      "inferred_alignment_anchor_rva": "0x95ae0",
+      "mnemonic": "mov",
+      "memory_base": null,
+      "memory_width": null,
+      "classification": "non_field_encoding",
+      "note": "Byte displacement and integer immediate overlap"
+    },
+    {
+      "candidate_rva": "0x97a0b",
+      "instruction_rva": "0x97a08",
+      "inferred_alignment_anchor_rva": "0x978c0",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Indexed stack byte buffer"
+    },
+    {
+      "candidate_rva": "0x97a3d",
+      "instruction_rva": "0x97a3a",
+      "inferred_alignment_anchor_rva": "0x978c0",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Indexed stack byte buffer"
+    },
+    {
+      "candidate_rva": "0x97a7c",
+      "instruction_rva": "0x97a79",
+      "inferred_alignment_anchor_rva": "0x978c0",
+      "mnemonic": "mov",
+      "memory_base": "esp",
+      "memory_width": 1,
+      "classification": "stack",
+      "note": "Indexed stack byte buffer"
+    },
+    {
+      "candidate_rva": "0x97a88",
+      "instruction_rva": "0x97a85",
+      "inferred_alignment_anchor_rva": "0x978c0",
+      "mnemonic": "lea",
+      "memory_base": "esp",
+      "memory_width": 4,
+      "classification": "stack",
+      "note": "Address of stack byte buffer"
+    },
+    {
+      "candidate_rva": "0x9f302",
+      "instruction_rva": "0x9f300",
+      "inferred_alignment_anchor_rva": "0x9f0e0",
+      "mnemonic": "mov",
+      "memory_base": "esi",
+      "memory_width": 4,
+      "classification": "frame_pointer_reset",
+      "note": "CSMSFrame initializer resets Frame+0x21c; feature pointer is Frame+0x1b0"
+    },
+    {
+      "candidate_rva": "0xa18ed",
+      "instruction_rva": "0xa18e9",
+      "inferred_alignment_anchor_rva": "0x9f610",
+      "mnemonic": "movss",
+      "memory_base": "eax",
+      "memory_width": 4,
+      "classification": "feature_interpolation",
+      "note": "First source feature+0x21c via Frame+0x1b0"
+    },
+    {
+      "candidate_rva": "0xa18fb",
+      "instruction_rva": "0xa18f7",
+      "inferred_alignment_anchor_rva": "0x9f610",
+      "mnemonic": "movss",
+      "memory_base": "eax",
+      "memory_width": 4,
+      "classification": "feature_interpolation",
+      "note": "Second source feature+0x21c via Frame+0x1b0"
+    },
+    {
+      "candidate_rva": "0xa1915",
+      "instruction_rva": "0xa1911",
+      "inferred_alignment_anchor_rva": "0x9f610",
+      "mnemonic": "movss",
+      "memory_base": "eax",
+      "memory_width": 4,
+      "classification": "feature_interpolation",
+      "note": "Destination feature+0x21c via Frame+0x1b0"
+    },
+    {
+      "candidate_rva": "0xa2fdd",
+      "instruction_rva": "0xa2fdb",
+      "inferred_alignment_anchor_rva": "0xa2ce0",
+      "mnemonic": "lea",
+      "memory_base": "ebx",
+      "memory_width": 4,
+      "classification": "feature_file_read",
+      "note": "Feature flag 0x20000; four-byte fread"
+    },
+    {
+      "candidate_rva": "0xa5023",
+      "instruction_rva": "0xa5021",
+      "inferred_alignment_anchor_rva": "0xa4c80",
+      "mnemonic": "lea",
+      "memory_base": "ebp",
+      "memory_width": 4,
+      "classification": "feature_file_write",
+      "note": "Feature flag 0x20000; four-byte fwrite"
+    },
+    {
+      "candidate_rva": "0xaba04",
+      "instruction_rva": "0xaba02",
+      "inferred_alignment_anchor_rva": "0xab830",
+      "mnemonic": "mov",
+      "memory_base": "esi",
+      "memory_width": 4,
+      "classification": "region_initialization",
+      "note": "CSMSRegion constructor calls initialization of Region+0x21c"
+    }
+  ],
+  "classification_counts": {
+    "non_field_encoding": 4,
+    "stack": 10,
+    "attribute_via_frame_layout": 3,
+    "frame_pointer_reset": 1,
+    "feature_interpolation": 3,
+    "feature_file_read": 1,
+    "feature_file_write": 1,
+    "region_initialization": 1
+  },
+  "io_imports": {
+    "0xd11fc": {
+      "module": "MSVCR110.dll",
+      "name": "fread"
+    },
+    "0xd1200": {
+      "module": "MSVCR110.dll",
+      "name": "fwrite"
+    }
+  },
+  "object_identity": [
+    {
+      "vtable_rva": "0x3a3c2c",
+      "rtti_name": ".?AVCSMSFrame@@",
+      "constructor_rva": "0x99210",
+      "initialization_rva": "0x9f0e0",
+      "frm2_identifier": "0x324d5246"
+    },
+    {
+      "vtable_rva": "0x3a426c",
+      "rtti_name": ".?AVCSMSRegion@@",
+      "constructor_rva": "0xa9b50",
+      "initialization_rva": "0xab830"
+    }
+  ],
+  "feature_contract": {
+    "frame_pointer_offset": "0x1b0",
+    "feature_object_size": "0x228",
+    "feature_bit17_offset": "0x21c",
+    "feature_bit17_mask": "0x20000",
+    "reader_rva": "0xa2ce0",
+    "reader_call_rva": "0xa3b27",
+    "writer_rva": "0xa4c80",
+    "writer_call_rva": "0xa5974",
+    "interpolation_anchor_rva": "0x9f610",
+    "interpolation_arithmetic": "first + (second - first) * weight"
+  },
+  "scope": "Pinned x86 image, all 24 exact-offset byte candidates, bounded streams from inferred alignment anchors, selected import/RTTI/caller chains. Alignment is not a Ghidra function definition. No native V4 execution, all-path producer proof, arbitrary rebasing/indexing or other modules. Ghidra still has the separate V6 target."
+}

@@ -1,0 +1,75 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "class": "DSE5::CVQMTense",
+  "cases": [
+    {
+      "vqm_disk_spectrum": false,
+      "interpolated_spectrum_bins": 0,
+      "native_cases": 23,
+      "differs_from_growl_class_baseline": true,
+      "different_field_variants": [],
+      "combined_alternate_buffer_fill_same_output": true,
+      "outer_cases": [
+        {
+          "outer18": 0,
+          "outer19": 0,
+          "same_output": true
+        },
+        {
+          "outer18": 10,
+          "outer19": 2049,
+          "same_output": true
+        },
+        {
+          "outer18": 255,
+          "outer19": 4097,
+          "same_output": true
+        }
+      ],
+      "zero_gain_output_is_zero": true,
+      "baseline_output": {
+        "mixed_real_sha256": "68e856e409bd3149368de4c1415f94ac046524e76e4675ceb3393e2f917b11e6",
+        "mixed_imag_sha256": "092615975f88d0389c0c707e8fcd1fb0da5b1032803f4e3ec0620351f761a612",
+        "inverse_fft_sha256": "d4c2ff200b647b000f87834d9b101f1a455990b2d3599e81bce85e9e53f70578",
+        "mixed_real_nonzero": 2018,
+        "mixed_imag_nonzero": 2018,
+        "inverse_fft_nonzero": 4096
+      }
+    },
+    {
+      "vqm_disk_spectrum": true,
+      "interpolated_spectrum_bins": 2049,
+      "native_cases": 23,
+      "differs_from_growl_class_baseline": true,
+      "different_field_variants": [],
+      "combined_alternate_buffer_fill_same_output": true,
+      "outer_cases": [
+        {
+          "outer18": 0,
+          "outer19": 0,
+          "same_output": true
+        },
+        {
+          "outer18": 10,
+          "outer19": 2049,
+          "same_output": true
+        },
+        {
+          "outer18": 255,
+          "outer19": 4097,
+          "same_output": true
+        }
+      ],
+      "zero_gain_output_is_zero": true,
+      "baseline_output": {
+        "mixed_real_sha256": "68e856e409bd3149368de4c1415f94ac046524e76e4675ceb3393e2f917b11e6",
+        "mixed_imag_sha256": "092615975f88d0389c0c707e8fcd1fb0da5b1032803f4e3ec0620351f761a612",
+        "inverse_fft_sha256": "d4c2ff200b647b000f87834d9b101f1a455990b2d3599e81bce85e9e53f70578",
+        "mixed_real_nonzero": 2018,
+        "mixed_imag_nonzero": 2018,
+        "inverse_fft_nonzero": 4096
+      }
+    }
+  ],
+  "scope": "Owned three-frame VQM object, native PCM target spectrum, class mixer and inverse FFT. The results cover this fixture and do not establish full host output or authoring formulas."
+}

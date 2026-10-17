@@ -1,0 +1,612 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "parser_sha256": "aab606781b80b6fa656be4c1657261c6770b605d7ec3f47fe4d2ecbc5cc0c994",
+  "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+  "auxiliary_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "window": {
+    "samples": 2049,
+    "fft_points": 4096,
+    "kind": 10,
+    "pcm_centering": "raw",
+    "margin_frames_each_end": 4
+  },
+  "defaults": {
+    "logarithmic": 0,
+    "post_filter": 0,
+    "threshold_db": -300.0
+  },
+  "cases": [
+    {
+      "case": 0,
+      "checks": {
+        "bit6_all_peaks": {
+          "frames": 64,
+          "mean_absolute_error": 3.234163159504533e-09,
+          "max_absolute_error": 1.0710209608078003e-08,
+          "within_1e_6": 64,
+          "float32_exact": 2,
+          "max_ulp_difference": 46,
+          "within_two_ulp": 8
+        },
+        "bit16_nearest_peak": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "float32_exact": 47,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 64
+        },
+        "bit16_first_peak": {
+          "frames": 64,
+          "mean_absolute_error": 2.8909129425883293,
+          "max_absolute_error": 3.7821613550186157,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 14244051,
+          "within_two_ulp": 0
+        },
+        "bit16_strongest_peak": {
+          "frames": 64,
+          "mean_absolute_error": 0.3170546218752861,
+          "max_absolute_error": 0.4957784414291382,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 4158891,
+          "within_two_ulp": 0
+        },
+        "bit16_best_amplitude_match_diagnostic": {
+          "frames": 64,
+          "mean_absolute_error": 5.4016709327697754e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "float32_exact": 47,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 64
+        },
+        "independent_bit18_power_saved_f0": {
+          "frames": 64,
+          "mean_absolute_error": 5.21540641784668e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 64,
+          "float32_exact": 57,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 64
+        },
+        "independent_bit6_all_peaks": {
+          "frames": 64,
+          "mean_absolute_error": 1.9172148313373327e-09,
+          "max_absolute_error": 6.51925802230835e-09,
+          "within_1e_6": 64,
+          "float32_exact": 1,
+          "max_ulp_difference": 25,
+          "within_two_ulp": 17
+        },
+        "independent_bit16_nearest_peak": {
+          "frames": 64,
+          "mean_absolute_error": 1.6763806343078613e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 64,
+          "float32_exact": 58,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 64
+        },
+        "bit18_power_saved_f0": {
+          "frames": 64,
+          "mean_absolute_error": 6.705522537231445e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 64,
+          "float32_exact": 55,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 64
+        },
+        "bit18_power_nearest_peak": {
+          "frames": 64,
+          "mean_absolute_error": 2.2329390048980713e-05,
+          "max_absolute_error": 0.00022363662719726562,
+          "within_1e_6": 36,
+          "float32_exact": 26,
+          "max_ulp_difference": 469,
+          "within_two_ulp": 36
+        },
+        "bit18_amplitude_saved_f0": {
+          "frames": 64,
+          "mean_absolute_error": 0.013916321098804474,
+          "max_absolute_error": 0.0315852165222168,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 66239,
+          "within_two_ulp": 0
+        },
+        "bit18_amplitude_nearest_peak": {
+          "frames": 64,
+          "mean_absolute_error": 0.013909608125686646,
+          "max_absolute_error": 0.03234386444091797,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 67830,
+          "within_two_ulp": 0
+        }
+      },
+      "amplitude_match_peak_ranks": {
+        "first": 0,
+        "minimum": 6,
+        "maximum": 10
+      }
+    },
+    {
+      "case": 1,
+      "checks": {
+        "bit6_all_peaks": {
+          "frames": 79,
+          "mean_absolute_error": 2.7748107721533957e-09,
+          "max_absolute_error": 8.381903171539307e-09,
+          "within_1e_6": 79,
+          "float32_exact": 6,
+          "max_ulp_difference": 41,
+          "within_two_ulp": 20
+        },
+        "bit16_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "float32_exact": 58,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "bit16_first_peak": {
+          "frames": 79,
+          "mean_absolute_error": 2.183170092256763,
+          "max_absolute_error": 3.5001842975616455,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 10456480,
+          "within_two_ulp": 0
+        },
+        "bit16_strongest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 0.8922560818587677,
+          "max_absolute_error": 1.251753807067871,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 7912855,
+          "within_two_ulp": 0
+        },
+        "bit16_best_amplitude_match_diagnostic": {
+          "frames": 79,
+          "mean_absolute_error": 6.337709064725078e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "float32_exact": 58,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "independent_bit18_power_saved_f0": {
+          "frames": 79,
+          "mean_absolute_error": 6.035913394976266e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 79,
+          "float32_exact": 69,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "independent_bit6_all_peaks": {
+          "frames": 79,
+          "mean_absolute_error": 1.6239200589023059e-09,
+          "max_absolute_error": 6.05359673500061e-09,
+          "within_1e_6": 79,
+          "float32_exact": 1,
+          "max_ulp_difference": 26,
+          "within_two_ulp": 18
+        },
+        "independent_bit16_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 3.9233437067345725e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "float32_exact": 66,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "bit18_power_saved_f0": {
+          "frames": 79,
+          "mean_absolute_error": 6.035913394976266e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 79,
+          "float32_exact": 69,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "bit18_power_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 2.713746662381329e-05,
+          "max_absolute_error": 0.00023317337036132812,
+          "within_1e_6": 45,
+          "float32_exact": 40,
+          "max_ulp_difference": 489,
+          "within_two_ulp": 45
+        },
+        "bit18_amplitude_saved_f0": {
+          "frames": 79,
+          "mean_absolute_error": 0.06188332883617546,
+          "max_absolute_error": 0.09337186813354492,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 195815,
+          "within_two_ulp": 0
+        },
+        "bit18_amplitude_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 0.06185514112062092,
+          "max_absolute_error": 0.09337186813354492,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 195815,
+          "within_two_ulp": 0
+        }
+      },
+      "amplitude_match_peak_ranks": {
+        "first": 0,
+        "minimum": 3,
+        "maximum": 6
+      }
+    },
+    {
+      "case": 2,
+      "checks": {
+        "bit6_all_peaks": {
+          "frames": 79,
+          "mean_absolute_error": 4.0406431955627244e-09,
+          "max_absolute_error": 1.257285475730896e-08,
+          "within_1e_6": 79,
+          "float32_exact": 2,
+          "max_ulp_difference": 44,
+          "within_two_ulp": 11
+        },
+        "bit16_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "float32_exact": 65,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 79
+        },
+        "bit16_first_peak": {
+          "frames": 79,
+          "mean_absolute_error": 5.287302205834208,
+          "max_absolute_error": 7.892377138137817,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 18216100,
+          "within_two_ulp": 0
+        },
+        "bit16_strongest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 0.6811736761769162,
+          "max_absolute_error": 0.9786789417266846,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 6873930,
+          "within_two_ulp": 0
+        },
+        "bit16_best_amplitude_match_diagnostic": {
+          "frames": 79,
+          "mean_absolute_error": 4.225139376483386e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "float32_exact": 65,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 79
+        },
+        "independent_bit18_power_saved_f0": {
+          "frames": 79,
+          "mean_absolute_error": 6.035913394976266e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 79,
+          "float32_exact": 69,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "independent_bit6_all_peaks": {
+          "frames": 79,
+          "mean_absolute_error": 1.921589615978772e-09,
+          "max_absolute_error": 6.752088665962219e-09,
+          "within_1e_6": 79,
+          "float32_exact": 4,
+          "max_ulp_difference": 29,
+          "within_two_ulp": 25
+        },
+        "independent_bit16_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 1.3580805138696598e-08,
+          "max_absolute_error": 2.384185791015625e-07,
+          "within_1e_6": 79,
+          "float32_exact": 74,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "bit18_power_saved_f0": {
+          "frames": 79,
+          "mean_absolute_error": 6.035913394976266e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 79,
+          "float32_exact": 69,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 79
+        },
+        "bit18_power_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 2.6352797882466376e-05,
+          "max_absolute_error": 0.0014910697937011719,
+          "within_1e_6": 63,
+          "float32_exact": 48,
+          "max_ulp_difference": 3127,
+          "within_two_ulp": 63
+        },
+        "bit18_amplitude_saved_f0": {
+          "frames": 79,
+          "mean_absolute_error": 0.037443661991553974,
+          "max_absolute_error": 0.06227540969848633,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 130601,
+          "within_two_ulp": 0
+        },
+        "bit18_amplitude_nearest_peak": {
+          "frames": 79,
+          "mean_absolute_error": 0.03745123102695127,
+          "max_absolute_error": 0.06227540969848633,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 130601,
+          "within_two_ulp": 0
+        }
+      },
+      "amplitude_match_peak_ranks": {
+        "first": 0,
+        "minimum": 3,
+        "maximum": 10
+      }
+    },
+    {
+      "case": "TENSE",
+      "checks": {
+        "bit6_all_peaks": {
+          "frames": 140,
+          "mean_absolute_error": 9.845410074506487e-09,
+          "max_absolute_error": 4.470348358154297e-08,
+          "within_1e_6": 140,
+          "float32_exact": 36,
+          "max_ulp_difference": 6,
+          "within_two_ulp": 112
+        },
+        "bit16_nearest_peak": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "float32_exact": 110,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 140
+        },
+        "bit16_first_peak": {
+          "frames": 140,
+          "mean_absolute_error": 4.113328056676047,
+          "max_absolute_error": 6.035154581069946,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 13128903,
+          "within_two_ulp": 0
+        },
+        "bit16_strongest_peak": {
+          "frames": 140,
+          "mean_absolute_error": 1.2950134268828801,
+          "max_absolute_error": 1.4827626943588257,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 7180912,
+          "within_two_ulp": 0
+        },
+        "bit16_best_amplitude_match_diagnostic": {
+          "frames": 140,
+          "mean_absolute_error": 6.471361432756696e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "float32_exact": 110,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 140
+        },
+        "independent_bit18_power_saved_f0": {
+          "frames": 140,
+          "mean_absolute_error": 4.76837158203125e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "float32_exact": 126,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 140
+        },
+        "independent_bit6_all_peaks": {
+          "frames": 140,
+          "mean_absolute_error": 5.401670932769775e-09,
+          "max_absolute_error": 3.725290298461914e-08,
+          "within_1e_6": 140,
+          "float32_exact": 67,
+          "max_ulp_difference": 5,
+          "within_two_ulp": 133
+        },
+        "independent_bit16_nearest_peak": {
+          "frames": 140,
+          "mean_absolute_error": 2.895082746233259e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "float32_exact": 125,
+          "max_ulp_difference": 2,
+          "within_two_ulp": 140
+        },
+        "bit18_power_saved_f0": {
+          "frames": 140,
+          "mean_absolute_error": 4.76837158203125e-08,
+          "max_absolute_error": 4.76837158203125e-07,
+          "within_1e_6": 140,
+          "float32_exact": 126,
+          "max_ulp_difference": 1,
+          "within_two_ulp": 140
+        },
+        "bit18_power_nearest_peak": {
+          "frames": 140,
+          "mean_absolute_error": 2.418245588030134e-07,
+          "max_absolute_error": 5.7220458984375e-06,
+          "within_1e_6": 133,
+          "float32_exact": 112,
+          "max_ulp_difference": 12,
+          "within_two_ulp": 133
+        },
+        "bit18_amplitude_saved_f0": {
+          "frames": 140,
+          "mean_absolute_error": 0.08639706884111677,
+          "max_absolute_error": 0.10683250427246094,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 224044,
+          "within_two_ulp": 0
+        },
+        "bit18_amplitude_nearest_peak": {
+          "frames": 140,
+          "mean_absolute_error": 0.08640457221439907,
+          "max_absolute_error": 0.10683250427246094,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 224044,
+          "within_two_ulp": 0
+        }
+      },
+      "amplitude_match_peak_ranks": {
+        "first": 0,
+        "minimum": 2,
+        "maximum": 5
+      }
+    },
+    {
+      "case": "BRWSP",
+      "checks": {
+        "bit6_all_peaks": {
+          "frames": 381,
+          "mean_absolute_error": 0.00010127611360524896,
+          "max_absolute_error": 0.030451416969299316,
+          "within_1e_6": 13,
+          "float32_exact": 0,
+          "max_ulp_difference": 255445,
+          "within_two_ulp": 0
+        },
+        "bit16_nearest_peak": {
+          "frames": 381,
+          "mean_absolute_error": 0.21501272181513428,
+          "max_absolute_error": 2.3701095581054688,
+          "within_1e_6": 3,
+          "float32_exact": 0,
+          "max_ulp_difference": 5342092,
+          "within_two_ulp": 2
+        },
+        "bit16_first_peak": {
+          "frames": 381,
+          "mean_absolute_error": 0.4514758793387826,
+          "max_absolute_error": 1.7903170585632324,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 4591187,
+          "within_two_ulp": 0
+        },
+        "bit16_strongest_peak": {
+          "frames": 381,
+          "mean_absolute_error": 0.5944383069286197,
+          "max_absolute_error": 1.4205043315887451,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 4581900,
+          "within_two_ulp": 0
+        },
+        "bit16_best_amplitude_match_diagnostic": {
+          "frames": 381,
+          "mean_absolute_error": 7.788590558870571e-05,
+          "max_absolute_error": 0.000247955322265625,
+          "within_1e_6": 3,
+          "float32_exact": 0,
+          "max_ulp_difference": 839,
+          "within_two_ulp": 2
+        },
+        "independent_bit18_power_saved_f0": {
+          "frames": 381,
+          "mean_absolute_error": 4.316565245781045e-06,
+          "max_absolute_error": 1.52587890625e-05,
+          "within_1e_6": 58,
+          "float32_exact": 14,
+          "max_ulp_difference": 32,
+          "within_two_ulp": 58
+        },
+        "independent_bit6_all_peaks": {
+          "frames": 381,
+          "mean_absolute_error": 0.00010127846024480704,
+          "max_absolute_error": 0.030451655387878418,
+          "within_1e_6": 12,
+          "float32_exact": 0,
+          "max_ulp_difference": 255447,
+          "within_two_ulp": 0
+        },
+        "independent_bit16_nearest_peak": {
+          "frames": 381,
+          "mean_absolute_error": 0.21501272682129868,
+          "max_absolute_error": 2.3701090812683105,
+          "within_1e_6": 4,
+          "float32_exact": 0,
+          "max_ulp_difference": 5342091,
+          "within_two_ulp": 3
+        },
+        "bit18_power_saved_f0": {
+          "frames": 381,
+          "mean_absolute_error": 4.321571410171629e-06,
+          "max_absolute_error": 1.52587890625e-05,
+          "within_1e_6": 58,
+          "float32_exact": 15,
+          "max_ulp_difference": 32,
+          "within_two_ulp": 58
+        },
+        "bit18_power_nearest_peak": {
+          "frames": 381,
+          "mean_absolute_error": 0.00501188455917078,
+          "max_absolute_error": 0.04084444046020508,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 85657,
+          "within_two_ulp": 0
+        },
+        "bit18_amplitude_saved_f0": {
+          "frames": 381,
+          "mean_absolute_error": 0.011828408153664096,
+          "max_absolute_error": 0.06151604652404785,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 258017,
+          "within_two_ulp": 0
+        },
+        "bit18_amplitude_nearest_peak": {
+          "frames": 381,
+          "mean_absolute_error": 0.012510460505648234,
+          "max_absolute_error": 0.06377625465393066,
+          "within_1e_6": 0,
+          "float32_exact": 0,
+          "max_ulp_difference": 266303,
+          "within_two_ulp": 0
+        }
+      },
+      "amplitude_match_peak_ranks": {
+        "first": 0,
+        "minimum": 2,
+        "maximum": 347
+      }
+    }
+  ],
+  "validated_voiced_frames": 362,
+  "scope": "Known DRS component and spectral band kernels on the validated bit16 input window. Independent FFT and peak detector select their own peaks, without native peak-bin inputs. Best amplitude match is diagnostic only, never a production selector. No fitted smoothing or thresholds. Negative results do not exclude other VQM production branches."
+}

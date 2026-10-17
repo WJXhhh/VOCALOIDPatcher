@@ -1,0 +1,96 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "vdm_sha256": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2",
+  "database_path_parent_is_explib": true,
+  "loader_candidate_is_explib_vqm": true,
+  "candidate_sha256": "a629b36e0b4d571c37f947809d34dcfa283a5af42f12d635cd5f75143ee6203c",
+  "engine_instance_exists_after_manager_init": false,
+  "scope": "Offline DSE engine setup after VDM manager initialization; reads live auxiliary VQM records, object classes, binding, activation flags, and dispatch slots. The Editor host's runtime call was not observed.",
+  "engine_probe": {
+    "registered_slot": 0,
+    "setup_result": 0,
+    "engine_instance_exists": true,
+    "auxiliary_category_count": 2,
+    "auxiliary_category_codes": [
+      2,
+      3
+    ],
+    "auxiliary_materials": [
+      {
+        "category_code": 2,
+        "material_count": 1,
+        "frame_counts": [
+          148
+        ],
+        "material_windows": [
+          {
+            "start_seconds": 0.743038535118103,
+            "record_second_float": 1.6021769046783447,
+            "reference_pitch_hz": 181.0
+          }
+        ]
+      },
+      {
+        "category_code": 3,
+        "material_count": 1,
+        "frame_counts": [
+          389
+        ],
+        "material_windows": [
+          {
+            "start_seconds": 0.743038535118103,
+            "record_second_float": 3.0011792182922363,
+            "reference_pitch_hz": 0.0
+          }
+        ]
+      }
+    ],
+    "vqm_object_count": 3,
+    "vqm_objects": [
+      {
+        "category_code": 1,
+        "has_material_record": false,
+        "active_flag": 0,
+        "vtable_rva": "0x245500",
+        "bind_method_rva": "0x1594e0",
+        "active_method_rva": "0x158a30",
+        "activate_method_rva": "0x154c20",
+        "reset_method_rva": "0x154c10",
+        "parameter_method_rva": "0x156080",
+        "frequency_method_rva": "0x158a60"
+      },
+      {
+        "category_code": 2,
+        "has_material_record": true,
+        "active_flag": 1,
+        "vtable_rva": "0x246258",
+        "bind_method_rva": "0x1594e0",
+        "active_method_rva": "0x158a30",
+        "activate_method_rva": "0x154c20",
+        "reset_method_rva": "0x154c10",
+        "parameter_method_rva": "0x15fe90",
+        "frequency_method_rva": "0x15fd80"
+      },
+      {
+        "category_code": 3,
+        "has_material_record": true,
+        "active_flag": 1,
+        "vtable_rva": "0x2451b0",
+        "bind_method_rva": "0x154c30",
+        "active_method_rva": "0x158a30",
+        "activate_method_rva": "0x154c20",
+        "reset_method_rva": "0x154c10",
+        "parameter_method_rva": "0x154c40",
+        "frequency_method_rva": "0x153f50"
+      }
+    ],
+    "initial_frame_index": 0,
+    "initial_control_values": {
+      "0xd": 0.0,
+      "0xe": 0.5,
+      "0x13": 0.0,
+      "0x14": 0.0,
+      "0x15": 0.5
+    }
+  }
+}

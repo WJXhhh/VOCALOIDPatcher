@@ -1,0 +1,3255 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "resource_sha256": "45ac6bb79bf12fd6f79d6739e06154d25585ec7850bd52531fe28d2943057438",
+  "reference_sha256": "44b4a8b0412bcdb47656a1a579d655b145fd26ab9814d67cb217933f04a7b360",
+  "selected_samples": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "max_audio_blocks": 64,
+  "cases": [
+    {
+      "sample_index": 32,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111
+          },
+          "audio": {
+            "sha256": "216694e6b9bd0840109e4a440f87b6009e74c053af98eeecbdd1f53e4f0bee5c",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 49,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6572.20166015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111,
+            "changed_bit17": 111
+          },
+          "audio": {
+            "sha256": "6118fa18079a9d81d151878cc392b2d812160075207195752f1f15e48bc0ad84",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6572.20166015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111,
+            "changed_bit17": 159
+          },
+          "audio": {
+            "sha256": "038fc16f392975a0f0fb58651d3ca5d52f1bd1b2f277cc36345629bce7a0433a",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6572.20166015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111,
+            "changed_bit17": 159
+          },
+          "audio": {
+            "sha256": "ff2481758b88d15a0a703f6e72e9553ede87d1cd49214065f94e45cb3f9b16ba",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6572.20166015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111,
+            "changed_harmonic_amplitudes": 17101
+          },
+          "audio": {
+            "sha256": "72d59f15b580aa8ecb6f6907c1145fb0f59d82b89f4d6de0296a743aff5da7de",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 49,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 10743.9189453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111
+          },
+          "audio": {
+            "sha256": "f7a209b63e79b54e3b18687ffa0f3aecf690390aeeb49a7ae139d500e946b52a",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 49,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6572.20166015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 159,
+            "original_nonzero_bit17": 111
+          },
+          "audio": {
+            "sha256": "c68d93695a14509110166314d0296541b8a9daf3b3533dc8e1131a49fe261431",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 49,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6572.20166015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 21,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 21,
+      "repeatable_prefix_nonzero_bit17_selections": 5,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 33,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143
+          },
+          "audio": {
+            "sha256": "b9ec1c794643f80f5072c984d8ed5b4ad978eddf943334396b29abd29ea1e199",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 5856.94775390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143,
+            "changed_bit17": 143
+          },
+          "audio": {
+            "sha256": "eb2da94cbfeb9a3cc008b123ad8b9f57804afbdd79aab3277b1825de395cc15f",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 5856.94775390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143,
+            "changed_bit17": 196
+          },
+          "audio": {
+            "sha256": "79b77c06beb18ec94ff5d2a36234d779793a31b93619bb8c351b355cde06b35a",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 5856.94775390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143,
+            "changed_bit17": 196
+          },
+          "audio": {
+            "sha256": "21125ad0dc8a7e86aab22a53827d42e1905ea5a348b70f9cdc4bf2facb769bac",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 5856.94775390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143,
+            "changed_harmonic_amplitudes": 20060
+          },
+          "audio": {
+            "sha256": "7578dfc8436406cef952a91cd0eaa6fa821b06d616cc63f4f978e08e96eff10f",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 11502.9873046875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143
+          },
+          "audio": {
+            "sha256": "f6d00b897c5b50dbce0bee77fea336f625ba31ce5d59ce8ab9fd52a0f3add4ee",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 5856.94775390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 196,
+            "original_nonzero_bit17": 143
+          },
+          "audio": {
+            "sha256": "30fc53cab7c2e08d7c092e7d34673cae5e534c0c3645eb7877c4955359d4d024",
+            "calls": 65,
+            "selected_source_indices": 53,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 5856.94775390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 27,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 27,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 34,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124
+          },
+          "audio": {
+            "sha256": "179b2d83c53bac753b9ae3017239ad800a3afcca78d7858cd4860373adffae52",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 7517.7939453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124,
+            "changed_bit17": 124
+          },
+          "audio": {
+            "sha256": "4c95ac5f652f3ff5c549005200af1b2ec47554ea4bacbe9be3476c65c1110e37",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 7517.7939453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124,
+            "changed_bit17": 178
+          },
+          "audio": {
+            "sha256": "f3fa212e3b1282fcc5f82652c918120d7196b85abe60fd7a0323a74a1be457ae",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 7517.7939453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124,
+            "changed_bit17": 178
+          },
+          "audio": {
+            "sha256": "83a83c3098c3b6de580b01c2e966431f316fd4a1009e54c5f17923545706ba7a",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 7517.7939453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124,
+            "changed_harmonic_amplitudes": 19220
+          },
+          "audio": {
+            "sha256": "398dad26ac56f9bced07b6f56e7771e333d9dbfeded37792f32352751054850a",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 15058.9658203125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124
+          },
+          "audio": {
+            "sha256": "a34007d7fcb4cb323f6a0c8bf03f018de415398639b17ce76ea73b485f6cf485",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 7517.7939453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 178,
+            "original_nonzero_bit17": 124
+          },
+          "audio": {
+            "sha256": "46d8493fdc6357fdea573a2dfee6e77c47f269578db0728dc22826dc9756e531",
+            "calls": 65,
+            "selected_source_indices": 48,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 7517.7939453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 27,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 27,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 35,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147
+          },
+          "audio": {
+            "sha256": "5c2486c113bd1e1b1364ec8b3b9f713ed9d329153cd579ab392045e4ff8a6b0c",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1755.74267578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147,
+            "changed_bit17": 147
+          },
+          "audio": {
+            "sha256": "4f2d4188ee2c1697ac8db07cbb8922b1d11c0a6c350c2e1db8dc58c7993a3ca0",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1755.74267578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147,
+            "changed_bit17": 195
+          },
+          "audio": {
+            "sha256": "d37eb96636f617a6a4267f08af932d8a070034840d9285f96ebf9f2d86d16da5",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1755.74267578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147,
+            "changed_bit17": 195
+          },
+          "audio": {
+            "sha256": "9087e93adc8431df11eb6a7cf134f978e0fd92376c9da80e20f0f8436966fc6a",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1755.74267578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147,
+            "changed_harmonic_amplitudes": 19219
+          },
+          "audio": {
+            "sha256": "412474a3fb936cbb93dbfd4a30a72398d3fa12097a8512faa78b3420b2170445",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 3403.501220703125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147
+          },
+          "audio": {
+            "sha256": "aa2351e986619aa35e54d65d49febaa609505e587e6af832f6f637e8b147b4ad",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1755.74267578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 195,
+            "original_nonzero_bit17": 147
+          },
+          "audio": {
+            "sha256": "154f71b7881e83f2d473dad3d0fbaf1eda0d1db39c691d6db73a237e1271b959",
+            "calls": 65,
+            "selected_source_indices": 49,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1755.74267578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 21,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 21,
+      "repeatable_prefix_nonzero_bit17_selections": 4,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 36,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190
+          },
+          "audio": {
+            "sha256": "8cb9490a5a5548cbeda857bedfde87e84abc9c28105de885d0e5a5348b6480b8",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 43,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1012.5531616210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190,
+            "changed_bit17": 190
+          },
+          "audio": {
+            "sha256": "bd79b8c8cd0e31af6d44f3fee01107f3433bbfad589770a64fd3ef05c6e35e9c",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1012.5531616210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190,
+            "changed_bit17": 240
+          },
+          "audio": {
+            "sha256": "f9824d128dd04360866112b50590441d68835447aa2c3e72fb407a14020a0a28",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1012.5531616210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190,
+            "changed_bit17": 240
+          },
+          "audio": {
+            "sha256": "9b11daa3cafb90d1d42b0a90a41e607119719362508a76b6a97a63d9c234a3b6",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1012.5531616210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190,
+            "changed_harmonic_amplitudes": 22594
+          },
+          "audio": {
+            "sha256": "0c69b82e74aa1579d660f74790930b6b99542ef0482d445eac1d236358611dcb",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 43,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 2023.0247802734375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190
+          },
+          "audio": {
+            "sha256": "4e6969f73523f0452ce6bda2a50e1bfab2142a80ba943e37035bec12cc19bde4",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 43,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1012.5531616210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 240,
+            "original_nonzero_bit17": 190
+          },
+          "audio": {
+            "sha256": "e33477622b6e457fa12c299ac01155cbacea25ce3f84a36bcba750983acb5c34",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 43,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1012.5531616210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 24,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 24,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 37,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111
+          },
+          "audio": {
+            "sha256": "bf19619d5a535ba573d492da076230f01cfdef8a296157cc97df86a25e5a4fa2",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6591.78955078125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111,
+            "changed_bit17": 111
+          },
+          "audio": {
+            "sha256": "8863b4c7bdc434814dafd1679356d3a1be0b68c26e9aaf391286648cc963cf47",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6592.0869140625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111,
+            "changed_bit17": 156
+          },
+          "audio": {
+            "sha256": "f272934617613396810d861cb30daa5a1de867bc827750ef65f4b7b2fe925379",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6591.5439453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111,
+            "changed_bit17": 156
+          },
+          "audio": {
+            "sha256": "1080fe68a660a792579be72eafb60edc5387534c7281591648139e12a9fa839d",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6591.9189453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111,
+            "changed_harmonic_amplitudes": 16516
+          },
+          "audio": {
+            "sha256": "e31528bef0a139747c8a0f96dbe19bb095024402e3d6e11f09dd60c08eaa2c8c",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 10779.330078125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111
+          },
+          "audio": {
+            "sha256": "86c42ff4cdb12b49fe4cf5683d667d6e58a973fcf7e95d9a447afe05097309ef",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6591.484375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 156,
+            "original_nonzero_bit17": 111
+          },
+          "audio": {
+            "sha256": "da091fdc5febbe2527aabe5dd35bc27fafa84ffd0c9bb6c6fd3721953e40985b",
+            "calls": 65,
+            "selected_source_indices": 37,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 6591.5078125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 19,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 19,
+      "repeatable_prefix_nonzero_bit17_selections": 6,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 38,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151
+          },
+          "audio": {
+            "sha256": "f9942ee64c9f1210f43093e0e11805784cf2b0be9f0af2b18e3bfc044ec6e189",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_bit17": 151
+          },
+          "audio": {
+            "sha256": "1c8fbe9421a261fb7e378e327d600e6c4df26b5b8bac3c428256c44e00c3d629",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_bit17": 200
+          },
+          "audio": {
+            "sha256": "98d2b08a6389e36ea83f80d5edfa7e894120decd1aa55605dfaf152b6ca1ff8b",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_bit17": 200
+          },
+          "audio": {
+            "sha256": "f29f8a417a42e626063c98165df0f728a33caaf3db4a3e9389ba7b3c6559fdc6",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_harmonic_amplitudes": 19939
+          },
+          "audio": {
+            "sha256": "a2e6faf674cddc3b066a2dfd92853df12e98ac0e47559f59dcec08d4743e1e8e",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 2471.754638671875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151
+          },
+          "audio": {
+            "sha256": "060b0b6a8b349bf628846ec816e179231f725cd7acd51deb2e30a39655012c5a",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151
+          },
+          "audio": {
+            "sha256": "0349962bad740eddbfd52b3f817e7ff91b991d1d45c43c54fe04998da466f3da",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 23,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 23,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 39,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133
+          },
+          "audio": {
+            "sha256": "7eecad1e03d00ea583bac98a64ff66e6f8ed730bf6eb8eda8705db761fd8481f",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1093.064208984375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133,
+            "changed_bit17": 133
+          },
+          "audio": {
+            "sha256": "36103694a68a3b991e1cecf92a4c7d9d5e13af6783e018a4824e4fa254682c35",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1093.064208984375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133,
+            "changed_bit17": 172
+          },
+          "audio": {
+            "sha256": "6fc1ea58281d334f509fc2a3fb918544d1acc3dcef12b158e1f72f0ce5448fd3",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1093.064208984375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133,
+            "changed_bit17": 172
+          },
+          "audio": {
+            "sha256": "000b67ed5fa3a08c4399feed5555df0595eb99d43f677aab37ac50fdd019f88a",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1093.064208984375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133,
+            "changed_harmonic_amplitudes": 16839
+          },
+          "audio": {
+            "sha256": "22ea463f8a299147f09deba2d8e84cb1dfd4c97a51fee2db7a0807b98d10e78e",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 2170.62890625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133
+          },
+          "audio": {
+            "sha256": "160439559bbb3552aedf8402dd5b922592784a596e295ad2d32d261936f087cf",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1093.064208984375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 172,
+            "original_nonzero_bit17": 133
+          },
+          "audio": {
+            "sha256": "3d1256c2781879fbd54c33818fde9b5327ad7c81c02e5f3972b65f0838d20ae5",
+            "calls": 65,
+            "selected_source_indices": 42,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1093.064208984375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 12,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 12,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 40,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132
+          },
+          "audio": {
+            "sha256": "cfceb75b9308cfd9a77e47314d3f57504e3de83621df3da2477315d5f83fa63e",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1450.262451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132,
+            "changed_bit17": 132
+          },
+          "audio": {
+            "sha256": "c34d48dcaa15b2328a9eea1831351b019066c7c547ded9fab3220e846add9611",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1450.262451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132,
+            "changed_bit17": 174
+          },
+          "audio": {
+            "sha256": "4fb6400aebecab9cbed690c29e3f06555706e17dd76ea18d02114fff1aac2798",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1450.262451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132,
+            "changed_bit17": 174
+          },
+          "audio": {
+            "sha256": "b3b7734ca108d68bdcfcec7c6dbcc9cc8036777655a0e82e9b593ec87815a3eb",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1450.262451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132,
+            "changed_harmonic_amplitudes": 17103
+          },
+          "audio": {
+            "sha256": "1cb0fbbe227640f1bd4480a43b02a3ba51efd2082dbf5b43670592cd5c54f0b8",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 2878.12841796875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132
+          },
+          "audio": {
+            "sha256": "cb501348a4423dd1b2dd711c4fca164eb7cbaac76f36cbe485bc098577a0282d",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1450.262451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 174,
+            "original_nonzero_bit17": 132
+          },
+          "audio": {
+            "sha256": "c0924d98de3251574968b9e888535123acf0fa4dc5d477b3a7bb4f6c5ac5f4d0",
+            "calls": 65,
+            "selected_source_indices": 43,
+            "nonzero_bit17_selections": 55,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1450.262451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 15,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 15,
+      "repeatable_prefix_nonzero_bit17_selections": 5,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 41,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173
+          },
+          "audio": {
+            "sha256": "cee284bfa0bacfe9ea63179db019062908c8575c058a81a9dd0c2d4f69d6f04a",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1246.1998291015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173,
+            "changed_bit17": 173
+          },
+          "audio": {
+            "sha256": "d4f515dde5c222f04907b01f9143317c41e129a5d9164bf672a27b81445d5fb7",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1246.219482421875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173,
+            "changed_bit17": 217
+          },
+          "audio": {
+            "sha256": "9d51d8a89d8712fcb250ec0a6419a538c1ee2143825d0786f329ed3d5c413f95",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1246.2286376953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173,
+            "changed_bit17": 217
+          },
+          "audio": {
+            "sha256": "4664803cbb6b3578760c03f42ecc48b4522f8fcf092891e21b034e0976907180",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1246.1982421875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173,
+            "changed_harmonic_amplitudes": 20416
+          },
+          "audio": {
+            "sha256": "440669fcf6a713d16919138323543ff065764739583b4b92e73971524b0caec7",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 2490.87646484375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173
+          },
+          "audio": {
+            "sha256": "d2bcf144974002a3f09c802e11af8b1c16f2b9bc8edc95313b3711ed3c3a58a8",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1246.2091064453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 217,
+            "original_nonzero_bit17": 173
+          },
+          "audio": {
+            "sha256": "284ea61376419be25c9fa3cfcc1b5a815501d2bcd34524059dfe7ff9fbd0ccc4",
+            "calls": 65,
+            "selected_source_indices": 57,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1246.212890625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 18,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 18,
+      "repeatable_prefix_nonzero_bit17_selections": 6,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 42,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73
+          },
+          "audio": {
+            "sha256": "6430077cf1ae1d051d6c4a3308e68360fd9e5a738f2be27a2fa98bf25e4194bd",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 4473.92626953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73,
+            "changed_bit17": 73
+          },
+          "audio": {
+            "sha256": "f75428b3b88fc3adeed818f1e082b391caae91ae80e98e2c6fb62ba2e79be23f",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 4473.92626953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73,
+            "changed_bit17": 120
+          },
+          "audio": {
+            "sha256": "06b4c460eb281acfeb4bdabf3ca76759992d0c0d8655b657d19468ca8b084571",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 4473.92626953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73,
+            "changed_bit17": 120
+          },
+          "audio": {
+            "sha256": "9a538c625d787589c7bf9952f6654a632008b3c0015d12d0e2d706f4cd0b1c37",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 4473.92626953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73,
+            "changed_harmonic_amplitudes": 14216
+          },
+          "audio": {
+            "sha256": "0be5ab6ae844f06c784d7bc5d3ed8e7e8eee97f368c4a7d970a62bde34ca9e0c",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 8669.9365234375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73
+          },
+          "audio": {
+            "sha256": "5f8a30616ff5a68c278e360f624df832af9d1d00c98e3b52714760d594698e68",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 4473.92626953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 120,
+            "original_nonzero_bit17": 73
+          },
+          "audio": {
+            "sha256": "f9826e9a7379a06f2c35bf311067255dd10eda807e9114607a33145e5233a689",
+            "calls": 65,
+            "selected_source_indices": 23,
+            "nonzero_bit17_selections": 52,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 4473.92626953125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 21,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 21,
+      "repeatable_prefix_nonzero_bit17_selections": 8,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 43,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176
+          },
+          "audio": {
+            "sha256": "76414a86dea0cfc043e4f4965769968aef64245209febadee1b924de59e49b13",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 8994.0185546875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176,
+            "changed_bit17": 176
+          },
+          "audio": {
+            "sha256": "86dba777dfe5e977f75de0b1ea0cac039422498771654317e6136cfea4b8f99d",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 8986.990234375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176,
+            "changed_bit17": 216
+          },
+          "audio": {
+            "sha256": "403bf95ca2f768037bb38f75150cc63c1077e3f7bcb80d1bbe61e7f1460a9639",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 8992.97265625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176,
+            "changed_bit17": 216
+          },
+          "audio": {
+            "sha256": "46d8efa229e96a5c54189958ca2989aef382ec72d471d5529a2fcc9bb974f10b",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 8990.6025390625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176,
+            "changed_harmonic_amplitudes": 20034
+          },
+          "audio": {
+            "sha256": "496b533b1c459024ffdc934f86acc7bff7b1fbb828dda44a56865d6ec6445670",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 17848.53125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176
+          },
+          "audio": {
+            "sha256": "27138ea3bead7c6c9634b1bb464871face5c74b49e467c49d0a745926903cb09",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 9007.6884765625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 216,
+            "original_nonzero_bit17": 176
+          },
+          "audio": {
+            "sha256": "d452fdc3d4fa819037228915e2ef798c1f7788719fe9f2a380d16c64575d1bd7",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 53,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 8900.0263671875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 14,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 14,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 44,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151
+          },
+          "audio": {
+            "sha256": "49e54944c0830ea797d180a96963cf01674cc7fda44e5159ae7b7630cb0581fc",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_bit17": 151
+          },
+          "audio": {
+            "sha256": "98ee8f2bad4d2a359cee53214a1f4c155e0fc99b7889d88dbd4d6f5af86c2ff7",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_bit17": 200
+          },
+          "audio": {
+            "sha256": "d882017afa229ef5b7fdf1a883dfe4f47906c3cc754741768c2725095d122a79",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_bit17": 200
+          },
+          "audio": {
+            "sha256": "8cf5dbbe0ecc6d1cbe35a020baa1f3c4b5a8aa9c784f8311e4a0ac2f3e48f362",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151,
+            "changed_harmonic_amplitudes": 19939
+          },
+          "audio": {
+            "sha256": "5d948137226506263148fbcba011f5f5ca3e5820bf36d4e674cb00ff05a32921",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 2471.754638671875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151
+          },
+          "audio": {
+            "sha256": "4bfe17c66a06d5620d0dc2167a175b5386306fcfa0db3fec7a45a94b7e7eb75f",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 200,
+            "original_nonzero_bit17": 151
+          },
+          "audio": {
+            "sha256": "2e6772649a3e01660341da99ca978840807be3f90f5eba939a4dd56b4f89cd37",
+            "calls": 65,
+            "selected_source_indices": 56,
+            "nonzero_bit17_selections": 44,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1242.03515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 23,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 23,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 45,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42
+          },
+          "audio": {
+            "sha256": "ca67c69e8cadd57fcf6085e2bda987d3b2faaf1e80cc4486b2c24367862661ee",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1411.5604248046875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42,
+            "changed_bit17": 42
+          },
+          "audio": {
+            "sha256": "c3a4671671fa08aa04c8c03dc2d0ae284b702edd88989567b6f1eebdfaf59ec0",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1410.435791015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42,
+            "changed_bit17": 97
+          },
+          "audio": {
+            "sha256": "189a6b9107e20df0076b84f2a2b938169918f96675ee0d31774201d6c8d779f3",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1409.28369140625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42,
+            "changed_bit17": 97
+          },
+          "audio": {
+            "sha256": "34b06ab2277fd470623cf6d45f46ebe43cf49aba79b0fb203d1055d15ada2c41",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1409.0655517578125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42,
+            "changed_harmonic_amplitudes": 16439
+          },
+          "audio": {
+            "sha256": "3eff5dccb5545cb5e391f93ede998b466fc9fefa64d71c6be6684ae16e202bce",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1410.6451416015625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42
+          },
+          "audio": {
+            "sha256": "7c43dad2edf3d7e654c4a70c0089cb424cfbbea8c44829ffdf4cb137fdefe06d",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1409.7491455078125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 97,
+            "original_nonzero_bit17": 42
+          },
+          "audio": {
+            "sha256": "28a12c995574db51f91d88c69d7f59b6cfe53934728b47b3dbfadfd914d0f42a",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 40,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1408.6397705078125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 27,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 27,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 46,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61
+          },
+          "audio": {
+            "sha256": "63e24b6e8fb01e063dff1e552108cf1619b79a2d8a3a2fa583f268b72d9bac2d",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.2464599609375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61,
+            "changed_bit17": 61
+          },
+          "audio": {
+            "sha256": "8bccbdf0dd59cfa66cee372a87b08994a02183d40b77487bcd4057624da42d89",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.2615966796875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61,
+            "changed_bit17": 107
+          },
+          "audio": {
+            "sha256": "89f7ce211a4f6a368473c95610fa491c5708bf209ff523e868cee50fb4a20312",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.2495727539062,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61,
+            "changed_bit17": 107
+          },
+          "audio": {
+            "sha256": "66ca8f4a5ad566571ba80cedb36e3c8b6e7ba86b03817e002350e7eea8bb9ef2",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.2526245117188,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61,
+            "changed_harmonic_amplitudes": 16320
+          },
+          "audio": {
+            "sha256": "545baad483f24a233e1bf2673ad1d075a1aed7f3a257b55082ec26d10d69f8d7",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.23095703125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61
+          },
+          "audio": {
+            "sha256": "50bafff0ba9fd4478054fa0e29f0875988b9e679c7dba356ffdcff9a98115632",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.2379760742188,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 107,
+            "original_nonzero_bit17": 61
+          },
+          "audio": {
+            "sha256": "a51b4abd0b5baaeffdb4154cd0fe1a0ae1f5c4ecda3669c9c5656c20f73a68e4",
+            "calls": 65,
+            "selected_source_indices": 36,
+            "nonzero_bit17_selections": 48,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 829.247802734375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 22,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 22,
+      "repeatable_prefix_nonzero_bit17_selections": 5,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 47,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51
+          },
+          "audio": {
+            "sha256": "9c44a0e4c38db3cda4fc5397d03bb69a90aa374f148be5c3c5bdd513968f46fb",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.0855102539062,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_bit17": 51
+          },
+          "audio": {
+            "sha256": "4547a54c4b37634cbf0455e6655e4bebdb67179dd52061930827a391e90c575e",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.078857421875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_bit17": 96
+          },
+          "audio": {
+            "sha256": "0135146514e5bbfcdcdbedb957620c6a2484d73fafb54037fb5924a493e96c4c",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.1000366210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_bit17": 96
+          },
+          "audio": {
+            "sha256": "a181ac1101053e32846515fab5a4a6ddd1be095290d16a27622bed6ddc3f34ec",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.06982421875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_harmonic_amplitudes": 14782
+          },
+          "audio": {
+            "sha256": "f2f8a486141a3f1773590d946a4ceebaf69907643f21ab3a8174982785c662a3",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.0879516601562,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51
+          },
+          "audio": {
+            "sha256": "96c6da19f89334e68e3095aee98ffa171b15ffd4485587c00f498a063078c833",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.0744018554688,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51
+          },
+          "audio": {
+            "sha256": "b4c6ac6c4ff2b3f414b39871130394a2711831378d6953f02bebbff455cbf3a8",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 884.918212890625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 32,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 32,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 48,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57
+          },
+          "audio": {
+            "sha256": "b4dbd695d58504bcf95ec310d9998c832eba38d8cd18b5dffda657a84404e040",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 45,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 912.1231689453125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57,
+            "changed_bit17": 57
+          },
+          "audio": {
+            "sha256": "cb6658dcf56596ed78b4251a14becc63c5a84063f8e4a2a6bc03e7ac22653002",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 912.7714233398438,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57,
+            "changed_bit17": 104
+          },
+          "audio": {
+            "sha256": "2ebc049c643126d3214cb3b0013c13b6999a6d2706740af6e23b9a35b14f210d",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 912.6312866210938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57,
+            "changed_bit17": 104
+          },
+          "audio": {
+            "sha256": "674d5c9d2239626e932a291a26a395f1f8d2ed345e0b96311bb1020f318ba555",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 912.21728515625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57,
+            "changed_harmonic_amplitudes": 16179
+          },
+          "audio": {
+            "sha256": "559f1055ee7bc3af76e637658871a3d9b9302feb1ab592fcfa7c247316810c74",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 45,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1808.201904296875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57
+          },
+          "audio": {
+            "sha256": "7fab10d3a0ee65644f02961540ecd6871f91744c41e8ec2f2a68c55c807b415a",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 45,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 912.5397338867188,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 104,
+            "original_nonzero_bit17": 57
+          },
+          "audio": {
+            "sha256": "4ab60046d59eb572a01c792eeb9ca89f4fb65c21e70039a92b916d8566d8cbf8",
+            "calls": 65,
+            "selected_source_indices": 35,
+            "nonzero_bit17_selections": 45,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 912.9129028320312,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 25,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 25,
+      "repeatable_prefix_nonzero_bit17_selections": 5,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 49,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59
+          },
+          "audio": {
+            "sha256": "742bbf30508c83dea71a17e931d34b8abd8e562f18f8650a7bc8120d18ec04d9",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 38,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 616.3216552734375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59,
+            "changed_bit17": 59
+          },
+          "audio": {
+            "sha256": "95e43fadb113ebb497d4825e624aceaf670e28e7784a46fbc1d3a625c09eceae",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 575.9011840820312,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59,
+            "changed_bit17": 116
+          },
+          "audio": {
+            "sha256": "11d4ad1f88034e143f92f0b48aec6aecc8e31bde2af016e0ca5d4e25a3d4f71e",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 602.4617309570312,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59,
+            "changed_bit17": 116
+          },
+          "audio": {
+            "sha256": "cc69a03dfbc88bfe61c255e945bc8ed6c7694e0277d95292afeebafe9ee4cab1",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 602.4104614257812,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59,
+            "changed_harmonic_amplitudes": 21484
+          },
+          "audio": {
+            "sha256": "f783158e06d09c5115a32dfa1da5a7de4a9b54535aaf61232fc33ddb80b359bf",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 38,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 730.491943359375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59
+          },
+          "audio": {
+            "sha256": "07942b2bee261b7c6bfcbebb8c38000d0c1a51663414e39057de0e06e2f53890",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 38,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 616.2626342773438,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 116,
+            "original_nonzero_bit17": 59
+          },
+          "audio": {
+            "sha256": "c28d0937c2a56936fd9f8b68b33b42d19d3dae4fef4fcdbfae8100c9cd9c3e49",
+            "calls": 65,
+            "selected_source_indices": 55,
+            "nonzero_bit17_selections": 38,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 591.5973510742188,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 30,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 30,
+      "repeatable_prefix_nonzero_bit17_selections": 3,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 50,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51
+          },
+          "audio": {
+            "sha256": "01b1fb88c9e4a9999e228c06d68a77583ffed0cdee4b099ec84f108202eec4a1",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.1102294921875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_bit17": 51
+          },
+          "audio": {
+            "sha256": "24596ee66ff4a5fae27fddc7cdcfbc6999b2151a9ecdab5a61187f1f3d5a5b77",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.0822143554688,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_bit17": 96
+          },
+          "audio": {
+            "sha256": "3fb54c4fdea2a52a15233be80f5060821642b6d4305d7c6ee573ad6a203d0049",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.0706787109375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_bit17": 96
+          },
+          "audio": {
+            "sha256": "3dcc3e413c235ea557882d4146a2a84bcda30bd6b8c4eaf846aa9b8e41dd072b",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.080322265625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51,
+            "changed_harmonic_amplitudes": 14782
+          },
+          "audio": {
+            "sha256": "b41cbbd16cf111c4b129c24ad5cac6b7faf1859a216de28003455d7c51e5df78",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.096923828125,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51
+          },
+          "audio": {
+            "sha256": "702cfc87167add048c578d1cc5a1f3c7f3df8cbac7fe261d604e827744d332ca",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.0746459960938,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 96,
+            "original_nonzero_bit17": 51
+          },
+          "audio": {
+            "sha256": "886643e7f9cfa2517bc75c45a6b9a3b79ecd203eeb428287c304a04163aea1a4",
+            "calls": 65,
+            "selected_source_indices": 40,
+            "nonzero_bit17_selections": 35,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 865.09521484375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 32,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 32,
+      "repeatable_prefix_nonzero_bit17_selections": 2,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    },
+    {
+      "sample_index": 51,
+      "baseline_repeatable": false,
+      "trials": [
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49
+          },
+          "audio": {
+            "sha256": "c7e6d6bbed08fa4461a5a7d5aa449a9e557591d8df9f11aeb6091a78bb40f480",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 51,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1082.512451171875,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "zero",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49,
+            "changed_bit17": 49
+          },
+          "audio": {
+            "sha256": "acf7b3a40e6de0b6d917271318d5d0eb55f3a4f50544a207414de7e6e1ff1536",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 0,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1073.0234375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "pi",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49,
+            "changed_bit17": 93
+          },
+          "audio": {
+            "sha256": "e32e1ed81c35c6ba72759c423d3de2c772b815234dd49e5fa0ac4fb29c92acca",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1082.174072265625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "rotate",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49,
+            "changed_bit17": 93
+          },
+          "audio": {
+            "sha256": "08ddc41c59b0af1cfb7676f3c4fdd8ff84fe912fe44b90163db22ccfeb0996a5",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 65,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1085.989990234375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "amplitude_plus6",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49,
+            "changed_harmonic_amplitudes": 14308
+          },
+          "audio": {
+            "sha256": "20004ff2208a01f0383082e1f9ad4c98d2cf1b4f541ffc0c1fe81e2312b01e4d",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 51,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1080.078369140625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49
+          },
+          "audio": {
+            "sha256": "c80803fc9935a37b5f39ae67238f1ee7d14eace01a06674467d67454413c8803",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 51,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1071.760009765625,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        },
+        {
+          "variant": "baseline",
+          "source_changes": {
+            "frames": 93,
+            "original_nonzero_bit17": 49
+          },
+          "audio": {
+            "sha256": "592da7145d908721bd849657ed45e5f3df46f180976917f47146f82dfc1a79a8",
+            "calls": 65,
+            "selected_source_indices": 29,
+            "nonzero_bit17_selections": 51,
+            "status_counts": {
+              "0": 65
+            },
+            "finite_guarded_values": 16640,
+            "nonzero_samples": 16640,
+            "peak": 1076.2152099609375,
+            "bit17_preserved_through_configuration_and_audio": true
+          }
+        }
+      ],
+      "repeatable_prefix_calls": 19,
+      "repeatable_prefix_bit17_equal": {
+        "zero": true,
+        "pi": true,
+        "rotate": true
+      },
+      "repeatable_prefix_amplitude_changes": 19,
+      "repeatable_prefix_nonzero_bit17_selections": 5,
+      "bit17_unchanged_output": null,
+      "amplitude_control_changed": null
+    }
+  ],
+  "explicit_random_reset": false,
+  "summary": {
+    "samples": 20,
+    "repeatable": 0,
+    "bit17_all_variants_equal": 0,
+    "active_amplitude_controls": 0,
+    "repeatable_prefix_calls": 452,
+    "repeatable_prefix_all_bit17_equal": 20,
+    "repeatable_prefix_active_amplitude": 20,
+    "repeatable_prefix_nonzero_bit17_selections": 72,
+    "nonzero_selected_source_samples": 20,
+    "nonzero_selected_with_active_control": 0,
+    "audio_runs": 140,
+    "nonzero_audio_runs": 140,
+    "finite_guarded_audio_values": 2329600,
+    "audio_calls": 9100
+  },
+  "scope": "Compact attack/release resource, not V4X Growl VQMp. Previously repeatable short cases selected by evidence 417; three longer fresh baselines are rechecked. Only their common contiguous repeatable prefix permits exact comparisons; later differences remain inconclusive. Changes are applied after loadSample but before sampleInfo/configure and are preserved through audio. This does not test a possible field use within initial loadSample. Only independently loaded in-memory bit17 fields or harmonic amplitudes are varied. Nonrepeatable audio is inconclusive. Source index observations do not prove every feature was read. No authoring formula or full host claim.",
+  "source_sha256": {
+    "verify_vqm_legacy_bit17_consumption.py": "d3410b298187823faed78b4fa14eceba571b2bd20b5960307712c050177c9442",
+    "audit_vqm_legacy_live_features.py": "17657a98c6759cc5a9817be23cf3df9ed5916dc021712b4389033ae5a3cd1561",
+    "audit_frm2_numeric.py": "80195d6baeae918c1f112466020129e587263f4ebbd56507a8a01a9730ad8c67",
+    "probe_frm2.py": "0883d7765acb5d44ed90ddc6692d7a61323abbd2b89e2fa026067ae933c158b8",
+    "verify_region_frame_blend.py": "3af7ba4c9d56cc095a5a06853dcc098bf8731153a16e3230e19b7ce737c53854"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "evidence_type": "read-only decompilation plus call-site assembly",
+  "callee_rva": "0x1b8120",
+  "direct_callers": [
+    {
+      "function_rva": "0x1b54d0",
+      "call_rva": "0x1b59cb",
+      "param6": 0,
+      "param6_store_rva": "0x1b59b3"
+    },
+    {
+      "function_rva": "0x1b54d0",
+      "call_rva": "0x1b6d92",
+      "param6": 0,
+      "param6_store_rva": "0x1b6d74"
+    }
+  ],
+  "parent_call": {
+    "function_rva": "0x1af080",
+    "call_rva": "0x1af5a2"
+  },
+  "limitations": [
+    "Static direct xrefs do not enumerate all indirect callers",
+    "No end-to-end synthesis claim",
+    "Four-region stage formation still open"
+  ]
+}

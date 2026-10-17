@@ -1,0 +1,31 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "native_constructor_rva": "0x12a670",
+  "native_reset_rva": "0x1303b0",
+  "native_clear_rva": "0x12cf40",
+  "cases": [
+    {
+      "preinitialization_fill": 0,
+      "frame_mask": "0x0",
+      "outer_bit18": 255,
+      "outer_bit19": 0,
+      "cleared_from_10_2049": {
+        "frame_mask": "0x0",
+        "outer_bit18": 255,
+        "outer_bit19": 0
+      }
+    },
+    {
+      "preinitialization_fill": 165,
+      "frame_mask": "0x0",
+      "outer_bit18": 255,
+      "outer_bit19": 0,
+      "cleared_from_10_2049": {
+        "frame_mask": "0x0",
+        "outer_bit18": 255,
+        "outer_bit19": 0
+      }
+    }
+  ],
+  "scope": "The generic frame constructor initializes owned memory to outer bit18=255 and bit19=0, and field-clear restores the same values from 10/2049; saved VQM values 10/2049 therefore require a later assignment or file read. This does not identify the original authoring operation."
+}

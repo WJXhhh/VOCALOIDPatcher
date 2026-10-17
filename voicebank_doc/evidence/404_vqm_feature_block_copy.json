@@ -1,0 +1,2002 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "source_sha256": "403d415f86466f4b29c6b5406dc07cee7116925f9490f349b2815ef62a98e8d2",
+  "stack_candidate_review": {
+    "decoder_version": "5.0.3",
+    "exception_range_start_rva": "0x8a6a0",
+    "exception_range_end_rva": "0x8b285",
+    "stack_basis": {
+      "entry_rsp_capture_rva": "0x8a6a0",
+      "rbp_derivation_rva": "0x8a6af",
+      "rbp_entry_rsp_offset": "-0x4b8"
+    },
+    "candidates": [
+      {
+        "candidate_rva": "0x8b10e",
+        "instruction_rva": "0x8b10b",
+        "classification": "stack_record_header",
+        "entry_rsp_relative_offset": "-0x29c",
+        "operation": "lea"
+      },
+      {
+        "candidate_rva": "0x8b16d",
+        "instruction_rva": "0x8b16b",
+        "classification": "stack_record_header",
+        "entry_rsp_relative_offset": "-0x29c",
+        "operation": "mov"
+      }
+    ],
+    "read_call_rva": "0x8b112",
+    "import_slot_rva": "0x224998",
+    "imported": {
+      "module": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "name": "fread"
+    },
+    "scope": "Complete decoding of this bounded PE runtime range with explicit RBP provenance; not a whole-library decompilation or execution of its file-cache routine."
+  },
+  "native_routes": [
+    {
+      "name": "DRS_copy_content",
+      "constructor_rva": "0x7ec30",
+      "copy_rva": "0x636c0",
+      "feature_pointer_offset": "0x128",
+      "frame_mask_offset": "0x50",
+      "argument_count": 3,
+      "fourth_argument": null
+    },
+    {
+      "name": "DRS_copy_frame",
+      "constructor_rva": "0x7ec30",
+      "copy_rva": "0x80250",
+      "feature_pointer_offset": "0x128",
+      "frame_mask_offset": "0x50",
+      "argument_count": 4,
+      "fourth_argument": 0
+    },
+    {
+      "name": "DSE5_copy_frame",
+      "constructor_rva": "0x12a670",
+      "copy_rva": "0x12bbc0",
+      "feature_pointer_offset": "0x208",
+      "frame_mask_offset": "0x150",
+      "argument_count": 4,
+      "fourth_argument": 0
+    },
+    {
+      "name": "DSE5_copy_content",
+      "constructor_rva": "0x12a670",
+      "copy_rva": "0x12c800",
+      "feature_pointer_offset": "0x208",
+      "frame_mask_offset": "0x150",
+      "argument_count": 3,
+      "fourth_argument": null
+    }
+  ],
+  "feature_block_bytes": 552,
+  "scalar_bit17_offset": "0x21c",
+  "matrix": [
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DRS_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_frame",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": true,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": true,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": true,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "dense",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "zero_arrays",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": -0.25,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 0.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    },
+    {
+      "route": "DSE5_copy_content",
+      "source_bit13": false,
+      "requested_bit13": false,
+      "style": "only_bit17_active",
+      "input_bit17": 3.0,
+      "whole_block_copied": false,
+      "exact_or_not_allocated": true,
+      "source_and_guards_preserved": true
+    }
+  ],
+  "cases": 192,
+  "copied_cases": 48,
+  "scope": "Four generic frame copy entries with fresh native-constructed destinations. All 552 bytes are preserved when source and requested outer bit13 are set, including nonzero arrays, bit17 and inactive field canaries. Otherwise the fresh destination has no feature allocation. This tests transport and gates, not PCM production, original authoring software, every copy configuration, existing-destination lifecycle, circular interpolation or full synthesis."
+}

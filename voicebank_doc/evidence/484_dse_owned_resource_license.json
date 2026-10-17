@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "targets": {
+    "DSE.dll": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "VDM.dll": "73f1e128932521a1ba7ddb4736b59bc2d437e134753a3f3afa2df7751d430db2"
+  },
+  "scope": "Owned standard DBSe resources through original P/table/candidate functions",
+  "owned_audio": {
+    "source": "generated 220 Hz sine",
+    "sample_rate": 44100,
+    "source_samples": 13230,
+    "frames": 52,
+    "ddb_sha256": "c7fd40d2f7e5b244ee94f1083aafd9e28a0f46deaaceb24624d98ffeafea6d26"
+  },
+  "stationary_parts": 33,
+  "resource_cases": [
+    {
+      "case": "payload_0_phase_0",
+      "length": 0,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "d0b60327de570adf8439f9489bcdb729284c9fc035589e584326877c27246c67",
+      "positive": {
+        "case": "payload_0_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_0_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_1_phase_0",
+      "length": 1,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "7622ead01a01d1435af8dc6bdd9231a3649d66bffb1225d0034180dc7656d05c",
+      "positive": {
+        "case": "payload_1_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_1_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_2_phase_0",
+      "length": 2,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "7b364e39706b4a7f7109c343be2d98e45c031c6eefd7359828f930c33e0b853a",
+      "positive": {
+        "case": "payload_2_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_2_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_3_phase_0",
+      "length": 3,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "fe7b4db4541f0697f8e3c8e66bab97f63aca4ffee5668f4904c43a7d7d4292b6",
+      "positive": {
+        "case": "payload_3_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_3_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_4_phase_0",
+      "length": 4,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "fb9f8d0daa0810172a940b8a7e7aa87f93609108022b91e59dc2937929544d97",
+      "positive": {
+        "case": "payload_4_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_4_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_7_phase_0",
+      "length": 7,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "4ec653423d298765670ba3fb0fae1cfb4c7d083956ba079bf321645b506ec8d1",
+      "positive": {
+        "case": "payload_7_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_7_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_15_phase_0",
+      "length": 15,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "9530aee669e7ff89962dfda9c133da3a23ec0402d5df553eabd68d8007042c26",
+      "positive": {
+        "case": "payload_15_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_15_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_16_phase_0",
+      "length": 16,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "6d9ee3f1541741297a21f9220f1d7a02f1af449910fd1d3c86c42518a3a5421a",
+      "positive": {
+        "case": "payload_16_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_16_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_31_phase_0",
+      "length": 31,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "a32cf1afb0d5c99ca19c8c2d6a394ad9a414cc6d6b583da40b7894c018311b01",
+      "positive": {
+        "case": "payload_31_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_31_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_32_phase_0",
+      "length": 32,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "854979cc6a57e23593fe09609e2f62213347319309c230e56972be75884deae5",
+      "positive": {
+        "case": "payload_32_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_32_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_64_phase_0",
+      "length": 64,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "1d69de78bbaceb239995e78fb52eb5e0531c964d6771807732f1a157394d6e47",
+      "positive": {
+        "case": "payload_64_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_64_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_70_phase_0",
+      "length": 70,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "dda62a7c106f5443b703ae31a148a02160c27efa7af35f8c165a4eef06e79e34",
+      "positive": {
+        "case": "payload_70_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_70_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_71_phase_0",
+      "length": 71,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "b95b969d43839ee3a4e5fea7325a95f66bf2f81943ee6af04a78e8deb4309b1f",
+      "positive": {
+        "case": "payload_71_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_71_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_127_phase_0",
+      "length": 127,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "3efe1c9133a28b2c82345f32225c7fd04e8404075bb3560c9a9df445c3dbdee5",
+      "positive": {
+        "case": "payload_127_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_127_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_128_phase_0",
+      "length": 128,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "be157a9b6d1a18ef96dc9e51d9d5b5bf81532f96221b74e218ff736954cc8858",
+      "positive": {
+        "case": "payload_128_phase_0_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_128_phase_0_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "payload_128_phase_127",
+      "length": 128,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "492cc6630f01d51010d20f72cd75bc59e89ff9f351c31f654bc73e3d779f626b",
+      "positive": {
+        "case": "payload_128_phase_127_accept",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      },
+      "negative": {
+        "case": "payload_128_phase_127_changed_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      }
+    },
+    {
+      "case": "resource_payload_changed",
+      "length": 70,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "f95c688e28fb5cb194568328adecd262a0deaf5f3f8026fa3b8dfeaa533aead3",
+      "old_key": {
+        "case": "changed_resource_old_key",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      },
+      "new_key": {
+        "case": "changed_resource_recalculated_key",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      }
+    },
+    {
+      "case": "slot_upper_bits_changed",
+      "length": 70,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "81560310b5038938489e9cb1cd32d22492834825ce268a9f763639461f72bccd",
+      "same_key": {
+        "case": "same_low_bytes_different_upper_bits",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      }
+    },
+    {
+      "case": "component_directory_changed",
+      "length": 70,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "dda62a7c106f5443b703ae31a148a02160c27efa7af35f8c165a4eef06e79e34",
+      "old_identity": {
+        "case": "directory_identity_mismatch",
+        "kind": "DSE",
+        "expected": 10,
+        "actual": 10,
+        "result": "InvalidKey",
+        "passed": true
+      },
+      "new_identity": {
+        "case": "directory_identity_aligned",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      }
+    },
+    {
+      "case": "ddb_pcm_changed",
+      "length": 70,
+      "native_extraction_equal": true,
+      "native_table_equal": true,
+      "root_authenticated": true,
+      "ddi_sha256": "dda62a7c106f5443b703ae31a148a02160c27efa7af35f8c165a4eef06e79e34",
+      "same_key": {
+        "case": "same_slots_changed_pcm",
+        "kind": "DSE",
+        "expected": 15,
+        "actual": 15,
+        "result": "NoError",
+        "passed": true
+      }
+    }
+  ],
+  "summary": {
+    "resource_cases": 20,
+    "native_license_decisions": 38,
+    "license_results": {
+      "NoError": 20,
+      "InvalidKey": 18
+    },
+    "nonzero_byte_values_exercised": 255,
+    "authoring_guard_rejections": 9,
+    "installed_slot_comparisons": 15,
+    "all_passed": true
+  },
+  "installed_reference_slots": [
+    {
+      "compid": "BD79E492NWWK3DDF",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BL8CEAM5N4XN3LFK",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BMA8DBBZM5ZH2MDE",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BMBNDB8EM5222MK3",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BN69LCH2W6TK8NEF",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BP8CDDH5M7XN2PED",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BY98KLLZTDYH7YEE",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BCNFCY43LB2LZCD4",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BDGE8ZB2FCTKTDBA",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BDHEBZG2KCWKYDC5",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BFPL93T7GE3RWFC9",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BHNME578NG2S3HD8",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BKGHF6Y5PHTN4KD6",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BKKP765AEHXWSKDB",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    },
+    {
+      "compid": "BLECA76YHKRGXLB7",
+      "declared_length": 70,
+      "parts_consumed": 18,
+      "independent_slot_decode_matches": true
+    }
+  ],
+  "native_extraction_code_unchanged": true,
+  "native_candidate_code_unchanged": true,
+  "native_extraction_code_check": {
+    "rva": "0x10cf00",
+    "size": "0x590",
+    "before_sha256": "e0e54409536005c6a66a44ca7876c3f1dd4898f4d3bf53a132f1b064039829ce",
+    "after_sha256": "e0e54409536005c6a66a44ca7876c3f1dd4898f4d3bf53a132f1b064039829ce"
+  },
+  "owned_component_id": "BD399YM2973XXYC4",
+  "native_table_manually_populated": false,
+  "adapter_layers": [
+    "resource enumeration container",
+    "VDM descriptor inputs"
+  ],
+  "boundaries": {
+    "commercial_data_used_in_owned_fixtures": false,
+    "commercial_resources_read_for_optional_comparison": true,
+    "registry_or_installed_license_written": false,
+    "real_keys_hardware_identifiers_exported": false,
+    "editor_started_or_modified": false,
+    "editor_discovery_or_render_verified": false,
+    "splice_lease_signed": false
+  }
+}

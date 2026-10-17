@@ -1,0 +1,1626 @@
+{
+  "dse_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "preparation_cases": 32,
+  "postprocess_cases": 112,
+  "gate_cases": 36,
+  "gates": [
+    {
+      "start": 0,
+      "end": 1,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 1,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 1,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 2,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 2,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 2,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 3,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 3,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 0,
+      "end": 3,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 2,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 2,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 2,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 3,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 3,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 3,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 0,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 0,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 1,
+      "end": 0,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 3,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 3,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 3,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 0,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 0,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 0,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 1,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 1,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 2,
+      "end": 1,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 0,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 0,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 0,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 1,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 1,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 1,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 2,
+      "prepared": 0,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 2,
+      "prepared": 1,
+      "enabled": 0,
+      "unchanged": true
+    },
+    {
+      "start": 3,
+      "end": 2,
+      "prepared": 1,
+      "enabled": 1,
+      "unchanged": true
+    }
+  ],
+  "cleanup_mask": "0xe00000",
+  "preparation": [
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": -1,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 0,
+      "right": 11,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": -1,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        0,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        0,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        1,
+        0
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 0.5,
+      "frames_preserved": true,
+      "curve_reset": true
+    },
+    {
+      "left": 7,
+      "right": 11,
+      "stationary": [
+        1,
+        1
+      ],
+      "scale": 8.0,
+      "frames_preserved": true,
+      "curve_reset": true
+    }
+  ],
+  "postprocess": [
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "no_part",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_source",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_candidate",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "empty_target",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_low",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": 0.0
+    },
+    {
+      "cause": "ratio_too_high",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": 0.0
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": false,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x0",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x7",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": false,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x407",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 0,
+      "mask": "0x80000000",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": false,
+      "harmonics": 3,
+      "mask": "0x80000007",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 0,
+      "mask": "0x80000400",
+      "pitch": -3.4028234663852886e+38
+    },
+    {
+      "cause": "record_flag",
+      "input_pitch_valid": true,
+      "encoding": true,
+      "scalar_valid": true,
+      "harmonics": 3,
+      "mask": "0x80000407",
+      "pitch": -3.4028234663852886e+38
+    }
+  ],
+  "scope": "Native preparation/invalidate reuse and invalid-voicing common postprocess; owned frames, empty special/pitch-record vectors, eighth argument=1; not full dispatcher regeneration, host render, or all acoustic mixing"
+}

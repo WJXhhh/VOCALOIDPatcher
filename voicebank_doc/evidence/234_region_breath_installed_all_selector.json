@@ -1,0 +1,131 @@
+{
+  "dll_sha256": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+  "input_sha256": "19bd05327ed3d9f0347df215c1c7aaae6c80285bc88ce0161f9fc721dd159378",
+  "sources": [
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "ddi_sha256": "381640f8b4d343466ca4519f1a896f44779241f589931a7a6691796c6c74e757",
+      "ddb_bytes": 2374247876,
+      "ddb_sha256": "10e4e139f80bcd738e2e318f2d7cc61e5b099a4536455de7005ffcae9b0edb75"
+    },
+    {
+      "bank": "MIKU_V4X_Dark",
+      "ddi_sha256": "092ed81b21a0d3b89643df7472b13c8e4af198ea023a8f4bc891c2b90d3358de",
+      "ddb_bytes": 660424322,
+      "ddb_sha256": "a429b51e2650ba81640d57a7f5e8ef4facd7e7e22ff877502a5bedf34daac196"
+    }
+  ],
+  "source_reports": [
+    {
+      "name": "breath_real234_g.json",
+      "sha256": "4cbd34456790326532e39d0d2daf89f8420d77115515bec1419bc8fa76c2bbc8",
+      "bytes": 399770
+    },
+    {
+      "name": "breath_real234_h.json",
+      "sha256": "4cbd34456790326532e39d0d2daf89f8420d77115515bec1419bc8fa76c2bbc8",
+      "bytes": 399770
+    }
+  ],
+  "repeated_report_equal": true,
+  "all_576_selection_summaries_equal": true,
+  "design": "All 56616 committed short-margin ART positions are passed to the DSE source-frame selector with installed V4X FRM2/PCM and a temporary isolated no-layer-blend flag 1. The selected 2049-sample window is independently read from the source DDB according to the selected adjacent frame and checked byte-for-byte.",
+  "work_items": 576,
+  "selected_records": 56616,
+  "pcm_window_mismatches": 0,
+  "guard_failures": 0,
+  "output_mask_counts": {
+    "0000000080000200": 7740,
+    "0000000080000000": 48876
+  },
+  "zero_output_time_by_mask": {
+    "0000000080000200": 924,
+    "0000000080000000": 33036
+  },
+  "time_interpolation_model_mismatches_by_mask": {
+    "0000000080000000": 48636
+  },
+  "by_edge": [
+    {
+      "bank": "MIKU_V4X_Dark",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "work_items": 72,
+      "selected_records": 5844,
+      "output_time_model_mismatches": 3984
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br3"
+      ],
+      "work_items": 72,
+      "selected_records": 900,
+      "output_time_model_mismatches": 432
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "Sil",
+        "br5"
+      ],
+      "work_items": 72,
+      "selected_records": 828,
+      "output_time_model_mismatches": 576
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br1",
+        "Sil"
+      ],
+      "work_items": 72,
+      "selected_records": 9168,
+      "output_time_model_mismatches": 8460
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br2",
+        "Sil"
+      ],
+      "work_items": 72,
+      "selected_records": 9900,
+      "output_time_model_mismatches": 8484
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br3",
+        "Sil"
+      ],
+      "work_items": 72,
+      "selected_records": 9960,
+      "output_time_model_mismatches": 8988
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br4",
+        "Sil"
+      ],
+      "work_items": 72,
+      "selected_records": 10056,
+      "output_time_model_mismatches": 8940
+    },
+    {
+      "bank": "MIKU_V4X_Original_EVEC",
+      "key": [
+        "br5",
+        "Sil"
+      ],
+      "work_items": 72,
+      "selected_records": 9960,
+      "output_time_model_mismatches": 8772
+    }
+  ],
+  "scope": "Direct isolated selector contract with temporary flag 1, distinct from evidence 233 original mode-0 complete output. All PCM windows match the SND-bounded source model. The simple time interpolation model only applies when output bit 0x200 remains set; other output times are observations, not failures. Read-only installed files, no PCM export or Editor host observation."
+}
