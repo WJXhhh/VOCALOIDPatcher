@@ -14,6 +14,20 @@ use std::sync::{Arc, Mutex, OnceLock};
 
 #[cfg(windows)]
 mod ai_register_shift;
+#[cfg(windows)]
+mod sampled_timing;
+#[cfg(windows)]
+mod transition_gain;
+#[cfg(windows)]
+mod timing_profile;
+#[cfg(windows)]
+mod timing_cache;
+#[cfg(windows)]
+mod phoneme_timing;
+#[cfg(windows)]
+mod duration_bridge;
+#[cfg(windows)]
+mod duration_selection;
 
 const ABI_VERSION: u32 = 14;
 const HARD_RESYNC_SECONDS: f64 = 0.080;
@@ -715,7 +729,9 @@ mod breath_hook {
         let original: TraditionalRenderCore = unsafe { std::mem::transmute(original) };
         CURRENT_PART.with(|slot| {
             let previous = slot.replace(part_handle);
-            let result = unsafe { original(renderer_holder, arguments, frame_shape) };
+            let result = super::sampled_timing::scope(part_handle, || unsafe {
+                original(renderer_holder, arguments, frame_shape)
+            });
             slot.set(previous);
             result
         })
@@ -1237,8 +1253,8 @@ mod breath_hook {
 mod register_shift_hook {
     use super::*;
 
-    const MIN_SHIFT: i32 = -24;
-    const MAX_SHIFT: i32 = 24;
+    const MIN_SHIFT: i32 = -48;
+    const MAX_SHIFT: i32 = 48;
     const PAGE_EXECUTE_READWRITE: u32 = 0x40;
     const MEM_COMMIT: u32 = 0x1000;
     const MEM_RESERVE: u32 = 0x2000;
@@ -1705,6 +1721,8 @@ mod register_shift_hook {
         target: *const i32,
     ) {
         PREPARE_1A_CALLS.fetch_add(1, Ordering::Relaxed);
+        unsafe { super::sampled_timing::apply(parser, current); super::sampled_timing::apply(parser, target); }
+        let _duration = unsafe { super::duration_selection::prepare(parser, current, target, 1) };
         let shifts = unsafe { prepare_context(parser, current, target) };
         let original: NotePrepare =
             unsafe { std::mem::transmute(ORIGINAL_PREPARE_1A.load(Ordering::Acquire)) };
@@ -1722,6 +1740,8 @@ mod register_shift_hook {
         target: *const i32,
     ) {
         PREPARE_1B_CALLS.fetch_add(1, Ordering::Relaxed);
+        unsafe { super::sampled_timing::apply(parser, current); super::sampled_timing::apply(parser, target); }
+        let _duration = unsafe { super::duration_selection::prepare(parser, current, target, 2) };
         let shifts = unsafe { prepare_context(parser, current, target) };
         let original: NotePrepare =
             unsafe { std::mem::transmute(ORIGINAL_PREPARE_1B.load(Ordering::Acquire)) };
@@ -1846,6 +1866,7 @@ mod register_shift_hook {
     ) -> u64 {
         let original: CandidateScopeFn =
             unsafe { std::mem::transmute(ORIGINAL_CANDIDATE_SCOPE.load(Ordering::Acquire)) };
+        let _duration = super::duration_selection::work_scope(current as usize, target as usize);
         CANDIDATE_SCOPE.with(|slot| {
             let previous = slot.replace(CandidateScope { current, target });
             let result = unsafe { original(state, p2, p3, p4, current, target, p7, p8) };
@@ -1942,7 +1963,7 @@ mod register_shift_hook {
                     expanded_pitch_max,
                     second_min,
                     second_max,
-                    pitch_extension,
+                    super::duration_selection::pitch_width(pitch_extension),
                     second_extension,
                     p13,
                     p14,
@@ -1978,6 +1999,7 @@ mod register_shift_hook {
                     state, output, p3, p4, candidate, p6, p7, p8, p9, p10, p11, p12,
                 )
             };
+            unsafe { super::duration_selection::score(state as usize, output, p3, p4, candidate as usize, p8, p9, p12 as i32, p10, p11 as u8); }
             slot.set(previous);
             result
         })
@@ -2380,7 +2402,7 @@ mod register_shift_hook {
         Ok(())
     }
 
-    unsafe fn install_hook(
+    pub(super) unsafe fn install_hook(
         target: *mut u8,
         length: usize,
         hook: *const c_void,
@@ -2737,6 +2759,11 @@ mod register_shift_hook {
         }
     }
 
+    pub(super) fn timing_ready() -> bool {
+        INSTALL_BITMAP.load(Ordering::Acquire) & (BIT_PREPARE_1A | BIT_PREPARE_1B)
+            == BIT_PREPARE_1A | BIT_PREPARE_1B
+    }
+
     pub unsafe fn register_engine_part(engine: *mut c_void, part: u64) {
         if engine.is_null() || part == 0 {
             return;
@@ -2872,8 +2899,18 @@ mod register_shift_hook {
         }
     }
 
+    // Production lookup deliberately uses try_read so a render callback never
+    // waits for publication. Registry-backed unit fixtures must not publish
+    // unrelated Parts concurrently and turn that contention into a false miss.
+    #[cfg(test)]
+    pub(super) fn test_registry_guard() -> std::sync::MutexGuard<'static, ()> {
+        static GATE: Mutex<()> = Mutex::new(());
+        GATE.lock().unwrap_or_else(|error| error.into_inner())
+    }
+
     #[cfg(test)]
     pub(super) fn test_record_lookup(part: u64, note: RegisterNote) -> Option<i32> {
+        let _guard = test_registry_guard();
         set_part(part, 1, &[note]);
         let duration = note.end_frame.saturating_sub(note.begin_frame) as i32;
         let record = [
@@ -2894,6 +2931,7 @@ mod register_shift_hook {
         note_index: usize,
         frame_offset: i32,
     ) -> Option<i32> {
+        let _guard = test_registry_guard();
         set_part(part, 1, notes);
         let note = notes[note_index];
         let duration = note.end_frame.saturating_sub(note.begin_frame) as i32;
@@ -2910,6 +2948,7 @@ mod register_shift_hook {
 
     #[cfg(test)]
     pub(super) fn test_repeated_record_calibration(part: u64) -> [Option<i32>; 4] {
+        let _guard = test_registry_guard();
         let notes = [
             test_note(100, 186, -100, -24, 0),
             test_note(186, 272, -100, 0, 1),
@@ -2939,6 +2978,7 @@ mod register_shift_hook {
 
     #[cfg(test)]
     pub(super) fn test_epoch_replacement(part: u64) -> (Option<i32>, Option<i32>, Option<i32>) {
+        let _guard = test_registry_guard();
         let first = test_note(100, 120, 6000, -5, 0);
         let second = test_note(100, 120, 6000, 9, 0);
         let record = [100, 20, 6000.0f32.to_bits() as i32, 0];
@@ -3217,6 +3257,8 @@ mod dse_hook {
         engine: *mut c_void,
         event: *const DseMidiEvent,
     ) -> i32 {
+        unsafe { super::sampled_timing::bind(engine); }
+        let _duration = unsafe { super::duration_selection::engine(engine, false) };
         let part = super::breath_hook::current_part();
         if part != 0 {
             unsafe { super::register_shift_hook::register_engine_part(engine, part) };
@@ -3262,6 +3304,8 @@ mod dse_hook {
 
     unsafe extern "system" fn start_hook(engine: *mut c_void) -> i32 {
         DSE_START_CALLS.fetch_add(1, Ordering::Relaxed);
+        unsafe { super::sampled_timing::bind(engine); }
+        let _duration = unsafe { super::duration_selection::engine(engine, true) };
         reset_render_diagnostics();
         let original: EngineStateCall =
             unsafe { std::mem::transmute(ORIGINAL_START.load(Ordering::Acquire)) };
@@ -3284,8 +3328,11 @@ mod dse_hook {
         metadata: *mut c_void,
     ) -> i32 {
         DSE_STEP_CALLS.fetch_add(1, Ordering::Relaxed);
+        let _duration = unsafe { super::duration_selection::engine(engine, false) };
         let original: Step = unsafe { std::mem::transmute(ORIGINAL_STEP.load(Ordering::Acquire)) };
+        let _transition = unsafe { super::transition_gain::engine(engine) };
         let result = unsafe { original(engine, input, output, metadata) };
+        if unsafe { super::sampled_timing::failed(engine) } || super::duration_selection::failed() || super::transition_gain::failed() { return 0x14; }
         DSE_LAST_STEP_RESULT.store(result, Ordering::Relaxed);
         if result == 0 {
             DSE_STEP_SUCCESSES.fetch_add(1, Ordering::Relaxed);
@@ -4166,19 +4213,29 @@ mod tests {
     #[cfg(windows)]
     #[test]
     fn register_shift_ambiguous_and_out_of_range_records_fall_back() {
+        let _guard = register_shift_hook::test_registry_guard();
         let notes = [
-            register_shift_hook::test_note(100, 120, 6000, -24, 0),
-            register_shift_hook::test_note(100, 120, 6000, 24, 1),
+            register_shift_hook::test_note(100, 120, 6000, -48, 0),
+            register_shift_hook::test_note(100, 120, 6000, 48, 1),
         ];
         assert_eq!(register_shift_hook::test_find(&notes, 100, 120, 6000), None);
-        assert_eq!(
-            register_shift_hook::set_part(
-                0x1000,
-                1,
-                &[register_shift_hook::test_note(100, 120, 6000, 25, 0)]
-            ),
-            -1
-        );
+        let part = 0x7f00_4800;
+        for shift in [-48, 48] {
+            let note = register_shift_hook::test_note(100, 120, 6000, shift, 0);
+            assert_eq!(register_shift_hook::set_part(part, 1, &[note]), 0);
+            assert_eq!(register_shift_hook::test_find(&[note], 100, 120, 6000), Some(shift));
+        }
+        for shift in [-49, 49] {
+            assert_eq!(
+                register_shift_hook::set_part(
+                    part,
+                    1,
+                    &[register_shift_hook::test_note(100, 120, 6000, shift, 0)]
+                ),
+                -1
+            );
+        }
+        register_shift_hook::remove_part(part);
     }
 
     #[cfg(windows)]
