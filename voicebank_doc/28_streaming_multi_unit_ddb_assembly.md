@@ -113,3 +113,5 @@ python -B voicebank\tools\assemble_recording_units_ddb.py `
 2. ~~依据本清单的 unit ID/order，从后向前向每个 STAp/ARTp 注入可变 EpR/SND/alignment，再统一加入 DBSe digest 和 compact normalization。~~ 已完成。
 3. ~~对 15 个局部单元完成公开解析器与 DSE loader 双重回读，并验证同边多层 part key。~~ 已完成；结果见文档 30。
 4. 扩大到真人全量 62 PHDC、38 STA、2,556 ART 和全部层；真人边界 QA、许可证与宿主渲染仍是独立完成条件。
+
+2026-10-15工程补充：[115](115_synthetic_bank_stress_and_recovery.md)已用自生成模板完成38个STA、2556条ART、三个层的7782单元压力与失败恢复验收。新增`build_planned_bank.py`在完整链路验证后整目录发布，失败可安全重新构建；此结果不替代上述真人全量条件。

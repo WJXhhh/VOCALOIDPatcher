@@ -13,10 +13,17 @@
 | 版本 | `Version\Major/Minor/Revision` | VDM/DSE License 版本与兼容性门槛 | 否 |
 | 用户默认声库 | 用户设置 `defaultVoiceCompID` | 按 CompID 选择默认 VoiceBank | 否 |
 | DDI stem 校验 | DBSe 中的 32 字符 MD5 文本 | 检查 `.ddi/.ddb` stem 对应 | 否 |
+| 产品数据 P | 标准DBSe的STAp四整数槽经长度/旋转提取，进入产品表 | 参与本机Key摘要；缺省槽可形成空P | 单独不够 |
 | 候选 license 描述 | VDM descriptor 的 key/serial | DSE 验证输入 | 否，非空也不够 |
 | 最终授权判定 | DSE `License.Result` | Editor 是否接受该 VoiceBank | 是，且只接受五类结果 |
 
 所以回答“自制声库需要哪些认证信息”时，必须先问是哪一层。CompID 和 DBSe digest 都能由已恢复的格式规则合法生成，但它们只是结构身份；stock Editor 所需的最终产品授权不能由这两者推出。
+
+**2026-10-16 本地补充：** descriptor 的 `SerialNumber` 是复用字符串字段，包含 `default`（试用候选）、`bundle`（特定内置组件例外）、`splice`（本地 lease 路径）与普通 16 字符编码标识。普通标识虽然使用与 CompID 相同的 codec，却不能直接视为当前产品 CompID 或购买序列号；32/62 字符之分属于 Key 的形式。硬件候选枚举与内部结果码转换也已补证。各类型的来源、实际用途及未知项见 [本地 SerialNumber 分支说明](17_dse_license_pipeline.md#serialnumber-分支与实际用途2026-10-16)，不再把哈希调用笼统等同于公私钥验签。
+
+**同日计算补证：** [119章](119_dse_ordinary_and_splice_calculations.md)及[证据482](evidence/482_dse_calculation_crosscheck.json)给出普通分支 `S/C0/H/P` 与 Key 的两侧 MD5 公式；P按产品查询，普通路径逆变换后使用，Splice直接使用原字节。后续[120章](120_dse_native_candidate_acceptance.md)与[483](evidence/483_dse_candidate_acceptance.json)已将自有输入、18库真实资源快照配合成候选交给未修改的原生完整函数，95项验收通过，普通NoError及62字符期限均有结果对照。Splice包括asa原Ice字段已通过摘要并进入MissingLeaseFile。原安装没有普通descriptor实样；Editor安装发现/渲染、P独立生产和真实lease端到端仍未验收。
+
+**同日资源链验收：** [121章](121_dse_product_payload_and_owned_license_chain.md)及[484](evidence/484_dse_owned_resource_license.json)后续补齐上述标准DBSe的P待办。P是STAp四整数槽按首长度及固定顺序取低字节右转1位所得，不是整个音频摘要；默认四个`-1`形成已存在的空P表项。独立生产/解码与原生文件加载及建表一致，20份自制资源的38次判定通过；15传统库首长度70、18part的独立解码也全部匹配。物理CompID目录需与C0对应；实际安装发现/Editor渲染、AI P及真实lease仍不在本轮验收内。
 
 ## CompID 的确切语义
 

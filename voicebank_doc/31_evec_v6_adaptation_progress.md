@@ -4,6 +4,187 @@
 当前实现状态和剩余验收项。`29_evec_complete_reverse_engineering_and_implementation_plan.md`
 保留早期逆向资料，但不再作为“已经完成”的依据。
 
+## 2026-09-10：排布修正和异步 score
+
+同日 MCP 补充：新增 `notes.set_evec`，可经 `v6_edit_notes` 或统一混合事务设置/清除
+Color、CTop、Release、独立辅音扩展。音符查询提供 `evec` 投影，声库目录提供实际
+选项 ID；不支持的组合明确拒绝。外部事务加入 EVEC pending history，rollback 后
+恢复匹配音符的逻辑状态缓存。90 项 MCP 测试（包括真实 stdio 到假 Bridge 的 EVEC
+参数传递）、共用编辑解析器的 Miku/Rin/Luka 能力 probe 和完整 Release 构建通过。
+Codex Companion 已更新，V6 安装目录仍是旧补丁；宿主 MCP 编辑/撤销验收未执行。
+接口如实声明 `renderer_integrated=false`。使用方法见 [MCP 文档](../docs/mcp.md)。
+
+用户已确认声库在 V6 正常发声。本轮修正扩展倍数显示、Luka 能力判定、截图竖线解析
+与自定义音素保护。Miku/Rin 180 次异步原生渲染及新渲染副本 probe 通过。
+旧统一振幅阈值不能作为气声提前截断证据；真实 score 边界见
+[本轮记录](34_evec_layout_and_native_score_validation.md)。
+隔离副本已实现，但正常编辑器渲染发布/取消尚未接入，未部署、未验收听感。
+
+## 2026-09-11：真实宿主 MCP 矩阵与 EVEC 渲染副本接入（当前状态）
+
+### 2026-09-12 审查修复（源码完成，尚未宿主复验）
+
+- 渲染签名加入 sequence 变更代次：Commit/Undo/Redo 在去抖之前立即更新代次，
+  覆盖声库、tempo、Part 位置、Velocity、表情和控制曲线等此前未纳入签名的输入。
+  发布前在同一 UI 回调内复核签名并登记 WAV/score，避免检查后又发生编辑。
+  当前采取保守策略，一次工程变更会重建该工程所有 EVEC Part；后续可优化为精确失效。
+- 失效覆盖在准备替代副本前释放并恢复原生路径，替代渲染失败不会无限沿用旧声音。
+  score 复制失败现在使整次尝试失败；WAV 和 score 必须同时成功才能发布。
+- 删除重新扫描创建新 job 的重试方式，改为同一注册 job 内最多两次尝试，期间不持有
+  原生渲染门；清除/关闭/新编辑能取消等待中的原任务。共享门等待也会检查取消状态。
+  Sequence Close 取消去抖扫描，扫描 CancellationTokenSource 的取消与移除在锁内同步。
+- Debug 全解决方案构建 0 警告 0 错误；106 项 MCP 测试通过，新增 5 项覆盖有限重试、
+  首次/重试成功、延迟期间取消、成功返回期间取消。原生 score 复制失败及变速/换声库/
+  参数编辑仍需宿主故障注入和声音对照；这些单元测试不替代宿主验收。
+- 本轮未改安装文件：安装主 DLL 是指向 Release out 的符号链接，因此仅构建 Debug，
+  避免构建间接部署。上述修复尚未生成新的生产 Release 或部署。
+
+**2026-09-12 12:33 部署更新**：用户随后明确要求部署。确认 V6 退出后先备份旧主 DLL 至
+`C:\Users\WJC\.codex\backups\v6-evec-render-fixes-20260912-123339`，完成 Release 全解决方案
+构建（0 警告、0 错误），利用既有安装符号链接更新合并 out 产物。
+安装文件与构建产物 SHA-256 均为
+`1677B57B1A17F1DE11CB3B00FFE8B08F013E4C14E9433481F475B3BF2DF5A5F6`。
+Release 的 106 项测试通过；未启动 V6，原生故障注入和宿主复验交由 DS 继续。
+
+本轮在用户已打开的 V6 6.13.1.1 宿主上跑完 EVEC MCP 写入矩阵，并实现渲染副本的
+编辑器侧发布/取消链路。证据分级仍然区分：宿主实测、源码检查、独立 harness、
+人工试听（本轮仍无试听）。
+
+### 宿主 MCP 矩阵（真实事务，非 dry_run）
+
+在空工程建立 Miku Original EVEC 4 颗日语音符与 Rin Power EVEC 2 颗音符后逐项验证：
+
+| 项 | 结果 | 观测 |
+| --- | --- | --- |
+| 单项 Color | 通过 | `k a` → `k a a#2`（c=101） |
+| 追加 CTop Mild | 通过 | → `k k#2 a a#2`（a=302） |
+| 追加 Release Short | 通过 | → `k k#2 a a#2 *#1`（r=201） |
+| 发音延长 ×2 | 通过 | → `k k k#2 a a#2 *#1`（ext=1） |
+| 单项清除 Color | 通过 | `a#2` 消失，CTop/Release/延长保留 |
+| `clear` 全清 | 通过 | 回到 `k a`，has_evec/protected 归零 |
+| 混合批量 | 通过 | 两条 set_evec 同一事务、一次撤销 |
+| 撤销/重做 | 通过 | 两步 undo 后两步 redo 逐音符精确还原 |
+| `dry_run` | 通过 | revision 与全部音符状态不变 |
+| 非法组合 | 通过 | 未知字段 / clear 混用 / 未知 ID / 声库不支持的 301 / 索引越界 / 元音上设延长 全部拒绝且零副作用 |
+| 批量回滚 | 通过 | 后项失败时前项 `voice_color_id=105` 完全不落地 |
+| Rin/Len 同形歧义 | 通过 | n0=301+延长0、n1=普通+延长1，物理串同为 `k k a`；undo×2 再 redo×2 后仍分别为 301/0 与 0/1 |
+
+宿主返回的 capabilities 现为 `notes.evec: host_verified=true`。
+
+### 本轮宿主复现并修复的两个 MCP 缺陷
+
+1. **Part 语言未设置时 `notes.add` 必然失败**：新工程 Part 的 `LangID=-1`，
+   `Int(operation,"language_id", part.LangID)` 取到 -1，原生 `InsertNote` 返回 null，
+   报 `operation_failed: VOCALOID could not insert the note.`；显式 `language_id: 0` 正常。
+   修复为 `NoteLanguage.Resolve`：part 语言有效则沿用，否则回退声库 native language、
+   再退日语，并用 `Enum.IsDefined` 拒绝非法值。宿主复测：不传 `language_id` 的四颗音符
+   （か/あ/き/さ）全部建立且音素正确。
+2. **`v6_apply_operations` 临时引用落到索引 0**：`SnapshotEntities`/`FindCreatedEntity`
+   用引用相等比较 VSM wrapper，而 `WIVSMSequence.Tracks => TracksEnumerator.ToList()`，
+   `TracksEnumerator` 每次 `GetTrack(i)` 新建 wrapper，`before.Contains` 永不成立，
+   新建轨道被报成索引 0，`track_temp_id` 因而指向既有轨道，`add_part` 把 Rin Part
+   建到了用户的 Miku 轨道上（同 tick 完全重叠）。修复为按 native handle 比较，
+   识别不到或出现多个新实体时抛错（`CreatedEntityIndex.Find`）。宿主复测：同一批次
+   建轨/建 Part/建音符/按 `note_temp_id` 设 EVEC 全部落在正确实体上。
+   附带发现：catalog 的 `operations` 列表仍缺少已实现的 `set_part`/`move_part`/
+   `rename_part`/`resize_part`/`duplicate_part`/`delete_part` 与 `add_part.voicebank_id` 等字段。
+
+### EVEC 渲染副本接入编辑器（宿主已验证发布、编辑重建与清除回收）
+
+新增 `Evec/EvecRenderCoordinator.cs` 与 `Patch/Patches/EvecRenderPatches.cs`，
+沿用中文分段渲染器的生命周期形状：
+
+- 触发：`WIVSMSequence.Commit/Undo/Redo` postfix 去抖 120 ms 后逐 Part `Begin`；
+  `StartAsyncRendering` postfix 覆盖未暂存工程加载。
+- 副本：`EvecRenderCopy.TryCreate` 在 UI 线程复制 sequence 并用原生 DivideNote 构造事件；
+  创建后立即登记为内部序列，避免被任一协调器当作用户文档再次复制。
+- 渲染：共享 `NativeRenderSession.Gate` 串行化原生渲染会话；observer +
+  `BlockRenderingEnabled=false` + `StartAsyncRendering` 异步渲染；90 s 超时；
+  WAV/score 复制到自有临时文件，WAV 峰值 < 8 视为失败，绝不发布静音覆盖原生音频。
+- 发布：`WaveFilePath`/`HasValidRenderedWave`/`ScoreFilePath`/`HasValidRenderedScore`/
+  `RendererProgress` 五个 getter 覆盖；发布前用音符签名（tick/时长/音高/语言/
+  去 EVEC 基础音素/四维状态）复核结果仍对应当前编辑，过期结果直接丢弃。
+- 刷新：`AddOrReplacePlacement`（回退 `RegisterAudioPlacementWithFile`）、
+  `RefreshPitchCurves`、`WaveformSvState.Invalidate`、`RenderedWaveCachePatch.InvalidateAndRefreshPart`。
+- 取消与释放：Part 删除、Track 删除、Sequence 关闭、EVEC 设置关闭时释放任务与覆盖文件；
+  内部副本的关闭统一交给中文协调器的 `CloseSequenceSafely` 关闭窗口，绝不自行 `Close()`。
+
+**共享资源与优先级**：新增 `Utils/NativeRenderSession.cs` 持有共享渲染门与内部序列表；
+中文协调器的私有门改为该共享实例，并在 `SequenceChanged`/`SequenceRenderingStarted`
+早退内部序列，同时新增 `IsInternalSequence` 供 EVEC 反向判断。EVEC 在
+「ExtendedChinesePinyin 已开且该 Part 已有中文覆盖」时让位（getter 与 `Begin` 双重判定），
+两套协调器不会同时为一个 Part 发布产物。
+
+**2026-09-11 宿主验证（安装目录符号链接指向合并 Release 产物）**：
+
+- 工程加载与提交都会触发协调器：日志依次出现 `scan-queued`（source=commit）→
+  `prepared job=N; notes=…` → `wave-copied peak=…` → `published waveBytes=750636;
+  scorePresent=True` → `placement manager=True validWave=True`。从 prepared 到 published
+  约 0.2–0.9 s，副本在编辑器内确实渲染出非静音音频（peak 7900/8048；同一台机器离线
+  harness 仍是全零，与既有授权结论一致）。
+- **编辑重建**：改 Miku Color 后重新发布，峰值从 7900 变为 6076（音频确实改变），
+  被替换的旧覆盖文件同时删除；`%TEMP%` 中始终只保留当前两个 Part 的 wav+score。
+- **清除回收**：把 Rin Part 两项 EVEC 全部清空后日志出现 `override-released`，
+  该 Part 的覆盖与文件被删除并恢复原生播放，另一 Part 的覆盖不受影响。
+- **保存/重开持久化**：另存为 `.vpr` 重开后 6 颗音符的逻辑状态、音素串与保护位逐项一致，
+  Rin 同形对（301+延长0 / 普通+延长1）没有互换。
+- 首次宿主运行暴露并已修复：WAV 峰值校验的 RIFF chunk 遍历在 `fmt ` 之后立即命中
+  `next <= stream.Position` 守卫，永远读不到 `data`，导致 `lastPeak=-1` 与
+  `wave-copy-failed`；修正为 `chunkStart + 8 + size + (size & 1)` 且非 16-bit PCM 明确失败。
+- 另加"签名未变且覆盖文件仍在则跳过"：一次编辑不再把未改动的 EVEC Part 重新复制渲染。
+- **加载竞态与一次重试**：宿主观察到一次加载时发布在 0.5 s 内失败
+  （`render-failed; superseded=False`，此前一次同场景成功），最可能是加载期原生渲染器立即
+  取消。现在 `render-failed` 带 `reason=`（canceled/observer/wave/timeout/copy-closed/…），
+  并对每个 job 允许一次 2 s 延迟重试；本次加固后的加载回测直接成功（未触发重试），
+  **重试分支尚未在宿主被实际执行过**，只经过构建与静态审查。
+- **运行时启用 EVEC**：工程在 EVEC 关闭时加载不会产生覆盖；启用事件现在会主动从
+  `MainWindow.DataContext` 的 `MusicalEditorViewModel.ActivePart.Sequence` 触发一次去抖扫描，
+  因此重新启用后无需先编辑或播放即可发布（宿主验证见交付清单）。
+- **取消与释放（宿主实测）**：删除 Rin Part 后该 Part 的覆盖文件被清空（`%TEMP%` 只剩另一
+  Part）；从磁盘重开同一工程时旧覆盖全部释放、新工程重新发布（文件数保持 4 而不是 8）；
+  在设置中关闭 EVEC 得到 `released-all reason=disabled; jobs=0; overrides=2` 且 4 个覆盖文件
+  全部消失。
+- **人工听感**：用户 2026-09-11 在宿主内试听 Miku（Soft+Mild+Long）与 Rin（301+Short /
+  普通+延长×2）并确认"试听 ok"；未做逐项 A/B 波形或声学度量，仍属于主观验收。
+- 本轮合并产物：7,282,688 bytes，SHA-256
+  `82AD58FE4CE998F6EF279531E36486C27F1DBA28C84EF160E9C866DFDF68CAE5`；安装目录主 DLL 为指向
+  Release `out/` 的符号链接，两端哈希一致；完整 Release 0 警告 0 错误，101 项 MCP 测试、
+  逻辑 harness、`--evec-contract-probe`、`--render-copy-probe` 全部通过。
+- 交付物：`Evec/EvecRenderCoordinator.cs`、`Patch/Patches/EvecRenderPatches.cs`、
+  `Utils/NativeRenderSession.cs`、`Evec/EvecRenderCopy.cs`（`ReleaseToCloseWindow` 与内部序列登记）、
+  `Evec/EvecDiagnosticLog.cs`（`RecordRender`）、`Config/Settings.cs`（`EvecEnabledChanged`）、
+  `Mcp/VocaloidMcpFacade.{Read,Evec}.cs` 能力标记、`Patch/Patches/SegmentedPhonemeRenderingPatch.cs`
+  的最小共享改动、`Patcher.cs` 注册与 `voicebank/tools/evec_render_harness/EvecRenderHarness.csproj`
+  的链接项。
+- 仍开放：分段时刻的逐项听感对照（切换点/收音毫秒、音量、辅音长度）与导出/混缩对照；
+  `renderer_integrated` 只声明"编辑器使用分段副本产物"；重试分支未在宿主执行过。
+- 据此 `evec.render_timing` 改为 `implemented`/`host_verified`，音符投影
+  `timing.renderer_integrated` 在 EVEC 启用时为 true、`status=editor_render_copy`；
+  EVEC 关闭时回落。判据是"编辑器用的是分段副本产物"，不是"每个切分时刻都已听感最优"。
+
+## 2026-09-07：时值接口反例与分段实验（历史记录，优先于下文旧时值结论）
+
+**最新状态：空 KEYS 声库发现适配已按用户要求禁用并部署。** 用户宿主报告新枚举声库
+集体“使用已过期”，说明目录枚举并未闭合完整使用链路。本轮新增的 8 份不完整登记
+已按创建清单撤回。后续下文的“发现已接入”只保留为过程记录；详见文档 32 的当前状态。
+
+本机 VSM 6.13.1.1 的原生调用和真实 API probe 确认：传统 `Midi` 轨道的
+`SetEditedPhonemePosition` / `ResetEditedPhonemePosition` 都返回 `InvalidTrackType`。
+该接口只接受 `MidiAi`。因此，下文 9 月 4 日“固定 45/60 ms 边界已修正”的结论仅验证了
+Tick/毫秒换算，**没有证明时值写入 DSE 生效**，现明确撤回其声学含义。
+
+新增 `EvecRenderTimingPlan` 和独立渲染对照工具，按 PPS 的逻辑音符起点、共享时长预算、
+同语言后继音符 100 ms 收音抑制规则生成独立音符事件。CTop 留在起音段，不另分配 45 ms。
+当前仅实验工具使用此分段方案，**尚未接入编辑器生产渲染链，也没有听感验收**。
+生产代码现在跳过传统轨道不支持的时值写入/恢复；保留原有 EVEC 选项和音素组合。
+
+详见 [Piapro 构造、证据地址、实验与待办](32_evec_piapro_render_timing.md)。
+
+同日后续：声库已安装但未登记给 V6。经用户授权新增 Miku/Rin 8 份目录登记，
+并将先前只在 harness 中的空 KEYS 发现适配正式接入主补丁数据库创建前缀及清理 finalizer。
+原生共用实现 `0→8→0` 枚举/恢复测试通过，新合并版与原生 DLL 已部署；
+SHA-256、版本限制与尚未完成的声音验证见上文链接的“最新补充”。
+
 ## 目标
 
 在 VOCALOID 6 传统 DSE 轨道中，为支持 EVEC 的 Crypton V4X 声库提供接近 Piapro Studio
@@ -562,6 +743,12 @@
   `E2F1876BFDFC8BAD17F8F1238F2E828FA5E3FD102C863163C16C901555F5EBAD`。仍待宿主重点复测
   双子 `Accent301`/`Normal+延长1` 在删除 Part/轨道后 Undo/Redo，以及关闭/重开工程后的
   选项与声音一致性。
+
+- **2026-09-11**：真实宿主完成 EVEC MCP 矩阵（含 Rin/Len 同形元数据隔离与撤销重做）并修复
+  两个宿主复现的 MCP 缺陷（Part 语言未设置时 `notes.add` 失败、`temp_id` 按 wrapper 引用比较
+  导致落到索引 0）；实现并部署 `EvecRenderCoordinator`/`EvecRenderPatches` 与共享
+  `NativeRenderSession`；首跑暴露 WAV 峰值解析 bug 并修正；宿主验证发布/编辑重建/四条取消释放
+  路径；用户试听确认。证据分级与剩余限制见本文档 2026-09-11 小节。
 
 ## 本轮宿主复测最小矩阵
 

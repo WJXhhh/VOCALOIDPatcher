@@ -1,5 +1,9 @@
 # VOCALOID4 传统声库结构、注册表与 V3/V4/V5 对比
 
+> 2026-09-12 补充：下文的三种 FRM2 掩码是当时中文样本的观察，不能推广到全部 V4。
+> 当前 8 套 Miku/Rin V4X 使用不含频谱段的 `0xe2287` 变体，已通过全量扫描与回环。
+> 见 [V4X FRM2 可选频谱段](37_v4x_frm2_optional_spectrum.md)。
+
 ## 1. 概述与核心结论
 
 通过 Ghidra 逆向 `VDM2.dll` / `DSE.dll` 以及对本机安装的 VOCALOID3、VOCALOID4（洛天依 V4 萌、星尘、初音未来 V4X / V4C、乐正龙牙淳/雅等）和 VOCALOID5 声库实测，关于 V4 传统声库得出以下确定性结论：

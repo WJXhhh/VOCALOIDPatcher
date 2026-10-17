@@ -140,6 +140,8 @@ writer 计数、文件长度、reader 消费长度和重新构造的 frame 数�
 
 ## 独立 probe 的边界
 
+**2026-10-15补充：** 默认前部探针保持兼容，新增`--full-fields`通过`probe_drs_frame.py`检查已定位FRM2的全部尾部与重组回环。当前完整布局、两套reader的ENV规范化及派生/保存分工见[116](116_drs_config_sms2_tail_delivery.md)；下列“未完整解释”保留为早期状态，不代表当前仍只能验前部。未定名字段的物理用途与制作来源另列未知，不宣称已实现整套SMS2容器树重写器。
+
 `probe_sms2.py` 会：
 
 - 校验顶层 `SMS2` magic 与声明长度；

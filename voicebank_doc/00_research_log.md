@@ -1,5 +1,61 @@
 # 研究日志
 
+## 2026-10-16：P槽位生产与自制DBSe文件授权链
+
+- 继续追`0x18010cf00→0x18010cfb0/0x18010d1f0`，确认标准DBSe走stationary槽位提取。首part`+0x1f8`为长度，数据按首`i3/i1/i0`、后续`i2/i3/i1/i0`取低8位右转1位；P不是统一的音频摘要。
+- 现有finalizer四个`-1`令内层提取失败，但外层忽略返回值，清零输出成为已存在的空P表项。自制文件加载authenticated=1，原生产品表及完整候选判定NoError；与缺失表项不同。
+- 新增纯Python槽位写入/读取及资源链脚本。完全自有220Hz正弦产生52帧DDB、33part DDI；独立P预测与原生文件加载、提取、建表一致，不再手填传入表的P。20份资源、38次判定：NoError20/InvalidKey18；长度0–128、255种非零字节、数据槽高位、P变更、CompID目录变更及PCM变化均符合预期，9个作者工具非法输入被拒绝。
+- 可选只读现成15传统库的加载槽，全部长度70、消费18part，独立解码与原生产品表相同；不保存商业P、不混入自有夹具。AI资源P另属模型路径。
+- [121章](121_dse_product_payload_and_owned_license_chain.md)、[484](evidence/484_dse_owned_resource_license.json)及[资源验收脚本](../voicebank/tools/verify_dse_owned_resource_license.py)记录当前结果。资源枚举/descriptor仍为进程内适配器；未改真实授权或Editor，未验收注册发现/宿主渲染或Splice签名，不研究服务器。
+
+## 2026-10-16：完整原生候选判定验收
+
+- 用户授权使用自建标识或现成声库计算验收。新增进程内VDM接口适配对象，提供字符串getter/枚举/产品表输入，调用未修改的 `0x1801dc510`，经公开License getter读取结果，不写入真实descriptor或安装配置。
+- 自有数据58项覆盖传统/DNN两条路径：本机6个硬件候选分别命中NoError，非零归一化位、多候选排列、S/C/Key/P/硬件负例、零候选、62字符有效/到期/未来开始/当天边界与错误摘要均符合预期；10项公开expiry值也独立对齐。
+- 18库真实资源快照配合成普通候选全部NoError；仅改Key一个字符全部InvalidKey。asa原Ice字段独立摘要匹配，完整候选返回MissingLeaseFile；加上自有Splice正负例，总计95项通过。
+- 原生候选函数代码前后哈希相同，回调无错误。当前是输入适配器下的原生许可判定验收，未修改Editor或真实授权，也未完成P独立生产、自制资源安装/宿主渲染及真实lease端到端。没有扩展服务器。
+- 详见[120章](120_dse_native_candidate_acceptance.md)、[证据483](evidence/483_dse_candidate_acceptance.json)及[只读候选验收脚本](../voicebank/tools/verify_dse_candidate_acceptance.py)。
+
+## 2026-10-16：普通标识与 Splice 计算交叉验证
+
+- 补齐普通比较的 `T(S)||T(C0)||T(H)||P` 输入顺序、逆变换内层MD5及公共上下文外层MD5。独立算法与原生 helper 在48组自有正例、240组单字段负例上一致，不使用真实产品/硬件生成普通样例。
+- 独立Win32查询和格式化与原生硬件候选列表完全、按顺序一致：Windows卷1项、非空网卡地址5项。18声库均命中资源派生产品表，P有效长70字节、17种内容；重建快照后释放，不沿用初始化后已释放的旧表指针，不导出P。
+- Splice25字节盐的MT19937与原生7个种子对照通过；完整组合SHA-256与本机asa的IceValue相等，产品标识改动失败。P在普通路径先逆变换，在Splice中直接使用原始表字节。
+- 62字符Key去除30字符附加段后参与基础摘要。起始日期明确来自声库Date，vtable+0x38与公开getter18/18一致；直接日期、内嵌日期各4项对照通过，未执行完整expiry候选。
+- 新增[119章](119_dse_ordinary_and_splice_calculations.md)、[证据482](evidence/482_dse_calculation_crosscheck.json)与[验证脚本](../voicebank/tools/verify_dse_license_calculations.py)。脚本强制DSE/VDM精确哈希；本轮另在独立进程初始化VDM/DSE，不操作Editor，不写安装/授权数据。普通完整激活、P独立生产、S业务位与真实lease仍未知，没有研究服务器。
+
+## 2026-10-16：Splice 附加字段、文件名与 Ed25519 验签
+
+- 限定续查Splice本地支路。VDM只读getter与asa注册值相等关系确认 `+0xf8=IceProductName`、`+0x100=IceValue`，长度15/64；声库调用点以IceProductName寻找LocalAppData下的lease，而非直接用CompID。
+- 文件解析之后另有 `0x1801ef7b0 → 0x1801ec1d0` 验签；DSE内置44字符Base64文本解码为32字节公钥。原生函数接受RFC8032空消息向量，拒绝签名、消息、公钥各自的改动，确认Ed25519原语；没有定位签发私钥。
+- 已对齐摘要错误、文件缺失、到期、解析/签名失败，以及有效/付清lease到公开结果的映射。解析器状态与公共枚举分开记录。
+- 本机无SpliceSettings/license目录，没有真实lease端到端实测；仅公开密码学向量，不使用授权载荷，不修改Editor、注册表、Ghidra或许可证。范围与未知见 [17章专项](17_dse_license_pipeline.md#splice-专项三道本地检查与实际公钥)、[证据481](evidence/481_splice_local_validation.json)。
+
+## 2026-10-16：SerialNumber 分支、普通本机匹配与结果码修正
+
+- 按用户要求只研究本地机制；DSE 6.13.1.1 的 Ghidra 目标与安装文件 SHA-256 一致，Yamaha Authenticode Valid，VDM 仍为6.13.0.1。
+- 确认 `SerialNumber` 复用字段：`default` 是试用候选，`bundle` 仅匹配一个内置组件，`splice` 进入附加摘要/本地 lease 路径，其余按普通编码标识校验。各类的实际诊断用途、局限和下一步见 [17章新增说明](17_dse_license_pipeline.md#serialnumber-分支与实际用途2026-10-16)。
+- 普通候选路径已直接闭合到 `GetAdaptersInfo` 与 `GetVolumeInformationA`，并逐个尝试硬件候选；产品 CompID 经 payload 索引7归零后重编码。该位业务意义、普通标识与产品/购买序列号关系仍未知，完整授权计算尚未独立回环。
+- SHA-256 已归入 Splice 摘要检查，普通路径有 MD5 核心及字节变换；未证明本机持有非对称签发私钥。Result getter 转换内部值，内部2对应公开NoError，而非Trial。
+- 只读VDM公共API枚举成功：当前15个DSE库有default15/bundle7，3个DNN库有default3/bundle3/splice1，29项Key均为32字符，无普通serial或62字符Key样本。bundle固定目标明确匹配DNN库asa。首次正斜杠native路径返回13，改为Windows反斜杠路径后返回0。
+- [证据480](evidence/480_dse_serialnumber_types.json)只保存目标元数据、静态观察和类型/长度汇总，不保存真实Key/普通serial/硬件标识。没有初始化DSE或验证激活；未操作Editor、注册表或Ghidra项目。
+
+## 2026-09-10：EVEC 截图排布、能力修正与原生 score
+
+- 修正辅音扩展倍数显示、Luka 独立扩展能力及自定义音素保护；按 PPS 标签路径解析竖线。
+- Miku/Rin 共 180 次异步原生渲染有声且 score 非零；纠正以统一振幅阈值推断气声截断的问题。
+- 新增隔离渲染副本并通过源工程不变测试；编辑器发布/取消链路尚未接入，没有部署或听感验收。
+- 详见 [本轮修正与验证边界](34_evec_layout_and_native_score_validation.md)。
+
+## 2026-09-07：EVEC 时值接口反例与 Piapro 分段构造
+
+- VSM 6.13.1.1 原生分析和真实 probe 证实传统 Midi 轨道拒绝 edited phoneme position；
+  旧 45/60 ms 换算测试不能证明 DSE 时值生效，已在权威进度账撤回此推论。
+- PPS 确认为逻辑起点 Color 分段、共享时长预算、同语言 <=100 ms 邻音抑制收音；
+  CTop 保留起音辅音串，不另切固定 45 ms。新增纯规划器和 raw/split 独立实验。
+- 详见 [证据与复现实验](32_evec_piapro_render_timing.md)。规划器尚未接入生产渲染，
+  声库未就绪，不能宣称已完成声音改善。
+
 ## 2026-09-04：录音 capture 机器预检
 
 - 扩展 session QA 合同，显式记录时长容差、最大 peak、最小发声 RMS、最大 DC、边界 SNR、音高容差和最小自相关置信度；配置变更会进入输入哈希。

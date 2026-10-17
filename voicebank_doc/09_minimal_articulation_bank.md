@@ -91,6 +91,10 @@ STA 只在紧凑缓存中保存核心指针；ART 同时保存 payload 与核心
 
 ## frame-alignment 四元组
 
+范围补充（2026-09-13）：本节两组统计限于当时参考样本；V4X还存在三音素key、
+四组region。inner已确认参与分段线性帧位置映射，但“稳定子区间”不是已恢复的
+全部声学定义。运行时证据及单帧inner处理见[文档41](41_v4x_runtime_region_consumers.md)。
+
 参考库 5,099 个 ARTp 全部恰有两组四元组：
 
 ```text
