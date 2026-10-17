@@ -1,0 +1,1342 @@
+{
+  "date": "2026-10-17",
+  "dse": {
+    "version": "6.13.1.1",
+    "sha256": "7A4965BD377DBC2B08710E807AE1345B67D9FFF6579CA0C01A769F744366F5B5",
+    "imageBase": "0x180000000"
+  },
+  "crash": {
+    "time": "15:25:36 +08:00",
+    "exception": "0xc0000005",
+    "faultRva": "0x16B10B",
+    "address": "0x20",
+    "leftFrame": 3491,
+    "rightFrame": 3492,
+    "exactUnsavedControlsRecovered": false
+  },
+  "nativeBeforeSha256": "887B6923A9E1FB46951EE2268171B16272402E39E29D7056853E60FAA50960C7",
+  "nativeReleaseSha256": "E3E8C7674E0F9CBE8CFF548CC35D689FCD3CD3A9C3E9E8631369C7A3BB99184C",
+  "ab": {
+    "headFrames": 80,
+    "tailFrames": 80,
+    "oldWithBridge": {
+      "expectedFailure": true,
+      "invalid": [
+        {
+          "current": 107,
+          "index": 3,
+          "begin": 3413,
+          "end": 3413,
+          "from": -1,
+          "to": -1,
+          "hasSource": false
+        }
+      ]
+    },
+    "oldWithoutBridge": {
+      "paddingFrames": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "boundariesMatch": true
+    }
+  },
+  "normalMatrix": {
+    "tested": 147,
+    "accepted": 89,
+    "rejected": 58,
+    "failures": 0
+  },
+  "releasePaddingMatrix": {
+    "tested": 147,
+    "accepted": 89,
+    "rejected": 58,
+    "injectedFrames": 712,
+    "allPaddingOneFrame": true,
+    "allAllocatedBoundariesMatch": true,
+    "cases": [
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": -80,
+        "boundaries": [
+          -450,
+          -155
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": -40,
+        "boundaries": [
+          -450,
+          68
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": -12,
+        "boundaries": [
+          -450,
+          224
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": 0,
+        "boundaries": [
+          -450,
+          291
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": 12,
+        "boundaries": [
+          -450,
+          358
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": 40,
+        "boundaries": [
+          -450,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -80,
+        "tail": 80,
+        "boundaries": [
+          -450,
+          737
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": -80,
+        "boundaries": [
+          -227,
+          -155
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": -40,
+        "boundaries": [
+          -227,
+          68
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": -12,
+        "boundaries": [
+          -227,
+          224
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": 0,
+        "boundaries": [
+          -227,
+          291
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": 12,
+        "boundaries": [
+          -227,
+          358
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": 40,
+        "boundaries": [
+          -227,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -40,
+        "tail": 80,
+        "boundaries": [
+          -227,
+          737
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -12,
+        "tail": -40,
+        "boundaries": [
+          -71,
+          68
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -12,
+        "tail": -12,
+        "boundaries": [
+          -71,
+          224
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -12,
+        "tail": 0,
+        "boundaries": [
+          -71,
+          291
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -12,
+        "tail": 12,
+        "boundaries": [
+          -71,
+          358
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -12,
+        "tail": 40,
+        "boundaries": [
+          -71,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": -12,
+        "tail": 80,
+        "boundaries": [
+          -71,
+          737
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 0,
+        "tail": -40,
+        "boundaries": [
+          -4,
+          68
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 0,
+        "tail": -12,
+        "boundaries": [
+          -4,
+          224
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 0,
+        "tail": 0,
+        "boundaries": [
+          -4,
+          291
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 0,
+        "tail": 12,
+        "boundaries": [
+          -4,
+          358
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 0,
+        "tail": 40,
+        "boundaries": [
+          -4,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 0,
+        "tail": 80,
+        "boundaries": [
+          -4,
+          737
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 12,
+        "tail": -40,
+        "boundaries": [
+          62,
+          68
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 12,
+        "tail": -12,
+        "boundaries": [
+          62,
+          224
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 12,
+        "tail": 0,
+        "boundaries": [
+          62,
+          291
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 12,
+        "tail": 12,
+        "boundaries": [
+          62,
+          358
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 12,
+        "tail": 40,
+        "boundaries": [
+          62,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 12,
+        "tail": 80,
+        "boundaries": [
+          62,
+          737
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 40,
+        "tail": -12,
+        "boundaries": [
+          218,
+          224
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 40,
+        "tail": 0,
+        "boundaries": [
+          218,
+          291
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 40,
+        "tail": 12,
+        "boundaries": [
+          218,
+          358
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 40,
+        "tail": 40,
+        "boundaries": [
+          218,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 40,
+        "tail": 80,
+        "boundaries": [
+          218,
+          737
+        ],
+        "consumedBoundariesMatch": false
+      },
+      {
+        "scenario": "vowel",
+        "head": 80,
+        "tail": 40,
+        "boundaries": [
+          441,
+          514
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "vowel",
+        "head": 80,
+        "tail": 80,
+        "boundaries": [
+          441,
+          737
+        ],
+        "consumedBoundariesMatch": false
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": -80,
+        "boundaries": [
+          -226,
+          -153
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": -40,
+        "boundaries": [
+          -226,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": -12,
+        "boundaries": [
+          -226,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": 0,
+        "boundaries": [
+          -226,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": 12,
+        "boundaries": [
+          -226,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": 40,
+        "boundaries": [
+          -226,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -40,
+        "tail": 80,
+        "boundaries": [
+          -226,
+          739
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -12,
+        "tail": -40,
+        "boundaries": [
+          -69,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -12,
+        "tail": -12,
+        "boundaries": [
+          -69,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -12,
+        "tail": 0,
+        "boundaries": [
+          -69,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -12,
+        "tail": 12,
+        "boundaries": [
+          -69,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -12,
+        "tail": 40,
+        "boundaries": [
+          -69,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": -12,
+        "tail": 80,
+        "boundaries": [
+          -69,
+          739
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 0,
+        "tail": -40,
+        "boundaries": [
+          -3,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 0,
+        "tail": -12,
+        "boundaries": [
+          -3,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 0,
+        "tail": 0,
+        "boundaries": [
+          -3,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 0,
+        "tail": 12,
+        "boundaries": [
+          -3,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 0,
+        "tail": 40,
+        "boundaries": [
+          -3,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 0,
+        "tail": 80,
+        "boundaries": [
+          -3,
+          739
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 12,
+        "tail": -40,
+        "boundaries": [
+          64,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 12,
+        "tail": -12,
+        "boundaries": [
+          64,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 12,
+        "tail": 0,
+        "boundaries": [
+          64,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 12,
+        "tail": 12,
+        "boundaries": [
+          64,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 12,
+        "tail": 40,
+        "boundaries": [
+          64,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 12,
+        "tail": 80,
+        "boundaries": [
+          64,
+          739
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 40,
+        "tail": -12,
+        "boundaries": [
+          220,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 40,
+        "tail": 0,
+        "boundaries": [
+          220,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 40,
+        "tail": 12,
+        "boundaries": [
+          220,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 40,
+        "tail": 40,
+        "boundaries": [
+          220,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 40,
+        "tail": 80,
+        "boundaries": [
+          220,
+          739
+        ],
+        "consumedBoundariesMatch": false
+      },
+      {
+        "scenario": "connected",
+        "head": 80,
+        "tail": 40,
+        "boundaries": [
+          443,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "connected",
+        "head": 80,
+        "tail": 80,
+        "boundaries": [
+          443,
+          739
+        ],
+        "consumedBoundariesMatch": false
+      },
+      {
+        "scenario": "multi",
+        "head": -12,
+        "tail": -40,
+        "boundaries": [
+          -153,
+          -3,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": -12,
+        "tail": -12,
+        "boundaries": [
+          -153,
+          -3,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": -12,
+        "tail": 0,
+        "boundaries": [
+          -153,
+          -3,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": -12,
+        "tail": 12,
+        "boundaries": [
+          -153,
+          -3,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": -12,
+        "tail": 40,
+        "boundaries": [
+          -153,
+          -3,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": -12,
+        "tail": 80,
+        "boundaries": [
+          -153,
+          -3,
+          739
+        ],
+        "consumedBoundariesMatch": false
+      },
+      {
+        "scenario": "multi",
+        "head": 0,
+        "tail": -40,
+        "boundaries": [
+          -86,
+          -3,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 0,
+        "tail": -12,
+        "boundaries": [
+          -86,
+          -3,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 0,
+        "tail": 0,
+        "boundaries": [
+          -86,
+          -3,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 0,
+        "tail": 12,
+        "boundaries": [
+          -86,
+          -3,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 0,
+        "tail": 40,
+        "boundaries": [
+          -86,
+          -3,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 0,
+        "tail": 80,
+        "boundaries": [
+          -86,
+          -3,
+          739
+        ],
+        "consumedBoundariesMatch": false
+      },
+      {
+        "scenario": "multi",
+        "head": 12,
+        "tail": -40,
+        "boundaries": [
+          -19,
+          -3,
+          70
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 12,
+        "tail": -12,
+        "boundaries": [
+          -19,
+          -3,
+          226
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 12,
+        "tail": 0,
+        "boundaries": [
+          -19,
+          -3,
+          293
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 12,
+        "tail": 12,
+        "boundaries": [
+          -19,
+          -3,
+          360
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 12,
+        "tail": 40,
+        "boundaries": [
+          -19,
+          -3,
+          516
+        ],
+        "consumedBoundariesMatch": true
+      },
+      {
+        "scenario": "multi",
+        "head": 12,
+        "tail": 80,
+        "boundaries": [
+          -19,
+          -3,
+          739
+        ],
+        "consumedBoundariesMatch": false
+      }
+    ]
+  },
+  "composition": [
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "919DFB474368E22CF90F20A39FCF09880CF9778C374F48A203E2E40AA1F88395",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "9EDF81FF8A56ED93CE75698B3C858188E4C1A425BB476B5D47EDBE8BA92CC807",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "CBA9C367C5ACC93DAECC1A02D3EF5A2E57D20F3000CAA9AB294A2B2D6DFD393A",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "9EDF81FF8A56ED93CE75698B3C858188E4C1A425BB476B5D47EDBE8BA92CC807",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "919DFB474368E22CF90F20A39FCF09880CF9778C374F48A203E2E40AA1F88395",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "768869BAB0327793BE131B90B1E6F0030166FDE891784E932291245AAEC43263",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "DDA394331D8FA34FA68944FC4B4A8093401F42909B768FAC88180523A74DCE59",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "0ECB6F12A9E3352AA917FEE8100BF00F698DBD639AA20338F33797D68A3F417B",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "DDA394331D8FA34FA68944FC4B4A8093401F42909B768FAC88180523A74DCE59",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "768869BAB0327793BE131B90B1E6F0030166FDE891784E932291245AAEC43263",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "BC3E5C98E5FE8ED94B2D69508048FEA1C934FC4133FC49DF088ACE7332F8A2EE",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "AB138E2C28FFE1993F6DACE37A7FCED9AA4E20B838B43D4D8E958B87E61BEEA6",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "A4D1E49C11523D35BFE2390C2E21222E371CA3CAA6B000392AE97DE631C6F0D5",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "AB138E2C28FFE1993F6DACE37A7FCED9AA4E20B838B43D4D8E958B87E61BEEA6",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "BC3E5C98E5FE8ED94B2D69508048FEA1C934FC4133FC49DF088ACE7332F8A2EE",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "2474BDE9F82660D9B95762CB89191968F4527D34B089E26464628BA69D9409BB",
+      "status": "scopes=2, scores=2176, changed=0, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "CC319CD14414E0DCD7DD60CC196396C448CAD91B2B0829D76BA2FDAA8DB81AD0",
+      "status": "scopes=2, scores=2176, changed=2176, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "9A4889658C3C4B50D5904D4CCC0B3D39A66BD6A00FF1C9EF8CE259E51699E820",
+      "status": "scopes=2, scores=2176, changed=2176, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "CC319CD14414E0DCD7DD60CC196396C448CAD91B2B0829D76BA2FDAA8DB81AD0",
+      "status": "scopes=2, scores=2176, changed=2176, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "2474BDE9F82660D9B95762CB89191968F4527D34B089E26464628BA69D9409BB",
+      "status": "scopes=2, scores=2176, changed=0, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    }
+  ],
+  "concurrency": [
+    {
+      "pass": 0,
+      "part": 0,
+      "completed": 1,
+      "hash": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "expected": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "equal": true,
+      "status": "scopes=4, scores=64, changed=64, failures=0, contracts=18, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 0,
+      "part": 1,
+      "completed": 1,
+      "hash": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "expected": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "equal": true,
+      "status": "scopes=4, scores=64, changed=64, failures=0, contracts=18, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 0,
+      "part": 2,
+      "completed": 1,
+      "hash": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "expected": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "equal": true,
+      "status": "scopes=4, scores=64, changed=64, failures=0, contracts=18, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 0,
+      "part": 3,
+      "completed": 1,
+      "hash": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "expected": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "equal": true,
+      "status": "scopes=0, scores=0, changed=0, failures=0, contracts=0, reason=0, owner=0, note=0/0, work=0, score=0..0",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 0,
+      "completed": 1,
+      "hash": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "expected": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "equal": true,
+      "status": "scopes=6, scores=96, changed=96, failures=0, contracts=27, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 1,
+      "completed": 1,
+      "hash": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "expected": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "equal": true,
+      "status": "scopes=6, scores=96, changed=96, failures=0, contracts=27, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 2,
+      "completed": 1,
+      "hash": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "expected": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "equal": true,
+      "status": "scopes=6, scores=96, changed=96, failures=0, contracts=27, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 3,
+      "completed": 1,
+      "hash": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "expected": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "equal": true,
+      "status": "scopes=0, scores=0, changed=0, failures=0, contracts=0, reason=0, owner=0, note=0/0, work=0, score=0..0",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 0,
+      "completed": 1,
+      "hash": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "expected": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "equal": true,
+      "status": "scopes=8, scores=128, changed=128, failures=0, contracts=36, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 1,
+      "completed": 1,
+      "hash": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "expected": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "equal": true,
+      "status": "scopes=8, scores=128, changed=128, failures=0, contracts=36, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 2,
+      "completed": 1,
+      "hash": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "expected": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "equal": true,
+      "status": "scopes=8, scores=128, changed=128, failures=0, contracts=36, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 3,
+      "completed": 1,
+      "hash": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "expected": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "equal": true,
+      "status": "scopes=0, scores=0, changed=0, failures=0, contracts=0, reason=0, owner=0, note=0/0, work=0, score=0..0",
+      "peakScopes": 3
+    }
+  ],
+  "checks": {
+    "rustPassed": 39,
+    "managedPassed": 176,
+    "solutionDebug": "passed",
+    "solutionRelease": "passed",
+    "harnessBuild": "passed",
+    "deployed": true,
+    "editorStarted": false
+  },
+  "limitations": [
+    "The unsaved user controls are unavailable. The independent probe reproduces the same invalid native junction, not the exact editor action sequence.",
+    "Some late phoneme boundaries are allocated beyond the short SDK render range. Scheduled and consumed boundaries are reported separately.",
+    "Initial simultaneous SDK probe processes canceled renders. Isolated process reruns passed; within-process overlapping Part rendering is explicitly tested."
+  ],
+  "deployment": {
+    "deployedAt": "2026-10-17T15:58:24.858792+08:00",
+    "sha256": "E3E8C7674E0F9CBE8CFF548CC35D689FCD3CD3A9C3E9E8631369C7A3BB99184C",
+    "files": [
+      "VOCALOIDPatcher/native/v6patch_clock.dll"
+    ],
+    "independentHashVerified": true,
+    "editorStarted": false,
+    "hostValidation": "pending"
+  }
+}

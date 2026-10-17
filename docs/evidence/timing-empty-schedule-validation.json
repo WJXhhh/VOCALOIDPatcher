@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-17",
+  "fix": "Synchronize warp coordinates with an empty native segment schedule, including pop-back to empty; preserve errors.",
+  "native_sha256": "EE8306569D298EDCA23AA2AE3218F5B1D6AD62FF967A855A62EFAE839866B6DA",
+  "managed_sha256": "6892C034305227FACE560E8D55276BE2A8443802AB6FD2CB40359E39DA14F74B",
+  "extreme": {
+    "failures": 0.0,
+    "count": 60,
+    "all_audio_changed": true,
+    "raw_boundaries_match": true,
+    "fixture": {
+      "pitch": 61,
+      "velocity": 38,
+      "duration": 540,
+      "position": 960,
+      "phonemes": "s\\ i_n n"
+    },
+    "frame_offsets": [
+      -2,
+      -120
+    ],
+    "previous_failure": {
+      "actual": [],
+      "offset": -20,
+      "failures": 6
+    },
+    "query_synthesis_calls": 0.0
+  },
+  "chinese_performance": {
+    "bank": "BL8CEAM5N4XN3LFK",
+    "phones": "l a i",
+    "PreparationMs": 3.3441,
+    "EncodedNotes": 1,
+    "queries": {
+      "Min": 0.1991,
+      "P50": 0.2068,
+      "P95": 0.2939,
+      "Max": 0.4884
+    },
+    "cached": {
+      "Min": 0.0001,
+      "P50": 0.0002,
+      "P95": 0.0006,
+      "Max": 0.0433
+    },
+    "queryCounters": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    }
+  },
+  "miku_performance": {
+    "bank": "BCNFCY43LB2LZCD4",
+    "phones": "k a i",
+    "PreparationMs": 3.7862,
+    "EncodedNotes": 1,
+    "queries": {
+      "Min": 0.2753,
+      "P50": 0.2896,
+      "P95": 0.3406,
+      "Max": 0.6633
+    },
+    "cached": {
+      "Min": 0.0001,
+      "P50": 0.0002,
+      "P95": 0.0009,
+      "Max": 0.0622
+    },
+    "queryCounters": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    }
+  },
+  "isolated_regressions": [
+    "Chinese and MIKU boundaries",
+    "four Part routing",
+    "24 note local context",
+    "save/load and isolated history",
+    "resident rendering lifecycle"
+  ],
+  "rust_tests": 30,
+  "managed_tests": 150,
+  "debug_build": "passed, 0 warnings",
+  "release_build": "passed, 0 warnings",
+  "editor_gesture_validation": "pending user retest; native DLL deployed and hashes/backups independently verified",
+  "deployment": {
+    "backups_verified": true,
+    "editor_started": false,
+    "managed_unchanged": true,
+    "success": true,
+    "native_targets": 2
+  }
+}

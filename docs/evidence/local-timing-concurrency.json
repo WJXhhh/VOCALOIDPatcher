@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-16T03:48:01.687716+00:00",
+  "scope": "Same-process native VSM renderer and private timing sessions in an isolated harness. No Editor process, deployment or drag UI.",
+  "images": {
+    "DSE.dll": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "VSM.dll": "78eb2d8198855c0046dd1e8ae8141de609145a239d434f6518f08be33e369058",
+    "VOCALOID6.dll": "12fed09b2d0d2af5d0d2d5cbc12743248cb31aea1efa73723ab7e57b527ebd7e"
+  },
+  "backendSourceSha256": {
+    "ConsonantTimingInputEncoder.cs": "03200950a442af8bb51afc82ed0baa4f11df3b70f5f7f4e0e7255914e917ce8f",
+    "ConsonantTimingScoreAdapter.cs": "425691a54674d2b47003f9e460a6b2602308e89c3fceb0b41005aca642ee7fa5",
+    "LocalConsonantTimingBackend.cs": "9a06d8a27f9915f0307ea620807df382acc912d6b11a315cd5a710f292abaa57",
+    "LocalTimingNative.cs": "3dc58d908a17afe7cb6877abd7ffa47cffda9d4a9f6320ec0b19d628e52b2e01",
+    "NativeConsonantTimingEngine.cs": "dcabae75d76f7fefa4d8015d4954070041e0e4776238678b7ed46affad97a427"
+  },
+  "rawResultSha256": {
+    "concurrency": "e51997d73ef190137f3db18219103cb272c49e48a8c90f841f0f0cd60ed76460",
+    "core": "31dd53a842561af5013bbb231979bdfd19e6e5eb42c4318e61edfbfe1e1e6710",
+    "blocked_before": "af8bec174d833722d876db6d8801b3ea2bb341595c013acdeeb82ef151f37ac0",
+    "starved_before": "43040e61864d5bd8ec499c0939b6a6f3e48df22ea80202ab44bf2160ed6e8e40"
+  },
+  "regressions": {
+    "startLockBeforeMs": 1089.8735,
+    "contendedWarmQueryMs": 58.1817,
+    "startInsideLeaseSerialRenderMs": 329.1472,
+    "startInsideLeaseHammerRenderMs": 11329.2674,
+    "fix": "Start once at private-session construction; reset only schedule/parser under a cancellable 5 ms slice / 50 ms budget lease."
+  },
+  "serialReferences": [
+    {
+      "wallMs": 413.0288,
+      "pcmSha256": "54EF87131E7E4E9D1B01CD7A79276B9CED474282E3D99F27F6B587BC579A584E",
+      "pcmSteps": 4431
+    },
+    {
+      "wallMs": 347.7738,
+      "pcmSha256": "54EF87131E7E4E9D1B01CD7A79276B9CED474282E3D99F27F6B587BC579A584E",
+      "pcmSteps": 4431
+    }
+  ],
+  "renderModes": [
+    {
+      "name": "render",
+      "attempts": 1042,
+      "successful": 1042,
+      "busy": 0,
+      "actualOverlaps": 782,
+      "renderWallMs": 757.5611,
+      "queryLatencyMs": {
+        "count": 1042,
+        "min": 0.3924,
+        "median": 0.6463,
+        "p95": 1.0702,
+        "max": 42.7489
+      },
+      "maxContextNotes": 5,
+      "maxPlannerRuns": 2,
+      "pcmEqual": true,
+      "all48BoundaryListsEqual": true,
+      "maxRequestRateHz": null,
+      "closes": []
+    },
+    {
+      "name": "same_part",
+      "attempts": 411,
+      "successful": 411,
+      "busy": 0,
+      "actualOverlaps": 357,
+      "renderWallMs": 804.0716,
+      "queryLatencyMs": {
+        "count": 411,
+        "min": 1.2349,
+        "median": 1.7122,
+        "p95": 2.6489,
+        "max": 43.599
+      },
+      "maxContextNotes": 17,
+      "maxPlannerRuns": 4,
+      "pcmEqual": true,
+      "all48BoundaryListsEqual": true,
+      "maxRequestRateHz": null,
+      "closes": []
+    },
+    {
+      "name": "other_bank",
+      "attempts": 1050,
+      "successful": 1050,
+      "busy": 0,
+      "actualOverlaps": 795,
+      "renderWallMs": 744.8148,
+      "queryLatencyMs": {
+        "count": 1050,
+        "min": 0.3943,
+        "median": 0.63,
+        "p95": 1.0954,
+        "max": 41.4781
+      },
+      "maxContextNotes": 5,
+      "maxPlannerRuns": 2,
+      "pcmEqual": true,
+      "all48BoundaryListsEqual": true,
+      "maxRequestRateHz": null,
+      "closes": []
+    },
+    {
+      "name": "paced",
+      "attempts": 13,
+      "successful": 13,
+      "busy": 0,
+      "actualOverlaps": 8,
+      "renderWallMs": 378.7509,
+      "queryLatencyMs": {
+        "count": 13,
+        "min": 1.687,
+        "median": 2.3698,
+        "p95": 38.7178,
+        "max": 38.7178
+      },
+      "maxContextNotes": 17,
+      "maxPlannerRuns": 4,
+      "pcmEqual": true,
+      "all48BoundaryListsEqual": true,
+      "maxRequestRateHz": 60,
+      "closes": []
+    },
+    {
+      "name": "close",
+      "attempts": 87,
+      "successful": 87,
+      "busy": 0,
+      "actualOverlaps": 78,
+      "renderWallMs": 559.1217,
+      "queryLatencyMs": {
+        "count": 87,
+        "min": 0.43,
+        "median": 0.6513,
+        "p95": 0.9261,
+        "max": 8.8521
+      },
+      "maxContextNotes": 5,
+      "maxPlannerRuns": 2,
+      "pcmEqual": true,
+      "all48BoundaryListsEqual": true,
+      "maxRequestRateHz": null,
+      "closes": [
+        {
+          "milliseconds": 157.1846,
+          "renderPcmStepsDuringClose": 3088
+        },
+        {
+          "milliseconds": 171.7807,
+          "renderPcmStepsDuringClose": 485
+        },
+        {
+          "milliseconds": 161.7889,
+          "renderPcmStepsDuringClose": 596
+        }
+      ]
+    }
+  ],
+  "lifecycle": {
+    "name": "lifecycle",
+    "canceled": true,
+    "rejected": true,
+    "disposed": true,
+    "busyMs": 0.6765,
+    "cancellationMs": 18.1992,
+    "replacementEqual": true
+  },
+  "sourceSwitch": {
+    "name": "source_switch",
+    "closedSources": 30,
+    "bankAlternations": 29
+  },
+  "concurrentQueries": {
+    "name": "two_queries",
+    "attemptsPerWorker": 60,
+    "successesA": 60,
+    "successesB": 60,
+    "dse": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    }
+  },
+  "contendedMutex": {
+    "name": "mutex",
+    "sameMutex": true,
+    "outcome": "TimeoutException",
+    "waitMs": 58.1817
+  },
+  "memory": {
+    "name": "memory",
+    "snapshots": [
+      {
+        "queries": 0,
+        "privateBytes": 399069184,
+        "managedBytes": 213200,
+        "handles": 359,
+        "threads": 9
+      },
+      {
+        "queries": 1000,
+        "privateBytes": 415895552,
+        "managedBytes": 214904,
+        "handles": 359,
+        "threads": 9
+      },
+      {
+        "queries": 2000,
+        "privateBytes": 415993856,
+        "managedBytes": 221120,
+        "handles": 359,
+        "threads": 9
+      },
+      {
+        "queries": 4000,
+        "privateBytes": 416010240,
+        "managedBytes": 221168,
+        "handles": 359,
+        "threads": 9
+      },
+      {
+        "queries": 8000,
+        "privateBytes": 416010240,
+        "managedBytes": 221216,
+        "handles": 359,
+        "threads": 9
+      }
+    ],
+    "dse": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    },
+    "privateBytesGrowthAfter1000": 114688,
+    "managedBytesGrowthAfter1000": 6312
+  },
+  "correctnessRevalidated": {
+    "fullBoundaryCases": 142,
+    "onsetCases": 512,
+    "pcmSteps": 0,
+    "maxErrorTicks": 0,
+    "evidence": "local-timing-reused-session.json"
+  },
+  "remaining": [
+    "Real Editor/WPF Dispatcher and normal feature patches have not been exercised.",
+    "No current Editor MCP instance was available; no deployment or Editor launch was performed.",
+    "Future UI must coalesce/latest-only requests and preserve source lifetime; unpaced requests still consume CPU.",
+    "Cold session construction/teardown is not covered by the 50 ms planning-lock budget.",
+    "Memory plateau over 8000 queries does not prove absence of all leaks."
+  ]
+}

@@ -322,9 +322,9 @@ engine + 0x78 != 0  -> FUN_1801b3fb0
 
 ### E-015：当前运行日志还没有验证源码中的最新失效事务
 
-状态：VSM 静态行为已确认；当前源码与已采集宿主日志不是同一代。
+状态：历史宿主日志与当时源码不是同一代；2026-10-15 的地址归属和隔离行为校正见下文，REG 宿主失效链仍需单独验证。
 
-VSM 的 `WIVSMMidiPart.EndScoreEdit` 对应 `FUN_1800e3090`。一次成功结束的真实 score edit 会把 Part 的 `+0x4C2` 清零；该字节正是 `HasValidRenderedScore`，而 `+0x4C1` 是 `HasValidRenderedWave`。因此“临时改变首音符 Velocity、调用 `UpdateScoreEdit`、恢复 Velocity、再次更新并结束事务”在静态上具备使原生 score 失效的依据。
+2026-10-15 校正：本段原先将 `FUN_1800e3090` 识别为 `EndScoreEdit`，该地址实际对应 `CancelScoreEdit`；`EndScoreEdit` 为 VSM RVA `0xE2D90`。旧地址上的 flag 写入不能作为 End 行为的依据。本轮隔离动态试验确认 `Begin/Update/EndScoreEdit` 可以令 `HasValidRenderedScore` 变为 false，但不会自行重新规划采样音素时值，详见[局部时值研究](local-consonant-timing-feasibility.md)。缓存失效仍需与后续 DSE 实际进入、应用计数分开验证。
 
 当前源码的渲染请求日志包含 `invalidate=...`，但已采集的 `register-shift.log` 只有：
 

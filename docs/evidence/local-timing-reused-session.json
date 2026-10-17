@@ -1,0 +1,2895 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-16T03:45:00.268948+00:00",
+  "scope": "Private research process; no Editor launch, deployment or drag integration.",
+  "images": {
+    "DSE.dll": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "VSM.dll": "78eb2d8198855c0046dd1e8ae8141de609145a239d434f6518f08be33e369058",
+    "VOCALOID6.dll": "12fed09b2d0d2af5d0d2d5cbc12743248cb31aea1efa73723ab7e57b527ebd7e"
+  },
+  "backendSourceSha256": {
+    "ConsonantTimingInputEncoder.cs": "03200950a442af8bb51afc82ed0baa4f11df3b70f5f7f4e0e7255914e917ce8f",
+    "ConsonantTimingScoreAdapter.cs": "425691a54674d2b47003f9e460a6b2602308e89c3fceb0b41005aca642ee7fa5",
+    "LocalConsonantTimingBackend.cs": "9a06d8a27f9915f0307ea620807df382acc912d6b11a315cd5a710f292abaa57",
+    "LocalTimingNative.cs": "3dc58d908a17afe7cb6877abd7ffa47cffda9d4a9f6320ec0b19d628e52b2e01",
+    "NativeConsonantTimingEngine.cs": "dcabae75d76f7fefa4d8015d4954070041e0e4776238678b7ed46affad97a427"
+  },
+  "rawResultSha256": {
+    "matrix": "566a72bae0ba2a6dc7e5383a9d9f0bfce41ba5432d00ddf05b22ebdbd3aa432e",
+    "benchmark": "c9ec75bee05e09fd6dc195de1fb69b158b0d560289a50a684430eaf30e1336b1",
+    "golden": "5512512f87a8d651bb503d6f56ffece5213b75de976c10234357d48ece90665b"
+  },
+  "fullBoundaryComparison": {
+    "cases": 142,
+    "allEqual": true,
+    "maxErrorTicks": 0,
+    "emptyNativeResults": 3,
+    "allSourcesUnchanged": true,
+    "candidatePcmSteps": 0,
+    "candidatePcmSamples": 0,
+    "everyOracleProducedPcm": true,
+    "initializationMs": 202.472,
+    "uncachedLatencyMs": {
+      "min": 0.3406,
+      "median": 0.8612500000000001,
+      "p95": 1.8711,
+      "max": 9.7471
+    },
+    "cachedLatencyMs": {
+      "min": 0.0072,
+      "median": 0.0148,
+      "p95": 0.0473,
+      "max": 1.3216
+    },
+    "maxContextNotes": 17,
+    "maxPlannerRuns": 4,
+    "results": [
+      {
+        "fixture": "alone",
+        "velocity": 64,
+        "predicted": [
+          -30,
+          -2,
+          477
+        ],
+        "actual": [
+          -30,
+          -2,
+          477
+        ],
+        "contextNotes": 1,
+        "plannerRuns": 1,
+        "milliseconds": 9.7471,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "alone",
+        "velocity": 32,
+        "predicted": [
+          -97,
+          -2,
+          477
+        ],
+        "actual": [
+          -97,
+          -2,
+          477
+        ],
+        "contextNotes": 1,
+        "plannerRuns": 1,
+        "milliseconds": 0.7371,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "alone",
+        "velocity": 96,
+        "predicted": [
+          -19,
+          -2,
+          477
+        ],
+        "actual": [
+          -19,
+          -2,
+          477
+        ],
+        "contextNotes": 1,
+        "plannerRuns": 1,
+        "milliseconds": 0.3999,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "alone",
+        "velocity": 0,
+        "predicted": [
+          -309,
+          -2,
+          477
+        ],
+        "actual": [
+          -309,
+          -2,
+          477
+        ],
+        "contextNotes": 1,
+        "plannerRuns": 1,
+        "milliseconds": 0.5012,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "alone",
+        "velocity": 127,
+        "predicted": [
+          -19,
+          -2,
+          477
+        ],
+        "actual": [
+          -19,
+          -2,
+          477
+        ],
+        "contextNotes": 1,
+        "plannerRuns": 1,
+        "milliseconds": 0.3542,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "three",
+        "velocity": 64,
+        "predicted": [
+          -80,
+          -2,
+          405
+        ],
+        "actual": [
+          -80,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 1.1225,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "three",
+        "velocity": 32,
+        "predicted": [
+          -158,
+          -2,
+          405
+        ],
+        "actual": [
+          -158,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.7546,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "three",
+        "velocity": 96,
+        "predicted": [
+          -58,
+          -2,
+          405
+        ],
+        "actual": [
+          -58,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.5333,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "three",
+        "velocity": 0,
+        "predicted": [
+          -309,
+          -2,
+          405
+        ],
+        "actual": [
+          -309,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.7005,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "three",
+        "velocity": 127,
+        "predicted": [
+          -47,
+          -2,
+          405
+        ],
+        "actual": [
+          -47,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4733,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "previous",
+        "velocity": 64,
+        "predicted": [
+          -80,
+          -2,
+          477
+        ],
+        "actual": [
+          -80,
+          -2,
+          477
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.4156,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "previous",
+        "velocity": 32,
+        "predicted": [
+          -158,
+          -2,
+          477
+        ],
+        "actual": [
+          -158,
+          -2,
+          477
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.6362,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "previous",
+        "velocity": 96,
+        "predicted": [
+          -58,
+          -2,
+          477
+        ],
+        "actual": [
+          -58,
+          -2,
+          477
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.657,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "previous",
+        "velocity": 0,
+        "predicted": [
+          -309,
+          -2,
+          477
+        ],
+        "actual": [
+          -309,
+          -2,
+          477
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.5955,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "previous",
+        "velocity": 127,
+        "predicted": [
+          -47,
+          -2,
+          477
+        ],
+        "actual": [
+          -47,
+          -2,
+          477
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.4677,
+        "referencePcmSteps": 3467,
+        "referencePcmSamples": 887552
+      },
+      {
+        "fixture": "following",
+        "velocity": 64,
+        "predicted": [
+          -30,
+          -2,
+          405
+        ],
+        "actual": [
+          -30,
+          -2,
+          405
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.9562,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "following",
+        "velocity": 32,
+        "predicted": [
+          -97,
+          -2,
+          405
+        ],
+        "actual": [
+          -97,
+          -2,
+          405
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.507,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "following",
+        "velocity": 96,
+        "predicted": [
+          -19,
+          -2,
+          405
+        ],
+        "actual": [
+          -19,
+          -2,
+          405
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.3862,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "following",
+        "velocity": 0,
+        "predicted": [
+          -309,
+          -2,
+          405
+        ],
+        "actual": [
+          -309,
+          -2,
+          405
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.4298,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "following",
+        "velocity": 127,
+        "predicted": [
+          -19,
+          -2,
+          405
+        ],
+        "actual": [
+          -19,
+          -2,
+          405
+        ],
+        "contextNotes": 2,
+        "plannerRuns": 1,
+        "milliseconds": 0.4253,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "five",
+        "velocity": 64,
+        "predicted": [
+          -81,
+          -3,
+          404
+        ],
+        "actual": [
+          -81,
+          -3,
+          404
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.5022,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "five",
+        "velocity": 32,
+        "predicted": [
+          -159,
+          -3,
+          404
+        ],
+        "actual": [
+          -159,
+          -3,
+          404
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.5362,
+        "referencePcmSteps": 3605,
+        "referencePcmSamples": 922880
+      },
+      {
+        "fixture": "five",
+        "velocity": 96,
+        "predicted": [
+          -59,
+          -3,
+          404
+        ],
+        "actual": [
+          -59,
+          -3,
+          404
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.154,
+        "referencePcmSteps": 3605,
+        "referencePcmSamples": 922880
+      },
+      {
+        "fixture": "five",
+        "velocity": 0,
+        "predicted": [
+          -309,
+          -3,
+          404
+        ],
+        "actual": [
+          -309,
+          -3,
+          404
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 2.19,
+        "referencePcmSteps": 3605,
+        "referencePcmSamples": 922880
+      },
+      {
+        "fixture": "five",
+        "velocity": 127,
+        "predicted": [
+          -48,
+          -3,
+          404
+        ],
+        "actual": [
+          -48,
+          -3,
+          404
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0649,
+        "referencePcmSteps": 3605,
+        "referencePcmSamples": 922880
+      },
+      {
+        "fixture": "gap",
+        "velocity": 64,
+        "predicted": [
+          -33,
+          -5,
+          474
+        ],
+        "actual": [
+          -33,
+          -5,
+          474
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4468,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "gap",
+        "velocity": 32,
+        "predicted": [
+          -100,
+          -5,
+          474
+        ],
+        "actual": [
+          -100,
+          -5,
+          474
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4929,
+        "referencePcmSteps": 3562,
+        "referencePcmSamples": 911872
+      },
+      {
+        "fixture": "gap",
+        "velocity": 96,
+        "predicted": [
+          -22,
+          -5,
+          474
+        ],
+        "actual": [
+          -22,
+          -5,
+          474
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4347,
+        "referencePcmSteps": 3562,
+        "referencePcmSamples": 911872
+      },
+      {
+        "fixture": "gap",
+        "velocity": 0,
+        "predicted": [
+          -312,
+          -5,
+          474
+        ],
+        "actual": [
+          -312,
+          -5,
+          474
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 1.1632,
+        "referencePcmSteps": 3562,
+        "referencePcmSamples": 911872
+      },
+      {
+        "fixture": "gap",
+        "velocity": 127,
+        "predicted": [
+          -22,
+          -5,
+          474
+        ],
+        "actual": [
+          -22,
+          -5,
+          474
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4751,
+        "referencePcmSteps": 3562,
+        "referencePcmSamples": 911872
+      },
+      {
+        "fixture": "short",
+        "velocity": 64,
+        "predicted": [
+          -49,
+          -4,
+          85
+        ],
+        "actual": [
+          -49,
+          -4,
+          85
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.3884,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "short",
+        "velocity": 32,
+        "predicted": [
+          -60,
+          -4,
+          85
+        ],
+        "actual": [
+          -60,
+          -4,
+          85
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.3704,
+        "referencePcmSteps": 3325,
+        "referencePcmSamples": 851200
+      },
+      {
+        "fixture": "short",
+        "velocity": 96,
+        "predicted": [
+          -38,
+          -4,
+          85
+        ],
+        "actual": [
+          -38,
+          -4,
+          85
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.3714,
+        "referencePcmSteps": 3325,
+        "referencePcmSamples": 851200
+      },
+      {
+        "fixture": "short",
+        "velocity": 0,
+        "predicted": [
+          -82,
+          -4,
+          85
+        ],
+        "actual": [
+          -82,
+          -4,
+          85
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.3406,
+        "referencePcmSteps": 3325,
+        "referencePcmSamples": 851200
+      },
+      {
+        "fixture": "short",
+        "velocity": 127,
+        "predicted": [
+          -32,
+          -4,
+          85
+        ],
+        "actual": [
+          -32,
+          -4,
+          85
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.49,
+        "referencePcmSteps": 3325,
+        "referencePcmSamples": 851200
+      },
+      {
+        "fixture": "evec",
+        "velocity": 64,
+        "predicted": [
+          -136,
+          -64,
+          -36,
+          -13,
+          -2,
+          405
+        ],
+        "actual": [
+          -136,
+          -64,
+          -36,
+          -13,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6766,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "evec",
+        "velocity": 32,
+        "predicted": [
+          -214,
+          -64,
+          -36,
+          -13,
+          -2,
+          405
+        ],
+        "actual": [
+          -214,
+          -64,
+          -36,
+          -13,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6649,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "evec",
+        "velocity": 96,
+        "predicted": [
+          -97,
+          -47,
+          -30,
+          -13,
+          -2,
+          405
+        ],
+        "actual": [
+          -97,
+          -47,
+          -30,
+          -13,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4263,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "evec",
+        "velocity": 0,
+        "predicted": [
+          -342,
+          -64,
+          -36,
+          -13,
+          -2,
+          405
+        ],
+        "actual": [
+          -342,
+          -64,
+          -36,
+          -13,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6681,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "evec",
+        "velocity": 127,
+        "predicted": [
+          -86,
+          -47,
+          -30,
+          -13,
+          -2,
+          405
+        ],
+        "actual": [
+          -86,
+          -47,
+          -30,
+          -13,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.5405,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "shift_tempo",
+        "velocity": 64,
+        "predicted": [
+          -64,
+          -2,
+          425
+        ],
+        "actual": [
+          -64,
+          -2,
+          425
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.7538,
+        "referencePcmSteps": 3809,
+        "referencePcmSamples": 975104
+      },
+      {
+        "fixture": "shift_tempo",
+        "velocity": 32,
+        "predicted": [
+          -142,
+          -2,
+          425
+        ],
+        "actual": [
+          -142,
+          -2,
+          425
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.7058,
+        "referencePcmSteps": 3580,
+        "referencePcmSamples": 916480
+      },
+      {
+        "fixture": "shift_tempo",
+        "velocity": 96,
+        "predicted": [
+          -43,
+          -2,
+          425
+        ],
+        "actual": [
+          -43,
+          -2,
+          425
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4197,
+        "referencePcmSteps": 3580,
+        "referencePcmSamples": 916480
+      },
+      {
+        "fixture": "shift_tempo",
+        "velocity": 0,
+        "predicted": [
+          -292,
+          -2,
+          425
+        ],
+        "actual": [
+          -292,
+          -2,
+          425
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6697,
+        "referencePcmSteps": 3580,
+        "referencePcmSamples": 916480
+      },
+      {
+        "fixture": "shift_tempo",
+        "velocity": 127,
+        "predicted": [
+          -35,
+          -2,
+          425
+        ],
+        "actual": [
+          -35,
+          -2,
+          425
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4487,
+        "referencePcmSteps": 3580,
+        "referencePcmSamples": 916480
+      },
+      {
+        "fixture": "rin",
+        "velocity": 64,
+        "predicted": [
+          -97,
+          -36,
+          -13,
+          -2,
+          410
+        ],
+        "actual": [
+          -97,
+          -36,
+          -13,
+          -2,
+          410
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4431,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "rin",
+        "velocity": 32,
+        "predicted": [
+          -169,
+          -36,
+          -13,
+          -2,
+          410
+        ],
+        "actual": [
+          -169,
+          -36,
+          -13,
+          -2,
+          410
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6708,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "rin",
+        "velocity": 96,
+        "predicted": [
+          -69,
+          -30,
+          -13,
+          -2,
+          410
+        ],
+        "actual": [
+          -69,
+          -30,
+          -13,
+          -2,
+          410
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.7492,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "rin",
+        "velocity": 0,
+        "predicted": [
+          -325,
+          -36,
+          -13,
+          -2,
+          410
+        ],
+        "actual": [
+          -325,
+          -36,
+          -13,
+          -2,
+          410
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6014,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "rin",
+        "velocity": 127,
+        "predicted": [
+          -64,
+          -30,
+          -13,
+          -2,
+          410
+        ],
+        "actual": [
+          -64,
+          -30,
+          -13,
+          -2,
+          410
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4509,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "repeat",
+        "velocity": 64,
+        "predicted": [
+          -82,
+          -4,
+          476
+        ],
+        "actual": [
+          -82,
+          -4,
+          476
+        ],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 1.1532,
+        "referencePcmSteps": 3950,
+        "referencePcmSamples": 1011200
+      },
+      {
+        "fixture": "repeat",
+        "velocity": 32,
+        "predicted": [
+          -160,
+          -4,
+          476
+        ],
+        "actual": [
+          -160,
+          -4,
+          476
+        ],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 1.6289,
+        "referencePcmSteps": 3860,
+        "referencePcmSamples": 988160
+      },
+      {
+        "fixture": "repeat",
+        "velocity": 96,
+        "predicted": [
+          -59,
+          -4,
+          476
+        ],
+        "actual": [
+          -59,
+          -4,
+          476
+        ],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 1.028,
+        "referencePcmSteps": 3859,
+        "referencePcmSamples": 987904
+      },
+      {
+        "fixture": "repeat",
+        "velocity": 0,
+        "predicted": [
+          -310,
+          -4,
+          476
+        ],
+        "actual": [
+          -310,
+          -4,
+          476
+        ],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 1.65,
+        "referencePcmSteps": 3862,
+        "referencePcmSamples": 988672
+      },
+      {
+        "fixture": "repeat",
+        "velocity": 127,
+        "predicted": [
+          -48,
+          -4,
+          476
+        ],
+        "actual": [
+          -48,
+          -4,
+          476
+        ],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 1.0496,
+        "referencePcmSteps": 3862,
+        "referencePcmSamples": 988672
+      },
+      {
+        "fixture": "chain100",
+        "velocity": 64,
+        "predicted": [
+          -39,
+          -5,
+          73
+        ],
+        "actual": [
+          -39,
+          -5,
+          73
+        ],
+        "contextNotes": 9,
+        "plannerRuns": 3,
+        "milliseconds": 0.9228,
+        "referencePcmSteps": 5565,
+        "referencePcmSamples": 1424640
+      },
+      {
+        "fixture": "chain100",
+        "velocity": 32,
+        "predicted": [
+          -50,
+          -5,
+          73
+        ],
+        "actual": [
+          -50,
+          -5,
+          73
+        ],
+        "contextNotes": 9,
+        "plannerRuns": 3,
+        "milliseconds": 1.075,
+        "referencePcmSteps": 4398,
+        "referencePcmSamples": 1125888
+      },
+      {
+        "fixture": "chain100",
+        "velocity": 96,
+        "predicted": [
+          -33,
+          -5,
+          73
+        ],
+        "actual": [
+          -33,
+          -5,
+          73
+        ],
+        "contextNotes": 9,
+        "plannerRuns": 3,
+        "milliseconds": 0.9479,
+        "referencePcmSteps": 4398,
+        "referencePcmSamples": 1125888
+      },
+      {
+        "fixture": "chain100",
+        "velocity": 0,
+        "predicted": [
+          -61,
+          -5,
+          73
+        ],
+        "actual": [
+          -61,
+          -5,
+          73
+        ],
+        "contextNotes": 9,
+        "plannerRuns": 3,
+        "milliseconds": 1.1417,
+        "referencePcmSteps": 4399,
+        "referencePcmSamples": 1126144
+      },
+      {
+        "fixture": "chain100",
+        "velocity": 127,
+        "predicted": [
+          -27,
+          -5,
+          73
+        ],
+        "actual": [
+          -27,
+          -5,
+          73
+        ],
+        "contextNotes": 17,
+        "plannerRuns": 4,
+        "milliseconds": 1.5969,
+        "referencePcmSteps": 4399,
+        "referencePcmSamples": 1126144
+      },
+      {
+        "fixture": "release",
+        "velocity": 64,
+        "predicted": [
+          -97,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "actual": [
+          -97,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.5629,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "release",
+        "velocity": 32,
+        "predicted": [
+          -175,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "actual": [
+          -175,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6553,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "release",
+        "velocity": 96,
+        "predicted": [
+          -75,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "actual": [
+          -75,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4596,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "release",
+        "velocity": 0,
+        "predicted": [
+          -314,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "actual": [
+          -314,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6327,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "release",
+        "velocity": 127,
+        "predicted": [
+          -58,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "actual": [
+          -58,
+          -13,
+          -2,
+          171,
+          399,
+          421
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4598,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "controllers",
+        "velocity": 64,
+        "predicted": [
+          -80,
+          -2,
+          405
+        ],
+        "actual": [
+          -80,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4064,
+        "referencePcmSteps": 3691,
+        "referencePcmSamples": 944896
+      },
+      {
+        "fixture": "controllers",
+        "velocity": 32,
+        "predicted": [
+          -158,
+          -2,
+          405
+        ],
+        "actual": [
+          -158,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6085,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "controllers",
+        "velocity": 96,
+        "predicted": [
+          -58,
+          -2,
+          405
+        ],
+        "actual": [
+          -58,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4055,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "controllers",
+        "velocity": 0,
+        "predicted": [
+          -309,
+          -2,
+          405
+        ],
+        "actual": [
+          -309,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.6546,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "controllers",
+        "velocity": 127,
+        "predicted": [
+          -47,
+          -2,
+          405
+        ],
+        "actual": [
+          -47,
+          -2,
+          405
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 1,
+        "milliseconds": 0.4204,
+        "referencePcmSteps": 3519,
+        "referencePcmSamples": 900864
+      },
+      {
+        "fixture": "fuzz_0",
+        "velocity": 0,
+        "predicted": [
+          -29,
+          -1,
+          144
+        ],
+        "actual": [
+          -29,
+          -1,
+          144
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 2.0082,
+        "referencePcmSteps": 6275,
+        "referencePcmSamples": 1606400
+      },
+      {
+        "fixture": "fuzz_0",
+        "velocity": 64,
+        "predicted": [
+          -8,
+          -1,
+          144
+        ],
+        "actual": [
+          -8,
+          -1,
+          144
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.5063,
+        "referencePcmSteps": 4119,
+        "referencePcmSamples": 1054464
+      },
+      {
+        "fixture": "fuzz_0",
+        "velocity": 127,
+        "predicted": [
+          -5,
+          -1,
+          144
+        ],
+        "actual": [
+          -5,
+          -1,
+          144
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.5786,
+        "referencePcmSteps": 4119,
+        "referencePcmSamples": 1054464
+      },
+      {
+        "fixture": "fuzz_1",
+        "velocity": 0,
+        "predicted": [
+          -2,
+          73,
+          189
+        ],
+        "actual": [
+          -2,
+          73,
+          189
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.3612,
+        "referencePcmSteps": 4023,
+        "referencePcmSamples": 1029888
+      },
+      {
+        "fixture": "fuzz_1",
+        "velocity": 64,
+        "predicted": [
+          -2,
+          73,
+          189
+        ],
+        "actual": [
+          -2,
+          73,
+          189
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.0069,
+        "referencePcmSteps": 3776,
+        "referencePcmSamples": 966656
+      },
+      {
+        "fixture": "fuzz_1",
+        "velocity": 127,
+        "predicted": [
+          -2,
+          73,
+          189
+        ],
+        "actual": [
+          -2,
+          73,
+          189
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.018,
+        "referencePcmSteps": 3776,
+        "referencePcmSamples": 966656
+      },
+      {
+        "fixture": "fuzz_2",
+        "velocity": 0,
+        "predicted": [
+          -101,
+          -4,
+          57
+        ],
+        "actual": [
+          -101,
+          -4,
+          57
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.7671,
+        "referencePcmSteps": 3779,
+        "referencePcmSamples": 967424
+      },
+      {
+        "fixture": "fuzz_2",
+        "velocity": 64,
+        "predicted": [
+          -57,
+          -4,
+          57
+        ],
+        "actual": [
+          -57,
+          -4,
+          57
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.1801,
+        "referencePcmSteps": 3493,
+        "referencePcmSamples": 894208
+      },
+      {
+        "fixture": "fuzz_2",
+        "velocity": 127,
+        "predicted": [
+          -39,
+          -4,
+          57
+        ],
+        "actual": [
+          -39,
+          -4,
+          57
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.6065,
+        "referencePcmSteps": 3493,
+        "referencePcmSamples": 894208
+      },
+      {
+        "fixture": "fuzz_3",
+        "velocity": 0,
+        "predicted": [
+          -245,
+          -8,
+          159
+        ],
+        "actual": [
+          -245,
+          -8,
+          159
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.8651,
+        "referencePcmSteps": 3381,
+        "referencePcmSamples": 865536
+      },
+      {
+        "fixture": "fuzz_3",
+        "velocity": 64,
+        "predicted": [
+          -119,
+          -8,
+          159
+        ],
+        "actual": [
+          -119,
+          -8,
+          159
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.8167,
+        "referencePcmSteps": 3305,
+        "referencePcmSamples": 846080
+      },
+      {
+        "fixture": "fuzz_3",
+        "velocity": 127,
+        "predicted": [
+          -91,
+          -8,
+          159
+        ],
+        "actual": [
+          -91,
+          -8,
+          159
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.8292,
+        "referencePcmSteps": 3305,
+        "referencePcmSamples": 846080
+      },
+      {
+        "fixture": "fuzz_4",
+        "velocity": 0,
+        "predicted": [
+          -52,
+          -1,
+          95
+        ],
+        "actual": [
+          -52,
+          -1,
+          95
+        ],
+        "contextNotes": 8,
+        "plannerRuns": 3,
+        "milliseconds": 3.6833,
+        "referencePcmSteps": 4907,
+        "referencePcmSamples": 1256192
+      },
+      {
+        "fixture": "fuzz_4",
+        "velocity": 64,
+        "predicted": [
+          -15,
+          -1,
+          95
+        ],
+        "actual": [
+          -15,
+          -1,
+          95
+        ],
+        "contextNotes": 8,
+        "plannerRuns": 3,
+        "milliseconds": 1.7733,
+        "referencePcmSteps": 4829,
+        "referencePcmSamples": 1236224
+      },
+      {
+        "fixture": "fuzz_4",
+        "velocity": 127,
+        "predicted": [
+          -8,
+          -1,
+          95
+        ],
+        "actual": [
+          -8,
+          -1,
+          95
+        ],
+        "contextNotes": 8,
+        "plannerRuns": 3,
+        "milliseconds": 1.831,
+        "referencePcmSteps": 4829,
+        "referencePcmSamples": 1236224
+      },
+      {
+        "fixture": "fuzz_5",
+        "velocity": 0,
+        "predicted": [
+          -109,
+          -3,
+          105
+        ],
+        "actual": [
+          -109,
+          -3,
+          105
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 2.1163,
+        "referencePcmSteps": 4070,
+        "referencePcmSamples": 1041920
+      },
+      {
+        "fixture": "fuzz_5",
+        "velocity": 64,
+        "predicted": [
+          -44,
+          -3,
+          105
+        ],
+        "actual": [
+          -44,
+          -3,
+          105
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.7391,
+        "referencePcmSteps": 3427,
+        "referencePcmSamples": 877312
+      },
+      {
+        "fixture": "fuzz_5",
+        "velocity": 127,
+        "predicted": [
+          -27,
+          -3,
+          105
+        ],
+        "actual": [
+          -27,
+          -3,
+          105
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.6369,
+        "referencePcmSteps": 3426,
+        "referencePcmSamples": 877056
+      },
+      {
+        "fixture": "fuzz_6",
+        "velocity": 0,
+        "predicted": [
+          -1,
+          243
+        ],
+        "actual": [
+          -1,
+          243
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.1957,
+        "referencePcmSteps": 5421,
+        "referencePcmSamples": 1387776
+      },
+      {
+        "fixture": "fuzz_6",
+        "velocity": 64,
+        "predicted": [
+          -1,
+          243
+        ],
+        "actual": [
+          -1,
+          243
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.2088,
+        "referencePcmSteps": 4051,
+        "referencePcmSamples": 1037056
+      },
+      {
+        "fixture": "fuzz_6",
+        "velocity": 127,
+        "predicted": [
+          -1,
+          243
+        ],
+        "actual": [
+          -1,
+          243
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0421,
+        "referencePcmSteps": 4051,
+        "referencePcmSamples": 1037056
+      },
+      {
+        "fixture": "fuzz_7",
+        "velocity": 0,
+        "predicted": [
+          -769,
+          -3,
+          136
+        ],
+        "actual": [
+          -769,
+          -3,
+          136
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0464,
+        "referencePcmSteps": 3381,
+        "referencePcmSamples": 865536
+      },
+      {
+        "fixture": "fuzz_7",
+        "velocity": 64,
+        "predicted": [
+          -87,
+          -3,
+          136
+        ],
+        "actual": [
+          -87,
+          -3,
+          136
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.864,
+        "referencePcmSteps": 3204,
+        "referencePcmSamples": 820224
+      },
+      {
+        "fixture": "fuzz_7",
+        "velocity": 127,
+        "predicted": [
+          -45,
+          -3,
+          136
+        ],
+        "actual": [
+          -45,
+          -3,
+          136
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.7651,
+        "referencePcmSteps": 3204,
+        "referencePcmSamples": 820224
+      },
+      {
+        "fixture": "fuzz_8",
+        "velocity": 0,
+        "predicted": [
+          -2,
+          108,
+          195
+        ],
+        "actual": [
+          -2,
+          108,
+          195
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 2,
+        "milliseconds": 0.6469,
+        "referencePcmSteps": 4499,
+        "referencePcmSamples": 1151744
+      },
+      {
+        "fixture": "fuzz_8",
+        "velocity": 64,
+        "predicted": [
+          -2,
+          108,
+          195
+        ],
+        "actual": [
+          -2,
+          108,
+          195
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 2,
+        "milliseconds": 0.6274,
+        "referencePcmSteps": 4114,
+        "referencePcmSamples": 1053184
+      },
+      {
+        "fixture": "fuzz_8",
+        "velocity": 127,
+        "predicted": [
+          -2,
+          108,
+          195
+        ],
+        "actual": [
+          -2,
+          108,
+          195
+        ],
+        "contextNotes": 3,
+        "plannerRuns": 2,
+        "milliseconds": 0.7049,
+        "referencePcmSteps": 4114,
+        "referencePcmSamples": 1053184
+      },
+      {
+        "fixture": "fuzz_9",
+        "velocity": 0,
+        "predicted": [
+          -1,
+          23,
+          74
+        ],
+        "actual": [
+          -1,
+          23,
+          74
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 3,
+        "milliseconds": 1.1845,
+        "referencePcmSteps": 4023,
+        "referencePcmSamples": 1029888
+      },
+      {
+        "fixture": "fuzz_9",
+        "velocity": 64,
+        "predicted": [
+          -1,
+          23,
+          74
+        ],
+        "actual": [
+          -1,
+          23,
+          74
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 3,
+        "milliseconds": 1.1693,
+        "referencePcmSteps": 3315,
+        "referencePcmSamples": 848640
+      },
+      {
+        "fixture": "fuzz_9",
+        "velocity": 127,
+        "predicted": [
+          -1,
+          23,
+          74
+        ],
+        "actual": [
+          -1,
+          23,
+          74
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 3,
+        "milliseconds": 1.0556,
+        "referencePcmSteps": 3315,
+        "referencePcmSamples": 848640
+      },
+      {
+        "fixture": "fuzz_10",
+        "velocity": 0,
+        "predicted": [
+          -6,
+          84
+        ],
+        "actual": [
+          -6,
+          84
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 3,
+        "milliseconds": 1.022,
+        "referencePcmSteps": 3452,
+        "referencePcmSamples": 883712
+      },
+      {
+        "fixture": "fuzz_10",
+        "velocity": 64,
+        "predicted": [
+          -6,
+          84
+        ],
+        "actual": [
+          -6,
+          84
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 3,
+        "milliseconds": 0.875,
+        "referencePcmSteps": 3276,
+        "referencePcmSamples": 838656
+      },
+      {
+        "fixture": "fuzz_10",
+        "velocity": 127,
+        "predicted": [
+          -6,
+          84
+        ],
+        "actual": [
+          -6,
+          84
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 3,
+        "milliseconds": 0.7896,
+        "referencePcmSteps": 3276,
+        "referencePcmSamples": 838656
+      },
+      {
+        "fixture": "fuzz_11",
+        "velocity": 0,
+        "predicted": [
+          -141,
+          -15,
+          54
+        ],
+        "actual": [
+          -141,
+          -15,
+          54
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.2698,
+        "referencePcmSteps": 3381,
+        "referencePcmSamples": 865536
+      },
+      {
+        "fixture": "fuzz_11",
+        "velocity": 64,
+        "predicted": [
+          -113,
+          -15,
+          54
+        ],
+        "actual": [
+          -113,
+          -15,
+          54
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0756,
+        "referencePcmSteps": 3295,
+        "referencePcmSamples": 843520
+      },
+      {
+        "fixture": "fuzz_11",
+        "velocity": 127,
+        "predicted": [
+          -85,
+          -15,
+          54
+        ],
+        "actual": [
+          -85,
+          -15,
+          54
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0745,
+        "referencePcmSteps": 3295,
+        "referencePcmSamples": 843520
+      },
+      {
+        "fixture": "fuzz_12",
+        "velocity": 0,
+        "predicted": [
+          -1,
+          131
+        ],
+        "actual": [
+          -1,
+          131
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.1316,
+        "referencePcmSteps": 6275,
+        "referencePcmSamples": 1606400
+      },
+      {
+        "fixture": "fuzz_12",
+        "velocity": 64,
+        "predicted": [
+          -1,
+          131
+        ],
+        "actual": [
+          -1,
+          131
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.1441,
+        "referencePcmSteps": 3885,
+        "referencePcmSamples": 994560
+      },
+      {
+        "fixture": "fuzz_12",
+        "velocity": 127,
+        "predicted": [
+          -1,
+          131
+        ],
+        "actual": [
+          -1,
+          131
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.1066,
+        "referencePcmSteps": 3885,
+        "referencePcmSamples": 994560
+      },
+      {
+        "fixture": "fuzz_13",
+        "velocity": 0,
+        "predicted": [
+          -2,
+          188
+        ],
+        "actual": [
+          -2,
+          188
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.455,
+        "referencePcmSteps": 4023,
+        "referencePcmSamples": 1029888
+      },
+      {
+        "fixture": "fuzz_13",
+        "velocity": 64,
+        "predicted": [
+          -2,
+          188
+        ],
+        "actual": [
+          -2,
+          188
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.1547,
+        "referencePcmSteps": 3449,
+        "referencePcmSamples": 882944
+      },
+      {
+        "fixture": "fuzz_13",
+        "velocity": 127,
+        "predicted": [
+          -2,
+          188
+        ],
+        "actual": [
+          -2,
+          188
+        ],
+        "contextNotes": 6,
+        "plannerRuns": 3,
+        "milliseconds": 1.2785,
+        "referencePcmSteps": 3449,
+        "referencePcmSamples": 882944
+      },
+      {
+        "fixture": "fuzz_14",
+        "velocity": 0,
+        "predicted": [
+          -54,
+          -4,
+          302
+        ],
+        "actual": [
+          -54,
+          -4,
+          302
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.862,
+        "referencePcmSteps": 3812,
+        "referencePcmSamples": 975872
+      },
+      {
+        "fixture": "fuzz_14",
+        "velocity": 64,
+        "predicted": [
+          -32,
+          -4,
+          302
+        ],
+        "actual": [
+          -32,
+          -4,
+          302
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.849,
+        "referencePcmSteps": 3348,
+        "referencePcmSamples": 857088
+      },
+      {
+        "fixture": "fuzz_14",
+        "velocity": 127,
+        "predicted": [
+          -27,
+          -4,
+          302
+        ],
+        "actual": [
+          -27,
+          -4,
+          302
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.8582,
+        "referencePcmSteps": 3348,
+        "referencePcmSamples": 857088
+      },
+      {
+        "fixture": "fuzz_15",
+        "velocity": 0,
+        "predicted": [
+          -268,
+          -3,
+          122
+        ],
+        "actual": [
+          -268,
+          -3,
+          122
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 2.0845,
+        "referencePcmSteps": 3381,
+        "referencePcmSamples": 865536
+      },
+      {
+        "fixture": "fuzz_15",
+        "velocity": 64,
+        "predicted": [
+          -156,
+          -3,
+          122
+        ],
+        "actual": [
+          -156,
+          -3,
+          122
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.7272,
+        "referencePcmSteps": 3241,
+        "referencePcmSamples": 829696
+      },
+      {
+        "fixture": "fuzz_15",
+        "velocity": 127,
+        "predicted": [
+          -101,
+          -3,
+          122
+        ],
+        "actual": [
+          -101,
+          -3,
+          122
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.1918,
+        "referencePcmSteps": 3241,
+        "referencePcmSamples": 829696
+      },
+      {
+        "fixture": "fuzz_16",
+        "velocity": 0,
+        "predicted": [
+          -52,
+          -1,
+          100
+        ],
+        "actual": [
+          -52,
+          -1,
+          100
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.1493,
+        "referencePcmSteps": 4132,
+        "referencePcmSamples": 1057792
+      },
+      {
+        "fixture": "fuzz_16",
+        "velocity": 64,
+        "predicted": [
+          -6,
+          -1,
+          100
+        ],
+        "actual": [
+          -6,
+          -1,
+          100
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0109,
+        "referencePcmSteps": 3536,
+        "referencePcmSamples": 905216
+      },
+      {
+        "fixture": "fuzz_16",
+        "velocity": 127,
+        "predicted": [
+          -4,
+          -1,
+          100
+        ],
+        "actual": [
+          -4,
+          -1,
+          100
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.9667,
+        "referencePcmSteps": 3536,
+        "referencePcmSamples": 905216
+      },
+      {
+        "fixture": "fuzz_17",
+        "velocity": 0,
+        "predicted": [
+          -187,
+          0,
+          40
+        ],
+        "actual": [
+          -187,
+          0,
+          40
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0794,
+        "referencePcmSteps": 4023,
+        "referencePcmSamples": 1029888
+      },
+      {
+        "fixture": "fuzz_17",
+        "velocity": 64,
+        "predicted": [
+          -65,
+          0,
+          40
+        ],
+        "actual": [
+          -65,
+          0,
+          40
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.8437,
+        "referencePcmSteps": 3307,
+        "referencePcmSamples": 846592
+      },
+      {
+        "fixture": "fuzz_17",
+        "velocity": 127,
+        "predicted": [
+          -34,
+          0,
+          40
+        ],
+        "actual": [
+          -34,
+          0,
+          40
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0481,
+        "referencePcmSteps": 3307,
+        "referencePcmSamples": 846592
+      },
+      {
+        "fixture": "fuzz_18",
+        "velocity": 0,
+        "predicted": [
+          -238,
+          -3,
+          243
+        ],
+        "actual": [
+          -238,
+          -3,
+          243
+        ],
+        "contextNotes": 8,
+        "plannerRuns": 3,
+        "milliseconds": 1.8711,
+        "referencePcmSteps": 5176,
+        "referencePcmSamples": 1325056
+      },
+      {
+        "fixture": "fuzz_18",
+        "velocity": 64,
+        "predicted": [
+          -59,
+          -3,
+          243
+        ],
+        "actual": [
+          -59,
+          -3,
+          243
+        ],
+        "contextNotes": 8,
+        "plannerRuns": 3,
+        "milliseconds": 1.7939,
+        "referencePcmSteps": 4055,
+        "referencePcmSamples": 1038080
+      },
+      {
+        "fixture": "fuzz_18",
+        "velocity": 127,
+        "predicted": [
+          -31,
+          -3,
+          243
+        ],
+        "actual": [
+          -31,
+          -3,
+          243
+        ],
+        "contextNotes": 8,
+        "plannerRuns": 3,
+        "milliseconds": 1.7981,
+        "referencePcmSteps": 4055,
+        "referencePcmSamples": 1038080
+      },
+      {
+        "fixture": "fuzz_19",
+        "velocity": 0,
+        "predicted": [
+          -153,
+          -14,
+          125
+        ],
+        "actual": [
+          -153,
+          -14,
+          125
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.6909,
+        "referencePcmSteps": 3381,
+        "referencePcmSamples": 865536
+      },
+      {
+        "fixture": "fuzz_19",
+        "velocity": 64,
+        "predicted": [
+          -70,
+          -14,
+          125
+        ],
+        "actual": [
+          -70,
+          -14,
+          125
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.6078,
+        "referencePcmSteps": 3241,
+        "referencePcmSamples": 829696
+      },
+      {
+        "fixture": "fuzz_19",
+        "velocity": 127,
+        "predicted": [
+          -70,
+          -14,
+          125
+        ],
+        "actual": [
+          -70,
+          -14,
+          125
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.5553,
+        "referencePcmSteps": 3224,
+        "referencePcmSamples": 825344
+      },
+      {
+        "fixture": "fuzz_20",
+        "velocity": 0,
+        "predicted": [
+          -1,
+          358
+        ],
+        "actual": [
+          -1,
+          358
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.8389,
+        "referencePcmSteps": 4717,
+        "referencePcmSamples": 1207552
+      },
+      {
+        "fixture": "fuzz_20",
+        "velocity": 64,
+        "predicted": [
+          -1,
+          358
+        ],
+        "actual": [
+          -1,
+          358
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.8605,
+        "referencePcmSteps": 4341,
+        "referencePcmSamples": 1111296
+      },
+      {
+        "fixture": "fuzz_20",
+        "velocity": 127,
+        "predicted": [
+          -1,
+          358
+        ],
+        "actual": [
+          -1,
+          358
+        ],
+        "contextNotes": 4,
+        "plannerRuns": 2,
+        "milliseconds": 0.7569,
+        "referencePcmSteps": 4341,
+        "referencePcmSamples": 1111296
+      },
+      {
+        "fixture": "fuzz_21",
+        "velocity": 0,
+        "predicted": [
+          -188,
+          -1,
+          199
+        ],
+        "actual": [
+          -188,
+          -1,
+          199
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.7262,
+        "referencePcmSteps": 4023,
+        "referencePcmSamples": 1029888
+      },
+      {
+        "fixture": "fuzz_21",
+        "velocity": 64,
+        "predicted": [
+          -66,
+          -1,
+          199
+        ],
+        "actual": [
+          -66,
+          -1,
+          199
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.7178,
+        "referencePcmSteps": 3728,
+        "referencePcmSamples": 954368
+      },
+      {
+        "fixture": "fuzz_21",
+        "velocity": 127,
+        "predicted": [
+          -35,
+          -1,
+          199
+        ],
+        "actual": [
+          -35,
+          -1,
+          199
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.7292,
+        "referencePcmSteps": 3728,
+        "referencePcmSamples": 954368
+      },
+      {
+        "fixture": "fuzz_22",
+        "velocity": 0,
+        "predicted": [
+          -308,
+          -2,
+          176
+        ],
+        "actual": [
+          -308,
+          -2,
+          176
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.0721,
+        "referencePcmSteps": 3472,
+        "referencePcmSamples": 888832
+      },
+      {
+        "fixture": "fuzz_22",
+        "velocity": 64,
+        "predicted": [
+          -63,
+          -2,
+          176
+        ],
+        "actual": [
+          -63,
+          -2,
+          176
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 1.2229,
+        "referencePcmSteps": 3312,
+        "referencePcmSamples": 847872
+      },
+      {
+        "fixture": "fuzz_22",
+        "velocity": 127,
+        "predicted": [
+          -35,
+          -2,
+          176
+        ],
+        "actual": [
+          -35,
+          -2,
+          176
+        ],
+        "contextNotes": 5,
+        "plannerRuns": 3,
+        "milliseconds": 0.8792,
+        "referencePcmSteps": 3312,
+        "referencePcmSamples": 847872
+      },
+      {
+        "fixture": "fuzz_23",
+        "velocity": 0,
+        "predicted": [],
+        "actual": [],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 3.6515,
+        "referencePcmSteps": 3391,
+        "referencePcmSamples": 868096
+      },
+      {
+        "fixture": "fuzz_23",
+        "velocity": 64,
+        "predicted": [],
+        "actual": [],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 1.081,
+        "referencePcmSteps": 3300,
+        "referencePcmSamples": 844800
+      },
+      {
+        "fixture": "fuzz_23",
+        "velocity": 127,
+        "predicted": [],
+        "actual": [],
+        "contextNotes": 7,
+        "plannerRuns": 3,
+        "milliseconds": 0.8365,
+        "referencePcmSteps": 3300,
+        "referencePcmSamples": 844800
+      }
+    ]
+  },
+  "velocitySweep": {
+    "cases": 512,
+    "curves": 4,
+    "allOnsetsEqual": true,
+    "latencyMs": {
+      "Min": 0.0922,
+      "P50": 0.1314,
+      "P95": 0.3174,
+      "Max": 10.1072
+    }
+  },
+  "performance": {
+    "initializationMs": 151.2719,
+    "longResults": [
+      {
+        "sourceNotes": 100,
+        "emptyTailTicks": 1000000,
+        "queryCount": 20,
+        "latency": {
+          "Min": 0.625,
+          "P50": 0.6339,
+          "P95": 0.7316,
+          "Max": 1.9088
+        },
+        "maxContext": 9,
+        "maxRuns": 3,
+        "targetBoundariesAtVelocity0": [
+          -61,
+          -5,
+          117
+        ]
+      },
+      {
+        "sourceNotes": 1000,
+        "emptyTailTicks": 1000000,
+        "queryCount": 20,
+        "latency": {
+          "Min": 0.6119,
+          "P50": 0.6383,
+          "P95": 0.9391,
+          "Max": 1.9271
+        },
+        "maxContext": 9,
+        "maxRuns": 3,
+        "targetBoundariesAtVelocity0": [
+          -61,
+          -5,
+          118
+        ]
+      },
+      {
+        "sourceNotes": 10000,
+        "emptyTailTicks": 1000000,
+        "queryCount": 20,
+        "latency": {
+          "Min": 0.6119,
+          "P50": 0.6263,
+          "P95": 0.7216,
+          "Max": 0.9368
+        },
+        "maxContext": 9,
+        "maxRuns": 3,
+        "targetBoundariesAtVelocity0": [
+          -57,
+          -2,
+          115
+        ]
+      }
+    ],
+    "invalidations": [
+      "neighbor velocity",
+      "neighbor pitch",
+      "neighbor expression",
+      "target phonemes",
+      "target duration",
+      "target position",
+      "earlier tempo frame phase",
+      "in-window tempo",
+      "bank"
+    ],
+    "resultArrayIsolation": true,
+    "preCanceled": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    },
+    "sustained": {
+      "uncachedCount": 300,
+      "uncached": {
+        "Min": 0.1703,
+        "P50": 0.1728,
+        "P95": 0.1902,
+        "Max": 0.4898
+      },
+      "cachedCount": 2000,
+      "cached": {
+        "Min": 0.0045,
+        "P50": 0.0049,
+        "P95": 0.0074,
+        "Max": 0.2653
+      },
+      "privateBytesDelta": 4284416,
+      "handlesDelta": 0,
+      "threadsDelta": 0
+    },
+    "disposedSessions": 12,
+    "dse": {
+      "Starts": 13,
+      "Steps": 0,
+      "Samples": 0
+    }
+  },
+  "limitations": [
+    "Only the exact native image hashes, Windows x64 and 44100 Hz are enabled.",
+    "MIKU/RIN sampled banks measured; AI, secondary bank, overlapping notes, DVQM and manual phoneme offsets rejected.",
+    "At most 33 context notes, 22 seconds, 256 tempo entries, 60 phoneme characters per note and 4096 score frames.",
+    "Twice-stable expanded windows are empirical evidence, not a universal context proof.",
+    "Caller must keep source stable, clear cache after other Part edits, and retain manager lifetimes.",
+    "Long-Part probes measure performance only; they do not full-render 1000/10000-note references.",
+    "A native planning mutex and busy rejection exist; concurrent Editor rendering and UI request scheduling remain unvalidated.",
+    "One before/after memory observation cannot prove absence of leaks."
+  ]
+}

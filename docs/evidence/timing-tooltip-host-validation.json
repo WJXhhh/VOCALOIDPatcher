@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-16",
+  "editorVersion": "6.13.1.1",
+  "scope": "Actual Editor, temporary single sampled note l a, native parameter input and lower-panel drag, tooltip visual tree, undo and redo. Float drag and multi-Part foundation are outside this check.",
+  "rootCause": "WpfTranslationPatch.GetOriginal cached the first generated popup TextBlock text; later ToolTip Opened/Loaded translation restored it even when ToolTip.Content held new values.",
+  "fix": "Mark the already translated ConsonantTimingOverlay ToolTip with inherited UntranslatableProperty before its first opening.",
+  "beforeFixObserved": {
+    "modelVelocity": 0,
+    "barVelocity": 0,
+    "content": "辅音 116.7 毫秒 · VEL 0 · Ctrl+单击重置",
+    "screen": "辅音 58.3 毫秒 · VEL 64 · Ctrl+单击重置"
+  },
+  "checks": [
+    {
+      "stage": "fixed_123_hover",
+      "velocity": 123,
+      "boundaries": [
+        -34,
+        -6,
+        768
+      ],
+      "bar": 123,
+      "milliseconds": 29.166666666666675,
+      "content": "辅音 29.2 毫秒 · VEL 123 · Ctrl+单击重置",
+      "visualText": "辅音 29.2 毫秒 · VEL 123 · Ctrl+单击重置"
+    },
+    {
+      "stage": "fixed_undo_hover",
+      "velocity": 0,
+      "boundaries": [
+        -118,
+        -6,
+        768
+      ],
+      "bar": 0,
+      "milliseconds": 116.6666666666667,
+      "content": "辅音 116.7 毫秒 · VEL 0 · Ctrl+单击重置",
+      "visualText": "辅音 116.7 毫秒 · VEL 0 · Ctrl+单击重置"
+    },
+    {
+      "stage": "fixed_redo_hover",
+      "velocity": 123,
+      "boundaries": [
+        -34,
+        -6,
+        768
+      ],
+      "bar": 123,
+      "milliseconds": 29.166666666666675,
+      "content": "辅音 29.2 毫秒 · VEL 123 · Ctrl+单击重置",
+      "visualText": "辅音 29.2 毫秒 · VEL 123 · Ctrl+单击重置"
+    }
+  ]
+}

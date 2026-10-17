@@ -1,0 +1,4730 @@
+{
+  "date": "2026-10-17",
+  "scope": "isolated single vowel a; onset and release allocation; no editor mutation or deployment",
+  "dseSha256": "7A4965BD377DBC2B08710E807AE1345B67D9FFF6579CA0C01A769F744366F5B5",
+  "samplingRate": 44100,
+  "samplesPerNativeFrame": 256,
+  "renders": 22,
+  "purePlans": 174,
+  "planningLatencyMs": {
+    "median": 1.28135,
+    "p95NearestRank": 1.6707,
+    "max": 3.8225
+  },
+  "latencyIncludes": "warm private planning, reading and verifying actual ART spans and source-frame positions; excludes engine initialization, no audio synthesis",
+  "allArtSourcesUnchanged": true,
+  "innerOuterBoundariesAndWaveLengthFixed": true,
+  "productionFilesChanged": false,
+  "rows": [
+    {
+      "fixture": "chinese-a",
+      "variant": "baseline",
+      "headFrames": 0,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "0AB5F75A36FADFE8ED5DC7CB28CED784CE339D7B291A274A5BCCE67AE2581B1D",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 10.4883,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        3.8225
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 255.9627,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3378,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 35,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 35,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3378,
+            "End": 3502,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 124,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 124,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 123
+        },
+        {
+          "row": {
+            "Begin": 3502,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 15,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 17,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 17,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "head-early",
+      "headFrames": -24,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "EFEE421955882FE19AA4E14CB0D627190FD13423FD3E444895CDF3D3FB5A0F67",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3321
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -136,
+        956
+      ],
+      "predicted": [
+        -136,
+        956
+      ],
+      "queryMs": 0.4367,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.6887
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 176.7656,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3319,
+            "End": 3359,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 40,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 40,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3359,
+            "End": 3500,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 141,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 141,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 140
+        },
+        {
+          "row": {
+            "Begin": 3500,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 17,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 19,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 19,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "tail-late",
+      "headFrames": 0,
+      "tailFrames": 24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "248BF4E65E89016D9C352F762DFB1DBCA9AEAB785BD81FE15D17EC7A290398AC",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3541
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        1090
+      ],
+      "predicted": [
+        -2,
+        1090
+      ],
+      "queryMs": 0.6013,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.6694
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 192.177,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3383,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 40,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 40,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3383,
+            "End": 3524,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 141,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 141,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 140
+        },
+        {
+          "row": {
+            "Begin": 3524,
+            "End": 3542,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 17,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 18,
+          "firstSource": 0,
+          "lastSource": 15,
+          "uniquePositions": 18,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "both-out",
+      "headFrames": -24,
+      "tailFrames": 24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "442121C046845637949F4E3A07FA97F3285AFD97025C562304873A93D3785B31",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3321
+        },
+        {
+          "From": 3517,
+          "To": 3541
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -136,
+        1090
+      ],
+      "predicted": [
+        -136,
+        1090
+      ],
+      "queryMs": 0.4627,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.5035
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 161.7018,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3319,
+            "End": 3363,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 44,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 44,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3363,
+            "End": 3522,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 159,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 159,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 158
+        },
+        {
+          "row": {
+            "Begin": 3522,
+            "End": 3542,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 19,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 20,
+          "firstSource": 0,
+          "lastSource": 15,
+          "uniquePositions": 20,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "head-late",
+      "headFrames": 12,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "7364674220B6E72B9185890DF07C7C3ED9B9A5F3657A38C924C7DA6C80D5D7B1",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3357
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [],
+      "predicted": [
+        65,
+        956
+      ],
+      "queryMs": 0.339,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.3338
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 165.5192,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3355,
+            "End": 3388,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 32,
+          "uniquePositions": 33,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3388,
+            "End": 3503,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 115,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 115,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 114
+        },
+        {
+          "row": {
+            "Begin": 3503,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 14,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 16,
+          "firstSource": 1,
+          "lastSource": 16,
+          "uniquePositions": 16,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "tail-early",
+      "headFrames": 0,
+      "tailFrames": -12,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "20D6165749E55B6034D40947E774E6CF85B3D125739C8139C44DF969E94255FE",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3505
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        889
+      ],
+      "predicted": [
+        -2,
+        889
+      ],
+      "queryMs": 0.3483,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.4494
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 148.5909,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3376,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 32,
+          "uniquePositions": 33,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3376,
+            "End": 3491,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 115,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 115,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 114
+        },
+        {
+          "row": {
+            "Begin": 3491,
+            "End": 3507,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 14,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 16,
+          "firstSource": 1,
+          "lastSource": 16,
+          "uniquePositions": 16,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "restored",
+      "headFrames": 0,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "0AB5F75A36FADFE8ED5DC7CB28CED784CE339D7B291A274A5BCCE67AE2581B1D",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.1818,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.3204
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 162.7508,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3378,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 35,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 35,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3378,
+            "End": 3502,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 124,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 124,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 123
+        },
+        {
+          "row": {
+            "Begin": 3502,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 15,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 17,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 17,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "inner-head-long",
+      "headFrames": 24,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "AAE64363380843EDC3AFB6528A52FD4335B3D288A7FAE1C8200D8E9A0B47D056",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3343,
+          "To": 3343
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3378,
+          "To": 3402
+        },
+        {
+          "From": 3502,
+          "To": 3502
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3519,
+          "To": 3519
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0065,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.3088,
+        1.1854,
+        1.181,
+        1.1871,
+        1.2305,
+        1.1818,
+        1.172,
+        1.1722,
+        1.1725,
+        1.1841,
+        1.192,
+        1.2258,
+        1.2086,
+        1.1845,
+        1.1727,
+        1.1739,
+        1.1616,
+        1.1758,
+        1.1798,
+        1.2929
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 147.0682,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3402,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 59,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 59,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3402,
+            "End": 3502,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 100,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 100,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 99
+        },
+        {
+          "row": {
+            "Begin": 3502,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 15,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 17,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 17,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "inner-tail-long",
+      "headFrames": 0,
+      "tailFrames": -24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "7ED7102F3FC194ADDAD290D4B6C22C1BFE1F95B3E5477D1217BD676A206DF941",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3343,
+          "To": 3343
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3378,
+          "To": 3378
+        },
+        {
+          "From": 3502,
+          "To": 3478
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3519,
+          "To": 3519
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0079,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.7197,
+        1.2956,
+        1.1895,
+        1.2156,
+        1.2952,
+        1.1977,
+        1.3122,
+        1.1999,
+        1.2283,
+        1.1773,
+        1.2182,
+        1.2724,
+        1.363,
+        1.199,
+        1.1717,
+        1.1754,
+        1.2063,
+        1.2259,
+        1.3545,
+        1.1736
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 141.6845,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3378,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 35,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 35,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3378,
+            "End": 3478,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 100,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 100,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 99
+        },
+        {
+          "row": {
+            "Begin": 3478,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 39,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 41,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 41,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "inner-both-long",
+      "headFrames": 24,
+      "tailFrames": -24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "7E2617E16D3766580883DBA0D43D2662F46C660F3D11E4D8D0E99C9124401449",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3343,
+          "To": 3343
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3378,
+          "To": 3402
+        },
+        {
+          "From": 3502,
+          "To": 3478
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3519,
+          "To": 3519
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0086,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.3185,
+        1.1911,
+        1.2374,
+        1.1834,
+        1.1965,
+        1.2041,
+        1.1784,
+        1.1674,
+        1.1793,
+        1.1926,
+        1.1838,
+        1.1863,
+        1.2015,
+        1.1713,
+        1.218,
+        1.1881,
+        1.223,
+        1.1789,
+        1.1697,
+        1.1797
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 143.1646,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3402,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 59,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 59,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3402,
+            "End": 3478,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 76,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 76,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 75
+        },
+        {
+          "row": {
+            "Begin": 3478,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 39,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 41,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 41,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "chinese-a",
+      "variant": "inner-restored",
+      "headFrames": 0,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "0AB5F75A36FADFE8ED5DC7CB28CED784CE339D7B291A274A5BCCE67AE2581B1D",
+      "sameArtSources": true,
+      "sources": "60>0/0/0/0;0>60/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3343,
+          "To": 3343
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3378,
+          "To": 3378
+        },
+        {
+          "From": 3502,
+          "To": 3502
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3519,
+          "To": 3519
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.007,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.3136,
+        1.1758,
+        1.1671,
+        1.1676,
+        1.1624,
+        1.1627,
+        1.1656,
+        1.1668,
+        1.1667,
+        1.1653,
+        1.1661,
+        1.1654,
+        1.1633,
+        1.1913,
+        1.1664,
+        1.1658,
+        1.1665,
+        1.1603,
+        1.1843,
+        1.1678
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 140.6882,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3343,
+            "End": 3378,
+            "From": 60,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 0,
+              "Frames": 35,
+              "Pitch": -907.0501,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                2,
+                0,
+                2,
+                2,
+                35,
+                2,
+                35
+              ]
+            },
+            "LeftLength": 2,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 35,
+          "firstSource": 0,
+          "lastSource": 34,
+          "uniquePositions": 35,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3378,
+            "End": 3502,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 1,
+              "Frames": 178,
+              "Pitch": -900.2168,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 124,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 124,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 123
+        },
+        {
+          "row": {
+            "Begin": 3502,
+            "End": 3519,
+            "From": 0,
+            "To": 60,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 4,
+            "Unit": 1,
+            "Material": {
+              "Id": 2,
+              "Frames": 17,
+              "Pitch": -888.686,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                15,
+                0,
+                15,
+                15,
+                17,
+                15,
+                17
+              ]
+            },
+            "LeftLength": 15,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 17,
+          "firstSource": 0,
+          "lastSource": 16,
+          "uniquePositions": 17,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "baseline",
+      "headFrames": 0,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "4A622DD9CAC9E2E4A5BE2A8EDABCE638E7EC613743A48F300597004ED1B644BE",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.3709,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.8105
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 262.1531,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3363,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 21,
+          "firstSource": 0,
+          "lastSource": 20,
+          "uniquePositions": 21,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3363,
+            "End": 3416,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3416,
+            "End": 3450,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3450,
+            "End": 3483,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 32
+        },
+        {
+          "row": {
+            "Begin": 3483,
+            "End": 3513,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 10,
+            "Direct": 1
+          },
+          "sampledFrames": 30,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 29
+        },
+        {
+          "row": {
+            "Begin": 3513,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 4,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 5,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 5,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "head-early",
+      "headFrames": -24,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "457B588357C7DD25C7EC04E24E48F70BFF7561BEA554F9DBBBAEBF5CABC57B12",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3321
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -136,
+        956
+      ],
+      "predicted": [
+        -136,
+        956
+      ],
+      "queryMs": 0.4847,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.4504
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 161.2944,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3318,
+            "End": 3342,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 24,
+          "firstSource": 0,
+          "lastSource": 23,
+          "uniquePositions": 24,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3395,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3395,
+            "End": 3429,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3429,
+            "End": 3462,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 32
+        },
+        {
+          "row": {
+            "Begin": 3462,
+            "End": 3512,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 3,
+            "Direct": 1
+          },
+          "sampledFrames": 50,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 49
+        },
+        {
+          "row": {
+            "Begin": 3512,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 5,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 6,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 6,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "tail-late",
+      "headFrames": 0,
+      "tailFrames": 24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "B4BF9B45D1C8A5BF0DE611DDC92DAB2643FD4D5E6BEF26C560DDDB401E44592C",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3541
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        1090
+      ],
+      "predicted": [
+        -2,
+        1090
+      ],
+      "queryMs": 0.3929,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.4524
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 180.6288,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3366,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 24,
+          "firstSource": 0,
+          "lastSource": 23,
+          "uniquePositions": 24,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3366,
+            "End": 3419,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3419,
+            "End": 3453,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3453,
+            "End": 3486,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 32
+        },
+        {
+          "row": {
+            "Begin": 3486,
+            "End": 3536,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 170,
+            "SourceStart": 3,
+            "Direct": 1
+          },
+          "sampledFrames": 50,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 49
+        },
+        {
+          "row": {
+            "Begin": 3536,
+            "End": 3542,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 5,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 6,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 6,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "both-out",
+      "headFrames": -24,
+      "tailFrames": 24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "240C648C65761220D13A54CF6D21C2DF9AF11CCC6E2F01B676F801020A124532",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3321
+        },
+        {
+          "From": 3517,
+          "To": 3541
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -136,
+        1090
+      ],
+      "predicted": [
+        -136,
+        1090
+      ],
+      "queryMs": 0.3721,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.5292
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 163.4307,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3318,
+            "End": 3344,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 26,
+          "firstSource": 0,
+          "lastSource": 25,
+          "uniquePositions": 26,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3344,
+            "End": 3397,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 192,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3397,
+            "End": 3431,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 192,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3431,
+            "End": 3464,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 192,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 32
+        },
+        {
+          "row": {
+            "Begin": 3464,
+            "End": 3499,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 192,
+            "SourceStart": 10,
+            "Direct": 1
+          },
+          "sampledFrames": 35,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 34
+        },
+        {
+          "row": {
+            "Begin": 3499,
+            "End": 3536,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 192,
+            "SourceStart": 9,
+            "Direct": 1
+          },
+          "sampledFrames": 37,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 36
+        },
+        {
+          "row": {
+            "Begin": 3536,
+            "End": 3542,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 5,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 6,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 6,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "head-late",
+      "headFrames": 12,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "903794F9CCE196686DAEDCA2DDA8C23A9D94EC0CF9A5D495FBDC5E25AB831756",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3357
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [],
+      "predicted": [
+        65,
+        956
+      ],
+      "queryMs": 0.5444,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.3804
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 160.2291,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3354,
+            "End": 3374,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 20,
+          "firstSource": 0,
+          "lastSource": 19,
+          "uniquePositions": 20,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3374,
+            "End": 3427,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 139,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3427,
+            "End": 3461,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 139,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3461,
+            "End": 3513,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 139,
+            "SourceStart": 1,
+            "Direct": 1
+          },
+          "sampledFrames": 52,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 51
+        },
+        {
+          "row": {
+            "Begin": 3513,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 4,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 5,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 5,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "tail-early",
+      "headFrames": 0,
+      "tailFrames": -12,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "4D1C8AB06BE30F1D36B7390CB8A63D2E2897D25731D74D8FF09DB2876189BA69",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3505
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        889
+      ],
+      "predicted": [
+        -2,
+        889
+      ],
+      "queryMs": 0.5147,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.302
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 147.6003,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3362,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 20,
+          "firstSource": 0,
+          "lastSource": 19,
+          "uniquePositions": 20,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3362,
+            "End": 3415,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 139,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3415,
+            "End": 3449,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 139,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3449,
+            "End": 3501,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 139,
+            "SourceStart": 1,
+            "Direct": 1
+          },
+          "sampledFrames": 52,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 51
+        },
+        {
+          "row": {
+            "Begin": 3501,
+            "End": 3506,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 4,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 5,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 5,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "restored",
+      "headFrames": 0,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "4A622DD9CAC9E2E4A5BE2A8EDABCE638E7EC613743A48F300597004ED1B644BE",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": false,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0081,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.49
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 146.8858,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3363,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 21,
+          "firstSource": 0,
+          "lastSource": 20,
+          "uniquePositions": 21,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3363,
+            "End": 3416,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3416,
+            "End": 3450,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3450,
+            "End": 3483,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 32
+        },
+        {
+          "row": {
+            "Begin": 3483,
+            "End": 3513,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 10,
+            "Direct": 1
+          },
+          "sampledFrames": 30,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 29
+        },
+        {
+          "row": {
+            "Begin": 3513,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 4,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 5,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 5,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "inner-head-long",
+      "headFrames": 24,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "FA857346A13881EB85609362D1C94C4BDE56A29851CD81508AB9723FFF5FF279",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3342,
+          "To": 3342
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3363,
+          "To": 3387
+        },
+        {
+          "From": 3513,
+          "To": 3513
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3518,
+          "To": 3518
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0105,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.8001,
+        1.6707,
+        1.5771,
+        1.3233,
+        1.3185,
+        1.3138,
+        1.3719,
+        1.4109,
+        1.3206,
+        1.3017,
+        1.3279,
+        1.372,
+        1.3215,
+        1.3086,
+        1.3661,
+        1.3215,
+        1.3185,
+        1.3325,
+        1.3793,
+        1.3348
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 151.4269,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3387,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 45,
+          "firstSource": 0,
+          "lastSource": 32,
+          "uniquePositions": 45,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3387,
+            "End": 3440,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 126,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3440,
+            "End": 3474,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 126,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3474,
+            "End": 3513,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 126,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 39,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 38
+        },
+        {
+          "row": {
+            "Begin": 3513,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 4,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 5,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 5,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "inner-tail-long",
+      "headFrames": 0,
+      "tailFrames": -24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "796F32F07BAACA572384BE56FDC594C8E8023F62250636AAA5A52EDB8BE4C5E6",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3342,
+          "To": 3342
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3363,
+          "To": 3363
+        },
+        {
+          "From": 3513,
+          "To": 3489
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3518,
+          "To": 3518
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0098,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.4731,
+        1.3318,
+        1.4626,
+        1.6699,
+        1.4111,
+        1.3133,
+        1.2841,
+        1.2929,
+        1.4504,
+        1.3753,
+        1.2882,
+        1.2632,
+        1.3519,
+        1.2977,
+        2.1099,
+        1.299,
+        1.3404,
+        1.8507,
+        1.3525,
+        1.2795
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 153.4516,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3363,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 21,
+          "firstSource": 0,
+          "lastSource": 20,
+          "uniquePositions": 21,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3363,
+            "End": 3416,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 126,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3416,
+            "End": 3450,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 126,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3450,
+            "End": 3489,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 126,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 39,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 38
+        },
+        {
+          "row": {
+            "Begin": 3489,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 28,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 29,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 29,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "inner-both-long",
+      "headFrames": 24,
+      "tailFrames": -24,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "9AAD7EB20D3546F21D6D334F8A4A570022A015C4A8B4F4B4838A3423E42E7E1D",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": false,
+      "releaseMappingUnchanged": false,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3342,
+          "To": 3342
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3363,
+          "To": 3387
+        },
+        {
+          "From": 3513,
+          "To": 3489
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3518,
+          "To": 3518
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0085,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.7332,
+        1.4374,
+        1.2936,
+        1.2655,
+        1.2716,
+        1.3351,
+        1.2695,
+        1.2635,
+        1.3942,
+        1.411,
+        1.3492,
+        1.2765,
+        1.2906,
+        1.4188,
+        1.3366,
+        1.2891,
+        1.287,
+        1.2711,
+        1.3218,
+        1.4084
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 152.5026,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3387,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 45,
+          "firstSource": 0,
+          "lastSource": 32,
+          "uniquePositions": 45,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3387,
+            "End": 3440,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 102,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3440,
+            "End": 3489,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 102,
+            "SourceStart": 4,
+            "Direct": 1
+          },
+          "sampledFrames": 49,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 48
+        },
+        {
+          "row": {
+            "Begin": 3489,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 28,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 29,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 29,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    },
+    {
+      "fixture": "miku-a",
+      "variant": "inner-restored",
+      "headFrames": 0,
+      "tailFrames": 0,
+      "notePosition": 960,
+      "noteDuration": 960,
+      "hash": "4A622DD9CAC9E2E4A5BE2A8EDABCE638E7EC613743A48F300597004ED1B644BE",
+      "sameArtSources": true,
+      "sources": "41>0/0/0/0;0>41/2/0/0",
+      "innerAllocation": true,
+      "onsetMappingUnchanged": true,
+      "releaseMappingUnchanged": true,
+      "anchors": [
+        {
+          "From": 86,
+          "To": 86
+        },
+        {
+          "From": 3342,
+          "To": 3342
+        },
+        {
+          "From": 3345,
+          "To": 3345
+        },
+        {
+          "From": 3363,
+          "To": 3363
+        },
+        {
+          "From": 3513,
+          "To": 3513
+        },
+        {
+          "From": 3517,
+          "To": 3517
+        },
+        {
+          "From": 3518,
+          "To": 3518
+        },
+        {
+          "From": 3603,
+          "To": 3603
+        }
+      ],
+      "boundaries": [
+        -2,
+        956
+      ],
+      "predicted": [
+        -2,
+        956
+      ],
+      "queryMs": 0.0087,
+      "queryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "planningMs": [
+        1.366,
+        1.3087,
+        1.2897,
+        1.2593,
+        1.2615,
+        1.2569,
+        1.3053,
+        1.3254,
+        1.2832,
+        1.2635,
+        1.2988,
+        1.3407,
+        1.2745,
+        1.2699,
+        1.265,
+        1.3099,
+        1.2919,
+        1.2603,
+        1.2643,
+        1.3027
+      ],
+      "planningCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renderMs": 154.5434,
+      "spans": [
+        {
+          "row": {
+            "Begin": 3342,
+            "End": 3363,
+            "From": 41,
+            "To": 0,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 0,
+              "Frames": 33,
+              "Pitch": -915.5561,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                3,
+                0,
+                3,
+                3,
+                33,
+                3,
+                21
+              ]
+            },
+            "LeftLength": 3,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 21,
+          "firstSource": 0,
+          "lastSource": 20,
+          "uniquePositions": 21,
+          "stationarySteps": 0
+        },
+        {
+          "row": {
+            "Begin": 3363,
+            "End": 3416,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 0,
+            "Direct": 1
+          },
+          "sampledFrames": 53,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 52
+        },
+        {
+          "row": {
+            "Begin": 3416,
+            "End": 3450,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 11,
+            "Direct": 1
+          },
+          "sampledFrames": 34,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 33
+        },
+        {
+          "row": {
+            "Begin": 3450,
+            "End": 3483,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 12,
+            "Direct": 1
+          },
+          "sampledFrames": 33,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 32
+        },
+        {
+          "row": {
+            "Begin": 3483,
+            "End": 3513,
+            "From": 0,
+            "To": -1,
+            "Stage": -1,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 1,
+              "Frames": 53,
+              "Pitch": -933.0033,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": []
+            },
+            "LeftLength": 150,
+            "SourceStart": 10,
+            "Direct": 1
+          },
+          "sampledFrames": 30,
+          "firstSource": 0,
+          "lastSource": 0,
+          "uniquePositions": 1,
+          "stationarySteps": 29
+        },
+        {
+          "row": {
+            "Begin": 3513,
+            "End": 3518,
+            "From": 0,
+            "To": 41,
+            "Stage": 0,
+            "Reverse": 0,
+            "Bank": 0,
+            "Unit": 0,
+            "Material": {
+              "Id": 2,
+              "Frames": 5,
+              "Pitch": -888.6515,
+              "Dynamics": 0.6,
+              "RecordedTempo": 90,
+              "Alignment": [
+                0,
+                4,
+                0,
+                4,
+                4,
+                5,
+                4,
+                5
+              ]
+            },
+            "LeftLength": 4,
+            "SourceStart": -1,
+            "Direct": 0
+          },
+          "sampledFrames": 5,
+          "firstSource": 0,
+          "lastSource": 4,
+          "uniquePositions": 5,
+          "stationarySteps": 0
+        }
+      ],
+      "wave": {
+        "formatTag": 1,
+        "channels": 1,
+        "sampleRate": 44100,
+        "frames": 242944,
+        "dataBytes": 485888
+      }
+    }
+  ]
+}

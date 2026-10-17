@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-17",
+  "voicebank": "Yuezheng_Ling_You",
+  "voicebank_id": "BMBNDB8EM5222MK3",
+  "phonemes": "ts\\_h i iE_r @N",
+  "source_note": {
+    "position": 960,
+    "duration": 960,
+    "pitch": 60,
+    "velocity": 64,
+    "part_start": 0,
+    "part_duration": 7680
+  },
+  "baseline_boundaries": [
+    -108,
+    -2,
+    756,
+    884,
+    956
+  ],
+  "failure_phase": "begin drag",
+  "root_cause": "Verifier required an internal split inside one sample; iE_r/@N is an exact join between i/iE_r and @N/Sil sample units.",
+  "observed_local_rows": [
+    {
+      "begin": 3362,
+      "end": 3418,
+      "split": 3395,
+      "from": "i",
+      "to": "iE_r"
+    },
+    {
+      "begin": 3418,
+      "end": 3433,
+      "split": 3431,
+      "from": "@N",
+      "to": "Sil"
+    }
+  ],
+  "fix": "Accept an exact end/start junction only with both neighboring native rows and matching left/right phonemes; retain internal-split validation.",
+  "queries": 11,
+  "render_cases": 10,
+  "all_queries_passed": true,
+  "all_raw_render_boundaries_match": false,
+  "all_sample_schedule_boundaries_match": true,
+  "all_pcm_changed": true,
+  "query_synthesis_calls": 0.0,
+  "managed_tests": 153,
+  "debug_build": "passed, 0 warnings",
+  "release_build": "passed, 0 warnings",
+  "regression": [
+    "Luo Tianyi l a i",
+    "Four Part concurrent routing including MIKU/RIN",
+    "24 note shifted context",
+    "Save/load and isolated undo/redo/clear"
+  ],
+  "managed_sha256": "51B64D3115F29DAEBAAB5FD1D3B00DAB9B1BB44CAFA31E6ED304CBD63EF14DF3",
+  "native_sha256": "9B0F64BC78E39F22AC25A3C1773294942CA4C0B273A1F30F3FF9BA7F3A410472",
+  "native_unchanged": true,
+  "live_project_modified": true,
+  "project_changes_saved": false,
+  "editor_exit": "Normal exit; discarded unsaved edits as explicitly requested by user.",
+  "deployment": "deployed and restarted; installed hash and previous managed backup independently verified",
+  "previous_managed_sha256": "AAAA6A64F8628F457737C593B2F0D2D7974D97DFB645BAFED5588FBC80FF4D6C",
+  "running_module_mvid": "2b176747-f7f4-4aa8-b008-9f1d15d66651",
+  "editor_gesture_validation": "passed actual UI drags and three individual Ctrl+Z operations; fixture recreated in memory; left open without saving",
+  "editor_drag_cases": [
+    { "boundary": 3, "direction": "left", "native_boundaries": [-108,-2,756,856,956] },
+    { "boundary": 2, "direction": "left", "native_boundaries": [-108,-2,717,856,956] },
+    { "boundary": 4, "direction": "right", "native_boundaries": [-108,-2,717,856,984] }
+  ],
+  "editor_undo_native_boundaries": [
+    [-108,-2,717,856,956],
+    [-108,-2,756,856,956],
+    [-108,-2,756,884,956]
+  ],
+  "editor_all_display_boundaries_match_native": true,
+  "editor_all_render_finished": true,
+  "editor_all_scores_and_waves_valid": true,
+  "editor_any_host_suspended": false,
+  "editor_mixed_native_timing_undo_tested": false,
+  "raw_vsm_matching_cases": 9,
+  "projected_cases": [
+    {
+      "axis": 1,
+      "offset_frames": 2,
+      "reason": "Delayed first vowel: native VSM score association unavailable; actual synthesis mapping verified independently."
+    }
+  ],
+  "rear_phoneme_raw_positions_match": true
+}

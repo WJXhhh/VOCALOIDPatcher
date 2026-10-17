@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-17",
+  "native_sha256": "9B0F64BC78E39F22AC25A3C1773294942CA4C0B273A1F30F3FF9BA7F3A410472",
+  "managed_sha256": "AAAA6A64F8628F457737C593B2F0D2D7974D97DFB645BAFED5588FBC80FF4D6C",
+  "timing_abi": 3,
+  "note_bytes": 24,
+  "status_bytes": 40,
+  "fixes": [
+    "Output-clock one-frame padding stays in output coordinates",
+    "Per-parser independent cursors and exclusive ownership of reused schedule addresses",
+    "Stable numeric timing fingerprint in native read/write cache keys",
+    "Retain timing route through native Close cache publication",
+    "Remove inappropriate pitch-score edit invalidation",
+    "Identical edit does not stop the native render service"
+  ],
+  "saved_scene": {
+    "phonemes": "a",
+    "position": 960,
+    "duration": 480,
+    "pitch": 60,
+    "velocity": 64,
+    "initial_offsets_frames": [
+      1,
+      1
+    ],
+    "requested_edits": 100,
+    "verified_states": 91,
+    "faults": 0,
+    "initial_cache_hit": true,
+    "cache_pcm_sha256": "31808B128B1A2537E377CA1473D516C4DCF57638C89C4B8DB49B0B6658F251E5",
+    "final_pcm_sha256": "31808B128B1A2537E377CA1473D516C4DCF57638C89C4B8DB49B0B6658F251E5",
+    "all_duplicate_plan_pcm_equal": true,
+    "original_project_modified": false,
+    "old_global_cache_cleared": false
+  },
+  "native_cache": {
+    "unchanged_parts_keep_original_keys": true,
+    "reopen_requires_no_dse_synthesis": true,
+    "close_publication_preserves_route": true,
+    "hash_excludes": [
+      "pointers",
+      "epochs",
+      "mutable cursors"
+    ]
+  },
+  "vowel_tail": {
+    "start_offset_frames": 2,
+    "end_offsets_frames": [
+      2,
+      84
+    ],
+    "count": 42,
+    "failures": 0.0,
+    "all_sample_queue_boundaries_match": true,
+    "all_audio_changed": true,
+    "guard_rejected_offset": 86,
+    "validation_native_sha256": "C0051BC37F8F87E82313B737428769E33BDB42E2EE8E8C814CD878F66B4611BE"
+  },
+  "sibilant_left": {
+    "phonemes": "s\\ i_n n",
+    "offsets_frames": [
+      -2,
+      -120
+    ],
+    "count": 60,
+    "failures": 0.0,
+    "all_boundaries_match": true,
+    "validation_native_sha256": "C0051BC37F8F87E82313B737428769E33BDB42E2EE8E8C814CD878F66B4611BE"
+  },
+  "final_release_validation": [
+    "Exact saved scene: persistent host, 100 requested edits",
+    "VEL 0/100, native history, rapid commits, move, delete",
+    "Chinese and MIKU all phoneme boundaries",
+    "Four Part routing and different Part starts/tempo",
+    "24 note local context",
+    "Save/load and isolated history",
+    "MIKU suite repeats Chinese lifecycle ten times"
+  ],
+  "final_release_lifecycle_cycles": 10,
+  "observed_schedule_address_reuses": 1,
+  "chinese_performance": {
+    "bank": "BL8CEAM5N4XN3LFK",
+    "phones": "l a i",
+    "PreparationMs": 3.1155,
+    "EncodedNotes": 1,
+    "queries": {
+      "Min": 0.2004,
+      "P50": 0.2071,
+      "P95": 0.3294,
+      "Max": 0.4349
+    },
+    "cached": {
+      "Min": 0,
+      "P50": 0.0001,
+      "P95": 0.0007,
+      "Max": 0.0533
+    },
+    "queryCounters": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    }
+  },
+  "miku_performance": {
+    "bank": "BCNFCY43LB2LZCD4",
+    "phones": "k a i",
+    "PreparationMs": 2.6561,
+    "EncodedNotes": 1,
+    "queries": {
+      "Min": 0.1915,
+      "P50": 0.2003,
+      "P95": 0.3089,
+      "Max": 0.3399
+    },
+    "cached": {
+      "Min": 0,
+      "P50": 0.0001,
+      "P95": 0.0006,
+      "Max": 0.0449
+    },
+    "queryCounters": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    }
+  },
+  "rust_tests": 33,
+  "managed_tests": 150,
+  "debug_build": "passed, 0 warnings",
+  "release_build": "passed, 0 warnings",
+  "editor_gesture_validation": "pending; UI overlay/wave cache/history coordinator are stubs in the isolated host probe",
+  "deployment": {
+    "status": "deployed",
+    "success": true,
+    "targets": 3,
+    "backup_hashes_verified": true,
+    "installed_hashes_verified": true,
+    "main_symbolic_link_resolved_and_verified": true,
+    "editor_started": false,
+    "editor_gesture_retest": "pending"
+  }
+}

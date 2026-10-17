@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-16T07:26:59.4349815Z",
+  "scope": "Isolated native VSM/DSE, production Part/epoch route, no ordinal coefficient probe; Editor lifecycle validation not completed.",
+  "sourceSha256": {
+    "native/playback-clock/src/lib.rs": "6EDB145BA9DAEAA6E9C3246D909BF4B86FF8374E37940A438A0F059D97829244",
+    "native/playback-clock/src/sampled_timing.rs": "C5BEC5D0E1B045A87A7EB67E781A3E737FA2DA6946CACEEF44B75AC24809E5F9",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/NativeSampledTiming.cs": "3239807C6FB51361FBAB853DDAFA475022A234D09A4A9ADEA940FDF3501D6D9D",
+    "voicebank/tools/evec_render_harness/TimingRoutingProbe.cs": "2CEBC72BCF7406EF28F53784CE5AAA71A49F5E99E1EC882F51DB017D6DA617DC"
+  },
+  "rawSha256": "3ABEF410C2497242432D328B3C98A6CA67CD281019014D3617D7C24E7656F1E5",
+  "cases": [
+    {
+      "start": 0,
+      "duration": 120,
+      "Epoch": 1,
+      "Scopes": 1,
+      "Applied": 5,
+      "Failures": 0,
+      "actual": [
+        [
+          -1,
+          54
+        ],
+        [
+          -66,
+          -4,
+          90
+        ],
+        [
+          -30,
+          -2,
+          115
+        ]
+      ],
+      "hash": "87C588D1BE5DEE1573928362ECB72AA32138DFA653F707633E7CAE00EB3C490E"
+    },
+    {
+      "start": 0,
+      "duration": 480,
+      "Epoch": 2,
+      "Scopes": 1,
+      "Applied": 5,
+      "Failures": 0,
+      "actual": [
+        [
+          -1,
+          294
+        ],
+        [
+          -186,
+          -2,
+          421
+        ],
+        [
+          -59,
+          -3,
+          476
+        ]
+      ],
+      "hash": "C7E51B3BA151E08C4C3A2948A48A86A266E2653B3A1E38D5D187F0F6B94D6C6C"
+    },
+    {
+      "start": 17003,
+      "duration": 120,
+      "Epoch": 3,
+      "Scopes": 1,
+      "Applied": 5,
+      "Failures": 0,
+      "actual": [
+        [
+          -1,
+          54
+        ],
+        [
+          -66,
+          -4,
+          90
+        ],
+        [
+          -30,
+          -2,
+          115
+        ]
+      ],
+      "hash": "87C588D1BE5DEE1573928362ECB72AA32138DFA653F707633E7CAE00EB3C490E"
+    },
+    {
+      "start": 17003,
+      "duration": 480,
+      "Epoch": 4,
+      "Scopes": 1,
+      "Applied": 5,
+      "Failures": 0,
+      "actual": [
+        [
+          -1,
+          294
+        ],
+        [
+          -186,
+          -2,
+          421
+        ],
+        [
+          -59,
+          -3,
+          476
+        ]
+      ],
+      "hash": "C7E51B3BA151E08C4C3A2948A48A86A266E2653B3A1E38D5D187F0F6B94D6C6C"
+    },
+    {
+      "concurrentParts": 4,
+      "peakScopes": 4,
+      "matching": true
+    }
+  ]
+}

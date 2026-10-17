@@ -1,0 +1,616 @@
+{
+  "date": "2026-10-17",
+  "rootCause": "Exact native boundary has two note-owned offsets; an edit changed one while retaining the other.",
+  "oldConflictReproduced": true,
+  "strictQueryCacheIsolationPassed": true,
+  "querySynthesisCountersZero": true,
+  "sharedRenders": [
+    {
+      "stage": "cold",
+      "predicted": [
+        [
+          -114,
+          -2,
+          410
+        ],
+        [
+          -130,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1370,
+      "sharedFrame": 3419,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "F0120677B31DCF1E107850074B1504994F58BF579851194D7BF9CA4005912643"
+    },
+    {
+      "stage": "baseline",
+      "predicted": [
+        [
+          -114,
+          -2,
+          410
+        ],
+        [
+          -130,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1370,
+      "sharedFrame": 3419,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "F17958AA047029DCC933B2182AB7E586932B083941E0E3D2B3E58F03032E869B"
+    },
+    {
+      "stage": "left-edit",
+      "predicted": [
+        [
+          -114,
+          -2,
+          432
+        ],
+        [
+          -108,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1392,
+      "sharedFrame": 3423,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "1BA65B103203A43B6C0145DACC324F213EBC9B55A33D843B976BA92CBF8F69CA"
+    },
+    {
+      "stage": "right-edit",
+      "predicted": [
+        [
+          -114,
+          -2,
+          388
+        ],
+        [
+          -152,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1348,
+      "sharedFrame": 3415,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "240D519EBAD110A0C22A33E61CF347B03AE5DB95EE9FF56DDE97A5F438FB3814"
+    },
+    {
+      "stage": "reset",
+      "predicted": [
+        [
+          -114,
+          -2,
+          455
+        ],
+        [
+          -85,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1415,
+      "sharedFrame": 3427,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "FD12968D7D0695DDF21EE22F3E095549A0E33375F28CB8DB7436F41E30A64CFB"
+    },
+    {
+      "stage": "undo-reset",
+      "predicted": [
+        [
+          -114,
+          -2,
+          388
+        ],
+        [
+          -152,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1348,
+      "sharedFrame": 3415,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "240D519EBAD110A0C22A33E61CF347B03AE5DB95EE9FF56DDE97A5F438FB3814"
+    },
+    {
+      "stage": "redo-reset",
+      "predicted": [
+        [
+          -114,
+          -2,
+          455
+        ],
+        [
+          -85,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1415,
+      "sharedFrame": 3427,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "FD12968D7D0695DDF21EE22F3E095549A0E33375F28CB8DB7436F41E30A64CFB"
+    },
+    {
+      "stage": "reloaded",
+      "predicted": [
+        [
+          -114,
+          -2,
+          455
+        ],
+        [
+          -85,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1415,
+      "sharedFrame": 3427,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "FD12968D7D0695DDF21EE22F3E095549A0E33375F28CB8DB7436F41E30A64CFB"
+    },
+    {
+      "stage": "restored",
+      "predicted": [
+        [
+          -114,
+          -2,
+          410
+        ],
+        [
+          -130,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1370,
+      "sharedFrame": 3419,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "F17958AA047029DCC933B2182AB7E586932B083941E0E3D2B3E58F03032E869B"
+    },
+    {
+      "stage": "coefficients-shared",
+      "predicted": [
+        [
+          -220,
+          -2,
+          455
+        ],
+        [
+          -85,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1415,
+      "sharedFrame": 3427,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "486FC05F049773F121A0746DE137FCA4065982A4E88AFA6520FD092593E41689"
+    },
+    {
+      "stage": "coefficients-reset",
+      "predicted": [
+        [
+          -220,
+          -2,
+          477
+        ],
+        [
+          -63,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1437,
+      "sharedFrame": 3431,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "262DA5CEC0305E28E84313D952C3D7CA349174A0DB5F18AA2207F3E4584165A1"
+    },
+    {
+      "stage": "neighbor-owned-reset",
+      "predicted": [
+        [
+          -114,
+          -2,
+          455
+        ],
+        [
+          -85,
+          4,
+          349
+        ]
+      ],
+      "sharedTick": 1415,
+      "sharedFrame": 3427,
+      "consumedBoundaryMatch": true,
+      "Failures": 0,
+      "hash": "FD12968D7D0695DDF21EE22F3E095549A0E33375F28CB8DB7436F41E30A64CFB"
+    }
+  ],
+  "composition": [
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "919DFB474368E22CF90F20A39FCF09880CF9778C374F48A203E2E40AA1F88395",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "9EDF81FF8A56ED93CE75698B3C858188E4C1A425BB476B5D47EDBE8BA92CC807",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "CBA9C367C5ACC93DAECC1A02D3EF5A2E57D20F3000CAA9AB294A2B2D6DFD393A",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "9EDF81FF8A56ED93CE75698B3C858188E4C1A425BB476B5D47EDBE8BA92CC807",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel0",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "919DFB474368E22CF90F20A39FCF09880CF9778C374F48A203E2E40AA1F88395",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=21, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "768869BAB0327793BE131B90B1E6F0030166FDE891784E932291245AAEC43263",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "DDA394331D8FA34FA68944FC4B4A8093401F42909B768FAC88180523A74DCE59",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "0ECB6F12A9E3352AA917FEE8100BF00F698DBD639AA20338F33797D68A3F417B",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "DDA394331D8FA34FA68944FC4B4A8093401F42909B768FAC88180523A74DCE59",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "float",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "768869BAB0327793BE131B90B1E6F0030166FDE891784E932291245AAEC43263",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "BC3E5C98E5FE8ED94B2D69508048FEA1C934FC4133FC49DF088ACE7332F8A2EE",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "AB138E2C28FFE1993F6DACE37A7FCED9AA4E20B838B43D4D8E958B87E61BEEA6",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "A4D1E49C11523D35BFE2390C2E21222E371CA3CAA6B000392AE97DE631C6F0D5",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "AB138E2C28FFE1993F6DACE37A7FCED9AA4E20B838B43D4D8E958B87E61BEEA6",
+      "status": "scopes=2, scores=1632, changed=1632, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "vel127",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "BC3E5C98E5FE8ED94B2D69508048FEA1C934FC4133FC49DF088ACE7332F8A2EE",
+      "status": "scopes=2, scores=1632, changed=0, failures=0, contracts=22, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "2474BDE9F82660D9B95762CB89191968F4527D34B089E26464628BA69D9409BB",
+      "status": "scopes=2, scores=2176, changed=0, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "CC319CD14414E0DCD7DD60CC196396C448CAD91B2B0829D76BA2FDAA8DB81AD0",
+      "status": "scopes=2, scores=2176, changed=2176, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 2,
+        "second": 0.37151927
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "9A4889658C3C4B50D5904D4CCC0B3D39A66BD6A00FF1C9EF8CE259E51699E820",
+      "status": "scopes=2, scores=2176, changed=2176, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 0.37151927,
+        "second": 2
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "CC319CD14414E0DCD7DD60CC196396C448CAD91B2B0829D76BA2FDAA8DB81AD0",
+      "status": "scopes=2, scores=2176, changed=2176, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    },
+    {
+      "scenario": "chinese",
+      "ratio": {
+        "first": 1,
+        "second": 1
+      },
+      "equal": true,
+      "repeated": true,
+      "hash": "2474BDE9F82660D9B95762CB89191968F4527D34B089E26464628BA69D9409BB",
+      "status": "scopes=2, scores=2176, changed=0, failures=0, contracts=23, reason=0, owner=1, note=3517/3345, work=2, score=3517..3689"
+    }
+  ],
+  "concurrent": [
+    {
+      "pass": 0,
+      "part": 0,
+      "completed": 1,
+      "hash": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "expected": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "equal": true,
+      "status": "scopes=4, scores=64, changed=64, failures=0, contracts=18, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 0,
+      "part": 1,
+      "completed": 1,
+      "hash": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "expected": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "equal": true,
+      "status": "scopes=4, scores=64, changed=64, failures=0, contracts=18, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 0,
+      "part": 2,
+      "completed": 1,
+      "hash": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "expected": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "equal": true,
+      "status": "scopes=4, scores=64, changed=64, failures=0, contracts=18, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 0,
+      "part": 3,
+      "completed": 1,
+      "hash": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "expected": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "equal": true,
+      "status": "scopes=0, scores=0, changed=0, failures=0, contracts=0, reason=0, owner=0, note=0/0, work=0, score=0..0",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 0,
+      "completed": 1,
+      "hash": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "expected": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "equal": true,
+      "status": "scopes=6, scores=96, changed=96, failures=0, contracts=27, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 1,
+      "completed": 1,
+      "hash": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "expected": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "equal": true,
+      "status": "scopes=6, scores=96, changed=96, failures=0, contracts=27, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 2,
+      "completed": 1,
+      "hash": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "expected": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "equal": true,
+      "status": "scopes=6, scores=96, changed=96, failures=0, contracts=27, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 1,
+      "part": 3,
+      "completed": 1,
+      "hash": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "expected": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "equal": true,
+      "status": "scopes=0, scores=0, changed=0, failures=0, contracts=0, reason=0, owner=0, note=0/0, work=0, score=0..0",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 0,
+      "completed": 1,
+      "hash": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "expected": "7DBED4E6FD309A865B496078F4F2B56F80630470F5098269CBA8475C8B85B006",
+      "equal": true,
+      "status": "scopes=8, scores=128, changed=128, failures=0, contracts=36, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 1,
+      "completed": 1,
+      "hash": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "expected": "C9B7BC0307E520A0A4000D4F58A77F2F173629D899B50512C3537055D3A496A0",
+      "equal": true,
+      "status": "scopes=8, scores=128, changed=128, failures=0, contracts=36, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 2,
+      "completed": 1,
+      "hash": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "expected": "B92295F2A64DE99C28FE4683B2F4A683D8D2B6E1BCEA56D6ECD12CE1E52CF2DA",
+      "equal": true,
+      "status": "scopes=8, scores=128, changed=128, failures=0, contracts=36, reason=0, owner=0, note=3345/-1, work=2, score=3345..3517",
+      "peakScopes": 3
+    },
+    {
+      "pass": 2,
+      "part": 3,
+      "completed": 1,
+      "hash": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "expected": "BF9E406F5BC9049C28DAF80A7E9EB07D54430F8AD5D97FFFD36C62916028053B",
+      "equal": true,
+      "status": "scopes=0, scores=0, changed=0, failures=0, contracts=0, reason=0, owner=0, note=0/0, work=0, score=0..0",
+      "peakScopes": 3
+    }
+  ],
+  "checks": {
+    "managedTests": 183,
+    "releaseBuild": "passed",
+    "debugBuild": "passed",
+    "harnessBuild": "passed",
+    "deployed": true,
+    "editorStarted": false,
+    "editorStopped": false,
+    "hostGestureValidation": "pending"
+  },
+  "mainDllSha256": "2F2DB99524D664B2E3EAD076757BEA6F341545E4D1D8364C16C4905350B43940",
+  "nativeDllSha256": "E3E8C7674E0F9CBE8CFF548CC35D689FCD3CD3A9C3E9E8631369C7A3BB99184C",
+  "deployment": {
+    "deployedAt": "2026-10-17T16:14:50.1124052+08:00",
+    "mainSha256": "2F2DB99524D664B2E3EAD076757BEA6F341545E4D1D8364C16C4905350B43940",
+    "nativeSha256": "E3E8C7674E0F9CBE8CFF548CC35D689FCD3CD3A9C3E9E8631369C7A3BB99184C",
+    "previousMainSha256": "845B57DE5AB3AB02FB4CFC331B0691968D6C3FA2081F3D33598B00F2AEAAEECB",
+    "backupVerified": true,
+    "installedHashVerified": true,
+    "existingSymbolicLinkPreserved": true,
+    "editorStarted": false,
+    "hostValidation": "pending"
+  }
+}

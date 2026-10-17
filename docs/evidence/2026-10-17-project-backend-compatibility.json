@@ -1,0 +1,312 @@
+{
+  "date": "2026-10-17",
+  "deployed": false,
+  "scope": "Sampled timing, independent duration selection and phoneme volume project persistence; current DSE/VSM adapter",
+  "limitations": [
+    "Unsupported identity and missing modules are simulated in a disposable process using the current managed VSM SDK. No second Yamaha binary build is certified.",
+    "Known extension archive schemas are preserved; structurally corrupt or unknown archive versions remain rejected.",
+    "Existing native trampoline implementations remain the qualified v1 adapter; no universal detour rollback is claimed."
+  ],
+  "managedTests": {
+    "passed": 194,
+    "failed": 0
+  },
+  "rustTests": {
+    "passed": 40,
+    "failed": 0,
+    "parallelFixtureStress": {
+      "rounds": 20,
+      "threads": 16,
+      "passedEachRound": 40
+    }
+  },
+  "builds": {
+    "debugSolution": true,
+    "releaseSolution": true,
+    "isolatedHost": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "profileHandshake": {
+    "profile": "sampled-dse-vsm-6.13.1.1-v1",
+    "fingerprint": "329D43544AB844A1",
+    "fingerprintMatched": true,
+    "badProfileRejected": true,
+    "badHandlesRejected": true,
+    "unselectedInstallRejected": true,
+    "oldBridgeTested": true,
+    "oldBridgeRejected": true,
+    "validProfileSelected": true
+  },
+  "unavailableBackendHost": {
+    "componentIdentityInjected": true,
+    "qualificationHashes": 2,
+    "states": [
+      {
+        "mode": "missing-modules",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 0,
+        "volume": 0,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "Injected timing module not loaded.",
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "Injected timing module not loaded.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "timing",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 0,
+        "volume": 0,
+        "host": {
+          "revision": 9,
+          "suspended": false,
+          "fault": null,
+          "reason": null,
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 2,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": [
+            "WIVSMNote:DidUpdateNoteNumber"
+          ]
+        }
+      },
+      {
+        "mode": "duration",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 0,
+        "duration": 1,
+        "volume": 0,
+        "host": {
+          "revision": 0,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "storedPlans": 0,
+          "activePlans": 0,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "volume",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 0,
+        "duration": 0,
+        "volume": 1,
+        "host": null
+      },
+      {
+        "mode": "combined",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 1,
+        "volume": 1,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "unbound",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 2,
+        "duration": 1,
+        "volume": 1,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "Unbound project controls are preserved but cannot render against a different note identity.",
+          "storedPlans": 2,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      }
+    ]
+  },
+  "currentBackendHost": {
+    "passed": true,
+    "renderStages": 31,
+    "inputReuse": {
+      "name": "input-reuse",
+      "runs": 100,
+      "elapsedMs": 1.5345,
+      "extraPlans": 0
+    },
+    "saveRollback": {
+      "name": "save-failure",
+      "oldFileExact": true,
+      "dirty": true
+    },
+    "multiPartCache": {
+      "name": "multi-part-cache",
+      "Scopes": 0,
+      "CacheKeys": 0,
+      "exact": true
+    }
+  },
+  "previousBuildComparison": [
+    {
+      "stage": "cold",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "baseline",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "left-edit",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "right-edit",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "undo-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "redo-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "reloaded",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "restored",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "coefficients-shared",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "coefficients-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    },
+    {
+      "stage": "neighbor-owned-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "nativeFailures": 0
+    }
+  ],
+  "installedFilesUnchanged": {
+    "mainSha256": "2F4B9FC41B66AFFABFEDAD7777610C224E26DEFCF4FC22C117983F56B6F5473E",
+    "nativeSha256": "E3E8C7674E0F9CBE8CFF548CC35D689FCD3CD3A9C3E9E8631369C7A3BB99184C"
+  }
+}

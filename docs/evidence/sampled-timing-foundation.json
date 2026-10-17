@@ -1,0 +1,642 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-16T06:54:37.146490+00:00",
+  "scope": "Isolated native VSM/DSE process, no Editor launch, deployment or drag connection. Shared Editor history/UI and multi-Part render task routing are not host-validated.",
+  "images": {
+    "DSE.dll": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "VSM.dll": "78eb2d8198855c0046dd1e8ae8141de609145a239d434f6518f08be33e369058",
+    "VOCALOID6.dll": "12fed09b2d0d2af5d0d2d5cbc12743248cb31aea1efa73723ab7e57b527ebd7e"
+  },
+  "sourceSha256": {
+    "VOCALOIDPatcher/VOCALOIDPatcher/BreathVolume/ICustomParameterHistoryEdit.cs": "acf3e3fd5a5695d31b35c04eb2898232c3f2e8ef6cbaaf22f9ef7c7a5031dec1",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/ConsonantTimingInputEncoder.cs": "03200950a442af8bb51afc82ed0baa4f11df3b70f5f7f4e0e7255914e917ce8f",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/ConsonantTimingScoreAdapter.cs": "425691a54674d2b47003f9e460a6b2602308e89c3fceb0b41005aca642ee7fa5",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/LocalConsonantTimingBackend.cs": "c23d707ca57a03aa0e8de6072656e80f7c31de50be3e1f9779856380ee0e7e9f",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/LocalTimingNative.cs": "3dc58d908a17afe7cb6877abd7ffa47cffda9d4a9f6320ec0b19d628e52b2e01",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/NativeConsonantTimingEngine.cs": "a8e71a71f5f13710780f8bb34825cad05a1bf607bdea3ffa9a7c78c025df084d",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/NativeTimingNoteInput.cs": "b9db6c96fc7d63b5868576a067f34781feb5d9951c7dc7713182e880ea04f9ee",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/PreparedCoefficientTiming.cs": "3dab56cffa824c05fa26fdf055d89e6f7c8a5756ce3e8f25fadf109cb7952fe5",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/SampledTimingVsmBinding.cs": "176058099ba150f1e828cea14bc9bd8dd63e5216bd3ca99e261375d0d116ebe8",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/SampledTimingDocument.cs": "a702b2c285f691dde520405d589058e189eb6114a3210362d7a123618347ad5b",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/SampledTimingPlan.cs": "26a83df04551a9394256986febb0fb150fa1d57efac7addedeb1051d6407cd0a",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/SampledTimingProjectArchive.cs": "bf3623557df52e6f3dba40c1bcbe57921a3b430f119eaea97adb4a2e796f7411",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/TimingRenderRevision.cs": "3a4760e68937af3d07a4d3f733482c3966b1b95ef957d9ede05e205d2d828219",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/SampledTimingSession.cs": "39d84752a902665fde460447cc08b45e32ea587c8c65cfa628662211fcd43abb",
+    "VOCALOIDPatcher.McpTests/SampledTimingModelTests.cs": "e01486dd6e15c5f22dbcf1505d78b77ccadbac76e640063200ed16884fe38031",
+    "voicebank/tools/evec_render_harness/TimingCoefficientProbe.cs": "366307802e4e63a88da9a63f1bfdcdec9e65bec9bbfb49c66bbd6f7cb8e2e75a",
+    "voicebank/tools/evec_render_harness/TimingFoundationProbe.cs": "7ffcfd49cf88a587bb53d6fc162d40e3b0a9bfd635eda6f2c8688ae5869c3bda",
+    "voicebank/tools/summarize_timing_foundation.py": "1d227c1ff81bc023b4ac66e726f93096bdbeeaa5db885a0f26c62fb82a5440c4"
+  },
+  "rawSha256": "12465bfceba4a7943b6a88e0a1206ec9a6835b5090a341539a11fcd936d012e5",
+  "totals": {
+    "ordinaryMatches": 640,
+    "contextMatches": 35,
+    "offGridPcmChecks": 15,
+    "simultaneousCoefficientParts": 2,
+    "simultaneousCoefficientNotes": 4,
+    "maxNotesPerWindow": 33,
+    "maxPreparedWindows": 5,
+    "maxEncodedNotesPerPreparation": 67,
+    "automatedTests": 147
+  },
+  "measurements": {
+    "results": [
+      {
+        "phones": "k a",
+        "matching": 128,
+        "PreparationMs": 7.8462,
+        "encoded": 3,
+        "WindowCount": 1,
+        "queryDse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "rendered": [
+          {
+            "coefficient": 0.00390625,
+            "Boundaries": [
+              -309,
+              -2,
+              405
+            ],
+            "hash": "4F5EED9D12E634F90C374E187BA878D95E9B20C48B1D6807F54E170B4C2B3820",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.18359375,
+            "Boundaries": [
+              -186,
+              -2,
+              405
+            ],
+            "hash": "0C1CD206EA073C38556ED36F167181F1CF1F6C50C608B233470BFC459A140825",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.7363281,
+            "Boundaries": [
+              -58,
+              -2,
+              405
+            ],
+            "hash": "4AF223568416B43E7B8939EA05E1648FA0482DFA35A3C39D465B1A9AF909C808",
+            "Injections": 1
+          }
+        ]
+      },
+      {
+        "phones": "n a",
+        "matching": 128,
+        "PreparationMs": 2.8624,
+        "encoded": 3,
+        "WindowCount": 1,
+        "queryDse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "rendered": [
+          {
+            "coefficient": 0.00390625,
+            "Boundaries": [
+              -164,
+              -2,
+              405
+            ],
+            "hash": "221862C85988AD7D823C6DC1595A89C231267C479F5C9CDA421C5A274BECDA1C",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.18359375,
+            "Boundaries": [
+              -125,
+              -2,
+              405
+            ],
+            "hash": "D6123E0B9E6DED6BD5D4DEC7B31A1919ED9C2994D8336DF31DB2F676862CBE3A",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.7363281,
+            "Boundaries": [
+              -58,
+              -2,
+              405
+            ],
+            "hash": "08A0B63CE4529172D48DCDC77D0D091A90F0E29BFF68AA770C475537FC054A2A",
+            "Injections": 1
+          }
+        ]
+      },
+      {
+        "phones": "k a i",
+        "matching": 128,
+        "PreparationMs": 2.3391,
+        "encoded": 3,
+        "WindowCount": 1,
+        "queryDse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "rendered": [
+          {
+            "coefficient": 0.00390625,
+            "Boundaries": [
+              -309,
+              -2,
+              204,
+              416
+            ],
+            "hash": "3AE901E85EE8B269E5BB9B42816E128BA3318DE76B10DA6953C00B84588EF224",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.18359375,
+            "Boundaries": [
+              -186,
+              -2,
+              204,
+              416
+            ],
+            "hash": "726C81013A4805348BBE5A35C29A4CC78EBC195FDAB659D67FE2C30438BDFF25",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.7363281,
+            "Boundaries": [
+              -58,
+              -2,
+              204,
+              416
+            ],
+            "hash": "77621BEFDD7E8CE795130760DD6A710A45E02E381FEAEB43ABC72887C7C20AC9",
+            "Injections": 1
+          }
+        ]
+      },
+      {
+        "phones": "s a",
+        "matching": 128,
+        "PreparationMs": 2.4609,
+        "encoded": 3,
+        "WindowCount": 1,
+        "queryDse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "rendered": [
+          {
+            "coefficient": 0.00390625,
+            "Boundaries": [
+              -259,
+              -2,
+              405
+            ],
+            "hash": "1C30B25D857DEDDA2E8C4D82DE4968E162A92F567D2B9A35938293A77013E4D6",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.18359375,
+            "Boundaries": [
+              -220,
+              -2,
+              405
+            ],
+            "hash": "6C667BB8C63D3AC57024EF0653714F7A4FC037EA55FAF607D49210E5BF887BE7",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.7363281,
+            "Boundaries": [
+              -103,
+              -2,
+              405
+            ],
+            "hash": "0A8518B3743DA7F3BC375638EE22603104D4208DF675AE74C016B550A6AB9AAE",
+            "Injections": 1
+          }
+        ]
+      },
+      {
+        "phones": "j a",
+        "matching": 128,
+        "PreparationMs": 1.9561,
+        "encoded": 3,
+        "WindowCount": 1,
+        "queryDse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "rendered": [
+          {
+            "coefficient": 0.00390625,
+            "Boundaries": [
+              -136,
+              -2,
+              405
+            ],
+            "hash": "E5D33C14F0EB5D4CFF08E9EC6493B2D6CF2A4079C88869AAB26D4D67A6431551",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.18359375,
+            "Boundaries": [
+              -114,
+              -2,
+              405
+            ],
+            "hash": "A8A0335E89B512E123F3CF7BD49F835BC41FCE6004EDEEFA7829DFAE68D52C8D",
+            "Injections": 1
+          },
+          {
+            "coefficient": 0.7363281,
+            "Boundaries": [
+              -47,
+              -2,
+              405
+            ],
+            "hash": "7BBA5C2C34E446479981EB744E28A27B8DFD880AF8166CF8456606798A8F55CA",
+            "Injections": 1
+          }
+        ]
+      }
+    ],
+    "contexts": [
+      {
+        "Count": 3,
+        "Duration": 120,
+        "Start": 0,
+        "Tempo": false,
+        "Rin": false,
+        "comparisons": 7,
+        "PreparationMs": 1.9136,
+        "EncodedNotes": 3,
+        "WindowCount": 1,
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "Count": 3,
+        "Duration": 480,
+        "Start": 17003,
+        "Tempo": true,
+        "Rin": false,
+        "comparisons": 7,
+        "PreparationMs": 2.319,
+        "EncodedNotes": 3,
+        "WindowCount": 1,
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "Count": 3,
+        "Duration": 480,
+        "Start": 0,
+        "Tempo": false,
+        "Rin": true,
+        "comparisons": 7,
+        "PreparationMs": 3.349,
+        "EncodedNotes": 3,
+        "WindowCount": 1,
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "Count": 100,
+        "Duration": 120,
+        "Start": 17003,
+        "Tempo": false,
+        "Rin": false,
+        "comparisons": 7,
+        "PreparationMs": 9.5198,
+        "EncodedNotes": 67,
+        "WindowCount": 5,
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "Count": 10000,
+        "Duration": 120,
+        "Start": 17003,
+        "Tempo": false,
+        "Rin": false,
+        "comparisons": 7,
+        "PreparationMs": 12.6586,
+        "EncodedNotes": 67,
+        "WindowCount": 5,
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      }
+    ],
+    "detachedOwnedQuery": true,
+    "invalidatedPreparation": true,
+    "multiple": [
+      {
+        "bank": "BCNFCY43LB2LZCD4",
+        "predictions": [
+          [
+            -186,
+            -2,
+            210,
+            432
+          ],
+          [
+            -48,
+            -3,
+            476
+          ]
+        ],
+        "Injections": 2,
+        "hash": "8B7B4ACEA428FB0526BFD694CACAF427C9639836DC7979B8B57CD09E882B8DF0"
+      },
+      {
+        "bank": "BKKP765AEHXWSKDB",
+        "predictions": [
+          [
+            -181,
+            -2,
+            243,
+            427
+          ],
+          [
+            -53,
+            -3,
+            476
+          ]
+        ],
+        "Injections": 2,
+        "hash": "897CA8203C329255944A7159BC93339023EC5242E7CAB886E34F337F2C36B1F6"
+      }
+    ],
+    "boundedCache": {
+      "notes": 100,
+      "invalidated": 33,
+      "Boundaries": [
+        -50,
+        -5,
+        117
+      ],
+      "changedCounters": {
+        "Starts": 1,
+        "Steps": 4725,
+        "Samples": 1209600
+      },
+      "baselineHash": "A049D4B7C871DA53C5F1A38CB9D90F198EFD2F1FA861D8559E8B17A9F5B744FE",
+      "controlHash": "C5009A34B7EAAA7242885A7977591F4752487FB3D9169971AC9F999ECBB78C8C",
+      "changedHash": "A08A1D9A5D16E8D84235A6517DF77398914B27E0ADE6E364958C3EDDB2192070",
+      "restoredHash": "C5009A34B7EAAA7242885A7977591F4752487FB3D9169971AC9F999ECBB78C8C",
+      "controlDifference": {
+        "count": 154,
+        "firstSample": 44032,
+        "lastSample": 44265,
+        "peakInt16Difference": 6
+      },
+      "restoredDifference": {
+        "count": 154,
+        "firstSample": 44032,
+        "lastSample": 44265,
+        "peakInt16Difference": 6
+      }
+    },
+    "lifecycle": {
+      "snapshots": [
+        {
+          "name": "baseline",
+          "coefficient": 0.5,
+          "Revision": 0,
+          "IsDirty": false,
+          "Fingerprint": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "Boundaries": [
+            -80,
+            -2,
+            204,
+            416
+          ],
+          "hash": "3A9D6BCAF7AAB0323D3F9D469BE1D763D4E04EC904603F909492B61A288E27B1",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "a",
+          "coefficient": 0.009765625,
+          "Revision": 1,
+          "IsDirty": true,
+          "Fingerprint": "01783AC39BA49406BD738A4B55787FA088ED06D1CDD3F9B73FE7DD8AA21E14C5",
+          "Boundaries": [
+            -298,
+            -2,
+            204,
+            416
+          ],
+          "hash": "2915150C6921522966A06C62BBFF8E996E64DFB6714513FD1CAF2DD959CD1F39",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "b",
+          "coefficient": 0.7363281,
+          "Revision": 2,
+          "IsDirty": true,
+          "Fingerprint": "CB6BBE97D841C00201EA3F3E983ED261A4247614AB1EAF439361642E281B53F5",
+          "Boundaries": [
+            -58,
+            -2,
+            204,
+            416
+          ],
+          "hash": "77621BEFDD7E8CE795130760DD6A710A45E02E381FEAEB43ABC72887C7C20AC9",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "undo_a",
+          "coefficient": 0.009765625,
+          "Revision": 3,
+          "IsDirty": true,
+          "Fingerprint": "01783AC39BA49406BD738A4B55787FA088ED06D1CDD3F9B73FE7DD8AA21E14C5",
+          "Boundaries": [
+            -298,
+            -2,
+            204,
+            416
+          ],
+          "hash": "2915150C6921522966A06C62BBFF8E996E64DFB6714513FD1CAF2DD959CD1F39",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "redo_b",
+          "coefficient": 0.7363281,
+          "Revision": 4,
+          "IsDirty": true,
+          "Fingerprint": "CB6BBE97D841C00201EA3F3E983ED261A4247614AB1EAF439361642E281B53F5",
+          "Boundaries": [
+            -58,
+            -2,
+            204,
+            416
+          ],
+          "hash": "77621BEFDD7E8CE795130760DD6A710A45E02E381FEAEB43ABC72887C7C20AC9",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "branch",
+          "coefficient": 0.18359375,
+          "Revision": 8,
+          "IsDirty": true,
+          "Fingerprint": "AD424E39E23192EEC7D7EA5BB72854C3410B86DBE5CF8749C961D8A830547C2A",
+          "Boundaries": [
+            -186,
+            -2,
+            204,
+            416
+          ],
+          "hash": "726C81013A4805348BBE5A35C29A4CC78EBC195FDAB659D67FE2C30438BDFF25",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "clear",
+          "coefficient": 0.5,
+          "Revision": 9,
+          "IsDirty": true,
+          "Fingerprint": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "Boundaries": [
+            -80,
+            -2,
+            204,
+            416
+          ],
+          "hash": "3A9D6BCAF7AAB0323D3F9D469BE1D763D4E04EC904603F909492B61A288E27B1",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "native_pitch",
+          "coefficient": 0.5,
+          "Revision": 9,
+          "IsDirty": true,
+          "Fingerprint": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "Boundaries": [
+            -80,
+            -2,
+            204,
+            416
+          ],
+          "hash": "A39E96DEEFC32C6268C31308EAF17F06F127BC7065011A1C9B2DAC6156B5FCCC",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "native_undo",
+          "coefficient": 0.5,
+          "Revision": 9,
+          "IsDirty": true,
+          "Fingerprint": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "Boundaries": [
+            -80,
+            -2,
+            204,
+            416
+          ],
+          "hash": "3A9D6BCAF7AAB0323D3F9D469BE1D763D4E04EC904603F909492B61A288E27B1",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        },
+        {
+          "name": "native_redo",
+          "coefficient": 0.5,
+          "Revision": 9,
+          "IsDirty": true,
+          "Fingerprint": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "Boundaries": [
+            -80,
+            -2,
+            204,
+            416
+          ],
+          "hash": "A39E96DEEFC32C6268C31308EAF17F06F127BC7065011A1C9B2DAC6156B5FCCC",
+          "dse": {
+            "Starts": 1,
+            "Steps": 3554,
+            "Samples": 909824
+          }
+        }
+      ],
+      "events": 10,
+      "nativeCacheStillValidAfterTimingEdit": true,
+      "cachedBeforeInvalidation": "3A9D6BCAF7AAB0323D3F9D469BE1D763D4E04EC904603F909492B61A288E27B1",
+      "reopenedHash": "77621BEFDD7E8CE795130760DD6A710A45E02E381FEAEB43ABC72887C7C20AC9",
+      "reopenedBoundaries": [
+        -58,
+        -2,
+        204,
+        416
+      ],
+      "nativeHistoryPreserved": true,
+      "saveReopen": true,
+      "reservedTargetsPreserved": true,
+      "unsupportedRejected": true,
+      "historyScope": "Real timing history commands replayed through ICustomParameterHistoryEdit; Editor shared timeline not installed in this isolated process."
+    },
+    "preparation": {
+      "Min": 1.9561,
+      "P50": 2.4609,
+      "P95": 7.8462,
+      "Max": 7.8462
+    },
+    "queries": {
+      "Min": 0.1461,
+      "P50": 0.1649,
+      "P95": 0.4467,
+      "Max": 2.8725
+    }
+  }
+}

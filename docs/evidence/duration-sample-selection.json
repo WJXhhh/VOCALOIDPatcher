@@ -1,0 +1,3199 @@
+{
+  "date": "2026-10-17",
+  "dse_sha256": "7A4965BD377DBC2B08710E807AE1345B67D9FFF6579CA0C01A769F744366F5B5",
+  "architecture": "x64",
+  "image_base": "0x180000000",
+  "selector_rva": "0x1B8F40",
+  "prepare_rva": "0x1B54D0",
+  "real_audio_cases": 126,
+  "banks": [
+    "MIKU_V4X_Original_EVEC",
+    "RIN_V4X_Power_EVEC",
+    "Yuezheng_Ling_You"
+  ],
+  "pitch_midi": 60,
+  "velocity": 64,
+  "ticks_per_quarter": 480,
+  "all_audio_non_silent": true,
+  "all_source_runs_match_actual": true,
+  "A_B_A_repeats": 18,
+  "planning_synthesis_calls": {
+    "Starts": 0,
+    "Steps": 0,
+    "Samples": 0
+  },
+  "preinitialized_planning_ms": {
+    "minimum": 0.4633,
+    "median": 0.8006,
+    "p95": 1.3585,
+    "maximum": 1.7682
+  },
+  "planning_scope": "One or two notes, already captured native inputs and initialized private engine; includes bounded metadata scan. Excludes input preparation and cold initialization.",
+  "source_id_scope": "Per-fixture, process-local identities of loaded material objects; never persist pointers or compare numeric IDs across processes. Catalog contains metadata, not source audio.",
+  "identity_comparison": "Ordered runs of material identity, phoneme IDs, stage, direction, bank and unit; consecutive repetitions of the same stationary material are collapsed.",
+  "full_schedule_nonmatches": 18,
+  "articulation_schedule_nonmatches": 0,
+  "exact_schedule_is_not_claimed": true,
+  "tempo_equivalent_pairs": [
+    {
+      "milliseconds": 25.00000000000002,
+      "ticks_120": 24,
+      "ticks_240": 48,
+      "source_metadata_match": true
+    },
+    {
+      "milliseconds": 50.00000000000004,
+      "ticks_120": 48,
+      "ticks_240": 96,
+      "source_metadata_match": true
+    },
+    {
+      "milliseconds": 125,
+      "ticks_120": 120,
+      "ticks_240": 240,
+      "source_metadata_match": true
+    },
+    {
+      "milliseconds": 187.5,
+      "ticks_120": 180,
+      "ticks_240": 360,
+      "source_metadata_match": true
+    },
+    {
+      "milliseconds": 250,
+      "ticks_120": 240,
+      "ticks_240": 480,
+      "source_metadata_match": true
+    },
+    {
+      "milliseconds": 500,
+      "ticks_120": 480,
+      "ticks_240": 960,
+      "source_metadata_match": true
+    },
+    {
+      "milliseconds": 1000,
+      "ticks_120": 960,
+      "ticks_240": 1920,
+      "source_metadata_match": true
+    }
+  ],
+  "native_rechecks": {
+    "native-budget-recheck": {
+      "cases": 735,
+      "mismatches": 0,
+      "evidence_sha256": "0cb3866ab8e96cfc0ed4052276ad315137aa79aafb5ec2ddb9996f5c2682f105"
+    },
+    "native-duration-order-recheck": {
+      "cases": 72,
+      "mismatches": 0,
+      "evidence_sha256": "d024025d40a9ae39ec12ccbdf67e2b6d3ef8543f98775328b7ebe59941618522"
+    }
+  },
+  "fixtures": [
+    {
+      "fixture": {
+        "Name": "miku-ka",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "k a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 4,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            4,
+            2,
+            4
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 39,
+          "Pitch": -975.8666,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            39,
+            3,
+            24
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.2931,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6129,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6255,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.649,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6296,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6548,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6818,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9504,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.764,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9375,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 7,
+          "consumed_rows": 7,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.3943,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 9,
+          "consumed_rows": 9,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.2328,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 13,
+          "consumed_rows": 12,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.7895,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.6155,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "miku-na",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "n a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 9,
+          "Pitch": -893.6745,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            9,
+            2,
+            9
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 40,
+          "Pitch": -968.71185,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            5,
+            0,
+            5,
+            5,
+            40,
+            5,
+            26
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6333,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6218,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6188,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6783,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7517,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8772,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9036,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7781,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8532,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.1469,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 7,
+          "consumed_rows": 7,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.1629,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 9,
+          "consumed_rows": 9,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.4312,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 12,
+          "consumed_rows": 12,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.7787,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/5:0:0:0:0/0|5/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.7854,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "miku-a",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 33,
+          "Pitch": -915.5561,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            33,
+            3,
+            21
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6493,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6626,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7893,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7805,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7098,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7042,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8821,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.862,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0372,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0237,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 6,
+          "consumed_rows": 6,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.2268,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 8,
+          "consumed_rows": 8,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.3437,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 11,
+          "consumed_rows": 11,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:2:-1:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.8382,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            2
+          ]
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/0:0:0:0:0/0|0/41:1:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.6495,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 2,
+          "consumed_rows": 2,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "miku-kai",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "k a i",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 4,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            4,
+            2,
+            4
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 39,
+          "Pitch": -975.8666,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            39,
+            3,
+            24
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 63,
+          "Pitch": -884.6944,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            31,
+            12,
+            31,
+            31,
+            63,
+            31,
+            50
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 10,
+          "Pitch": -982.7576,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            7,
+            1,
+            7,
+            7,
+            10,
+            7,
+            10
+          ]
+        },
+        {
+          "Id": 4,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6218,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6767,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6958,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8484,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8457,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.835,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9394,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8634,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0951,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:4:-1:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9369,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 6,
+          "consumed_rows": 6,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            4
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:4:-1:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0993,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 9,
+          "consumed_rows": 9,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            4
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:4:-1:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.2832,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 11,
+          "consumed_rows": 11,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            4
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.8207,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/1:2:0:0:0/0|1/41:3:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.6718,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "miku-ka-connected",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "k a",
+        "Language": 0,
+        "Previous": true,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 33,
+          "Pitch": -915.5561,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            33,
+            3,
+            21
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        },
+        {
+          "Id": 2,
+          "Frames": 36,
+          "Pitch": -927.8944,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            25,
+            10,
+            25,
+            25,
+            36,
+            25,
+            36
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 39,
+          "Pitch": -975.8666,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            39,
+            3,
+            24
+          ]
+        },
+        {
+          "Id": 4,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6635,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6845,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6999,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9258,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6924,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0376,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9791,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/-1:1:-1:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7653,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 6,
+          "consumed_rows": 6,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/-1:1:-1:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.1072,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 7,
+          "consumed_rows": 7,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/-1:1:-1:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.1228,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 9,
+          "consumed_rows": 9,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/-1:1:-1:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.214,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 11,
+          "consumed_rows": 11,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/-1:1:-1:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.7682,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 14,
+          "consumed_rows": 14,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/-1:1:-1:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.9135,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 7,
+          "consumed_rows": 7,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/0:0:0:0:0/0|0/-1:1:-1:0:0/0|0/12:2:0:0:0/0|12/0:3:0:0:0/0|0/41:4:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.7241,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "rin-ka",
+        "Bank": "BKKP765AEHXWSKDB",
+        "Phones": "k a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 3,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            3,
+            2,
+            3
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 43,
+          "Pitch": -648.7423,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            43,
+            3,
+            27
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 7,
+          "Pitch": -612.49493,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            5,
+            0,
+            5,
+            5,
+            7,
+            5,
+            7
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 34,
+          "Pitch": -801.6532,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6534,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6594,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6621,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6779,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6849,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7128,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.3585,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/-1:3:-1:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7763,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/-1:3:-1:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8278,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/-1:3:-1:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9846,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 9,
+          "consumed_rows": 9,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/-1:3:-1:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.7072,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 12,
+          "consumed_rows": 13,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/-1:3:-1:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.4804,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 17,
+          "consumed_rows": 17,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/-1:3:-1:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.8403,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "41/12:0:0:0:0/6|12/0:1:0:0:0/6|0/41:2:0:0:0/6",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.6735,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "ling-multi",
+        "Bank": "BMBNDB8EM5222MK3",
+        "Phones": "ts\\_h i iE_r @N",
+        "Language": 4,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 4,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            4,
+            2,
+            4
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 48,
+          "Pitch": -892.3284,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            17,
+            0,
+            17,
+            17,
+            48,
+            17,
+            48
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 56,
+          "Pitch": -902.2873,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            33,
+            0,
+            33,
+            33,
+            56,
+            33,
+            56
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 15,
+          "Pitch": -919.06055,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            13,
+            0,
+            13,
+            13,
+            15,
+            13,
+            15
+          ]
+        },
+        {
+          "Id": 4,
+          "Frames": 220,
+          "Pitch": -900.86255,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7009,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8365,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8073,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.83,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7939,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7306,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8788,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9961,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0635,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/-1:4:-1:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.0177,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            4
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/-1:4:-1:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.2094,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            4
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/-1:4:-1:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.366,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 6,
+          "consumed_rows": 6,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            4
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 1.0627,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "60/53:0:0:0:4/3|53/14:1:0:0:4/3|14/16:2:0:0:4/3|11/60:3:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.6454,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "ling-la",
+        "Bank": "BMBNDB8EM5222MK3",
+        "Phones": "l a",
+        "Language": 4,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 11,
+          "Pitch": -934.4117,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            11,
+            2,
+            11
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 32,
+          "Pitch": -898.7407,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            5,
+            0,
+            5,
+            5,
+            32,
+            5,
+            32
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 17,
+          "Pitch": -902.978,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            15,
+            0,
+            15,
+            15,
+            17,
+            15,
+            17
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 156,
+          "Pitch": -902.61237,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6407,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.653,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 74.99999999999996,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8222,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 100.00000000000009,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6927,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 125,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7611,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 187.5,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9537,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 250,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.1654,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 375,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/-1:3:-1:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8525,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/-1:3:-1:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8296,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 1000,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/-1:3:-1:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.995,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 1500,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/-1:3:-1:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.1868,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 2000,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/-1:3:-1:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 1.3569,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 500,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/-1:3:-1:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.7884,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 4,
+          "consumed_rows": 4,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 24.99999999999991,
+          "source_runs": "60/41:0:0:0:4/3|41/0:1:0:0:4/3|0/60:2:0:0:4/3",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.867,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "Name": "miku-ka-fast",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "k a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 24000
+      },
+      "cases": 14,
+      "source_run_variants": 2,
+      "articulation_variants": 1,
+      "stable_A_B_A_repeats": 2,
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 4,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            4,
+            2,
+            4
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 39,
+          "Pitch": -975.8666,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            39,
+            3,
+            24
+          ]
+        },
+        {
+          "Id": 2,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        }
+      ],
+      "rows": [
+        {
+          "ticks": 24,
+          "milliseconds": 12.499999999999956,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.4709,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 48,
+          "milliseconds": 25.00000000000002,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.5297,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 72,
+          "milliseconds": 37.49999999999998,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.9079,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 96,
+          "milliseconds": 50.00000000000004,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.5025,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 120,
+          "milliseconds": 62.5,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.4956,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 180,
+          "milliseconds": 93.75,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6681,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 240,
+          "milliseconds": 125,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.531,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 360,
+          "milliseconds": 187.5,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.6079,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 250,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.5553,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 960,
+          "milliseconds": 500,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7931,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1440,
+          "milliseconds": 750,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.7487,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 5,
+          "consumed_rows": 5,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 1920,
+          "milliseconds": 1000,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/-1:3:-1:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": false,
+          "planning_ms": 0.8246,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 7,
+          "consumed_rows": 7,
+          "complete_schedule_matches": false,
+          "articulation_schedule_matches": true,
+          "sustain_sources": [
+            3
+          ]
+        },
+        {
+          "ticks": 480,
+          "milliseconds": 250,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.5427,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        },
+        {
+          "ticks": 24,
+          "milliseconds": 12.499999999999956,
+          "source_runs": "41/12:0:0:0:0/0|12/0:1:0:0:0/0|0/41:2:0:0:0/0",
+          "source_runs_match_actual": true,
+          "repeat": true,
+          "planning_ms": 0.4633,
+          "counters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          },
+          "planned_rows": 3,
+          "consumed_rows": 3,
+          "complete_schedule_matches": true,
+          "articulation_schedule_matches": true,
+          "sustain_sources": []
+        }
+      ]
+    }
+  ],
+  "scope_limit": "No alternate ART recording was selected by duration alone in these fixtures. Sustained material insertion is proven. Synthetic budget tests demonstrate the conditional ability to choose another material, not universal availability in installed banks. Editor runtime and an independent selection-duration control remain unverified."
+}

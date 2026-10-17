@@ -1,0 +1,1984 @@
+{
+  "date": "2026-10-17",
+  "dse_sha256": "7A4965BD377DBC2B08710E807AE1345B67D9FFF6579CA0C01A769F744366F5B5",
+  "prototype": "private-process native duration selection scoring; no installed file changes or Editor interaction",
+  "direct_selector": {
+    "rva": "0x1B8F40",
+    "observed_real_calls": 0
+  },
+  "joint_cost_rva": "0x19E730",
+  "allocator_rva": "0x19D650",
+  "eligibility_rva": "0x1AB350",
+  "actual_note": {
+    "position_ticks": 960,
+    "duration_ticks": 960,
+    "midi": 60,
+    "VEL": 64,
+    "tempo_bpm": 120
+  },
+  "formula": "new_duration_score = original_duration_score - copied_actual_allocation_cost + copied_virtual_allocation_cost * weight",
+  "virtual_region_frames": "clamp(round(real_region_frames * max(1,budget_frames)/(44100/256)),1,4096)",
+  "strict_matrix": {
+    "cases": 100,
+    "fixtures": [
+      {
+        "name": "miku-ka",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "miku-kai",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "rin-ka",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "ling-multi",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "ling-la",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "miku-ka-up",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 1300,
+        "replaced_costs": 910
+      },
+      {
+        "name": "miku-ka-down",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 40,
+        "replaced_costs": 28
+      },
+      {
+        "name": "miku-kai-sweep",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "ling-multi-sweep",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      },
+      {
+        "name": "chinese-multi",
+        "cases": 10,
+        "pcm_variants": 1,
+        "pcm_changed": 0,
+        "source_runs_changed": 0,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 20,
+        "replaced_costs": 14
+      }
+    ],
+    "raw_json_sha256": "be08caf3c9f3e906ab5fe8b5e13a865d2fedbc245e23a4032d6f85da4a526211"
+  },
+  "expanded_matrix": {
+    "cases": 100,
+    "fixtures": [
+      {
+        "name": "miku-ka",
+        "cases": 10,
+        "pcm_variants": 3,
+        "pcm_changed": 2,
+        "source_runs_changed": 1,
+        "VSM_timing_changed": 0,
+        "native_score_calls": 320,
+        "replaced_costs": 224
+      },
+      {
+        "name": "miku-kai",
+        "cases": 10,
+        "pcm_variants": 3,
+        "pcm_changed": 2,
+        "source_runs_changed": 2,
+        "VSM_timing_changed": 2,
+        "native_score_calls": 960,
+        "replaced_costs": 672
+      },
+      {
+        "name": "rin-ka",
+        "cases": 10,
+        "pcm_variants": 4,
+        "pcm_changed": 5,
+        "source_runs_changed": 4,
+        "VSM_timing_changed": 3,
+        "native_score_calls": 180,
+        "replaced_costs": 126
+      },
+      {
+        "name": "ling-multi",
+        "cases": 10,
+        "pcm_variants": 5,
+        "pcm_changed": 7,
+        "source_runs_changed": 6,
+        "VSM_timing_changed": 6,
+        "native_score_calls": 540,
+        "replaced_costs": 378
+      },
+      {
+        "name": "ling-la",
+        "cases": 10,
+        "pcm_variants": 6,
+        "pcm_changed": 6,
+        "source_runs_changed": 5,
+        "VSM_timing_changed": 4,
+        "native_score_calls": 540,
+        "replaced_costs": 378
+      },
+      {
+        "name": "miku-ka-up",
+        "cases": 10,
+        "pcm_variants": 6,
+        "pcm_changed": 6,
+        "source_runs_changed": 5,
+        "VSM_timing_changed": 2,
+        "native_score_calls": 1600,
+        "replaced_costs": 1120
+      },
+      {
+        "name": "miku-ka-down",
+        "cases": 10,
+        "pcm_variants": 6,
+        "pcm_changed": 6,
+        "source_runs_changed": 5,
+        "VSM_timing_changed": 1,
+        "native_score_calls": 1600,
+        "replaced_costs": 1120
+      },
+      {
+        "name": "miku-kai-sweep",
+        "cases": 10,
+        "pcm_variants": 3,
+        "pcm_changed": 2,
+        "source_runs_changed": 2,
+        "VSM_timing_changed": 2,
+        "native_score_calls": 960,
+        "replaced_costs": 672
+      },
+      {
+        "name": "ling-multi-sweep",
+        "cases": 10,
+        "pcm_variants": 5,
+        "pcm_changed": 7,
+        "source_runs_changed": 6,
+        "VSM_timing_changed": 6,
+        "native_score_calls": 540,
+        "replaced_costs": 378
+      },
+      {
+        "name": "chinese-multi",
+        "cases": 10,
+        "pcm_variants": 4,
+        "pcm_changed": 4,
+        "source_runs_changed": 4,
+        "VSM_timing_changed": 9,
+        "native_score_calls": 1280,
+        "replaced_costs": 896
+      }
+    ],
+    "raw_json_sha256": "892573f0ebbd09444733cd88c5c7174ad33ce386336b441524f8e959a5f4cc7d"
+  },
+  "focused": [
+    {
+      "mode": "strict",
+      "fixture": {
+        "Name": "miku-ka",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "k a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "baselinePcm": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+      "baseline": [
+        -30,
+        -2,
+        956
+      ],
+      "cases": [
+        {
+          "index": 0,
+          "budgetFrames": null,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 166.6459,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 0,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 1,
+          "budgetFrames": null,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": true,
+          "renderMs": 154.0836,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 0,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 2,
+          "budgetFrames": 0,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 187.5912,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 3,
+          "budgetFrames": 1,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 158.6871,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 4,
+          "budgetFrames": 4,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 177.9503,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 5,
+          "budgetFrames": 16,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 189.1686,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 6,
+          "budgetFrames": 64,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 158.0142,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 7,
+          "budgetFrames": 256,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 158.0936,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 8,
+          "budgetFrames": 1024,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 159.5809,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 9,
+          "budgetFrames": 64,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": true,
+          "renderMs": 167.2521,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 10,
+          "budgetFrames": 256,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": true,
+          "renderMs": 158.2106,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 2,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 11,
+          "budgetFrames": null,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": true,
+          "renderMs": 175.1495,
+          "maxCandidates": 1,
+          "pitchWidth": null,
+          "Weight": 1,
+          "ReplacedCosts": 0,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              3
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        }
+      ],
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 4,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            4,
+            2,
+            4
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 39,
+          "Pitch": -975.8666,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            39,
+            3,
+            24
+          ]
+        },
+        {
+          "Id": 3,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        },
+        {
+          "Id": 2,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        }
+      ],
+      "completed": true,
+      "raw_json_sha256": "a28947cfc1aa71576d9a77e75992bd0e56fa6d931357833bf88cd22723dc8eab"
+    },
+    {
+      "mode": "expanded",
+      "fixture": {
+        "Name": "miku-ka",
+        "Bank": "BCNFCY43LB2LZCD4",
+        "Phones": "k a",
+        "Language": 0,
+        "Previous": false,
+        "Tempo": 12000
+      },
+      "baselinePcm": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+      "baseline": [
+        -30,
+        -2,
+        956
+      ],
+      "cases": [
+        {
+          "index": 0,
+          "budgetFrames": null,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 177.1822,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 0,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 1,
+          "budgetFrames": null,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": true,
+          "renderMs": 167.0294,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 0,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 2,
+          "budgetFrames": 0,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 160.0919,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 3,
+          "budgetFrames": 1,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 173.2942,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 4,
+          "budgetFrames": 4,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 159.923,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 5,
+          "budgetFrames": 16,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 142.728,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 6,
+          "budgetFrames": 64,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": false,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 4,
+            "maximumCents": 0
+          },
+          "hash": "4127A23F13AF1BC6FA84C34A38F31968B1AE5FEF6DA6BBC6B6DE015C4F0D35AE",
+          "pcmMatchesUnhooked": false,
+          "repeat": false,
+          "renderMs": 155.1958,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              4
+            ]
+          ],
+          "source_runs_changed": true
+        },
+        {
+          "index": 7,
+          "budgetFrames": 256,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "F77F75572F5F32FCA78DA6CFBDCC028B6F7E108CD76FE422993FD410DE398395",
+          "pcmMatchesUnhooked": false,
+          "repeat": false,
+          "renderMs": 155.0599,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 8,
+          "budgetFrames": 1024,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": false,
+          "renderMs": 156.605,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 9,
+          "budgetFrames": 64,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": false,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 4,
+            "maximumCents": 0
+          },
+          "hash": "4127A23F13AF1BC6FA84C34A38F31968B1AE5FEF6DA6BBC6B6DE015C4F0D35AE",
+          "pcmMatchesUnhooked": false,
+          "repeat": true,
+          "renderMs": 158.713,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              4
+            ]
+          ],
+          "source_runs_changed": true
+        },
+        {
+          "index": 10,
+          "budgetFrames": 256,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "F77F75572F5F32FCA78DA6CFBDCC028B6F7E108CD76FE422993FD410DE398395",
+          "pcmMatchesUnhooked": false,
+          "repeat": true,
+          "renderMs": 173.5124,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 32,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        },
+        {
+          "index": 11,
+          "budgetFrames": null,
+          "boundaries": [
+            -30,
+            -2,
+            956
+          ],
+          "allTimingUnchanged": true,
+          "nativeTransitions": [
+            "41/12@3340",
+            "12/0@3345",
+            "0/41@3517"
+          ],
+          "nativeTransitionsUnchanged": true,
+          "pitchUnchanged": true,
+          "pitchComparison": {
+            "sameFrames": true,
+            "maskDifferences": 0,
+            "maximumCents": 0
+          },
+          "hash": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+          "pcmMatchesUnhooked": true,
+          "repeat": true,
+          "renderMs": 157.7495,
+          "maxCandidates": 4,
+          "pitchWidth": 1200,
+          "Weight": 128,
+          "ReplacedCosts": 0,
+          "source_runs": [
+            [
+              41,
+              12,
+              0,
+              0,
+              0
+            ],
+            [
+              12,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              -1,
+              -1,
+              0,
+              9
+            ],
+            [
+              0,
+              41,
+              0,
+              0,
+              2
+            ]
+          ],
+          "source_runs_changed": false
+        }
+      ],
+      "source_catalog": [
+        {
+          "Id": 0,
+          "Frames": 4,
+          "Pitch": -3.4028235e+38,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            2,
+            0,
+            2,
+            2,
+            4,
+            2,
+            4
+          ]
+        },
+        {
+          "Id": 1,
+          "Frames": 39,
+          "Pitch": -975.8666,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            3,
+            0,
+            3,
+            3,
+            39,
+            3,
+            24
+          ]
+        },
+        {
+          "Id": 9,
+          "Frames": 53,
+          "Pitch": -933.0033,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": []
+        },
+        {
+          "Id": 2,
+          "Frames": 5,
+          "Pitch": -888.6515,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            4,
+            0,
+            4,
+            4,
+            5,
+            4,
+            5
+          ]
+        },
+        {
+          "Id": 4,
+          "Frames": 10,
+          "Pitch": -254.46193,
+          "Dynamics": 0.6,
+          "RecordedTempo": 90,
+          "Alignment": [
+            0,
+            8,
+            1,
+            8,
+            8,
+            10,
+            8,
+            10
+          ]
+        }
+      ],
+      "completed": true,
+      "raw_json_sha256": "498bcf7b13f2c7403071b801ce648130ed9f29ff55271e709404fe38aa7c0616"
+    }
+  ],
+  "positive": {
+    "fixture": "miku-ka",
+    "budget_frames": 64,
+    "selection_duration_ms": 371.51927437641723,
+    "pitch_window_cents": 1200,
+    "temporal_weight": 128,
+    "material_change": "a -> Sil, original 5-frame ART to another 10-frame ART; recording pitch also differs",
+    "original_source": [
+      {
+        "Id": 2,
+        "Frames": 5,
+        "Pitch": -888.6515,
+        "Dynamics": 0.6,
+        "RecordedTempo": 90,
+        "Alignment": [
+          0,
+          4,
+          0,
+          4,
+          4,
+          5,
+          4,
+          5
+        ]
+      }
+    ],
+    "selected_source": [
+      {
+        "Id": 4,
+        "Frames": 10,
+        "Pitch": -254.46193,
+        "Dynamics": 0.6,
+        "RecordedTempo": 90,
+        "Alignment": [
+          0,
+          8,
+          1,
+          8,
+          8,
+          10,
+          8,
+          10
+        ]
+      }
+    ],
+    "note_properties_unchanged": true,
+    "VSM_boundaries_unchanged": true,
+    "native_phoneme_transition_frames_unchanged": true,
+    "actual_native_transitions": [
+      "41/12@3340",
+      "12/0@3345",
+      "0/41@3517"
+    ],
+    "pitch_score": {
+      "sameFrames": true,
+      "maskDifferences": 4,
+      "maximumCents": 0
+    },
+    "full_pitch_score_hash_equal": false,
+    "file_frames": 375296,
+    "sample_rate": 44100,
+    "pcm_changed_samples": 6548,
+    "changed_range_ms": [
+      2362.902494331066,
+      2512.562358276644
+    ],
+    "difference_rms": 0.0009175667766119478,
+    "original_pcm_sha256": "6171ED118BD01F3AEC7B3F50DCC60CB8575F9259AF450C9AF9C582344397E14C",
+    "selected_pcm_sha256": "4127A23F13AF1BC6FA84C34A38F31968B1AE5FEF6DA6BBC6B6DE015C4F0D35AE",
+    "repeat_B_pcm_equal": true,
+    "restore_A_pcm_equal": true,
+    "preview_same_crop_seconds": [
+      1.3092970521541951,
+      2.662562358276644
+    ],
+    "preview_conversion": "shared crop and float/PCM16 conversion only; proof compares untouched native PCM",
+    "same_weight_control_frames": 16,
+    "same_weight_control_pcm_equals_native": true,
+    "same_weight_duration_only_source_substitution": true
+  },
+  "failures": {
+    "rejected_allocator_entry_detour": "Even no-op forwarding changed the native timing; removed from final prototype, ABI/volatile-state cause not established.",
+    "expanded_ling_restore": {
+      "expected_pcm_sha256": "CFB49F94639137587E8BFD55368CC5076EB6440B1FFE4784DCC28A0E5674450C",
+      "actual_pcm_sha256": "C1387DEF62BB2C13B14DC5996D2FB8F4C6281D4F187964BCC14F72CD27D0730C",
+      "restored": false,
+      "root_cause": "unresolved; no claim of general reset/cache correctness"
+    },
+    "parallel_matrix": "A simultaneous strict rerun canceled/timed out. Not counted as passed and not attributed to a specific concurrency cause.",
+    "other_expanded_timings": "See expanded_matrix VSM_timing_changed; not accepted for frontend use"
+  },
+  "limits": [
+    "No alternate material or PCM change in the original eligibility window in the tested matrix.",
+    "Positive proof requires enlarged pitch eligibility and strong temporal weighting; it changes recording pitch source as well as length preference.",
+    "No assertion of same-pitch short/long take availability.",
+    "Four target-pitch validity-mask differences in positive tail; common valid numeric pitch fields have zero-cent difference. No acoustic F0/listening-quality claim.",
+    "Additional PCM changes without source identity changes are not counted as sample substitution.",
+    "No frontend, production ABI, persistence, Editor deployment or general timing preservation implemented."
+  ],
+  "validation": {
+    "debug_solution": "passed, zero warnings/errors",
+    "isolated_probe": "passed, zero warnings/errors",
+    "focused_audio_cases": 24
+  }
+}

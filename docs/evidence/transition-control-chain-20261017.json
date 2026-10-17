@@ -1,0 +1,1904 @@
+{
+  "date": "2026-10-17",
+  "scope": "Independent native timing and pre-overlap-add ART-frame gain; no UI/deployment",
+  "binaries": {
+    "old": {
+      "VOCALOID6.dll": "12FED09B2D0D2AF5D0D2D5CBC12743248CB31AEA1EFA73723AB7E57B527EBD7E",
+      "DSE.dll": "7A4965BD377DBC2B08710E807AE1345B67D9FFF6579CA0C01A769F744366F5B5",
+      "VSM.dll": "78EB2D8198855C0046DD1E8AE8141DE609145A239D434F6518F08BE33E369058"
+    },
+    "new": {
+      "VOCALOID6.dll": "F534ABB9E5678D024F09525E6957F31BFB1D3F3146258D121DAB929D874965AB",
+      "DSE.dll": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD",
+      "VSM.dll": "0A509EE86CBCA68048DFB4D6B6C0D5FE970388AD18B1C2A0E16998CDD3789EE8"
+    }
+  },
+  "crossVersionExactMatch": true,
+  "old": {
+    "profile": "sampled-dse-vsm-6.13.1.1-v1",
+    "sdkVersion": "6.13.1.1",
+    "fixtures": 11,
+    "renders": 125,
+    "purePlans": 625,
+    "unavailable": [
+      {
+        "fixture": "chinese-multi",
+        "variant": "right-long",
+        "reason": "ART endpoint is a protected phoneme/context anchor."
+      },
+      {
+        "fixture": "chinese-multi",
+        "variant": "right-short",
+        "reason": "ART endpoint is a protected phoneme/context anchor."
+      },
+      {
+        "fixture": "chinese-multi",
+        "variant": "timing-and-gain",
+        "reason": "ART endpoint is a protected phoneme/context anchor."
+      },
+      {
+        "fixture": "miku-triplet-stage0",
+        "variant": "right-long",
+        "reason": "No internal interval remains between protected anchors."
+      },
+      {
+        "fixture": "miku-triplet-stage0",
+        "variant": "right-short",
+        "reason": "No internal interval remains between protected anchors."
+      },
+      {
+        "fixture": "miku-triplet-stage1",
+        "variant": "left-long",
+        "reason": "No internal interval remains between protected anchors."
+      },
+      {
+        "fixture": "miku-triplet-stage1",
+        "variant": "left-short",
+        "reason": "No internal interval remains between protected anchors."
+      }
+    ],
+    "planningLatencyMs": {
+      "median": 1.5944,
+      "p95NearestRank": 2.1986,
+      "max": 4.1642
+    },
+    "results": [
+      {
+        "fixture": "chinese-a-head",
+        "target": {
+          "Begin": 3343,
+          "End": 3378,
+          "LeftLength": 2,
+          "From": 60,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "74B170DA89507AD93A2986B536C480421C87A93C1387F3A182FBDD20C345E461"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 1,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "AC01E88C229FA17A3E65C624D5648BD30EF5EE4F879C821DD2287A1E02AFAC18"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "9FC1EFC157742C03AB8C88A1E940B499B746A8CC6470E36A67019F5D1D045A2F"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "C2BF5C24CE923FF9F68CE12996B47027EE3DDB433E029088ABB00DEEA31E750E"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "B30193316868D5C55E9BBEC1FB4813A7ED319EC2573FFB69E3319E368FD947F7"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511860582335866,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "970FBF4BDB3AE57FFEE812EF1EE3AC7DE9DD35B1F35A40845E208B14EF7304A9"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952625975104286,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "0C4DD13F3448DB65EEB0926A484539DDE06CE295267C6F9BBCCC083C1C991706"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "258BD01BF0F9014CD101714C04349810ABA3EDC91620335D4A3FDA22A5C9F2BE"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-a-tail",
+        "target": {
+          "Begin": 3502,
+          "End": 3519,
+          "LeftLength": 15,
+          "From": 0,
+          "To": 60,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "162CEF102201ABDF380E56532C2C56FCFC49F2A4066DAE80D74DAC699CCE5FFD"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "0627D810BADD1E079C0679C9E9F34E66A314F22A28901AD53A5BED173E707EEA"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "D441936B011454FA08678BC86D36576285C3A9C74044EFEB274FE9D18C154E23"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -1,
+            "sameRawRowCount": true,
+            "hash": "2B948868D663F32EDEC221F1CE58D4425C79C711B4BE8BDB1ABA9C5AB138836B"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "E83723BD5A65FFFD657C8250BAB0B0C9271C24703793DBBF3704ABCD6EA9525F"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511983216326916,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A96521A5AEF1F389AB510C12232F0BF78D604A27C4E2EBF4225B29944C817EF1"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.995310580936255,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "5DD3154146E0CDE5BA6D6394B8762A28F4C55753EAC6278A053544DAB5BDAD45"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "66EF76077B676A2FFD2197FA3BEE30E55F12205ED394AC91D51321795EB064DC"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-la-inner",
+        "target": {
+          "Begin": 3339,
+          "End": 3372,
+          "LeftLength": 6,
+          "From": 41,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "E8E8FE2E1B5847626050A30E262B169F8DF95238863E07B2133E151CEFFF08B6"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "BF348B4DCCC0BE7933A4E135AC6C01C0A25BE6EE43B4F95D99911CF600A0BF5C"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "E5039799195F72293A8F950A964047A4D9DDC2D015C0ECB40747005C7F950482"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "603668BA9352DF0B681A1D8CB7AC55FED14716BA5BB077FDF578B0961D589AA8"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -5,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "C4C2B06E92AE9755558E29CC2B4BD27DF671374110D53FC54A5B857160EF0EC8"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511848814183109,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9C09E70FE9E7AF203C16113E9D990D8D92491B88285C379B497C009964FA9EE1"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952489625619825,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "B5402C49616C3A35F0F35FC9FF291C3D8FB8D23F112E06CC1B972C20E03EFA24"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "4094348819F5E9CE4A85C502E88BC0D6FC80CDD0EA499B98165DC0D5FCB9C342"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-multi",
+        "target": {
+          "Begin": 3448,
+          "End": 3504,
+          "LeftLength": 33,
+          "From": 14,
+          "To": 16,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "735D3560ACC8B61BACF986A27AE1F4F50F216D56794D88387765B562862E15C6"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "E3D43E46E9DED07090F69F7924282475C32439A9454CE7C7629AC1A759567F69"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25119451983136315,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "79DBDA4CE2ED9E80DA0C17A65C30E53F7018AEF2FFB84720D210B41AE766ED8D"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952694009919527,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9FFED8EAAF4B2602943E1FE11C685BB40512DEF42871D6BB6FB22FD2EDC50BAA"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "7D43B34496A7D8C55E6736B2FC43B9544172385A1E3EC157274D88EAB5DCCEEC"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-connected",
+        "target": {
+          "Begin": 3398,
+          "End": 3425,
+          "LeftLength": 22,
+          "From": 0,
+          "To": 41,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "FDB2297EA1556E951BF96A13653963D8A8BC21505E68357AFAA3E87359F0689A"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "8F5913E4490B170D801493E7E31AB16C3DD4E61E90DC0CF803FB4EF80B3C94F4"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 5,
+            "sameRawRowCount": true,
+            "hash": "53222B096560F933B58EC6A4A6F1C617B915524F8B24B6A92B89C647842038AC"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -4,
+            "sameRawRowCount": true,
+            "hash": "9E053C6FF0AA1E38F676F568CF22B20C172EA8712F070DFCF9C6C2B1760CB416"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 5,
+            "sameRawRowCount": true,
+            "hash": "B2E6610D0903A971ED8B609306824C0CCDA0A00B14E37E0A416E1297419C2A77"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25118696933537565,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "F4C9980ADA02DA3102FB72FEB36F84D13CF9AE7008280B468792E6BE9D58CEBC"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952629265836805,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9114F9AD4FAE4B641C6EB034E01803A0A27B7F2BE0A4B8D8F02CDE82A3A2B8CA"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "D0FEB1DE0F7357C910052D94D30FADFA5E477EDC53893C25577C5CBFA8B30817"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-short",
+        "target": {
+          "Begin": 3339,
+          "End": 3359,
+          "LeftLength": 6,
+          "From": 41,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "C554BF27D70A8BCE807893D61E582A3E5776787C82E758EAFCBAD9B3335EF678"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "709FB479D22F75FA4D89893D69D4711696209D3AE5711D6A23AA63959282F232"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "6544FEF95DDE3C9060F88877616B69FCA1D08AB63EBE7594F374B17A7FC5FD4C"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "FBD8EBDFB6D3592861D18A4496DE1AD64BB63083C34101B702563A817591A1E7"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -5,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "4F71C903D9B81B4381F435B064608A7B4CB1725711DB7139AF9A1FE1FC60D1C3"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25119711460600425,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "47FDB6C3B950971C6E67FED201A9CEAAD3B1492FDD13619424DA380FE13D80FF"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952682117757865,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A2D774626054A777A54EA4B939F65393D8FA961C8D8401AC4D566AA859F8789B"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "636CBF44DEE8651B071DDE51C4BAE01BCF9CD161E8D564CCBC3A0E502C52212E"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-fricative",
+        "target": {
+          "Begin": 3325,
+          "End": 3394,
+          "LeftLength": 20,
+          "From": 48,
+          "To": 20,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -1,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "E691053E83CF5741D95363F630990ED2DC7C6F8EB2BEDF8BEFE839D194B1887E"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "7AB8EE3D85B69E34285AAFADABF5478208D3938BEF14DC9D8EBCC07821D2E07A"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "8B3F65D0203A4F0FCF32E06118F73A6783B720D7ABC259B7F32FE538C2547054"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "97C875A477F2FEE276762525D0842376E1CF1E275DF80778C89E00EFDD227F2D"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -1,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "A4E0DFF1BD9C99426F5856DF02469F11D57B6E4EDCEF166A405F698924B10E31"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511860842987363,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "0C30B15E4C7442079036F3DE0CFECC819BF12B0D352AF17B29769C5C9430E510"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952682697261468,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "134855B9C0F3E27AFE4F1F0E1C35E9C6A3F151962E0F2A3E2AFA47F164AB1CEB"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "0D915A9FC801F6FE52A4215CAB4E3F2E25EDDB420969C259ACF930BDCB81C5A7"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-ka",
+        "target": {
+          "Begin": 3342,
+          "End": 3366,
+          "LeftLength": 3,
+          "From": 12,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -1,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "4A87B18FF25E113750AF7B32E04DCA0100231AFF73B88D5C37D95AC178228380"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 2,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "3CD4D67BCBB94FEF43268AE2EB6F61A65C21B994059FB09457617FC61349BD20"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "B6729A818FFAA0CB29C1690C3DB68B6419D6C4D274C0C705AB2A0E98CF120A72"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "FEF61B552246CFC64D18B9D9FBAF88E0B375AC0F6683F52745DCE56BE9B35978"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -1,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "4E5924B5B18637100059B85F956985BE22E54D49BC1882EC17D38A68C7D33484"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511864462152193,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9BD0F6CDD9FC2F7C5ECE79EBA06572B0F4CC53D99704840C04D84333B2C6F7AD"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952562688477775,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "552A2AB02331786DA9B2B1266408BACD4DEAA2AC1FCF2AAB5A593B08D9DAC541"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "3DF1FC9CF9985B143C8A490AA4264D8F14C9DB4ACE3F0B4CE853917FDEBAC485"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-connected",
+        "target": {
+          "Begin": 3402,
+          "End": 3428,
+          "LeftLength": 15,
+          "From": 0,
+          "To": 12,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "5979C7C6B422BDE0FC19D9D32E269EBB6899F63F02EF99C333F163EF72C6AA23"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "80AD490E8F22BE201F208F2448FF93417E3EAFFD72C6914D1B7ACD04AF8031DC"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 2,
+            "sameRawRowCount": true,
+            "hash": "6ABC8D859122AD746DBA5F0DB3F2D5DA2758B40DB84994DF6CEC1DDCCE65E33C"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "BC2F7C516AF8485C799DE1B51AC5E737E4163F25239B258AEF2AC228AAB0CC37"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 2,
+            "sameRawRowCount": true,
+            "hash": "EDBBE08F746C20AE89F00CEA598869C215B2CF751D407523448B3511C45A91ED"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511829508061284,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "6E134900A0C345E542DE9C59D53EE3EEF51A0C610B9F868850C3CBD1F90FE90B"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952554807813419,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "93471A04DB73A9FE7DE5E42420FA10AFE08567F825FA98B0053283130F3D3584"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "B430639F81147B01F421EB96A6FDC828E09D1632DCC5F1D2C081D83D52E3DFBD"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-triplet-stage0",
+        "target": {
+          "Begin": 3338,
+          "End": 3344,
+          "LeftLength": 5,
+          "From": 5,
+          "To": 49,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 4,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "7E8A82D63364C61AA5D86F74B2B6D4D584AF1E59D9C1D19EDBCB3743975FED41"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 4,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "DA098DF0D2EEE23A64CCDAD569008B4E490B14BFA3EF8F3961E594E0FC88C2CA"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "BC33BD3A81BFDA1CA85F80DA43DB0AED7A883C1BB368F5CE98AD1E3CB1CE13B0"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25118239616378746,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "BEC79847BEE437B8A73A8663009B4EAD4A77E43A32A8D67DB40A93F3FDA1EDF4"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952485337158763,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "E7E3388FDB2C4447377AACF577CDCB206856F890BE73B3C8C9301F4C57873B3A"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "1A1371EEB611E554822ADE4F2D2C4D4E5B87B6AFBFB54A92CC1A3415C50C37AF"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-triplet-stage1",
+        "target": {
+          "Begin": 3344,
+          "End": 3369,
+          "LeftLength": 1,
+          "From": 49,
+          "To": 0,
+          "Stage": 1,
+          "Reverse": 0
+        },
+        "alignmentGroups": 4,
+        "timing": [
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": false,
+            "hash": "4A29655036E4BC565E1EEA1CE6BBFB9550962A5E1F68A0384B500D15AF35A6F4"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "9E17F0D9355C48582613D7E01A605B869957C0D884F4D93C674B000EEFD56D81"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": false,
+            "hash": "56AE1C7A544D9202F60533FAB51A2D1AA0F8E3CE27BEB37076966B4CF90251E2"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25119341927552935,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A8E8EA828ACF6A4E2A29202581748EA183561CCC5F858C1B1181A240C5A72ED0"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952655251938363,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A994CCED5190E280D4FB781F2E33F72AEFEC727004A270234035742B621D05BA"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "196D667F7245FF4AB1B5296C2F3DB3EEA46678F056D505277A531D93451FFA1A"
+          }
+        ]
+      }
+    ]
+  },
+  "new": {
+    "profile": "sampled-dse-vsm-6.13.3.1-v1",
+    "sdkVersion": "6.13.3.1",
+    "fixtures": 11,
+    "renders": 125,
+    "purePlans": 625,
+    "unavailable": [
+      {
+        "fixture": "chinese-multi",
+        "variant": "right-long",
+        "reason": "ART endpoint is a protected phoneme/context anchor."
+      },
+      {
+        "fixture": "chinese-multi",
+        "variant": "right-short",
+        "reason": "ART endpoint is a protected phoneme/context anchor."
+      },
+      {
+        "fixture": "chinese-multi",
+        "variant": "timing-and-gain",
+        "reason": "ART endpoint is a protected phoneme/context anchor."
+      },
+      {
+        "fixture": "miku-triplet-stage0",
+        "variant": "right-long",
+        "reason": "No internal interval remains between protected anchors."
+      },
+      {
+        "fixture": "miku-triplet-stage0",
+        "variant": "right-short",
+        "reason": "No internal interval remains between protected anchors."
+      },
+      {
+        "fixture": "miku-triplet-stage1",
+        "variant": "left-long",
+        "reason": "No internal interval remains between protected anchors."
+      },
+      {
+        "fixture": "miku-triplet-stage1",
+        "variant": "left-short",
+        "reason": "No internal interval remains between protected anchors."
+      }
+    ],
+    "planningLatencyMs": {
+      "median": 1.3654,
+      "p95NearestRank": 1.9266,
+      "max": 14.9593
+    },
+    "results": [
+      {
+        "fixture": "chinese-a-head",
+        "target": {
+          "Begin": 3343,
+          "End": 3378,
+          "LeftLength": 2,
+          "From": 60,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "74B170DA89507AD93A2986B536C480421C87A93C1387F3A182FBDD20C345E461"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 1,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "AC01E88C229FA17A3E65C624D5648BD30EF5EE4F879C821DD2287A1E02AFAC18"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "9FC1EFC157742C03AB8C88A1E940B499B746A8CC6470E36A67019F5D1D045A2F"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "C2BF5C24CE923FF9F68CE12996B47027EE3DDB433E029088ABB00DEEA31E750E"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "B30193316868D5C55E9BBEC1FB4813A7ED319EC2573FFB69E3319E368FD947F7"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511860582335866,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "970FBF4BDB3AE57FFEE812EF1EE3AC7DE9DD35B1F35A40845E208B14EF7304A9"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952625975104286,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "0C4DD13F3448DB65EEB0926A484539DDE06CE295267C6F9BBCCC083C1C991706"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "258BD01BF0F9014CD101714C04349810ABA3EDC91620335D4A3FDA22A5C9F2BE"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-a-tail",
+        "target": {
+          "Begin": 3502,
+          "End": 3519,
+          "LeftLength": 15,
+          "From": 0,
+          "To": 60,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "162CEF102201ABDF380E56532C2C56FCFC49F2A4066DAE80D74DAC699CCE5FFD"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "0627D810BADD1E079C0679C9E9F34E66A314F22A28901AD53A5BED173E707EEA"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "D441936B011454FA08678BC86D36576285C3A9C74044EFEB274FE9D18C154E23"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -1,
+            "sameRawRowCount": true,
+            "hash": "2B948868D663F32EDEC221F1CE58D4425C79C711B4BE8BDB1ABA9C5AB138836B"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "E83723BD5A65FFFD657C8250BAB0B0C9271C24703793DBBF3704ABCD6EA9525F"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511983216326916,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A96521A5AEF1F389AB510C12232F0BF78D604A27C4E2EBF4225B29944C817EF1"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.995310580936255,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "5DD3154146E0CDE5BA6D6394B8762A28F4C55753EAC6278A053544DAB5BDAD45"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "66EF76077B676A2FFD2197FA3BEE30E55F12205ED394AC91D51321795EB064DC"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-la-inner",
+        "target": {
+          "Begin": 3339,
+          "End": 3372,
+          "LeftLength": 6,
+          "From": 41,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "E8E8FE2E1B5847626050A30E262B169F8DF95238863E07B2133E151CEFFF08B6"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "BF348B4DCCC0BE7933A4E135AC6C01C0A25BE6EE43B4F95D99911CF600A0BF5C"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "E5039799195F72293A8F950A964047A4D9DDC2D015C0ECB40747005C7F950482"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "603668BA9352DF0B681A1D8CB7AC55FED14716BA5BB077FDF578B0961D589AA8"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -5,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "C4C2B06E92AE9755558E29CC2B4BD27DF671374110D53FC54A5B857160EF0EC8"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511848814183109,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9C09E70FE9E7AF203C16113E9D990D8D92491B88285C379B497C009964FA9EE1"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952489625619825,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "B5402C49616C3A35F0F35FC9FF291C3D8FB8D23F112E06CC1B972C20E03EFA24"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "4094348819F5E9CE4A85C502E88BC0D6FC80CDD0EA499B98165DC0D5FCB9C342"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-multi",
+        "target": {
+          "Begin": 3448,
+          "End": 3504,
+          "LeftLength": 33,
+          "From": 14,
+          "To": 16,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "735D3560ACC8B61BACF986A27AE1F4F50F216D56794D88387765B562862E15C6"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "E3D43E46E9DED07090F69F7924282475C32439A9454CE7C7629AC1A759567F69"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25119451983136315,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "79DBDA4CE2ED9E80DA0C17A65C30E53F7018AEF2FFB84720D210B41AE766ED8D"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952694009919527,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9FFED8EAAF4B2602943E1FE11C685BB40512DEF42871D6BB6FB22FD2EDC50BAA"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "7D43B34496A7D8C55E6736B2FC43B9544172385A1E3EC157274D88EAB5DCCEEC"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-connected",
+        "target": {
+          "Begin": 3398,
+          "End": 3425,
+          "LeftLength": 22,
+          "From": 0,
+          "To": 41,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "FDB2297EA1556E951BF96A13653963D8A8BC21505E68357AFAA3E87359F0689A"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "8F5913E4490B170D801493E7E31AB16C3DD4E61E90DC0CF803FB4EF80B3C94F4"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 5,
+            "sameRawRowCount": true,
+            "hash": "53222B096560F933B58EC6A4A6F1C617B915524F8B24B6A92B89C647842038AC"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -4,
+            "sameRawRowCount": true,
+            "hash": "9E053C6FF0AA1E38F676F568CF22B20C172EA8712F070DFCF9C6C2B1760CB416"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 5,
+            "sameRawRowCount": true,
+            "hash": "B2E6610D0903A971ED8B609306824C0CCDA0A00B14E37E0A416E1297419C2A77"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25118696933537565,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "F4C9980ADA02DA3102FB72FEB36F84D13CF9AE7008280B468792E6BE9D58CEBC"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952629265836805,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9114F9AD4FAE4B641C6EB034E01803A0A27B7F2BE0A4B8D8F02CDE82A3A2B8CA"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "D0FEB1DE0F7357C910052D94D30FADFA5E477EDC53893C25577C5CBFA8B30817"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-short",
+        "target": {
+          "Begin": 3339,
+          "End": 3359,
+          "LeftLength": 6,
+          "From": 41,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "C554BF27D70A8BCE807893D61E582A3E5776787C82E758EAFCBAD9B3335EF678"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 5,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "709FB479D22F75FA4D89893D69D4711696209D3AE5711D6A23AA63959282F232"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "6544FEF95DDE3C9060F88877616B69FCA1D08AB63EBE7594F374B17A7FC5FD4C"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "FBD8EBDFB6D3592861D18A4496DE1AD64BB63083C34101B702563A817591A1E7"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -5,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "4F71C903D9B81B4381F435B064608A7B4CB1725711DB7139AF9A1FE1FC60D1C3"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25119711460600425,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "47FDB6C3B950971C6E67FED201A9CEAAD3B1492FDD13619424DA380FE13D80FF"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952682117757865,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A2D774626054A777A54EA4B939F65393D8FA961C8D8401AC4D566AA859F8789B"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "636CBF44DEE8651B071DDE51C4BAE01BCF9CD161E8D564CCBC3A0E502C52212E"
+          }
+        ]
+      },
+      {
+        "fixture": "chinese-fricative",
+        "target": {
+          "Begin": 3325,
+          "End": 3394,
+          "LeftLength": 20,
+          "From": 48,
+          "To": 20,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -1,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "E691053E83CF5741D95363F630990ED2DC7C6F8EB2BEDF8BEFE839D194B1887E"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "7AB8EE3D85B69E34285AAFADABF5478208D3938BEF14DC9D8EBCC07821D2E07A"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "8B3F65D0203A4F0FCF32E06118F73A6783B720D7ABC259B7F32FE538C2547054"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "97C875A477F2FEE276762525D0842376E1CF1E275DF80778C89E00EFDD227F2D"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -1,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "A4E0DFF1BD9C99426F5856DF02469F11D57B6E4EDCEF166A405F698924B10E31"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511860842987363,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "0C30B15E4C7442079036F3DE0CFECC819BF12B0D352AF17B29769C5C9430E510"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952682697261468,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "134855B9C0F3E27AFE4F1F0E1C35E9C6A3F151962E0F2A3E2AFA47F164AB1CEB"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "0D915A9FC801F6FE52A4215CAB4E3F2E25EDDB420969C259ACF930BDCB81C5A7"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-ka",
+        "target": {
+          "Begin": 3342,
+          "End": 3366,
+          "LeftLength": 3,
+          "From": 12,
+          "To": 0,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -1,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "4A87B18FF25E113750AF7B32E04DCA0100231AFF73B88D5C37D95AC178228380"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 2,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "3CD4D67BCBB94FEF43268AE2EB6F61A65C21B994059FB09457617FC61349BD20"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "B6729A818FFAA0CB29C1690C3DB68B6419D6C4D274C0C705AB2A0E98CF120A72"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "FEF61B552246CFC64D18B9D9FBAF88E0B375AC0F6683F52745DCE56BE9B35978"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -1,
+            "movedRight": 6,
+            "sameRawRowCount": true,
+            "hash": "4E5924B5B18637100059B85F956985BE22E54D49BC1882EC17D38A68C7D33484"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511864462152193,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "9BD0F6CDD9FC2F7C5ECE79EBA06572B0F4CC53D99704840C04D84333B2C6F7AD"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952562688477775,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "552A2AB02331786DA9B2B1266408BACD4DEAA2AC1FCF2AAB5A593B08D9DAC541"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "3DF1FC9CF9985B143C8A490AA4264D8F14C9DB4ACE3F0B4CE853917FDEBAC485"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-connected",
+        "target": {
+          "Begin": 3402,
+          "End": 3428,
+          "LeftLength": 15,
+          "From": 0,
+          "To": 12,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 2,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "5979C7C6B422BDE0FC19D9D32E269EBB6899F63F02EF99C333F163EF72C6AA23"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "80AD490E8F22BE201F208F2448FF93417E3EAFFD72C6914D1B7ACD04AF8031DC"
+          },
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 2,
+            "sameRawRowCount": true,
+            "hash": "6ABC8D859122AD746DBA5F0DB3F2D5DA2758B40DB84994DF6CEC1DDCCE65E33C"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "BC2F7C516AF8485C799DE1B51AC5E737E4163F25239B258AEF2AC228AAB0CC37"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 2,
+            "sameRawRowCount": true,
+            "hash": "EDBBE08F746C20AE89F00CEA598869C215B2CF751D407523448B3511C45A91ED"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.2511829508061284,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "6E134900A0C345E542DE9C59D53EE3EEF51A0C610B9F868850C3CBD1F90FE90B"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952554807813419,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "93471A04DB73A9FE7DE5E42420FA10AFE08567F825FA98B0053283130F3D3584"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "B430639F81147B01F421EB96A6FDC828E09D1632DCC5F1D2C081D83D52E3DFBD"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-triplet-stage0",
+        "target": {
+          "Begin": 3338,
+          "End": 3344,
+          "LeftLength": 5,
+          "From": 5,
+          "To": 49,
+          "Stage": 0,
+          "Reverse": 0
+        },
+        "alignmentGroups": 4,
+        "timing": [
+          {
+            "variant": "left-long",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "7E8A82D63364C61AA5D86F74B2B6D4D584AF1E59D9C1D19EDBCB3743975FED41"
+          },
+          {
+            "variant": "left-short",
+            "movedLeft": 4,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "DA098DF0D2EEE23A64CCDAD569008B4E490B14BFA3EF8F3961E594E0FC88C2CA"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": -6,
+            "movedRight": 0,
+            "sameRawRowCount": true,
+            "hash": "BC33BD3A81BFDA1CA85F80DA43DB0AED7A883C1BB368F5CE98AD1E3CB1CE13B0"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25118239616378746,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "BEC79847BEE437B8A73A8663009B4EAD4A77E43A32A8D67DB40A93F3FDA1EDF4"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952485337158763,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "E7E3388FDB2C4447377AACF577CDCB206856F890BE73B3C8C9301F4C57873B3A"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "1A1371EEB611E554822ADE4F2D2C4D4E5B87B6AFBFB54A92CC1A3415C50C37AF"
+          }
+        ]
+      },
+      {
+        "fixture": "miku-triplet-stage1",
+        "target": {
+          "Begin": 3344,
+          "End": 3369,
+          "LeftLength": 1,
+          "From": 49,
+          "To": 0,
+          "Stage": 1,
+          "Reverse": 0
+        },
+        "alignmentGroups": 4,
+        "timing": [
+          {
+            "variant": "right-long",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": false,
+            "hash": "4A29655036E4BC565E1EEA1CE6BBFB9550962A5E1F68A0384B500D15AF35A6F4"
+          },
+          {
+            "variant": "right-short",
+            "movedLeft": 0,
+            "movedRight": -6,
+            "sameRawRowCount": true,
+            "hash": "9E17F0D9355C48582613D7E01A605B869957C0D884F4D93C674B000EEFD56D81"
+          },
+          {
+            "variant": "timing-and-gain",
+            "movedLeft": 0,
+            "movedRight": 6,
+            "sameRawRowCount": false,
+            "hash": "56AE1C7A544D9202F60533FAB51A2D1AA0F8E3CE27BEB37076966B4CF90251E2"
+          }
+        ],
+        "gain": [
+          {
+            "variant": "gain-minus12",
+            "requestedMultiplier": 0.25118864,
+            "interiorRmsRatio": 0.25119341927552935,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A8E8EA828ACF6A4E2A29202581748EA183561CCC5F858C1B1181A240C5A72ED0"
+          },
+          {
+            "variant": "gain-plus6",
+            "requestedMultiplier": 1.9952624,
+            "interiorRmsRatio": 1.9952655251938363,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "A994CCED5190E280D4FB781F2E33F72AEFEC727004A270234035742B621D05BA"
+          },
+          {
+            "variant": "gain-mute",
+            "requestedMultiplier": 0,
+            "interiorRmsRatio": 0.0,
+            "outsideSupportBytesUnchanged": true,
+            "lanes": [
+              "auxiliary",
+              "primary"
+            ],
+            "hash": "196D667F7245FF4AB1B5296C2F3DB3EEA46678F056D505277A531D93451FFA1A"
+          }
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Only these fixtures and exact component tuples; not universal reachability or audio quality acceptance.",
+    "Gain scales ART-driven synthesis-frame contributions, not independently separable raw recordings.",
+    "Protected phoneme/context anchors may leave no independent internal timing interval.",
+    "Timing changes can alter STA repetition count without changing ART/STA material source runs.",
+    "Existing external phoneme timing/duration controls, all reverse/fallback cases, DVQM overlays, task routing/history/cache and production smoothing remain to validate."
+  ],
+  "sourceSha256": {
+    "evec_render_harness/TransitionControlProbe.cs": "3E30855C154FA3CC9CEB6B7A9087E5A1C81CC3DA973F0E188732014DE621BCCF",
+    "evec_render_harness/DurationCostHook.cs": "9D1AA1CB23D205DCA438494BEA0CEC2C1A8CB079F2C5A8A9DC7F96AFC656960A",
+    "evec_render_harness/Program.cs": "44F0397326138A62BDACCDC894AB9879C6609D5D0DF42539CA591AFA772F3AB8",
+    "summarize_transition_control.py": "19BD67F99F9363EA9A260B3D6B20C629FA61A6FD242B595889EA832D2233A82A"
+  }
+}

@@ -1,0 +1,1035 @@
+{
+  "date": "2026-10-17",
+  "nativeProfile": "Release, exact certified component hashes",
+  "managedTestsPassed": 208,
+  "rustTestsPassed": 44,
+  "crossVersionPcmExact": true,
+  "frontendConnected": false,
+  "deployed": false,
+  "runs": {
+    "acceptance-new-0": {
+      "sdk": "6.13.3.1",
+      "existingCoefficientAndPhonemeTiming": false,
+      "fixtures": 8,
+      "verifiedRenders": 131,
+      "reopenedRenders": 24,
+      "parallelRenders": 12,
+      "nativeRangePlans": 1099,
+      "coldRangeMsMedian": 5.2654,
+      "coldRangeMsMax": 19.7345,
+      "rangeCache": "second query has zero native plans and identical certified frame set",
+      "peakNativeScopes": 3,
+      "parallelPlanning": [
+        {
+          "pass": 0,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        },
+        {
+          "pass": 1,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 0
+        },
+        {
+          "pass": 2,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        }
+      ],
+      "earlyDetachOrdinaryPcmExact": true,
+      "ranges": [
+        {
+          "Name": "a",
+          "range": "Begin",
+          "Minimum": 3173,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 171,
+          "Milliseconds": 19.5157,
+          "Protected": false,
+          "reachableCount": 172
+        },
+        {
+          "Name": "a",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3501,
+          "IsContiguous": true,
+          "NativePlans": 155,
+          "Milliseconds": 15.8227,
+          "Protected": false,
+          "reachableCount": 156
+        },
+        {
+          "Name": "la",
+          "range": "Begin",
+          "Minimum": 3334,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 10,
+          "Milliseconds": 1.2537,
+          "Protected": false,
+          "reachableCount": 11
+        },
+        {
+          "Name": "la",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3501,
+          "IsContiguous": true,
+          "NativePlans": 155,
+          "Milliseconds": 16.0665,
+          "Protected": false,
+          "reachableCount": 156
+        },
+        {
+          "Name": "multi",
+          "range": "Begin",
+          "Minimum": 3377,
+          "Maximum": 3480,
+          "IsContiguous": true,
+          "NativePlans": 103,
+          "Milliseconds": 10.3658,
+          "Protected": false,
+          "reachableCount": 104
+        },
+        {
+          "Name": "multi",
+          "range": "End",
+          "Minimum": 3504,
+          "Maximum": 3504,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0309,
+          "Protected": true,
+          "reachableCount": 1
+        },
+        {
+          "Name": "connected",
+          "range": "Begin",
+          "Minimum": 3379,
+          "Maximum": 3419,
+          "IsContiguous": true,
+          "NativePlans": 40,
+          "Milliseconds": 5.2654,
+          "Protected": false,
+          "reachableCount": 41
+        },
+        {
+          "Name": "connected",
+          "range": "End",
+          "Minimum": 3421,
+          "Maximum": 3430,
+          "IsContiguous": true,
+          "NativePlans": 9,
+          "Milliseconds": 1.8124,
+          "Protected": false,
+          "reachableCount": 10
+        },
+        {
+          "Name": "short",
+          "range": "Begin",
+          "Minimum": 3334,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 10,
+          "Milliseconds": 0.9985,
+          "Protected": false,
+          "reachableCount": 11
+        },
+        {
+          "Name": "short",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3365,
+          "IsContiguous": true,
+          "NativePlans": 19,
+          "Milliseconds": 2.6488,
+          "Protected": false,
+          "reachableCount": 20
+        },
+        {
+          "Name": "fricative",
+          "range": "Begin",
+          "Minimum": 3324,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 20,
+          "Milliseconds": 2.2374,
+          "Protected": false,
+          "reachableCount": 21
+        },
+        {
+          "Name": "fricative",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3418,
+          "IsContiguous": true,
+          "NativePlans": 72,
+          "Milliseconds": 7.2695,
+          "Protected": false,
+          "reachableCount": 73
+        },
+        {
+          "Name": "miku",
+          "range": "Begin",
+          "Minimum": 3341,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 3,
+          "Milliseconds": 0.4812,
+          "Protected": false,
+          "reachableCount": 4
+        },
+        {
+          "Name": "miku",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3512,
+          "IsContiguous": true,
+          "NativePlans": 166,
+          "Milliseconds": 16.7835,
+          "Protected": false,
+          "reachableCount": 167
+        },
+        {
+          "Name": "triplet",
+          "range": "Begin",
+          "Minimum": 3344,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0325,
+          "Protected": false,
+          "reachableCount": 1
+        },
+        {
+          "Name": "triplet",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3512,
+          "IsContiguous": true,
+          "NativePlans": 166,
+          "Milliseconds": 19.7345,
+          "Protected": false,
+          "reachableCount": 167
+        }
+      ],
+      "sharedJunctionRenders": [
+        {
+          "Name": "la",
+          "sharedAliases": 2,
+          "frame": 3340
+        },
+        {
+          "Name": "multi",
+          "sharedAliases": 2,
+          "frame": 3329
+        },
+        {
+          "Name": "connected",
+          "sharedAliases": 2,
+          "frame": 3426
+        },
+        {
+          "Name": "short",
+          "sharedAliases": 2,
+          "frame": 3340
+        },
+        {
+          "Name": "fricative",
+          "sharedAliases": 2,
+          "frame": 3326
+        },
+        {
+          "Name": "miku",
+          "sharedAliases": 2,
+          "frame": 3343
+        },
+        {
+          "Name": "triplet",
+          "sharedAliases": 2,
+          "frame": 3339
+        }
+      ],
+      "reportSha256": "e6c5a840a29ea395ee2486d0e8934314b10977d470eeae1c0c30b1ea66f0a156"
+    },
+    "acceptance-new-1": {
+      "sdk": "6.13.3.1",
+      "existingCoefficientAndPhonemeTiming": true,
+      "fixtures": 8,
+      "verifiedRenders": 131,
+      "reopenedRenders": 24,
+      "parallelRenders": 12,
+      "nativeRangePlans": 1156,
+      "coldRangeMsMedian": 8.1465,
+      "coldRangeMsMax": 25.0052,
+      "rangeCache": "second query has zero native plans and identical certified frame set",
+      "peakNativeScopes": 3,
+      "parallelPlanning": [
+        {
+          "pass": 0,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 3
+        },
+        {
+          "pass": 1,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        },
+        {
+          "pass": 2,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        }
+      ],
+      "earlyDetachOrdinaryPcmExact": true,
+      "ranges": [
+        {
+          "Name": "a",
+          "range": "Begin",
+          "Minimum": 3173,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 171,
+          "Milliseconds": 19.3213,
+          "Protected": false,
+          "reachableCount": 172
+        },
+        {
+          "Name": "a",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3503,
+          "IsContiguous": true,
+          "NativePlans": 157,
+          "Milliseconds": 16.2759,
+          "Protected": false,
+          "reachableCount": 158
+        },
+        {
+          "Name": "la",
+          "range": "Begin",
+          "Minimum": 3332,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 12,
+          "Milliseconds": 1.4088,
+          "Protected": false,
+          "reachableCount": 13
+        },
+        {
+          "Name": "la",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3503,
+          "IsContiguous": true,
+          "NativePlans": 157,
+          "Milliseconds": 16.487,
+          "Protected": false,
+          "reachableCount": 158
+        },
+        {
+          "Name": "multi",
+          "range": "Begin",
+          "Minimum": 3377,
+          "Maximum": 3480,
+          "IsContiguous": true,
+          "NativePlans": 103,
+          "Milliseconds": 15.2262,
+          "Protected": false,
+          "reachableCount": 104
+        },
+        {
+          "Name": "multi",
+          "range": "End",
+          "Minimum": 3504,
+          "Maximum": 3504,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0457,
+          "Protected": true,
+          "reachableCount": 1
+        },
+        {
+          "Name": "connected",
+          "range": "Begin",
+          "Minimum": 3346,
+          "Maximum": 3413,
+          "IsContiguous": true,
+          "NativePlans": 67,
+          "Milliseconds": 8.4875,
+          "Protected": false,
+          "reachableCount": 68
+        },
+        {
+          "Name": "connected",
+          "range": "End",
+          "Minimum": 3415,
+          "Maximum": 3430,
+          "IsContiguous": true,
+          "NativePlans": 15,
+          "Milliseconds": 2.5325,
+          "Protected": false,
+          "reachableCount": 16
+        },
+        {
+          "Name": "short",
+          "range": "Begin",
+          "Minimum": 3332,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 12,
+          "Milliseconds": 1.1837,
+          "Protected": false,
+          "reachableCount": 13
+        },
+        {
+          "Name": "short",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3367,
+          "IsContiguous": true,
+          "NativePlans": 21,
+          "Milliseconds": 2.3615,
+          "Protected": false,
+          "reachableCount": 22
+        },
+        {
+          "Name": "fricative",
+          "range": "Begin",
+          "Minimum": 3318,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 26,
+          "Milliseconds": 3.2971,
+          "Protected": false,
+          "reachableCount": 27
+        },
+        {
+          "Name": "fricative",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3418,
+          "IsContiguous": true,
+          "NativePlans": 72,
+          "Milliseconds": 8.1465,
+          "Protected": false,
+          "reachableCount": 73
+        },
+        {
+          "Name": "miku",
+          "range": "Begin",
+          "Minimum": 3337,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 7,
+          "Milliseconds": 1.4939,
+          "Protected": false,
+          "reachableCount": 8
+        },
+        {
+          "Name": "miku",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3514,
+          "IsContiguous": true,
+          "NativePlans": 168,
+          "Milliseconds": 25.0052,
+          "Protected": false,
+          "reachableCount": 169
+        },
+        {
+          "Name": "triplet",
+          "range": "Begin",
+          "Minimum": 3344,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0472,
+          "Protected": false,
+          "reachableCount": 1
+        },
+        {
+          "Name": "triplet",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3514,
+          "IsContiguous": true,
+          "NativePlans": 168,
+          "Milliseconds": 19.5156,
+          "Protected": false,
+          "reachableCount": 169
+        }
+      ],
+      "sharedJunctionRenders": [
+        {
+          "Name": "la",
+          "sharedAliases": 2,
+          "frame": 3338
+        },
+        {
+          "Name": "multi",
+          "sharedAliases": 2,
+          "frame": 3329
+        },
+        {
+          "Name": "connected",
+          "sharedAliases": 2,
+          "frame": 3387
+        },
+        {
+          "Name": "short",
+          "sharedAliases": 2,
+          "frame": 3338
+        },
+        {
+          "Name": "fricative",
+          "sharedAliases": 2,
+          "frame": 3320
+        },
+        {
+          "Name": "miku",
+          "sharedAliases": 2,
+          "frame": 3343
+        },
+        {
+          "Name": "triplet",
+          "sharedAliases": 2,
+          "frame": 3336
+        }
+      ],
+      "reportSha256": "5d30ea852a6a3c55b86050cf97d3f0c83ecacf98297a6315a9f00848a2cd1a2f"
+    },
+    "acceptance-old-0": {
+      "sdk": "6.13.1.1",
+      "existingCoefficientAndPhonemeTiming": false,
+      "fixtures": 8,
+      "verifiedRenders": 131,
+      "reopenedRenders": 24,
+      "parallelRenders": 12,
+      "nativeRangePlans": 1099,
+      "coldRangeMsMedian": 6.3486,
+      "coldRangeMsMax": 27.0687,
+      "rangeCache": "second query has zero native plans and identical certified frame set",
+      "peakNativeScopes": 3,
+      "parallelPlanning": [
+        {
+          "pass": 0,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        },
+        {
+          "pass": 1,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 0
+        },
+        {
+          "pass": 2,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 0
+        }
+      ],
+      "earlyDetachOrdinaryPcmExact": true,
+      "ranges": [
+        {
+          "Name": "a",
+          "range": "Begin",
+          "Minimum": 3173,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 171,
+          "Milliseconds": 21.4613,
+          "Protected": false,
+          "reachableCount": 172
+        },
+        {
+          "Name": "a",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3501,
+          "IsContiguous": true,
+          "NativePlans": 155,
+          "Milliseconds": 27.0687,
+          "Protected": false,
+          "reachableCount": 156
+        },
+        {
+          "Name": "la",
+          "range": "Begin",
+          "Minimum": 3334,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 10,
+          "Milliseconds": 1.3775,
+          "Protected": false,
+          "reachableCount": 11
+        },
+        {
+          "Name": "la",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3501,
+          "IsContiguous": true,
+          "NativePlans": 155,
+          "Milliseconds": 20.7457,
+          "Protected": false,
+          "reachableCount": 156
+        },
+        {
+          "Name": "multi",
+          "range": "Begin",
+          "Minimum": 3377,
+          "Maximum": 3480,
+          "IsContiguous": true,
+          "NativePlans": 103,
+          "Milliseconds": 13.3345,
+          "Protected": false,
+          "reachableCount": 104
+        },
+        {
+          "Name": "multi",
+          "range": "End",
+          "Minimum": 3504,
+          "Maximum": 3504,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0393,
+          "Protected": true,
+          "reachableCount": 1
+        },
+        {
+          "Name": "connected",
+          "range": "Begin",
+          "Minimum": 3379,
+          "Maximum": 3419,
+          "IsContiguous": true,
+          "NativePlans": 40,
+          "Milliseconds": 6.3486,
+          "Protected": false,
+          "reachableCount": 41
+        },
+        {
+          "Name": "connected",
+          "range": "End",
+          "Minimum": 3421,
+          "Maximum": 3430,
+          "IsContiguous": true,
+          "NativePlans": 9,
+          "Milliseconds": 2.2561,
+          "Protected": false,
+          "reachableCount": 10
+        },
+        {
+          "Name": "short",
+          "range": "Begin",
+          "Minimum": 3334,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 10,
+          "Milliseconds": 2.3985,
+          "Protected": false,
+          "reachableCount": 11
+        },
+        {
+          "Name": "short",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3365,
+          "IsContiguous": true,
+          "NativePlans": 19,
+          "Milliseconds": 2.7942,
+          "Protected": false,
+          "reachableCount": 20
+        },
+        {
+          "Name": "fricative",
+          "range": "Begin",
+          "Minimum": 3324,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 20,
+          "Milliseconds": 2.2222,
+          "Protected": false,
+          "reachableCount": 21
+        },
+        {
+          "Name": "fricative",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3418,
+          "IsContiguous": true,
+          "NativePlans": 72,
+          "Milliseconds": 7.5173,
+          "Protected": false,
+          "reachableCount": 73
+        },
+        {
+          "Name": "miku",
+          "range": "Begin",
+          "Minimum": 3341,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 3,
+          "Milliseconds": 1.0381,
+          "Protected": false,
+          "reachableCount": 4
+        },
+        {
+          "Name": "miku",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3512,
+          "IsContiguous": true,
+          "NativePlans": 166,
+          "Milliseconds": 17.2943,
+          "Protected": false,
+          "reachableCount": 167
+        },
+        {
+          "Name": "triplet",
+          "range": "Begin",
+          "Minimum": 3344,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0345,
+          "Protected": false,
+          "reachableCount": 1
+        },
+        {
+          "Name": "triplet",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3512,
+          "IsContiguous": true,
+          "NativePlans": 166,
+          "Milliseconds": 19.5615,
+          "Protected": false,
+          "reachableCount": 167
+        }
+      ],
+      "sharedJunctionRenders": [
+        {
+          "Name": "la",
+          "sharedAliases": 2,
+          "frame": 3340
+        },
+        {
+          "Name": "multi",
+          "sharedAliases": 2,
+          "frame": 3329
+        },
+        {
+          "Name": "connected",
+          "sharedAliases": 2,
+          "frame": 3426
+        },
+        {
+          "Name": "short",
+          "sharedAliases": 2,
+          "frame": 3340
+        },
+        {
+          "Name": "fricative",
+          "sharedAliases": 2,
+          "frame": 3326
+        },
+        {
+          "Name": "miku",
+          "sharedAliases": 2,
+          "frame": 3343
+        },
+        {
+          "Name": "triplet",
+          "sharedAliases": 2,
+          "frame": 3339
+        }
+      ],
+      "reportSha256": "537c6a3649c62c550fadfa266e2cac3ef1c5718ff059ffc6f45932a9e08ebd21"
+    },
+    "acceptance-old-1": {
+      "sdk": "6.13.1.1",
+      "existingCoefficientAndPhonemeTiming": true,
+      "fixtures": 8,
+      "verifiedRenders": 131,
+      "reopenedRenders": 24,
+      "parallelRenders": 12,
+      "nativeRangePlans": 1156,
+      "coldRangeMsMedian": 7.2421,
+      "coldRangeMsMax": 48.2693,
+      "rangeCache": "second query has zero native plans and identical certified frame set",
+      "peakNativeScopes": 3,
+      "parallelPlanning": [
+        {
+          "pass": 0,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        },
+        {
+          "pass": 1,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        },
+        {
+          "pass": 2,
+          "validation": "parallel-private-plans",
+          "nativePlans": 12,
+          "busyRetries": 2
+        }
+      ],
+      "earlyDetachOrdinaryPcmExact": true,
+      "ranges": [
+        {
+          "Name": "a",
+          "range": "Begin",
+          "Minimum": 3173,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 171,
+          "Milliseconds": 48.2693,
+          "Protected": false,
+          "reachableCount": 172
+        },
+        {
+          "Name": "a",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3503,
+          "IsContiguous": true,
+          "NativePlans": 157,
+          "Milliseconds": 17.9918,
+          "Protected": false,
+          "reachableCount": 158
+        },
+        {
+          "Name": "la",
+          "range": "Begin",
+          "Minimum": 3332,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 12,
+          "Milliseconds": 1.4371,
+          "Protected": false,
+          "reachableCount": 13
+        },
+        {
+          "Name": "la",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3503,
+          "IsContiguous": true,
+          "NativePlans": 157,
+          "Milliseconds": 16.0188,
+          "Protected": false,
+          "reachableCount": 158
+        },
+        {
+          "Name": "multi",
+          "range": "Begin",
+          "Minimum": 3377,
+          "Maximum": 3480,
+          "IsContiguous": true,
+          "NativePlans": 103,
+          "Milliseconds": 14.2037,
+          "Protected": false,
+          "reachableCount": 104
+        },
+        {
+          "Name": "multi",
+          "range": "End",
+          "Minimum": 3504,
+          "Maximum": 3504,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0295,
+          "Protected": true,
+          "reachableCount": 1
+        },
+        {
+          "Name": "connected",
+          "range": "Begin",
+          "Minimum": 3346,
+          "Maximum": 3413,
+          "IsContiguous": true,
+          "NativePlans": 67,
+          "Milliseconds": 8.5542,
+          "Protected": false,
+          "reachableCount": 68
+        },
+        {
+          "Name": "connected",
+          "range": "End",
+          "Minimum": 3415,
+          "Maximum": 3430,
+          "IsContiguous": true,
+          "NativePlans": 15,
+          "Milliseconds": 2.7059,
+          "Protected": false,
+          "reachableCount": 16
+        },
+        {
+          "Name": "short",
+          "range": "Begin",
+          "Minimum": 3332,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 12,
+          "Milliseconds": 1.1923,
+          "Protected": false,
+          "reachableCount": 13
+        },
+        {
+          "Name": "short",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3367,
+          "IsContiguous": true,
+          "NativePlans": 21,
+          "Milliseconds": 2.0002,
+          "Protected": false,
+          "reachableCount": 22
+        },
+        {
+          "Name": "fricative",
+          "range": "Begin",
+          "Minimum": 3318,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 26,
+          "Milliseconds": 2.9994,
+          "Protected": false,
+          "reachableCount": 27
+        },
+        {
+          "Name": "fricative",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3418,
+          "IsContiguous": true,
+          "NativePlans": 72,
+          "Milliseconds": 7.2421,
+          "Protected": false,
+          "reachableCount": 73
+        },
+        {
+          "Name": "miku",
+          "range": "Begin",
+          "Minimum": 3337,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 7,
+          "Milliseconds": 1.1513,
+          "Protected": false,
+          "reachableCount": 8
+        },
+        {
+          "Name": "miku",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3514,
+          "IsContiguous": true,
+          "NativePlans": 168,
+          "Milliseconds": 22.8804,
+          "Protected": false,
+          "reachableCount": 169
+        },
+        {
+          "Name": "triplet",
+          "range": "Begin",
+          "Minimum": 3344,
+          "Maximum": 3344,
+          "IsContiguous": true,
+          "NativePlans": 0,
+          "Milliseconds": 0.0396,
+          "Protected": false,
+          "reachableCount": 1
+        },
+        {
+          "Name": "triplet",
+          "range": "End",
+          "Minimum": 3346,
+          "Maximum": 3514,
+          "IsContiguous": true,
+          "NativePlans": 168,
+          "Milliseconds": 21.1343,
+          "Protected": false,
+          "reachableCount": 169
+        }
+      ],
+      "sharedJunctionRenders": [
+        {
+          "Name": "la",
+          "sharedAliases": 2,
+          "frame": 3338
+        },
+        {
+          "Name": "multi",
+          "sharedAliases": 2,
+          "frame": 3329
+        },
+        {
+          "Name": "connected",
+          "sharedAliases": 2,
+          "frame": 3387
+        },
+        {
+          "Name": "short",
+          "sharedAliases": 2,
+          "frame": 3338
+        },
+        {
+          "Name": "fricative",
+          "sharedAliases": 2,
+          "frame": 3320
+        },
+        {
+          "Name": "miku",
+          "sharedAliases": 2,
+          "frame": 3343
+        },
+        {
+          "Name": "triplet",
+          "sharedAliases": 2,
+          "frame": 3336
+        }
+      ],
+      "reportSha256": "c85333db4df23d53e9f6bbabf4a18630db5a13fdc288ebd0918e5049280b6278"
+    }
+  },
+  "supplementary": {
+    "new": {
+      "lateNoteOffsetTicks": 57600,
+      "lateRestorationExact": true,
+      "emptySourceDisposal": true,
+      "parallelPcmExactAfterRetirementFix": true,
+      "isolationReportSha256": "920ccf8d624ecfdc4a1cc70c78f99d94d8a61090ab57d70b5eb9c132268b4efe",
+      "lateReportSha256": "5465c01793b8dcb003f40da29ce89fd3b2217df9bb5d5b0c6983a9c6ab4c7b8e"
+    },
+    "old": {
+      "lateNoteOffsetTicks": 57600,
+      "lateRestorationExact": true,
+      "emptySourceDisposal": true,
+      "parallelPcmExactAfterRetirementFix": true,
+      "isolationReportSha256": "16552167514bbbcf4fe7307be669aad2b11da8d06c7f16b48e6046b5c37c735d",
+      "lateReportSha256": "25ad784160809ea235714d77eb3902554d1b1ce1e05f542434b45a3031b82e3c"
+    }
+  },
+  "limitations": [
+    "complete bounded Part context <=33 notes, <=22 seconds relative captured context",
+    "44100 Hz / 256 samples per frame / 0.5 second presend; no DVQM or secondary bank",
+    "certified range holds all other junctions fixed and stays inside captured planner/output domain",
+    "Debug native empty planner reproduced with preexisting binaries; runtime acceptance uses Release"
+  ]
+}

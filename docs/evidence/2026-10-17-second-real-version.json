@@ -1,0 +1,1034 @@
+{
+  "date": "2026-10-17",
+  "deployed": false,
+  "scope": "Two exact real component tuples in isolated SDK processes. Full Editor UI is not certified.",
+  "modules": [
+    {
+      "Name": "VOCALOID6.dll",
+      "Version": "6.13.3.1",
+      "Length": 5950216,
+      "Hash": "F534ABB9E5678D024F09525E6957F31BFB1D3F3146258D121DAB929D874965AB",
+      "OldVersion": "6.13.1.1",
+      "Same": false,
+      "LinkType": null
+    },
+    {
+      "Name": "DSE.dll",
+      "Version": "6.13.3.1",
+      "Length": 10703616,
+      "Hash": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD",
+      "OldVersion": "6.13.1.1",
+      "Same": false,
+      "LinkType": null
+    },
+    {
+      "Name": "VSM.dll",
+      "Version": "6.13.3.1",
+      "Length": 3957504,
+      "Hash": "0A509EE86CBCA68048DFB4D6B6C0D5FE970388AD18B1C2A0E16998CDD3789EE8",
+      "OldVersion": "6.13.1.1",
+      "Same": false,
+      "LinkType": null
+    },
+    {
+      "Name": "VDM.dll",
+      "Version": "6.13.0.1",
+      "Length": 1642240,
+      "Hash": "A673A7EBBAB0D12D2275FC459ECE630CC55DA55CBCA95A4E62E6D79F8D9D3722",
+      "OldVersion": "6.13.0.1",
+      "Same": false,
+      "LinkType": null
+    },
+    {
+      "Name": "DSE_DFT.dll",
+      "Version": null,
+      "Length": 32480520,
+      "Hash": "934FEB10BB5252FFC1C0A5167DE5BFE9C99FA392E83114A7DCBDB272D786CE0F",
+      "OldVersion": null,
+      "Same": false,
+      "LinkType": null
+    }
+  ],
+  "sectionComparison": [
+    {
+      "module": "DSE.dll",
+      "oldBase": "0x180000000",
+      "newBase": "0x180000000",
+      "sections": [
+        {
+          "name": ".text",
+          "newName": ".text",
+          "oldRva": "0x1000",
+          "newRva": "0x1000",
+          "oldBytes": 2237952,
+          "newBytes": 2237952,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".rdata",
+          "newName": ".rdata",
+          "oldRva": "0x224000",
+          "newRva": "0x224000",
+          "oldBytes": 3972608,
+          "newBytes": 3972608,
+          "differentBytes": 26,
+          "equal": false
+        },
+        {
+          "name": ".data",
+          "newName": ".data",
+          "oldRva": "0x5ee000",
+          "newRva": "0x5ee000",
+          "oldBytes": 4398080,
+          "newBytes": 4398080,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".pdata",
+          "newName": ".pdata",
+          "oldRva": "0xaab000",
+          "newRva": "0xaab000",
+          "oldBytes": 73216,
+          "newBytes": 73216,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": "_RDATA",
+          "newName": "_RDATA",
+          "oldRva": "0xabd000",
+          "newRva": "0xabd000",
+          "oldBytes": 512,
+          "newBytes": 512,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".rsrc",
+          "newName": ".rsrc",
+          "oldRva": "0xabe000",
+          "newRva": "0xabe000",
+          "oldBytes": 1536,
+          "newBytes": 1536,
+          "differentBytes": 4,
+          "equal": false
+        },
+        {
+          "name": ".reloc",
+          "newName": ".reloc",
+          "oldRva": "0xabf000",
+          "newRva": "0xabf000",
+          "oldBytes": 6656,
+          "newBytes": 6656,
+          "differentBytes": 0,
+          "equal": true
+        }
+      ]
+    },
+    {
+      "module": "VSM.dll",
+      "oldBase": "0x180000000",
+      "newBase": "0x180000000",
+      "sections": [
+        {
+          "name": ".text",
+          "newName": ".text",
+          "oldRva": "0x1000",
+          "newRva": "0x1000",
+          "oldBytes": 2389504,
+          "newBytes": 2626048,
+          "differentBytes": 2529209,
+          "equal": false
+        },
+        {
+          "name": ".rdata",
+          "newName": ".rdata",
+          "oldRva": "0x249000",
+          "newRva": "0x283000",
+          "oldBytes": 914432,
+          "newBytes": 951296,
+          "differentBytes": 556100,
+          "equal": false
+        },
+        {
+          "name": ".data",
+          "newName": ".data",
+          "oldRva": "0x329000",
+          "newRva": "0x36c000",
+          "oldBytes": 215552,
+          "newBytes": 215040,
+          "differentBytes": 91270,
+          "equal": false
+        },
+        {
+          "name": ".pdata",
+          "newName": ".pdata",
+          "oldRva": "0x36f000",
+          "newRva": "0x3b2000",
+          "oldBytes": 118272,
+          "newBytes": 127488,
+          "differentBytes": 80854,
+          "equal": false
+        },
+        {
+          "name": ".rsrc",
+          "newName": ".rsrc",
+          "oldRva": "0x38c000",
+          "newRva": "0x3d2000",
+          "oldBytes": 1536,
+          "newBytes": 1536,
+          "differentBytes": 8,
+          "equal": false
+        },
+        {
+          "name": ".reloc",
+          "newName": ".reloc",
+          "oldRva": "0x38d000",
+          "newRva": "0x3d3000",
+          "oldBytes": 23040,
+          "newBytes": 23040,
+          "differentBytes": 20831,
+          "equal": false
+        }
+      ]
+    },
+    {
+      "module": "VDM.dll",
+      "oldBase": "0x180000000",
+      "newBase": "0x180000000",
+      "sections": [
+        {
+          "name": ".text",
+          "newName": ".text",
+          "oldRva": "0x1000",
+          "newRva": "0x1000",
+          "oldBytes": 1371648,
+          "newBytes": 1371648,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".rdata",
+          "newName": ".rdata",
+          "oldRva": "0x150000",
+          "newRva": "0x150000",
+          "oldBytes": 177664,
+          "newBytes": 177664,
+          "differentBytes": 29,
+          "equal": false
+        },
+        {
+          "name": ".data",
+          "newName": ".data",
+          "oldRva": "0x17c000",
+          "newRva": "0x17c000",
+          "oldBytes": 3072,
+          "newBytes": 3072,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".pdata",
+          "newName": ".pdata",
+          "oldRva": "0x17e000",
+          "newRva": "0x17e000",
+          "oldBytes": 74240,
+          "newBytes": 74240,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".rsrc",
+          "newName": ".rsrc",
+          "oldRva": "0x191000",
+          "newRva": "0x191000",
+          "oldBytes": 1536,
+          "newBytes": 1536,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".reloc",
+          "newName": ".reloc",
+          "oldRva": "0x192000",
+          "newRva": "0x192000",
+          "oldBytes": 1024,
+          "newBytes": 1024,
+          "differentBytes": 0,
+          "equal": true
+        }
+      ]
+    },
+    {
+      "module": "DSE_DFT.dll",
+      "oldBase": "0x180000000",
+      "newBase": "0x180000000",
+      "sections": [
+        {
+          "name": ".text",
+          "newName": ".text",
+          "oldRva": "0x1000",
+          "newRva": "0x1000",
+          "oldBytes": 31185920,
+          "newBytes": 31185920,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".rdata",
+          "newName": ".rdata",
+          "oldRva": "0x1dbf000",
+          "newRva": "0x1dbf000",
+          "oldBytes": 931328,
+          "newBytes": 931328,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".data",
+          "newName": ".data",
+          "oldRva": "0x1ea3000",
+          "newRva": "0x1ea3000",
+          "oldBytes": 102400,
+          "newBytes": 102400,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".pdata",
+          "newName": ".pdata",
+          "oldRva": "0x1eff000",
+          "newRva": "0x1eff000",
+          "oldBytes": 232960,
+          "newBytes": 232960,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": "_RDATA",
+          "newName": "_RDATA",
+          "oldRva": "0x1f38000",
+          "newRva": "0x1f38000",
+          "oldBytes": 512,
+          "newBytes": 512,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".gfids",
+          "newName": ".gfids",
+          "oldRva": "0x1f39000",
+          "newRva": "0x1f39000",
+          "oldBytes": 512,
+          "newBytes": 512,
+          "differentBytes": 0,
+          "equal": true
+        },
+        {
+          "name": ".reloc",
+          "newName": ".reloc",
+          "oldRva": "0x1f3a000",
+          "newRva": "0x1f3a000",
+          "oldBytes": 13824,
+          "newBytes": 13824,
+          "differentBytes": 0,
+          "equal": true
+        }
+      ]
+    },
+    {
+      "module": "VOCALOID6.dll",
+      "oldBase": "0x140000000",
+      "newBase": "0x140000000",
+      "sections": [
+        {
+          "name": ".text",
+          "newName": ".text",
+          "oldRva": "0x2000",
+          "newRva": "0x2000",
+          "oldBytes": 5859328,
+          "newBytes": 5855744,
+          "differentBytes": 4614682,
+          "equal": false
+        },
+        {
+          "name": ".rsrc",
+          "newName": ".rsrc",
+          "oldRva": "0x59a000",
+          "newRva": "0x598000",
+          "oldBytes": 81920,
+          "newBytes": 81920,
+          "differentBytes": 54,
+          "equal": false
+        }
+      ]
+    }
+  ],
+  "entrypoints": {
+    "VsmEncodeNote": {
+      "oldRva": "0x575d0",
+      "newRva": "0x57530",
+      "normalizedInstructionCount": 1935
+    },
+    "VsmEncodeSinger": {
+      "oldRva": "0x56e90",
+      "newRva": "0x56df0",
+      "normalizedInstructionCount": null
+    },
+    "VsmMapScore": {
+      "oldRva": "0xe1440",
+      "newRva": "0xe1850",
+      "normalizedInstructionCount": 892
+    },
+    "VsmCacheHash": {
+      "oldRva": "0x91ee0",
+      "newRva": "0x91e00",
+      "normalizedInstructionCount": 235
+    },
+    "VsmPrepare": {
+      "oldRva": "0x60640",
+      "newRva": "0x60570",
+      "normalizedInstructionCount": null
+    }
+  },
+  "prepareBodyChanged": {
+    "oldBytes": 5517,
+    "newBytes": 5784,
+    "livePartOffset": "0x10",
+    "snapshotPartOffset": "0x20",
+    "partMappingFlag": "0x4c2",
+    "detourPrologueEqual": true
+  },
+  "staticMethod": "PE sections, bounded exception-table candidates, disassembly. Normalization masks branch/call and RIP-relative targets; runtime tests remain necessary.",
+  "profiles": [
+    {
+      "profile": "sampled-dse-vsm-6.13.1.1-v1",
+      "fingerprint": "329D43544AB844A1",
+      "managedSdk": "6.13.1.1",
+      "managedSdkSha256": "12FED09B2D0D2AF5D0D2D5CBC12743248CB31AEA1EFA73723AB7E57B527EBD7E",
+      "fingerprintMatched": true,
+      "badProfileRejected": true,
+      "badHandlesRejected": true,
+      "unselectedInstallRejected": true,
+      "oldBridgeTested": false,
+      "oldBridgeRejected": false,
+      "validProfileSelected": true
+    },
+    {
+      "profile": "sampled-dse-vsm-6.13.3.1-v1",
+      "fingerprint": "9E74FD3196426770",
+      "managedSdk": "6.13.3.1",
+      "managedSdkSha256": "F534ABB9E5678D024F09525E6957F31BFB1D3F3146258D121DAB929D874965AB",
+      "fingerprintMatched": true,
+      "badProfileRejected": true,
+      "badHandlesRejected": true,
+      "unselectedInstallRejected": true,
+      "oldBridgeTested": false,
+      "oldBridgeRejected": false,
+      "validProfileSelected": true
+    }
+  ],
+  "sameBuildArtifacts": {
+    "managedValidationSha256": "2E454C00332DD7B0957F04C4E01DC95701CCD1B2276A7E003607373E15EBAFB7",
+    "nativeSha256": "221EF05B819677C83782FC09D5FAFCAC7B94C29CA90272B288F4B780D6200B18",
+    "releaseSha256": "6CF46563A107209390798DD4056B1E31012DC26CB57588E4B12F1C415B3AD0AD",
+    "compileSdkReference": "6.13.1.1",
+    "profileAbi": 2,
+    "releaseMergedProfiles": 2
+  },
+  "sharedBoundaryComparison": [
+    {
+      "stage": "cold",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "baseline",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "left-edit",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "right-edit",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "undo-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "redo-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "reloaded",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "restored",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "coefficients-shared",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "coefficients-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    },
+    {
+      "stage": "neighbor-owned-reset",
+      "pcmExact": true,
+      "boundariesExact": true,
+      "failures": 0
+    }
+  ],
+  "hostAudioComparison": [
+    {
+      "stage": "baseline",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "duration-a",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "timing-a",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "native-pitch",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "duration-b",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "retry-same-value",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-duration",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-pitch",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-timing",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-all",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "redo-duration",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "redo-timing",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "redo-pitch",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "redo-all",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "after-save-undo",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "reopened-0",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "reopened-1",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "moved",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-move",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "duplicated",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "deleted-copy",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-delete",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "redo-delete",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "undo-delete-again",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "render-copy",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "render-copy-velocity",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "source-copy-velocity",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "multi-part",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "multi-part-velocity",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "cross-sequence-copy",
+      "waveExact": true,
+      "boundariesExact": true
+    },
+    {
+      "stage": "cross-sequence-redo",
+      "waveExact": true,
+      "boundariesExact": true
+    }
+  ],
+  "fricativeComparison": [
+    {
+      "axis": -1,
+      "offset": 0,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    },
+    {
+      "axis": 0,
+      "offset": -1,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    },
+    {
+      "axis": 0,
+      "offset": 1,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    },
+    {
+      "axis": 1,
+      "offset": -1,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    },
+    {
+      "axis": 1,
+      "offset": 1,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    },
+    {
+      "axis": 2,
+      "offset": -1,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    },
+    {
+      "axis": 2,
+      "offset": 1,
+      "boundariesExact": true,
+      "zeroSynthesis": true,
+      "pcmExact": true
+    }
+  ],
+  "phonemeGain": {
+    "casesPerVersion": 12,
+    "outsideTargetUnchanged": true,
+    "gainRatiosAndCoordinatesEqual": true,
+    "zeroSynthesis": true
+  },
+  "crossVersionProject": {
+    "oldToNew": true,
+    "newBackToOld": true,
+    "waveExact": true,
+    "controlDataExact": true,
+    "waveHash": "ED3B2F2D3B45DC76A359776FB9C0340DE84380BA4F50EF3A25C609D39D4134D6"
+  },
+  "previousLayerOnRealUnrecognizedVersion": {
+    "componentIdentityInjected": false,
+    "qualificationHashes": 0,
+    "states": [
+      {
+        "mode": "timing",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 0,
+        "volume": 0,
+        "host": {
+          "revision": 9,
+          "suspended": false,
+          "fault": null,
+          "reason": null,
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 2,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": [
+            "WIVSMNote:DidUpdateNoteNumber"
+          ]
+        }
+      },
+      {
+        "mode": "duration",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 0,
+        "duration": 1,
+        "volume": 0,
+        "host": {
+          "revision": 0,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "storedPlans": 0,
+          "activePlans": 0,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "volume",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 0,
+        "duration": 0,
+        "volume": 1,
+        "host": null
+      },
+      {
+        "mode": "combined",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 1,
+        "volume": 1,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "unbound",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 2,
+        "duration": 1,
+        "volume": 1,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "Unbound project controls are preserved but cannot render against a different note identity.",
+          "storedPlans": 2,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      }
+    ]
+  },
+  "finalLayerOnRealMixedComponents": {
+    "componentIdentityInjected": false,
+    "qualificationHashes": 0,
+    "states": [
+      {
+        "mode": "timing",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 0,
+        "volume": 0,
+        "host": {
+          "revision": 9,
+          "suspended": false,
+          "fault": null,
+          "reason": null,
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 2,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": [
+            "WIVSMNote:DidUpdateNoteNumber"
+          ]
+        }
+      },
+      {
+        "mode": "duration",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 0,
+        "duration": 1,
+        "volume": 0,
+        "host": {
+          "revision": 0,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "storedPlans": 0,
+          "activePlans": 0,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "volume",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 0,
+        "duration": 0,
+        "volume": 1,
+        "host": null
+      },
+      {
+        "mode": "combined",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 1,
+        "duration": 1,
+        "volume": 1,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "storedPlans": 1,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      },
+      {
+        "mode": "unbound",
+        "loadSaveLoad": true,
+        "backendCreated": false,
+        "timing": 2,
+        "duration": 1,
+        "volume": 1,
+        "host": {
+          "revision": 1,
+          "suspended": true,
+          "fault": "NotSupportedException",
+          "reason": "Unbound project controls are preserved but cannot render against a different note identity.",
+          "storedPlans": 2,
+          "activePlans": 1,
+          "nativeParts": 0,
+          "pending": 0,
+          "durationContractHits": 0,
+          "durationContractMisses": 0,
+          "backendCreated": false,
+          "backendFault": null,
+          "compatibility": "This DSE/VSM component tuple has not been validated; project controls are preserved.",
+          "capabilities": {
+            "projectData": true,
+            "planner": false,
+            "routing": false,
+            "phonemeMapping": false,
+            "independentDuration": false
+          },
+          "inputNotices": []
+        }
+      }
+    ]
+  },
+  "builds": {
+    "debugSolution": true,
+    "releaseSolution": true,
+    "warnings": 0,
+    "errors": 0,
+    "managedTestsPassed": 195,
+    "rustTestsPassed": 40,
+    "releaseScriptSyntax": true
+  },
+  "limitations": [
+    "No Editor launch, close or deployment; UI interaction was not validated.",
+    "Ghidra MCP still holds old DSE. No new binary was imported or claimed decompiled.",
+    "Only the two exact tuples are verified.",
+    "The main installed patch link was already dangling at start and remains unchanged."
+  ],
+  "oldBackupVerifiedPhysicalFiles": 74
+}

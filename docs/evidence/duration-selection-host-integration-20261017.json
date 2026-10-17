@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-17",
+  "editorLaunched": false,
+  "deployed": false,
+  "abi": {
+    "timing": 3,
+    "clock": 14,
+    "duration": 1,
+    "contract": 2
+  },
+  "managedTests": 176,
+  "rustTests": 38,
+  "debugSolutionBuild": true,
+  "mergedReleaseBuild": true,
+  "release": {
+    "embeddedHarmonyTypes": 94,
+    "bytes": 7642624,
+    "sha256": "4F5F1320FD332C039A224347A1641EBEA665B9CDCBC98507386B18BBB775B2C7",
+    "independentHarmonyReference": false
+  },
+  "installed": [
+    {
+      "file": "Microsoft.Xaml.Behaviors.dll",
+      "hash": "B94D04811126FC7228B980652B2E4D62C13E41F7A2A2CB59885BB77292F377D1",
+      "expected": "B94D04811126FC7228B980652B2E4D62C13E41F7A2A2CB59885BB77292F377D1"
+    },
+    {
+      "file": "v6patch_clock.dll",
+      "hash": "9B0F64BC78E39F22AC25A3C1773294942CA4C0B273A1F30F3FF9BA7F3A410472",
+      "expected": "9B0F64BC78E39F22AC25A3C1773294942CA4C0B273A1F30F3FF9BA7F3A410472"
+    }
+  ],
+  "routing": {
+    "renders": 18,
+    "performance": {
+      "initializationMs": 173.8195,
+      "preparationMs": 9.372,
+      "runs": 200,
+      "medianMs": 0.0988,
+      "p95Ms": 0.1156,
+      "maxMs": 0.3721,
+      "warmAudio": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    "nativePolicyOriginalMatches": 9,
+    "allRepeatsExact": true,
+    "allTimingExact": true
+  },
+  "composition": {
+    "renders": 20,
+    "actualTransitionIntervalsExact": true,
+    "repeatsExact": true,
+    "actualPhonemeBoundariesExact": true,
+    "scenarios": [
+      "chinese",
+      "float",
+      "vel0",
+      "vel127"
+    ]
+  },
+  "concurrency": {
+    "partsPerPass": 4,
+    "ordinaryParts": 1,
+    "peakControlledScopes": 3.0,
+    "passes": 3,
+    "allPcmExact": true
+  },
+  "host": {
+    "unchangedPart": {
+      "name": "multi-part-cache",
+      "Scopes": 0,
+      "CacheKeys": 0,
+      "exact": true
+    },
+    "copyVelocityContractUpdated": true,
+    "mixedHistory": true,
+    "inputReuse": {
+      "name": "input-reuse",
+      "runs": 100,
+      "elapsedMs": 1.673,
+      "extraPlans": 0
+    },
+    "nativeMoveDeleteRepeatedUndo": true,
+    "transformedCopyRejected": true,
+    "reloadPasses": 2,
+    "sameValueRetry": 1,
+    "saveFailureRollback": true,
+    "successfulStages": 37,
+    "precisePanelChecks": true,
+    "crossSequencePasteUndoRedo": true
+  },
+  "limits": {
+    "editorMixdownVerification": false,
+    "maximumPartNotes": 33,
+    "samplesPerFrame": 256,
+    "editorGestureVerification": false,
+    "sampleRate": 44100,
+    "approximateWindowSeconds": 22,
+    "firstSessionSetupOnOwnerThread": true,
+    "maximumVirtualFrames": 4096
+  }
+}

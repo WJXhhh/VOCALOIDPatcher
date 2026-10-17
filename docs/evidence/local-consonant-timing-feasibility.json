@@ -1,0 +1,1800 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-15T15:40:40.420581+00:00",
+  "scope": "Isolated research process; no Editor launch, deployment or runtime drag integration.",
+  "images": {
+    "DSE.dll": "7a4965bd377dbc2b08710e807ae1345b67d9fff6579ca0c01a769f744366f5b5",
+    "VSM.dll": "78eb2d8198855c0046dd1e8ae8141de609145a239d434f6518f08be33e369058",
+    "VOCALOID6.dll": "12fed09b2d0d2af5d0d2d5cbc12743248cb31aea1efa73723ab7e57b527ebd7e"
+  },
+  "metadataReplay": {
+    "cases": 27,
+    "fullScheduleEqual": true,
+    "earlyActiveScheduleEqual": true,
+    "pcmSteps": 0,
+    "pcmSamples": 0,
+    "fullAdvanceMs": {
+      "min": 3.2706,
+      "median": 3.6506,
+      "max": 8.3977
+    },
+    "earlySnapshotMs": {
+      "min": 0.8768,
+      "median": 1.1686,
+      "max": 3.9567
+    }
+  },
+  "directPlanning": {
+    "correctnessCases": 33,
+    "overheadCases": 6,
+    "allActiveSchedulesEqual": true,
+    "pcmSteps": 0,
+    "pcmSamples": 0,
+    "nativeFrameAfter": 0,
+    "planningAndReadMs": {
+      "min": 0.9073,
+      "median": 1.1514,
+      "max": 3.4415
+    },
+    "engineStartMs": {
+      "min": 7.5956,
+      "median": 8.7421,
+      "max": 13.4893
+    },
+    "vsmQueryEnvelopeMs": {
+      "min": 57.6236,
+      "median": 73.4126,
+      "max": 90.2181
+    },
+    "note": "Observed min/median/max across fixtures, not a repeated p95 latency benchmark."
+  },
+  "localCommit": {
+    "dseVtable": 5269224,
+    "positiveControl": {
+      "Starts": 1,
+      "Steps": 3605,
+      "Samples": 922880
+    },
+    "results": [
+      {
+        "mode": "commit",
+        "begin": false,
+        "update": true,
+        "end": true,
+        "before": [
+          -80,
+          -2,
+          405
+        ],
+        "after": [
+          -80,
+          -2,
+          405
+        ],
+        "actual": [
+          -158,
+          -2,
+          405
+        ],
+        "withoutAudioEqual": false,
+        "elapsedMicroseconds": 729.3,
+        "validScore": true,
+        "staged": false,
+        "editingBefore": null,
+        "editing": null,
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "mode": "score_local",
+        "begin": true,
+        "update": true,
+        "end": true,
+        "before": [
+          -80,
+          -2,
+          405
+        ],
+        "after": [
+          -80,
+          -2,
+          405
+        ],
+        "actual": [
+          -158,
+          -2,
+          405
+        ],
+        "withoutAudioEqual": false,
+        "elapsedMicroseconds": 4051.1,
+        "validScore": false,
+        "staged": true,
+        "editingBefore": {
+          "frames": 518,
+          "scanned": 518,
+          "geometrySha256": "CE98D0826A9EC3880A1A7CAA1EB6BD3014D481F129DEC1FAFB2B4B5FF5F39D1A"
+        },
+        "editing": {
+          "frames": 518,
+          "scanned": 518,
+          "geometrySha256": "CE98D0826A9EC3880A1A7CAA1EB6BD3014D481F129DEC1FAFB2B4B5FF5F39D1A"
+        },
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "mode": "score_full",
+        "begin": true,
+        "update": true,
+        "end": true,
+        "before": [
+          -80,
+          -2,
+          405
+        ],
+        "after": [
+          -80,
+          -2,
+          405
+        ],
+        "actual": [
+          -158,
+          -2,
+          405
+        ],
+        "withoutAudioEqual": false,
+        "elapsedMicroseconds": 86377.7,
+        "validScore": false,
+        "staged": true,
+        "editingBefore": {
+          "frames": 518,
+          "scanned": 518,
+          "geometrySha256": "CE98D0826A9EC3880A1A7CAA1EB6BD3014D481F129DEC1FAFB2B4B5FF5F39D1A"
+        },
+        "editing": {
+          "frames": 518,
+          "scanned": 518,
+          "geometrySha256": "CE98D0826A9EC3880A1A7CAA1EB6BD3014D481F129DEC1FAFB2B4B5FF5F39D1A"
+        },
+        "dse": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      }
+    ]
+  },
+  "fiveToThreeCrop": [
+    {
+      "velocity": 64,
+      "full": [
+        -81,
+        -3,
+        404
+      ],
+      "cropped": [
+        -81,
+        -3,
+        404
+      ]
+    },
+    {
+      "velocity": 32,
+      "full": [
+        -159,
+        -3,
+        404
+      ],
+      "cropped": [
+        -159,
+        -3,
+        404
+      ]
+    },
+    {
+      "velocity": 96,
+      "full": [
+        -59,
+        -3,
+        404
+      ],
+      "cropped": [
+        -59,
+        -3,
+        404
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "fixture": "three",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 400.114,
+      "computeMs": 3.4415,
+      "startMs": 9.7725,
+      "wallMs": 87.0498,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -80,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "63672cb708aae3381f805b684eee3c4c80d7f893ebaa65ef8cc84422187d0d52",
+      "candidateScheduleSha256": "63672cb708aae3381f805b684eee3c4c80d7f893ebaa65ef8cc84422187d0d52",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "three",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 212.6026,
+      "computeMs": 1.4031,
+      "startMs": 10.3434,
+      "wallMs": 73.6568,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -158,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 9,
+      "referenceScheduleSha256": "95a89b9b5110334589c8a7bed0ec5f6f8dbe9daea5024393601efe37b8d01813",
+      "candidateScheduleSha256": "95a89b9b5110334589c8a7bed0ec5f6f8dbe9daea5024393601efe37b8d01813",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "three",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 218.3432,
+      "computeMs": 0.9073,
+      "startMs": 9.1788,
+      "wallMs": 74.7587,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -58,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "abbeeea0aec76509ee102e36ed4dad00fc4a087f006c8367174ccbeca12cfa90",
+      "candidateScheduleSha256": "abbeeea0aec76509ee102e36ed4dad00fc4a087f006c8367174ccbeca12cfa90",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "alone",
+      "notes": 1,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 2,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 171.9566,
+      "computeMs": 1.0512,
+      "startMs": 8.3789,
+      "wallMs": 73.7236,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -30,
+        -2,
+        477
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 5,
+      "referenceScheduleSha256": "ad118ad641f6b9f7167af82d7a5e54f8bc329b5049896d6b074f33d88484cc9e",
+      "candidateScheduleSha256": "ad118ad641f6b9f7167af82d7a5e54f8bc329b5049896d6b074f33d88484cc9e",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "alone",
+      "notes": 1,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 2,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 183.1674,
+      "computeMs": 1.4643,
+      "startMs": 9.454,
+      "wallMs": 74.2907,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -97,
+        -2,
+        477
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 5,
+      "referenceScheduleSha256": "f627c224ba91772165db8b6931a7fa370f386102a44ee69f998c4f0849d64668",
+      "candidateScheduleSha256": "f627c224ba91772165db8b6931a7fa370f386102a44ee69f998c4f0849d64668",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "alone",
+      "notes": 1,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 2,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 209.3829,
+      "computeMs": 1.1514,
+      "startMs": 8.7667,
+      "wallMs": 75.1999,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -19,
+        -2,
+        477
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 5,
+      "referenceScheduleSha256": "e1f99cb052c5282b79fb45ef1a59b6e235a3fa76cbc22919373101b48001a83e",
+      "candidateScheduleSha256": "e1f99cb052c5282b79fb45ef1a59b6e235a3fa76cbc22919373101b48001a83e",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "previous",
+      "notes": 2,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 3,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 227.2103,
+      "computeMs": 2.0367,
+      "startMs": 13.4893,
+      "wallMs": 90.2181,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -80,
+        -2,
+        477
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 7,
+      "referenceScheduleSha256": "a62ff99cbb2de8379f5a9102945d5a1aa33df27b890ea55ee5b1bd136a0cbabd",
+      "candidateScheduleSha256": "a62ff99cbb2de8379f5a9102945d5a1aa33df27b890ea55ee5b1bd136a0cbabd",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "previous",
+      "notes": 2,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 3,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 213.8418,
+      "computeMs": 1.3762,
+      "startMs": 10.6318,
+      "wallMs": 76.2202,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -158,
+        -2,
+        477
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 6,
+      "referenceScheduleSha256": "a756afd8fbb54992d6c1295f4895281e6671b9a2c83acdaf0ed05f83c3cef288",
+      "candidateScheduleSha256": "a756afd8fbb54992d6c1295f4895281e6671b9a2c83acdaf0ed05f83c3cef288",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "previous",
+      "notes": 2,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 3,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 194.5906,
+      "computeMs": 0.9196,
+      "startMs": 9.5793,
+      "wallMs": 76.4751,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -58,
+        -2,
+        477
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 7,
+      "referenceScheduleSha256": "769fa4a79a606d5985bd3ec2ae9f1fb0d8ba000a5be0fd0534b6a759e41acb54",
+      "candidateScheduleSha256": "769fa4a79a606d5985bd3ec2ae9f1fb0d8ba000a5be0fd0534b6a759e41acb54",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "following",
+      "notes": 2,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 3,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 195.0203,
+      "computeMs": 1.1256,
+      "startMs": 9.9109,
+      "wallMs": 60.4753,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -30,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 8,
+      "referenceScheduleSha256": "3098feed2db2032fb54e4b847cfb5e246c92883609c947541aca2f28b5367062",
+      "candidateScheduleSha256": "3098feed2db2032fb54e4b847cfb5e246c92883609c947541aca2f28b5367062",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "following",
+      "notes": 2,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 3,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 193.0628,
+      "computeMs": 1.3342,
+      "startMs": 11.493,
+      "wallMs": 75.7299,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -97,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 8,
+      "referenceScheduleSha256": "071837bfdb864675d47337979f1f958403f751ccea47b6608646fe836b4e3210",
+      "candidateScheduleSha256": "071837bfdb864675d47337979f1f958403f751ccea47b6608646fe836b4e3210",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "following",
+      "notes": 2,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 3,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 186.9689,
+      "computeMs": 1.3525,
+      "startMs": 9.0919,
+      "wallMs": 60.2192,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -19,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 8,
+      "referenceScheduleSha256": "ff46407a73de98bf656fbfb19411b20d96a080bf861fc0679b52c05d558a254b",
+      "candidateScheduleSha256": "ff46407a73de98bf656fbfb19411b20d96a080bf861fc0679b52c05d558a254b",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "five",
+      "notes": 5,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 5,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 248.7524,
+      "computeMs": 1.1094,
+      "startMs": 8.1799,
+      "wallMs": 59.7757,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -81,
+        -3,
+        404
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 14,
+      "referenceScheduleSha256": "aea2ced58ddefda3717c8b9d27c65e9d539bb8762442ac8a00c44eb6a34d9235",
+      "candidateScheduleSha256": "aea2ced58ddefda3717c8b9d27c65e9d539bb8762442ac8a00c44eb6a34d9235",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "five",
+      "notes": 5,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 5,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 224.1807,
+      "computeMs": 1.892,
+      "startMs": 9.8465,
+      "wallMs": 73.9143,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -159,
+        -3,
+        404
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 13,
+      "referenceScheduleSha256": "69ff7e5e49a8e4ad0915052da358e4213bdd29fd0be8a8891a15522f6f04ce3c",
+      "candidateScheduleSha256": "69ff7e5e49a8e4ad0915052da358e4213bdd29fd0be8a8891a15522f6f04ce3c",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "five",
+      "notes": 5,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 5,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 226.8561,
+      "computeMs": 0.9937,
+      "startMs": 7.8243,
+      "wallMs": 59.643,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -59,
+        -3,
+        404
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 14,
+      "referenceScheduleSha256": "febe8d12289b8a30d6f02db8a075fd06ec2b7436c5ac7d317a022551684b4116",
+      "candidateScheduleSha256": "febe8d12289b8a30d6f02db8a075fd06ec2b7436c5ac7d317a022551684b4116",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "five_crop_three",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 222.8036,
+      "computeMs": 1.0447,
+      "startMs": 8.7421,
+      "wallMs": 73.5749,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -81,
+        -3,
+        404
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "5577eab4edc5d96bfb59b4cffc322e1414632d9f1803b2467ca465ce9ef4e996",
+      "candidateScheduleSha256": "5577eab4edc5d96bfb59b4cffc322e1414632d9f1803b2467ca465ce9ef4e996",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "five_crop_three",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 232.1984,
+      "computeMs": 1.277,
+      "startMs": 8.2801,
+      "wallMs": 74.0936,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -159,
+        -3,
+        404
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 9,
+      "referenceScheduleSha256": "34547750aaa131021834cb6b3f528b74caf649f9e07c5f6c770eef0e67627558",
+      "candidateScheduleSha256": "34547750aaa131021834cb6b3f528b74caf649f9e07c5f6c770eef0e67627558",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "five_crop_three",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 215.7414,
+      "computeMs": 1.0171,
+      "startMs": 7.9573,
+      "wallMs": 59.198,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -59,
+        -3,
+        404
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "798d9277443372c877cefec54a68e33957fedc407149ef9f61c581fa600469c6",
+      "candidateScheduleSha256": "798d9277443372c877cefec54a68e33957fedc407149ef9f61c581fa600469c6",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "gap",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 225.762,
+      "computeMs": 0.9518,
+      "startMs": 7.9744,
+      "wallMs": 58.7492,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -33,
+        -5,
+        474
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 12,
+      "referenceScheduleSha256": "f218a7277e0332f969be2aa8d49123c743314456883ef92dbf3fe08ed5aac850",
+      "candidateScheduleSha256": "f218a7277e0332f969be2aa8d49123c743314456883ef92dbf3fe08ed5aac850",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "gap",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 233.1495,
+      "computeMs": 1.028,
+      "startMs": 8.3111,
+      "wallMs": 59.1377,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -100,
+        -5,
+        474
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 12,
+      "referenceScheduleSha256": "f04428daf3fe63722fc40c8627f3838f0243f89e93c6120d057517b90079688f",
+      "candidateScheduleSha256": "f04428daf3fe63722fc40c8627f3838f0243f89e93c6120d057517b90079688f",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "gap",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 208.5677,
+      "computeMs": 0.9669,
+      "startMs": 8.2315,
+      "wallMs": 59.2893,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -22,
+        -5,
+        474
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 12,
+      "referenceScheduleSha256": "3dfb3769d3fca1802d638b401ce6e0c0b9b2571a060d1797f04dd54a3d37b929",
+      "candidateScheduleSha256": "3dfb3769d3fca1802d638b401ce6e0c0b9b2571a060d1797f04dd54a3d37b929",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "short",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 191.7383,
+      "computeMs": 0.933,
+      "startMs": 7.7065,
+      "wallMs": 58.7419,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -49,
+        -4,
+        85
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 6,
+      "referenceScheduleSha256": "1f90930ff373c82a3f410aa344df33a31541b2306e737a6bfa1fc3d21e5a7a53",
+      "candidateScheduleSha256": "1f90930ff373c82a3f410aa344df33a31541b2306e737a6bfa1fc3d21e5a7a53",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "short",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 199.2186,
+      "computeMs": 0.9581,
+      "startMs": 8.1472,
+      "wallMs": 74.6903,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -60,
+        -4,
+        85
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 6,
+      "referenceScheduleSha256": "108754dd13cdfa9e18a9d3bef9f6267660072424fb0d1f1893375fe4a3697abc",
+      "candidateScheduleSha256": "108754dd13cdfa9e18a9d3bef9f6267660072424fb0d1f1893375fe4a3697abc",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "short",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 185.718,
+      "computeMs": 1.0359,
+      "startMs": 8.4714,
+      "wallMs": 57.6236,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -38,
+        -4,
+        85
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 6,
+      "referenceScheduleSha256": "2fcdc82e79bb1a00ad9fbc058c52a6cf149d59aa268533f184889fdb62503972",
+      "candidateScheduleSha256": "2fcdc82e79bb1a00ad9fbc058c52a6cf149d59aa268533f184889fdb62503972",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "evec",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 219.4738,
+      "computeMs": 1.0109,
+      "startMs": 8.5009,
+      "wallMs": 59.2741,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -136,
+        -64,
+        -36,
+        -13,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 13,
+      "referenceScheduleSha256": "6983620390c5e877780af314e2ba3bd5468e9f2e8863abc7a95478148de9c25a",
+      "candidateScheduleSha256": "6983620390c5e877780af314e2ba3bd5468e9f2e8863abc7a95478148de9c25a",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "evec",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 213.6523,
+      "computeMs": 1.4621,
+      "startMs": 8.8096,
+      "wallMs": 73.4126,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -214,
+        -64,
+        -36,
+        -13,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 12,
+      "referenceScheduleSha256": "43d33c1f2aa5e2dae248f84cf7cc1a0c1151478e57872c226b29fa82fabcab49",
+      "candidateScheduleSha256": "43d33c1f2aa5e2dae248f84cf7cc1a0c1151478e57872c226b29fa82fabcab49",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "evec",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 206.7269,
+      "computeMs": 1.0391,
+      "startMs": 7.6463,
+      "wallMs": 58.5467,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -97,
+        -47,
+        -30,
+        -13,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 13,
+      "referenceScheduleSha256": "76e1299f6a0c5e4f8ae2b95756d3758bd3c7c52161289ac0251e3d397d0de7c0",
+      "candidateScheduleSha256": "76e1299f6a0c5e4f8ae2b95756d3758bd3c7c52161289ac0251e3d397d0de7c0",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "shift_tempo",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 3840,
+      "TempoChangeTick": 910,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3809,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3809,
+        "Samples": 975104
+      },
+      "referenceWallMs": 232.8408,
+      "computeMs": 1.4307,
+      "startMs": 8.8732,
+      "wallMs": 60.332,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -64,
+        -2,
+        425
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 11,
+      "referenceScheduleSha256": "20bb1b057ae712ad11544d1e02865d8edaf0539fc12d66de5a5c9e623840a1d4",
+      "candidateScheduleSha256": "20bb1b057ae712ad11544d1e02865d8edaf0539fc12d66de5a5c9e623840a1d4",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "shift_tempo",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 3840,
+      "TempoChangeTick": 910,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3809,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3809,
+        "Samples": 975104
+      },
+      "referenceWallMs": 207.0359,
+      "computeMs": 1.6765,
+      "startMs": 9.152,
+      "wallMs": 60.2192,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -142,
+        -2,
+        425
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 11,
+      "referenceScheduleSha256": "ad7a14495497134ad93b330b2fb58fa3ff63acc977f6a5157bdbc6582882b101",
+      "candidateScheduleSha256": "ad7a14495497134ad93b330b2fb58fa3ff63acc977f6a5157bdbc6582882b101",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "shift_tempo",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 3840,
+      "TempoChangeTick": 910,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3809,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3809,
+        "Samples": 975104
+      },
+      "referenceWallMs": 220.3141,
+      "computeMs": 1.4711,
+      "startMs": 7.5956,
+      "wallMs": 59.7882,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -43,
+        -2,
+        425
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 11,
+      "referenceScheduleSha256": "adbf5151af99a4b347124b2033aa56b7f250d6956e54536054ef5c5b0dff7af2",
+      "candidateScheduleSha256": "adbf5151af99a4b347124b2033aa56b7f250d6956e54536054ef5c5b0dff7af2",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "rin",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BKKP765AEHXWSKDB",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 224.0149,
+      "computeMs": 1.6838,
+      "startMs": 10.2248,
+      "wallMs": 75.6132,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -97,
+        -36,
+        -13,
+        -2,
+        410
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 13,
+      "referenceScheduleSha256": "d8b47a66960a033a89de388bea79d2b49fe3c30d38685c39dc535257145fef65",
+      "candidateScheduleSha256": "d8b47a66960a033a89de388bea79d2b49fe3c30d38685c39dc535257145fef65",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "rin",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BKKP765AEHXWSKDB",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 193.3679,
+      "computeMs": 1.1864,
+      "startMs": 8.6951,
+      "wallMs": 60.2346,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -169,
+        -36,
+        -13,
+        -2,
+        410
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 12,
+      "referenceScheduleSha256": "1e8d6defb683023de2455e49a719c7ad94065d79f2ff3641c7ed4b1702257b03",
+      "candidateScheduleSha256": "1e8d6defb683023de2455e49a719c7ad94065d79f2ff3641c7ed4b1702257b03",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "rin",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BKKP765AEHXWSKDB",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 2880,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 191.3058,
+      "computeMs": 1.1669,
+      "startMs": 8.1213,
+      "wallMs": 74.704,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -69,
+        -30,
+        -13,
+        -2,
+        410
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 14,
+      "referenceScheduleSha256": "74196985eab111fba0f89de107ee28bc8adab0b1ec334518fd6cc8671f845e14",
+      "candidateScheduleSha256": "74196985eab111fba0f89de107ee28bc8adab0b1ec334518fd6cc8671f845e14",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "tail_1000",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 1000,
+      "CandidateDuration": 130000,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 238.8393,
+      "computeMs": 1.8527,
+      "startMs": 12.4202,
+      "wallMs": 101.7593,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -80,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "63672cb708aae3381f805b684eee3c4c80d7f893ebaa65ef8cc84422187d0d52",
+      "candidateScheduleSha256": "63672cb708aae3381f805b684eee3c4c80d7f893ebaa65ef8cc84422187d0d52",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "tail_1000",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 1000,
+      "CandidateDuration": 130000,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 236.4451,
+      "computeMs": 1.3647,
+      "startMs": 11.8116,
+      "wallMs": 88.5257,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -158,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 9,
+      "referenceScheduleSha256": "95a89b9b5110334589c8a7bed0ec5f6f8dbe9daea5024393601efe37b8d01813",
+      "candidateScheduleSha256": "95a89b9b5110334589c8a7bed0ec5f6f8dbe9daea5024393601efe37b8d01813",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "tail_1000",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 1000,
+      "CandidateDuration": 130000,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 210.3616,
+      "computeMs": 2.1804,
+      "startMs": 12.5304,
+      "wallMs": 88.7106,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -58,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "abbeeea0aec76509ee102e36ed4dad00fc4a087f006c8367174ccbeca12cfa90",
+      "candidateScheduleSha256": "abbeeea0aec76509ee102e36ed4dad00fc4a087f006c8367174ccbeca12cfa90",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "long_empty_tail",
+      "notes": 3,
+      "velocity": 64,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 130000,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 221.8819,
+      "computeMs": 1.0426,
+      "startMs": 11.1103,
+      "wallMs": 73.7576,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -80,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "63672cb708aae3381f805b684eee3c4c80d7f893ebaa65ef8cc84422187d0d52",
+      "candidateScheduleSha256": "63672cb708aae3381f805b684eee3c4c80d7f893ebaa65ef8cc84422187d0d52",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "long_empty_tail",
+      "notes": 3,
+      "velocity": 32,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 130000,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 230.8817,
+      "computeMs": 1.249,
+      "startMs": 8.7699,
+      "wallMs": 74.9206,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -158,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 9,
+      "referenceScheduleSha256": "95a89b9b5110334589c8a7bed0ec5f6f8dbe9daea5024393601efe37b8d01813",
+      "candidateScheduleSha256": "95a89b9b5110334589c8a7bed0ec5f6f8dbe9daea5024393601efe37b8d01813",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    },
+    {
+      "fixture": "long_empty_tail",
+      "notes": 3,
+      "velocity": 96,
+      "bank": "BCNFCY43LB2LZCD4",
+      "PartStart": 0,
+      "TempoChangeTick": -1,
+      "TailNotes": 0,
+      "CandidateDuration": 130000,
+      "hostVelocity": 64,
+      "planningCalls": 4,
+      "nativeFrameAfter": 0,
+      "inputFrames": 3691,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "referenceDse": {
+        "Starts": 1,
+        "Steps": 3691,
+        "Samples": 944896
+      },
+      "referenceWallMs": 211.9588,
+      "computeMs": 1.2864,
+      "startMs": 9.5857,
+      "wallMs": 75.0556,
+      "status": -1,
+      "referenceTickBoundaries": [
+        -58,
+        -2,
+        405
+      ],
+      "independentlyPredictedTickBoundaries": null,
+      "scheduleRecordCount": 10,
+      "referenceScheduleSha256": "abbeeea0aec76509ee102e36ed4dad00fc4a087f006c8367174ccbeca12cfa90",
+      "candidateScheduleSha256": "abbeeea0aec76509ee102e36ed4dad00fc4a087f006c8367174ccbeca12cfa90",
+      "inputMatchesFreshVsm": true,
+      "scheduleEqual": true
+    }
+  ],
+  "limitations": [
+    "Baseline VEL64 input was captured during an oracle render of each short fixture. A standalone local input builder is not implemented.",
+    "Only NRPN target VEL is changed in that baseline input; fresh candidate VSM input is an independent oracle. Candidate host Part VEL stays 64.",
+    "Exact active native schedule tuples are compared; standalone reconstruction of GetPhonemePositions tick boundaries is not implemented.",
+    "Candidate engine sessions still start and cancel through VSM. Timing excludes fixture creation, insertion, commit and input copying.",
+    "Tail benchmarks use cached short-context input and compare with the short oracle, not a full render of the 1003-note Part.",
+    "One five-to-three-note crop matching does not establish a universal context radius.",
+    "Memory, sustained gesture scheduling, engine concurrency and additional engine versions remain unvalidated."
+  ]
+}
