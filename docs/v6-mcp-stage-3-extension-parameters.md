@@ -7,7 +7,7 @@
 调用 `v6_get_catalog`，读取 `extension_parameters` 与 `capability_status`：
 
 - `patcher.bvl`：按音符整数，范围 0～127，默认/清除值 127；持久化于 VPR 的 Patcher BVL 条目。
-- `patcher.register_shift`：按音符整数，范围 -12～12 半音，默认/清除值 0；持久化于 VPR 的 Register Shift 条目。
+- `patcher.register_shift`：按音符整数，范围 -48～48 半音，默认/清除值 0；持久化于 VPR 的 Register Shift 条目。
 
 capability 的 `implemented` 表示协议与适配器已实现；在完成对应 V6 宿主矩阵前，`host_verified` 保持 `false`。设置被关闭或本机不支持 DSE 原生挂钩时，availability 为 `temporarily_unavailable` 并带原因。
 

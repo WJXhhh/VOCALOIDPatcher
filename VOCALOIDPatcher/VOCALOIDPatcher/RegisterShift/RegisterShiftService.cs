@@ -24,8 +24,8 @@ internal enum RegisterShiftStatus
 
 internal static class RegisterShiftService
 {
-    public const int MinValue = -24;
-    public const int MaxValue = 24;
+    public const int MinValue = -48;
+    public const int MaxValue = 48;
     public const int DefaultValue = 0;
     public const int DisplayOffset = -MinValue;
     public static readonly ControlParameterTypeEnum ParameterType = (ControlParameterTypeEnum)0x524547;
