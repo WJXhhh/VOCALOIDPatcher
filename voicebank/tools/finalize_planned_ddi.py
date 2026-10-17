@@ -18,6 +18,7 @@ import finalize_sil_a_ddi
 import finalize_stationary_ddi as stationary
 import plan_ddi_tree as plan_tools
 import probe_frm2
+import pitch2_reference
 
 
 class PlannedFinalizeError(Exception):
@@ -394,6 +395,17 @@ def build(
     if len(insertion) != len(units) or {item[2] for item in insertion} != set(units):
         raise PlannedFinalizeError("tree insertion order does not cover every DDB unit")
 
+    voiced_phonemes = {item['name'] for item in plan['phonemes'] if not item['unvoiced']}
+    reference_pitches = {}
+    with ddb_path.open('rb') as ddb_stream:
+        for unit_id, item in units.items():
+            f0 = pitch2_reference.read_final_f0(ddb_stream, ddb_info(item).frame_offsets)
+            if item['kind'] == 'stationary':
+                reference_pitches[unit_id] = pitch2_reference.reference_pitch_cents(f0)
+            else:
+                reference_pitches[unit_id] = pitch2_reference.reference_pitch_cents(
+                    f0, art_alignments(item), tuple(item['edge']), voiced_phonemes)
+
     sta_reports: list[dict[str, Any] | None] = [None] * len(sta_ids)
     art_reports: list[dict[str, Any] | None] = [None] * len(art_ids)
     ddi = skeleton
@@ -410,6 +422,7 @@ def build(
                 unknown2,
                 dynamics,
                 tempo,
+                reference_pitch_cents=reference_pitches[unit_id],
             )
             if report["snd_pointer"] != item["snd_core_pointer"]:
                 raise PlannedFinalizeError(f"STA unit {unit_id} pointer differs")
@@ -428,6 +441,7 @@ def build(
                 dynamics,
                 tempo,
                 alignments,
+                reference_pitch_cents=reference_pitches[unit_id],
             )
             if (
                 report["snd_payload_pointer"] != item["snd_payload_pointer"]

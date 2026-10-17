@@ -11,9 +11,9 @@ using Yamaha.VOCALOID.Properties;
 using Yamaha.VOCALOID.VDM;
 using Yamaha.VOCALOID.VSM;
 
-internal static class Program
+internal static partial class Program
 {
-    private const string EditorDirectory = @"C:\Program Files\VOCALOID6\Editor";
+    private static string EditorDirectory => Environment.GetEnvironmentVariable("VOCALOID_PROBE_EDITOR") ?? @"C:\Program Files\VOCALOID6\Editor";
 
     private static readonly Dictionary<string, IntPtr> NativeHandles =
         new(StringComparer.OrdinalIgnoreCase);
@@ -43,6 +43,23 @@ internal static class Program
 
     private static int Main(string[] args)
     {
+        if (args.Contains("--evec-contract-probe", StringComparer.OrdinalIgnoreCase))
+        {
+            var luka = EvecVoicebankDetector.GetDatabaseCapabilities("LUKA_V4X_Soft_EVEC");
+            var repeats = new EvecNoteState { ConsonantExtension = 3 };
+            if (luka.HasAttacks || !luka.HasConsonantExtension ||
+                luka.Normalize("k a", repeats).ConsonantExtension != 3 ||
+                luka.MaximumSelectableConsonantExtension("a i") != 0 ||
+                EvecVoicebankDetector.GetDatabaseCapabilities("LUKA_V4X_Soft").HasConsonantExtension ||
+                EvecVoicebankDetector.GetDatabaseCapabilities("unknown").IsSupported)
+                throw new InvalidOperationException("Independent Luka extension/product scope contract failed.");
+            Console.WriteLine("evec.product-contracts=passed");
+            EvecMcpContractProbe.Run();
+            return 0;
+        }
+        bool transitionRender = args.Contains("--transition-render", StringComparer.OrdinalIgnoreCase);
+        bool transitionPlanProbe = args.Contains("--transition-plan-probe", StringComparer.OrdinalIgnoreCase);
+        bool phonemeTimingProbe = args.Contains("--phoneme-timing-probe", StringComparer.OrdinalIgnoreCase);
         bool consonantOffsetProbe = args.Contains(
             "--consonant-offset-probe",
             StringComparer.OrdinalIgnoreCase);
@@ -88,16 +105,31 @@ internal static class Program
         if (!consonantOffsetProbe && !voiceBankPathProbe && !mutationProbe && !lyricsProbe &&
             !clipboardProbe && !structureProbe && !voiceBankSwitchProbe && !partPropertyProbe &&
             !lyricMoveProbe && !partStructureProbe && !positionTimingProbe &&
-            !removalLifecycleProbe)
+            !removalLifecycleProbe && !phonemeTimingProbe)
             Directory.CreateDirectory(outputDirectory);
 
         ConfigureNativeLoading();
+        if (args.Contains("--patcher-dse-initialization", StringComparer.OrdinalIgnoreCase))
+        {
+            // Match the already deployed Patcher's DsePreloader path. Load
+            // synchronously here so database/render probes cannot race it.
+            NativeLibrary.Load(Path.Combine(EditorDirectory, "DSE_DFT.dll"));
+            bool initialized = VOCALOIDPatcher.Utils.DseLicensePatch.TryPatch(ResolveEditorLibrary("dse"));
+            Console.WriteLine($"initialization.production_dse_patch={initialized}");
+            if (!initialized)
+                return 61;
+        }
+        if (args.Contains("--catalog-scope-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeCatalogScope();
+        using var catalogProbe = args.Contains("--allow-empty-key-catalog", StringComparer.OrdinalIgnoreCase)
+            ? EvecCatalogDiscoveryScope.Enter(ResolveEditorLibrary("vdm"), Path.Combine(EditorDirectory, "VDM.dll"))
+            : null;
         Console.WriteLine($"editor_directory={EditorDirectory}");
         Console.WriteLine($"expression_library={DirectoryPath.ExpressionLibrary}");
         if (!consonantOffsetProbe && !voiceBankPathProbe && !mutationProbe && !lyricsProbe &&
             !clipboardProbe && !structureProbe && !voiceBankSwitchProbe && !partPropertyProbe &&
             !lyricMoveProbe && !partStructureProbe && !positionTimingProbe &&
-            !removalLifecycleProbe)
+            !removalLifecycleProbe && !phonemeTimingProbe)
             Console.WriteLine($"output_directory={outputDirectory}");
 
         VDMError databaseResult = ~VDMError.None;
@@ -114,11 +146,14 @@ internal static class Program
 
         if (voiceBankPathProbe)
         {
+            Console.WriteLine($"database.dse_voicebanks={database.NumVoiceBanks}");
+            Console.WriteLine($"database.ai_voicebanks={database.NumAiVoiceBanks}");
             for (ulong index = 0; index < database.NumVoiceBanks; index++)
             {
                 VoiceBank? voiceBank = database.GetVoiceBankByIndex(index);
                 if (voiceBank == null ||
                     (!voiceBank.Name.Contains("_EVEC", StringComparison.OrdinalIgnoreCase) &&
+                     !voiceBank.Name.Contains("MIKU", StringComparison.OrdinalIgnoreCase) &&
                      !voiceBank.Name.Contains("LUKA_V4X", StringComparison.OrdinalIgnoreCase) &&
                      !voiceBank.Name.Contains("RIN_V4X", StringComparison.OrdinalIgnoreCase) &&
                      !voiceBank.Name.Contains("LEN_V4X", StringComparison.OrdinalIgnoreCase)))
@@ -138,8 +173,8 @@ internal static class Program
                 {
                     var normal = EvecNoteState.Empty.Clone();
                     var attack = EvecNoteState.Empty.Clone();
-                    attack.AttackId = capabilities.Attacks.First(item =>
-                        item.Id != EvecConstants.AttackNone).Id;
+                    attack.AttackId = capabilities.Attacks.FirstOrDefault(item =>
+                        item.Id != EvecConstants.AttackNone)?.Id ?? EvecConstants.AttackNone;
                     Console.WriteLine($"voicebank.{voiceBank.CompID}.extension_max_k_normal={capabilities.MaximumConsonantExtension("k a", normal)}");
                     Console.WriteLine($"voicebank.{voiceBank.CompID}.extension_max_h_backslash_normal={capabilities.MaximumConsonantExtension("h\\ M", normal)}");
                     Console.WriteLine($"voicebank.{voiceBank.CompID}.extension_max_h_backslash_attack={capabilities.MaximumConsonantExtension("h\\ M", attack)}");
@@ -171,7 +206,8 @@ internal static class Program
             Console.WriteLine($"license.{license.CompID}.result={license.Result}");
         }
 
-        using WIVSMSequenceManager? sequenceManager = WVSMModuleIF.CreateManager("VOCALOID6", "6.13.0.1");
+        using WIVSMSequenceManager? sequenceManager = WVSMModuleIF.CreateManager(
+            Environment.GetEnvironmentVariable("VOCALOID_PROBE_MANAGER_ID") ?? "VOCALOID6", "6.13.0.1");
         Console.WriteLine($"vsm.created={sequenceManager != null}");
         if (sequenceManager == null)
         {
@@ -185,6 +221,102 @@ internal static class Program
         sequenceManager.SetMaxNumMidiTrack(32);
         sequenceManager.SetMaxNumAudioTrack(32);
 
+        if (args.Contains("--full-phoneme-timing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeFullPhonemeTiming(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--phoneme-topology-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbePhonemeTopology(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--phoneme-volume-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbePhonemeTopology(sequenceManager, dse, database, outputDirectory, volumeOnly: true);
+        if (args.Contains("--duration-selection-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeDurationSelection(sequenceManager, dse, outputDirectory);
+        if (args.Contains("--independent-duration-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeIndependentDuration(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--duration-routing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeDurationRouting(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--duration-composition-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeDurationComposition(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--articulation-edges-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeArticulationEdges(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--transition-control-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTransitionControl(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--transition-backend-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTransitionBackend(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--dynamics-selection-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeDynamicsSelection(sequenceManager, outputDirectory);
+        if (args.Contains("--timing-crash-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingCrash(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--timing-profile-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingProfile(outputDirectory);
+        if (args.Contains("--shared-boundary-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeSharedBoundary(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--duration-concurrent-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeDurationConcurrent(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--duration-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase))
+        {
+            var management = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.Combine(EditorDirectory, "runtimes", "win", "lib", "net8.0", "System.Management.dll"));
+            Console.WriteLine("duration.host.management=" + management.Location + "; SDK=" + typeof(WIVSMSequence).Assembly.GetName().Name);
+            string assemblyPath = Environment.GetEnvironmentVariable("VOCALOID_DURATION_HOST_ASSEMBLY")!;
+            AppDomain.CurrentDomain.AssemblyResolve += (_, e) =>
+            {
+                string dependency = Path.Combine(Path.GetDirectoryName(assemblyPath)!, new System.Reflection.AssemblyName(e.Name).Name + ".dll");
+                return File.Exists(dependency) ? System.Reflection.Assembly.LoadFrom(dependency) : null;
+            };
+            var assembly = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(assemblyPath));
+            try { assembly.GetType(args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.CompatibilityHostValidation" : "VOCALOIDPatcher.DurationSelection.DurationHostValidation", true)!.GetMethod("Run")!
+                .Invoke(null, [sequenceManager, dse, database, outputDirectory]); }
+            finally { foreach (var a in AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().Name == "System.Management")) Console.WriteLine("duration.host.management.loaded=" + a.Location + "; context=" + System.Runtime.Loader.AssemblyLoadContext.GetLoadContext(a)!.Name); }
+            return 0;
+        }
+        if (args.Contains("--phoneme-extreme-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbePhonemeExtreme(sequenceManager, dse, database, outputDirectory);
+#if TIMING_HOST_PROBE
+        if (args.Contains("--timing-host-regression", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingHostRegression(sequenceManager,dse,database,outputDirectory);
+#endif
+        if (args.Contains("--timing-routing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingRouting(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--timing-note-identity-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingNoteIdentity(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--timing-foundation-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingFoundation(sequenceManager, dse, database, outputDirectory);
+
+        if (args.Contains("--timing-coefficient-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTimingCoefficient(sequenceManager, dse, database, outputDirectory);
+
+        if (args.Contains("--standalone-timing-concurrency", StringComparer.OrdinalIgnoreCase))
+            return ProbeStandaloneTimingConcurrency(sequenceManager, dse, database, outputDirectory,
+                args.FirstOrDefault(arg => arg.StartsWith("--concurrency-case=", StringComparison.Ordinal))?[19..]);
+
+        if (args.Contains("--standalone-timing-benchmark", StringComparer.OrdinalIgnoreCase))
+            return BenchmarkStandaloneTiming(sequenceManager, dse, database, outputDirectory);
+
+        if (args.Contains("--standalone-timing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeStandaloneTiming(sequenceManager, dse, database, outputDirectory,
+                args.FirstOrDefault(arg => arg.StartsWith("--timing-case=", StringComparison.Ordinal))?[14..]);
+
+        if (args.Contains("--metadata-timing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeMetadataTiming(sequenceManager, outputDirectory,
+                args.Contains("--direct-timing-events", StringComparer.OrdinalIgnoreCase));
+
+        if (args.Contains("--local-timing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeLocalTiming(sequenceManager, outputDirectory,
+                args.Contains("--timing-map-only", StringComparer.OrdinalIgnoreCase));
+
+        if (args.Contains("--consonant-velocity-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeConsonantVelocity(sequenceManager, database, outputDirectory,
+                args.Contains("--velocity-sweep", StringComparer.OrdinalIgnoreCase),
+                args.Contains("--velocity-solver", StringComparer.OrdinalIgnoreCase),
+                args.Contains("--velocity-lifecycle", StringComparer.OrdinalIgnoreCase));
+
+        if (args.Contains("--render-copy-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeRenderCopy(sequenceManager, outputDirectory);
+
+        if (transitionRender || transitionPlanProbe)
+            return ProbeTransitions(sequenceManager, database, outputDirectory,
+                positionalArguments.Length > 1 ? positionalArguments[1] : "miku", transitionRender,
+                args.Contains("--async-score", StringComparer.OrdinalIgnoreCase));
+        if (phonemeTimingProbe)
+            return ProbePhonemeTiming(sequenceManager);
         if (consonantOffsetProbe)
             return ProbeConsonantOffset(sequenceManager);
         if (mutationProbe)

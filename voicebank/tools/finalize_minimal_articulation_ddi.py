@@ -70,6 +70,8 @@ def insert_articulation_at(
     dynamics: float,
     tempo: float,
     alignment_groups: tuple[tuple[int, int, int, int], ...] | None = None,
+    *,
+    reference_pitch_cents: float | None = None,
 ) -> tuple[bytes, dict[str, object]]:
     if artp < 0 or skeleton[artp : artp + len(ARTP_MAGIC)] != ARTP_MAGIC:
         raise stationary.FinalizeError(f"no ARTp begins at 0x{artp:x}")
@@ -114,6 +116,9 @@ def insert_articulation_at(
         )
     duration = ddb.pcm_count / ddb.sample_rate
     pitch_cents = 1200.0 * math.log2(pitch_hz / 440.0)
+    pitch2_cents = pitch_cents if reference_pitch_cents is None else reference_pitch_cents
+    if not math.isfinite(pitch2_cents):
+        raise stationary.FinalizeError('reference pitch must be finite')
     epr_source_offset = snd_source_offset + ddb.snd_size + 4 + len("EpR")
     snd_payload_pointer = ddb.snd_offset + stationary.SND_HEADER.size
     snd_core_pointer = (
@@ -159,7 +164,7 @@ def insert_articulation_at(
         result,
         pitch1_offset,
         pitch_cents,
-        pitch_cents,
+        pitch2_cents,
         unknown2,
         dynamics,
         tempo,
@@ -172,6 +177,7 @@ def insert_articulation_at(
         "duration_seconds": duration,
         "pitch_hz": pitch_hz,
         "pitch_cents_relative_to_a4": pitch_cents,
+        "pitch2_cents_relative_to_a4": pitch2_cents,
         "snd_source_offset": snd_source_offset,
         "epr_source_offset": epr_source_offset,
         "snd_chunk_offset": ddb.snd_offset,

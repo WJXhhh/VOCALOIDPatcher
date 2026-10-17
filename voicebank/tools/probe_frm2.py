@@ -20,6 +20,8 @@ FRAME_PREFIX = struct.Struct("<IdQ")
 MAIN_MASK = 0x0000002000E00207
 UNVOICED_MASK = 0x0000000000000200
 VQM_MASK = 0x00000000000E22B7
+VQM_NO_SPECTRUM_MASK = 0x00000000000E2287
+VQM_MASKS = (VQM_MASK, VQM_NO_SPECTRUM_MASK)
 
 
 class ProbeError(Exception):
@@ -100,7 +102,7 @@ class MainFrame:
     amplitudes: tuple[float, ...]
     phases_radians: tuple[float, ...]
     f0_hz: float
-    harmonic_envelope: Envelope
+    harmonic_envelope: Envelope  # Legacy API name: bit 37 is a phase-correction envelope (radians).
     resonances: tuple[tuple[float, float, float], ...]
     secondary_header: tuple[float, float, float]
     secondary_resonances: tuple[tuple[float, float, float], ...]
@@ -214,7 +216,7 @@ def parse_frame(data: bytes) -> MainFrame | UnvoicedFrame | VqmFrame:
             fail(f"unvoiced FRM2 has {len(data) - cursor.position} trailing byte(s)")
         return UnvoicedFrame(kind, time_seconds, mask, f0_hz)
 
-    if mask == VQM_MASK:
+    if mask in VQM_MASKS:
         component_count = cursor.u32("VQM sinusoid component count")
         component_frequencies = cursor.f32_array(
             component_count, "VQM component frequencies"
@@ -223,7 +225,9 @@ def parse_frame(data: bytes) -> MainFrame | UnvoicedFrame | VqmFrame:
             component_count, "VQM component amplitudes"
         )
         component_phases = cursor.f32_array(component_count, "VQM component phases")
-        spectrum_count = cursor.u32("VQM spectrum bin count")
+        # DSE gates both the count and arrays on bits 4/5; absent is not
+        # encoded as a zero count. Only the two verified masks are accepted.
+        spectrum_count = cursor.u32("VQM spectrum bin count") if mask & 0x30 else 0
         spectrum_amplitudes = cursor.f32_array(
             spectrum_count, "VQM spectrum amplitudes"
         )
@@ -314,6 +318,8 @@ def serialize_frame(frame: MainFrame | UnvoicedFrame | VqmFrame) -> bytes:
     if isinstance(frame, UnvoicedFrame):
         payload.append(struct.pack("<f", frame.f0_hz))
     elif isinstance(frame, VqmFrame):
+        if frame.mask not in VQM_MASKS:
+            fail(f"unsupported VQM mask 0x{frame.mask:016x}")
         component_count = len(frame.component_frequencies_hz)
         if (
             len(frame.component_amplitudes) != component_count
@@ -323,6 +329,8 @@ def serialize_frame(frame: MainFrame | UnvoicedFrame | VqmFrame) -> bytes:
         spectrum_count = len(frame.spectrum_amplitudes)
         if len(frame.spectrum_phases_radians) != spectrum_count:
             fail("VQM spectrum arrays do not have equal lengths")
+        if not frame.mask & 0x30 and spectrum_count:
+            fail("VQM mask excludes spectrum data but arrays are not empty")
         expected_feature_size = vqm_feature_payload_size(frame.feature_block.flags)
         if len(frame.feature_block.payload) != expected_feature_size:
             fail(
@@ -335,7 +343,7 @@ def serialize_frame(frame: MainFrame | UnvoicedFrame | VqmFrame) -> bytes:
                 pack_f32_array(frame.component_frequencies_hz),
                 pack_f32_array(frame.component_amplitudes),
                 pack_f32_array(frame.component_phases_radians),
-                struct.pack("<I", spectrum_count),
+                struct.pack("<I", spectrum_count) if frame.mask & 0x30 else b"",
                 pack_f32_array(frame.spectrum_amplitudes),
                 pack_f32_array(frame.spectrum_phases_radians),
                 struct.pack("<fI", frame.f0_hz, frame.feature_block.flags),
@@ -570,17 +578,18 @@ def validate_frame_at(data: mmap.mmap, offset: int, file_size: int) -> tuple[int
         )
         position += secondary_count * 24
         position = validate_envelope_at(data, position, frame_end, "residual envelope")
-    elif mask == VQM_MASK:
+    elif mask in VQM_MASKS:
         require_range(position, 4, frame_end, "VQM component count")
         component_count = struct.unpack_from("<I", data, position)[0]
         position += 4
         require_range(position, component_count * 12, frame_end, "VQM component arrays")
         position += component_count * 12
-        require_range(position, 4, frame_end, "VQM spectrum count")
-        spectrum_count = struct.unpack_from("<I", data, position)[0]
-        position += 4
-        require_range(position, spectrum_count * 8, frame_end, "VQM spectrum arrays")
-        position += spectrum_count * 8
+        if mask & 0x30:
+            require_range(position, 4, frame_end, "VQM spectrum count")
+            spectrum_count = struct.unpack_from("<I", data, position)[0]
+            position += 4
+            require_range(position, spectrum_count * 8, frame_end, "VQM spectrum arrays")
+            position += spectrum_count * 8
         require_range(position, 8, frame_end, "VQM F0 and feature flags")
         feature_flags = struct.unpack_from("<I", data, position + 4)[0]
         unknown_flags = feature_flags & ~0x001FFFFF

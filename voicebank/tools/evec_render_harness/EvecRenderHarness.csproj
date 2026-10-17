@@ -3,15 +3,37 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
+        <VocaloidReferenceDirectory Condition="'$(VocaloidReferenceDirectory)' == ''">C:\Program Files\VOCALOID6\Editor</VocaloidReferenceDirectory>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PlatformTarget>x64</PlatformTarget>
     <UseWPF>true</UseWPF>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\DurationSelection\Backend\*.cs" Link="DurationSelection/%(Filename)%(Extension)" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\DurationSelection\Model\*.cs" Link="DurationSelection/%(Filename)%(Extension)" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\Model\*.cs" Link="PhonemeVolume/%(Filename)%(Extension)" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\PhonemeGainWaveProcessor.cs" Link="PhonemeVolume/PhonemeGainWaveProcessor.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\Model\*.cs" Link="TimingModel/%(Filename)%(Extension)" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\BreathVolume\ICustomParameterHistoryEdit.cs" Link="TimingModel/ICustomParameterHistoryEdit.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\Backend\*.cs" Link="Backend/%(Filename)%(Extension)" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\ConsonantTimingMath.cs" Link="ConsonantTimingMath.cs" />
+    <ProjectReference Include="..\..\..\VOCALOIDPatcher.McpBridge\VOCALOIDPatcher.McpBridge.csproj" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecMcpEdit.cs" Link="EvecMcpEdit.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecRenderCopy.cs" Link="EvecRenderCopy.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Utils\NativeRenderSession.cs" Link="NativeRenderSession.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Utils\DseLicensePatch.cs" Link="DseLicensePatch.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecCatalogDiscoveryScope.cs" Link="EvecCatalogDiscoveryScope.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecTimingMath.cs" Link="EvecTimingMath.cs" />
+    <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecRenderTimingPlan.cs" Link="EvecRenderTimingPlan.cs" />
     <Reference Include="VOCALOID6">
-      <HintPath>C:\Program Files\VOCALOID6\Editor\VOCALOID6.dll</HintPath>
+      <HintPath>$(VocaloidReferenceDirectory)\VOCALOID6.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <HintPath>$(VocaloidReferenceDirectory)\runtimes\win\lib\net8.0\System.Management.dll</HintPath>
       <Private>true</Private>
     </Reference>
   </ItemGroup>
@@ -23,4 +45,8 @@
     <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\EvecVoicebankDetector.cs" Link="EvecVoicebankDetector.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="../../../compatibility/sampled-timing-6.13.1.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile" />
+    <EmbeddedResource Include="../../../compatibility/sampled-timing-6.13.3.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile.6.13.3" />
+  </ItemGroup>
 </Project>

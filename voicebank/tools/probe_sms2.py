@@ -144,7 +144,7 @@ def numeric_range(values: list[float | int | None]) -> list[float | int] | None:
     return [min(present), max(present)]
 
 
-def summarize(path: Path) -> dict[str, object]:
+def summarize(path: Path, full_fields: bool = False) -> dict[str, object]:
     file_size = path.stat().st_size
     with path.open("rb") as stream, mmap.mmap(stream.fileno(), 0, access=mmap.ACCESS_READ) as data:
         if file_size < 8:
@@ -155,6 +155,20 @@ def summarize(path: Path) -> dict[str, object]:
         if declared_size != file_size:
             fail(f"SMS2 size field is {declared_size}, file size is {file_size}")
         runs = find_frame_runs(data, file_size)
+        full_bits: Counter[str] = Counter()
+        if full_fields:
+            import probe_drs_frame
+            for run in runs:
+                for item in run:
+                    offset=int(item['offset']);size=int(item['chunk_size'])
+                    raw=bytes(data[offset:offset+size])
+                    try:
+                        frame=probe_drs_frame.parse(raw)
+                    except probe_drs_frame.ProbeError as error:
+                        fail(f'full DRS frame at {offset:#x}: {error}')
+                    if probe_drs_frame.serialize(frame)!=raw:
+                        fail(f'full DRS frame round-trip differs at {offset:#x}')
+                    full_bits.update(field.name for field in frame.fields)
 
     frames = [frame for run in runs for frame in run]
     if not frames:
@@ -191,6 +205,8 @@ def summarize(path: Path) -> dict[str, object]:
         "pitch_range_hz": numeric_range(pitches),
         "first_frames": frames[:3],
         "leading_layouts_structurally_valid": True,
+        "full_field_layouts_validated": full_fields,
+        "full_field_occurrences": dict(sorted(full_bits.items())) if full_fields else None,
     }
 
 
@@ -214,15 +230,18 @@ def print_human(summary: dict[str, object]) -> None:
         f"harmonics: {summary['harmonic_count_range']}  "
         f"secondary spectrum: {summary['secondary_count_range']}"
     )
+    if summary.get('full_field_layouts_validated'):
+        print('full DRS field layouts: valid through every selected FRM2 end')
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("sms2", type=Path, help="DRS SMS2 file to inspect")
     parser.add_argument("--json", action="store_true", help="emit JSON")
+    parser.add_argument("--full-fields", action="store_true", help="validate the full pinned DRS layout through each FRM2 end")
     args = parser.parse_args()
     try:
-        summary = summarize(args.sms2)
+        summary = summarize(args.sms2, args.full_fields)
     except (OSError, ProbeError, struct.error, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 2

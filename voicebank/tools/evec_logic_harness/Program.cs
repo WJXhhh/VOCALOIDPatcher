@@ -1,7 +1,7 @@
 using VOCALOIDPatcher.Evec;
 using System.IO.Compression;
 
-internal static class Program
+internal static partial class Program
 {
     private static int Main()
     {
@@ -89,6 +89,8 @@ internal static class Program
             VerifyTiming("release-240ms", 240.0, true, 60.0, release: true);
             VerifyTiming("release-1000ms", 1000.0, true, 60.0, release: true);
 
+            VerifyRenderTimingPlans();
+            VerifyPiaproDisplayAndCustomPhonemes();
             VerifyTransitionMatrices();
             VerifyLyricMovePlans();
             VerifyTransitionComposition();
@@ -292,8 +294,31 @@ internal static class Program
                 EvecConstants.ReleaseBreathShort,
                 EvecConstants.ReleaseBreathLong
             },
-            new[] { EvecConstants.MinConsonantExtension });
+            Enumerable.Range(EvecConstants.MinConsonantExtension, EvecConstants.MaxConsonantExtension + 1));
         VerifyTransitionMatrix("luka", lukaStates, requireExactParse: true);
+    }
+
+    private static void VerifyPiaproDisplayAndCustomPhonemes()
+    {
+        Verify("piapro-screenshot", "t t#2 e|e#2|*#1",
+            State(EvecConstants.VoiceColorSoft, EvecConstants.AttackMild, EvecConstants.ReleaseBreathShort),
+            "t t#2 e e#2 *#1");
+        if (!EvecPhonemeRecomposer.TryParseEvecFromPhonemes("t t#2 e|e#2|*#1", out var parsed, out var plain) ||
+            parsed.VoiceColorId != EvecConstants.VoiceColorSoft || parsed.AttackId != EvecConstants.AttackMild ||
+            parsed.ReleaseId != EvecConstants.ReleaseBreathShort || parsed.ConsonantExtension != 0 || plain != "t e")
+            throw new InvalidOperationException("Piapro display lost the independent articulation choices.");
+        Equal("whitespace", EvecPhonemeRecomposer.StripEvec("t\tt#2  e|e#2|*#1"), "t e");
+        Equal("vowel-repeat-preserved", EvecPhonemeRecomposer.StripEvec("a a"), "a a");
+        Equal("embedded-release-preserved", EvecPhonemeRecomposer.StripEvec("k *#1 a"), "k *#1 a");
+        Equal("unrecognized-caret-preserved", EvecPhonemeRecomposer.StripEvec("k ^unknown a"), "k ^unknown a");
+        foreach (string invalid in new[] { "a|t", "t e|a#2", "t e||*#1", "t e|*#1|e#2", "k a t", "k ^unknown a" })
+            if (EvecPhonemeRecomposer.CanRepresent(invalid, State(color: EvecConstants.VoiceColorSoft)))
+                throw new InvalidOperationException("Malformed display/custom coda accepted: " + invalid);
+        if (EvecPhonemeRecomposer.CanRepresent("a i", State(extension: 1)) ||
+            EvecPhonemeRecomposer.TryGetConsonantBeforeNucleus("a i", out _) ||
+            EvecPhonemeRecomposer.TryGetConsonantBeforeNucleus("k ^unknown a", out _))
+            throw new InvalidOperationException("A vowel was exposed as an extendable consonant.");
+        Console.WriteLine("piapro-display-and-custom-phonemes=passed");
     }
 
     private static void VerifyLyricMovePlans()

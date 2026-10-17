@@ -209,6 +209,8 @@ def insert_stationary_at(
     unknown2: float,
     dynamics: float,
     tempo: float,
+    *,
+    reference_pitch_cents: float | None = None,
 ) -> tuple[bytes, dict[str, object]]:
     if stap < 0 or skeleton[stap : stap + len(STAP_MAGIC)] != STAP_MAGIC:
         raise FinalizeError(f"no STAp begins at 0x{stap:x}")
@@ -237,6 +239,9 @@ def insert_stationary_at(
 
     duration = ddb.pcm_count / ddb.sample_rate
     pitch_cents = 1200.0 * math.log2(pitch_hz / 440.0)
+    pitch2_cents = pitch_cents if reference_pitch_cents is None else reference_pitch_cents
+    if not math.isfinite(pitch2_cents):
+        raise FinalizeError('reference pitch must be finite')
     epr_source_offset = 0x3D + ddb.snd_size + 4 + len("EpR")
     snd_pointer = (
         ddb.snd_offset + SND_HEADER.size + ANALYSIS_MARGIN_SAMPLES * 2
@@ -263,7 +268,7 @@ def insert_stationary_at(
         result,
         pitch1_offset,
         pitch_cents,
-        pitch_cents,
+        pitch2_cents,
         unknown2,
         dynamics,
         tempo,
@@ -277,6 +282,7 @@ def insert_stationary_at(
         "duration_seconds": duration,
         "pitch_hz": pitch_hz,
         "pitch_cents_relative_to_a4": pitch_cents,
+        "pitch2_cents_relative_to_a4": pitch2_cents,
         "snd_source_offset": snd_source_offset,
         "epr_source_offset": epr_source_offset,
         "snd_chunk_offset": ddb.snd_offset,

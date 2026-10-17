@@ -13,7 +13,6 @@ internal static class Program
     private const long DeriveVoicebankFieldsRva = 0x71e00;
     private const long AllocateFrameFieldsRva = 0x7f1a0;
     private const long ConfigureEnvelopeRva = 0x611e0;
-    private const long EvaluateEnvelopeRva = 0x2b30;
     private const long ReconstructFrameFieldsRva = 0x64c30;
     private const long ChunkWriteRva = 0x92f40;
     private const long ChunkReadRva = 0x93000;
@@ -72,9 +71,6 @@ internal static class Program
         int initialCount,
         int autoGrid,
         int flags);
-
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    private delegate float EvaluateEnvelope(nint envelope, double position);
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate long ReconstructFrameFields(
@@ -681,9 +677,6 @@ internal static class Program
         ConfigureEnvelope configureEnvelope = GetFunction<ConfigureEnvelope>(
             module,
             ConfigureEnvelopeRva);
-        EvaluateEnvelope evaluateEnvelope = GetFunction<EvaluateEnvelope>(
-            module,
-            EvaluateEnvelopeRva);
         EnvelopeSetValue setEnvelopeValue = GetFunction<EnvelopeSetValue>(
             module,
             EnvelopeSetValueRva);
@@ -734,16 +727,13 @@ internal static class Program
                     }
 
                     long allocateResult = allocateFields(frame, envelopeDescriptor, 0);
-                    nint sourceEnvelope = Marshal.ReadIntPtr(frame, 0x108);
                     nint destinationEnvelope = Marshal.ReadIntPtr(frame, 0x138);
-                    long envelopeResult = sourceEnvelope != nint.Zero && destinationEnvelope != nint.Zero
-                        ? BuildHarmonicEnvelope(
-                            sourceEnvelope,
+                    long envelopeResult = destinationEnvelope != nint.Zero
+                        ? BuildNeutralPhaseEnvelope(
                             destinationEnvelope,
                             fundamentalFrequency,
                             sampleRate / 2.0f,
                             configureEnvelope,
-                            evaluateEnvelope,
                             setEnvelopeValue)
                         : -1;
                     long normalizeFrequencyResult = reconstruct(
@@ -764,20 +754,37 @@ internal static class Program
                         frame,
                         fundamentalFrequency,
                         sampleRate / 2.0f);
-                    long reconstructAmplitudeResult = reconstruct(
-                        frame,
-                        1,
-                        0,
-                        1.0f,
-                        nint.Zero,
-                        sampleRate / 2.0f,
-                        sampleRate / 2.0f + fundamentalFrequency,
-                        0.0f,
-                        nint.Zero,
-                        0.0f,
-                        0,
-                        float.Epsilon,
-                        float.Epsilon);
+                    // Keep the measured bit-7 envelope as the amplitude source.
+                    // With model bits present, the native routine instead takes
+                    // its resonance reconstruction branch, losing the measured levels.
+                    const ulong modelFieldsMask = (1UL << 21) | (1UL << 22) | (1UL << 23);
+                    ulong amplitudeInputMask = unchecked((ulong)Marshal.ReadInt64(frame, 0x50));
+                    Marshal.WriteInt64(frame, 0x50,
+                        unchecked((long)(amplitudeInputMask & ~(modelFieldsMask | 1UL))));
+                    long reconstructAmplitudeResult;
+                    try
+                    {
+                        reconstructAmplitudeResult = reconstruct(
+                            frame,
+                            3, // Sample bit 7, then fold its bit-10 amplitude offset.
+                            0,
+                            1.0f,
+                            nint.Zero,
+                            sampleRate / 2.0f,
+                            sampleRate / 2.0f + fundamentalFrequency,
+                            0.0f,
+                            nint.Zero,
+                            0.0f,
+                            0,
+                            float.Epsilon,
+                            float.Epsilon);
+                    }
+                    finally
+                    {
+                        ulong amplitudeOutputMask = unchecked((ulong)Marshal.ReadInt64(frame, 0x50));
+                        Marshal.WriteInt64(frame, 0x50,
+                            unchecked((long)(amplitudeOutputMask | (amplitudeInputMask & modelFieldsMask))));
+                    }
                     ulong reconstructedMask = unchecked((ulong)Marshal.ReadInt64(frame, 0x50));
                     reconstructedMask |= 1UL << 9;
                     Marshal.WriteInt64(frame, 0x50, unchecked((long)reconstructedMask));
@@ -808,23 +815,22 @@ internal static class Program
         Console.WriteLine(
             $"build_main_fields.attempted={attempted} skipped={skipped} failed={failed} " +
             $"before={FormatMaskCounts(beforeMasks)} after={FormatMaskCounts(afterMasks)} " +
-            $"serialization_mask=0x{MainVoicebankMask:x16}");
+            $"serialization_mask=0x{MainVoicebankMask:x16} " +
+            "bit37=neutral_phase_placeholder amplitude_source=analysis_bit7_with_bit10");
     }
 
-    private static long BuildHarmonicEnvelope(
-        nint source,
+    private static long BuildNeutralPhaseEnvelope(
         nint destination,
         float fundamentalFrequency,
         float maximumFrequency,
         ConfigureEnvelope configure,
-        EvaluateEnvelope evaluate,
         EnvelopeSetValue setValue)
     {
+        // Bit 37 is consumed as radians added to harmonic phase (DSE RVA 0x16fa70).
+        // The production phase alignment/smoothing rule is still unknown. A zero
+        // correction keeps this structural harness neutral; bit 7 amplitude values
+        // must never be copied here as phase. See voicebank_doc/49_frm2_numeric_status.md.
         int harmonicCount = (int)Math.Floor(maximumFrequency / fundamentalFrequency);
-        double firstPosition = fundamentalFrequency / maximumFrequency;
-        double lastPosition = harmonicCount * (double)fundamentalFrequency / maximumFrequency;
-        float firstValue = evaluate(source, firstPosition);
-        float lastValue = evaluate(source, lastPosition);
         long result = configure(
             destination,
             3,
@@ -837,7 +843,7 @@ internal static class Program
             0,
             0);
 
-        result |= setValue(destination, 0.0, firstValue);
+        result |= setValue(destination, 0.0, 0.0f);
         for (int harmonic = 1; harmonic <= harmonicCount; harmonic++)
         {
             double position = harmonic * (double)fundamentalFrequency / maximumFrequency;
@@ -846,15 +852,9 @@ internal static class Program
                 break;
             }
 
-            float value = harmonic switch
-            {
-                1 => firstValue,
-                _ when harmonic == harmonicCount => lastValue,
-                _ => evaluate(source, position),
-            };
-            result |= setValue(destination, position, value);
+            result |= setValue(destination, position, 0.0f);
         }
-        result |= setValue(destination, 1.0, lastValue);
+        result |= setValue(destination, 1.0, 0.0f);
         return result;
     }
 
