@@ -88,7 +88,7 @@ internal static class EvecBadgeRenderer
         // 2. Render pronunciation-extension repeat count.
         if (hasValidExtension && width >= 20.0 && height >= 8.0)
         {
-            string extensionText = $"×{state.ConsonantExtension}";
+            string extensionText = $"×{state.ConsonantExtension + 1}";
             double extensionWidth = Math.Min(13.0, badgeHeight + 4.0);
             right -= extensionWidth;
             if (right >= 2.0)

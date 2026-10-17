@@ -177,10 +177,12 @@ public sealed class EvecSequenceTempoRollbackPatch : PatchBase
     public override Type[] ArgumentTypes => Type.EmptyTypes;
 
     [HarmonyPostfix]
-    private static void Postfix(WIVSMSequence __instance)
+    private static void Postfix(WIVSMSequence __instance, bool __result)
     {
+        if (!__result) return;
         EvecService.ClearPendingTempoTiming(__instance);
-        EvecService.ClearPendingHistory(__instance);
+        try { EvecService.RestorePendingHistoryAfterRollback(__instance); }
+        catch { EvecService.ClearPendingHistory(__instance); }
     }
 }
 
@@ -1335,7 +1337,7 @@ public sealed class EvecPianorollContextMenuPatch : PatchBase
                         : "VOCALOIDPatcher_Evec_Extension_Count";
                     string header = TranslationManager.Tr(key);
                     if (value > 0)
-                        header = header.Replace("{0}", value.ToString(), StringComparison.Ordinal);
+                        header = header.Replace("{0}", (value + 1).ToString(), StringComparison.Ordinal);
                     var item = new MenuItem
                     {
                         Header = header,

@@ -60,6 +60,16 @@ internal static class EvecTimingMath
             return false;
 
         double maximumWithVowel = availableDurationMs - minVowelDurationMs;
+        // Tempo-map subtraction can place an exact 90/105/150 ms threshold
+        // a few ulps below its mathematical value. Do not drop articulation
+        // solely because of that noise. Clamp to the actual shared budget.
+        const double roundingToleranceMs = 1e-7;
+        if (maximumWithVowel < divideStartMs &&
+            divideStartMs - maximumWithVowel <= roundingToleranceMs)
+        {
+            divideMs = Math.Max(0, maximumWithVowel);
+            return divideMs > 0;
+        }
         if (candidate <= maximumWithVowel)
         {
             divideMs = candidate;

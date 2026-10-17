@@ -237,6 +237,33 @@ internal static class EvecService
 
     internal static bool HasEvec(WIVSMNote? note) => GetState(note).HasAnyEvec;
 
+    // MCP owns the surrounding native Transaction. Join its pending sidecar
+    // history instead of committing once per note or losing Rin/Len's ambiguous
+    // plain-CTop versus extension-only state on undo/rollback.
+    internal static bool SetNoteEvecInTransaction(WIVSMNote note, EvecNoteState state)
+    {
+        var sequence = note.Parent?.Sequence;
+        if (sequence == null) return false;
+        var beforeState = GetState(note);
+        if (beforeState.Equals(state)) return true;
+        var before = CaptureHistorySnapshot(note, beforeState);
+        if (!SetNoteEvec(note, state, commit: false)) return false;
+        if (!sequence.IsStaged)
+        {
+            // A logical-only change still needs a native transaction boundary.
+            // Never publish sidecar history before the caller's Commit.
+            if (!note.SetPhonemes(note.Phonemes, true, note.LangID) || !sequence.IsStaged)
+            {
+                CacheState(note, beforeState, before.Phonemes);
+                return false;
+            }
+            CacheState(note, state, note.Phonemes);
+        }
+        RecordOrStageHistoryTransition(sequence, new[] { before },
+            new[] { CaptureHistorySnapshot(note, GetState(note)) });
+        return true;
+    }
+
     internal static bool SetNoteEvec(WIVSMNote note, EvecNoteState newState, bool commit = true)
     {
         if (note == null) return false;
@@ -561,6 +588,12 @@ internal static class EvecService
 
     private static void RestorePhonemePositions(WIVSMNote note, IReadOnlyList<int> previousPositions)
     {
+        // Traditional EVEC tracks expose allocated positions for display, but
+        // reject edited-position writes. Do not report native allocation as a
+        // restorable user edit or leave InvalidTrackType on the note.
+        if (!note.IsAi)
+            return;
+
         var currentPositions = note.GetPhonemePositions();
         if (previousPositions.Count != currentPositions.Count)
             return;
@@ -1859,6 +1892,8 @@ internal static class EvecService
                 sequence,
                 pending.Transitions.Before.Values,
                 pending.Transitions.After.Values);
+            try { Refresh(); }
+            catch { /* A UI subscriber must not invalidate an already committed transaction. */ }
         }
     }
 
@@ -1868,6 +1903,26 @@ internal static class EvecService
             return;
         lock (Sync)
             PendingHistoryTransitions.Remove((IntPtr)sequence);
+    }
+
+    internal static void RestorePendingHistoryAfterRollback(WIVSMSequence sequence)
+    {
+        PendingHistoryTransition? pending;
+        lock (Sync)
+        {
+            if (!PendingHistoryTransitions.Remove((IntPtr)sequence, out pending)) return;
+        }
+        // Native rollback has already restored the physical document. Restore
+        // only matching logical snapshots; deleted/new handles are not reused.
+        var notes = sequence.MidiParts.SelectMany(part => part.Notes)
+            .ToDictionary(note => note.CppObjPtr);
+        foreach (var snapshot in pending.Transitions.Before.Values)
+        {
+            if (notes.TryGetValue(snapshot.Handle, out var note) &&
+                string.Equals(note.Phonemes, snapshot.Phonemes, StringComparison.Ordinal))
+                CacheState(note, snapshot.State, snapshot.Phonemes);
+        }
+        Refresh();
     }
 
     internal static ClipboardPropertyTransfer? PrepareClipboardPropertyTransfer(

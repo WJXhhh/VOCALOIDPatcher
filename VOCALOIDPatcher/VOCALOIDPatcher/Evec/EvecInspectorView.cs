@@ -285,7 +285,7 @@ internal sealed class EvecInspectorView : UserControl
             _attackCombo.IsEnabled = _currentCapabilities.HasAttacks;
 
             // 4. Piapro exposes the independent repeat count as four fixed
-            // toggle buttons (off, x1, x2, x3), not a drop-down. Keep all
+            // toggle buttons (off, x2, x3, x4), not a drop-down. Keep all
             // four visible so a voicebank restriction reads as unavailable
             // instead of looking like another option changed the value.
             UpdateExtensionButtons(EvecConstants.MaxConsonantExtension, null);
@@ -354,7 +354,7 @@ internal sealed class EvecInspectorView : UserControl
             int value = (int)button.Tag;
             button.Content = value == EvecConstants.MinConsonantExtension
                 ? TranslationManager.Tr("VOCALOIDPatcher_Evec_Extension_None")
-                : $"×{value}";
+                : $"×{value + 1}";
         }
     }
 

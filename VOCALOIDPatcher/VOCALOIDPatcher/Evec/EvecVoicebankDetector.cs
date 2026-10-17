@@ -27,7 +27,7 @@ internal sealed class EvecVoicebankCapabilities
     public bool HasColors => Colors.Count > 1;
     public bool HasAttacks => Attacks.Count > 1;
     public bool HasReleases => Releases.Count > 1;
-    public bool HasConsonantExtension => HasAttacks;
+    public bool HasConsonantExtension { get; }
     public int PlainAttackId => Attacks
         .FirstOrDefault(item =>
             item.Id != EvecConstants.AttackNone && string.IsNullOrEmpty(item.Suffix))
@@ -38,12 +38,14 @@ internal sealed class EvecVoicebankCapabilities
         IReadOnlyList<EvecOption> colors,
         IReadOnlyList<EvecOption> attacks,
         IReadOnlyList<EvecOption> releases,
-        IEnumerable<string>? consonantsWithoutExtensionSelfEdge = null)
+        IEnumerable<string>? consonantsWithoutExtensionSelfEdge = null,
+        bool supportsConsonantExtension = false)
     {
         IsSupported = isSupported;
         Colors = colors;
         Attacks = attacks;
         Releases = releases;
+        HasConsonantExtension = isSupported && (supportsConsonantExtension || HasAttacks);
         _consonantsWithoutExtensionSelfEdge = consonantsWithoutExtensionSelfEdge == null
             ? new HashSet<string>(StringComparer.Ordinal)
             : new HashSet<string>(consonantsWithoutExtensionSelfEdge, StringComparer.Ordinal);
@@ -195,20 +197,7 @@ internal static class EvecVoicebankDetector
             if (databaseName == null)
                 return EvecVoicebankCapabilities.None;
 
-            // These profiles mirror Piapro Studio's installed articulation
-            // definitions. PHDC membership alone is deliberately not used:
-            // Rin/Len physically contain all nine colored vowel token sets,
-            // while their official product profile exposes only Soft/Power.
-            if (MikuEvecDatabases.Contains(databaseName))
-                return BuildMikuEvecCapabilities();
-            if (MikuBetaDatabases.Contains(databaseName))
-                return BuildMikuBetaCapabilities();
-            if (RinLenEvecDatabases.Contains(databaseName))
-                return BuildRinLenCapabilities();
-            if (LukaEvecDatabases.Contains(databaseName))
-                return BuildLukaCapabilities();
-            if (VoiceReleaseOnlyDatabases.Contains(databaseName))
-                return BuildReleaseOnlyCapabilities();
+            return GetDatabaseCapabilities(databaseName);
         }
         catch
         {
@@ -216,6 +205,18 @@ internal static class EvecVoicebankDetector
             // no EVEC panel instead of exposing a sequence that may not render.
         }
 
+        return EvecVoicebankCapabilities.None;
+    }
+
+    internal static EvecVoicebankCapabilities GetDatabaseCapabilities(string databaseName)
+    {
+        // Product profiles, not PHDC membership: recorded units alone do not
+        // imply that every voice color is officially exposed by this product.
+        if (MikuEvecDatabases.Contains(databaseName)) return BuildMikuEvecCapabilities();
+        if (MikuBetaDatabases.Contains(databaseName)) return BuildMikuBetaCapabilities();
+        if (RinLenEvecDatabases.Contains(databaseName)) return BuildRinLenCapabilities();
+        if (LukaEvecDatabases.Contains(databaseName)) return BuildLukaCapabilities();
+        if (VoiceReleaseOnlyDatabases.Contains(databaseName)) return BuildReleaseOnlyCapabilities();
         return EvecVoicebankCapabilities.None;
     }
 
@@ -328,7 +329,7 @@ internal static class EvecVoicebankDetector
             new(EvecConstants.VoiceColorFalsetto, "VOCALOIDPatcher_Evec_Color_Falsetto", "#F")
         },
         new[] { AttackNone() },
-        StandardReleases());
+        StandardReleases(), supportsConsonantExtension: true);
 
     private static EvecVoicebankCapabilities BuildReleaseOnlyCapabilities() => new(
         true,

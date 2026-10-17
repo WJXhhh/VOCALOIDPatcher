@@ -71,12 +71,19 @@ internal static class EvecPhonemeRecomposer
 
         var tokens = basePhonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         int nucleusIndex = FindNucleusIndex(tokens);
+        // CVV/VSil here describe a terminal Japanese nucleus. A custom coda
+        // or another vowel must not be mistaken for an extendable consonant.
+        if (state.HasAnyEvec && tokens.Any(token =>
+                token.Contains('|') || token.Contains('#') || token.Contains('^')))
+            return false;
         if (state.HasVoiceColor &&
-            (nucleusIndex < 0 || string.IsNullOrEmpty(state.ColorSuffix)))
+            (nucleusIndex != tokens.Length - 1 || string.IsNullOrEmpty(state.ColorSuffix)))
             return false;
-        if ((state.HasConsonantAttack || state.HasConsonantExtension) && nucleusIndex <= 0)
+        if ((state.HasConsonantAttack || state.HasConsonantExtension) &&
+            (nucleusIndex <= 0 || IsVowel(tokens[nucleusIndex - 1])))
             return false;
-        if (state.HasVoiceRelease && string.IsNullOrEmpty(state.ReleasePhoneme))
+        if (state.HasVoiceRelease &&
+            (nucleusIndex != tokens.Length - 1 || string.IsNullOrEmpty(state.ReleasePhoneme)))
             return false;
 
         return true;
@@ -87,7 +94,8 @@ internal static class EvecPhonemeRecomposer
         string basePhonemes = StripEvec(phonemes);
         var tokens = basePhonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         int nucleusIndex = FindNucleusIndex(tokens);
-        if (nucleusIndex <= 0)
+        if (nucleusIndex <= 0 || IsVowel(tokens[nucleusIndex - 1]) ||
+            tokens.Any(token => token.Contains('|') || token.Contains('#') || token.Contains('^')))
         {
             consonant = string.Empty;
             return false;
@@ -154,14 +162,15 @@ internal static class EvecPhonemeRecomposer
         if (string.IsNullOrWhiteSpace(phonemes))
             return new EvecAnalysis(state, string.Empty, 0);
 
-        var tokens = phonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries).ToList();
+        var tokens = NormalizeDisplaySeparators(phonemes)
+            .Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries).ToList();
         int plainConsonantAdditions = 0;
 
         for (int index = tokens.Count - 1; index >= 0; index--)
         {
             int releaseId = EvecConstants.ParseReleasePhoneme(tokens[index]);
             if (releaseId == EvecConstants.ReleaseNone)
-                continue;
+                break;
 
             state.ReleaseId = releaseId;
             tokens.RemoveAt(index);
@@ -185,9 +194,11 @@ internal static class EvecPhonemeRecomposer
             {
                 int attackId = EvecConstants.ParseAttackModifierSuffix(suffix);
                 if (attackId != EvecConstants.AttackNone)
+                {
                     state.AttackId = attackId;
+                    tokens.RemoveAt(index);
+                }
             }
-            tokens.RemoveAt(index);
         }
 
         int nucleusIndex = FindNucleusIndex(tokens);
@@ -247,7 +258,7 @@ internal static class EvecPhonemeRecomposer
         }
 
         nucleusIndex = FindNucleusIndex(tokens);
-        if (nucleusIndex > 0)
+        if (nucleusIndex > 0 && !IsVowel(tokens[nucleusIndex - 1]))
         {
             string consonant = tokens[nucleusIndex - 1];
             int copies = CountPrecedingCopies(tokens, nucleusIndex, consonant);
@@ -278,6 +289,37 @@ internal static class EvecPhonemeRecomposer
             count++;
         }
         return count;
+    }
+
+    private static bool IsVowel(string token) => token is "a" or "i" or "M" or "e" or "o";
+
+    private static string NormalizeDisplaySeparators(string phonemes)
+    {
+        // PPS 0x10202510 joins event labels with '|'. Only recognize the
+        // observed Base|Color|Release grammar, not arbitrary user separators.
+        if (!phonemes.Contains('|'))
+            return phonemes;
+        string[] parts = phonemes.Split('|', StringSplitOptions.TrimEntries);
+        if (parts.Length is < 2 or > 3 || parts.Any(string.IsNullOrWhiteSpace))
+            return phonemes;
+        string[] first = StripEvec(parts[0]).Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (first.Length == 0)
+            return phonemes;
+        bool colorSeen = false;
+        for (int index = 1; index < parts.Length; index++)
+        {
+            string token = parts[index];
+            if (EvecConstants.ParseReleasePhoneme(token) != EvecConstants.ReleaseNone &&
+                index == parts.Length - 1)
+                continue;
+            if (index != 1 || colorSeen ||
+                !TrySplitSuffix(token, out string nucleus, out string suffix) ||
+                !IsColorablePhoneme(nucleus) || nucleus != first[^1] ||
+                EvecConstants.ParseVoiceColorSuffix(suffix) == EvecConstants.VoiceColorNone)
+                return phonemes;
+            colorSeen = true;
+        }
+        return string.Join(" ", parts);
     }
 
     private static bool TrySplitSuffix(string token, out string basePart, out string suffix)

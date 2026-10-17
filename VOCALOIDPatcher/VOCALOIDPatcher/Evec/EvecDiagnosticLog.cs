@@ -46,6 +46,29 @@ internal static class EvecDiagnosticLog
         }
     }
 
+    /// <summary>
+    /// Bounded render-lifecycle trace. Callers pass counters and handles only:
+    /// no lyrics, phoneme text, project paths, or voicebank paths.
+    /// </summary>
+    internal static void RecordRender(string category, string detail)
+    {
+        try
+        {
+            string line = $"{DateTimeOffset.Now:O} render {category} {detail}{Environment.NewLine}";
+            lock (Sync)
+            {
+                Directory.CreateDirectory(Patcher.ConfigDir);
+                if (File.Exists(LogPath) && new FileInfo(LogPath).Length >= MaximumBytes)
+                    File.Move(LogPath, LogPath + ".previous", true);
+                File.AppendAllText(LogPath, line);
+            }
+        }
+        catch
+        {
+            // Diagnostics must never affect the editor render path.
+        }
+    }
+
     private static string Format(EvecNoteState state) =>
         $"{state.VoiceColorId}/{state.AttackId}/{state.ReleaseId}/{state.ConsonantExtension}";
 

@@ -6,8 +6,9 @@ using Yamaha.VOCALOID.VSM;
 namespace VOCALOIDPatcher.Evec;
 
 /// <summary>
-/// Maps Piapro Studio's millisecond articulation constraints onto V6 phoneme
-/// boundaries without replacing user-authored note expression or velocity.
+/// Legacy boundary adapter for tracks that support edited phoneme positions.
+/// V6 traditional (DSE/EVEC) tracks reject this API with InvalidTrackType;
+/// their timing must be implemented in the render event sequence instead.
 /// </summary>
 internal static class EvecTimingAllocator
 {
@@ -22,6 +23,9 @@ internal static class EvecTimingAllocator
 
         try
         {
+            if (!note.IsAi)
+                return false;
+
             return ApplyBoundaries(note, state);
         }
         catch (Exception ex)
@@ -41,6 +45,9 @@ internal static class EvecTimingAllocator
 
         try
         {
+            if (!note.IsAi)
+                return;
+
             string[] tokens = note.Phonemes.Split(
                 ' ',
                 StringSplitOptions.RemoveEmptyEntries);
@@ -215,8 +222,11 @@ internal static class EvecTimingAllocator
         if (desired < range.Begin || desired > range.End)
             return false;
 
+        if (!note.SetEditedPhonemePosition(index, new VSMRelTick(desired)))
+            return false;
+
         applied = desired;
-        return note.SetEditedPhonemePosition(index, new VSMRelTick(applied));
+        return true;
     }
 
     private static double MillisecondsBetween(WIVSMNote note, int beginRelativeTick, int endRelativeTick)
