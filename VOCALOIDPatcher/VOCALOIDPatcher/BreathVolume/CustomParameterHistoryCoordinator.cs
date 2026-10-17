@@ -3,13 +3,6 @@ using Yamaha.VOCALOID.VSM;
 
 namespace VOCALOIDPatcher.BreathVolume;
 
-internal interface ICustomParameterHistoryEdit
-{
-    void ApplyBefore();
-    void ApplyAfter();
-    void AfterApply();
-}
-
 /// <summary>
 /// Single ordering boundary shared by native edits and patch-owned note parameters.
 /// BVL retains the storage implementation so existing project histories remain compatible.
@@ -35,6 +28,7 @@ internal static class CustomParameterHistoryCoordinator
 
     public static bool Undo(WIVSMSequence sequence) => BreathVolumeService.HandleUndo(sequence);
     public static bool Redo(WIVSMSequence sequence) => BreathVolumeService.HandleRedo(sequence);
+    internal static void CompleteNativeHistory(WIVSMSequence sequence, bool undo) => BreathVolumeService.CompleteNativeHistory(sequence, undo);
 
     public static bool UndoPatchOwned(WIVSMSequence sequence)
         => BreathVolumeService.HandlePatchOwnedUndo(sequence);

@@ -653,7 +653,11 @@ public sealed class BreathVolumeWavePathPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMMidiPart __instance, ref string __result)
     {
-        try { __result = BreathVolumeService.SubstituteWavePath(__instance, __result); }
+        try
+        {
+            __result = BreathVolumeService.SubstituteWavePath(__instance, __result);
+            __result = PhonemeVolume.PhonemeVolumeHost.Substitute(__instance, __result);
+        }
         catch (Exception e) { Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_CacheFailed", e.Message)); }
     }
 }
@@ -697,7 +701,10 @@ public sealed class BreathVolumeRendererStartPatch : PatchBase
         try
         {
             if (__instance.VSMSequence != null && e?.MidiPart != null)
+            {
+                PhonemeVolume.PhonemeVolumeHost.RenderStarted(e.MidiPart);
                 BreathVolumeService.StartRender(__instance.VSMSequence, e.MidiPart);
+            }
         }
         catch (Exception exception)
         {
@@ -717,7 +724,10 @@ public sealed class BreathVolumeRendererCancelPatch : PatchBase
     private static void Prefix(RendererObserverCancelEventArgs e)
     {
         if (e?.MidiPart != null)
+        {
             BreathVolumeService.CancelRender(e.MidiPart);
+            PhonemeVolume.PhonemeVolumeHost.RenderCompleted(e.MidiPart);
+        }
     }
 }
 
@@ -735,7 +745,10 @@ public sealed class BreathVolumeRendererCompletePatch : PatchBase
         {
             var sequence = App.Shared?.Document?.Sequence?.VSMSequence;
             if (sequence != null && e?.MidiPart != null)
+            {
                 BreathVolumeService.CompleteRender(sequence, e.MidiPart);
+                PhonemeVolume.PhonemeVolumeHost.RenderCompleted(e.MidiPart);
+            }
         }
         catch (Exception exception)
         {
@@ -809,7 +822,7 @@ public sealed class BreathVolumeProjectSavePatch : PatchBase
         string directoryPath,
         string projectName,
         string extension,
-        bool __result)
+        ref bool __result)
     {
         if (!__result || !extension.StartsWith(".vpr", StringComparison.OrdinalIgnoreCase))
             return;
@@ -819,10 +832,12 @@ public sealed class BreathVolumeProjectSavePatch : PatchBase
             if (!BreathVolumeService.RequiresProjectDataWrite(vsmSequence, data))
                 return;
             BreathVolumeService.WriteProjectData(
-                Path.Combine(directoryPath, projectName + extension), vsmSequence, data);
+                Path.Combine(directoryPath, projectName + extension), vsmSequence, data,
+                markSaved: !SampledTimingProjectSavePatch.OwnsSave(vsmSequence));
         }
         catch (Exception e)
         {
+            __result = false;
             BreathVolumeService.MarkSaveFailed(vsmSequence, e);
         }
     }

@@ -77,11 +77,26 @@ internal static class BreathVolumeService
 
     [ThreadStatic]
     private static int _wavePathBypass;
+    internal static bool IsReadingOriginalWave => _wavePathBypass != 0;
 
     private static long _nextNoteGeneration;
 
     public static event Action<BreathVolumeChangeKind, WIVSMMidiPart?>? Changed;
     public static event Action<WIVSMMidiPart, int, bool>? RebuildCompleted;
+    internal static event Action<WIVSMNote, WIVSMNote>? NoteCopied;
+
+    // Share the established native-note lifetime, including clipboard copies
+    // and allocator address reuse, with other patch-owned note parameters.
+    internal static long NoteGeneration(WIVSMNote note)
+    {
+        RegisterNote(note);
+        lock (Sync) return GetOrCreateNoteKeyCore(note.CppObjPtr).Generation;
+    }
+
+    internal static bool IsNoteGenerationActive(IntPtr handle, long generation)
+    {
+        lock (Sync) return ActiveNoteKeys.TryGetValue(handle, out var key) && key.Generation == generation;
+    }
 
     private static void NotifyChanged(BreathVolumeChangeKind kind, WIVSMMidiPart? part)
     {
@@ -433,6 +448,7 @@ internal static class BreathVolumeService
         var value = GetValue(source);
         RegisterCopiedNote(target, clipboard: false);
         SetValueCore(target.CppObjPtr, value);
+        NoteCopied?.Invoke(source, target);
     }
 
     public static void CopyClipboardNoteValue(WIVSMNote? source, WIVSMNote? target)
@@ -443,6 +459,7 @@ internal static class BreathVolumeService
         var value = GetValue(source);
         RegisterCopiedNote(target, clipboard: true);
         SetValueCore(target.CppObjPtr, value);
+        NoteCopied?.Invoke(source, target);
     }
 
     public static void CopyPartValues(WIVSMMidiPart? source, WIVSMMidiPart? target)
@@ -1132,6 +1149,11 @@ internal static class BreathVolumeService
         }
     }
 
+    internal static void EnsureCurrentWaveForExport(WIVSMSequence sequence, WIVSMMidiPart part)
+    {
+        if (Settings.IndividualBreathVolume) RebuildNow(sequence, part);
+    }
+
     public static void DisableAndCleanup()
     {
         NativeBreathCapture.ClearPending();
@@ -1360,11 +1382,12 @@ internal static class BreathVolumeService
         WriteProjectData(filePath, sequence, BuildProjectData(sequence));
     }
 
-    public static void WriteProjectData(string filePath, WIVSMSequence sequence, BreathProjectData data)
+    public static void WriteProjectData(string filePath, WIVSMSequence sequence, BreathProjectData data, bool markSaved = true)
     {
         BreathProjectArchive.Write(filePath, data);
-        MarkSaved(sequence);
+        if (markSaved) MarkSaved(sequence);
     }
+    internal static void MarkExtensionSaved(WIVSMSequence sequence) => MarkSaved(sequence);
 
     public static bool RequiresProjectDataWrite(WIVSMSequence sequence, BreathProjectData data)
         => data.Entries is { Count: > 0 } || data.NativeMarkers is { Count: > 0 } ||
@@ -1376,11 +1399,12 @@ internal static class BreathVolumeService
             return;
 
         PruneSequence(sequence);
+        var companion = ConsonantTiming.SampledTimingHost.CaptureNativeHistory(sequence);
 
         lock (Sync)
         {
             var history = GetHistory(sequence);
-            history.Undo.Add(TimelineEntry.Native);
+            history.Undo.Add(TimelineEntry.Native with { NativeRestore = companion });
             history.Redo.Clear();
         }
     }
@@ -1438,6 +1462,15 @@ internal static class BreathVolumeService
         lock (Sync)
             Histories[(IntPtr)sequence] = new SequenceHistory();
     }
+    internal static void CompleteNativeHistory(WIVSMSequence sequence, bool undo)
+    {
+        (INativeParameterHistoryEdit Edit, bool Undo)? pending;
+        lock (Sync)
+        {
+            var history = GetHistory(sequence); pending = history.PendingNative; history.PendingNative = null;
+        }
+        if (pending is { } value && value.Undo == undo) value.Edit.AfterNativeHistory(undo);
+    }
 
     public static void MarkSaveFailed(WIVSMSequence sequence, Exception exception)
     {
@@ -1456,6 +1489,7 @@ internal static class BreathVolumeService
             var history = GetHistory(sequence);
             var source = undo ? history.Undo : history.Redo;
             var destination = undo ? history.Redo : history.Undo;
+            history.PendingNative = null;
             if (source.Count == 0)
                 return false;
 
@@ -1463,7 +1497,10 @@ internal static class BreathVolumeService
             source.RemoveAt(source.Count - 1);
             destination.Add(entry);
             if (!entry.HasEdit)
+            {
+                history.PendingNative = entry.NativeRestore == null ? null : (entry.NativeRestore, undo);
                 return false;
+            }
 
             history.Revision += undo ? -1 : 1;
             if (entry.Edit is { } edit)
@@ -2701,6 +2738,7 @@ internal static class BreathVolumeService
         public readonly List<TimelineEntry> Redo = new();
         public int Revision;
         public int SavedRevision;
+        public (INativeParameterHistoryEdit Edit, bool Undo)? PendingNative;
     }
 
     private sealed record ValueEdit(
@@ -2712,6 +2750,7 @@ internal static class BreathVolumeService
         ICustomParameterHistoryEdit? External = null)
     {
         public bool HasEdit => Edit != null || External != null;
+        public INativeParameterHistoryEdit? NativeRestore { get; init; }
         public static TimelineEntry Native => new(null, null);
     }
 }

@@ -201,7 +201,8 @@ internal static class SegmentedPhonemeRenderCoordinator
     private static readonly Dictionary<nint, CancellationTokenSource> PendingSequenceScanDelays = new();
     private static readonly HashSet<nint> PendingRendererPumps = new();
     private static readonly List<WIVSMSequence> PendingCloseSequences = new();
-    private static readonly SemaphoreSlim NativeRenderSessionGate = new(1, 1);
+    // Shared with every other patched renderer so native render sessions never overlap.
+    private static readonly SemaphoreSlim NativeRenderSessionGate = NativeRenderSession.Gate;
     private static readonly SemaphoreSlim NativeCleanupGate = new(1, 1);
     private static long _lastNativeForegroundActivity = Environment.TickCount64;
     private static bool _nativeCloseActive;
@@ -277,6 +278,9 @@ internal static class SegmentedPhonemeRenderCoordinator
         if (sequence == null || !Settings.ExtendedChinesePinyin)
             return;
 
+        if (NativeRenderSession.IsInternalSequence(sequence))
+            return;
+
         nint sequenceKey = (nint)sequence;
         bool scanPending;
         lock (SyncRoot)
@@ -331,6 +335,9 @@ internal static class SegmentedPhonemeRenderCoordinator
     public static void SequenceChanged(WIVSMSequence? sequence, string source)
     {
         if (sequence == null || !Settings.ExtendedChinesePinyin)
+            return;
+
+        if (NativeRenderSession.IsInternalSequence(sequence))
             return;
 
         nint key = (nint)sequence;
@@ -500,6 +507,7 @@ internal static class SegmentedPhonemeRenderCoordinator
 
             lock (SyncRoot)
                 InternalSequences.Add(duplicate);
+            NativeRenderSession.RegisterInternalSequence(duplicate);
 
             if (!TryGetPart(duplicate, trackIndex, partIndex, out WIVSMMidiPart? duplicatePart))
             {
@@ -579,6 +587,13 @@ internal static class SegmentedPhonemeRenderCoordinator
         if (!job.IsStarted)
             CloseSequenceSafely(job.Sequence);
     }
+
+    /// <summary>
+    /// Reports whether a sequence is a duplicate created by this coordinator, so
+    /// other renderers never treat it as a user document.
+    /// </summary>
+    public static bool IsInternalSequence(WIVSMSequence? sequence)
+        => sequence != null && NativeRenderSession.IsInternalSequence(sequence);
 
     public static bool TryGetOverridePath(WIVSMMidiPart part, out string path)
     {
@@ -800,7 +815,7 @@ internal static class SegmentedPhonemeRenderCoordinator
         });
     }
 
-    private static void CloseSequenceSafely(WIVSMSequence sequence)
+    internal static void CloseSequenceSafely(WIVSMSequence sequence)
     {
         bool queued = false;
         lock (SyncRoot)
@@ -839,6 +854,7 @@ internal static class SegmentedPhonemeRenderCoordinator
             {
                 lock (SyncRoot)
                     InternalSequences.Remove(sequence);
+                NativeRenderSession.UnregisterInternalSequence(sequence);
                 return true;
             }
             if (sequence.IsStaged && !sequence.Rollback())
@@ -847,6 +863,7 @@ internal static class SegmentedPhonemeRenderCoordinator
             {
                 lock (SyncRoot)
                     InternalSequences.Remove(sequence);
+                NativeRenderSession.UnregisterInternalSequence(sequence);
                 ExtendedPinyinDiagnosticLog.Write("sequence-close", "duplicate closed");
                 return true;
             }
@@ -1246,7 +1263,7 @@ internal static class SegmentedPhonemeRenderCoordinator
         }), DispatcherPriority.Background);
     }
 
-    private static int RefreshPitchCurves(WIVSMMidiPart part)
+    internal static int RefreshPitchCurves(WIVSMMidiPart part)
     {
         Application? application = Application.Current;
         if (application == null)
