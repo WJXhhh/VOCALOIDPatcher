@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Hardcoded -->
   <data name="HomeWindow_PushButton_NEW_PROJECT_Header" xml:space="preserve"><value>新建專案</value></data>
@@ -1371,4 +1371,59 @@ VOCALOID6 將以 Lite 版本啟動。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Invalid" xml:space="preserve"><value>請輸入正的有限數值。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>僅預覽，按下套用後提交。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>音素時值或選樣音訊仍在更新，或暫不可用。請在算繪成功完成後匯出。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Name" xml:space="preserve"><value>獨立過渡音控制</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Description" xml:space="preserve"><value>在情感模式的獨立過渡帶中調整過渡覆蓋時長和音量；支援精確輸入、共享接點和復原。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Phonemes" xml:space="preserve"><value>音素</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Tool" xml:space="preserve"><value>過渡</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>兩端橫拖改 timing，音量線上下拖改 dB；Shift 微調，Esc 取消。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Precise" xml:space="preserve"><value>精確調整…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Start" xml:space="preserve"><value>起音</value></data>
+  <data name="VOCALOIDPatcher_Transitions_End" xml:space="preserve"><value>收尾</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Preparing" xml:space="preserve"><value>正在讀取過渡邊界…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Busy" xml:space="preserve"><value>引擎忙碌中，保留上次確認的位置。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Unavailable" xml:space="preserve"><value>無法讀取此 Part 的過渡邊界；已儲存的控制會保留。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Locked" xml:space="preserve"><value>保持現有音素邊界時，此接點無獨立可調空間。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Shared" xml:space="preserve"><value>共享接點會同時改變關聯過渡。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Tip" xml:space="preserve"><value>{0} → {1} · 前 {2} ms · 後 {3} ms · {4}</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Validating" xml:space="preserve"><value>正在驗證最終位置…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Submitted" xml:space="preserve"><value>已提交，等待音訊更新。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Numbered" xml:space="preserve"><value>{0}（音符 {1}）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Left" xml:space="preserve"><value>前側覆蓋 · 毫秒</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Right" xml:space="preserve"><value>後側覆蓋 · 毫秒</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Volume" xml:space="preserve"><value>過渡音量 · dB</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Apply" xml:space="preserve"><value>套用</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Reset" xml:space="preserve"><value>重設此過渡</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Mute" xml:space="preserve"><value>靜音</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Invalid" xml:space="preserve"><value>請輸入目前可調範圍內的有限數值。</value></data>
+
+    <data name="VOCALOIDPatcher_Transitions_Onset" xml:space="preserve"><value>完整起音偏移（毫秒）</value></data>
+    <data name="VOCALOIDPatcher_Transitions_OnsetTip" xml:space="preserve"><value>完整起音 {0} 毫秒 · 橫拖上方菱形，Ctrl+單擊重設</value></data>
+
+  <data name="VOCALOIDPatcher_Transitions_Phase" xml:space="preserve"><value>發音展開進度（%）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseTip" xml:space="preserve"><value>展開進度 {0}% · 向左更早，向右更晚 · timing 邊界不變</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>拖曳會啟用發音側的完整素材。Shift 微調；Ctrl+單擊重設菱形及完整素材設定。進度為 0 時，也可以保持完整素材開啟。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_LegacyOnset" xml:space="preserve"><value>此過渡保留了舊版起音偏移；「重設過渡」可清除。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseLimited" xml:space="preserve"><value>此側不足三個可用輸出影格，或沒有可推進的來源區間。既有設定仍會保留。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Coverage" xml:space="preserve"><value>使用完整發音素材</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageSide" xml:space="preserve"><value>使用完整發音素材（{0} 側）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageBoth" xml:space="preserve"><value>使用完整發音素材（過渡兩側）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageHint" xml:space="preserve"><value>把完整素材放進現有 timing 範圍。可在進度為 0 時單獨開啟；關閉則使用原有來源範圍。按「套用」一起提交。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageActive" xml:space="preserve"><value>已使用完整素材 · {0} 側</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>拖曳即啟用 {0} 側的完整素材</value></data>
+  <data name="VOCALOIDPatcher_Transitions_ResetExpression" xml:space="preserve"><value>重設菱形</value></data>
+  <data name="VOCALOIDPatcher_Transitions_ResetExpressionHint" xml:space="preserve"><value>重設展開進度和完整素材，保留 timing、音量及舊版起音控制。</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Energy_Name" xml:space="preserve"><value>ACE：力度</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Air_Name" xml:space="preserve"><value>ACE：氣聲</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Tension_Name" xml:space="preserve"><value>ACE：張力</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Falsetto_Name" xml:space="preserve"><value>ACE：假聲</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Header" xml:space="preserve"><value>ACE 參數（仿 ACE Studio）</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>在傳統 MIDI 音軌的參數區加入四條可編輯曲線（力度、氣聲、張力、假聲）。曲線隨工程保存，並透過映射驅動原生參數發聲。</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>驅動原生參數</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>開啟時，編輯 ACE 曲線會按整個 Part 重寫對應原生控制器（力度→Dynamics、氣聲→Breathiness、張力→Brightness、假聲→Character）；之後直接修改這些原生參數會被下一次 ACE 編輯覆蓋。</value></data>
+  <data name="VOCALOIDPatcher_AceAirTarget_Header" xml:space="preserve"><value>氣聲映射到原生 Air</value></data>
+  <data name="VOCALOIDPatcher_AceAirTarget_Description" xml:space="preserve"><value>關閉（預設）時氣聲曲線驅動 Breathiness；開啟後改驅動原生 Air 控制器。</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>假聲映射到 Character（實驗性）</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>原生沒有連續的假聲參數，實驗性映射使用 Character；若音色變化不符合預期可關閉。</value></data>
+  <data name="VOCALOIDPatcher_Debug_AceParameter_Failed" xml:space="preserve"><value>ACE 參數處理失敗：{0}</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>依 ACE 曲線重建原生映射</value></data>
 </root>

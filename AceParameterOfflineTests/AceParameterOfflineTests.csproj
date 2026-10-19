@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>VOCALOIDPatcher.AceParameters</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\AceParameters\AceParameterMapping.cs" Link="AceParameterMapping.cs" />
+        <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\AceParameters\AceParameterProjectArchive.cs" Link="AceParameterProjectArchive.cs" />
+    </ItemGroup>
+
+</Project>

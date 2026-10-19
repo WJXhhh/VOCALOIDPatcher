@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Hardcoded -->
   <data name="HomeWindow_PushButton_NEW_PROJECT_Header" xml:space="preserve"><value>新規プロジェクト</value></data>
@@ -1375,4 +1375,59 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_DurationSelection_Invalid" xml:space="preserve"><value>正の有限値を入力してください。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>プレビューのみ。「適用」で確定します。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>音素タイミングまたは選択時間の音声を更新中、もしくは利用できません。レンダリングが正常に完了してから書き出してください。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Name" xml:space="preserve"><value>遷移音のタイミングと音量</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Description" xml:space="preserve"><value>エモーションモードの専用レーンで遷移音の長さと音量を調整します。数値入力、共有接点、元に戻す操作に対応します。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Phonemes" xml:space="preserve"><value>音素</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Tool" xml:space="preserve"><value>遷移音</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>端点を横にドラッグしてタイミング、音量線を縦にドラッグして音量を変更します。Shift：微調整、Esc：キャンセル。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Precise" xml:space="preserve"><value>数値調整…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Start" xml:space="preserve"><value>立ち上がり</value></data>
+  <data name="VOCALOIDPatcher_Transitions_End" xml:space="preserve"><value>語尾</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Preparing" xml:space="preserve"><value>遷移音の境界を取得中…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Busy" xml:space="preserve"><value>エンジンが使用中です。最後に確認できた位置を保持します。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Unavailable" xml:space="preserve"><value>このパートの遷移音境界を取得できません。保存済みの設定は保持されます。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Locked" xml:space="preserve"><value>現在の音素境界を固定した状態では、この接点を個別に移動できません。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Shared" xml:space="preserve"><value>共有接点を変更すると、関連する遷移音も同時に変化します。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Tip" xml:space="preserve"><value>{0} → {1} · 前 {2} ms · 後 {3} ms · {4}</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Validating" xml:space="preserve"><value>最終位置を検証中…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Submitted" xml:space="preserve"><value>設定を確定しました。音声の更新を待っています。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Numbered" xml:space="preserve"><value>{0}（ノート {1}）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Left" xml:space="preserve"><value>境界より前（ms）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Right" xml:space="preserve"><value>境界より後（ms）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Volume" xml:space="preserve"><value>遷移音の音量（dB）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Apply" xml:space="preserve"><value>適用</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Reset" xml:space="preserve"><value>この遷移音をリセット</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Mute" xml:space="preserve"><value>ミュート</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Invalid" xml:space="preserve"><value>現在調整可能な範囲内の有限の数値を入力してください。</value></data>
+
+    <data name="VOCALOIDPatcher_Transitions_Onset" xml:space="preserve"><value>起声全体のオフセット（ms）</value></data>
+    <data name="VOCALOIDPatcher_Transitions_OnsetTip" xml:space="preserve"><value>起声全体 {0} ms · 上のひし形を横にドラッグ、Ctrl+クリックでリセット</value></data>
+
+  <data name="VOCALOIDPatcher_Transitions_Phase" xml:space="preserve"><value>発音の進行（%）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseTip" xml:space="preserve"><value>進行 {0}% · 左：早く、右：遅く · timing 境界は固定</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>ドラッグすると発音側の完全な素材を使用します。Shift：微調整。Ctrl+クリック：ひし形と完全素材の設定をリセット。進行が 0 でも完全素材を有効にできます。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_LegacyOnset" xml:space="preserve"><value>以前の起声オフセットを保持しています。「トランジションをリセット」で解除できます。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseLimited" xml:space="preserve"><value>この側の有効な出力フレームが 3 未満、または進行可能な素材区間がありません。既存の設定は保持されます。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Coverage" xml:space="preserve"><value>発音素材全体を使用</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageSide" xml:space="preserve"><value>発音素材全体を使用（{0} 側）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageBoth" xml:space="preserve"><value>発音素材全体を使用（両側）</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageHint" xml:space="preserve"><value>素材全体を現在の timing 範囲内に収めます。進行が 0 でも有効にでき、オフにすると従来の素材範囲を使用します。「適用」でまとめて確定します。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageActive" xml:space="preserve"><value>完全素材を使用中 · {0} 側</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>ドラッグで {0} 側の完全素材を使用</value></data>
+  <data name="VOCALOIDPatcher_Transitions_ResetExpression" xml:space="preserve"><value>ひし形をリセット</value></data>
+  <data name="VOCALOIDPatcher_Transitions_ResetExpressionHint" xml:space="preserve"><value>進行と完全素材をリセットし、timing、音量、従来の起音設定を保持します。</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Energy_Name" xml:space="preserve"><value>ACE：エナジー</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Air_Name" xml:space="preserve"><value>ACE：エアー</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Tension_Name" xml:space="preserve"><value>ACE：テンション</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Falsetto_Name" xml:space="preserve"><value>ACE：ファルセット</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Header" xml:space="preserve"><value>ACE パラメータ（ACE Studio 風）</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>従来の MIDI トラックのパラメータ領域に 4 本の編集可能なカーブ（エナジー／エアー／テンション／ファルセット）を追加します。カーブはプロジェクトに保存され、マッピングされたネイティブパラメータが発音を制御します。</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>ネイティブパラメータを駆動</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>有効時、ACE カーブを編集すると Part 全体の対応するネイティブコントローラ（エナジー→Dynamics、エアー→Breathiness、テンション→Brightness、ファルセット→Character）を書き換えます。その後ネイティブ側で直接編集した値は次の ACE 編集で上書きされます。</value></data>
+  <data name="VOCALOIDPatcher_AceAirTarget_Header" xml:space="preserve"><value>エアーをネイティブ Air にマッピング</value></data>
+  <data name="VOCALOIDPatcher_AceAirTarget_Description" xml:space="preserve"><value>オフ（既定）ではエアーカーブが Breathiness を駆動し、オンではネイティブ Air コントローラを駆動します。</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>ファルセットを Character にマッピング（実験的）</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>連続値のネイティブファルセットパラメータは存在しないため、実験的に Character を使用します。音色変化が不適切な場合はオフにしてください。</value></data>
+  <data name="VOCALOIDPatcher_Debug_AceParameter_Failed" xml:space="preserve"><value>ACE パラメータ処理に失敗しました: {0}</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>ACE カーブからネイティブマッピングを再構築</value></data>
 </root>

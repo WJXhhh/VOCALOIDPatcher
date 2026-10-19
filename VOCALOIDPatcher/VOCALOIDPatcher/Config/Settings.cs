@@ -215,6 +215,12 @@ public static class Settings
     public static string IndividualBreathVolumeKey => "IndividualBreathVolume";
     public static string IndividualPhonemeVolumeKey => "IndividualPhonemeVolume";
     public static string IndependentDurationSelectionKey => "IndependentDurationSelection";
+    public static string IndividualTransitionControlKey => "IndividualTransitionControl";
+    public static bool IndividualTransitionControl
+    {
+        get => FeatureFlag(IndividualTransitionControlKey, true) && !IsFeatureDisabled(IntuitiveConsonantTimingKey);
+        set => Patcher.ConfigManager.Set(IndividualTransitionControlKey, value);
+    }
 
     public static bool IndependentDurationSelection
     {
@@ -240,6 +246,35 @@ public static class Settings
     {
         get => FeatureFlag(RegisterShiftKey, true);
         set => Patcher.ConfigManager.Set(RegisterShiftKey, value);
+    }
+
+    public static string AceParametersKey => "AceParameters";
+    public static string AceParameterMappingKey => "AceParameterMapping";
+    public static string AceAirUseNativeAirKey => "AceAirUseNativeAir";
+    public static string AceFalsettoMappingKey => "AceFalsettoMapping";
+
+    public static bool AceParameters
+    {
+        get => FeatureFlag(AceParametersKey, true);
+        set => Patcher.ConfigManager.Set(AceParametersKey, value);
+    }
+
+    public static bool AceParameterMapping
+    {
+        get => FeatureFlag(AceParameterMappingKey, true);
+        set => Patcher.ConfigManager.Set(AceParameterMappingKey, value);
+    }
+
+    public static bool AceAirUseNativeAir
+    {
+        get => FeatureFlag(AceAirUseNativeAirKey, false);
+        set => Patcher.ConfigManager.Set(AceAirUseNativeAirKey, value);
+    }
+
+    public static bool AceFalsettoMapping
+    {
+        get => FeatureFlag(AceFalsettoMappingKey, true);
+        set => Patcher.ConfigManager.Set(AceFalsettoMappingKey, value);
     }
 
     public static string EvecEnabledKey => "EvecEnabled";

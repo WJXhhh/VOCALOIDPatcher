@@ -181,6 +181,19 @@ VOCALOIDPatcher/bin/Release/net8.0-windows/VOCALOIDPatcher/native/v6patch_clock.
 - 同一 Part 的派生波形重建必须去抖并丢弃过期代次。连续编辑不能为每次鼠标操作都排队一个最终会串行执行的完整 WAV 重建；当前 `RequestRebuild` 在进入 Part 重建锁前等待短暂稳定期并核对最新 generation。
 - 截至 2026-08-12，原生播放线、候选轨迹、数值提示、选择生命周期和输入框已按 6.13.0.1 原生代码接入；连续操作卡死已针对视觉树反复重挂、重复刷新和波形重建任务堆积修正，并通过 Debug/Release 构建，尚待用户再次做宿主内连续操作确认。
 
+## ACE 仿生参数区（力度/气声/张力/假声）
+
+四个仿 ACE Studio 的连续参数接在原生参数区。实现在 `VOCALOIDPatcher/VOCALOIDPatcher/AceParameters/`，补丁在 `Patch/Patches/AceParameterPatch.cs` 与共享的 `CustomParameterPatch.cs`，设计文档见 `docs/ace-parameters-integration.md`。
+
+- **不要为四个参数新增覆盖层**。做法是用越界 `ControlParameterTypeEnum`（4CC）作参数区条目，再通过 Harmony 覆盖 `MusicalEditorViewModel.CtrlParamTypeToVSMControllerType` 映射到原生 VSM 控制器载体 `VSMControllerType`（`DynamicsHmm`/`PitchBendHmm`/`WeightHmm`/`Expression`；伪造的 VSM 值会被原生以 `InvalidControllerType` 拒绝）。原生 `ParameterView` 因此可以完整复用折线绘制、Behavior、Undo/Redo。
+- 载体控制器必须通过 `.vpr` 内自定义归档 `VOCALOIDPatcher/ace-parameters.json` 持久化：HMM 三个载体不会被原生 `sequence.json` 保存，只靠原生持久化会导致重开工程后曲线变平。加载时以归档为唯一来源清空并重建载体控制器，再 `Commit(false)` 作为无历史基线，避免第一次 Undo 删除恢复数据。
+- 自定义类型必须在 `GetMinControllerValue/GetMaxControllerValue/GetDefaultControllerValue` 补丁里返回 0/100/50。参数选择沿用 `UserSettings.ControlParameterType`；`AceParameterComboInitPatch` 负责跳过原生 `SelectedIndex=(int)自定义值` 的越界写法。
+- 发声是"派生写回"：`WIVSMSequence.Commit` 前缀按载体曲线快照差异把曲线折算写入 `Dynamics`/`Breathiness`（可切 `Air`）/`Brightness`/`Character`；**不要依赖原生 update observer**（通知在 Commit 体内才到达，会造成"第一次编辑不发声、先划一次预热"的时序问题）。第一次提交（加载后/新工程）必须先对已有曲线补一次映射再建立快照基线。派生写入与载体编辑同事务提交以保证 Undo 原子。
+- 映射目标一旦启用，就视为该 Part 对应原生控制器归 ACE 曲线管理；用户直接改这些原生参数会被下一次 ACE 编辑覆盖，这是有意的所有权策略。
+- 原生命令里遍历 `Enum.GetValues(ControlParameterTypeEnum)` 的入口（选中判断、删除、复制、粘贴、Duplicate、Reset）不会包含自定义 ID；已用定点补丁补齐。纯参数剪贴板复制粘贴可用，音符+参数混合粘贴不复制 ACE 曲线（已知限制）。
+- 共享参数头补丁（列表同步、名称、范围）由 `AceParameterRegistry` 统一枚举 BVL/REG/ACE；新增自定义参数类型必须在该 registry 注册，否则会从下拉列表或开关逻辑中遗漏。
+- 改载体类型或映射公式后必须重跑宿主探针（`VOCALOID_ACE_PROBE=1`）、`AceParameterOfflineTests` 和现有 BVL/REG 回归。2026-10-19 已在宿主人工验收四项参数（条目/编辑、保存重开恢复、首次编辑即发声、加载后 Undo 安全、打开不标脏，5/5）；AI 音轨目前不提供这四个参数。
+
 ## SV 波形样式
 
 SV 编辑器样式的音符波形实现在 `VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/WaveformPatch.cs`：

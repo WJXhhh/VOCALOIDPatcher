@@ -143,6 +143,7 @@ public static class Patcher
         ConsonantTiming.SampledTimingHostValidation.Queue();
         PhonemeVolume.PhonemeVolumeHost.Initialize();
         ConsonantTiming.TimingFeedbackHostValidation.Queue();
+        AceParameters.AceParameterHostProbe.Queue();
     }
 
     private static bool DetectVstPluginMode()
@@ -268,19 +269,21 @@ public static class Patcher
                 new ScoreFrameCaptureCombinedPatch()
             ),
 
+            new(null,
+                new CustomParameterHeaderConstructorPatch(),
+                new CustomParameterComboPatch(),
+                new CustomParameterNamePatch(),
+                new CustomParameterShortNamePatch(),
+                new CustomParameterMinimumPatch(),
+                new CustomParameterMaximumPatch(),
+                new CustomParameterDefaultPatch()),
+
             new(Settings.IndividualBreathVolumeKey,
-                new BreathVolumeParameterHeaderConstructorPatch(),
-                new BreathVolumeParameterComboPatch(),
-                new BreathVolumeParameterNamePatch(),
-                new BreathVolumeParameterShortNamePatch(),
                 new BreathVolumeHeaderValuePatch(),
                 new BreathVolumeHeaderInputPatch(),
                 new BreathVolumeParameterViewConstructorPatch(),
                 new BreathVolumeParameterViewUpdatePatch(),
                 new BreathVolumeOutsideActivePartLayerPatch(),
-                new BreathVolumeMinimumPatch(),
-                new BreathVolumeMaximumPatch(),
-                new BreathVolumeDefaultPatch(),
                 new BreathVolumeRemoveNativeParameterPatch(),
                 new BreathVolumeV2CompatibilityPatch(),
                 new BreathVolumeRendererStartPatch(),
@@ -336,6 +339,24 @@ public static class Patcher
                 new RegisterShiftRendererStartPatch(),
                 new RegisterShiftRendererCompletePatch(),
                 new RegisterShiftSequenceClosePatch()),
+
+            new(Settings.AceParametersKey,
+                new AceParameterCarrierMapPatch(),
+                new AceParameterComboInitPatch(),
+                new AceParameterHasSelectedBreakPointPatch(),
+                new AceParameterRemoveSelectedPatch(),
+                new AceParameterCopySelectedPatch(),
+                new AceParameterClipboardHasControllerPatch(),
+                new AceParameterPastePatch(),
+                new AceParameterDuplicatePatch(),
+                new AceParameterResetPatch(),
+                new AceParameterCommitMappingPatch(),
+                new AceParameterUndoMappingPatch(),
+                new AceParameterRedoMappingPatch(),
+                new AceParameterProjectLoadPatch(),
+                new AceParameterProjectOpenCompletePatch(),
+                new AceParameterProjectSavePatch(),
+                new AceParameterSequenceClosePatch()),
 
             new(Settings.EvecEnabledKey,
                 // Empty-key catalog discovery is disabled: exposing incomplete

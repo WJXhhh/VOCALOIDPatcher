@@ -298,6 +298,9 @@ internal sealed class BreathVolumeOverlay
         {
             LogOverlayState(active: false, BreathRegionStatus.Unknown, 0, 0);
             _canvas.Visibility = Visibility.Collapsed;
+            ClearNativeBars();
+            _gridLayer.VSMSequence = null;
+            _gridLayer.Visibility = Visibility.Collapsed;
             if (_nativeParameterCanvas != null)
                 _nativeParameterCanvas.Visibility = Visibility.Visible;
             UpdateNativeSongPosition();
@@ -311,7 +314,12 @@ internal sealed class BreathVolumeOverlay
 
         _canvas.Visibility = Visibility.Visible;
         if (_nativeParameterCanvas != null)
+        {
+            // Native updates are suppressed while this surface owns the panel.
+            // Do not retain Part wrappers for a later switch back to native UI.
+            _nativeParameterCanvas.ControlParameters.Clear();
             _nativeParameterCanvas.Visibility = Visibility.Collapsed;
+        }
         HideNativeOutsidePartLayer();
         if (_nativeSongPositionPath != null)
             _nativeSongPositionPath.Visibility = Visibility.Visible;
@@ -398,6 +406,12 @@ internal sealed class BreathVolumeOverlay
 
     public void Hide()
     {
+        // Hidden surfaces can be arranged again during a project switch.
+        ClearNativeBars();
+        _gridLayer.VSMSequence = null;
+        _gridLayer.Visibility = Visibility.Collapsed;
+        _cancelValueEdit = true;
+        _valueEditor.Tag = null;
         _gesture = GestureKind.None;
         _gestureBefore = null;
         _canvas.ReleaseMouseCapture();

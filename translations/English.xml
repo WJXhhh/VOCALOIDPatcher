@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- Hardcoded -->
   <data name="HomeWindow_PushButton_NEW_PROJECT_Header" xml:space="preserve"><value>NEW PROJECT</value></data>
@@ -1375,4 +1375,59 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Invalid" xml:space="preserve"><value>Enter a positive, finite number.</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>Preview only. Apply to commit.</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>Phoneme timing or sample-duration audio is still updating or unavailable. Export after rendering has completed successfully.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Name" xml:space="preserve"><value>Transition timing and volume</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Description" xml:space="preserve"><value>Edit transition timing and volume in a separate Emotion lane, with precise values, shared junctions and undo.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Phonemes" xml:space="preserve"><value>Phonemes</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Tool" xml:space="preserve"><value>Transitions</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>Drag endpoints horizontally for timing and the gain line vertically for volume. Shift: fine adjustment; Esc: cancel.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Precise" xml:space="preserve"><value>Precise values…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Start" xml:space="preserve"><value>Onset</value></data>
+  <data name="VOCALOIDPatcher_Transitions_End" xml:space="preserve"><value>Release</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Preparing" xml:space="preserve"><value>Preparing transition boundaries…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Busy" xml:space="preserve"><value>The engine is busy. The last verified position is retained.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Unavailable" xml:space="preserve"><value>Transition boundaries are unavailable for this Part. Saved controls are preserved.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Locked" xml:space="preserve"><value>This junction has no independent range while existing phoneme boundaries stay fixed.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Shared" xml:space="preserve"><value>A shared junction changes all linked transitions together.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Tip" xml:space="preserve"><value>{0} → {1} · before {2} ms · after {3} ms · {4}</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Validating" xml:space="preserve"><value>Verifying the final position…</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Submitted" xml:space="preserve"><value>Committed. Waiting for the updated audio.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Numbered" xml:space="preserve"><value>{0} (note {1})</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Left" xml:space="preserve"><value>Before the boundary (ms)</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Right" xml:space="preserve"><value>After the boundary (ms)</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Volume" xml:space="preserve"><value>Transition volume (dB)</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Apply" xml:space="preserve"><value>Apply</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Reset" xml:space="preserve"><value>Reset transition</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Mute" xml:space="preserve"><value>Mute</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Invalid" xml:space="preserve"><value>Enter a finite value within the current reachable range.</value></data>
+
+    <data name="VOCALOIDPatcher_Transitions_Onset" xml:space="preserve"><value>Complete onset offset (ms)</value></data>
+    <data name="VOCALOIDPatcher_Transitions_OnsetTip" xml:space="preserve"><value>Complete onset {0} ms · drag the upper diamond horizontally; Ctrl+click resets</value></data>
+
+  <data name="VOCALOIDPatcher_Transitions_Phase" xml:space="preserve"><value>Articulation progress (%)</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseTip" xml:space="preserve"><value>Progress {0}% · left: earlier, right: later · timing stays fixed</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>Dragging enables the complete source for the articulation side. Shift: fine adjustment. Ctrl+click: reset the diamond and complete-source setting. Zero progress can keep the complete source enabled.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_LegacyOnset" xml:space="preserve"><value>A legacy onset offset is preserved. Reset transition clears it.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseLimited" xml:space="preserve"><value>This side has fewer than three usable output frames or no source progression. Existing controls are retained.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Coverage" xml:space="preserve"><value>Complete articulation source</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageSide" xml:space="preserve"><value>Complete articulation source ({0} side)</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageBoth" xml:space="preserve"><value>Complete articulation source (both sides)</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageHint" xml:space="preserve"><value>Fit the complete source into the current timing range. Enable it at zero progress, or turn it off to use the existing source range. Apply commits all fields together.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageActive" xml:space="preserve"><value>Complete source enabled · {0} side</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>Drag to enable the complete {0} source</value></data>
+  <data name="VOCALOIDPatcher_Transitions_ResetExpression" xml:space="preserve"><value>Reset diamond</value></data>
+  <data name="VOCALOIDPatcher_Transitions_ResetExpressionHint" xml:space="preserve"><value>Reset progress and complete source; keep timing, volume and legacy onset controls.</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Energy_Name" xml:space="preserve"><value>ACE: Energy</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Air_Name" xml:space="preserve"><value>ACE: Air</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Tension_Name" xml:space="preserve"><value>ACE: Tension</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Falsetto_Name" xml:space="preserve"><value>ACE: Falsetto</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Header" xml:space="preserve"><value>ACE parameters (ACE Studio style)</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>Adds four editable parameter curves (Energy, Air, Tension, Falsetto) to the parameter area of traditional MIDI tracks. The curves are saved with the project and drive mapped native controllers.</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>Drive native parameters</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>While enabled, editing an ACE curve rewrites the mapped native controller for the whole part (Energy to Dynamics, Air to Breathiness, Tension to Brightness, Falsetto to Character). Native edits to those controllers are overwritten by the next ACE edit.</value></data>
+  <data name="VOCALOIDPatcher_AceAirTarget_Header" xml:space="preserve"><value>Map Air to native Air</value></data>
+  <data name="VOCALOIDPatcher_AceAirTarget_Description" xml:space="preserve"><value>When off (default) the ACE Air curve drives Breathiness; when on it drives the native Air controller.</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>Map Falsetto to Character (experimental)</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>There is no dedicated continuous native falsetto parameter; the experimental mapping uses Character. Disable it if the timbre change is undesirable.</value></data>
+  <data name="VOCALOIDPatcher_Debug_AceParameter_Failed" xml:space="preserve"><value>ACE parameter failed: {0}</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>Rebuild native mapping from ACE curves</value></data>
 </root>

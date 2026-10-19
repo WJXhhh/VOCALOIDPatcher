@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using HarmonyLib;
+using VOCALOIDPatcher.AceParameters;
 using VOCALOIDPatcher.BreathVolume;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.RegisterShift;
@@ -25,31 +26,12 @@ namespace VOCALOIDPatcher.Patch.Patches;
 internal static class BreathVolumeUi
 {
     private static readonly ConditionalWeakTable<ParameterView, BreathVolumeOverlay> Overlays = new();
-    private static readonly ConditionalWeakTable<ParameterHeaderControl, object> ToolTipHooks = new();
-    private static readonly List<WeakReference<ParameterHeaderControl>> Headers = new();
-    private static bool _subscribed;
 
     public static void Attach(ParameterView view)
     {
         var overlay = BreathVolumeOverlay.Attach(view);
         if (overlay != null)
             Overlays.Add(view, overlay);
-    }
-
-    public static void RegisterHeader(ParameterHeaderControl header)
-    {
-        lock (Headers)
-        {
-            Headers.Add(new WeakReference<ParameterHeaderControl>(header));
-            if (!_subscribed)
-            {
-                BreathVolumeService.Changed += (_, _) => RefreshHeaders();
-                RegisterShiftService.Changed += _ => RefreshHeaders();
-                _subscribed = true;
-            }
-        }
-        AttachSafeToolTip(header);
-        SynchronizeHeader(header);
     }
 
     public static void UpdateView(ParameterView view)
@@ -89,12 +71,14 @@ internal static class BreathVolumeUi
         else
             BreathVolumeService.InitializeDiagnostics();
 
-        RefreshHeaders(synchronize: true);
+        CustomParameterUi.RefreshHeaders(synchronize: true);
         if (Application.Current?.MainWindow?.DataContext is MainViewModel mainVm && mainVm.MusicalEditorVM is { } vm)
         {
             if (!Settings.IndividualBreathVolume && vm.ControlParameterType.Equals(BreathVolumeService.ParameterType))
                 vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
             else if (!Settings.RegisterShift && vm.ControlParameterType.Equals(RegisterShiftService.ParameterType))
+                vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
+            else if (AceParameterDefinitions.IsAceType(vm.ControlParameterType) && !Settings.AceParameters)
                 vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
             else if (Settings.IndividualBreathVolume && vm.VSMSequence != null)
             {
@@ -107,30 +91,9 @@ internal static class BreathVolumeUi
         }
     }
 
-    public static void SynchronizeHeader(ParameterHeaderControl header)
-    {
-        var ai = AccessTools.Field(typeof(ParameterHeaderControl), "MidiAiControlParameterTypes")
-            ?.GetValue(header) as List<ControlParameterTypeEnum>;
-        var standard = AccessTools.Field(typeof(ParameterHeaderControl), "MidiControlParameterTypes")
-            ?.GetValue(header) as List<ControlParameterTypeEnum>;
-        SynchronizeList(ai, includeRegisterShift: true);
-        SynchronizeList(standard, includeRegisterShift: true);
-
-        if (header.DataContext is MusicalEditorViewModel vm)
-        {
-            if (!Settings.IndividualBreathVolume && vm.ControlParameterType.Equals(BreathVolumeService.ParameterType))
-                vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
-            else if (!Settings.RegisterShift && vm.ControlParameterType.Equals(RegisterShiftService.ParameterType))
-                vm.ControlParameterType = ControlParameterTypeEnum.Dynamics;
-            var current = vm.ActiveTrack?.Type == VSMTrackType.MidiAi ? ai : standard;
-            if (current != null)
-                header.ControlParameterTypes = current.ToList();
-        }
-    }
-
     public static bool UpdateHeaderValue(ParameterHeaderControl header, ControlParameterTypeEnum type)
     {
-        UpdateHeaderToolTip(header, type);
+        CustomParameterUi.UpdateHeaderToolTip(header, type);
         if (!BreathVolumeService.IsActive(type))
         {
             if (!RegisterShiftService.IsActive(type))
@@ -222,192 +185,6 @@ internal static class BreathVolumeUi
         return true;
     }
 
-    private static void SynchronizeList(List<ControlParameterTypeEnum>? list, bool includeRegisterShift)
-    {
-        if (list == null)
-            return;
-        list.RemoveAll(item => item.Equals(BreathVolumeService.ParameterType));
-        list.RemoveAll(item => item.Equals(RegisterShiftService.ParameterType));
-        if (Settings.IndividualBreathVolume)
-            list.Add(BreathVolumeService.ParameterType);
-        if (includeRegisterShift && Settings.RegisterShift)
-            list.Add(RegisterShiftService.ParameterType);
-    }
-
-    private static void AttachSafeToolTip(ParameterHeaderControl header)
-    {
-        if (ToolTipHooks.TryGetValue(header, out _))
-            return;
-
-        var combo = AccessTools.Field(typeof(ParameterHeaderControl), "xControlParameterComboBox")
-            ?.GetValue(header) as FlatComboBox;
-        if (combo == null)
-            return;
-
-        combo.AddHandler(
-            ToolTipService.ToolTipOpeningEvent,
-            new ToolTipEventHandler(OnControlParameterToolTipOpening),
-            handledEventsToo: true);
-        ToolTipHooks.Add(header, new object());
-    }
-
-    private static void UpdateHeaderToolTip(
-        ParameterHeaderControl header,
-        ControlParameterTypeEnum type)
-    {
-        var combo = AccessTools.Field(typeof(ParameterHeaderControl), "xControlParameterComboBox")
-            ?.GetValue(header) as FlatComboBox;
-        if (combo == null)
-            return;
-
-        var name = GetCustomParameterName(type);
-        if (name != null)
-            ToolTipService.SetToolTip(combo, name);
-        else
-            combo.ClearValue(ToolTipService.ToolTipProperty);
-    }
-
-    private static void OnControlParameterToolTipOpening(object sender, ToolTipEventArgs e)
-    {
-        if (sender is not FlatComboBox combo)
-            return;
-
-        var source = e.OriginalSource as DependencyObject;
-        var toolTip = source == null ? null : ToolTipService.GetToolTip(source);
-        var type = toolTip is ControlParameterTypeEnum toolTipType
-            ? toolTipType
-            : source is FrameworkElement { DataContext: ControlParameterTypeEnum dataType }
-                ? dataType
-                : combo.SelectedItem is ControlParameterTypeEnum selectedType
-                    ? selectedType
-                    : (ControlParameterTypeEnum?)null;
-        var name = type.HasValue ? GetCustomParameterName(type.Value) : null;
-        if (name == null)
-            return;
-
-        // WPF's default EnumConverter throws for our intentionally out-of-range
-        // parameter IDs while constructing a delayed ToolTip popup. Replace the
-        // raw enum before ContentPresenter performs its default expansion.
-        ToolTipService.SetToolTip(source ?? combo, name);
-    }
-
-    private static string? GetCustomParameterName(ControlParameterTypeEnum type)
-    {
-        if (type.Equals(BreathVolumeService.ParameterType))
-            return TranslationManager.Tr("VOCALOIDPatcher_BreathVolume_Name");
-        if (type.Equals(RegisterShiftService.ParameterType))
-            return TranslationManager.Tr("VOCALOIDPatcher_RegisterShift_Name");
-        return null;
-    }
-
-    private static void RefreshHeaders(bool synchronize = false)
-    {
-        void Refresh()
-        {
-            lock (Headers)
-            {
-                for (var index = Headers.Count - 1; index >= 0; index--)
-                {
-                    if (!Headers[index].TryGetTarget(out var header))
-                    {
-                        Headers.RemoveAt(index);
-                        continue;
-                    }
-                    if (synchronize)
-                        SynchronizeHeader(header);
-                    if (header.DataContext is MusicalEditorViewModel vm)
-                        UpdateHeaderValue(header, vm.ControlParameterType);
-                }
-            }
-        }
-
-        var dispatcher = Application.Current?.Dispatcher;
-        if (dispatcher == null || dispatcher.CheckAccess())
-            Refresh();
-        else
-            dispatcher.BeginInvoke((Action)Refresh);
-    }
-}
-
-public sealed class BreathVolumeParameterHeaderConstructorPatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeParameterHeaderConstructorPatch);
-    public override Type TargetClass => typeof(ParameterHeaderControl);
-    public override string TargetMethodName => ".ctor";
-    public override bool IsConstructor => true;
-
-    [HarmonyPostfix]
-    private static void Postfix(ParameterHeaderControl __instance)
-    {
-        try { BreathVolumeUi.RegisterHeader(__instance); }
-        catch (Exception e) { LogFailure(e); }
-    }
-
-    private static void LogFailure(Exception e)
-        => Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message));
-}
-
-public sealed class BreathVolumeParameterComboPatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeParameterComboPatch);
-    public override Type TargetClass => typeof(ParameterHeaderControl);
-    public override string TargetMethodName => "UpdateControlParameterComboBox";
-    public override Type[] ArgumentTypes => new[] { typeof(WIVSMMidiTrack), typeof(bool) };
-
-    [HarmonyPostfix]
-    private static void Postfix(ParameterHeaderControl __instance)
-    {
-        try { BreathVolumeUi.SynchronizeHeader(__instance); }
-        catch (Exception e) { Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message)); }
-    }
-}
-
-public sealed class BreathVolumeParameterNamePatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeParameterNamePatch);
-    public override Type TargetClass => typeof(ControlParameterTypeEnumToStringConverter);
-    public override string TargetMethodName => "Convert";
-    public override Type[] ArgumentTypes => new[] { typeof(object), typeof(Type), typeof(object), typeof(CultureInfo) };
-
-    [HarmonyPrefix]
-    private static bool Prefix(object value, ref object __result)
-    {
-        if (value is not ControlParameterTypeEnum type)
-            return true;
-        if (type.Equals(RegisterShiftService.ParameterType))
-        {
-            __result = TranslationManager.Tr("VOCALOIDPatcher_RegisterShift_Name");
-            return false;
-        }
-        if (!type.Equals(BreathVolumeService.ParameterType))
-            return true;
-        __result = TranslationManager.Tr("VOCALOIDPatcher_BreathVolume_Name");
-        return false;
-    }
-}
-
-public sealed class BreathVolumeParameterShortNamePatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeParameterShortNamePatch);
-    public override Type TargetClass => typeof(ControlParameterTypeEnumShortToStringConverter);
-    public override string TargetMethodName => "Convert";
-    public override Type[] ArgumentTypes => new[] { typeof(object), typeof(Type), typeof(object), typeof(CultureInfo) };
-
-    [HarmonyPrefix]
-    private static bool Prefix(object value, ref object __result)
-    {
-        if (value is not ControlParameterTypeEnum type)
-            return true;
-        if (type.Equals(RegisterShiftService.ParameterType))
-        {
-            __result = "REG";
-            return false;
-        }
-        if (!type.Equals(BreathVolumeService.ParameterType))
-            return true;
-        __result = "BVL";
-        return false;
-    }
 }
 
 public sealed class BreathVolumeHeaderValuePatch : PatchBase
@@ -542,69 +319,6 @@ public sealed class BreathVolumeOutsideActivePartLayerPatch : PatchBase
         {
             Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_UiFailed", e.Message));
         }
-    }
-}
-
-public sealed class BreathVolumeMinimumPatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeMinimumPatch);
-    public override Type TargetClass => typeof(MusicalEditorViewModel);
-    public override string TargetMethodName => "GetMinControllerValue";
-    public override Type[] ArgumentTypes => new[] { typeof(ControlParameterTypeEnum) };
-
-    [HarmonyPrefix]
-    private static bool Prefix(ControlParameterTypeEnum type, ref int __result)
-    {
-        if (!type.Equals(BreathVolumeService.ParameterType))
-        {
-            if (!type.Equals(RegisterShiftService.ParameterType)) return true;
-            __result = RegisterShiftService.MinValue;
-            return false;
-        }
-        __result = BreathVolumeService.MinValue;
-        return false;
-    }
-}
-
-public sealed class BreathVolumeMaximumPatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeMaximumPatch);
-    public override Type TargetClass => typeof(MusicalEditorViewModel);
-    public override string TargetMethodName => "GetMaxControllerValue";
-    public override Type[] ArgumentTypes => new[] { typeof(ControlParameterTypeEnum) };
-
-    [HarmonyPrefix]
-    private static bool Prefix(ControlParameterTypeEnum type, ref int __result)
-    {
-        if (!type.Equals(BreathVolumeService.ParameterType))
-        {
-            if (!type.Equals(RegisterShiftService.ParameterType)) return true;
-            __result = RegisterShiftService.MaxValue;
-            return false;
-        }
-        __result = BreathVolumeService.MaxValue;
-        return false;
-    }
-}
-
-public sealed class BreathVolumeDefaultPatch : PatchBase
-{
-    public override string PatchName => nameof(BreathVolumeDefaultPatch);
-    public override Type TargetClass => typeof(MusicalEditorViewModel);
-    public override string TargetMethodName => "GetDefaultControllerValue";
-    public override Type[] ArgumentTypes => new[] { typeof(ControlParameterTypeEnum) };
-
-    [HarmonyPrefix]
-    private static bool Prefix(ControlParameterTypeEnum type, ref int __result)
-    {
-        if (!type.Equals(BreathVolumeService.ParameterType))
-        {
-            if (!type.Equals(RegisterShiftService.ParameterType)) return true;
-            __result = RegisterShiftService.DefaultValue;
-            return false;
-        }
-        __result = BreathVolumeService.DefaultValue;
-        return false;
     }
 }
 

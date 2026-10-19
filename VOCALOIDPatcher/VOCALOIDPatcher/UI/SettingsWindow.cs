@@ -341,6 +341,14 @@ public class SettingsWindow : Window
                 ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
             });
 
+        var transitionControl = DescribedToggle(
+            "VOCALOIDPatcher_Transitions_Name", "VOCALOIDPatcher_Transitions_Description",
+            Settings.IndividualTransitionControl, new Thickness(0, 18, 0, 0), checkbox =>
+            {
+                Settings.IndividualTransitionControl = checkbox.IsChecked == true;
+                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
+            });
+
         var durationSelection = DescribedToggle(
             "VOCALOIDPatcher_DurationSelection_Name",
             "VOCALOIDPatcher_DurationSelection_Description",
@@ -399,6 +407,53 @@ public class SettingsWindow : Window
                 Evec.EvecService.Refresh();
                 RoundedNotePatch.RefreshNotes();
             });
+
+        var aceParameters = DescribedToggle(
+            "VOCALOIDPatcher_AceParameter_Header",
+            "VOCALOIDPatcher_AceParameter_Description",
+            Settings.AceParameters,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.AceParameters = checkbox.IsChecked == true;
+                AceParameterUi.RefreshSetting();
+            });
+
+        var aceParameterMapping = DescribedToggle(
+            "VOCALOIDPatcher_AceParameterMapping_Header",
+            "VOCALOIDPatcher_AceParameterMapping_Description",
+            Settings.AceParameterMapping,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.AceParameterMapping = checkbox.IsChecked == true;
+            });
+
+        var aceAirNativeTarget = DescribedToggle(
+            "VOCALOIDPatcher_AceAirTarget_Header",
+            "VOCALOIDPatcher_AceAirTarget_Description",
+            Settings.AceAirUseNativeAir,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.AceAirUseNativeAir = checkbox.IsChecked == true;
+            });
+
+        var aceFalsettoMapping = DescribedToggle(
+            "VOCALOIDPatcher_AceFalsettoMapping_Header",
+            "VOCALOIDPatcher_AceFalsettoMapping_Description",
+            Settings.AceFalsettoMapping,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.AceFalsettoMapping = checkbox.IsChecked == true;
+            });
+
+        var aceRebuildMapping = new StackPanel { Margin = new Thickness(0, 6, 0, 0) };
+        var aceRebuildMappingButton = McpButton(
+            "VOCALOIDPatcher_AceParameter_Rebuild_Header",
+            AceParameterUi.RebuildMapping);
+        aceRebuildMapping.Children.Add(aceRebuildMappingButton);
 
         var waveformOptions = new StackPanel
         {
@@ -463,10 +518,16 @@ public class SettingsWindow : Window
         panel.Children.Add(roundedNotes);
         panel.Children.Add(centeredLyrics);
         panel.Children.Add(consonantTiming);
+        panel.Children.Add(transitionControl);
         panel.Children.Add(durationSelection);
         panel.Children.Add(individualPhonemeVolume);
         panel.Children.Add(individualBreathVolume);
         panel.Children.Add(registerShift);
+        panel.Children.Add(aceParameters);
+        panel.Children.Add(aceParameterMapping);
+        panel.Children.Add(aceAirNativeTarget);
+        panel.Children.Add(aceFalsettoMapping);
+        panel.Children.Add(aceRebuildMapping);
         panel.Children.Add(evec);
         panel.Children.Add(alwaysShowWaveform);
         panel.Children.Add(waveformOptions);
@@ -478,10 +539,14 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.RoundedNotesKey, roundedNotes);
         HideIfUnsupported(Settings.CenteredLyricsKey, centeredLyrics);
         HideIfUnsupported(Settings.IntuitiveConsonantTimingKey, consonantTiming);
+        HideIfUnsupported(Settings.IntuitiveConsonantTimingKey, transitionControl);
+        HideIfUnsupported(Settings.IndividualTransitionControlKey, transitionControl);
         HideIfUnsupported(Settings.IndividualPhonemeVolumeKey, individualPhonemeVolume);
         HideIfUnsupported(Settings.IndependentDurationSelectionKey, durationSelection);
         HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
         HideIfUnsupported(Settings.RegisterShiftKey, registerShift);
+        HideIfUnsupported(Settings.AceParametersKey, aceParameters, aceParameterMapping);
+        HideIfUnsupported(Settings.AceParametersKey, aceAirNativeTarget, aceFalsettoMapping, aceRebuildMapping);
         HideIfUnsupported(Settings.EvecEnabledKey, evec);
         HideIfUnsupported(Settings.AlwaysShowWaveformKey, alwaysShowWaveform, waveformOptions);
         HideIfUnsupported(Settings.SvEditorStyleKey, svEditorStyle);
