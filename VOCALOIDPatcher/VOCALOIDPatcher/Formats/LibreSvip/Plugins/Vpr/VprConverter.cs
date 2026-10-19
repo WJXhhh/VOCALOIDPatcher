@@ -406,7 +406,7 @@ public sealed class VprConverter : FormatConverter
             var events = GetControllerEvents(part, BrightnessName);
             if (events.Count > 0)
             {
-                var curve = new ControllerCurve("brightness", events, 0, 0, 127);
+                var curve = new ControllerCurve("brightness", events, 64, 0, 127);
                 editedParams.Strength.Points.AddRange(ConvertVocaloidCurveToParamPoints(curve, offset));
             }
         }
@@ -664,7 +664,7 @@ public sealed class VprConverter : FormatConverter
             (Points: editedParams.Volume.Points, VprName: DynamicsName, Default: 64, Min: 0, Max: 127),
             (Points: editedParams.Breath.Points, VprName: BreathinessName, Default: 0, Min: 0, Max: 127),
             (Points: editedParams.Gender.Points, VprName: CharacterName, Default: 0, Min: -64, Max: 63),
-            (Points: editedParams.Strength.Points, VprName: BrightnessName, Default: 0, Min: 0, Max: 127),
+            (Points: editedParams.Strength.Points, VprName: BrightnessName, Default: 64, Min: 0, Max: 127),
         };
 
         foreach (var (points, vprName, defVal, minVal, maxVal) in paramMap)
