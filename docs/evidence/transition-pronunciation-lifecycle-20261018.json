@@ -1,0 +1,131 @@
+{
+  "Date": "2026-10-18",
+  "Scope": "transition pronunciation and deferred source mapping",
+  "Deployed": false,
+  "Versions": [
+    "6.13.1.1",
+    "6.13.3.1"
+  ],
+  "ManagedTests": 235,
+  "RustTests": 46,
+  "Builds": [
+    "Debug",
+    "Release"
+  ],
+  "ExportsChanged": false,
+  "ClockAbi": 15,
+  "TransitionAbi": 2,
+  "OriginalGeneralPcmExact": true,
+  "Runs": [
+    {
+      "Name": "final-general-new",
+      "Renders": 40,
+      "Acceptance": {
+        "name": "acceptance",
+        "saved": true,
+        "sharedHistory": true,
+        "cacheReload": true,
+        "copy": true,
+        "unknownSchema": true,
+        "rollback": true
+      },
+      "RoundingComparisons": [],
+      "MaximumEndToEndMilliseconds": 435.2748
+    },
+    {
+      "Name": "final-general-old",
+      "Renders": 40,
+      "Acceptance": {
+        "name": "acceptance",
+        "saved": true,
+        "sharedHistory": true,
+        "cacheReload": true,
+        "copy": true,
+        "unknownSchema": true,
+        "rollback": true
+      },
+      "RoundingComparisons": [],
+      "MaximumEndToEndMilliseconds": 498.1416
+    },
+    {
+      "Name": "final-pronunciation-new",
+      "Renders": 16,
+      "Acceptance": {
+        "name": "pronunciation-acceptance",
+        "changed": true,
+        "samePart": true,
+        "otherPart": true,
+        "saved": true,
+        "movedScore": true,
+        "sharedUndoRedo": true,
+        "newControlIdentity": true,
+        "neighbourContext": true
+      },
+      "RoundingComparisons": [
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        },
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        },
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        },
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        }
+      ],
+      "MaximumEndToEndMilliseconds": 495.0658
+    },
+    {
+      "Name": "final-pronunciation-old",
+      "Renders": 16,
+      "Acceptance": {
+        "name": "pronunciation-acceptance",
+        "changed": true,
+        "samePart": true,
+        "otherPart": true,
+        "saved": true,
+        "movedScore": true,
+        "sharedUndoRedo": true,
+        "newControlIdentity": true,
+        "neighbourContext": true
+      },
+      "RoundingComparisons": [
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        },
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        },
+        {
+          "peak": 2,
+          "rms": 0.02854825098586513,
+          "changed": 186
+        }
+      ],
+      "MaximumEndToEndMilliseconds": 585.7914
+    }
+  ],
+  "GeneralCrossVersionPcmExact": true,
+  "PronunciationCrossVersionRounding": [
+    {
+      "name": "pronunciation-undo-velocity",
+      "peak": 2,
+      "rms": 0.02854825098586513,
+      "changed": 186
+    }
+  ]
+}

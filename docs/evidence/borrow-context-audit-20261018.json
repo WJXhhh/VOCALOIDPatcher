@@ -1,0 +1,50 @@
+{
+  "reported_sequence": [
+    "\u5636",
+    "\u5636",
+    "ei",
+    "ei"
+  ],
+  "human_listening": {
+    "long_s_solo_audible": true,
+    "compact_s_solo_audible": true,
+    "compact_s_in_ei_audible": false,
+    "compact_s_80ms_before_ei_audible": false
+  },
+  "played_samples": {
+    "compact_count": 512,
+    "solo_and_80ms_gap_prefix_exactly_equal": true,
+    "solo_and_attached_prefix_max_delta_lsb": 12.0,
+    "native_quiet_carrier_accounts_for_delta": true,
+    "concatenated_audio_all_four_segments_verified": true,
+    "solo_rms_lsb": 888.1130804970727,
+    "attached_prefix_rms_lsb": 888.1535984575669,
+    "gap_prefix_rms_lsb": 888.1130804970727
+  },
+  "interpretation": "S remains in the combined PCM. It is not recognized in this context; neither engine erasure nor a single cause of perceptual masking follows from listening alone.",
+  "new_diagnostics": {
+    "order": [
+      "strict-short-s-with-ei",
+      "long-s-with-identical-ei-diagnostic",
+      "short-s-equal-energy-with-ei-diagnostic"
+    ],
+    "output": "context-duration-energy-diagnostic.wav",
+    "identical_vowel_pcm_in_all_three": true,
+    "common_playback_gain": 11.93456090651558,
+    "equal_energy_s_multiplier": 3.9042698963182954,
+    "equal_energy_s_boost_db": 11.83079664316254,
+    "long_s_changes_consonant_duration": true,
+    "equal_energy_changes_s_gain": true,
+    "offline_only_not_a_fixed_timing_solution": true,
+    "human_listening": {
+      "user_report": "1\u542c\u4e0d\u89c1\uff0c2\uff0c3\u8f85\u97f3\u4e0e\u5143\u97f3\u5272\u88c2\u611f\u5f88\u91cd\uff0c\u8ddf\u4e24\u4e2a\u4eba\u8bf4\u8bdd\u4f3c\u7684",
+      "strict_short_s_audible": false,
+      "long_s_accepted_as_natural_sei": false,
+      "boosted_short_s_accepted_as_natural_sei": false,
+      "long_and_boosted_controls_sound_disconnected": true,
+      "accepted": false
+    }
+  },
+  "frontend": false,
+  "deployed": false
+}

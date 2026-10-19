@@ -1,0 +1,301 @@
+{
+  "sdk_versions": [
+    "6.13.1.1",
+    "6.13.3.1"
+  ],
+  "renders_per_sdk": 12,
+  "donor_renders_per_sdk": 2,
+  "protected_phonemes": "s ei",
+  "protected_note_relative_ticks": [
+    -25,
+    -13,
+    477
+  ],
+  "s_output_frames": 2,
+  "s_output_milliseconds": 11.609977324263038,
+  "read_source_range_7": [
+    0,
+    21
+  ],
+  "read_source_range_a": [
+    0,
+    22
+  ],
+  "listening": {
+    "order": [
+      "baseline",
+      "7-mid",
+      "a-mid"
+    ],
+    "common_linear_gain": 16.0,
+    "crop_seconds": [
+      1.3,
+      2.2
+    ],
+    "per_clip_normalization": false,
+    "human_listening_verified": false
+  },
+  "cases": [
+    {
+      "mode": "warmup",
+      "pcm_sha256": "B96E5EFE48E1CD1A310CC1A408CB9F8DF4F2D58D678DE8905728132A81086196",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": false,
+      "borrow_reads": 0,
+      "scheduled_frame_count": 94,
+      "changed_samples": 112,
+      "changed_seconds": [
+        1.4802721088435373,
+        1.501609977324263
+      ],
+      "head_rms_lsb": 1.0291714894321304,
+      "head_peak_lsb": 5.0,
+      "head_power_above_4khz": 0.41167947698960267,
+      "head_spectral_centroid_hz": 5219.391833689696,
+      "delta_samples_after_1_5_seconds": 25,
+      "render_ms": 221.5647
+    },
+    {
+      "mode": "baseline",
+      "pcm_sha256": "40F543C488CBBA3AACC941FF2E7B1D65098DD4CF5299D8A804535D4F60F8DC42",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 0,
+      "scheduled_frame_count": 94,
+      "changed_samples": 0,
+      "changed_seconds": null,
+      "head_rms_lsb": 1.0628842467147388,
+      "head_peak_lsb": 5.0,
+      "head_power_above_4khz": 0.41310649038108677,
+      "head_spectral_centroid_hz": 5301.285857935896,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 138.364
+    },
+    {
+      "mode": "7-full",
+      "pcm_sha256": "9931CF3DCE218DB6D47AB4E6EE8A7EADDE56A434F57CEB6C28B73890FA349391",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 705,
+      "changed_seconds": [
+        1.4747619047619047,
+        1.4916326530612245
+      ],
+      "head_rms_lsb": 41.05990279005131,
+      "head_peak_lsb": 221.0,
+      "head_power_above_4khz": 0.9556949355624267,
+      "head_spectral_centroid_hz": 10180.754541753793,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 139.2701
+    },
+    {
+      "mode": "restore-7",
+      "pcm_sha256": "40F543C488CBBA3AACC941FF2E7B1D65098DD4CF5299D8A804535D4F60F8DC42",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 0,
+      "scheduled_frame_count": 94,
+      "changed_samples": 0,
+      "changed_seconds": null,
+      "head_rms_lsb": 1.0628842467147388,
+      "head_peak_lsb": 5.0,
+      "head_power_above_4khz": 0.41310649038108677,
+      "head_spectral_centroid_hz": 5301.285857935896,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 138.9142
+    },
+    {
+      "mode": "a-full",
+      "pcm_sha256": "4258B91A9A352F116F93709B73E9DE940F05747B499161402D8B0FCF7DDADB14",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 700,
+      "changed_seconds": [
+        1.4747392290249433,
+        1.491609977324263
+      ],
+      "head_rms_lsb": 58.166193320003764,
+      "head_peak_lsb": 298.0,
+      "head_power_above_4khz": 0.9138355627301337,
+      "head_spectral_centroid_hz": 9304.502664949352,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 138.4962
+    },
+    {
+      "mode": "restore-a",
+      "pcm_sha256": "40F543C488CBBA3AACC941FF2E7B1D65098DD4CF5299D8A804535D4F60F8DC42",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 0,
+      "scheduled_frame_count": 94,
+      "changed_samples": 0,
+      "changed_seconds": null,
+      "head_rms_lsb": 1.0628842467147388,
+      "head_peak_lsb": 5.0,
+      "head_power_above_4khz": 0.41310649038108677,
+      "head_spectral_centroid_hz": 5301.285857935896,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 138.964
+    },
+    {
+      "mode": "7-tail",
+      "pcm_sha256": "D0FE5A36F64B636281789F62F50826FC7222DC85955D2D3A3FD9778C0A243132",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 694,
+      "changed_seconds": [
+        1.4747619047619047,
+        1.4916326530612245
+      ],
+      "head_rms_lsb": 24.046816219139657,
+      "head_peak_lsb": 104.0,
+      "head_power_above_4khz": 0.8734588189956081,
+      "head_spectral_centroid_hz": 9871.646794327096,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 124.2851
+    },
+    {
+      "mode": "a-tail",
+      "pcm_sha256": "659824A053297704E865DA4824705BA74E93163B5DD52C5E633584146F7A9EAC",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 688,
+      "changed_seconds": [
+        1.4747845804988662,
+        1.491609977324263
+      ],
+      "head_rms_lsb": 16.336126151332262,
+      "head_peak_lsb": 68.0,
+      "head_power_above_4khz": 0.7615740041976826,
+      "head_spectral_centroid_hz": 9254.385977118503,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 140.0155
+    },
+    {
+      "mode": "7-mid",
+      "pcm_sha256": "A67952748BA1FB4A44073E63D6F187B15B420A34C3492EE74F2B10738311E7CE",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 739,
+      "changed_seconds": [
+        1.4747165532879818,
+        1.4918367346938775
+      ],
+      "head_rms_lsb": 97.1361971977766,
+      "head_peak_lsb": 290.0,
+      "head_power_above_4khz": 0.9710924452976906,
+      "head_spectral_centroid_hz": 10828.08931851672,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 120.6944
+    },
+    {
+      "mode": "a-mid",
+      "pcm_sha256": "C1F944DF51D84B792590DE4783E5C7D823141C92DD51B8B51442B5742C5C72E3",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 724,
+      "changed_seconds": [
+        1.4747392290249433,
+        1.4916780045351474
+      ],
+      "head_rms_lsb": 95.85077744350292,
+      "head_peak_lsb": 348.0,
+      "head_power_above_4khz": 0.9985558696888095,
+      "head_spectral_centroid_hz": 10273.968878304455,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 124.277
+    },
+    {
+      "mode": "7-full-repeat",
+      "pcm_sha256": "9931CF3DCE218DB6D47AB4E6EE8A7EADDE56A434F57CEB6C28B73890FA349391",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 3,
+      "scheduled_frame_count": 94,
+      "changed_samples": 705,
+      "changed_seconds": [
+        1.4747619047619047,
+        1.4916326530612245
+      ],
+      "head_rms_lsb": 41.05990279005131,
+      "head_peak_lsb": 221.0,
+      "head_power_above_4khz": 0.9556949355624267,
+      "head_spectral_centroid_hz": 10180.754541753793,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 123.3675
+    },
+    {
+      "mode": "restore-final",
+      "pcm_sha256": "40F543C488CBBA3AACC941FF2E7B1D65098DD4CF5299D8A804535D4F60F8DC42",
+      "same_pcm_both_sdks": true,
+      "schedule_unchanged": true,
+      "borrow_reads": 0,
+      "scheduled_frame_count": 94,
+      "changed_samples": 0,
+      "changed_seconds": null,
+      "head_rms_lsb": 1.0628842467147388,
+      "head_peak_lsb": 5.0,
+      "head_power_above_4khz": 0.41310649038108677,
+      "head_spectral_centroid_hz": 5301.285857935896,
+      "delta_samples_after_1_5_seconds": 0,
+      "render_ms": 138.8495
+    }
+  ],
+  "date": "2026-10-18",
+  "scope": "Standalone research harness only; no Editor mutation, deployment, production ABI, persistence or UI changes.",
+  "native_sha256": "3CB49633673EF635076823DB71C6828D0A28F807462F5A637A72052EF4330623",
+  "installed_main_sha256_unchanged": "829B144A29DD33FF1CDDA89B727D56687776B0C3BF8DE87B5B8A7C6AF5976613",
+  "native_image_ghidra_sha256": "7A4965BD377DBC2B08710E807AE1345B67D9FFF6579CA0C01A769F744366F5B5",
+  "voicebank_ddi_sha256": "234207C757D9FDD2832C91C12EAC03D0E3A5E11BF8AEAB79D4D802FE01D005BB",
+  "native_route": [
+    "Sil -> s (4-frame stub)",
+    "Sil -> ei",
+    "ei -> Sil"
+  ],
+  "protected_native_art_geometry": [
+    [
+      3339,
+      3341,
+      3343
+    ],
+    [
+      3343,
+      3345,
+      3388
+    ],
+    [
+      3388,
+      3431,
+      3433
+    ]
+  ],
+  "source_reader": "DSE RVA 0x1757A0, disposable register-preserving pre/post bridge",
+  "coverage": "All 94 consumed schedule frames, material metadata, geometry, source indices and flags match the target baseline.",
+  "builds": {
+    "isolated_harness": "passed, 0 warnings, 0 errors",
+    "isolated_full_solution_debug": "passed, 0 warnings, 0 errors",
+    "minimum_sdk": "6.13.1.1"
+  },
+  "limitations": [
+    "One bank, one pitch/VEL and one fixed short timing configuration, single isolated Part.",
+    "s occupies two native output frames (11.61 ms); reading donor endpoints is not a reconstruction of every intermediate donor frame.",
+    "Only donor-side s-labelled frames are read; coarticulation within those frames is still possible.",
+    "OLA sample support is wider than scheduling anchors; newly changed PCM is approximately 1.4747..1.4918 seconds.",
+    "No human listening verdict; common-gain comparison audio is available outside the repository.",
+    "No production-safe donor identity, concurrent source-view lifetime, project storage or frontend integration is claimed."
+  ],
+  "user_listening_feedback": "s is not audible",
+  "intelligible_s_accepted": false
+}

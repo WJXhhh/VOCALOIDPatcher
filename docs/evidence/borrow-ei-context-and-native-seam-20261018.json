@@ -1,0 +1,184 @@
+{
+  "date": "2026-10-18",
+  "sdk_versions": [
+    "6.13.1.1",
+    "6.13.3.1"
+  ],
+  "native_context_target_renders_per_sdk": 11,
+  "native_context_donor_renders_per_sdk": 5,
+  "native_context_cross_sdk_equal_wavs": 16,
+  "readonly_seam_target_renders_per_sdk": 11,
+  "readonly_seam_donor_renders_per_sdk": 2,
+  "preserved_target_phonemes": "s ei",
+  "preserved_ticks": [
+    -25,
+    -13,
+    477
+  ],
+  "seam_observations": [
+    {
+      "mode": "baseline",
+      "entry_calls": 23,
+      "entry_return_false": true,
+      "observed_entry_parameters_and_gain_unchanged": true,
+      "entry_identity": "Sil->ei",
+      "release_positive_control_calls": 17,
+      "separate_phase_consumer_observed_calls": 0
+    },
+    {
+      "mode": "7-mid",
+      "entry_calls": 23,
+      "entry_return_false": true,
+      "observed_entry_parameters_and_gain_unchanged": true,
+      "entry_identity": "Sil->ei",
+      "release_positive_control_calls": 17,
+      "separate_phase_consumer_observed_calls": 0
+    },
+    {
+      "mode": "a-mid",
+      "entry_calls": 23,
+      "entry_return_false": true,
+      "observed_entry_parameters_and_gain_unchanged": true,
+      "entry_identity": "Sil->ei",
+      "release_positive_control_calls": 17,
+      "separate_phase_consumer_observed_calls": 0
+    },
+    {
+      "mode": "restore",
+      "entry_calls": 23,
+      "entry_return_false": true,
+      "observed_entry_parameters_and_gain_unchanged": true,
+      "entry_identity": "Sil->ei",
+      "release_positive_control_calls": 17,
+      "separate_phase_consumer_observed_calls": 0
+    }
+  ],
+  "cases": [
+    {
+      "name": "warmup",
+      "donor_s": null,
+      "donor_ei": null,
+      "s_prefix_equal_old_borrow": false,
+      "changed_samples_vs_old_borrow": 825,
+      "last_change_seconds": 1.501609977324263,
+      "s_prefix_rms_lsb": 0.29646353064078557,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "baseline",
+      "donor_s": null,
+      "donor_ei": null,
+      "s_prefix_equal_old_borrow": false,
+      "changed_samples_vs_old_borrow": 739,
+      "last_change_seconds": 1.4918367346938775,
+      "s_prefix_rms_lsb": 0.28980057798424075,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "7-mid",
+      "donor_s": "s->7",
+      "donor_ei": null,
+      "s_prefix_equal_old_borrow": true,
+      "changed_samples_vs_old_borrow": 0,
+      "last_change_seconds": null,
+      "s_prefix_rms_lsb": 105.3720250914587,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "7-mid-ei-ts",
+      "donor_s": "s->7",
+      "donor_ei": "ts->ei",
+      "s_prefix_equal_old_borrow": true,
+      "changed_samples_vs_old_borrow": 22715,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 105.3720250914587,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "continuous-tail-ts",
+      "donor_s": "ts->ei",
+      "donor_ei": "ts->ei",
+      "s_prefix_equal_old_borrow": false,
+      "changed_samples_vs_old_borrow": 23238,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 86.75486297608913,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "7-mid-ei-sr",
+      "donor_s": "s->7",
+      "donor_ei": "s`->ei",
+      "s_prefix_equal_old_borrow": true,
+      "changed_samples_vs_old_borrow": 22711,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 105.3720250914587,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "continuous-tail-sr",
+      "donor_s": "s`->ei",
+      "donor_ei": "s`->ei",
+      "s_prefix_equal_old_borrow": false,
+      "changed_samples_vs_old_borrow": 23233,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 50.992723132815726,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "7-mid-ei-f",
+      "donor_s": "s->7",
+      "donor_ei": "f->ei",
+      "s_prefix_equal_old_borrow": true,
+      "changed_samples_vs_old_borrow": 22711,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 105.3720250914587,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "continuous-tail-f",
+      "donor_s": "f->ei",
+      "donor_ei": "f->ei",
+      "s_prefix_equal_old_borrow": false,
+      "changed_samples_vs_old_borrow": 23236,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 16.47132925722754,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "7-mid-ei-ts-repeat",
+      "donor_s": "s->7",
+      "donor_ei": "ts->ei",
+      "s_prefix_equal_old_borrow": true,
+      "changed_samples_vs_old_borrow": 22715,
+      "last_change_seconds": 2.0026757369614514,
+      "s_prefix_rms_lsb": 105.3720250914587,
+      "human_pronunciation_accepted": false
+    },
+    {
+      "name": "restore",
+      "donor_s": null,
+      "donor_ei": null,
+      "s_prefix_equal_old_borrow": false,
+      "changed_samples_vs_old_borrow": 739,
+      "last_change_seconds": 1.4918367346938775,
+      "s_prefix_rms_lsb": 0.28980057798424075,
+      "human_pronunciation_accepted": false
+    }
+  ],
+  "listening_order": [
+    "7-mid",
+    "7-mid-ei-ts",
+    "7-mid-ei-sr",
+    "continuous-tail-ts"
+  ],
+  "common_playback_gain": 16.0,
+  "new_human_listening_accepted": false,
+  "limitations": [
+    "The alternative consonant contexts may color the ei entry.",
+    "Continuous ts/fricative-tail control is not proof of an s pronunciation.",
+    "No perceptual success follows from PCM changes or preserved score labels.",
+    "No formal backend, concurrent routing, project data or UI integration in this probe."
+  ],
+  "frontend": false,
+  "deployed": false
+}

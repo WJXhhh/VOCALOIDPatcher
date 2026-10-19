@@ -2,6 +2,8 @@
 
 2026-10-17。接续[实际引擎控制链](transition-timing-volume-chain.md)。本轮实现后端及独立 SDK 验证入口，未接编辑器 UI、工程归档/撤销事务，也未部署或操作 Editor。验收数字见[证据](evidence/transition-backend-20261017.json)。
 
+后续[同音起音对照](onset-process-comparison.md)进一步区分了 ART 覆盖时长与完整起音的源帧进度：当前端点控制不能等同于主体起音控制，不能仅凭本页的 PCM 变化或映射一致性作该项功能验收。
+
 ## 接口与身份
 
 代码在 `ConsonantTiming/Model/TransitionLayout.cs`、`Backend/PreparedTransitionTiming.cs`、`Backend/NativeTransitionSegments.cs` 和 `Backend/NativeTransitionGain.cs`；原生实现为 `native/playback-clock/src/transition_gain.rs`。

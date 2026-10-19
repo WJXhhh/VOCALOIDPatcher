@@ -1,0 +1,763 @@
+{
+  "date": "2026-10-17",
+  "scope": "same isolated sampled vowel a; no deployment or Editor mutation",
+  "fixture": {
+    "bank": "BL8CEAM5N4XN3LFK",
+    "midiPitch": 60,
+    "velocity": 64,
+    "durationTicks": 480,
+    "noteStartTicks": 960,
+    "bpm": 120
+  },
+  "samplingRate": 44100,
+  "samplesPerFrame": 256,
+  "referenceAdvanceFrames": 24,
+  "referenceAdvanceMilliseconds": 139.31972789115648,
+  "referenceGoal": "Substantial voiced onset before the fixed musical note, including earlier and weaker main attack; not a match to arbitrary screenshot pixels.",
+  "versions": [
+    {
+      "sdk": "6.13.1.1",
+      "profile": "sampled-dse-vsm-6.13.1.1-v1",
+      "recordedVariants": 25,
+      "rendersIncludingWarmup": 26,
+      "prefixCandidates": 242,
+      "maximumPreSplitSource": 1,
+      "rows": [
+        {
+          "name": "baseline",
+          "family": "baseline",
+          "requested": 0,
+          "onsetFrames": [
+            3343,
+            3345,
+            3378
+          ],
+          "t20Milliseconds": 8.186,
+          "t50Milliseconds": 15.238,
+          "peakMilliseconds": 35.374,
+          "peakRms": 0.05381601557486511,
+          "sustainRms": 0.020604867674402016,
+          "preNoteEnergyFraction": 2.2986665694915106e-05,
+          "rmsErrorToReference": 0.23606216428243268,
+          "peakErrorToReference": 0.717268750507239,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": true,
+          "baselinePostSplitPcmMaxError": 0.0,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.143096923828125,
+          "ownReferenceAttackPcmRmsError": 0.024472448193811978,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": true
+        },
+        {
+          "name": "phoneme-early-24",
+          "family": "phoneme",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3321,
+            3363
+          ],
+          "t20Milliseconds": -125.125,
+          "t50Milliseconds": -111.814,
+          "peakMilliseconds": -95.51,
+          "peakRms": 0.03860054624866161,
+          "sustainRms": 0.020044583198050768,
+          "preNoteEnergyFraction": 0.4294240092561121,
+          "rmsErrorToReference": 0.0,
+          "peakErrorToReference": 0.0,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.143096923828125,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.0,
+          "ownReferenceAttackPcmRmsError": 0.0,
+          "ownReferenceInteriorPcmExact": true,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 86,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -136,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "transition-left-24",
+          "family": "left",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3378
+          ],
+          "t20Milliseconds": 8.186,
+          "t50Milliseconds": 15.238,
+          "peakMilliseconds": 35.374,
+          "peakRms": 0.05381601557486511,
+          "sustainRms": 0.020604867674402016,
+          "preNoteEnergyFraction": 0.010754427127484568,
+          "rmsErrorToReference": 0.2162417057429006,
+          "peakErrorToReference": 0.6972417835032532,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": true,
+          "baselinePostSplitPcmMaxError": 0.0,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.143096923828125,
+          "ownReferenceAttackPcmRmsError": 0.024660921476418463,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "transition-right-24",
+          "family": "right",
+          "requested": 24,
+          "onsetFrames": [
+            3343,
+            3345,
+            3402
+          ],
+          "t20Milliseconds": 11.995,
+          "t50Milliseconds": 26.122,
+          "peakMilliseconds": 54.966,
+          "peakRms": 0.05665853251437006,
+          "sustainRms": 0.020873018172833786,
+          "preNoteEnergyFraction": 1.7808491381715458e-05,
+          "rmsErrorToReference": 0.2578733868111467,
+          "peakErrorToReference": 0.717268750507239,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.1005859375,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.13653564453125,
+          "ownReferenceAttackPcmRmsError": 0.027282129494887352,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "transition-both-24",
+          "family": "both",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3402
+          ],
+          "t20Milliseconds": 11.995,
+          "t50Milliseconds": 26.122,
+          "peakMilliseconds": 54.966,
+          "peakRms": 0.05665853251437006,
+          "sustainRms": 0.020873018172833786,
+          "preNoteEnergyFraction": 0.008352112073632439,
+          "rmsErrorToReference": 0.23985300782471192,
+          "peakErrorToReference": 0.6972417835032532,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.1005859375,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.13653564453125,
+          "ownReferenceAttackPcmRmsError": 0.027451319043773993,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "matched-allocation-24",
+          "family": "matched-allocation",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3363
+          ],
+          "t20Milliseconds": 8.186,
+          "t50Milliseconds": 15.238,
+          "peakMilliseconds": 35.374,
+          "peakRms": 0.05381601557486511,
+          "sustainRms": 0.019983609861991287,
+          "preNoteEnergyFraction": 0.011010200806184024,
+          "rmsErrorToReference": 0.21620675314054622,
+          "peakErrorToReference": 0.6972417835032532,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            19.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.03997802734375,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.143096923828125,
+          "ownReferenceAttackPcmRmsError": 0.024660921476418463,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "source-progress-24",
+          "family": "source-progress",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3363
+          ],
+          "t20Milliseconds": -125.125,
+          "t50Milliseconds": -111.814,
+          "peakMilliseconds": -95.51,
+          "peakRms": 0.03860054624866161,
+          "sustainRms": 0.020482496476999765,
+          "preNoteEnergyFraction": 0.4295583753027848,
+          "rmsErrorToReference": 0.003641911537846539,
+          "peakErrorToReference": 0.02808784536606266,
+          "preSplitSourceRange": [
+            0.0,
+            19.95121955871582
+          ],
+          "postSplitSourceRange": [
+            20.731706619262695,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.143096923828125,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.0048828125,
+          "ownReferenceAttackPcmRmsError": 0.0004026933239452509,
+          "ownReferenceInteriorPcmExact": true,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 84,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "position-only-24",
+          "family": "position-only",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3363
+          ],
+          "t20Milliseconds": -125.125,
+          "t50Milliseconds": -111.814,
+          "peakMilliseconds": -95.51,
+          "peakRms": 0.03860054624866161,
+          "sustainRms": 0.020482496476999765,
+          "preNoteEnergyFraction": 0.4295583753027848,
+          "rmsErrorToReference": 0.003641911537846539,
+          "peakErrorToReference": 0.02808784536606266,
+          "preSplitSourceRange": [
+            0.0,
+            19.95121955871582
+          ],
+          "postSplitSourceRange": [
+            20.731706619262695,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.143096923828125,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.0048828125,
+          "ownReferenceAttackPcmRmsError": 0.0004026933239452509,
+          "ownReferenceInteriorPcmExact": true,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 84,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        }
+      ]
+    },
+    {
+      "sdk": "6.13.3.1",
+      "profile": "sampled-dse-vsm-6.13.3.1-v1",
+      "recordedVariants": 25,
+      "rendersIncludingWarmup": 26,
+      "prefixCandidates": 242,
+      "maximumPreSplitSource": 1,
+      "rows": [
+        {
+          "name": "baseline",
+          "family": "baseline",
+          "requested": 0,
+          "onsetFrames": [
+            3343,
+            3345,
+            3378
+          ],
+          "t20Milliseconds": 8.186,
+          "t50Milliseconds": 15.238,
+          "peakMilliseconds": 35.374,
+          "peakRms": 0.05381601557486511,
+          "sustainRms": 0.020604867674402016,
+          "preNoteEnergyFraction": 2.2986665694915106e-05,
+          "rmsErrorToReference": 0.23606216428243268,
+          "peakErrorToReference": 0.717268750507239,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": true,
+          "baselinePostSplitPcmMaxError": 0.0,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.143096923828125,
+          "ownReferenceAttackPcmRmsError": 0.024472448193811978,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": true
+        },
+        {
+          "name": "phoneme-early-24",
+          "family": "phoneme",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3321,
+            3363
+          ],
+          "t20Milliseconds": -125.125,
+          "t50Milliseconds": -111.814,
+          "peakMilliseconds": -95.51,
+          "peakRms": 0.03860054624866161,
+          "sustainRms": 0.020044583198050768,
+          "preNoteEnergyFraction": 0.4294240092561121,
+          "rmsErrorToReference": 0.0,
+          "peakErrorToReference": 0.0,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.143096923828125,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.0,
+          "ownReferenceAttackPcmRmsError": 0.0,
+          "ownReferenceInteriorPcmExact": true,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 86,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -136,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "transition-left-24",
+          "family": "left",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3378
+          ],
+          "t20Milliseconds": 8.186,
+          "t50Milliseconds": 15.238,
+          "peakMilliseconds": 35.374,
+          "peakRms": 0.05381601557486511,
+          "sustainRms": 0.020604867674402016,
+          "preNoteEnergyFraction": 0.010754427127484568,
+          "rmsErrorToReference": 0.2162417057429006,
+          "peakErrorToReference": 0.6972417835032532,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": true,
+          "baselinePostSplitPcmMaxError": 0.0,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.143096923828125,
+          "ownReferenceAttackPcmRmsError": 0.024660921476418463,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "transition-right-24",
+          "family": "right",
+          "requested": 24,
+          "onsetFrames": [
+            3343,
+            3345,
+            3402
+          ],
+          "t20Milliseconds": 11.995,
+          "t50Milliseconds": 26.122,
+          "peakMilliseconds": 54.966,
+          "peakRms": 0.05665853251437006,
+          "sustainRms": 0.020873018172833786,
+          "preNoteEnergyFraction": 1.7808491381715458e-05,
+          "rmsErrorToReference": 0.2578733868111467,
+          "peakErrorToReference": 0.717268750507239,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.1005859375,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.13653564453125,
+          "ownReferenceAttackPcmRmsError": 0.027282129494887352,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "transition-both-24",
+          "family": "both",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3402
+          ],
+          "t20Milliseconds": 11.995,
+          "t50Milliseconds": 26.122,
+          "peakMilliseconds": 54.966,
+          "peakRms": 0.05665853251437006,
+          "sustainRms": 0.020873018172833786,
+          "preNoteEnergyFraction": 0.008352112073632439,
+          "rmsErrorToReference": 0.23985300782471192,
+          "peakErrorToReference": 0.6972417835032532,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.1005859375,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.13653564453125,
+          "ownReferenceAttackPcmRmsError": 0.027451319043773993,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "matched-allocation-24",
+          "family": "matched-allocation",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3363
+          ],
+          "t20Milliseconds": 8.186,
+          "t50Milliseconds": 15.238,
+          "peakMilliseconds": 35.374,
+          "peakRms": 0.05381601557486511,
+          "sustainRms": 0.019983609861991287,
+          "preNoteEnergyFraction": 0.011010200806184024,
+          "rmsErrorToReference": 0.21620675314054622,
+          "peakErrorToReference": 0.6972417835032532,
+          "preSplitSourceRange": [
+            0.0,
+            1.0
+          ],
+          "postSplitSourceRange": [
+            2.0,
+            19.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.03997802734375,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.143096923828125,
+          "ownReferenceAttackPcmRmsError": 0.024660921476418463,
+          "ownReferenceInteriorPcmExact": false,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 18,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "source-progress-24",
+          "family": "source-progress",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3363
+          ],
+          "t20Milliseconds": -125.125,
+          "t50Milliseconds": -111.814,
+          "peakMilliseconds": -95.51,
+          "peakRms": 0.03860054624866161,
+          "sustainRms": 0.020482496476999765,
+          "preNoteEnergyFraction": 0.4295583753027848,
+          "rmsErrorToReference": 0.003641911537846539,
+          "peakErrorToReference": 0.02808784536606266,
+          "preSplitSourceRange": [
+            0.0,
+            19.95121955871582
+          ],
+          "postSplitSourceRange": [
+            20.731706619262695,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.143096923828125,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.0048828125,
+          "ownReferenceAttackPcmRmsError": 0.0004026933239452509,
+          "ownReferenceInteriorPcmExact": true,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 84,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        },
+        {
+          "name": "position-only-24",
+          "family": "position-only",
+          "requested": 24,
+          "onsetFrames": [
+            3319,
+            3345,
+            3363
+          ],
+          "t20Milliseconds": -125.125,
+          "t50Milliseconds": -111.814,
+          "peakMilliseconds": -95.51,
+          "peakRms": 0.03860054624866161,
+          "sustainRms": 0.020482496476999765,
+          "preNoteEnergyFraction": 0.4295583753027848,
+          "rmsErrorToReference": 0.003641911537846539,
+          "peakErrorToReference": 0.02808784536606266,
+          "preSplitSourceRange": [
+            0.0,
+            19.95121955871582
+          ],
+          "postSplitSourceRange": [
+            20.731706619262695,
+            34.0
+          ],
+          "baselinePostSplitSourceMapEqual": false,
+          "baselinePostSplitPcmMaxError": 0.143096923828125,
+          "ownReference": "phoneme-early-24",
+          "ownReferenceAttackPcmMaxError": 0.0048828125,
+          "ownReferenceAttackPcmRmsError": 0.0004026933239452509,
+          "ownReferenceInteriorPcmExact": true,
+          "ownReferenceInteriorSamples": 10496,
+          "ownReferenceAttackInputCount": 86,
+          "ownReferenceAttackInputMatches": 84,
+          "nativeGainCommonFrames": 468,
+          "nativeGainSameOnCommonFrames": true,
+          "nativePhonePositions": [
+            -2,
+            477
+          ],
+          "exactBaselinePcm": false
+        }
+      ]
+    }
+  ],
+  "crossVersionPcmIdentical": true,
+  "crossVersionSourceFrameSchedulesIdentical": true,
+  "allQueriesCheckedForZeroAudioSynthesis": true,
+  "actualMaterialObjectUnchangedWithinEachFixture": true,
+  "prototypeOriginalPhonemePositions": [
+    -2,
+    477
+  ],
+  "prototypeActualPhonemePositions": [
+    -2,
+    477
+  ],
+  "sourcePositionOnlyProducesIdenticalPrototypePcm": true,
+  "prototypeReleaseSourceMapEqualsBaseline": true,
+  "remainingPrimaryInputDifferences": [
+    {
+      "time": 3319,
+      "lane": "primary"
+    },
+    {
+      "time": 3320,
+      "lane": "primary"
+    }
+  ],
+  "seamBudgetHypothesis": {
+    "targetCallsConsumed": 0,
+    "observedCalls": [
+      {
+        "Begin": 3363,
+        "End": 3416,
+        "From": 0,
+        "To": -1,
+        "OriginalLeft": 0,
+        "Matched": false
+      },
+      {
+        "Begin": 3416,
+        "End": 3433,
+        "From": 0,
+        "To": 60,
+        "OriginalLeft": 15,
+        "Matched": false
+      }
+    ],
+    "conclusion": "This entry did not consume the isolated onset; it cannot establish the cause or repair of the first-frame differences."
+  },
+  "limitations": [
+    "Only this single-vowel source and note configuration are certified.",
+    "Whole PCM differs in the first three onset output blocks and subsequent sustain/release relative to the phoneme reference.",
+    "This research-only source-frame mutation is not a production route, cache identity, persistence or concurrency implementation.",
+    "No subjective listening acceptance claimed; fixed-gain audition clips were generated."
+  ]
+}

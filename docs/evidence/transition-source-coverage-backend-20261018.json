@@ -1,0 +1,3715 @@
+{
+  "date": "2026-10-18",
+  "deployed": false,
+  "versions": {
+    "old": {
+      "metadata": {
+        "kind": "metadata",
+        "sdk": "6.13.1.1",
+        "Id": "sampled-dse-vsm-6.13.1.1-v1",
+        "CacheCapacity": 1073741824
+      },
+      "realRenders": 36,
+      "queryPairMilliseconds": {
+        "minimum": 0.0146,
+        "median": 0.15875,
+        "maximum": 2.6247
+      },
+      "nativeRepeatComparisons": [
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 1,
+          "rms": 0.0016323490551736568,
+          "changed": 1
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        }
+      ],
+      "probeReportSha256": "D5E04587EC0E4476C70A5992A279539D14F279AF0FA616A0580D1F7A781BBF55",
+      "cases": [
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "native",
+          "pcm": "AD891493A9A51A96C2F583F2470CC66FB711264E5F53CF0A6F508ED2D0A849EF",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 1.2901,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-native.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "coverage",
+          "pcm": "D1C0701D63F18FEFD8DE6EFD8E65B532770617069AF73140811FF69819CCBC3B",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 2.6247,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "early",
+          "pcm": "6387537CDEB2A7F3471D888EF36F6C3C71DE3562BFBA6C25B4538CFD572D219B",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 1.0784,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-early.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "late",
+          "pcm": "8C1F34301E882DB279B906CB3826A56CFA242FA01CBC0236F74D928CCE08B956",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.3224,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-late.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "gain",
+          "pcm": "401930978B94A787FF23900A0AF7A057C6073B0088C9A56A6039C22E8A30E65C",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.5509,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "release",
+          "pcm": "410DA21F6F4BD182898FBE9C45AEDF91082FC2567A32FAC42D42282B70897D54",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1771,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 67,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-release.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "both-edges",
+          "pcm": "410DA21F6F4BD182898FBE9C45AEDF91082FC2567A32FAC42D42282B70897D54",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.2605,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 289,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "restored",
+          "pcm": "D1C0701D63F18FEFD8DE6EFD8E65B532770617069AF73140811FF69819CCBC3B",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1261,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "native",
+          "pcm": "31BA49559022AE99D4A9FE28249DFF14709347D8E51000D9ECE11BF4B31CEF38",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.0612,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 37,
+          "file": "phone0-art-24-native.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "coverage",
+          "pcm": "553026E0520A4991ED959EC38C58F345951DD1741CDB1758085898461C2FE3EA",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.2258,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "early",
+          "pcm": "047E7228BB2F25A21B819293E61A3260E375ED1C9EE792C9E156DC1A49716028",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.3252,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-early.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "late",
+          "pcm": "1547D75302118319570C03B602EF07598F38D024E2D3AAC287A482F28CB53B08",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1741,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-late.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "gain",
+          "pcm": "3D37A401F36AF2B53A08E34ED926CE729FDC59D176CB25A74532B6B00F3366A7",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.9517,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "release",
+          "pcm": "079358D8A7E332859D1D45B2335187A9272B111F116121A627ECD199076E4047",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1576,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 67,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 37,
+          "file": "phone0-art-24-release.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "both-edges",
+          "pcm": "659E08C0D68747E9F3FDC76B47382A6735B68DCDC9B69165CC1C1678A3156411",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1961,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 193,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "restored",
+          "pcm": "31BA49559022AE99D4A9FE28249DFF14709347D8E51000D9ECE11BF4B31CEF38",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1128,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 37,
+          "file": "phone0-art-24-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "native",
+          "pcm": "2902FBF844E63845A7EF767BD6FBE36AB860069615D385F4358EAF70F7A3713B",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0146,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 36,
+          "file": "phone-120-art0-native.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "coverage",
+          "pcm": "B64B63C5EC88C16B7802C0F612AF1713DC22D119E8FDA2AC23607968DCEFAEE4",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1264,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "early",
+          "pcm": "4892FF036E268AC326D6FBF92188A612B8FF743529A6B511E198747C4C1DB565",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.2063,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-early.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "late",
+          "pcm": "079AFE6C630E19DDEC9AD0FB3B2B423E5D894A003A039594EBA2881F9E83C640",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.159,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-late.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "gain",
+          "pcm": "418332B925BE754372CAB20EA2B03297285D7AACC5C151BC0897AA18836D6322",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.2999,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "release",
+          "pcm": "8818F234A3D1D910B01007F6F90171F5A6093D96F30193A8E07763F50D35AE04",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1658,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 28,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 36,
+          "file": "phone-120-art0-release.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "both-edges",
+          "pcm": "9D3756C0B248B6260F270E9EC64CB1253A9043B21CBDE1E46C43D534E138B8A5",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1585,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 150,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "restored",
+          "pcm": "2902FBF844E63845A7EF767BD6FBE36AB860069615D385F4358EAF70F7A3713B",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0633,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 36,
+          "file": "phone-120-art0-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "native",
+          "pcm": "61E4E4F3C9DE8D2C8358126FDDA8F50C3C8FA562699FB367E0993615D9035EBA",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0281,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 30,
+          "file": "phone-120-art-6-native.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "coverage",
+          "pcm": "472980B48A1436139C8200EFB082A9710B5536DD2584DD443B5E613228AB89EB",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1409,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "early",
+          "pcm": "30B97E89F6A59E009F6607DF222C4BFE1ECB5D9366CE611A07FF0BFBDFC9CE73",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1431,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-early.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "late",
+          "pcm": "D2FCF4BACD83641EF303850615142A2AF862B0831C60C104D39250418263C150",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1304,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-late.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "gain",
+          "pcm": "02E330D30B44C1D8DCFB30DA07127A28BF542ABC4B7E4FDDF60EB6D42E206BCD",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1368,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "release",
+          "pcm": "76284DE4F465CE264B7519CEF4F323F79B61572D1181F4DE884217F1D483C527",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1232,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 28,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 30,
+          "file": "phone-120-art-6-release.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "both-edges",
+          "pcm": "D55DBF6830C7D3406F68097155BCA26538656361A607B541507E6FE7ED44064C",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1291,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "restored",
+          "pcm": "61E4E4F3C9DE8D2C8358126FDDA8F50C3C8FA562699FB367E0993615D9035EBA",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0966,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 30,
+          "file": "phone-120-art-6-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "short-note",
+          "mode": "native",
+          "pcm": "402285085EB8F9D5239934C36164AC281780E96D6511BCF7B69AB1C372728F5C",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 52,
+          "file": "short-note-native.wav",
+          "sustain": []
+        },
+        {
+          "kind": "short-note",
+          "mode": "coverage",
+          "pcm": "0D22DCC1F62C596DD55BC74F51AEDBCCEAA942A90B0A28EADA9A7E8C5367521B",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 61,
+          "file": "short-note-coverage.wav",
+          "sustain": []
+        },
+        {
+          "kind": "short-note",
+          "mode": "early",
+          "pcm": "8FEA93E42145E1ECEBA619E00C1E85531D31C09177FD594141A38B3E699EDA6A",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 61,
+          "file": "short-note-early.wav",
+          "sustain": []
+        },
+        {
+          "kind": "short-note",
+          "mode": "restored",
+          "pcm": "402285085EB8F9D5239934C36164AC281780E96D6511BCF7B69AB1C372728F5C",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 52,
+          "file": "short-note-restored.wav",
+          "sustain": []
+        }
+      ],
+      "host": {
+        "renderSteps": 15,
+        "acceptance": {
+          "name": "coverage-acceptance",
+          "fixedTiming": true,
+          "sharedUndo": true,
+          "saveReopen": true,
+          "velocityAndTimingInvalidation": true,
+          "gainComposition": true,
+          "coverageParallel": true,
+          "cacheReload": true
+        },
+        "probeReportSha256": "4274B40FCF317E13891ABF7498D4C6BAF3A2DAE9464FFBACB341023A16D17905",
+        "renders": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-timing-only",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Epoch": 1,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-and-phase",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 2,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Epoch": 3,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-redo",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 4,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-reopened",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 5,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-velocity",
+            "hash": "0D28E82ECC7EE0E24C7DA4AE51014CC99A860CD665B428E4097A0C3736577755",
+            "Epoch": 6,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 98,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-velocity",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 7,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-more-compression",
+            "hash": "A45B4AEE37008093AB53E84EBD50A1A1BD54C1242ABAF9FA1E29D1B78A39F088",
+            "Epoch": 8,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 110,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-compression",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 9,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-gain",
+            "hash": "7024F0E555FED95281F935C9261BDA0DC0759DF339B3158783694AD7E88517FB",
+            "Epoch": 10,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-parallel",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Epoch": 11,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 119,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-first",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Epoch": 13,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 119,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-second",
+            "hash": "29083F6735E7ABA0463CDE241A1885E95B795B6B17C12AB806B633DFFBBEF4CD",
+            "Epoch": 16,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 219,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-native-cache",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Epoch": 17,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          }
+        ],
+        "sharedStageCoverage": []
+      },
+      "general": {
+        "renderSteps": 40,
+        "acceptance": {
+          "name": "acceptance",
+          "saved": true,
+          "sharedHistory": true,
+          "cacheReload": true,
+          "copy": true,
+          "unknownSchema": true,
+          "rollback": true
+        },
+        "probeReportSha256": "C14E7E4585521F286EF8340B486D8A1211DD501038D186C6C4314D4510BDB484",
+        "renders": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Epoch": 1,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 38,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-undo",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-redo",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Epoch": 2,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 38,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-reset",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-a",
+            "hash": "D7311677EC8C814F36F400BFB39F3017EFE9FF37EB477295F3563E34806759A7",
+            "Epoch": 3,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 235,
+            "gainFailures": 0
+          },
+          {
+            "name": "timing-combined",
+            "hash": "4F0AA61C29A3F70509CF052217B4DDC1AAA72EF560DB5C6A1FA114F35EA9EBFC",
+            "Epoch": 4,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-moved",
+            "hash": "65F419CE7604DAC43F63F994215F5F96BCA4EB7CFD3F11B41EB466ED1FCCF1D5",
+            "Epoch": 5,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-b",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 6,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-transition",
+            "hash": "65F419CE7604DAC43F63F994215F5F96BCA4EB7CFD3F11B41EB466ED1FCCF1D5",
+            "Epoch": 7,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-native",
+            "hash": "4F0AA61C29A3F70509CF052217B4DDC1AAA72EF560DB5C6A1FA114F35EA9EBFC",
+            "Epoch": 8,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-timing",
+            "hash": "D7311677EC8C814F36F400BFB39F3017EFE9FF37EB477295F3563E34806759A7",
+            "Epoch": 9,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 235,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-all",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-15",
+            "hash": "D7311677EC8C814F36F400BFB39F3017EFE9FF37EB477295F3563E34806759A7",
+            "Epoch": 10,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 235,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-16",
+            "hash": "4F0AA61C29A3F70509CF052217B4DDC1AAA72EF560DB5C6A1FA114F35EA9EBFC",
+            "Epoch": 11,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-17",
+            "hash": "65F419CE7604DAC43F63F994215F5F96BCA4EB7CFD3F11B41EB466ED1FCCF1D5",
+            "Epoch": 12,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-18",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 13,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "after-save",
+            "hash": "3AE5718BABD71DAD9DCD244C19AFDEE76A2B789F02F1B43C72E9772E21764023",
+            "Epoch": 14,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 251,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-after-save",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 15,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "reopened",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 16,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-no-phase",
+            "hash": "7D2BC4F216AFEB8B75E802142AA7BB95EA962F4D32BFA6C82465CC9E11530D01",
+            "Epoch": 17,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-with-phase",
+            "hash": "44F7365AB5CA1847561B0987C6FFCC14055D6C4C575B8BA67BE2D9893AE4F69D",
+            "Epoch": 18,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 198,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-phase-undo",
+            "hash": "7D2BC4F216AFEB8B75E802142AA7BB95EA962F4D32BFA6C82465CC9E11530D01",
+            "Epoch": 19,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 160,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequence-copy",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 20,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "duration-combined",
+            "hash": "FB48B50B185A76957C4DC3D6685F8273389A7EAF9F2AB47973F6AA134683BFF4",
+            "Epoch": 21,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 249,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-duration",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 22,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-delete",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 23,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "same-locator-new-note",
+            "hash": "5BC30DC1C0A983B4AF462470B7587451949CBED2FDC5B7DF7F240F5234BEE273",
+            "Epoch": 24,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 231,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-replacement",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 25,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-part",
+            "hash": "B50A0791C72F960E7EA92BDE925327E72EBCF563ADF64D367C9F302D640B2C28",
+            "Epoch": 27,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 251,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-velocity",
+            "hash": "7687A7DF76FF57916BDB0FE22F4753B7048F3A02ADD828A9C14E207C8571B755",
+            "Epoch": 29,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 283,
+            "gainFailures": 0
+          },
+          {
+            "name": "parallel",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 30,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-first",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 32,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-second",
+            "hash": "B50A0791C72F960E7EA92BDE925327E72EBCF563ADF64D367C9F302D640B2C28",
+            "Epoch": 35,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 251,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-cache-reopen",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 36,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-baseline",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-gains",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Epoch": 38,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 195,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-undo",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-redo",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Epoch": 39,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 195,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-reopened",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Epoch": 40,
+            "Scopes": 1,
+            "CacheKeys": 1,
+            "gainApplied": 195,
+            "gainFailures": 0
+          }
+        ],
+        "sharedStageCoverage": [
+          {
+            "name": "shared-range",
+            "CurrentFrame": 3338,
+            "frame": 3337,
+            "reachable": 11,
+            "aliases": 2,
+            "coveredSources": [
+              {
+                "From": "Sil",
+                "To": "n",
+                "Stage": 0,
+                "Reverse": false,
+                "Sides": 3
+              },
+              {
+                "From": "n",
+                "To": "n#2",
+                "Stage": 0,
+                "Reverse": false,
+                "Sides": 1
+              },
+              {
+                "From": "n#2",
+                "To": "a",
+                "Stage": 1,
+                "Reverse": false,
+                "Sides": 2
+              },
+              {
+                "From": "a",
+                "To": "Sil",
+                "Stage": 0,
+                "Reverse": false,
+                "Sides": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "new": {
+      "metadata": {
+        "kind": "metadata",
+        "sdk": "6.13.3.1",
+        "Id": "sampled-dse-vsm-6.13.3.1-v1",
+        "CacheCapacity": 1073741824
+      },
+      "realRenders": 36,
+      "queryPairMilliseconds": {
+        "minimum": 0.0137,
+        "median": 0.16035,
+        "maximum": 2.2661
+      },
+      "nativeRepeatComparisons": [
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 1,
+          "rms": 0.0016323490551736568,
+          "changed": 1
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        },
+        {
+          "kind": "native-repeat-comparison",
+          "peak": 0,
+          "rms": 0,
+          "changed": 0
+        }
+      ],
+      "probeReportSha256": "EE2AF93E72BE2E98C2BB37A7CF94F979A8D7BB44699475B034FFBDD92B585102",
+      "cases": [
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "native",
+          "pcm": "AD891493A9A51A96C2F583F2470CC66FB711264E5F53CF0A6F508ED2D0A849EF",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.8015,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-native.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "coverage",
+          "pcm": "D1C0701D63F18FEFD8DE6EFD8E65B532770617069AF73140811FF69819CCBC3B",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 2.2661,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "early",
+          "pcm": "6387537CDEB2A7F3471D888EF36F6C3C71DE3562BFBA6C25B4538CFD572D219B",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.7705,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-early.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "late",
+          "pcm": "8C1F34301E882DB279B906CB3826A56CFA242FA01CBC0236F74D928CCE08B956",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.2061,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-late.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "gain",
+          "pcm": "401930978B94A787FF23900A0AF7A057C6073B0088C9A56A6039C22E8A30E65C",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.5844,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 222,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "release",
+          "pcm": "410DA21F6F4BD182898FBE9C45AEDF91082FC2567A32FAC42D42282B70897D54",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1663,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 67,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-release.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "both-edges",
+          "pcm": "410DA21F6F4BD182898FBE9C45AEDF91082FC2567A32FAC42D42282B70897D54",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.2765,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 289,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": 0,
+          "mode": "restored",
+          "pcm": "D1C0701D63F18FEFD8DE6EFD8E65B532770617069AF73140811FF69819CCBC3B",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.0986,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art0-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3381,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 115,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "native",
+          "pcm": "31BA49559022AE99D4A9FE28249DFF14709347D8E51000D9ECE11BF4B31CEF38",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.0561,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 37,
+          "file": "phone0-art-24-native.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "coverage",
+          "pcm": "553026E0520A4991ED959EC38C58F345951DD1741CDB1758085898461C2FE3EA",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1583,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "early",
+          "pcm": "047E7228BB2F25A21B819293E61A3260E375ED1C9EE792C9E156DC1A49716028",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.191,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-early.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "late",
+          "pcm": "1547D75302118319570C03B602EF07598F38D024E2D3AAC287A482F28CB53B08",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1876,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-late.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "gain",
+          "pcm": "3D37A401F36AF2B53A08E34ED926CE729FDC59D176CB25A74532B6B00F3366A7",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.7726,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "release",
+          "pcm": "079358D8A7E332859D1D45B2335187A9272B111F116121A627ECD199076E4047",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.2125,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 67,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 37,
+          "file": "phone0-art-24-release.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "both-edges",
+          "pcm": "659E08C0D68747E9F3FDC76B47382A6735B68DCDC9B69165CC1C1678A3156411",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.1835,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 193,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone0-art-24-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": 0,
+          "transitionEnd": -24,
+          "mode": "restored",
+          "pcm": "31BA49559022AE99D4A9FE28249DFF14709347D8E51000D9ECE11BF4B31CEF38",
+          "positions": [
+            -158,
+            -2,
+            956
+          ],
+          "planMs": 0.0966,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 37,
+          "file": "phone0-art-24-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3357,
+              "End": 3496,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 139,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "native",
+          "pcm": "2902FBF844E63845A7EF767BD6FBE36AB860069615D385F4358EAF70F7A3713B",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0137,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 36,
+          "file": "phone-120-art0-native.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "coverage",
+          "pcm": "B64B63C5EC88C16B7802C0F612AF1713DC22D119E8FDA2AC23607968DCEFAEE4",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.2187,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "early",
+          "pcm": "4892FF036E268AC326D6FBF92188A612B8FF743529A6B511E198747C4C1DB565",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1624,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-early.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "late",
+          "pcm": "079AFE6C630E19DDEC9AD0FB3B2B423E5D894A003A039594EBA2881F9E83C640",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.155,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-late.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "gain",
+          "pcm": "418332B925BE754372CAB20EA2B03297285D7AACC5C151BC0897AA18836D6322",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.156,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 122,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "release",
+          "pcm": "8818F234A3D1D910B01007F6F90171F5A6093D96F30193A8E07763F50D35AE04",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.3214,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 28,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 36,
+          "file": "phone-120-art0-release.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "both-edges",
+          "pcm": "9D3756C0B248B6260F270E9EC64CB1253A9043B21CBDE1E46C43D534E138B8A5",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.2386,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 150,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art0-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": 0,
+          "mode": "restored",
+          "pcm": "2902FBF844E63845A7EF767BD6FBE36AB860069615D385F4358EAF70F7A3713B",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0909,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 36,
+          "file": "phone-120-art0-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3356,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 35,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "native",
+          "pcm": "61E4E4F3C9DE8D2C8358126FDDA8F50C3C8FA562699FB367E0993615D9035EBA",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0348,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 30,
+          "file": "phone-120-art-6-native.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "coverage",
+          "pcm": "472980B48A1436139C8200EFB082A9710B5536DD2584DD443B5E613228AB89EB",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1314,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-coverage.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "early",
+          "pcm": "30B97E89F6A59E009F6607DF222C4BFE1ECB5D9366CE611A07FF0BFBDFC9CE73",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1384,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-early.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "late",
+          "pcm": "D2FCF4BACD83641EF303850615142A2AF862B0831C60C104D39250418263C150",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1374,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-late.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "gain",
+          "pcm": "02E330D30B44C1D8DCFB30DA07127A28BF542ABC4B7E4FDDF60EB6D42E206BCD",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1487,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 98,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-gain.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "release",
+          "pcm": "76284DE4F465CE264B7519CEF4F323F79B61572D1181F4DE884217F1D483C527",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.13,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 28,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 30,
+          "file": "phone-120-art-6-release.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "both-edges",
+          "pcm": "D55DBF6830C7D3406F68097155BCA26538656361A607B541507E6FE7ED44064C",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.1234,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 126,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 61,
+          "file": "phone-120-art-6-both-edges.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "case",
+          "phoneEnd": -120,
+          "transitionEnd": -6,
+          "mode": "restored",
+          "pcm": "61E4E4F3C9DE8D2C8358126FDDA8F50C3C8FA562699FB367E0993615D9035EBA",
+          "positions": [
+            -158,
+            -2,
+            288
+          ],
+          "planMs": 0.0859,
+          "NativePlans": 0,
+          "cacheHit": true,
+          "Applied": 0,
+          "Failures": 0,
+          "sourceFirst": 26,
+          "sourceLast": 30,
+          "file": "phone-120-art-6-restored.wav",
+          "sustain": [
+            {
+              "Begin": 3350,
+              "End": 3391,
+              "From": 16,
+              "To": -1,
+              "Stage": -1,
+              "Reverse": 0,
+              "Bank": 4,
+              "Unit": 6,
+              "LeftLength": 41,
+              "SourceStart": 0,
+              "Direct": 1,
+              "materialId": 2,
+              "materialFrames": 316
+            }
+          ]
+        },
+        {
+          "kind": "short-note",
+          "mode": "native",
+          "pcm": "402285085EB8F9D5239934C36164AC281780E96D6511BCF7B69AB1C372728F5C",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 52,
+          "file": "short-note-native.wav",
+          "sustain": []
+        },
+        {
+          "kind": "short-note",
+          "mode": "coverage",
+          "pcm": "0D22DCC1F62C596DD55BC74F51AEDBCCEAA942A90B0A28EADA9A7E8C5367521B",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 61,
+          "file": "short-note-coverage.wav",
+          "sustain": []
+        },
+        {
+          "kind": "short-note",
+          "mode": "early",
+          "pcm": "8FEA93E42145E1ECEBA619E00C1E85531D31C09177FD594141A38B3E699EDA6A",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 61,
+          "file": "short-note-early.wav",
+          "sustain": []
+        },
+        {
+          "kind": "short-note",
+          "mode": "restored",
+          "pcm": "402285085EB8F9D5239934C36164AC281780E96D6511BCF7B69AB1C372728F5C",
+          "positions": [
+            -158,
+            -2,
+            237
+          ],
+          "sourceLast": 52,
+          "file": "short-note-restored.wav",
+          "sustain": []
+        }
+      ],
+      "host": {
+        "renderSteps": 15,
+        "acceptance": {
+          "name": "coverage-acceptance",
+          "fixedTiming": true,
+          "sharedUndo": true,
+          "saveReopen": true,
+          "velocityAndTimingInvalidation": true,
+          "gainComposition": true,
+          "coverageParallel": true,
+          "cacheReload": true
+        },
+        "probeReportSha256": "04543CE95BD5BFFF01F5D882172E0FA78FF8866E2D48121CE8C52E01EE08D2BC",
+        "renders": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-timing-only",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Epoch": 1,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-and-phase",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 2,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Epoch": 3,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-redo",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 4,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-reopened",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 5,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-velocity",
+            "hash": "0D28E82ECC7EE0E24C7DA4AE51014CC99A860CD665B428E4097A0C3736577755",
+            "Epoch": 6,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 98,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-velocity",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 7,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-more-compression",
+            "hash": "A45B4AEE37008093AB53E84EBD50A1A1BD54C1242ABAF9FA1E29D1B78A39F088",
+            "Epoch": 8,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 110,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-compression",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Epoch": 9,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-gain",
+            "hash": "7024F0E555FED95281F935C9261BDA0DC0759DF339B3158783694AD7E88517FB",
+            "Epoch": 10,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 122,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-parallel",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Epoch": 11,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 119,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-first",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Epoch": 13,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 119,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-second",
+            "hash": "29083F6735E7ABA0463CDE241A1885E95B795B6B17C12AB806B633DFFBBEF4CD",
+            "Epoch": 16,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 219,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-native-cache",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Epoch": 17,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          }
+        ],
+        "sharedStageCoverage": []
+      },
+      "general": {
+        "renderSteps": 40,
+        "acceptance": {
+          "name": "acceptance",
+          "saved": true,
+          "sharedHistory": true,
+          "cacheReload": true,
+          "copy": true,
+          "unknownSchema": true,
+          "rollback": true
+        },
+        "probeReportSha256": "CBD0AD683C77A4FA0F07BFFAB6ADE5F01F3C02973194176BB6B09BD89C8FFB61",
+        "renders": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Epoch": 1,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 38,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-undo",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-redo",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Epoch": 2,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 38,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-reset",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-a",
+            "hash": "D7311677EC8C814F36F400BFB39F3017EFE9FF37EB477295F3563E34806759A7",
+            "Epoch": 3,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 235,
+            "gainFailures": 0
+          },
+          {
+            "name": "timing-combined",
+            "hash": "4F0AA61C29A3F70509CF052217B4DDC1AAA72EF560DB5C6A1FA114F35EA9EBFC",
+            "Epoch": 4,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-moved",
+            "hash": "65F419CE7604DAC43F63F994215F5F96BCA4EB7CFD3F11B41EB466ED1FCCF1D5",
+            "Epoch": 5,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-b",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 6,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-transition",
+            "hash": "65F419CE7604DAC43F63F994215F5F96BCA4EB7CFD3F11B41EB466ED1FCCF1D5",
+            "Epoch": 7,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-native",
+            "hash": "4F0AA61C29A3F70509CF052217B4DDC1AAA72EF560DB5C6A1FA114F35EA9EBFC",
+            "Epoch": 8,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-timing",
+            "hash": "D7311677EC8C814F36F400BFB39F3017EFE9FF37EB477295F3563E34806759A7",
+            "Epoch": 9,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 235,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-all",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-15",
+            "hash": "D7311677EC8C814F36F400BFB39F3017EFE9FF37EB477295F3563E34806759A7",
+            "Epoch": 10,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 235,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-16",
+            "hash": "4F0AA61C29A3F70509CF052217B4DDC1AAA72EF560DB5C6A1FA114F35EA9EBFC",
+            "Epoch": 11,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-17",
+            "hash": "65F419CE7604DAC43F63F994215F5F96BCA4EB7CFD3F11B41EB466ED1FCCF1D5",
+            "Epoch": 12,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 243,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-18",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 13,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "after-save",
+            "hash": "3AE5718BABD71DAD9DCD244C19AFDEE76A2B789F02F1B43C72E9772E21764023",
+            "Epoch": 14,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 251,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-after-save",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 15,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "reopened",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 16,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-no-phase",
+            "hash": "7D2BC4F216AFEB8B75E802142AA7BB95EA962F4D32BFA6C82465CC9E11530D01",
+            "Epoch": 17,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-with-phase",
+            "hash": "44F7365AB5CA1847561B0987C6FFCC14055D6C4C575B8BA67BE2D9893AE4F69D",
+            "Epoch": 18,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 198,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-phase-undo",
+            "hash": "7D2BC4F216AFEB8B75E802142AA7BB95EA962F4D32BFA6C82465CC9E11530D01",
+            "Epoch": 19,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 160,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequence-copy",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 20,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "duration-combined",
+            "hash": "FB48B50B185A76957C4DC3D6685F8273389A7EAF9F2AB47973F6AA134683BFF4",
+            "Epoch": 21,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 249,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-duration",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 22,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-delete",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 23,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "same-locator-new-note",
+            "hash": "5BC30DC1C0A983B4AF462470B7587451949CBED2FDC5B7DF7F240F5234BEE273",
+            "Epoch": 24,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 231,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-replacement",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 25,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-part",
+            "hash": "B50A0791C72F960E7EA92BDE925327E72EBCF563ADF64D367C9F302D640B2C28",
+            "Epoch": 27,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 251,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-velocity",
+            "hash": "7687A7DF76FF57916BDB0FE22F4753B7048F3A02ADD828A9C14E207C8571B755",
+            "Epoch": 29,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 283,
+            "gainFailures": 0
+          },
+          {
+            "name": "parallel",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 30,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-first",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 32,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 247,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-second",
+            "hash": "B50A0791C72F960E7EA92BDE925327E72EBCF563ADF64D367C9F302D640B2C28",
+            "Epoch": 35,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 251,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-cache-reopen",
+            "hash": "6D056E951D24D72ACC342B7E73E0EEE5F89B82AE5FCE9DA8A8884B4D72A3700F",
+            "Epoch": 36,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-baseline",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-gains",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Epoch": 38,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 195,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-undo",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Epoch": 0,
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainApplied": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-redo",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Epoch": 39,
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainApplied": 195,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-reopened",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Epoch": 40,
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainApplied": 0,
+            "gainFailures": 0
+          }
+        ],
+        "sharedStageCoverage": [
+          {
+            "name": "shared-range",
+            "CurrentFrame": 3338,
+            "frame": 3337,
+            "reachable": 11,
+            "aliases": 2,
+            "coveredSources": [
+              {
+                "From": "Sil",
+                "To": "n",
+                "Stage": 0,
+                "Reverse": false,
+                "Sides": 3
+              },
+              {
+                "From": "n",
+                "To": "n#2",
+                "Stage": 0,
+                "Reverse": false,
+                "Sides": 1
+              },
+              {
+                "From": "n#2",
+                "To": "a",
+                "Stage": 1,
+                "Reverse": false,
+                "Sides": 2
+              },
+              {
+                "From": "a",
+                "To": "Sil",
+                "Stage": 0,
+                "Reverse": false,
+                "Sides": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "crossSdkExactPcmCases": 36,
+  "managedTests": 249,
+  "rustTests": 47,
+  "installedUnchangedSha256": {
+    "main": "70C0C80CDE6A25EFF78F4277EDC0F1450908BF0B4F9B07D04626CD685B8F63C5",
+    "native": "3CB49633673EF635076823DB71C6828D0A28F807462F5A637A72052EF4330623"
+  }
+}

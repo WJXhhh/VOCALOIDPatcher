@@ -1,0 +1,1710 @@
+{
+  "date": "2026-10-18",
+  "previous_user_feedback": "s is not audible",
+  "status": "Not accepted as intelligible s; native contribution gain diagnostic only.",
+  "sdk_versions": [
+    "6.13.1.1",
+    "6.13.3.1"
+  ],
+  "target_renders_per_sdk": 21,
+  "donor_renders_per_sdk": 2,
+  "s_output_frames": 2,
+  "s_output_ms": 11.609977324263038,
+  "gain_applied_before_native_ola_only_at": [
+    3341,
+    3342
+  ],
+  "phonemes": "s ei",
+  "boundaries": [
+    -25,
+    -13,
+    477
+  ],
+  "listening_order": [
+    "baseline",
+    "7-mid",
+    "7-mid-g4",
+    "7-mid-g16"
+  ],
+  "listening_common_gain": 4.0,
+  "duration_listening_order": [
+    "7-mid",
+    "7-full-s6",
+    "7-full-s12",
+    "7-full-s22"
+  ],
+  "new_human_listening_passed": false,
+  "cases": [
+    {
+      "mode": "warmup",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": false,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 0.8518133231524382,
+      "post_1_5_delta_samples": 25,
+      "post_1_5_delta_peak_lsb": 1.0,
+      "post_1_5_delta_rms_lsb": 0.011891489134236084,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 1.0291714894321304,
+      "head_peak_lsb": 5.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 112,
+      "different_seconds": [
+        1.4802721088435373,
+        1.501609977324263
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "baseline",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 0.8682777493406127,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 1.0628842467147388,
+      "head_peak_lsb": 5.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 0,
+      "different_seconds": null,
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "7-mid",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 85.53379608925059,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 97.1361971977766,
+      "head_peak_lsb": 290.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 739,
+      "different_seconds": [
+        1.4747165532879818,
+        1.4918367346938775
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "7-mid-g4",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 342.1296326641044,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 4,
+      "head_rms_lsb": 388.5354452188832,
+      "head_peak_lsb": 1161.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 754,
+      "different_seconds": [
+        1.4746712018140589,
+        1.491859410430839
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 1.2964402
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 1.3123676
+        }
+      ]
+    },
+    {
+      "mode": "7-mid-g16",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 1368.461161019468,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 16,
+      "head_rms_lsb": 1554.075870034561,
+      "head_peak_lsb": 4644.0,
+      "whole_peak_lsb": 4644.0,
+      "different_pcm_samples": 762,
+      "different_seconds": [
+        1.4745124716553288,
+        1.491859410430839
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 5.185761
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 5.24947
+        }
+      ]
+    },
+    {
+      "mode": "7-mid-g64",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 5473.829658999464,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 64,
+      "head_rms_lsb": 6216.28627258028,
+      "head_peak_lsb": 18578.0,
+      "whole_peak_lsb": 18578.0,
+      "different_pcm_samples": 764,
+      "different_seconds": [
+        1.4745124716553288,
+        1.491859410430839
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 20.743044
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 20.99788
+        }
+      ]
+    },
+    {
+      "mode": "a-mid",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 84.40189386204554,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 95.85077744350292,
+      "head_peak_lsb": 348.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 724,
+      "different_seconds": [
+        1.4747392290249433,
+        1.4916780045351474
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "a-mid-g4",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 337.59428659820355,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 4,
+      "head_rms_lsb": 383.38493884738426,
+      "head_peak_lsb": 1391.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 747,
+      "different_seconds": [
+        1.4746485260770974,
+        1.4917687074829933
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 1.2964402
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 1.3123676
+        }
+      ]
+    },
+    {
+      "mode": "a-mid-g16",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 1350.332209197171,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 16,
+      "head_rms_lsb": 1533.487953088319,
+      "head_peak_lsb": 5564.0,
+      "whole_peak_lsb": 5564.0,
+      "different_pcm_samples": 760,
+      "different_seconds": [
+        1.4745351473922903,
+        1.491859410430839
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 5.185761
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 5.24947
+        }
+      ]
+    },
+    {
+      "mode": "a-mid-g64",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 5401.358128003838,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 64,
+      "head_rms_lsb": 6133.984884064723,
+      "head_peak_lsb": 22254.0,
+      "whole_peak_lsb": 22254.0,
+      "different_pcm_samples": 765,
+      "different_seconds": [
+        1.4745124716553288,
+        1.491859410430839
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 20.743044
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 20.99788
+        }
+      ]
+    },
+    {
+      "mode": "7-mid-g16-repeat",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 1368.461161019468,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 16,
+      "head_rms_lsb": 1554.075870034561,
+      "head_peak_lsb": 4644.0,
+      "whole_peak_lsb": 4644.0,
+      "different_pcm_samples": 762,
+      "different_seconds": [
+        1.4745124716553288,
+        1.491859410430839
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 5.185761
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 5.24947
+        }
+      ]
+    },
+    {
+      "mode": "restore-final",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 2,
+      "duration_diagnostic_only": false,
+      "boundaries": [
+        -25,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 0.8682777493406127,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 1.0628842467147388,
+      "head_peak_lsb": 5.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 0,
+      "different_seconds": null,
+      "s_native_gain": [
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "baseline-s6",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 6,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -47,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 0.6713297205919011,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 1.1205657081569242,
+      "head_peak_lsb": 5.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 0,
+      "different_seconds": null,
+      "s_native_gain": [
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "7-full-s6",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 6,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -47,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 68.40837707976634,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 59.71041578442252,
+      "head_peak_lsb": 264.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 1731,
+      "different_seconds": [
+        1.4515873015873015,
+        1.4917233560090704
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "a-full-s6",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 6,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -47,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 87.260181958719,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 61.95051653328287,
+      "head_peak_lsb": 310.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 1741,
+      "different_seconds": [
+        1.45156462585034,
+        1.4917233560090704
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "baseline-s12",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 12,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -80,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 0.5610099311573217,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 1.1205657081569242,
+      "head_peak_lsb": 5.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 0,
+      "different_seconds": null,
+      "s_native_gain": [
+        {
+          "Time": 3329,
+          "Lane": "primary",
+          "OriginalGain": 0.26877508,
+          "AppliedGain": 0.26877508
+        },
+        {
+          "Time": 3330,
+          "Lane": "primary",
+          "OriginalGain": 0.27370936,
+          "AppliedGain": 0.27370936
+        },
+        {
+          "Time": 3331,
+          "Lane": "primary",
+          "OriginalGain": 0.27861798,
+          "AppliedGain": 0.27861798
+        },
+        {
+          "Time": 3332,
+          "Lane": "primary",
+          "OriginalGain": 0.28349084,
+          "AppliedGain": 0.28349084
+        },
+        {
+          "Time": 3333,
+          "Lane": "primary",
+          "OriginalGain": 0.28831777,
+          "AppliedGain": 0.28831777
+        },
+        {
+          "Time": 3334,
+          "Lane": "primary",
+          "OriginalGain": 0.29308882,
+          "AppliedGain": 0.29308882
+        },
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "7-full-s12",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 12,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -80,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 74.53524715996069,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 44.51940397146856,
+      "head_peak_lsb": 181.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 3259,
+      "different_seconds": [
+        1.4168934240362812,
+        1.4917233560090704
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3329,
+          "Lane": "primary",
+          "OriginalGain": 0.26877508,
+          "AppliedGain": 0.26877508
+        },
+        {
+          "Time": 3330,
+          "Lane": "primary",
+          "OriginalGain": 0.27370936,
+          "AppliedGain": 0.27370936
+        },
+        {
+          "Time": 3331,
+          "Lane": "primary",
+          "OriginalGain": 0.27861798,
+          "AppliedGain": 0.27861798
+        },
+        {
+          "Time": 3332,
+          "Lane": "primary",
+          "OriginalGain": 0.28349084,
+          "AppliedGain": 0.28349084
+        },
+        {
+          "Time": 3333,
+          "Lane": "primary",
+          "OriginalGain": 0.28831777,
+          "AppliedGain": 0.28831777
+        },
+        {
+          "Time": 3334,
+          "Lane": "primary",
+          "OriginalGain": 0.29308882,
+          "AppliedGain": 0.29308882
+        },
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "a-full-s12",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 12,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -80,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 97.46147361540207,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 43.89988897354034,
+      "head_peak_lsb": 186.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 3267,
+      "different_seconds": [
+        1.4168480725623582,
+        1.4917233560090704
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3329,
+          "Lane": "primary",
+          "OriginalGain": 0.26877508,
+          "AppliedGain": 0.26877508
+        },
+        {
+          "Time": 3330,
+          "Lane": "primary",
+          "OriginalGain": 0.27370936,
+          "AppliedGain": 0.27370936
+        },
+        {
+          "Time": 3331,
+          "Lane": "primary",
+          "OriginalGain": 0.27861798,
+          "AppliedGain": 0.27861798
+        },
+        {
+          "Time": 3332,
+          "Lane": "primary",
+          "OriginalGain": 0.28349084,
+          "AppliedGain": 0.28349084
+        },
+        {
+          "Time": 3333,
+          "Lane": "primary",
+          "OriginalGain": 0.28831777,
+          "AppliedGain": 0.28831777
+        },
+        {
+          "Time": 3334,
+          "Lane": "primary",
+          "OriginalGain": 0.29308882,
+          "AppliedGain": 0.29308882
+        },
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "baseline-s22",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 22,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -136,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 0.4795627891632127,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 1.1205657081569242,
+      "head_peak_lsb": 5.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 0,
+      "different_seconds": null,
+      "s_native_gain": [
+        {
+          "Time": 3319,
+          "Lane": "primary",
+          "OriginalGain": 0.22027226,
+          "AppliedGain": 0.22027226
+        },
+        {
+          "Time": 3320,
+          "Lane": "primary",
+          "OriginalGain": 0.22490197,
+          "AppliedGain": 0.22490197
+        },
+        {
+          "Time": 3321,
+          "Lane": "primary",
+          "OriginalGain": 0.22960722,
+          "AppliedGain": 0.22960722
+        },
+        {
+          "Time": 3322,
+          "Lane": "primary",
+          "OriginalGain": 0.2343783,
+          "AppliedGain": 0.2343783
+        },
+        {
+          "Time": 3323,
+          "Lane": "primary",
+          "OriginalGain": 0.23920521,
+          "AppliedGain": 0.23920521
+        },
+        {
+          "Time": 3324,
+          "Lane": "primary",
+          "OriginalGain": 0.24407807,
+          "AppliedGain": 0.24407807
+        },
+        {
+          "Time": 3325,
+          "Lane": "primary",
+          "OriginalGain": 0.24898672,
+          "AppliedGain": 0.24898672
+        },
+        {
+          "Time": 3326,
+          "Lane": "primary",
+          "OriginalGain": 0.25392097,
+          "AppliedGain": 0.25392097
+        },
+        {
+          "Time": 3327,
+          "Lane": "primary",
+          "OriginalGain": 0.25887063,
+          "AppliedGain": 0.25887063
+        },
+        {
+          "Time": 3328,
+          "Lane": "primary",
+          "OriginalGain": 0.26382542,
+          "AppliedGain": 0.26382542
+        },
+        {
+          "Time": 3329,
+          "Lane": "primary",
+          "OriginalGain": 0.26877508,
+          "AppliedGain": 0.26877508
+        },
+        {
+          "Time": 3330,
+          "Lane": "primary",
+          "OriginalGain": 0.27370936,
+          "AppliedGain": 0.27370936
+        },
+        {
+          "Time": 3331,
+          "Lane": "primary",
+          "OriginalGain": 0.27861798,
+          "AppliedGain": 0.27861798
+        },
+        {
+          "Time": 3332,
+          "Lane": "primary",
+          "OriginalGain": 0.28349084,
+          "AppliedGain": 0.28349084
+        },
+        {
+          "Time": 3333,
+          "Lane": "primary",
+          "OriginalGain": 0.28831777,
+          "AppliedGain": 0.28831777
+        },
+        {
+          "Time": 3334,
+          "Lane": "primary",
+          "OriginalGain": 0.29308882,
+          "AppliedGain": 0.29308882
+        },
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "7-full-s22",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 22,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -136,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 68.30417473667575,
+      "post_1_5_delta_samples": 0,
+      "post_1_5_delta_peak_lsb": 0.0,
+      "post_1_5_delta_rms_lsb": 0.0,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 38.26962544548921,
+      "head_peak_lsb": 125.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 5800,
+      "different_seconds": [
+        1.3587528344671203,
+        1.4917233560090704
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3319,
+          "Lane": "primary",
+          "OriginalGain": 0.22027226,
+          "AppliedGain": 0.22027226
+        },
+        {
+          "Time": 3320,
+          "Lane": "primary",
+          "OriginalGain": 0.22490197,
+          "AppliedGain": 0.22490197
+        },
+        {
+          "Time": 3321,
+          "Lane": "primary",
+          "OriginalGain": 0.22960722,
+          "AppliedGain": 0.22960722
+        },
+        {
+          "Time": 3322,
+          "Lane": "primary",
+          "OriginalGain": 0.2343783,
+          "AppliedGain": 0.2343783
+        },
+        {
+          "Time": 3323,
+          "Lane": "primary",
+          "OriginalGain": 0.23920521,
+          "AppliedGain": 0.23920521
+        },
+        {
+          "Time": 3324,
+          "Lane": "primary",
+          "OriginalGain": 0.24407807,
+          "AppliedGain": 0.24407807
+        },
+        {
+          "Time": 3325,
+          "Lane": "primary",
+          "OriginalGain": 0.24898672,
+          "AppliedGain": 0.24898672
+        },
+        {
+          "Time": 3326,
+          "Lane": "primary",
+          "OriginalGain": 0.25392097,
+          "AppliedGain": 0.25392097
+        },
+        {
+          "Time": 3327,
+          "Lane": "primary",
+          "OriginalGain": 0.25887063,
+          "AppliedGain": 0.25887063
+        },
+        {
+          "Time": 3328,
+          "Lane": "primary",
+          "OriginalGain": 0.26382542,
+          "AppliedGain": 0.26382542
+        },
+        {
+          "Time": 3329,
+          "Lane": "primary",
+          "OriginalGain": 0.26877508,
+          "AppliedGain": 0.26877508
+        },
+        {
+          "Time": 3330,
+          "Lane": "primary",
+          "OriginalGain": 0.27370936,
+          "AppliedGain": 0.27370936
+        },
+        {
+          "Time": 3331,
+          "Lane": "primary",
+          "OriginalGain": 0.27861798,
+          "AppliedGain": 0.27861798
+        },
+        {
+          "Time": 3332,
+          "Lane": "primary",
+          "OriginalGain": 0.28349084,
+          "AppliedGain": 0.28349084
+        },
+        {
+          "Time": 3333,
+          "Lane": "primary",
+          "OriginalGain": 0.28831777,
+          "AppliedGain": 0.28831777
+        },
+        {
+          "Time": 3334,
+          "Lane": "primary",
+          "OriginalGain": 0.29308882,
+          "AppliedGain": 0.29308882
+        },
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    },
+    {
+      "mode": "a-full-s22",
+      "cross_sdk_pcm_equal": true,
+      "same_context_schedule": true,
+      "s_output_frames": 22,
+      "duration_diagnostic_only": true,
+      "boundaries": [
+        -136,
+        -13,
+        477
+      ],
+      "s_window_rms_lsb": 89.5382432550937,
+      "post_1_5_delta_samples": 443,
+      "post_1_5_delta_peak_lsb": 6.0,
+      "post_1_5_delta_rms_lsb": 0.10151738574207497,
+      "s_contribution_multiplier": 1,
+      "head_rms_lsb": 35.0716790305966,
+      "head_peak_lsb": 145.0,
+      "whole_peak_lsb": 1556.0,
+      "different_pcm_samples": 6486,
+      "different_seconds": [
+        1.3587755102040817,
+        1.5146938775510204
+      ],
+      "s_native_gain": [
+        {
+          "Time": 3319,
+          "Lane": "primary",
+          "OriginalGain": 0.22027226,
+          "AppliedGain": 0.22027226
+        },
+        {
+          "Time": 3320,
+          "Lane": "primary",
+          "OriginalGain": 0.22490197,
+          "AppliedGain": 0.22490197
+        },
+        {
+          "Time": 3321,
+          "Lane": "primary",
+          "OriginalGain": 0.22960722,
+          "AppliedGain": 0.22960722
+        },
+        {
+          "Time": 3322,
+          "Lane": "primary",
+          "OriginalGain": 0.2343783,
+          "AppliedGain": 0.2343783
+        },
+        {
+          "Time": 3323,
+          "Lane": "primary",
+          "OriginalGain": 0.23920521,
+          "AppliedGain": 0.23920521
+        },
+        {
+          "Time": 3324,
+          "Lane": "primary",
+          "OriginalGain": 0.24407807,
+          "AppliedGain": 0.24407807
+        },
+        {
+          "Time": 3325,
+          "Lane": "primary",
+          "OriginalGain": 0.24898672,
+          "AppliedGain": 0.24898672
+        },
+        {
+          "Time": 3326,
+          "Lane": "primary",
+          "OriginalGain": 0.25392097,
+          "AppliedGain": 0.25392097
+        },
+        {
+          "Time": 3327,
+          "Lane": "primary",
+          "OriginalGain": 0.25887063,
+          "AppliedGain": 0.25887063
+        },
+        {
+          "Time": 3328,
+          "Lane": "primary",
+          "OriginalGain": 0.26382542,
+          "AppliedGain": 0.26382542
+        },
+        {
+          "Time": 3329,
+          "Lane": "primary",
+          "OriginalGain": 0.26877508,
+          "AppliedGain": 0.26877508
+        },
+        {
+          "Time": 3330,
+          "Lane": "primary",
+          "OriginalGain": 0.27370936,
+          "AppliedGain": 0.27370936
+        },
+        {
+          "Time": 3331,
+          "Lane": "primary",
+          "OriginalGain": 0.27861798,
+          "AppliedGain": 0.27861798
+        },
+        {
+          "Time": 3332,
+          "Lane": "primary",
+          "OriginalGain": 0.28349084,
+          "AppliedGain": 0.28349084
+        },
+        {
+          "Time": 3333,
+          "Lane": "primary",
+          "OriginalGain": 0.28831777,
+          "AppliedGain": 0.28831777
+        },
+        {
+          "Time": 3334,
+          "Lane": "primary",
+          "OriginalGain": 0.29308882,
+          "AppliedGain": 0.29308882
+        },
+        {
+          "Time": 3335,
+          "Lane": "primary",
+          "OriginalGain": 0.29779407,
+          "AppliedGain": 0.29779407
+        },
+        {
+          "Time": 3336,
+          "Lane": "primary",
+          "OriginalGain": 0.3024238,
+          "AppliedGain": 0.3024238
+        },
+        {
+          "Time": 3337,
+          "Lane": "primary",
+          "OriginalGain": 0.30696842,
+          "AppliedGain": 0.30696842
+        },
+        {
+          "Time": 3338,
+          "Lane": "primary",
+          "OriginalGain": 0.31141844,
+          "AppliedGain": 0.31141844
+        },
+        {
+          "Time": 3339,
+          "Lane": "primary",
+          "OriginalGain": 0.3157647,
+          "AppliedGain": 0.3157647
+        },
+        {
+          "Time": 3340,
+          "Lane": "primary",
+          "OriginalGain": 0.31999817,
+          "AppliedGain": 0.31999817
+        },
+        {
+          "Time": 3341,
+          "Lane": "primary",
+          "OriginalGain": 0.32411006,
+          "AppliedGain": 0.32411006
+        },
+        {
+          "Time": 3342,
+          "Lane": "primary",
+          "OriginalGain": 0.3280919,
+          "AppliedGain": 0.3280919
+        }
+      ]
+    }
+  ],
+  "installed_main_sha256_unchanged": "829B144A29DD33FF1CDDA89B727D56687776B0C3BF8DE87B5B8A7C6AF5976613",
+  "native_sha256_unchanged": "3CB49633673EF635076823DB71C6828D0A28F807462F5A637A72052EF4330623",
+  "scope": "Independent process only, no UI or deployment. Longer allocations are explicitly diagnostic, not a fixed-boundary solution."
+}

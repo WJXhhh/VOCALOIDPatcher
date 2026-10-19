@@ -1,0 +1,87 @@
+{
+  "semantic": "transition.fixed-phase.v1; dimensionless [-1,1], distinct from legacy Onsets.OffsetSeconds",
+  "audioRenders": 32,
+  "acceptedPrototypePcmExact": true,
+  "audioCrossVersionPcmExact": true,
+  "hostCrossVersionPcmExact": true,
+  "legacyDeployedPcmExact": true,
+  "legacyRawSaveUndoAndNoop": true,
+  "fixedRange": true,
+  "phaseOnlyUndoRedo": true,
+  "combinedTimingGainDuration": true,
+  "cacheReopenReuse": true,
+  "multiPartConcurrent": true,
+  "sharedJunctionIndependentPhases": true,
+  "hostVersions": [
+    {
+      "version": "6.13.1.1",
+      "renders": 40,
+      "acceptance": {
+        "name": "acceptance",
+        "saved": true,
+        "sharedHistory": true,
+        "cacheReload": true,
+        "copy": true,
+        "unknownSchema": true,
+        "rollback": true
+      }
+    },
+    {
+      "version": "6.13.3.1",
+      "renders": 40,
+      "acceptance": {
+        "name": "acceptance",
+        "saved": true,
+        "sharedHistory": true,
+        "cacheReload": true,
+        "copy": true,
+        "unknownSchema": true,
+        "rollback": true
+      }
+    }
+  ],
+  "preview": [
+    {
+      "version": "6.13.1.1",
+      "timing": "original",
+      "count": 51,
+      "totalMilliseconds": 6.6567,
+      "maximumMilliseconds": 2.6367,
+      "medianMilliseconds": 0.0197,
+      "noNativePlanning": true,
+      "noAudio": true
+    },
+    {
+      "version": "6.13.1.1",
+      "timing": "edited",
+      "count": 51,
+      "totalMilliseconds": 1.2991,
+      "maximumMilliseconds": 0.1566,
+      "medianMilliseconds": 0.0156,
+      "noNativePlanning": true,
+      "noAudio": true
+    },
+    {
+      "version": "6.13.3.1",
+      "timing": "original",
+      "count": 51,
+      "totalMilliseconds": 11.2532,
+      "maximumMilliseconds": 4.1737,
+      "medianMilliseconds": 0.0383,
+      "noNativePlanning": true,
+      "noAudio": true
+    },
+    {
+      "version": "6.13.3.1",
+      "timing": "edited",
+      "count": 51,
+      "totalMilliseconds": 1.8606,
+      "maximumMilliseconds": 0.1873,
+      "medianMilliseconds": 0.0216,
+      "noNativePlanning": true,
+      "noAudio": true
+    }
+  ],
+  "ui": "isolated WPF hit/draw and production phase-drag calculation; actual Editor gesture validation remains pending deployment",
+  "deployed": false
+}

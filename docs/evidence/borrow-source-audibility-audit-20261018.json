@@ -1,0 +1,151 @@
+{
+  "sdk_versions": [
+    "6.13.1.1",
+    "6.13.3.1"
+  ],
+  "source_audit": [
+    {
+      "vowel": "7",
+      "left_native_lanes": [
+        "primary"
+      ],
+      "left_primary_calls": 22,
+      "auxiliary_left_mute_pcm_equal_reference": true,
+      "left_all_lanes_mute_pcm_equal_primary_mute": true,
+      "additive_quantization_error_lsb": 1.0,
+      "left": {
+        "rms_lsb": 85.67334302548863,
+        "peak_lsb": 422.0,
+        "changed_samples": 5796,
+        "support_samples": [
+          13,
+          5863
+        ],
+        "power_below_4khz": 0.0037046458629511323
+      },
+      "right_first4": {
+        "rms_lsb": 236.35317191651987,
+        "peak_lsb": 656.0,
+        "changed_samples": 1212,
+        "support_samples": [
+          9,
+          1273
+        ],
+        "power_below_4khz": 0.9961115448906488
+      },
+      "right_late": {
+        "rms_lsb": 533.8751180929394,
+        "peak_lsb": 1305.0,
+        "changed_samples": 6373,
+        "support_samples": [
+          7,
+          6395
+        ],
+        "power_below_4khz": 0.9962591798774166
+      }
+    },
+    {
+      "vowel": "a",
+      "left_native_lanes": [
+        "primary"
+      ],
+      "left_primary_calls": 23,
+      "auxiliary_left_mute_pcm_equal_reference": true,
+      "left_all_lanes_mute_pcm_equal_primary_mute": true,
+      "additive_quantization_error_lsb": 1.0,
+      "left": {
+        "rms_lsb": 113.02421773926558,
+        "peak_lsb": 551.0,
+        "changed_samples": 6020,
+        "support_samples": [
+          20,
+          6123
+        ],
+        "power_below_4khz": 0.0009795583953151386
+      },
+      "right_first4": {
+        "rms_lsb": 318.9172441147546,
+        "peak_lsb": 1092.0,
+        "changed_samples": 1215,
+        "support_samples": [
+          26,
+          1275
+        ],
+        "power_below_4khz": 0.9983497748596775
+      },
+      "right_late": {
+        "rms_lsb": 683.5866337384698,
+        "peak_lsb": 2471.0,
+        "changed_samples": 7153,
+        "support_samples": [
+          6,
+          7162
+        ],
+        "power_below_4khz": 0.9897394317259071
+      }
+    }
+  ],
+  "cross_sdk_pcm_equal": true,
+  "audit_renders_per_sdk": 18,
+  "preparation_renders_per_sdk": 2,
+  "listening_order": [
+    "7-native",
+    "7-isolated-left",
+    "a-native",
+    "a-isolated-left",
+    "baseline",
+    "7-grain-layer128-n512"
+  ],
+  "common_playback_gain": 11.93456090651558,
+  "source_controls_are_uncompressed": true,
+  "is_target_fix": false,
+  "prior_target_listening_feedback": "User reports s remains inaudible.",
+  "source_control_human_listening": {
+    "reported_sequence": [
+      "se",
+      "\u5636",
+      "sa",
+      "\u5636",
+      "ei",
+      "ei"
+    ],
+    "audible_uncompressed_donors": true,
+    "audible_isolated_uncompressed_s": true,
+    "target_s_audible": false,
+    "correction_supersedes": "Initial response that none of the first four had s",
+    "diagnostic_duration_and_masking_evaluated": true
+  },
+  "compact_vs_native_s": {
+    "source_samples": 5888,
+    "target_samples": 512,
+    "source_rms_lsb": 85.67334302548863,
+    "target_rms_lsb": 74.41402600064721,
+    "total_energy_ratio": 0.06560249180776685,
+    "interpretation": "Duration and energy change together; not proof of a perceptual minimum duration."
+  },
+  "ablation": {
+    "order": [
+      "uncompressed-s",
+      "compact-s-only",
+      "compact-s-with-ei",
+      "compact-s-with-ei-after-80ms-gap"
+    ],
+    "offline_diagnostic_only": true,
+    "gap_changes_vowel_timing": true,
+    "human_listening_passed": false,
+    "human_listening_feedback": {
+      "reported_sequence": [
+        "\u5636",
+        "\u5636",
+        "ei",
+        "ei"
+      ],
+      "compact_s_solo_audible": true,
+      "compact_s_before_ei_audible": false,
+      "compact_s_before_80ms_gap_then_ei_audible": false,
+      "accepted_as_sei": false
+    }
+  },
+  "frontend": false,
+  "deployed": false
+}

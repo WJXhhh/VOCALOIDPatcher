@@ -1,0 +1,1108 @@
+{
+  "date": "2026-10-18",
+  "deployed": false,
+  "managedTests": 258,
+  "rustTests": 47,
+  "translationKeysPerLanguage": 1364,
+  "versions": {
+    "old": {
+      "sdk": "6.13.1.1",
+      "expressionUi": {
+        "renderSteps": 23,
+        "reportSha256": "6E28E616F8A82C6F8555D2B2C504EE3053B692E90CB4D342649186E2476CF1DC",
+        "acceptance": [
+          {
+            "name": "expression-ui-acceptance",
+            "fixedTiming": true,
+            "productionDiamondPlan": true,
+            "reset": true,
+            "zeroProgressWithFullSource": true,
+            "sourceSwitchKeepsPhase": true,
+            "returnedDragIsNoOp": true,
+            "sharedUndo": true
+          },
+          {
+            "name": "coverage-acceptance",
+            "fixedTiming": true,
+            "sharedUndo": true,
+            "saveReopen": true,
+            "velocityAndTimingInvalidation": true,
+            "gainComposition": true,
+            "coverageParallel": true,
+            "cacheReload": true
+          }
+        ],
+        "renderResults": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-timing-only",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-and-phase",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-redo",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-reopened",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-reset-diamond",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-reset-diamond",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-zero-progress",
+            "hash": "5730C2D3724D01EDBFA331F4C1A43F5DC307A86E970AF162E0D24B6E5ADBC52B",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-zero-progress",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-source-off",
+            "hash": "17E95C087186F27C8DEDF95E296D571A41AA27D546EF46D683A82F30B7BEB03F",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-source-off",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-late-diamond",
+            "hash": "AF69C37477C7B2675E64BCB59A23E72C5D1D9EB6BB435DBDC4D7B70C81578290",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-late-diamond",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-velocity",
+            "hash": "0D28E82ECC7EE0E24C7DA4AE51014CC99A860CD665B428E4097A0C3736577755",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-velocity",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-more-compression",
+            "hash": "A45B4AEE37008093AB53E84EBD50A1A1BD54C1242ABAF9FA1E29D1B78A39F088",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-compression",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-gain",
+            "hash": "7024F0E555FED95281F935C9261BDA0DC0759DF339B3158783694AD7E88517FB",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-parallel",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-first",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-second",
+            "hash": "29083F6735E7ABA0463CDE241A1885E95B795B6B17C12AB806B633DFFBBEF4CD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-native-cache",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          }
+        ],
+        "repeatComparisons": [
+          {
+            "name": "pcm-comparison",
+            "a": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "b": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "peak": 1677,
+            "rms": 102.67525083560484,
+            "changed": 19066,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "5730C2D3724D01EDBFA331F4C1A43F5DC307A86E970AF162E0D24B6E5ADBC52B",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 1229,
+            "rms": 45.7562338483539,
+            "changed": 8868,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "17E95C087186F27C8DEDF95E296D571A41AA27D546EF46D683A82F30B7BEB03F",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 1592,
+            "rms": 98.18246664059183,
+            "changed": 12725,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "AF69C37477C7B2675E64BCB59A23E72C5D1D9EB6BB435DBDC4D7B70C81578290",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 1664,
+            "rms": 61.68770064547693,
+            "changed": 8879,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "0D28E82ECC7EE0E24C7DA4AE51014CC99A860CD665B428E4097A0C3736577755",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 343,
+            "rms": 12.841519220036092,
+            "changed": 4718,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "7024F0E555FED95281F935C9261BDA0DC0759DF339B3158783694AD7E88517FB",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 748,
+            "rms": 29.282033178565328,
+            "changed": 9586,
+            "equal": false
+          }
+        ]
+      },
+      "combinedRegression": {
+        "renderSteps": 40,
+        "reportSha256": "E60F1343E885A1BC50A94106543CB1F71B2D45B8169BB971A9AE4224B7272E3C",
+        "acceptance": [
+          {
+            "name": "acceptance",
+            "saved": true,
+            "sharedHistory": true,
+            "cacheReload": true,
+            "copy": true,
+            "unknownSchema": true,
+            "rollback": true
+          }
+        ],
+        "renderResults": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-undo",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-redo",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-reset",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-a",
+            "hash": "B8015BABAAE18525CD4E435476741FF9F0C4761C7F40EFE49E7432BF81E9E7C6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "timing-combined",
+            "hash": "3BDDC9A1402DE99517807904712F7B76FE51C6C138392F9FADD1F4DC69586104",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-moved",
+            "hash": "8B330082597C6516BB1933AC19BABCE04F0025E4A22F3B8F0DD26978DD14AAB7",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-b",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-transition",
+            "hash": "8B330082597C6516BB1933AC19BABCE04F0025E4A22F3B8F0DD26978DD14AAB7",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-native",
+            "hash": "3BDDC9A1402DE99517807904712F7B76FE51C6C138392F9FADD1F4DC69586104",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-timing",
+            "hash": "B8015BABAAE18525CD4E435476741FF9F0C4761C7F40EFE49E7432BF81E9E7C6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-all",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-15",
+            "hash": "B8015BABAAE18525CD4E435476741FF9F0C4761C7F40EFE49E7432BF81E9E7C6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-16",
+            "hash": "3BDDC9A1402DE99517807904712F7B76FE51C6C138392F9FADD1F4DC69586104",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-17",
+            "hash": "8B330082597C6516BB1933AC19BABCE04F0025E4A22F3B8F0DD26978DD14AAB7",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-18",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "after-save",
+            "hash": "26BDE37F474B80EECF3F6A3324F19A28593A74ED7B4621A0ACA2F4FEC32487D1",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-after-save",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "reopened",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-no-phase",
+            "hash": "7A72639C67E048D8BA5DDF49C8A982F8A0768DE2BA15ACF2EF6A03A7518F3704",
+            "Scopes": 1,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-with-phase",
+            "hash": "40FCDD3DD1D82694EB2FA4BB0A4182A6988A01237CBA5240C62BB42BA6D6D7F0",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-phase-undo",
+            "hash": "7A72639C67E048D8BA5DDF49C8A982F8A0768DE2BA15ACF2EF6A03A7518F3704",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequence-copy",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "duration-combined",
+            "hash": "4D4BB1805CA3E1315B44B46947B4A08A7EEB1735F01AD60038F4837591390C8D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-duration",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-delete",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "same-locator-new-note",
+            "hash": "09100F3CC5800323310B486A94F3ABA14B6C340B1BE31E3FB1528D7DEECE250D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-replacement",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-part",
+            "hash": "DBA4F494047B49CCAB300981A1D01D3688D627EE2E647F7C2E50C134FD11A950",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-velocity",
+            "hash": "617F691498D17CEFB587E643E1509E071C85C46D0C181B7F30FC2657CD8D8030",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "parallel",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-first",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-second",
+            "hash": "DBA4F494047B49CCAB300981A1D01D3688D627EE2E647F7C2E50C134FD11A950",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-cache-reopen",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-baseline",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-gains",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-undo",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-redo",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-reopened",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          }
+        ],
+        "repeatComparisons": []
+      },
+      "wpfPngSha256": "38919E32C1D24CA3A9CA141AE91F8DDC201A9725F3B389B3AD738BF3AF890321"
+    },
+    "new": {
+      "sdk": "6.13.3.1",
+      "expressionUi": {
+        "renderSteps": 23,
+        "reportSha256": "D93C7213FE90DD57E42B744E86DD54C3DA24BF90AA985DB9212788978B750B92",
+        "acceptance": [
+          {
+            "name": "expression-ui-acceptance",
+            "fixedTiming": true,
+            "productionDiamondPlan": true,
+            "reset": true,
+            "zeroProgressWithFullSource": true,
+            "sourceSwitchKeepsPhase": true,
+            "returnedDragIsNoOp": true,
+            "sharedUndo": true
+          },
+          {
+            "name": "coverage-acceptance",
+            "fixedTiming": true,
+            "sharedUndo": true,
+            "saveReopen": true,
+            "velocityAndTimingInvalidation": true,
+            "gainComposition": true,
+            "coverageParallel": true,
+            "cacheReload": true
+          }
+        ],
+        "renderResults": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-timing-only",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-and-phase",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-redo",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-reopened",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-reset-diamond",
+            "hash": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-reset-diamond",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-zero-progress",
+            "hash": "5730C2D3724D01EDBFA331F4C1A43F5DC307A86E970AF162E0D24B6E5ADBC52B",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-zero-progress",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-source-off",
+            "hash": "17E95C087186F27C8DEDF95E296D571A41AA27D546EF46D683A82F30B7BEB03F",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-source-off",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-late-diamond",
+            "hash": "AF69C37477C7B2675E64BCB59A23E72C5D1D9EB6BB435DBDC4D7B70C81578290",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "ui-undo-late-diamond",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-velocity",
+            "hash": "0D28E82ECC7EE0E24C7DA4AE51014CC99A860CD665B428E4097A0C3736577755",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-velocity",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-more-compression",
+            "hash": "A45B4AEE37008093AB53E84EBD50A1A1BD54C1242ABAF9FA1E29D1B78A39F088",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-undo-compression",
+            "hash": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-gain",
+            "hash": "7024F0E555FED95281F935C9261BDA0DC0759DF339B3158783694AD7E88517FB",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-parallel",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-first",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-sequential-second",
+            "hash": "29083F6735E7ABA0463CDE241A1885E95B795B6B17C12AB806B633DFFBBEF4CD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "coverage-native-cache",
+            "hash": "A54DFB3F46CF4A1D91B11FA9D7B309FCF605E7C88E0BE2093C28C8DA5C06E274",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          }
+        ],
+        "repeatComparisons": [
+          {
+            "name": "pcm-comparison",
+            "a": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "b": "8934247D7AA6D36E7F61B7A3958E5FD9E6BBE201E765976DA3BE15EEE907C2A3",
+            "peak": 1677,
+            "rms": 102.67525083560484,
+            "changed": 19066,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "5730C2D3724D01EDBFA331F4C1A43F5DC307A86E970AF162E0D24B6E5ADBC52B",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 1229,
+            "rms": 45.7562338483539,
+            "changed": 8868,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "17E95C087186F27C8DEDF95E296D571A41AA27D546EF46D683A82F30B7BEB03F",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 1592,
+            "rms": 98.18246664059183,
+            "changed": 12725,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "AF69C37477C7B2675E64BCB59A23E72C5D1D9EB6BB435DBDC4D7B70C81578290",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 1664,
+            "rms": 61.68770064547693,
+            "changed": 8879,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "0D28E82ECC7EE0E24C7DA4AE51014CC99A860CD665B428E4097A0C3736577755",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 343,
+            "rms": 12.841519220036092,
+            "changed": 4718,
+            "equal": false
+          },
+          {
+            "name": "pcm-comparison",
+            "a": "7024F0E555FED95281F935C9261BDA0DC0759DF339B3158783694AD7E88517FB",
+            "b": "7697445266418CBD2A627696F439BB5174698554557DB093CB6DCC43F022F82D",
+            "peak": 748,
+            "rms": 29.282033178565328,
+            "changed": 9586,
+            "equal": false
+          }
+        ]
+      },
+      "combinedRegression": {
+        "renderSteps": 40,
+        "reportSha256": "2571B15DEC8C11BC0621715572930E6D07A945819F78725B5CC77D89673D4271",
+        "acceptance": [
+          {
+            "name": "acceptance",
+            "saved": true,
+            "sharedHistory": true,
+            "cacheReload": true,
+            "copy": true,
+            "unknownSchema": true,
+            "rollback": true
+          }
+        ],
+        "renderResults": [
+          {
+            "name": "baseline",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-undo",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-redo",
+            "hash": "7ADA8A24CF24EF33C0E2E2B2E7416AE971ADD8F13E8F203A1E2C4DD1C414FAB6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "phase-only-reset",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-a",
+            "hash": "B8015BABAAE18525CD4E435476741FF9F0C4761C7F40EFE49E7432BF81E9E7C6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "timing-combined",
+            "hash": "3BDDC9A1402DE99517807904712F7B76FE51C6C138392F9FADD1F4DC69586104",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-moved",
+            "hash": "8B330082597C6516BB1933AC19BABCE04F0025E4A22F3B8F0DD26978DD14AAB7",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "transition-b",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-transition",
+            "hash": "8B330082597C6516BB1933AC19BABCE04F0025E4A22F3B8F0DD26978DD14AAB7",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-native",
+            "hash": "3BDDC9A1402DE99517807904712F7B76FE51C6C138392F9FADD1F4DC69586104",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-timing",
+            "hash": "B8015BABAAE18525CD4E435476741FF9F0C4761C7F40EFE49E7432BF81E9E7C6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-all",
+            "hash": "1DBBD3E46A749A46F5CB4317750A77D480CE8E18E95D01225F68919B94310821",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-15",
+            "hash": "B8015BABAAE18525CD4E435476741FF9F0C4761C7F40EFE49E7432BF81E9E7C6",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-16",
+            "hash": "3BDDC9A1402DE99517807904712F7B76FE51C6C138392F9FADD1F4DC69586104",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-17",
+            "hash": "8B330082597C6516BB1933AC19BABCE04F0025E4A22F3B8F0DD26978DD14AAB7",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "redo-18",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "after-save",
+            "hash": "26BDE37F474B80EECF3F6A3324F19A28593A74ED7B4621A0ACA2F4FEC32487D1",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-after-save",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "reopened",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-no-phase",
+            "hash": "7A72639C67E048D8BA5DDF49C8A982F8A0768DE2BA15ACF2EF6A03A7518F3704",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-with-phase",
+            "hash": "40FCDD3DD1D82694EB2FA4BB0A4182A6988A01237CBA5240C62BB42BA6D6D7F0",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "legacy-phase-undo",
+            "hash": "7A72639C67E048D8BA5DDF49C8A982F8A0768DE2BA15ACF2EF6A03A7518F3704",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequence-copy",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "duration-combined",
+            "hash": "4D4BB1805CA3E1315B44B46947B4A08A7EEB1735F01AD60038F4837591390C8D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-duration",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-delete",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "same-locator-new-note",
+            "hash": "09100F3CC5800323310B486A94F3ABA14B6C340B1BE31E3FB1528D7DEECE250D",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "undo-replacement",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-part",
+            "hash": "DBA4F494047B49CCAB300981A1D01D3688D627EE2E647F7C2E50C134FD11A950",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "extra-velocity",
+            "hash": "617F691498D17CEFB587E643E1509E071C85C46D0C181B7F30FC2657CD8D8030",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "parallel",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-first",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "sequential-second",
+            "hash": "DBA4F494047B49CCAB300981A1D01D3688D627EE2E647F7C2E50C134FD11A950",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "native-cache-reopen",
+            "hash": "315E85B4521F6ABE3B991229A222B0531C2A53B1BEF1FB7E80D5D08E523D79DD",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-baseline",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-gains",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-undo",
+            "hash": "1C92EE19B645900203736EFD392352B7785B1D2CDC1D674DE722FFAFD3B73ACE",
+            "Scopes": 0,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-redo",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Scopes": 1,
+            "CacheKeys": 0,
+            "gainFailures": 0
+          },
+          {
+            "name": "shared-reopened",
+            "hash": "063CF2616750FBF9665160FA9FC69AD060769D08342B7E52F6DCE82F4D604F69",
+            "Scopes": 0,
+            "CacheKeys": 1,
+            "gainFailures": 0
+          }
+        ],
+        "repeatComparisons": []
+      },
+      "wpfPngSha256": "38919E32C1D24CA3A9CA141AE91F8DDC201A9725F3B389B3AD738BF3AF890321"
+    }
+  },
+  "crossSdkExactExpressionRenders": 23,
+  "installedUnchangedSha256": {
+    "main": "D7832D4C280DE48001694F21C70920B1856B92972B875D2A2953DF46E390DB1E",
+    "native": "3CB49633673EF635076823DB71C6828D0A28F807462F5A637A72052EF4330623"
+  }
+}
