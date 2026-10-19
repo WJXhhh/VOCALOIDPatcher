@@ -257,6 +257,11 @@ internal static partial class Program
         internal sealed record Frame(int Time, int Begin, int End, string Lane, bool Selected, string InputHash,
             float OriginalGain, float AppliedGain);
         internal List<Frame> Trace { get; } = new();
+        // Disposable fixed-range experiments only. This transforms a native
+        // ART contribution before overlap-add, never a rendered PCM buffer.
+        internal Func<int, string, float, float>? GainTransform { get; set; }
+        internal (int Begin, int End)? GainFrameRange { get; set; }
+        internal Action<nint, nint, int, string, float>? BeforeSynthesisFrame { get; set; }
 
         internal TransitionGainHook()
         {
@@ -288,10 +293,18 @@ internal static partial class Program
                 bool selected = owner._target is { } target && row != 0 && begin == target.Begin + owner._left &&
                     end == target.End + owner._right && Marshal.ReadInt32(row, 0x10) == target.From &&
                     Marshal.ReadInt32(row, 0x14) == target.To && Marshal.ReadInt32(row, 0x28) == target.Stage;
-                if (selected) applied *= owner._multiplier;
+                if (selected && (owner.GainFrameRange is not { } range || time >= range.Begin && time < range.End))
+                    applied *= owner._multiplier;
                 string lane = analysis == Marshal.ReadIntPtr(State, 0x1fc8) ? "primary" :
                     analysis == Marshal.ReadIntPtr(State, 0x2b128) ? "auxiliary" : "unknown";
                 if (lane == "unknown") throw new InvalidOperationException("Unidentified native synthesis lane.");
+                owner.BeforeSynthesisFrame?.Invoke(analysis, frame, time, lane, gain);
+                if (selected && owner.GainTransform is { } transform)
+                {
+                    applied = transform(time, lane, applied);
+                    if (!float.IsFinite(applied) || applied < 0 || applied > 4)
+                        throw new InvalidOperationException("Invalid research frame gain.");
+                }
                 using var fingerprint = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
                 foreach (var vector in new[] { (0x158, 0x160), (0x158, 0x168), (0x1a8, 0x1b0), (0x1a8, 0x1b8) })
                 {

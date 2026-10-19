@@ -237,10 +237,32 @@ internal static partial class Program
             return ProbeDurationComposition(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--articulation-edges-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeArticulationEdges(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--onset-process-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeOnsetProcess(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--fixed-expression-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeFixedExpression(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--transition-control-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeTransitionControl(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--transition-backend-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeTransitionBackend(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--compound-vowel-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeCompoundVowels(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--source-coverage-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeSourceCoverage(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--sei-consonant-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeSeiConsonant(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--explicit-consonant-borrow-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory);
+        if (args.Contains("--borrow-audibility-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory, audibility: true);
+        if (args.Contains("--borrow-full-process-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory, fullProcess: true);
+        if (args.Contains("--borrow-source-audit-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory, sourceAudit: true);
+        if (args.Contains("--borrow-seam-audit-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory, seamAudit: true);
+        if (args.Contains("--borrow-ei-context-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory, contextBorrow: true);
         if (args.Contains("--dynamics-selection-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeDynamicsSelection(sequenceManager, outputDirectory);
         if (args.Contains("--timing-crash-probe", StringComparer.OrdinalIgnoreCase))
@@ -251,7 +273,7 @@ internal static partial class Program
             return ProbeSharedBoundary(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--duration-concurrent-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeDurationConcurrent(sequenceManager, dse, database, outputDirectory);
-        if (args.Contains("--duration-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase))
+        if (args.Contains("--duration-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--transition-host-probe", StringComparer.OrdinalIgnoreCase))
         {
             var management = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.Combine(EditorDirectory, "runtimes", "win", "lib", "net8.0", "System.Management.dll"));
             Console.WriteLine("duration.host.management=" + management.Location + "; SDK=" + typeof(WIVSMSequence).Assembly.GetName().Name);
@@ -262,7 +284,8 @@ internal static partial class Program
                 return File.Exists(dependency) ? System.Reflection.Assembly.LoadFrom(dependency) : null;
             };
             var assembly = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(assemblyPath));
-            try { assembly.GetType(args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.CompatibilityHostValidation" : "VOCALOIDPatcher.DurationSelection.DurationHostValidation", true)!.GetMethod("Run")!
+            try { assembly.GetType(args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.CompatibilityHostValidation" :
+                args.Contains("--transition-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.TransitionHostValidation" : "VOCALOIDPatcher.DurationSelection.DurationHostValidation", true)!.GetMethod("Run")!
                 .Invoke(null, [sequenceManager, dse, database, outputDirectory]); }
             finally { foreach (var a in AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().Name == "System.Management")) Console.WriteLine("duration.host.management.loaded=" + a.Location + "; context=" + System.Runtime.Loader.AssemblyLoadContext.GetLoadContext(a)!.Name); }
             return 0;

@@ -11,6 +11,7 @@ internal static partial class Program
         private readonly ResearchDurationDetour _detour;
         private readonly nint _memory;
         internal nint Context => _memory+0xc00;
+        internal nint NativeBody => _detour.Trampoline;
         private readonly List<byte> _code=new();
         private int _offset;
         internal DurationPostCallHook(int rva,byte[] prefix,nint callback,nint before=0)

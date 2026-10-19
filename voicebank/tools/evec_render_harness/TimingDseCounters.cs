@@ -23,7 +23,7 @@ internal sealed unsafe class TimingDseCounters : IDisposable
         // Keep the library mapped until process exit: installed vtable hooks refer to it.
         nint library = NativeLibrary.Load(path);
         var abi = (delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library, "v6_clock_abi_version");
-        if (abi() != 14) throw new InvalidOperationException("Unsupported counter ABI.");
+        if (abi() != 15) throw new InvalidOperationException("Unsupported counter ABI.");
         var install = (delegate* unmanaged[Cdecl]<int>)NativeLibrary.GetExport(library, "v6_dse_install");
         if (install() < 0) throw new InvalidOperationException("DSE counter installation failed.");
         _status = (delegate* unmanaged[Cdecl]<nint, int>)NativeLibrary.GetExport(library, "v6_dse_status");
