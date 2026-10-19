@@ -17,6 +17,12 @@ pub struct Gain {
     pub reserved: u32,
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct Progress {
+    pub begin: i32, pub end: i32, pub from: i32, pub to: i32,
+    pub stage: i32, pub reverse: i32, pub frame: i32, pub source: f32,
+}
+#[repr(C)]
 #[derive(Default)]
 pub struct Status {
     pub epoch: u64,
@@ -28,6 +34,7 @@ pub struct Status {
 }
 pub struct Controls {
     events: Arc<[Gain]>,
+    progress: Arc<[Progress]>,
     pub fingerprint: [u8; 32],
     calls: AtomicU64,
     applied: AtomicU64,
@@ -37,7 +44,11 @@ pub struct Controls {
     pub retired: AtomicBool,
 }
 impl Controls {
+    #[cfg(test)]
     pub fn new(events: &[Gain]) -> Result<Option<Arc<Self>>, i32> {
+        Self::with_progress(events, &[])
+    }
+    pub fn with_progress(events: &[Gain], progress: &[Progress]) -> Result<Option<Arc<Self>>, i32> {
         if events.len() > 4096
             || events.iter().any(|g| {
                 g.begin < 0
@@ -62,7 +73,15 @@ impl Controls {
         if events.windows(2).any(|p| p[0].end > p[1].begin) {
             return Err(-1);
         }
-        if events.is_empty() {
+        if progress.len() > 65536 || progress.iter().any(|p|
+            p.begin < 0 || p.end <= p.begin || p.frame < p.begin || p.frame >= p.end ||
+            !(0..256).contains(&p.from) || !(0..256).contains(&p.to) || !(0..128).contains(&p.stage) ||
+            !(0..=1).contains(&p.reverse) || !p.source.is_finite() || !(0.0..=65535.0).contains(&p.source)) {
+            return Err(-1);
+        }
+        let mut progress = progress.to_vec(); progress.sort_by_key(|p| p.frame);
+        if progress.windows(2).any(|p| p[0].frame >= p[1].frame) { return Err(-1); }
+        if events.is_empty() && progress.is_empty() {
             return Ok(None);
         }
         let mut bytes = Vec::new();
@@ -75,8 +94,16 @@ impl Controls {
             }
             bytes.extend_from_slice(&g.multiplier.to_le_bytes());
         }
+        if !progress.is_empty() {
+            bytes.extend_from_slice(b"onset.source-progress.v1\0");
+            for p in &progress {
+                for i in [p.begin,p.end,p.from,p.to,p.stage,p.reverse,p.frame] { bytes.extend_from_slice(&i.to_le_bytes()); }
+                bytes.extend_from_slice(&p.source.to_bits().to_le_bytes());
+            }
+        }
         Ok(Some(Arc::new(Self {
             events: events.into(),
+            progress: progress.into(),
             fingerprint: super::timing_cache::digest(&bytes)?,
             calls: AtomicU64::new(0),
             applied: AtomicU64::new(0),
@@ -101,6 +128,12 @@ impl Controls {
             .get(self.events.partition_point(|g| g.end <= frame))
             .filter(|g| g.begin <= frame)
     }
+    fn unconsumed_progress(&self, current: i32, end: i32) -> &[Progress] {
+        if end <= current { return &[]; }
+        let begin = self.progress.partition_point(|p| p.frame < current);
+        let end = self.progress.partition_point(|p| p.frame < end);
+        &self.progress[begin..end]
+    }
 }
 thread_local! { static ACTIVE: RefCell<Option<(usize,Arc<Controls>)>> = const { RefCell::new(None) }; }
 pub struct EngineGuard(Option<(usize, Arc<Controls>)>);
@@ -123,6 +156,46 @@ pub fn failed() -> bool {
             c.retired.load(Ordering::Acquire) || c.failures.load(Ordering::Acquire) != 0
         })
     })
+}
+// Mapper completion precedes source-frame fetch, including rows first created
+// inside Step. A subsequent NOTE can replace an earlier temporary silence row
+// without appending those frames again. Revisit unconsumed frames, deferring a
+// row until its final ART identity exists. Synthesis still requires the exact
+// identity and source bits before accepting the result. TLS remains per engine.
+pub unsafe fn mapping_begin(parser: *mut c_void) -> Option<i32> {
+    ACTIVE.with(|v| {
+        let b = v.borrow(); let (state, c) = b.as_ref()?;
+        if c.progress.is_empty() || *state + super::timing_profile::StateParser != parser as usize { return None; }
+        Some(unsafe { ptr::read_unaligned((*state as *const u8).add(super::timing_profile::StateCurrentFrame).cast::<i32>()) })
+    })
+}
+pub unsafe fn mapping_end(parser: *mut c_void, begin: Option<i32>) {
+    let Some(begin) = begin else { return; };
+    ACTIVE.with(|v| {
+        let b = v.borrow(); let Some((state,c)) = b.as_ref() else { return; };
+        if *state + super::timing_profile::StateParser != parser as usize || c.retired.load(Ordering::Acquire) { c.failures.fetch_add(1,Ordering::Relaxed); return; }
+        let schedule = unsafe { ptr::read_unaligned(parser.cast::<usize>()) };
+        let base = MODULE.load(Ordering::Acquire);
+        let get_end: unsafe extern "system" fn(usize)->i32 = unsafe { std::mem::transmute(base+super::timing_profile::DseScheduleEnd) };
+        let get_row: unsafe extern "system" fn(usize,i32)->usize = unsafe { std::mem::transmute(base+super::timing_profile::DseScheduleRow) };
+        let end = unsafe { get_end(schedule) };
+        for p in c.unconsumed_progress(begin, end) {
+            let entry = unsafe { get_row(schedule,p.frame) };
+            let row = if entry == 0 { 0 } else { unsafe { ptr::read_unaligned(entry as *const usize) } };
+            let read = |offset| unsafe { ptr::read_unaligned((row as *const u8).add(offset).cast::<i32>()) };
+            if row == 0 || read(super::timing_profile::RowBegin)!=p.begin || read(super::timing_profile::RowEnd)!=p.end ||
+                read(super::timing_profile::RowFrom)!=p.from || read(super::timing_profile::RowTo)!=p.to || read(super::timing_profile::RowStage)!=p.stage ||
+                i32::from(unsafe { ptr::read_unaligned((row as *const u8).add(super::timing_profile::RowReverse)) }!=0)!=p.reverse {
+                // Future schedule space may still contain a temporary Sil
+                // row. A later NOTE/mapper will finalize it. Do not touch that
+                // row or report a failure before it can be consumed; the
+                // synthesis check below rejects any unresolved target.
+                continue;
+            }
+            unsafe { ptr::write_unaligned((entry as *mut u8).add(8).cast::<f32>(),p.source); }
+            c.applied.fetch_add(1,Ordering::Relaxed);
+        }
+    });
 }
 type Synthesize = unsafe extern "system" fn(usize, usize, usize, usize, f32) -> usize;
 static ORIGINAL: AtomicPtr<c_void> = AtomicPtr::new(ptr::null_mut());
@@ -149,9 +222,11 @@ unsafe extern "system" fn synthesize(
                     .cast::<i32>(),
             )
         };
-        let Some(event) = controls.event(time) else {
+        let event = controls.event(time);
+        let progress = controls.progress.binary_search_by_key(&time, |p| p.frame).ok().map(|i| &controls.progress[i]);
+        if event.is_none() && progress.is_none() {
             return native_gain;
-        };
+        }
         let primary = unsafe {
             ptr::read_unaligned(
                 (*state as *const u8)
@@ -182,22 +257,26 @@ unsafe extern "system" fn synthesize(
                 MODULE.load(Ordering::Acquire) + super::timing_profile::DseScheduleRow,
             )
         };
-        let row = unsafe { ptr::read_unaligned(get_row(schedule, time) as *const usize) };
+        let entry = unsafe { get_row(schedule,time) };
+        let row = if entry == 0 { 0 } else { unsafe { ptr::read_unaligned(entry as *const usize) } };
         let read = |offset: usize| unsafe {
             ptr::read_unaligned((row as *const u8).add(offset).cast::<i32>())
         };
+        let identity = event.map(|p| (p.begin,p.end,p.from,p.to,p.stage,p.reverse))
+            .or_else(||progress.map(|p|(p.begin,p.end,p.from,p.to,p.stage,p.reverse))).unwrap();
         let valid = row != 0
             && (analysis == primary || analysis == auxiliary)
-            && read(super::timing_profile::RowBegin) == event.begin
-            && read(super::timing_profile::RowEnd) == event.end
-            && read(super::timing_profile::RowFrom) == event.from
-            && read(super::timing_profile::RowTo) == event.to
-            && read(super::timing_profile::RowStage) == event.stage
+            && read(super::timing_profile::RowBegin) == identity.0
+            && read(super::timing_profile::RowEnd) == identity.1
+            && read(super::timing_profile::RowFrom) == identity.2
+            && read(super::timing_profile::RowTo) == identity.3
+            && read(super::timing_profile::RowStage) == identity.4
             && i32::from(
                 unsafe {
                     ptr::read_unaligned((row as *const u8).add(super::timing_profile::RowReverse))
                 } != 0,
-            ) == event.reverse;
+            ) == identity.5
+            && progress.is_none_or(|p| unsafe { ptr::read_unaligned((entry as *const u8).add(8).cast::<f32>()) }.to_bits()==p.source.to_bits());
         if !valid {
             controls.failures.fetch_add(1, Ordering::Relaxed);
             return native_gain;
@@ -208,14 +287,16 @@ unsafe extern "system" fn synthesize(
         } else {
             controls.auxiliary.fetch_add(1, Ordering::Relaxed);
         }
-        native_gain * event.multiplier
+        native_gain * event.map_or(1.0, |e|e.multiplier)
     });
     unsafe { original(analysis, frame, a, b, gain) }
 }
 #[unsafe(no_mangle)]
 pub extern "C" fn v6_transition_abi_version() -> u32 {
-    1
+    2
 }
+#[unsafe(no_mangle)]
+pub extern "C" fn v6_transition_progress_size() -> u32 { std::mem::size_of::<Progress>() as u32 }
 #[unsafe(no_mangle)]
 pub extern "C" fn v6_transition_gain_size() -> u32 {
     std::mem::size_of::<Gain>() as u32
@@ -272,6 +353,16 @@ pub unsafe extern "C" fn v6_transition_set_part(
     gains: *const Gain,
     num_gains: i32,
 ) -> i32 {
+    unsafe { v6_transition_set_part_v2(part,epoch,notes,count,points,num_points,gains,num_gains,ptr::null(),0) }
+}
+/// # Safety
+/// All bounded arrays are readable for the call and copied before publication.
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn v6_transition_set_part_v2(
+    part:u64, epoch:u64, notes:*const super::sampled_timing::Note, count:i32,
+    points:*const super::phoneme_timing::Point, num_points:i32, gains:*const Gain, num_gains:i32,
+    progress:*const Progress, num_progress:i32,
+) -> i32 {
     if ORIGINAL.load(Ordering::Acquire).is_null() || !super::phoneme_timing::ready() {
         return -3;
     }
@@ -282,6 +373,7 @@ pub unsafe extern "C" fn v6_transition_set_part(
         || points.is_null()
         || !(0..=4096).contains(&num_gains)
         || (num_gains > 0 && gains.is_null())
+        || !(0..=65536).contains(&num_progress) || (num_progress>0 && progress.is_null())
     {
         return -1;
     }
@@ -296,7 +388,8 @@ pub unsafe extern "C" fn v6_transition_set_part(
     } else {
         unsafe { slice::from_raw_parts(gains, num_gains as usize) }
     };
-    let controls = match Controls::new(values) {
+    let progress = if num_progress==0 { &[][..] } else { unsafe { slice::from_raw_parts(progress,num_progress as usize) } };
+    let controls = match Controls::with_progress(values, progress) {
         Ok(c) => c,
         Err(e) => return e,
     };
@@ -328,6 +421,38 @@ pub extern "C" fn v6_transition_remove_part(part: u64, epoch: u64) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn future_art_is_revisited_after_placeholder_replacement() {
+        let progress: Vec<_> = (3337..3376).map(|frame| Progress {
+            begin:3337,end:3376,from:41,to:0,stage:0,reverse:0,frame,source:0.5,
+        }).collect();
+        let controls = Controls::with_progress(&[], &progress).unwrap().unwrap();
+        // First NOTE reserves a temporary a -> Sil row through 3347.
+        assert_eq!(controls.unconsumed_progress(3259,3347).len(),10);
+        // Next NOTE replaces that row with l -> a. The earlier ten frames
+        // are still unconsumed and must be revisited, not just the append.
+        let ready = controls.unconsumed_progress(3259,3376);
+        assert_eq!(ready.len(),39); assert_eq!(ready[0].frame,3337);
+        // During Step, already consumed source frames are never rewritten.
+        let later = controls.unconsumed_progress(3350,3376);
+        assert_eq!(later.len(),26); assert_eq!(later[0].frame,3350);
+        assert!(controls.unconsumed_progress(3376,3376).is_empty());
+        assert!(controls.unconsumed_progress(3376,3300).is_empty());
+    }
+    #[test]
+    fn source_progress_is_bounded_unique_and_in_the_immutable_cache_key() {
+        let p = Progress {begin:100,end:120,from:1,to:2,stage:0,reverse:0,frame:100,source:0.5};
+        let a = Controls::with_progress(&[], &[p]).unwrap().unwrap();
+        assert!(a.events.is_empty()); assert_eq!(a.progress.len(),1);
+        for changed in [Progress{source:0.6,..p},Progress{frame:101,..p},Progress{stage:1,..p}] {
+            assert_ne!(a.fingerprint,Controls::with_progress(&[],&[changed]).unwrap().unwrap().fingerprint);
+        }
+        for bad in [Progress{source:f32::NAN,..p},Progress{source:-1.0,..p},Progress{frame:120,..p}] {
+            assert!(Controls::with_progress(&[],&[bad]).is_err());
+        }
+        assert!(Controls::with_progress(&[],&[p,p]).is_err());
+        assert!(Controls::with_progress(&[gain()],&[p]).unwrap().is_some());
+    }
     fn gain() -> Gain {
         Gain {
             begin: 100,

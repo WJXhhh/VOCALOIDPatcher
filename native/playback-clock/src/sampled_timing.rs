@@ -152,15 +152,16 @@ pub unsafe fn bind(engine: *mut c_void) {
 
 fn bind_parser(parser: usize, outer: u64, schedule: usize, binding: Option<Binding>) {
     let mut map = parsers().write().unwrap_or_else(|e| e.into_inner());
+    // Every newly bound engine claims its schedule, including unmodified
+    // renderers and private planning engines with no Part controls. Removing
+    // only its parser key leaves a freed renderer's warp attached when the
+    // allocator reuses that schedule at a different parser address.
+    if schedule != 0 {
+        let previous = map.len();
+        map.retain(|&key, old| key == parser || old.schedule != schedule);
+        SCHEDULE_REUSES.fetch_add((previous - map.len()) as u64, Ordering::Relaxed);
+    }
     if let Some(mut b) = binding {
-        // Freed native engines can leave a parser entry while their schedule
-        // address is reused by another engine. That address now has exactly
-        // one owner; never let a hash-map iteration choose an obsolete cursor.
-        if schedule != 0 {
-            let previous = map.len();
-            map.retain(|&key, old| key == parser || old.schedule != schedule);
-            SCHEDULE_REUSES.fetch_add((previous - map.len()) as u64, Ordering::Relaxed);
-        }
         b.outer = outer;
         b.schedule = schedule;
         // One Part render may create multiple engines. They share immutable
@@ -402,6 +403,26 @@ fn bound_phoneme_context(binding: Option<Binding>) -> Option<Arc<super::phoneme_
         assert!(phoneme_schedule_context(0xff03).is_some());
         assert_eq!(set(part, 2, &notes), 0);
         assert!(phoneme_schedule_context(0xff03).is_none());
+        remove(part);
+    }
+    #[test] fn uncontrolled_engine_claim_retires_a_reused_schedules_old_warp() {
+        let part = 0xff72;
+        let notes = [Note { begin: 86, end: 172, pitch: 0.0, coefficient: -1.0 }];
+        let warp = super::super::phoneme_timing::Warp::new(&[
+            super::super::phoneme_timing::Point { from: 0, to: 0 },
+            super::super::phoneme_timing::Point { from: 100, to: 120 },
+            super::super::phoneme_timing::Point { from: 200, to: 200 },
+        ]).unwrap();
+        assert_eq!(set_warp(part, 1, &notes, Some(warp)), 0);
+        scope(part, || bind_parser(0xff74, 0xff76, 0xff73, ACTIVE.with(|v| v.borrow().clone())));
+        assert!(phoneme_schedule_context(0xff73).is_some());
+        // The old Part is still current. A different engine now owns exactly
+        // that freed schedule, without entering a controlled render scope.
+        bind_parser(0xff78, 0xff79, 0xff73, None);
+        assert!(phoneme_schedule_context(0xff73).is_none());
+        assert!(phoneme_context(0xff74).is_none());
+        assert!(phoneme_context(0xff78).is_none());
+        assert!(parts().read().unwrap().contains_key(&part));
         remove(part);
     }
     #[test] fn exact_frames_disambiguate_repeated_notes_and_reject_ambiguity() {

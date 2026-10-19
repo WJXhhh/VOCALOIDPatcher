@@ -9,7 +9,7 @@ namespace VOCALOIDPatcher.RegisterShift;
 
 internal static unsafe class NativeRegisterShift
 {
-    private const uint ExpectedClockAbiVersion = 14;
+    private const uint ExpectedClockAbiVersion = 15;
     private const uint ExpectedRegisterShiftAbiVersion = 15;
     private const uint ExpectedNativeNoteSize = 48;
     private const uint ExpectedNativeStatusSize = 464;

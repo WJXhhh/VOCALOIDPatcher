@@ -345,11 +345,14 @@ unsafe extern "system" fn mapper(
     };
     let original: Mapper = unsafe { std::mem::transmute(ORIGINAL.load(Ordering::Acquire)) };
     let _guard = MappingGuard::enter();
-    unsafe {
+    let progress_begin = unsafe { super::transition_gain::mapping_begin(parser) };
+    let result = unsafe {
         original(
             parser, unit, from, to, left, right, language, singer, ratios, a, b, mode,
         )
-    }
+    };
+    unsafe { super::transition_gain::mapping_end(parser, progress_begin); }
+    result
 }
 
 #[unsafe(no_mangle)]

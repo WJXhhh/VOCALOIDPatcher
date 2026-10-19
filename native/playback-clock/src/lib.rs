@@ -29,7 +29,7 @@ mod duration_bridge;
 #[cfg(windows)]
 mod duration_selection;
 
-const ABI_VERSION: u32 = 14;
+const ABI_VERSION: u32 = 15;
 const HARD_RESYNC_SECONDS: f64 = 0.080;
 const BACKWARD_TOLERANCE_SECONDS: f64 = 0.020;
 const MAX_PHASE_STEP_SECONDS: f64 = 0.006;
