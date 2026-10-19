@@ -50,7 +50,7 @@ public static class CompatibilityHostValidation
             new SampledTimingProjectLoadPatch(), new SampledTimingDuplicateSequencePatch(), new ConsonantTimingCommitPatch(),
             new ConsonantTimingUndoPatch(), new ConsonantTimingRedoPatch(), new ConsonantTimingClosePatch(),
             new BreathVolumeCommitHistoryPatch(), new BreathVolumeUndoPatch(), new BreathVolumeRedoPatch(),
-            new BreathVolumeDirtyPatch(), new BreathVolumeProjectSavePatch(), new BreathVolumeRemoveNotePatch(), new BreathVolumeDuplicateSequencePatch()
+            new BreathVolumeDirtyPatch(), new BreathVolumeProjectSavePatch(), new BreathVolumeProjectLoadPatch(), new BreathVolumeRemoveNotePatch(), new BreathVolumeDuplicateSequencePatch()
         })
         {
             var target = AccessTools.Method(patch.TargetClass, patch.TargetMethodName, patch.ArgumentTypes);
@@ -97,7 +97,7 @@ public static class CompatibilityHostValidation
             var address = SampledTimingVsmBinding.Address(note);
             var timing = new SampledTimingPlan(address.Topology, [new(TimingAdjustment.PhonemeBoundary, 1, .01f)]);
             var unbound = address with { Track = 3 };
-            foreach (string mode in (realUnknown ? new[] { "timing", "duration", "volume", "combined", "unbound" } : ["missing-modules", "timing", "duration", "volume", "combined", "unbound"]))
+            foreach (string mode in (realUnknown ? new[] { "timing", "duration", "volume", "transitions", "combined", "unbound" } : ["missing-modules", "timing", "duration", "volume", "transitions", "combined", "unbound"]))
             {
                 _missingModules = mode == "missing-modules";
                 string seed = Path.Combine(directory, mode + ".vpr"); File.Copy(Path.Combine(directory, "plain.vpr"), seed);
@@ -112,6 +112,11 @@ public static class CompatibilityHostValidation
                 var volumes = mode is "volume" or "combined" or "unbound" ? new[] {
                     new PhonemeVolumeArchive.Entry(mode == "unbound" ? unbound : address, [-3, 2]) } : [];
                 PhonemeVolumeArchive.Write(seed, volumes);
+                var transitionId = Guid.NewGuid();
+                var transitionEdge = new TransitionProjectEdge(new(transitionId, 0, "k"), new(transitionId, 1, "a"), "k", "a", 0, false, 0);
+                var transitions = mode is "transitions" or "combined" ? TransitionArchiveData.From(new(1,
+                    [new(transitionId, address)], [], [new(transitionEdge, -6)])) : TransitionArchiveData.Empty;
+                TransitionProjectArchive.Write(seed, transitions);
                 int before = _backendAttempts;
                 var opened = Open(mode);
                 try
@@ -126,6 +131,7 @@ public static class CompatibilityHostValidation
                         Check(SampledTimingProjectArchive.Read(copyPath).Count == plans.Count, "Copy lost timing data.");
                         Check(DurationSelectionArchive.Read(copyPath).Length == durations.Length, "Copy lost duration data.");
                         Check(PhonemeVolumeArchive.Read(copyPath).Length == volumes.Length, "Copy lost phoneme volume data.");
+                        Check(TransitionProjectArchive.Read(copyPath).Fingerprint == transitions.Fingerprint, "Copy lost transition data.");
                     }
                     finally { copy.Close(); }
                     string saved = mode + "-saved";
@@ -135,6 +141,7 @@ public static class CompatibilityHostValidation
                     foreach (var pair in plans) Check(SampledTimingProjectArchive.Read(path)[pair.Key].Fingerprint == pair.Value.Fingerprint, "Timing control changed.");
                     Check(JsonSerializer.Serialize(DurationSelectionArchive.Read(path)) == JsonSerializer.Serialize(durations), "Duration controls changed.");
                     Check(JsonSerializer.Serialize(PhonemeVolumeArchive.Read(path)) == JsonSerializer.Serialize(volumes), "Volume controls changed.");
+                    Check(TransitionProjectArchive.Read(path).Fingerprint == transitions.Fingerprint, "Transition controls changed.");
                     var reopened = Open(saved);
                     try { Check(Save(reopened, mode + "-twice"), "Second save failed."); }
                     finally { reopened.Close(); }
@@ -171,7 +178,7 @@ public static class CompatibilityHostValidation
                         Check(_backendAttempts == attempts + 1, "Native history retried private backend.");
                     }
                     states.Add(new { mode, loadSaveLoad = true, backendCreated = SampledTimingHost.Find(opened)?.HasBackend == true,
-                        timing = plans.Count, duration = durations.Length, volume = volumes.Length, host = SampledTimingHost.Diagnostics(opened) });
+                        timing = plans.Count, duration = durations.Length, volume = volumes.Length, transitions = transitions.HasData, host = SampledTimingHost.Diagnostics(opened) });
                 }
                 finally { opened.Close(); }
             }

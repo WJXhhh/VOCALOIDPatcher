@@ -85,7 +85,7 @@ internal sealed partial class ConsonantTimingOverlay
     private void ConfigureGain(SpanVisual span, UIEmotionNote visual, int index, double x, double right, double y, double height, bool editable)
     {
         var glyph = span.Gain;
-        if (DurationMode || !Settings.IndividualPhonemeVolume || !editable || visual.Note?.Parent?.IsAi != false)
+        if (DurationMode || TransitionMode || !Settings.IndividualPhonemeVolume || !editable || visual.Note?.Parent?.IsAi != false)
         { glyph.Visibility = Visibility.Collapsed; return; }
         glyph.Width = Math.Max(0, right - x); glyph.Height = height;
         Canvas.SetLeft(glyph, x); Canvas.SetTop(glyph, y);

@@ -77,7 +77,12 @@ internal sealed partial class LocalConsonantTimingBackend
                             var note = window.Notes[n]; var positions = note.GetPhonemePositions();
                             string[] tokens = note.Phonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                             if (positions.Count != tokens.Length + 1 || positions.Any(v => v == int.MinValue))
+#if PATCHER_ISOLATED_VALIDATION
+                                throw new NotSupportedException($"Native baseline phoneme topology is unavailable: expected={tokens.Length + 1}; positions={string.Join(',', positions)}; feed={window.Messages[n].Frame}; note={note.RelPosTick.Value}/{note.DurationTick.Value}; original={string.Join(',', NativeTimingPositions.Read(note, true))}; rows=" +
+                                    System.Text.Json.JsonSerializer.Serialize(_owner._engine.ReadTransitions(window.Origin).Select(s => new { s.Begin, s.Split, s.End, s.From, s.To })));
+#else
                                 throw new NotSupportedException("Native baseline phoneme topology is unavailable.");
+#endif
                             baseline[n] = positions.Select(v => Frame(note.RelPosTick.Value + v)).ToArray();
                         }
                         if (captureTransitions) originalTransitions = _owner._engine.ReadTransitions(window.Origin);

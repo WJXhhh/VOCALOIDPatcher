@@ -69,7 +69,7 @@ public sealed class SampledTimingEndPhonemePatch : PatchBase
 public sealed class SampledTimingProjectLoadPatch : PatchBase
 {
     internal sealed record LoadState(IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan> Timing,
-        PhonemeVolume.PhonemeVolumeArchive.Entry[] Volume, DurationSelectionArchive.Entry[] Duration);
+        PhonemeVolume.PhonemeVolumeArchive.Entry[] Volume, DurationSelectionArchive.Entry[] Duration, TransitionArchiveData Transitions);
     public override string PatchName => nameof(SampledTimingProjectLoadPatch);
     public override Type TargetClass => typeof(Yamaha.VOCALOID.Sequence);
     public override string TargetMethodName => "LoadProjectSequenceFile";
@@ -83,7 +83,7 @@ public sealed class SampledTimingProjectLoadPatch : PatchBase
         if (!filePath.EndsWith(".vpr", StringComparison.OrdinalIgnoreCase) && !filePath.EndsWith(".vpr.bak", StringComparison.OrdinalIgnoreCase)) return true;
         try
         {
-            __state = new(SampledTimingProjectArchive.Read(filePath), PhonemeVolume.PhonemeVolumeArchive.Read(filePath), DurationSelectionArchive.Read(filePath));
+            __state = new(SampledTimingProjectArchive.Read(filePath), PhonemeVolume.PhonemeVolumeArchive.Read(filePath), DurationSelectionArchive.Read(filePath), TransitionProjectArchive.Read(filePath));
             return true;
         }
         catch (Exception e)
@@ -92,14 +92,16 @@ public sealed class SampledTimingProjectLoadPatch : PatchBase
             vsmSequence = null; __result = (Yamaha.VOCALOID.Sequence.LoadResult.GeneralError, false); return false;
         }
     }
-    [HarmonyPostfix]
+    // BVL establishes native note generations while restoring the same VPR.
+    // Bind custom controls only after that lifecycle work has completed.
+    [HarmonyPostfix, HarmonyPriority(Priority.Last)]
     private static void Postfix(ref WIVSMSequence? vsmSequence, LoadState? __state,
         ref (Yamaha.VOCALOID.Sequence.LoadResult, bool) __result)
     {
         if (vsmSequence == null || __result.Item1 != Yamaha.VOCALOID.Sequence.LoadResult.Success) return;
         try
         {
-            SampledTimingHost.Load(vsmSequence, __state?.Timing);
+            SampledTimingHost.Load(vsmSequence, __state?.Timing, __state?.Transitions);
             PhonemeVolume.PhonemeVolumeHost.Load(vsmSequence, __state?.Volume ?? []);
             DurationSelectionHost.Load(vsmSequence, __state?.Duration ?? []);
         }
@@ -238,6 +240,7 @@ public sealed class SampledTimingDuplicateSequencePatch : PatchBase
     public override Type TargetClass => typeof(WIVSMSequenceManager);
     public override string TargetMethodName => "DuplicateSequence";
     public override Type[] ArgumentTypes => [typeof(WIVSMSequence), typeof(VSMSequenceData)];
-    [HarmonyPostfix]
+    // BVL's copy callback recreates destination note generations.
+    [HarmonyPostfix, HarmonyPriority(Priority.Last)]
     private static void Postfix(WIVSMSequence vsmSequence, WIVSMSequence? __result) => SampledTimingHost.Copy(vsmSequence, __result);
 }

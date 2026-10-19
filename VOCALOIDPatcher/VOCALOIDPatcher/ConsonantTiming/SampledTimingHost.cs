@@ -31,6 +31,10 @@ internal static partial class SampledTimingHost
         internal long SuspendedRevision = -1;
         internal TimingNoteAddress[] DurationPrevious = [];
         internal readonly Dictionary<TimingNoteAddress, DurationNoteKey> Bindings = new();
+        internal readonly Dictionary<Guid, DurationNoteKey> TransitionBindings = new();
+        internal string TransitionPreviousFingerprint = TransitionArchiveData.Empty.Fingerprint;
+        internal TimingNoteAddress[] TransitionPreviousAddresses = [];
+        internal TransitionProjectData TransitionPreviousData = TransitionProjectData.Empty;
         internal NativeNode[] LastNodes = [];
         internal NativeNode[]? BeforeNativeCommit;
         internal readonly Dictionary<DurationNoteKey, DurationNoteKey> NativeAliases = new();
@@ -45,10 +49,12 @@ internal static partial class SampledTimingHost
         internal bool AttachedDuringCopy;
         internal Exception? Fault;
         internal readonly System.Collections.Concurrent.ConcurrentDictionary<nint, (long Revision, int[] Boundaries)> Boundaries = new();
+        internal readonly System.Collections.Concurrent.ConcurrentDictionary<nint, (long Revision, TransitionExecutionPlan Plan)> TransitionViews = new();
     }
     private static readonly System.Collections.Concurrent.ConcurrentDictionary<nint, Entry> Entries = new();
     private static readonly System.Collections.Concurrent.ConcurrentDictionary<nint, (Entry Entry, WIVSMMidiPart Part)> RenderParts = new();
     private static readonly System.Collections.Concurrent.ConcurrentDictionary<nint, IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan>> Copies = new();
+    private static readonly System.Collections.Concurrent.ConcurrentDictionary<nint, TransitionArchiveData> CopiedTransitions = new();
     private static readonly System.Collections.Concurrent.ConcurrentDictionary<nint, Exception> CopyFaults = new();
     private static readonly Dictionary<nint, HashSet<DurationNoteKey>> CopiedTargets = new();
     private static long _epoch;
@@ -168,13 +174,30 @@ internal static partial class SampledTimingHost
         var session = ForPhonemeEditing(note.Sequence!);
         if (editedBoundary == null && session.Document.Get(SampledTimingVsmBinding.Address(note))?.Fingerprint == plan?.Fingerprint) return;
         IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? related = null;
+        TransitionProjectData? transitions = null;
         using (var prepared = session.Prepare(note))
         {
             if (editedBoundary.HasValue)
                 related = prepared.QueryPhonemes(plan ?? new(note.Phonemes, []), session.Revision, editedBoundary: editedBoundary).Plans;
             else _ = prepared.Query(plan ?? new(note.Phonemes, []), session.Revision);
+            if (related != null && related.All(p => session.Document.Get(p.Key)?.Fingerprint == p.Value?.Fingerprint)) return;
+            var entry = Get(note.Sequence!);
+            var active = ActiveTransitions(entry);
+            var address = SampledTimingVsmBinding.Address(note);
+            if (TransitionProjectBinding.HasPart(active, address.Track, address.Part))
+            {
+                var current = session.Document.Get(address) ?? new(note.Phonemes, []);
+                var before = prepared.QueryTransitions(current, session.Revision);
+                transitions = TransitionTimingScale.Adopt(session.Transitions.Snapshot.Data!, active, before);
+                var liveIds = active.Notes.Select(n => n.Id).ToHashSet();
+                var adoptedActive = transitions.KeepNotes(n => liveIds.Contains(n.Id));
+                var candidates = related ?? new Dictionary<TimingNoteAddress, SampledTimingPlan?> { [address] = plan };
+                using var candidate = session.Prepare(note, candidates);
+                var layout = candidate.QueryTransitions(plan ?? new(note.Phonemes, []), session.Revision);
+                _ = candidate.QueryTransitionControls(layout, TransitionProjectBinding.ResolveAvailable(adoptedActive, layout), session.Revision);
+            }
         }
-        note.Sequence!.StopAsyncRendering(); session.SetPlan(note, plan, related);
+        note.Sequence!.StopAsyncRendering(); session.SetPlan(note, plan, related, transitions);
     }
 
     internal static List<int>? VerifiedPositions(WIVSMNote note)
@@ -183,7 +206,7 @@ internal static partial class SampledTimingHost
             !entry.Boundaries.TryGetValue((nint)note, out var value) || value.Revision != entry.Session.Revision) return null;
         return value.Boundaries.ToList();
     }
-    internal static bool IsDirty(WIVSMSequence source) => Find(source)?.Document.IsDirty == true || DurationSelectionHost.IsDirty(source);
+    internal static bool IsDirty(WIVSMSequence source) => Find(source)?.Document.IsDirty == true || Find(source)?.Transitions.IsDirty == true || DurationSelectionHost.IsDirty(source);
 
     internal static object? Diagnostics(WIVSMSequence? source)
     {
@@ -207,7 +230,9 @@ internal static partial class SampledTimingHost
     private static void Changed(Entry entry)
     {
         BindCurrentPlans(entry);
+        BindTransitions(entry);
         entry.Boundaries.Clear();
+        entry.TransitionViews.Clear();
         ConsonantTimingOverlay.SourceChanged(entry.Source);
         var current = entry.Session.Document.Snapshot();
         foreach (var address in entry.Previous.Keys.Concat(current.Keys).Distinct())
@@ -217,6 +242,16 @@ internal static partial class SampledTimingHost
                 if (!entry.Loading) entry.Pending.Add(address);
             }
         entry.Previous = current;
+        var transitions = entry.Session.Transitions.Snapshot;
+        if (entry.TransitionPreviousFingerprint != transitions.Fingerprint)
+        {
+            var addresses = transitions.Data?.Notes.Select(n => n.Address).ToArray() ?? [];
+            if (!entry.Loading && transitions.Data is { } next)
+                entry.Pending.UnionWith(ChangedTransitionAddresses(entry.TransitionPreviousData, next));
+            entry.TransitionPreviousAddresses = addresses;
+            entry.TransitionPreviousData = transitions.Data ?? TransitionProjectData.Empty;
+            entry.TransitionPreviousFingerprint = transitions.Fingerprint;
+        }
         if (entry.Loading || entry.Rebuilding || entry.Queued || (entry.Pending.Count == 0 && !entry.NativeRestart) || NativeRenderSession.IsInternalSequence(entry.Source)) return;
         entry.Queued = true;
         var dispatcher = Application.Current?.Dispatcher ?? throw new InvalidOperationException("Timing edits require the Editor Dispatcher.");
@@ -281,6 +316,7 @@ internal static partial class SampledTimingHost
             SampledTimingVsmBinding.ResolveActivePlans(source, copiedEntry.Session.Document).Count != copiedPlans.Count))
             throw new NotSupportedException("The render copy changed a timing-controlled note's identity or phoneme topology.");
         if (!Entries.TryGetValue((nint)source, out var entry)) return;
+        ValidateTransitionBindings(entry);
         if (entry.Session.Document.Snapshot().Keys.Any(a => !entry.Bindings.ContainsKey(a)))
             throw new NotSupportedException("Unbound timing project controls are preserved but cannot render against a different note identity.");
         if (entry.InputObserverFault != null) throw new InvalidOperationException("Native input ownership notification failed.", entry.InputObserverFault);
@@ -307,7 +343,7 @@ internal static partial class SampledTimingHost
             return true;
         }
         if (DurationSelectionHost.HasState(source) || PhonemeVolume.PhonemeVolumeHost.HasUnbound(source) ||
-            entry.Session.Document.Snapshot().Count != 0)
+            entry.Session.Document.Snapshot().Count != 0 || entry.Session.Transitions.Snapshot.HasData)
         {
             source.StopAsyncRendering(); Detach(entry); entry.Boundaries.Clear(); entry.Fault = error; entry.SuspendedRevision = entry.Session.Revision;
             DurationSelectionHost.RenderFailed(source, error);
@@ -346,7 +382,7 @@ internal static partial class SampledTimingHost
     {
         foreach(nint part in entry.PublishedParts)
         { RenderParts.TryRemove(part,out _); NativeSampledTiming.Remove(part); NativeDurationSelection.Remove(part); }
-        entry.PublishedParts.Clear(); entry.Boundaries.Clear();
+        entry.PublishedParts.Clear(); entry.Boundaries.Clear(); entry.TransitionViews.Clear();
     }
 
     // The native cache key includes the immutable numerical timing controls.
@@ -369,12 +405,15 @@ internal static partial class SampledTimingHost
     private static void Publish(Entry entry)
     {
         if (entry.PublishedRevision == entry.Session.Revision) return;
+        ConsonantTimingOverlay.BeforePartPublication(entry.Source);
         var plans = SampledTimingVsmBinding.ResolveActivePlans(entry.Source, entry.Session.Document)
             .Where(p => entry.Session.AllowsNote?.Invoke(p.Key) != false).ToDictionary(p => p.Key, p => p.Value);
         var values=plans.Where(p=>p.Value.PhonemeCoefficient(p.Value.Topology).HasValue)
             .ToDictionary(p=>p.Key,p=>p.Value.PhonemeCoefficient(p.Value.Topology)!.Value);
         var durationAddresses = DurationSelectionHost.Snapshot(entry.Source).Select(e => e.Address).ToArray();
-        if(plans.Count==0 && durationAddresses.Length==0) { Detach(entry); entry.PublishedRevision=entry.Session.Revision; return; }
+        var transitions = ActiveTransitions(entry);
+        var transitionParts = transitions.Notes.Select(n => (n.Address.Track, n.Address.Part)).ToHashSet();
+        if(plans.Count==0 && durationAddresses.Length==0 && !transitions.HasControls) { Detach(entry); entry.PublishedRevision=entry.Session.Revision; return; }
         entry.Source.StopAsyncRendering();
         if (plans.Count != 0) NativeSampledTiming.Initialize(Path.Combine(Patcher.DataDir, "native", "v6patch_clock.dll"));
         var parts = new HashSet<nint>();
@@ -384,10 +423,29 @@ internal static partial class SampledTimingHost
         {
             var duration = DurationSelectionHost.Controls(part);
             bool durationScope = DurationSelectionHost.HasScope(part);
-            if(!part.NotesEnumerator.Any(n=>plans.ContainsKey((nint)n)) && !durationScope) continue;
+            var partAddress = part.NumNotes == 0 ? null : SampledTimingVsmBinding.Address(part.GetNote(0UL)!);
+            bool transitionScope = partAddress != null && transitionParts.Contains((partAddress.Track, partAddress.Part));
+            if(!part.NotesEnumerator.Any(n=>plans.ContainsKey((nint)n)) && !durationScope && !transitionScope) continue;
             if (!parts.Add((nint)part)) continue;
             var anchors = new SortedDictionary<int, int>();
-            foreach (var note in part.NotesEnumerator)
+            NativeTransitionGain.Gain[]? gains = null;
+            NativeTransitionGain.SourceFrame[]? progress = null;
+            if (transitionScope)
+            {
+                using var preparation = PrepareTransitions(part);
+                var query = preparation.Query();
+                foreach (var point in query.Execution.RenderAnchors) anchors.Add(point.From, point.To);
+                gains = NativeTransitionGain.Gains(query.Execution);
+                progress = NativeTransitionGain.Progress(query.Execution);
+                foreach (var note in query.Layout.Notes)
+                {
+                    var liveNote = part.GetNote(checked((ulong)note.Address.Note))!;
+                    geometry[(nint)liveNote] = note.Original.Select(frame => checked((int)(entry.Source.GetTickFromTime(part.AbsBeginTick,
+                        (MapTransitionFrame(query.Layout.Anchors, frame) - 3087) * 256d / 44100 - .5).Value - liveNote.AbsPosTick.Value))).ToArray();
+                }
+                entry.TransitionViews[(nint)part] = (entry.Session.Revision, query.Execution);
+            }
+            foreach (var note in transitionScope ? [] : part.NotesEnumerator)
             {
                 if (!plans.TryGetValue((nint)note, out var plan) || !plan.HasPhonemeControls) continue;
                 NativePhonemeTiming.Initialize(Path.Combine(Patcher.DataDir, "native", "v6patch_clock.dll"));
@@ -414,7 +472,7 @@ internal static partial class SampledTimingHost
             }
             else NativeDurationSelection.Remove((nint)part);
             NativeSampledTiming.Publish(part, epoch, values,
-                anchors.Count == 0 ? null : anchors.Select(p => new NativePhonemeTiming.Point(p.Key, p.Value)).ToArray());
+                anchors.Count == 0 ? null : anchors.Select(p => new NativePhonemeTiming.Point(p.Key, p.Value)).ToArray(), gains, progress);
             RenderParts[(nint)part] = (entry, part);
             entry.PublishedParts.Add((nint)part);
         }
@@ -433,7 +491,7 @@ internal static partial class SampledTimingHost
         if (!Entries.TryGetValue((nint)source, out var entry) || entry.Rebuilding) return;
         entry.BeforeNativeCommit = entry.LastNodes;
         entry.AttachedDuringCopy = false;
-        if (entry.PublishedParts.Count == 0 && entry.Session.Document.Snapshot().Count == 0) return;
+        if (entry.PublishedParts.Count == 0 && entry.Session.Document.Snapshot().Count == 0 && !entry.Session.Transitions.Snapshot.HasData) return;
         // Commit can start native work before its managed postfix. Pause first
         // so an obsolete route cannot be consumed, nor the new completion be
         // discarded by stopping the service after it has already finished.
@@ -449,10 +507,11 @@ internal static partial class SampledTimingHost
             // the original values. That internal commit is not another edit.
             if (entry.Rebuilding) return;
             RelocateCurrentPlans(entry);
+            RelocateTransitions(entry);
             entry.LastNodes = CaptureNodes(source, entry.LastNodes);
             entry.Boundaries.Clear();
             var stored = entry.Session.Document.Snapshot();
-            if (entry.PublishedParts.Count != 0 || stored.Count != 0 || entry.DurationPrevious.Length != 0 || DurationSelectionHost.Snapshot(source).Length != 0)
+            if (entry.PublishedParts.Count != 0 || stored.Count != 0 || entry.Session.Transitions.Snapshot.HasData || entry.DurationPrevious.Length != 0 || DurationSelectionHost.Snapshot(source).Length != 0)
             {
                 source.StopAsyncRendering();
                 Detach(entry);
@@ -465,6 +524,7 @@ internal static partial class SampledTimingHost
                 // Other Parts keep their native key and reuse existing PCM.
                 entry.NativeRestart = true;
                 entry.Pending.UnionWith(stored.Keys.Concat(entry.DurationPrevious)
+                    .Concat(entry.Session.Transitions.Snapshot.Data?.Notes.Select(n => n.Address) ?? [])
                     .Concat(DurationSelectionHost.Snapshot(source).Select(e => e.Address))
                     .Where(a => PartFor(source, a) is { } part && entry.NativeDirtyParts.Contains((nint)part)));
             }
@@ -483,11 +543,16 @@ internal static partial class SampledTimingHost
         return track != null && (ulong)address.Part < track.NumParts ? track.GetPart((ulong)address.Part) as WIVSMMidiPart : null;
     }
 
-    internal static void Load(WIVSMSequence source, IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan>? data)
+    internal static void Load(WIVSMSequence source, IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan>? data,
+        TransitionArchiveData? transitions = null)
     {
-        if (data == null || data.Count == 0) return;
+        if ((data == null || data.Count == 0) && transitions?.HasData != true) return;
         var entry = Get(source); entry.Loading = true;
-        try { entry.Session.Document.Load(data); }
+        try
+        {
+            if (data != null) entry.Session.Document.Load(data);
+            if (transitions != null) entry.Session.Transitions.Load(transitions);
+        }
         finally { entry.Loading = false; }
         // BeforeRendering publishes before VSM checks its native cache. Its
         // cache key now distinguishes saved controls without a forced render.
@@ -527,12 +592,18 @@ internal static partial class SampledTimingHost
 
     internal static void Save(WIVSMSequence source, string path, bool markSaved)
     {
-        if (Copies.TryGetValue((nint)source, out var copied)) { SampledTimingProjectArchive.Write(path, copied); return; }
-        if (!Entries.TryGetValue((nint)source, out var entry)) return;
+        if (!Entries.TryGetValue((nint)source, out var entry))
+        {
+            if (Copies.TryGetValue((nint)source, out var copied)) SampledTimingProjectArchive.Write(path, copied);
+            if (CopiedTransitions.TryGetValue((nint)source, out var copiedTransitions)) TransitionProjectArchive.Write(path, copiedTransitions);
+            return;
+        }
         SampledTimingProjectArchive.Write(path, SavePlans(entry));
-        if (markSaved) entry.Session.Document.MarkSaved();
+        TransitionProjectArchive.Write(path, SaveTransitions(entry));
+        if (markSaved) { entry.Session.Document.MarkSaved(); entry.Session.Transitions.MarkSaved(); }
     }
-    internal static void MarkSaved(WIVSMSequence source) => Find(source)?.Document.MarkSaved();
+    internal static void MarkSaved(WIVSMSequence source)
+    { Find(source)?.Document.MarkSaved(); Find(source)?.Transitions.MarkSaved(); }
 
     internal static void Close(WIVSMSequence source)
     {
@@ -549,6 +620,7 @@ internal static partial class SampledTimingHost
         DurationSelectionHost.Close(pointer);
         CopyFaults.TryRemove(pointer, out _);
         Copies.TryRemove(pointer, out _);
+        CopiedTransitions.TryRemove(pointer, out _);
         if (!Entries.TryRemove(pointer, out var entry)) return;
         entry.InputObserver?.Dispose();
         foreach (nint part in entry.PublishedParts)
@@ -560,7 +632,7 @@ internal static partial class SampledTimingHost
     internal static void EnsureForExport(WIVSMSequence source)
     {
         if (!Entries.TryGetValue((nint)source, out var entry)) return;
-        if (entry.Session.Document.Snapshot().Count == 0 && DurationSelectionHost.Snapshot(source).Length == 0) return;
+        if (entry.Session.Document.Snapshot().Count == 0 && !entry.Session.Transitions.Snapshot.HasData && DurationSelectionHost.Snapshot(source).Length == 0) return;
         bool pending = entry.Pending.Count != 0 || entry.NativeRestart || entry.PublishedRevision != entry.Session.Revision;
         BeforeRendering(source);
         if (!pending && entry.PublishedParts.All(p => RenderParts.TryGetValue(p, out var route) &&
@@ -576,13 +648,16 @@ internal static partial class SampledTimingHost
             DurationSelectionHost.Copy(source, copy);
             PhonemeVolume.PhonemeVolumeHost.CopyUnbound(source, copy);
             var timing = Entries.TryGetValue((nint)source, out var original) ? SavePlans(original) : null;
+            var transitions = original != null ? SaveTransitions(original) : TransitionArchiveData.Empty;
+            if (transitions.HasData) CopiedTransitions[(nint)copy] = transitions;
             if (timing is { Count: > 0 }) Copies[(nint)copy] = timing;
             var duration = DurationSelectionHost.Snapshot(copy);
-            if (timing?.Count is not > 0 && duration.Length == 0) return;
+            if (timing?.Count is not > 0 && !transitions.HasData && duration.Length == 0) return;
             var entry = AttachEntry(copy); entry.Loading = true;
             try
             {
                 if (timing is { Count: > 0 }) entry.Session.Document.Load(timing);
+                if (transitions.HasData) entry.Session.Transitions.Load(transitions);
                 DurationSelectionHost.Load(copy, duration);
             }
             finally { entry.Loading = false; }

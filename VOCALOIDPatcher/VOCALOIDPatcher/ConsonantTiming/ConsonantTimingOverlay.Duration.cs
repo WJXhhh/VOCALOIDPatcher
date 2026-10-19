@@ -69,29 +69,35 @@ internal sealed partial class ConsonantTimingOverlay
     private readonly List<DurationSpan> _durationSpans = new();
     private readonly Canvas _durationTools = new() { Visibility = Visibility.Collapsed };
     private ToggleButton? _durationTool;
+    private ToggleButton? _phonemeTool, _transitionTool;
+    private readonly WrapPanel _editTools = new() { Orientation = Orientation.Horizontal };
+    private enum AcousticEditMode { Phonemes, Transitions, Duration }
+    private AcousticEditMode _acousticMode;
+    private bool _changingAcousticMode;
     private DurationSpan? _durationHover;
     private DurationDrag? _durationDrag;
     private Popup? _durationPanel;
     private int _durationCommitId;
     private bool _durationApplying;
-    private bool DurationMode => Settings.IndependentDurationSelection && _durationTool?.IsChecked == true;
+    private bool DurationMode => Settings.IndependentDurationSelection && _acousticMode == AcousticEditMode.Duration;
+    private bool TransitionMode => Settings.IndividualTransitionControl && _acousticMode == AcousticEditMode.Transitions;
     private static string DurationText(string suffix, params object[] args) => TranslationManager.Tr("VOCALOIDPatcher_DurationSelection_" + suffix, args);
 
     private void AttachDurationTool(Grid panel)
     {
         _durationTool = new ToggleButton { Content = DurationText("Tool"), Padding = new Thickness(10, 3, 10, 3),
             ToolTip = DurationText("ToolHint"), Focusable = false };
-        _durationTools.Children.Add(_durationTool);
+        _phonemeTool = new ToggleButton { Content = TransitionText("Phonemes"), Padding = new Thickness(10, 3, 10, 3), IsChecked = true, Focusable = false };
+        _transitionTool = new ToggleButton { Content = TransitionText("Tool"), ToolTip = TransitionText("Hint"), Padding = new Thickness(10, 3, 10, 3), Focusable = false };
+        _editTools.Children.Add(_phonemeTool); _editTools.Children.Add(_transitionTool); _editTools.Children.Add(_durationTool);
+        _durationTools.Children.Add(_editTools);
         Panel.SetZIndex(_durationTools, 100);
         panel.Children.Add(_durationTools);
-        _durationTool.Checked += (_, _) => ChangeMode();
-        _durationTool.Unchecked += (_, _) => ChangeMode();
-        void ChangeMode()
-        {
-            InvalidateDurationContext(); CancelVolumeDrag(); CloseVolumePanel();
-            CancelPhonemeDrag(); CancelDrag(); _durationHover = null; _tip.IsOpen = false;
-            ClearPhonemeHover(); SetHover(null); RequestRefresh();
-        }
+        _durationTool.Checked += (_, _) => SetAcousticMode(AcousticEditMode.Duration);
+        _durationTool.Unchecked += (_, _) => { if (!_changingAcousticMode) SetAcousticMode(AcousticEditMode.Phonemes); };
+        _phonemeTool.Checked += (_, _) => SetAcousticMode(AcousticEditMode.Phonemes);
+        _transitionTool.Checked += (_, _) => SetAcousticMode(AcousticEditMode.Transitions);
+        _transitionTool.Unchecked += (_, _) => { if (!_changingAcousticMode) SetAcousticMode(AcousticEditMode.Phonemes); };
         if (AccessTools.Field(typeof(PianorollView), "xContextMenu")?.GetValue(_view) is not ContextMenu menu) return;
         var item = new MenuItem { Header = DurationText("Name") + "…", Visibility = Visibility.Collapsed };
         DurationSpan? target = null;
@@ -106,16 +112,45 @@ internal sealed partial class ConsonantTimingOverlay
         menu.Items.Add(item);
     }
 
+    private void SetAcousticMode(AcousticEditMode mode)
+    {
+        if (_changingAcousticMode) return;
+        _changingAcousticMode = true;
+        try
+        {
+            _acousticMode = mode;
+            if (_durationTool != null) _durationTool.IsChecked = mode == AcousticEditMode.Duration;
+            if (_transitionTool != null) _transitionTool.IsChecked = mode == AcousticEditMode.Transitions;
+            if (_phonemeTool != null) _phonemeTool.IsChecked = mode == AcousticEditMode.Phonemes;
+            InvalidateDurationContext(); InvalidateTransitionContext(); CancelVolumeDrag(); CloseVolumePanel();
+            CancelPhonemeDrag(); CancelDrag(); _durationHover = null; _tip.IsOpen = false;
+            ClearPhonemeHover(); SetHover(null); RequestRefresh();
+        }
+        finally { _changingAcousticMode = false; }
+    }
+    private bool HitAcousticTool(DependencyObject target)
+    {
+        foreach (var (button, mode) in new[] { (_phonemeTool, AcousticEditMode.Phonemes), (_transitionTool, AcousticEditMode.Transitions), (_durationTool, AcousticEditMode.Duration) })
+            if (button != null && (button == target || button.IsAncestorOf(target)))
+            { SetAcousticMode(mode == _acousticMode ? AcousticEditMode.Phonemes : mode); return true; }
+        return false;
+    }
+
     private void BeginDurationRefresh(MusicalEditorViewModel vm)
     {
         _durationSpans.Clear(); _durationHover = null;
         _durationTools.Width = Math.Max(vm.SongWidth, _view.ActualWidth);
         _durationTools.Height = Math.Max(vm.AllKeyHeight, _view.ActualHeight);
-        _durationTools.Visibility = Settings.IndependentDurationSelection && vm.ActivePart?.IsAi == false ? Visibility.Visible : Visibility.Collapsed;
+        _durationTools.Visibility = (Settings.IndependentDurationSelection || Settings.IndividualTransitionControl) && vm.ActivePart?.IsAi == false ? Visibility.Visible : Visibility.Collapsed;
         if (_durationTool != null)
         {
-            Canvas.SetLeft(_durationTool, (vm.PianorollViewer?.HorizontalOffset ?? 0) + 10);
-            Canvas.SetTop(_durationTool, (vm.PianorollViewer?.VerticalOffset ?? 0) + 8);
+            _durationTool.Visibility = Settings.IndependentDurationSelection ? Visibility.Visible : Visibility.Collapsed;
+            if (_transitionTool != null) _transitionTool.Visibility = Settings.IndividualTransitionControl ? Visibility.Visible : Visibility.Collapsed;
+            if ((!Settings.IndividualTransitionControl && _acousticMode == AcousticEditMode.Transitions) ||
+                (!Settings.IndependentDurationSelection && _acousticMode == AcousticEditMode.Duration)) SetAcousticMode(AcousticEditMode.Phonemes);
+            Canvas.SetLeft(_editTools, (vm.PianorollViewer?.HorizontalOffset ?? 0) + 10);
+            Canvas.SetTop(_editTools, (vm.PianorollViewer?.VerticalOffset ?? 0) + 8);
+            _editTools.Width = Math.Max(100, (vm.PianorollViewer?.ViewportWidth ?? _view.ActualWidth) - 20);
         }
     }
     private void AddDurationSpan(UIEmotionNote visual, MusicalEditorViewModel vm, double y)

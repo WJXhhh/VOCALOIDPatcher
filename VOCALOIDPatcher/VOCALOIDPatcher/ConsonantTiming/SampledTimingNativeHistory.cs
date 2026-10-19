@@ -59,6 +59,7 @@ internal static partial class SampledTimingHost
             foreach (var old in expected) Entry.NativeAliases[old.Key] = lookup[old.Address].Key;
             foreach (var pair in keys) Entry.NativeAliases[pair.Key] = pair.Value;
             foreach (var binding in Entry.Bindings.ToArray()) Entry.Bindings[binding.Key] = keys.GetValueOrDefault(binding.Value, binding.Value);
+            foreach (var binding in Entry.TransitionBindings.ToArray()) Entry.TransitionBindings[binding.Key] = keys.GetValueOrDefault(binding.Value, binding.Value);
             DurationSelectionHost.RebindNativeHistory(Entry.Source, keys);
             Entry.LastNodes = actual;
         }

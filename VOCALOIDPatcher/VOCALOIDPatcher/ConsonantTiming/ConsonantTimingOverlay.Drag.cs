@@ -103,6 +103,8 @@ internal sealed partial class ConsonantTimingOverlay
 
     private void OnDragMouseMove(object sender, MouseEventArgs e)
     {
+        if (_transitionDrag != null)
+        { try { MoveTransitionDrag(e); } catch (Exception error) { TransitionFailure(error); } return; }
         if (_durationDrag != null)
         {
             try { MoveDurationDrag(e); }
@@ -195,6 +197,8 @@ internal sealed partial class ConsonantTimingOverlay
 
     private void OnDragMouseUp(object sender, MouseButtonEventArgs e)
     {
+        if (_transitionDrag != null)
+        { try { EndTransitionDrag(e); } catch (Exception error) { TransitionFailure(error); } return; }
         if (_durationDrag != null)
         {
             try { EndDurationDrag(e); }
@@ -236,6 +240,8 @@ internal sealed partial class ConsonantTimingOverlay
 
     private void OnDragKeyDown(object sender, KeyEventArgs e)
     {
+        if (_transitionDrag != null || (TransitionMode && (_transitionPending != null || _transitionJobCancellation != null)))
+        { if (e.Key == Key.Escape) CancelTransitionDrag(); e.Handled = true; return; }
         if (e.Key == Key.Escape && (_durationDrag != null || DurationMode))
         { InvalidateDurationContext(); _tip.IsOpen = false; e.Handled = true; return; }
         if (_volumeDrag != null) { e.Handled = true; if (e.Key == Key.Escape) CancelVolumeDrag(); return; }
@@ -249,7 +255,8 @@ internal sealed partial class ConsonantTimingOverlay
     {
         // LostMouseCapture bubbles from descendants. Capturing the pianoroll
         // can release a child first; that event must not cancel this new drag.
-        if (ReferenceEquals(e.OriginalSource, _view) && !_view.IsMouseCaptured) { CancelDurationDrag(); CancelVolumeDrag(); CancelPhonemeDrag(); CancelDrag(); }
+        if (ReferenceEquals(e.OriginalSource, _view) && !_view.IsMouseCaptured)
+        { if (_transitionDrag?.Final != true) CancelTransitionDrag(); CancelDurationDrag(); CancelVolumeDrag(); CancelPhonemeDrag(); CancelDrag(); }
     }
 
     private void CancelDrag()

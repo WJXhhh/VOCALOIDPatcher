@@ -66,6 +66,24 @@ internal sealed unsafe partial class NativeConsonantTimingEngine
                 int stage = Marshal.ReadInt32(row, p.RowStage);
                 if (to != -1 && (stage < 0 || stage >= Marshal.ReadInt32(row, p.RowStageLimit) || (stage * 2L + 2) * 16 > bytes))
                     throw new NotSupportedException("Invalid transition material stage.");
+                // Selected stage's two outer intervals, not the already
+                // cropped schedule and not the entire multi-stage material.
+                // Reverse dispatch swaps sides and traverses them backwards.
+                TransitionMaterialCoverage? coverage = null;
+                if (to != -1)
+                {
+                    int frames = Marshal.ReadInt32(material, p.MaterialFrames);
+                    int leftBegin = Marshal.ReadInt32(alignment, stage * 32), leftEnd = Marshal.ReadInt32(alignment, stage * 32 + 4);
+                    int rightBegin = Marshal.ReadInt32(alignment, stage * 32 + 16), rightEnd = Marshal.ReadInt32(alignment, stage * 32 + 20);
+                    if (frames is > 0 and <= 65536 && leftBegin >= 0 && leftBegin <= leftEnd && leftEnd <= frames &&
+                        rightBegin >= 0 && rightBegin <= rightEnd && rightEnd <= frames)
+                    {
+                        bool reverse = Marshal.ReadByte(row, p.RowReverse) != 0;
+                        TransitionMaterialSpan? Span(int begin, int finish) => begin == finish ? null : reverse ? new(finish - 1, begin) : new(begin, finish - 1);
+                        coverage = reverse ? new(Span(rightBegin, rightEnd), Span(leftBegin, leftEnd)) :
+                            new(Span(leftBegin, leftEnd), Span(rightBegin, rightEnd));
+                    }
+                }
                 using var metadata = new MemoryStream();
                 using (var writer = new BinaryWriter(metadata, System.Text.Encoding.UTF8, true))
                 {
@@ -77,7 +95,7 @@ internal sealed unsafe partial class NativeConsonantTimingEngine
                 var segment = new TransitionSegment(checked(begin + origin),
                     checked(begin + Marshal.ReadInt32(row, to == -1 ? p.RowSustainSplit : p.RowSplit) + origin),
                     checked(finish + origin), Phone(from), to == -1 ? null : Phone(to), from, to, stage,
-                    Marshal.ReadByte(row, p.RowReverse) != 0, Convert.ToHexString(SHA256.HashData(metadata.ToArray())), []);
+                    Marshal.ReadByte(row, p.RowReverse) != 0, Convert.ToHexString(SHA256.HashData(metadata.ToArray())), []) { MaterialCoverage = coverage };
                 value = (segment, new()); rows.Add(row, value);
             }
             value.Frames.Add(new(checked(at + origin), Marshal.ReadInt32(entry, 8), Marshal.ReadByte(entry, 12), Marshal.ReadByte(entry, 13)));

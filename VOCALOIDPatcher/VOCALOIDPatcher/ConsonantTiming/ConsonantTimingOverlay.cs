@@ -87,13 +87,14 @@ internal sealed partial class ConsonantTimingOverlay
         view.PreviewKeyDown += OnDragKeyDown;
         view.LostMouseCapture += OnDragLostMouseCapture;
         view.MouseLeave += (_, _) => {
-            if (_drag == null && _phonemeDrag == null && _volumeDrag == null && _durationDrag == null)
-            { _durationHover = null; _volumeHover = null; ClearPhonemeHover(); SetHover(null); }
+            if (_drag == null && _phonemeDrag == null && _volumeDrag == null && _durationDrag == null && _transitionDrag == null)
+            { _durationHover = null; _volumeHover = null; _transitionHover = null; ClearPhonemeHover(); SetHover(null); }
         };
         view.Unloaded += (_, _) => Suspend();
         view.DataContextChanged += (_, _) => Suspend();
         AttachVolumeContextMenu();
         AttachDurationTool(panel);
+        AttachTransitionBand();
     }
 
     private static Pen FrozenPen(Brush brush, double width, bool dotted = false)
@@ -104,7 +105,7 @@ internal sealed partial class ConsonantTimingOverlay
         return pen;
     }
 
-    private static bool Enabled(PianorollView view) => (Settings.IntuitiveConsonantTiming || Settings.IndividualPhonemeVolume || Settings.IndependentDurationSelection) &&
+    private static bool Enabled(PianorollView view) => (Settings.IntuitiveConsonantTiming || Settings.IndividualPhonemeVolume || Settings.IndependentDurationSelection || Settings.IndividualTransitionControl) &&
         view.DataContext is MusicalEditorViewModel vm && vm.EditorMode.Mode == EditModeME.Emotion &&
         vm.VSMSequence is { IsOpen: true } &&
         vm.ActiveTrack?.Type == VSMTrackType.Midi && vm.ActivePart != null;
@@ -137,6 +138,7 @@ internal sealed partial class ConsonantTimingOverlay
             if (!Enabled(view) || !States.TryGetValue(view, out var state) || state._root.Visibility != Visibility.Visible)
                 return false;
             if (state.DurationMode) return state.SearchDuration(point, out result);
+            if (state.TransitionMode) { state.SearchTransition(point, out result); return true; }
             if (state._volumeDrag != null && state.SearchVolume(point, out result)) return true;
             state._volumeHover = null;
             if (Settings.IntuitiveConsonantTiming && state.SearchPhonemeBoundary(point, out result)) return true;
@@ -169,6 +171,7 @@ internal sealed partial class ConsonantTimingOverlay
                 state.CloseVolumePanel();
                 state.CancelVolumeDrag();
                 state.InvalidateDurationContext();
+                state.InvalidateTransitionContext();
                 state.RequestRefresh();
             }
             if (state._view.Dispatcher.CheckAccess()) Invalidate();
@@ -196,7 +199,7 @@ internal sealed partial class ConsonantTimingOverlay
             if (States.TryGetValue(view, out var duration) && (duration._durationHover != null || duration._durationDrag != null))
                 view.Cursor = Cursors.SizeWE;
             return Enabled(view) && result.HitObjectType == PianorollView.HitObjectTypeEnum.Velocity &&
-                States.TryGetValue(view, out var state) && (state._drag != null || state._hover != null || state._phonemeDrag != null || state._phonemeHover != null || state._volumeDrag != null || state._volumeHover != null || state._durationDrag != null || state._durationHover != null);
+                States.TryGetValue(view, out var state) && (state._drag != null || state._hover != null || state._phonemeDrag != null || state._phonemeHover != null || state._volumeDrag != null || state._volumeHover != null || state._durationDrag != null || state._durationHover != null || state._transitionHover != null || state._transitionDrag != null);
         }
         catch (Exception exception) { Fail(view, exception); return false; }
     }
@@ -238,6 +241,7 @@ internal sealed partial class ConsonantTimingOverlay
             _phonemeHandles.Clear();
             _gainSpans.Clear();
             BeginDurationRefresh(vm);
+            BeginTransitionRefresh(vm);
             RestoreGlyphs();
             _root.Width = Math.Max(_view.ActualWidth, vm.SongWidth);
             _root.Height = Math.Max(_view.ActualHeight, vm.AllKeyHeight);
@@ -320,7 +324,7 @@ internal sealed partial class ConsonantTimingOverlay
                     }
                     label.FormattedPhoneme = formatted;
                     label.Width = formatted.Width;
-                    label.Height = vm.OneKeyHeight;
+                    label.Height = TransitionMode ? Math.Max(6, vm.OneKeyHeight - TransitionBandHeight(vm) - 2) : vm.OneKeyHeight;
                     label.RelPosTick = new VSMRelTick(positions[i]);
                     label.BrushHighlight = _highlight;
                     label.Visibility = Visibility.Visible;
@@ -355,7 +359,8 @@ internal sealed partial class ConsonantTimingOverlay
                 _pool[i].Gain.Visibility = Visibility.Collapsed;
             }
             EndDurationRefresh();
-            if (used == 0 && _durationSpans.Count == 0 && !Settings.IndependentDurationSelection) { Suspend(); return; }
+            RefreshTransitionBands(vm, notes.VirtualChildren.OfType<UIEmotionNote>().ToArray());
+            if (used == 0 && _durationSpans.Count == 0 && !Settings.IndependentDurationSelection && !TransitionMode) { Suspend(); return; }
             foreach (var glyph in _nativePhonemes.VirtualChildren.OfType<UIEmotionPhoneme>())
             {
                 if (!replacedGlyphs.Contains((glyph.Number, Canvas.GetLeft(glyph), glyph.Phoneme))) continue;
@@ -364,6 +369,7 @@ internal sealed partial class ConsonantTimingOverlay
             }
             _root.Visibility = Visibility.Visible;
             if (DurationMode) { if (_view.IsMouseOver) SearchDuration(Mouse.GetPosition(_view), out _); }
+            else if (TransitionMode) { if (_view.IsMouseOver) SearchTransition(Mouse.GetPosition(_view), out _); }
             else if (_volumeDrag != null) DrawVolumeCandidate();
             else if(_phonemeDrag != null) DrawPhonemeCandidate();
             else if (_drag is { } drag)
@@ -494,9 +500,13 @@ internal sealed partial class ConsonantTimingOverlay
         {
             // The mode button owns its normal WPF input. Song tools must not
             // interpret that click as an emotion gesture underneath it.
-            if (e.OriginalSource is DependencyObject original && _durationTool != null &&
-                (_durationTool == original || _durationTool.IsAncestorOf(original)))
-            { e.Handled = true; _durationTool.IsChecked = _durationTool.IsChecked != true; return; }
+            if (e.OriginalSource is DependencyObject original && HitAcousticTool(original))
+            { e.Handled = true; return; }
+            if (e.OriginalSource is DependencyObject panelTarget && _transitionPanelTool != null &&
+                (_transitionPanelTool == panelTarget || _transitionPanelTool.IsAncestorOf(panelTarget)))
+            { e.Handled = true; OpenTransitionPanel(e.GetPosition(_view)); return; }
+            if (Enabled(_view) && TransitionMode)
+            { e.Handled = BeginTransitionDrag(e.GetPosition(_view), e.ClickCount); return; }
             if (Enabled(_view) && DurationMode)
             {
                 if (BeginDurationDrag(e.GetPosition(_view), e.ClickCount)) e.Handled = true;
@@ -529,6 +539,7 @@ internal sealed partial class ConsonantTimingOverlay
     private void Suspend()
     {
         InvalidateDurationContext(); _durationTools.Visibility = Visibility.Collapsed;
+        InvalidateTransitionContext();
         foreach (var glyph in _durationPool) glyph.Visibility = Visibility.Collapsed;
         _durationSpans.Clear();
         CloseVolumePanel(); CancelVolumeDrag(); _gainSpans.Clear(); _volumeHover = null;
@@ -553,6 +564,7 @@ internal sealed partial class ConsonantTimingOverlay
         Settings.DisableFeature(Settings.IntuitiveConsonantTimingKey);
         Settings.DisableFeature(Settings.IndividualPhonemeVolumeKey);
         Settings.DisableFeature(Settings.IndependentDurationSelectionKey);
+        Settings.DisableFeature(Settings.IndividualTransitionControlKey);
         try { if (States.TryGetValue(view, out var state)) state.Suspend(); }
         catch { }
         Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_ConsonantTiming_Failed", exception.GetType().Name));

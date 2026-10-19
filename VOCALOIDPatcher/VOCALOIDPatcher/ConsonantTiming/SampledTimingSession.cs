@@ -18,9 +18,12 @@ internal sealed class SampledTimingSession : IDisposable
     private readonly int _ownerThread = Environment.CurrentManagedThreadId;
     private readonly TimingRenderRevision _renderRevision = new();
     internal SampledTimingDocument Document { get; } = new();
+    internal TransitionDocument Transitions { get; } = new();
     internal long Revision => _renderRevision.Revision;
     internal event Action? Changed;
     internal Func<nint, bool>? AllowsNote { get; set; }
+    private int _notificationDepth;
+    private bool _notificationPending;
 
     internal SampledTimingSession(WIVSMSequence source, LocalConsonantTimingBackend backend, bool ownsBackend = false)
         : this(source, () => backend, ownsBackend, backend) { }
@@ -30,6 +33,7 @@ internal sealed class SampledTimingSession : IDisposable
         ArgumentNullException.ThrowIfNull(source); ArgumentNullException.ThrowIfNull(backendFactory);
         _source = source; _backend = new(backendFactory, ownsBackend, initialBackend);
         Document.Changed += OnChanged;
+        Transitions.Changed += OnChanged;
     }
 
     internal void SetCoefficient(WIVSMNote note, float? coefficient)
@@ -48,32 +52,57 @@ internal sealed class SampledTimingSession : IDisposable
             edit => CustomParameterHistoryCoordinator.Push(_source, edit),replaceDetachedLocator:true);
     }
 
-    internal LocalConsonantTimingBackend.PreparedCoefficientTiming Prepare(WIVSMNote target)
+    internal LocalConsonantTimingBackend.PreparedCoefficientTiming Prepare(WIVSMNote target,
+        IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? candidates = null)
     {
         EnsureOpen();
         if ((nint)target.Sequence! != (nint)_source) throw new ArgumentException("Timing target belongs to another source.");
         var values = SampledTimingVsmBinding.ResolveActivePlans(_source, Document)
             .Where(p => AllowsNote?.Invoke(p.Key) != false).ToDictionary(p => p.Key, p => p.Value);
+        if (candidates != null)
+            foreach (var note in target.Parent!.NotesEnumerator)
+                if (candidates.TryGetValue(SampledTimingVsmBinding.Address(note), out var plan))
+                {
+                    if (plan == null) values.Remove((nint)note);
+                    else values[(nint)note] = plan;
+                }
         return _backend.Require().PrepareCoefficient(target, Revision, note => values.GetValueOrDefault((nint)note)?.PhonemeCoefficient(note.Phonemes),
             note => values.GetValueOrDefault((nint)note));
     }
 
     internal void SetPlan(WIVSMNote note, SampledTimingPlan? plan,
-        IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? related = null)
+        IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? related = null, TransitionProjectData? transitions = null)
     {
         EnsureOpen();
         if ((nint)note.Sequence! != (nint)_source || _source.IsStaged)
             throw new InvalidOperationException("Timing edit requires a stable source.");
         if (plan != null) _ = plan.PhonemeCoefficient(note.Phonemes);
         var address = SampledTimingVsmBinding.Address(note);
+        if (related != null && (!related.ContainsKey(address) || related.Keys.Any(a => a.Track != address.Track || a.Part != address.Part)))
+            throw new ArgumentException("Shared timing edit belongs to another Part.");
+        if (transitions != null)
+        {
+            TimingCompositeEdit.Execute(push =>
+            {
+                if (related != null) Document.EditMany(related, push, replaceDetachedLocator: true);
+                else Document.Edit(address, plan, push, replaceDetachedLocator: true);
+                Transitions.Edit(transitions, push);
+            }, edit => CustomParameterHistoryCoordinator.Push(_source, edit), BatchNotifications);
+            return;
+        }
         if (related != null)
         {
-            if (!related.ContainsKey(address) || related.Keys.Any(a => a.Track != address.Track || a.Part != address.Part))
-                throw new ArgumentException("Shared timing edit belongs to another Part.");
             Document.EditMany(related, edit => CustomParameterHistoryCoordinator.Push(_source, edit), replaceDetachedLocator: true);
             return;
         }
         Document.Edit(address, plan, edit => CustomParameterHistoryCoordinator.Push(_source, edit),replaceDetachedLocator:true);
+    }
+
+    internal void SetTransitions(TransitionProjectData data)
+    {
+        EnsureOpen();
+        if (_source.IsStaged) throw new InvalidOperationException("Transition edit requires a committed source.");
+        Transitions.Edit(data, edit => CustomParameterHistoryCoordinator.Push(_source, edit));
     }
 
     // Called by the source owner for native commit/undo/redo/structure changes.
@@ -88,20 +117,33 @@ internal sealed class SampledTimingSession : IDisposable
 
     internal void LoadProjectData(string path)
     {
-        EnsureOpen(); Document.Load(SampledTimingProjectArchive.Read(path));
+        EnsureOpen(); Document.Load(SampledTimingProjectArchive.Read(path)); Transitions.Load(TransitionProjectArchive.Read(path));
     }
 
     // Call only after native save has succeeded. Failure leaves timing dirty.
     internal void WriteProjectData(string path)
     {
         EnsureOpen();
-        SampledTimingProjectArchive.Write(path, Document.Snapshot()); Document.MarkSaved();
+        SampledTimingProjectArchive.Write(path, Document.Snapshot()); TransitionProjectArchive.Write(path, Transitions.Snapshot);
+        Document.MarkSaved(); Transitions.MarkSaved();
     }
 
     private void OnChanged()
     {
+        if (_notificationDepth != 0) { _notificationPending = true; return; }
         _renderRevision.Advance(); _backend.IfCreated(b => b.ClearCache());
         Changed?.Invoke();
+    }
+
+    private void BatchNotifications(Action action)
+    {
+        _notificationDepth++;
+        try { action(); }
+        finally
+        {
+            if (--_notificationDepth == 0 && _notificationPending)
+            { _notificationPending = false; OnChanged(); }
+        }
     }
 
     private void EnsureOpen()
@@ -113,17 +155,18 @@ internal sealed class SampledTimingSession : IDisposable
 
     internal TimingRenderStamp CaptureRenderStamp()
     {
-        EnsureOpen(); return _renderRevision.Capture(Document.Fingerprint);
+        EnsureOpen(); return _renderRevision.Capture(Document.Fingerprint + ":" + Transitions.Snapshot.Fingerprint);
     }
 
     // Marshal completion back to the source owner, then recheck immediately
     // before publication. A background callback cannot publish directly.
     internal bool CanPublish(TimingRenderStamp stamp) => Environment.CurrentManagedThreadId == _ownerThread && !_disposed && _source.IsOpen &&
-        _renderRevision.IsCurrent(stamp, Document.Fingerprint);
+        _renderRevision.IsCurrent(stamp, Document.Fingerprint + ":" + Transitions.Snapshot.Fingerprint);
 
     public void Dispose()
     {
         if (_disposed) return;
-        _disposed = true; _renderRevision.Close(); Document.Changed -= OnChanged; _backend.IfCreated(b => b.ClearCache()); _backend.Dispose();
+        _disposed = true; _renderRevision.Close(); Document.Changed -= OnChanged; Transitions.Changed -= OnChanged;
+        _backend.IfCreated(b => b.ClearCache()); _backend.Dispose();
     }
 }

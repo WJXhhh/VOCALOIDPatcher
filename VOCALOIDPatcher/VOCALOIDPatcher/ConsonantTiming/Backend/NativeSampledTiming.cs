@@ -34,7 +34,7 @@ internal static unsafe class NativeSampledTiming
         {
             LocalTimingNative.VerifyBridge(library);
             uint Read(string name) => ((delegate* unmanaged[Cdecl]<uint>)NativeLibrary.GetExport(library, name))();
-            if (Read("v6_clock_abi_version") != 14 || Read("v6_timing_abi_version") != 3 ||
+            if (Read("v6_clock_abi_version") != 15 || Read("v6_timing_abi_version") != 3 ||
                 Read("v6_timing_note_size") != sizeof(Note) || Read("v6_timing_status_size") != sizeof(Status))
                 throw new NotSupportedException("Unsupported sampled timing ABI.");
             var install = (delegate* unmanaged[Cdecl]<int>)NativeLibrary.GetExport(library, "v6_timing_install");
@@ -55,9 +55,11 @@ internal static unsafe class NativeSampledTiming
     }
 
     internal static void Publish(WIVSMMidiPart part, ulong epoch, IReadOnlyDictionary<nint, float> coefficients, NativePhonemeTiming.Point[]? points = null,
-        NativeTransitionGain.Gain[]? transitionGains = null)
+        NativeTransitionGain.Gain[]? transitionGains = null, NativeTransitionGain.SourceFrame[]? transitionProgress = null)
     {
         if (_library == 0) throw new InvalidOperationException("Native timing routing is not initialized.");
+        if (transitionProgress is { Length: > 0 } && transitionGains == null)
+            throw new ArgumentException("Source progress requires the unified transition snapshot.");
         var sequence = part.Sequence!;
         if (part.IsAi || !string.IsNullOrEmpty(part.SecondaryVoiceBankID) ||
             sequence.GetSamplingRate() != VSMSamplingRate._44100 || sequence.NumSampleInFrame != 256 ||
@@ -74,7 +76,7 @@ internal static unsafe class NativeSampledTiming
             if (transitionGains != null)
             {
                 if (points == null) throw new ArgumentException("Transition gains require the verified timing anchors.");
-                NativeTransitionGain.Set((ulong)(nint)part, epoch, (nint)notes, values.Length, anchors, points.Length, transitionGains);
+                NativeTransitionGain.Set((ulong)(nint)part, epoch, (nint)notes, values.Length, anchors, points.Length, transitionGains, transitionProgress);
                 return;
             }
             if ((points == null ? _set((ulong)(nint)part, epoch, notes, values.Length) :
