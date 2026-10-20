@@ -33,6 +33,7 @@ pub struct Status {
     pub auxiliary: u64,
 }
 pub struct Controls {
+    first_failure: Mutex<Option<Failure>>,
     events: Arc<[Gain]>,
     progress: Arc<[Progress]>,
     pub fingerprint: [u8; 32],
@@ -42,6 +43,19 @@ pub struct Controls {
     primary: AtomicU64,
     auxiliary: AtomicU64,
     pub retired: AtomicBool,
+}
+// Optional diagnostic ABI: retain only the first rejected frame, without pointers.
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct Failure {
+    pub reason: u32,
+    pub frame: i32,
+    pub analysis: i32,
+    pub has_progress: u32,
+    pub expected: [i32; 6],
+    pub actual: [i32; 6],
+    pub expected_source: u32,
+    pub actual_source: u32,
 }
 impl Controls {
     #[cfg(test)]
@@ -102,6 +116,7 @@ impl Controls {
             }
         }
         Ok(Some(Arc::new(Self {
+            first_failure: Mutex::new(None),
             events: events.into(),
             progress: progress.into(),
             fingerprint: super::timing_cache::digest(&bytes)?,
@@ -122,6 +137,14 @@ impl Controls {
             primary: self.primary.load(Ordering::Acquire),
             auxiliary: self.auxiliary.load(Ordering::Acquire),
         }
+    }
+    pub fn failure(&self) -> Failure {
+        self.first_failure.lock().unwrap_or_else(|e| e.into_inner()).unwrap_or_default()
+    }
+    fn reject(&self, failure: Failure) {
+        let mut first = self.first_failure.lock().unwrap_or_else(|e| e.into_inner());
+        if first.is_none() { *first = Some(failure); }
+        self.failures.fetch_add(1, Ordering::Relaxed);
     }
     fn event(&self, frame: i32) -> Option<&Gain> {
         self.events
@@ -249,7 +272,7 @@ unsafe extern "system" fn synthesize(
             )
         };
         if schedule == 0 {
-            controls.failures.fetch_add(1, Ordering::Relaxed);
+            controls.reject(Failure { reason: 1, frame: time, ..Default::default() });
             return native_gain;
         }
         let get_row: unsafe extern "system" fn(usize, i32) -> usize = unsafe {
@@ -278,7 +301,24 @@ unsafe extern "system" fn synthesize(
             ) == identity.5
             && progress.is_none_or(|p| unsafe { ptr::read_unaligned((entry as *const u8).add(8).cast::<f32>()) }.to_bits()==p.source.to_bits());
         if !valid {
-            controls.failures.fetch_add(1, Ordering::Relaxed);
+            let actual = if row == 0 { [0; 6] } else {
+                [read(super::timing_profile::RowBegin), read(super::timing_profile::RowEnd),
+                 read(super::timing_profile::RowFrom), read(super::timing_profile::RowTo),
+                 read(super::timing_profile::RowStage), i32::from(unsafe {
+                     ptr::read_unaligned((row as *const u8).add(super::timing_profile::RowReverse))
+                 } != 0)]
+            };
+            let expected = [identity.0,identity.1,identity.2,identity.3,identity.4,identity.5];
+            controls.reject(Failure {
+                reason: if row == 0 { 2 } else if analysis != primary && analysis != auxiliary { 3 }
+                    else if actual != expected { 4 } else { 5 },
+                frame: time, analysis: if analysis == primary { 1 } else if analysis == auxiliary { 2 } else { 0 },
+                has_progress: u32::from(progress.is_some()), expected, actual,
+                expected_source: progress.map_or(0, |p| p.source.to_bits()),
+                actual_source: if entry == 0 { 0 } else { unsafe {
+                    ptr::read_unaligned((entry as *const u8).add(8).cast::<u32>())
+                } },
+            });
             return native_gain;
         }
         controls.applied.fetch_add(1, Ordering::Relaxed);
@@ -417,10 +457,33 @@ pub unsafe extern "C" fn v6_transition_status(part: u64, output: *mut Status) ->
 pub extern "C" fn v6_transition_remove_part(part: u64, epoch: u64) -> i32 {
     super::sampled_timing::remove_epoch(part, epoch)
 }
+#[unsafe(no_mangle)]
+pub extern "C" fn v6_transition_failure_size() -> u32 { std::mem::size_of::<Failure>() as u32 }
+/// # Safety
+/// Output is one writable Failure value; absent snapshots return a zero value.
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn v6_transition_failure(part: u64, output: *mut Failure) -> i32 {
+    if output.is_null() { return -1; }
+    unsafe { output.write(super::sampled_timing::transition_failure(part)); }
+    0
+}
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn first_failure_survives_auxiliary_rejection_without_changing_control_identity() {
+        let controls = Controls::new(&[gain()]).unwrap().unwrap();
+        let fingerprint = controls.fingerprint;
+        controls.reject(Failure { reason: 4, frame: 100, analysis: 1,
+            expected: [100,120,1,2,0,0], actual: [101,121,1,2,0,0], ..Default::default() });
+        controls.reject(Failure { reason: 5, frame: 101, analysis: 2, ..Default::default() });
+        assert_eq!(controls.failure().reason, 4);
+        assert_eq!(controls.failure().actual, [101,121,1,2,0,0]);
+        assert_eq!(controls.status(7).failures, 2);
+        assert_eq!(controls.fingerprint, fingerprint);
+        assert_eq!(std::mem::size_of::<Failure>(), 72);
+    }
     #[test]
     fn future_art_is_revisited_after_placeholder_replacement() {
         let progress: Vec<_> = (3337..3376).map(|frame| Progress {

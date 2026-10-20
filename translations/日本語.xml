@@ -47,6 +47,8 @@
   <data name="VOCALOIDPatcher_ShowNotePitch_Header" xml:space="preserve"><value>ノートの音高を表示</value></data>
   <data name="VOCALOIDPatcher_RoundedNotes_Header" xml:space="preserve"><value>角丸ノート</value></data>
   <data name="VOCALOIDPatcher_CenteredLyrics_Header" xml:space="preserve"><value>歌詞を中央に表示</value></data>
+  <data name="VOCALOIDPatcher_SingleNoteCandidateLyricInput_Header" xml:space="preserve"><value>候補クリック時に単一ノートへ適用</value></data>
+  <data name="VOCALOIDPatcher_SingleNoteCandidateLyricInput_Description" xml:space="preserve"><value>歌詞の言語候補をクリックした際、入力に空白が含まれていても分割せず現在の単一ノートに適用します。Enterキーやフォーカス喪失による通常の確定は分割動作を維持します。</value></data>
   <data name="VOCALOIDPatcher_IndividualBreathVolume_Header" xml:space="preserve"><value>自動ブレスごとの音量調整</value></data>
   <data name="VOCALOIDPatcher_IndividualBreathVolume_Description" xml:space="preserve"><value>BVL パラメータを追加し、自動生成された各ブレスを 0～127 で調整します。新しいブレスは生成しません。</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL：ブレス音量</value></data>
@@ -1421,13 +1423,16 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_AceParameter_Tension_Name" xml:space="preserve"><value>ACE：テンション</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Falsetto_Name" xml:space="preserve"><value>ACE：ファルセット</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Header" xml:space="preserve"><value>ACE パラメータ（ACE Studio 風）</value></data>
-  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>従来の MIDI トラックのパラメータ領域に 4 本の編集可能なカーブ（エナジー／エアー／テンション／ファルセット）を追加します。カーブはプロジェクトに保存され、マッピングされたネイティブパラメータが発音を制御します。</value></data>
-  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>ネイティブパラメータを駆動</value></data>
-  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>有効時、ACE カーブを編集すると Part 全体の対応するネイティブコントローラ（エナジー→Dynamics、エアー→Breathiness、テンション→Brightness、ファルセット→Character）を書き換えます。その後ネイティブ側で直接編集した値は次の ACE 編集で上書きされます。</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>サンプル音源トラックに強さ、エアー、テンション、ファルセットのカーブを追加し、ローカルの音響処理でレンダリング音声を調整します。</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>音響パラメーター処理を有効にする</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>音声のエネルギー、調波と雑音の比率、LF声門音源スペクトルを個別に調整します。中立値50では原音を維持し、レンダリングと処理の完了後に再生を更新します。</value></data>
   <data name="VOCALOIDPatcher_AceAirTarget_Header" xml:space="preserve"><value>エアーをネイティブ Air にマッピング</value></data>
   <data name="VOCALOIDPatcher_AceAirTarget_Description" xml:space="preserve"><value>オフ（既定）ではエアーカーブが Breathiness を駆動し、オンではネイティブ Air コントローラを駆動します。</value></data>
-  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>ファルセットを Character にマッピング（実験的）</value></data>
-  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>連続値のネイティブファルセットパラメータは存在しないため、実験的に Character を使用します。音色変化が不適切な場合はオフにしてください。</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>ファルセットの音源処理</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>音高を維持しながらH2に対する高次調波の強さを調整します。音響的な近似であり、収録済みのファルセット音声には切り替えません。</value></data>
   <data name="VOCALOIDPatcher_Debug_AceParameter_Failed" xml:space="preserve"><value>ACE パラメータ処理に失敗しました: {0}</value></data>
-  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>ACE カーブからネイティブマッピングを再構築</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>ACEカーブから音声を再処理</value></data>
+  <data name="VOCALOIDPatcher_RendererRecovery_Header" xml:space="preserve"><value>レンダリング失敗から自動復旧</value></data>
+  <data name="VOCALOIDPatcher_RendererRecovery_Description" xml:space="preserve"><value>障害の診断情報を保存し、停止したレンダリングを一度だけ再試行します。連続した失敗では再試行を停止し、プロジェクトの制御データは保持します。</value></data>
+  <data name="VOCALOIDPatcher_AceAcoustic_ExportNotReady" xml:space="preserve"><value>ACE音響処理の音声が未準備のため書き出せません。レンダリング完了後に再試行し、処理に失敗した場合はログを確認してください。</value></data>
 </root>

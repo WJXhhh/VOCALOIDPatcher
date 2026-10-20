@@ -47,6 +47,8 @@
   <data name="VOCALOIDPatcher_ShowNotePitch_Header" xml:space="preserve"><value>Show Note Pitch</value></data>
   <data name="VOCALOIDPatcher_RoundedNotes_Header" xml:space="preserve"><value>Rounded Notes</value></data>
   <data name="VOCALOIDPatcher_CenteredLyrics_Header" xml:space="preserve"><value>Center Lyrics</value></data>
+  <data name="VOCALOIDPatcher_SingleNoteCandidateLyricInput_Header" xml:space="preserve"><value>Single Note Candidate Lyric Input</value></data>
+  <data name="VOCALOIDPatcher_SingleNoteCandidateLyricInput_Description" xml:space="preserve"><value>When clicking an item in the lyric candidate popup, fills the whole candidate into the current single note even if it contains spaces, without distributing words to subsequent notes. Enter and blur confirm behaviors remain unchanged.</value></data>
   <data name="VOCALOIDPatcher_IndividualBreathVolume_Header" xml:space="preserve"><value>Individual Auto-Breath Volume</value></data>
   <data name="VOCALOIDPatcher_IndividualBreathVolume_Description" xml:space="preserve"><value>Adds a BVL parameter for adjusting each auto-generated breath from 0 to 127. It does not create new breaths.</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL: Breath Volume</value></data>
@@ -1421,13 +1423,16 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Tension_Name" xml:space="preserve"><value>ACE: Tension</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Falsetto_Name" xml:space="preserve"><value>ACE: Falsetto</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Header" xml:space="preserve"><value>ACE parameters (ACE Studio style)</value></data>
-  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>Adds four editable parameter curves (Energy, Air, Tension, Falsetto) to the parameter area of traditional MIDI tracks. The curves are saved with the project and drive mapped native controllers.</value></data>
-  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>Drive native parameters</value></data>
-  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>While enabled, editing an ACE curve rewrites the mapped native controller for the whole part (Energy to Dynamics, Air to Breathiness, Tension to Brightness, Falsetto to Character). Native edits to those controllers are overwritten by the next ACE edit.</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>Adds Energy, Air, Tension and Falsetto curves for sampled tracks. Sound is processed from rendered audio using a local acoustic backend.</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>Process acoustic parameters</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>Applies independent energy gain, harmonic/noise balance and LF glottal source shaping to rendered audio. Neutral 50 preserves the original sound. Playback updates after rendering and processing finish.</value></data>
   <data name="VOCALOIDPatcher_AceAirTarget_Header" xml:space="preserve"><value>Map Air to native Air</value></data>
   <data name="VOCALOIDPatcher_AceAirTarget_Description" xml:space="preserve"><value>When off (default) the ACE Air curve drives Breathiness; when on it drives the native Air controller.</value></data>
-  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>Map Falsetto to Character (experimental)</value></data>
-  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>There is no dedicated continuous native falsetto parameter; the experimental mapping uses Character. Disable it if the timbre change is undesirable.</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>Falsetto source shaping</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>Changes higher source harmonics relative to H2 while preserving pitch. This acoustic approximation does not switch to recorded falsetto samples.</value></data>
   <data name="VOCALOIDPatcher_Debug_AceParameter_Failed" xml:space="preserve"><value>ACE parameter failed: {0}</value></data>
-  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>Rebuild native mapping from ACE curves</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>Reprocess audio from ACE curves</value></data>
+  <data name="VOCALOIDPatcher_RendererRecovery_Header" xml:space="preserve"><value>Automatically recover failed rendering</value></data>
+  <data name="VOCALOIDPatcher_RendererRecovery_Description" xml:space="preserve"><value>Keep failure diagnostics and retry stopped render tasks once. Repeated failures stop automatic retries; project controls remain unchanged.</value></data>
+  <data name="VOCALOIDPatcher_AceAcoustic_ExportNotReady" xml:space="preserve"><value>ACE acoustic audio is not ready for export. Wait for rendering and try again; check the log if processing fails.</value></data>
 </root>

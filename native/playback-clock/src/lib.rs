@@ -1252,6 +1252,7 @@ mod breath_hook {
 #[cfg(windows)]
 mod register_shift_hook {
     use super::*;
+    use std::cell::RefCell;
 
     const MIN_SHIFT: i32 = -48;
     const MAX_SHIFT: i32 = 48;
@@ -1446,8 +1447,12 @@ mod register_shift_hook {
         current: u64,
         target: u64,
     }
+    #[repr(C)]
+    #[derive(Clone, Copy)]
+    pub struct PlanningNote { pub begin: i64, pub end: i64, pub pitch: i32, pub shift: i32 }
 
     thread_local! {
+        static PLANNING_NOTES: RefCell<Option<Arc<[PlanningNote]>>> = const { RefCell::new(None) };
         static ACTIVE_SHIFTS: Cell<ActiveShifts> = const { Cell::new(ActiveShifts {
             current: None, target: None,
         }) };
@@ -1691,6 +1696,21 @@ mod register_shift_hook {
         current: *const i32,
         target: *const i32,
     ) -> ActiveShifts {
+        if let Some(shifts) = PLANNING_NOTES.with(|slot| {
+            let notes = slot.borrow();
+            let notes = notes.as_ref()?;
+            let find = |record: *const i32| {
+                if record.is_null() { return None; }
+                let begin = i64::from(unsafe { ptr::read_unaligned(record) });
+                let end = begin + i64::from(unsafe { ptr::read_unaligned(record.add(1)) });
+                let pitch = unsafe { ptr::read_unaligned(record.add(2).cast::<f32>()) };
+                let mut matches = notes.iter().filter(|n| (n.begin - begin).abs() <= 2 &&
+                    (n.end - end).abs() <= 2 && (n.pitch as f32 - pitch).abs() <= 0.25);
+                let first = matches.next()?;
+                matches.next().is_none().then_some(first.shift)
+            };
+            Some(ActiveShifts { current: find(current), target: find(target) })
+        }) { return shifts; }
         let context = unsafe { resolve_part(parser) };
         LAST_PART.store(context.part, Ordering::Relaxed);
         LAST_EPOCH.store(context.epoch, Ordering::Relaxed);
@@ -2650,6 +2670,43 @@ mod register_shift_hook {
             .unwrap_or_else(|value| value.into_inner())
             .retain(|_, entry| entry.part != part);
         0
+    }
+    pub fn begin_planning(notes: &[PlanningNote]) -> i32 {
+        if notes.is_empty() || notes.len() > 33 || notes.iter().any(|n|
+            n.begin < 0 || n.end <= n.begin || n.end > i64::from(i32::MAX) ||
+            !(MIN_SHIFT..=MAX_SHIFT).contains(&n.shift)) { return -1; }
+        PLANNING_NOTES.with(|slot| {
+            let mut value = slot.borrow_mut();
+            if value.is_some() { return -2; }
+            *value = Some(Arc::from(notes));
+            0
+        })
+    }
+    pub fn end_planning() { PLANNING_NOTES.with(|slot| { slot.borrow_mut().take(); }); }
+    #[cfg(test)]
+    #[test]
+    fn planning_shift_is_exact_thread_local_and_cleared_after_scope() {
+        let note = PlanningNote { begin: 3500, end: 3586, pitch: -700, shift: 1 };
+        assert_eq!(begin_planning(&[note]), 0);
+        assert_eq!(begin_planning(&[note]), -2);
+        let mut record = [0i32; 3];
+        record[0] = 3500; record[1] = 86; record[2] = (-700f32).to_bits() as i32;
+        let shifts = unsafe { prepare_context(ptr::null_mut(), record.as_ptr(), ptr::null()) };
+        assert_eq!(shifts.current, Some(1)); assert_eq!(shifts.target, None);
+        std::thread::spawn(move || {
+            assert!(PLANNING_NOTES.with(|slot| slot.borrow().is_none()));
+            assert_eq!(begin_planning(&[PlanningNote { shift: -1, ..note }]), 0);
+            let record = [3500, 86, (-700f32).to_bits() as i32];
+            assert_eq!(unsafe { prepare_context(ptr::null_mut(), record.as_ptr(), ptr::null()) }.current, Some(-1));
+            end_planning();
+        }).join().unwrap();
+        assert_eq!(unsafe { prepare_context(ptr::null_mut(), record.as_ptr(), ptr::null()) }.current, Some(1));
+        record[0] += 8;
+        assert_eq!(unsafe { prepare_context(ptr::null_mut(), record.as_ptr(), ptr::null()) }.current, None);
+        end_planning();
+        assert!(PLANNING_NOTES.with(|slot| slot.borrow().is_none()));
+        assert_eq!(begin_planning(&[PlanningNote { shift: 49, ..note }]), -1);
+        assert_eq!(begin_planning(&[]), -1);
     }
 
     pub fn remove_part(part: u64) {
@@ -3612,6 +3669,25 @@ pub extern "C" fn v6_register_shift_clear() {
     #[cfg(windows)]
     register_shift_hook::clear();
 }
+
+// Explicit immutable scope for private metadata planning. It never publishes a
+// Part, calibrates from another renderer, or changes the authored note pitch.
+#[unsafe(no_mangle)]
+#[cfg(windows)]
+pub extern "C" fn v6_register_shift_planning_note_size() -> u32 {
+    std::mem::size_of::<register_shift_hook::PlanningNote>() as u32
+}
+/// # Safety
+/// Notes reference count readable PlanningNote values, copied before returning.
+#[unsafe(no_mangle)]
+#[cfg(windows)]
+pub unsafe extern "C" fn v6_register_shift_plan_begin(notes: *const register_shift_hook::PlanningNote, count: i32) -> i32 {
+    if notes.is_null() || !(1..=33).contains(&count) { return -1; }
+    register_shift_hook::begin_planning(unsafe { slice::from_raw_parts(notes, count as usize) })
+}
+#[unsafe(no_mangle)]
+#[cfg(windows)]
+pub extern "C" fn v6_register_shift_plan_end() { register_shift_hook::end_planning(); }
 
 #[unsafe(no_mangle)]
 /// Writes the current register-shift hook and table state.

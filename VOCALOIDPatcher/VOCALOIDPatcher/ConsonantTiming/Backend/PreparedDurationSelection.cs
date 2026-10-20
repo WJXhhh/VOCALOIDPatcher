@@ -37,7 +37,9 @@ internal sealed partial class LocalConsonantTimingBackend
                 NativeDurationSelection.BeginCapture(notes);
                 try
                 {
-                    _owner._engine.Begin(cancellation, 0);
+                    _owner._engine.Begin(cancellation, 0, window.RegisterNotes.Select(n =>
+                        new RegisterShift.NativeRegisterShift.PlanningNote(n.Begin + window.Origin,
+                            n.End + window.Origin, n.Pitch, n.Shift)).ToArray());
                     try
                     {
                         _owner._engine.Plan(0, _singer);

@@ -96,7 +96,8 @@ internal sealed partial class LocalConsonantTimingBackend
                         for (int frame = 0; frame < ticks.Length; frame++) ticks[frame] = source.GetTickFromTime(
                             new VSMAbsTick(partStart), (frame + origin) * 256d / 44100 - 0.5).Value - targetAbsoluteTick;
                         windows.Add(new(mapping, mappingPart, mapped.ToArray(), messages.ToArray(), context.Target, context.Complete, ticks, checked((int)origin),
-                            ContextKey(source, part, notes, context.Target, tempo, target.NoteVelocity)));
+                            ContextKey(source, part, notes, context.Target, tempo, target.NoteVelocity),
+                            CaptureRegisterPlanning(source, part, notes, checked((int)origin))));
                     }
                     catch { ClosePrivate(mapping); throw; }
                     if (context.Complete) break;
@@ -124,7 +125,8 @@ internal sealed partial class LocalConsonantTimingBackend
     internal sealed record CoefficientMessage(int Frame, byte[] Bytes, float Coefficient, SampledTimingPlan? Plan = null,
         TimingNoteAddress? Address = null);
     internal sealed record CoefficientWindow(WIVSMSequence Sequence, WIVSMMidiPart Part, WIVSMNote[] Notes,
-        CoefficientMessage[] Messages, int Target, bool Complete, long[] Ticks, int Origin, string InputKey);
+        CoefficientMessage[] Messages, int Target, bool Complete, long[] Ticks, int Origin, string InputKey,
+        RegisterShift.NativeRegisterShift.PlanningNote[] RegisterNotes);
 
     internal sealed partial class PreparedCoefficientTiming : IDisposable
     {
@@ -189,7 +191,7 @@ internal sealed partial class LocalConsonantTimingBackend
                 {
                     cancellation.ThrowIfCancellationRequested();
                     long[] boundaries;
-                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs);
+                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs, window.RegisterNotes);
                     try
                     {
                         _owner._engine.Plan(0, _singer);

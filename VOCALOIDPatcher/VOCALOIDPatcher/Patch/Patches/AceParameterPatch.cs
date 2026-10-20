@@ -231,6 +231,51 @@ public sealed class AceParameterSequenceClosePatch : PatchBase
         => AceParameterMappingService.OnSequenceClosing(__instance);
 }
 
+public sealed class AceAcousticRenderStartPatch : PatchBase
+{
+    public override string PatchName => nameof(AceAcousticRenderStartPatch);
+    public override Type TargetClass => typeof(MusicalEditorViewModel);
+    public override string TargetMethodName => "OnRendererStarted";
+    public override Type[] ArgumentTypes => [typeof(object), typeof(RendererObserverStartEventArgs)];
+
+    [HarmonyPrefix]
+    private static void Prefix(RendererObserverStartEventArgs e)
+    {
+        try { if (e?.MidiPart != null) AceAcousticHost.RenderStarted(e.MidiPart); }
+        catch (Exception ex) { Debug.Print("ACE render start: " + ex.GetType().Name); }
+    }
+}
+
+public sealed class AceAcousticRenderCompletePatch : PatchBase
+{
+    public override string PatchName => nameof(AceAcousticRenderCompletePatch);
+    public override Type TargetClass => typeof(AudioPlayer);
+    public override string TargetMethodName => "OnRendererCompleted";
+    public override Type[] ArgumentTypes => [typeof(object), typeof(RendererObserverCompleteEventArgs)];
+
+    [HarmonyPostfix]
+    private static void Postfix(RendererObserverCompleteEventArgs e)
+    {
+        try { if (e?.MidiPart != null) AceAcousticHost.RenderCompleted(e.MidiPart); }
+        catch (Exception ex) { Debug.Print("ACE render complete: " + ex.GetType().Name); }
+    }
+}
+
+public sealed class AceAcousticRenderCancelPatch : PatchBase
+{
+    public override string PatchName => nameof(AceAcousticRenderCancelPatch);
+    public override Type TargetClass => typeof(MusicalEditorViewModel);
+    public override string TargetMethodName => "OnRendererCanceled";
+    public override Type[] ArgumentTypes => [typeof(object), typeof(RendererObserverCancelEventArgs)];
+
+    [HarmonyPostfix]
+    private static void Postfix(RendererObserverCancelEventArgs e)
+    {
+        try { if (e?.MidiPart != null) AceAcousticHost.RenderCompleted(e.MidiPart); }
+        catch (Exception ex) { Debug.Print("ACE render cancellation: " + ex.GetType().Name); }
+    }
+}
+
 internal static class AceParameterNativeOps
 {
     internal static bool IsAnyAceSelected(MusicalEditorViewModel vm)
@@ -569,6 +614,7 @@ internal static class AceParameterUi
     {
         void Apply()
         {
+            AceAcousticHost.RefreshSettings();
             CustomParameterUi.RefreshHeaders(synchronize: true);
             if (Application.Current?.MainWindow?.DataContext is MainViewModel mainVm &&
                 mainVm.MusicalEditorVM is { } vm)

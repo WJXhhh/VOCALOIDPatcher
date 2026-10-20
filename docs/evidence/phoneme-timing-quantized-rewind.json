@@ -1,0 +1,2803 @@
+{
+  "date": "2026-10-20",
+  "deployed": true,
+  "rootCause": "Ambiguous output-frame inverse at native pop-back; exact dispatch provenance from native work-item count disambiguates the original source start.",
+  "sourceNativeTrace": [
+    {
+      "axis": 1,
+      "offset": 1,
+      "workItems": 7,
+      "outputFrame": 3295,
+      "oldOriginalCandidates": [
+        3294,
+        3295
+      ],
+      "dispatchOriginal": 3295
+    },
+    {
+      "axis": 2,
+      "offset": -1,
+      "workItems": 7,
+      "outputFrame": 3294,
+      "oldOriginalCandidates": [
+        3294,
+        3295
+      ],
+      "dispatchOriginal": 3295
+    }
+  ],
+  "versions": [
+    {
+      "sdk": "6.13.1.1",
+      "exit": 0,
+      "baseline": [
+        {
+          "n": 0,
+          "phones": "x u uo",
+          "boundaries": [
+            -115,
+            -6,
+            123,
+            306
+          ],
+          "error": null
+        },
+        {
+          "n": 1,
+          "phones": "s t ei AU",
+          "boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "error": null
+        },
+        {
+          "n": 2,
+          "phones": "x aI AU",
+          "boundaries": [
+            -119,
+            -3,
+            213,
+            376
+          ],
+          "error": null
+        },
+        {
+          "n": 3,
+          "phones": "t_h i@U u",
+          "boundaries": [
+            -104,
+            -29,
+            445,
+            601
+          ],
+          "error": null
+        },
+        {
+          "n": 4,
+          "phones": "k o",
+          "boundaries": [
+            -119,
+            -31,
+            234
+          ],
+          "error": null
+        }
+      ],
+      "rendered": 40,
+      "rawMatches": 36,
+      "requiresProjection": 4,
+      "rejections": 0,
+      "restored": true,
+      "edits": [
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "actual": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            0,
+            123,
+            306
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -27,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -27,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -14,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -14,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "actual": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            3,
+            213,
+            376
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "actual": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -22,
+            445,
+            601
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -125,
+            -31,
+            234
+          ],
+          "actual": [
+            -125,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -31,
+            234
+          ],
+          "actual": [
+            -112,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -37,
+            234
+          ],
+          "actual": [
+            -119,
+            -37,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -24,
+            234
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -31,
+            227
+          ],
+          "actual": [
+            -119,
+            -31,
+            227
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -31,
+            241
+          ],
+          "actual": [
+            -119,
+            -31,
+            241
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        }
+      ]
+    },
+    {
+      "sdk": "6.13.3.1",
+      "exit": 0,
+      "baseline": [
+        {
+          "n": 0,
+          "phones": "x u uo",
+          "boundaries": [
+            -115,
+            -6,
+            123,
+            306
+          ],
+          "error": null
+        },
+        {
+          "n": 1,
+          "phones": "s t ei AU",
+          "boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "error": null
+        },
+        {
+          "n": 2,
+          "phones": "x aI AU",
+          "boundaries": [
+            -119,
+            -3,
+            213,
+            376
+          ],
+          "error": null
+        },
+        {
+          "n": 3,
+          "phones": "t_h i@U u",
+          "boundaries": [
+            -104,
+            -29,
+            445,
+            601
+          ],
+          "error": null
+        },
+        {
+          "n": 4,
+          "phones": "k o",
+          "boundaries": [
+            -119,
+            -31,
+            234
+          ],
+          "error": null
+        }
+      ],
+      "rendered": 40,
+      "rawMatches": 36,
+      "requiresProjection": 4,
+      "rejections": 0,
+      "restored": true,
+      "edits": [
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "actual": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            0,
+            123,
+            306
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -27,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -27,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -14,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -14,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "actual": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            3,
+            213,
+            376
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "actual": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -22,
+            445,
+            601
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -125,
+            -31,
+            234
+          ],
+          "actual": [
+            -125,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -31,
+            234
+          ],
+          "actual": [
+            -112,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -37,
+            234
+          ],
+          "actual": [
+            -119,
+            -37,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -24,
+            234
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -31,
+            227
+          ],
+          "actual": [
+            -119,
+            -31,
+            227
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -31,
+            241
+          ],
+          "actual": [
+            -119,
+            -31,
+            241
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        }
+      ]
+    }
+  ],
+  "rustTests": 50,
+  "managedTests": 262,
+  "existingDurationConcurrent": "12/12 PCM exact; peak scopes 3",
+  "compositionRenders": 20,
+  "compositionPassed": 20,
+  "crashRequests": 27,
+  "crashRenders": 11,
+  "crashRejections": 16,
+  "forcedPaddingFrames": 88.0,
+  "sharedRegression": "passed",
+  "extraCompoundConcurrency": [
+    {
+      "name": "rewind-ordinary-old-native",
+      "exit": 1,
+      "renders": 12,
+      "exact": 0,
+      "boundaries": 12,
+      "nativeFailures": 0.0,
+      "peak": 0.0,
+      "results": [
+        {
+          "pass": 0,
+          "part": 0,
+          "hash": "6BC31870A9A7AB282BEEF2E0ADB027404AA00DF63A7BF4EFE84BF59D138E3062",
+          "expected": "1D30617521F919F1F01786B24919942296AD1A0DD9CCD8D60B6EDA13CD22990C",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 0,
+          "part": 1,
+          "hash": "3213EE6605D3704764AA9778C7D3E385D7D39A168E01EC2D8BC6CBCF7883987E",
+          "expected": "B1F226BAD0663310DF5C517AEB872FE118E3517EDE8B9343BA65AE1AFAD67C07",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 0,
+          "part": 2,
+          "hash": "3045C847808D5BA86A3C7216352CD286BF3EEC145E6D2B6BAD82EC5C89FDFE5C",
+          "expected": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 0,
+          "part": 3,
+          "hash": "E4A20E0F8F2B9D900F4B2A44A9ED88CA4D3F1551B48CA6FA50AE160747883D81",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 0,
+          "hash": "966D3EA96AC6381A3E500D77E70BECEFFBBCA9B13E8A9CE8E927AC53794B8BA8",
+          "expected": "1D30617521F919F1F01786B24919942296AD1A0DD9CCD8D60B6EDA13CD22990C",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 1,
+          "hash": "F1DE67EB08005A20FF0EB39E47BB6A929F742010CD01010F3ADAB9D041420D7F",
+          "expected": "B1F226BAD0663310DF5C517AEB872FE118E3517EDE8B9343BA65AE1AFAD67C07",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 2,
+          "hash": "649B8600A62FD1F63B3BEC2E901E121CC35DCDE91265A3BD78D699C63B28A359",
+          "expected": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 3,
+          "hash": "E9AE61BFFA6CAAD7AA3E69881D996C0091557F6900868A41BC1B961DDA40D93C",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 0,
+          "hash": "B0537968C6C20A9CD859D7A27E65F946970CC9421FA98D0B250BBE69205E31E1",
+          "expected": "1D30617521F919F1F01786B24919942296AD1A0DD9CCD8D60B6EDA13CD22990C",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 1,
+          "hash": "4E01AAFCBDDDE2E4C5BC0C77C2796D2672F05D6648919BCE2D0F7244B7F87997",
+          "expected": "B1F226BAD0663310DF5C517AEB872FE118E3517EDE8B9343BA65AE1AFAD67C07",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 2,
+          "hash": "0A1E7E17CB41C76D7058A4C50B22CA5E84C8C7799DF2E54EFBF1817F6273DA69",
+          "expected": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 3,
+          "hash": "9C84103EACFDAB8E192DF9BF47EB207E5040FBE6DAD6788AD6A2A6A2F3F1947E",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        }
+      ]
+    },
+    {
+      "name": "rewind-ordinary-new-native",
+      "exit": 1,
+      "renders": 12,
+      "exact": 1,
+      "boundaries": 12,
+      "nativeFailures": 0.0,
+      "peak": 0.0,
+      "results": [
+        {
+          "pass": 0,
+          "part": 0,
+          "hash": "98332C1BF3B4B3449CECD2F64D51F22C55DE5D6455607583001CC04DE432381A",
+          "expected": "1D30617521F919F1F01786B24919942296AD1A0DD9CCD8D60B6EDA13CD22990C",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 0,
+          "part": 1,
+          "hash": "B244BB920052DF82846BC86BCCA6DF3EE70A8FD014BB6E94C00675E934EB1A5E",
+          "expected": "B1F226BAD0663310DF5C517AEB872FE118E3517EDE8B9343BA65AE1AFAD67C07",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 0,
+          "part": 2,
+          "hash": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "expected": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "equal": true,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 0,
+          "part": 3,
+          "hash": "DED9B84706914946B4DB832F98F2B2BCF59F22E167F271903DE139A266D34B37",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 0,
+          "hash": "D4AA2B63365BAA400F1D856E37F05066C9C101E8204DE059DE11666D39A21B74",
+          "expected": "1D30617521F919F1F01786B24919942296AD1A0DD9CCD8D60B6EDA13CD22990C",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 1,
+          "hash": "F51011FA7F916F7A7F4EFA51497C71DF64A5DB682C6155A81CD7F9538398351F",
+          "expected": "B1F226BAD0663310DF5C517AEB872FE118E3517EDE8B9343BA65AE1AFAD67C07",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 2,
+          "hash": "29BB342F7DA9FFD468AFDC50CB1A395460873E4C7ADC0410C0784AD8C6EBAA9A",
+          "expected": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 1,
+          "part": 3,
+          "hash": "2AF41EE4C8BBB6F9A2A12E7651DEAB8148461236D8A296FCBE7851F7EBA665FA",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 0,
+          "hash": "A012766A90B3E665EDDA0B709DA8B36DB46F10A2F2646FD195A126CF919F7239",
+          "expected": "1D30617521F919F1F01786B24919942296AD1A0DD9CCD8D60B6EDA13CD22990C",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 1,
+          "hash": "EC8E3C64F380D4420AD2A93F5EACA89C9BAAD5BEC8B908C551B33DE061F06707",
+          "expected": "B1F226BAD0663310DF5C517AEB872FE118E3517EDE8B9343BA65AE1AFAD67C07",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 2,
+          "hash": "1E417AD6BCE0AB3B4B6301DDF666DB7A3C0747FF44DB0EF60245E2A0C4757E6A",
+          "expected": "9503901382D1648D51BB8EA7D9BDE563B37812827084FEC3548CCE35BD3BD43E",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        },
+        {
+          "pass": 2,
+          "part": 3,
+          "hash": "7A7636873C7F3B7A35ECC0987DB5462C384F8A7D1CBB75DB78685D013C57F3B0",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 0
+        }
+      ]
+    },
+    {
+      "name": "rewind-concurrent-final",
+      "exit": 1,
+      "renders": 12,
+      "exact": 0,
+      "boundaries": 12,
+      "nativeFailures": 0.0,
+      "peak": 3.0,
+      "results": [
+        {
+          "pass": 0,
+          "part": 0,
+          "hash": "B4F4AC2DDDE511BF1EF50A8F23CBA1BE35FD2D50132D4A474E59AF8D5FA9673D",
+          "expected": "61834A6A6E0460E7706D10B378E8FC3E525E694C7D07E85462294567E3AF7E15",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 0,
+          "part": 1,
+          "hash": "25735E1E01750947AFE0A405724FEDDB5DD1813EF8B3A7347F95748A9F0F9621",
+          "expected": "6F1356C9ECCAE79BAA1D10329531BDE4278146F3BD0163C5272CF3B7DD8C4DE7",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 0,
+          "part": 2,
+          "hash": "69FA75DFAA5B3BBC4AC9BD41FB58854E4B4D56E041F161C497BE300FA7CD0007",
+          "expected": "2A18AF8E0C3B397E85F47DE33D0ADBBBCB329A221797596DC8A19A666E2B374A",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 0,
+          "part": 3,
+          "hash": "C8B8D798275117C25ECD0432DC6998F28F511BA0A764066C39508D4F96D4CD5B",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 1,
+          "part": 0,
+          "hash": "89268D8588DA96016BD48BE5763AA20DC548FB7A6332FE7ED98E88CDF8B7E5D5",
+          "expected": "61834A6A6E0460E7706D10B378E8FC3E525E694C7D07E85462294567E3AF7E15",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 1,
+          "part": 1,
+          "hash": "246962555DF0DE66D709F75C7E30EFD4CD53E9FF3993B5C019054075D11A3C2F",
+          "expected": "6F1356C9ECCAE79BAA1D10329531BDE4278146F3BD0163C5272CF3B7DD8C4DE7",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 1,
+          "part": 2,
+          "hash": "503A1424D95472323F754D195E3FA38EF945027E28F0D8921ADCF0ABD9ED5313",
+          "expected": "2A18AF8E0C3B397E85F47DE33D0ADBBBCB329A221797596DC8A19A666E2B374A",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 1,
+          "part": 3,
+          "hash": "3A99961E8F7C50EA5BB61456CB3E22A9CC66554B754AFB22AE172FAD88DFE7AB",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 2,
+          "part": 0,
+          "hash": "BF4F708818D21B177C52F2DB16084C61A1347E81A77DDC31304099DF468CA897",
+          "expected": "61834A6A6E0460E7706D10B378E8FC3E525E694C7D07E85462294567E3AF7E15",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 2,
+          "part": 1,
+          "hash": "652A7DD581C594B7D0B3CD3A384090C544990A06300629E6186CC121325CA1AC",
+          "expected": "6F1356C9ECCAE79BAA1D10329531BDE4278146F3BD0163C5272CF3B7DD8C4DE7",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 2,
+          "part": 2,
+          "hash": "2EECF0D97BB9C8C7EA81DAB8CBEF7541C6C40B56560522F6E783C41FE036FDC3",
+          "expected": "2A18AF8E0C3B397E85F47DE33D0ADBBBCB329A221797596DC8A19A666E2B374A",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        },
+        {
+          "pass": 2,
+          "part": 3,
+          "hash": "9662B58358489858710C4CBA705F365C5DE2A345878CD312340A09BADA7AD042",
+          "expected": "76D3579AC752E7AAEF314165E8108472B5C7D07290255F489E41BA4C4AE431C4",
+          "equal": false,
+          "boundariesMatch": true,
+          "Failures": 0,
+          "peakScopes": 3
+        }
+      ]
+    }
+  ],
+  "candidateNative": "E7141A6CAAC837DC7C49A6870E1AB5967C661BEF03481439DCFB83B8B3D0DCA1",
+  "installed": {
+    "main": "E13DB188C8C99AE6AD70C5CAA22553D869C4DB628A4861357553B70E5AAE072E",
+    "native": "3CB49633673EF635076823DB71C6828D0A28F807462F5A637A72052EF4330623"
+  },
+  "deployment": {
+    "time": "2026-10-20T12:55:44.838219+08:00",
+    "main": "45EAC9BEEF3094BA800A0BCDABC6B8FB9C6B1CC3268749373A309227C748EDBE",
+    "native": "E7141A6CAAC837DC7C49A6870E1AB5967C661BEF03481439DCFB83B8B3D0DCA1",
+    "independentlyVerified": true,
+    "editorStarted": false,
+    "hostMouseValidation": "pending"
+  }
+}

@@ -113,40 +113,6 @@ internal static class AceParameterRegistry
         return false;
     }
 
-    internal static AceSoundTarget GetSoundTargetKind(AceParameterDefinition definition)
-    {
-        if (definition.Kind == AceParameterKind.Air && Settings.AceAirUseNativeAir)
-            return AceSoundTarget.NativeAir;
-        return definition.SoundTarget switch
-        {
-            VSMControllerType.Dynamics => AceSoundTarget.Dynamics,
-            VSMControllerType.Breathiness => AceSoundTarget.Breathiness,
-            VSMControllerType.Air => AceSoundTarget.NativeAir,
-            VSMControllerType.Brightness => AceSoundTarget.Brightness,
-            VSMControllerType.Character => AceSoundTarget.Character,
-            _ => AceSoundTarget.Dynamics,
-        };
-    }
-
-    internal static bool IsMappingEnabled(AceParameterDefinition definition)
-    {
-        if (!Settings.AceParameterMapping)
-            return false;
-        if (definition.Kind == AceParameterKind.Falsetto && !Settings.AceFalsettoMapping)
-            return false;
-        return true;
-    }
-
-    internal static VSMControllerType GetMappingTarget(AceParameterDefinition definition)
-        => GetSoundTargetKind(definition) switch
-        {
-            AceSoundTarget.Breathiness => VSMControllerType.Breathiness,
-            AceSoundTarget.NativeAir => VSMControllerType.Air,
-            AceSoundTarget.Brightness => VSMControllerType.Brightness,
-            AceSoundTarget.Character => VSMControllerType.Character,
-            _ => VSMControllerType.Dynamics,
-        };
-
     internal static bool IsCarrierType(VSMControllerType type)
     {
         if (!Settings.AceParameters)

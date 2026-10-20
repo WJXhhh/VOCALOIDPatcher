@@ -114,6 +114,7 @@ public sealed class ConsonantTimingCommitPatch : PatchBase
         {
             ConsonantTimingRuntime.SourceChanged(__instance);
             PhonemeVolume.PhonemeVolumeHost.SourceChanged(__instance);
+            ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged(__instance);
         }
     }
 }
@@ -133,6 +134,7 @@ public sealed class ConsonantTimingUndoPatch : PatchBase
         catch (Exception e) { SampledTimingHost.Recover(__instance, e); return; }
         ConsonantTimingRuntime.SourceChanged(__instance);
         PhonemeVolume.PhonemeVolumeHost.SourceChanged(__instance);
+        ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged(__instance);
     }
 }
 
@@ -151,6 +153,7 @@ public sealed class ConsonantTimingRedoPatch : PatchBase
         catch (Exception e) { SampledTimingHost.Recover(__instance, e); return; }
         ConsonantTimingRuntime.SourceChanged(__instance);
         PhonemeVolume.PhonemeVolumeHost.SourceChanged(__instance);
+        ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged(__instance);
     }
 }
 
@@ -165,6 +168,7 @@ public sealed class ConsonantTimingClosePatch : PatchBase
     {
         __state = (nint)__instance;
         PhonemeVolume.PhonemeVolumeHost.Close(__instance);
+        ConsonantTiming.Smoothing.TransitionSmoothingHost.Close(__instance);
         if (SampledTimingHost.HasData(__instance)) __instance.StopAsyncRendering();
         ConsonantTimingRuntime.BeforeClose(__instance);
     }

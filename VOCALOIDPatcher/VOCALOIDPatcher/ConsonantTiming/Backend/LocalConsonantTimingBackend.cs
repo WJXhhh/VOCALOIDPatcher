@@ -27,6 +27,8 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
     private const double MappingTicksPerSecond = 60000;
     private readonly object _gate = new();
     private readonly WIVSMSequenceManager _manager;
+    private readonly Func<LocalConsonantTimingBackend> _recreate;
+    internal LocalConsonantTimingBackend CreateReplacement() => _recreate();
     private readonly NativeConsonantTimingEngine _engine;
     private readonly Dictionary<string, (int Language, int Singer)> _banks = new(StringComparer.Ordinal);
     private readonly WIVSMSequence _inputSequence;
@@ -45,6 +47,7 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
         ArgumentNullException.ThrowIfNull(dse);
         ArgumentNullException.ThrowIfNull(database);
         _manager = manager;
+        _recreate = () => new LocalConsonantTimingBackend(manager, dse, database);
         _engine = new NativeConsonantTimingEngine((nint)dse);
         try
         {
@@ -205,7 +208,7 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
         }
         if (!inputSequence.Commit(false) || !mappingSequence.Commit(false))
             throw new InvalidOperationException("Cannot commit private timing metadata.");
-        _engine.Begin(cancellation, nativeWaitBudgetMs);
+        _engine.Begin(cancellation, nativeWaitBudgetMs, CaptureRegisterPlanning(source, sourcePart, notes, checked((int)originFrame)));
         try
         {
             _engine.Plan(0, ConsonantTimingInputEncoder.EncodeSinger(bank.Language, bank.Singer));
@@ -284,7 +287,7 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
         }
         var notes = nativeNotes.Select(note => new TimingNoteSnapshot(
             note.AbsPosTick.Value, note.DurationTick.Value, note.NoteNumber, note.NoteVelocity,
-            note.Phonemes, note.LangID, note.GetNoteExpression())).ToList();
+            note.Phonemes, note.LangID, note.GetNoteExpression(), RegisterShift.RegisterShiftService.CaptureValue(note))).ToList();
         if (notes.Any(note => note.Duration <= 0 || string.IsNullOrWhiteSpace(note.Phonemes) || note.Phonemes.Length > 60))
             throw new NotSupportedException("Invalid timing context note.");
         if (notes.Zip(notes.Skip(1), (a, b) => a.AbsTick + a.Duration > b.AbsTick).Any(overlap => overlap))
@@ -306,6 +309,15 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
         return result.ToArray();
     }
 
+    private static RegisterShift.NativeRegisterShift.PlanningNote[] CaptureRegisterPlanning(WIVSMSequence source,
+        WIVSMMidiPart part, List<TimingNoteSnapshot> notes, int origin)
+        => notes.Select(note => new RegisterShift.NativeRegisterShift.PlanningNote(
+            checked((long)Math.Round((source.PresendTimeSec + source.GetTimeFromTick(part.AbsBeginTick,
+                new VSMAbsTick(note.AbsTick))) * 44100 / 256) + 3087 - origin),
+            checked((long)Math.Round((source.PresendTimeSec + source.GetTimeFromTick(part.AbsBeginTick,
+                new VSMAbsTick(note.AbsTick + note.Duration))) * 44100 / 256) + 3087 - origin),
+            checked((note.Pitch - 69) * 100), note.RegisterShift)).ToArray();
+
     private static string ContextKey(WIVSMSequence source, WIVSMMidiPart part, List<TimingNoteSnapshot> notes, int targetIndex,
         int[] tempo, int velocity)
     {
@@ -326,6 +338,7 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
                 writer.Write(source.GetTimeFromTick(part.AbsPosTick, new VSMAbsTick(note.AbsTick)));
                 writer.Write(source.GetTimeFromTick(part.AbsPosTick, new VSMAbsTick(note.AbsTick + note.Duration)));
                 writer.Write(note.Phonemes); writer.Write(note.Language);
+                writer.Write(note.RegisterShift);
                 writer.Write(note.Expression.Accent); writer.Write(note.Expression.Decay);
                 writer.Write(note.Expression.BendDepth); writer.Write(note.Expression.BendLength);
                 writer.Write(note.Expression.Opening); writer.Write(note.Expression.RisePort); writer.Write(note.Expression.FallPort);
@@ -363,7 +376,7 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
 }
 
 internal sealed record TimingNoteSnapshot(long AbsTick, long Duration, int Pitch, int Velocity,
-    string Phonemes, int Language, VSMNoteExpression Expression);
+    string Phonemes, int Language, VSMNoteExpression Expression, int RegisterShift = 0);
 
 internal sealed class IncompleteTimingContextException : InvalidOperationException
 {

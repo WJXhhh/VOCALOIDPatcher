@@ -4,6 +4,12 @@ namespace VOCALOIDPatcher.Config;
 
 public static class Settings
 {
+    public static string RendererAutoRecoveryKey => "RendererAutoRecovery";
+    public static bool RendererAutoRecovery
+    {
+        get => FeatureFlag(RendererAutoRecoveryKey, true);
+        set => Patcher.ConfigManager.Set(RendererAutoRecoveryKey, value);
+    }
     private static readonly HashSet<string> DisabledFeatures = new();
 
     public static void DisableFeature(string key)
@@ -182,6 +188,14 @@ public static class Settings
 
     public static string CenteredLyricsKey => "CenteredLyrics";
 
+    public static string SingleNoteCandidateLyricInputKey => "SingleNoteCandidateLyricInput";
+
+    public static bool SingleNoteCandidateLyricInput
+    {
+        get => FeatureFlag(SingleNoteCandidateLyricInputKey, true);
+        set => Patcher.ConfigManager.Set(SingleNoteCandidateLyricInputKey, value);
+    }
+
     public static bool CenteredLyrics
     {
         get => FeatureFlag(CenteredLyricsKey, false);
@@ -222,6 +236,68 @@ public static class Settings
         set => Patcher.ConfigManager.Set(IndividualTransitionControlKey, value);
     }
 
+    public static string TransitionSmoothingEnabledKey => "TransitionSmoothingEnabled";
+    public static bool TransitionSmoothingEnabled
+    {
+        get => FeatureFlag(TransitionSmoothingEnabledKey, true);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingEnabledKey, value);
+    }
+
+    public static string TransitionSmoothingVolumeThresholdDbKey => "TransitionSmoothingVolumeThresholdDb";
+    public static double TransitionSmoothingVolumeThresholdDb
+    {
+        get => Patcher.ConfigManager.Get(TransitionSmoothingVolumeThresholdDbKey, 2.5);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingVolumeThresholdDbKey, System.Math.Clamp(value, 0.1, 30.0));
+    }
+
+    public static string TransitionSmoothingCrossfadeMsKey => "TransitionSmoothingCrossfadeMs";
+    public static double TransitionSmoothingCrossfadeMs
+    {
+        get => Patcher.ConfigManager.Get(TransitionSmoothingCrossfadeMsKey, 10.0);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingCrossfadeMsKey, System.Math.Clamp(value, 1.0, 50.0));
+    }
+
+    public static string TransitionSmoothingLoudnessWindowMsKey => "TransitionSmoothingLoudnessWindowMs";
+    public static double TransitionSmoothingLoudnessWindowMs
+    {
+        get => Patcher.ConfigManager.Get(TransitionSmoothingLoudnessWindowMsKey, 60.0);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingLoudnessWindowMsKey, System.Math.Clamp(value, 20.0, 300.0));
+    }
+
+    public static string TransitionSmoothingAnalysisRangeMsKey => "TransitionSmoothingAnalysisRangeMs";
+    public static double TransitionSmoothingAnalysisRangeMs
+    {
+        get => Patcher.ConfigManager.Get(TransitionSmoothingAnalysisRangeMsKey, 75.0);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingAnalysisRangeMsKey, System.Math.Clamp(value, 20.0, 300.0));
+    }
+
+    public static string TransitionSmoothingPhaseAlignmentKey => "TransitionSmoothingPhaseAlignment";
+    public static bool TransitionSmoothingPhaseAlignment
+    {
+        get => Patcher.ConfigManager.Get(TransitionSmoothingPhaseAlignmentKey, true);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingPhaseAlignmentKey, value);
+    }
+
+    public static string TransitionSmoothingTimingOffsetMsKey => "TransitionSmoothingTimingOffsetMs";
+    public static double TransitionSmoothingTimingOffsetMs
+    {
+        get => Patcher.ConfigManager.Get(TransitionSmoothingTimingOffsetMsKey, 0.0);
+        set => Patcher.ConfigManager.Set(TransitionSmoothingTimingOffsetMsKey, System.Math.Clamp(value, -50.0, 50.0));
+    }
+
+    public static ConsonantTiming.Smoothing.TransitionSmootherConfig GetTransitionSmoothingConfig() => new()
+    {
+        VolumeThresholdDb = TransitionSmoothingVolumeThresholdDb,
+        AnalysisRangeMs = TransitionSmoothingAnalysisRangeMs,
+        DefaultCrossfadeMs = TransitionSmoothingCrossfadeMs,
+        LoudnessWindowMs = TransitionSmoothingLoudnessWindowMs,
+        EnablePhaseAlignment = TransitionSmoothingPhaseAlignment,
+        TimingOffsetMs = TransitionSmoothingTimingOffsetMs,
+        Mode = TransitionSmoothingEnabled
+            ? ConsonantTiming.Smoothing.TransitionSmoothingMode.AutoOnVolumeDifference
+            : ConsonantTiming.Smoothing.TransitionSmoothingMode.Disabled
+    };
+
     public static bool IndependentDurationSelection
     {
         get => FeatureFlag(IndependentDurationSelectionKey, false);
@@ -261,12 +337,15 @@ public static class Settings
 
     public static bool AceParameterMapping
     {
+        // Retain the stored key for compatibility. It now enables the local
+        // PCM acoustic backend; it no longer writes native sound controllers.
         get => FeatureFlag(AceParameterMappingKey, true);
         set => Patcher.ConfigManager.Set(AceParameterMappingKey, value);
     }
 
     public static bool AceAirUseNativeAir
     {
+        // Legacy configuration value, retained for old config files only.
         get => FeatureFlag(AceAirUseNativeAirKey, false);
         set => Patcher.ConfigManager.Set(AceAirUseNativeAirKey, value);
     }

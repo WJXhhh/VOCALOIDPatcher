@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-20",
+  "environment": {
+    "sdk": "6.13.3.1",
+    "nativeLibrarySha256": "49DEF60F2D4AA0F55E4EA940B36CE14300E70AC0C10C9FE48E025F09FE1BFEA9",
+    "dseSha256": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD",
+    "sampleRate": 44100,
+    "hop": 256
+  },
+  "smoothingSourceSha256": {
+    "TransitionSmoother.cs": "9ea506149adc0f4c55285e771a69c26c57a49cbf1d03878383182ec5c154eafd",
+    "TransitionSmoothingHost.cs": "4686109aa3cc848d4ee2a8e4a71a8352510fea48e4688233e381e0648e3abd97"
+  },
+  "native": {
+    "renderCount": 248,
+    "rejectedCount": 15,
+    "skippedFixtures": [],
+    "passedConsumedMapping": 248,
+    "fullScaleSamples": 0,
+    "peakPcm16": 3661.0,
+    "maxSourceFramesPerOutputFrame": 19.218517,
+    "restoration": [
+      {
+        "fixture": "v5-la",
+        "pcmEqual": true
+      },
+      {
+        "fixture": "v5-short",
+        "pcmEqual": true
+      },
+      {
+        "fixture": "v6-la",
+        "pcmEqual": true
+      },
+      {
+        "fixture": "v6-short",
+        "pcmEqual": true
+      },
+      {
+        "fixture": "miku-ka",
+        "pcmEqual": true
+      }
+    ],
+    "limitations": [
+      "PCM16 output cannot rule out upstream clipping at a lower internal level.",
+      "Adjacent-sample differences are diagnostic metrics, not proof of audible clicks.",
+      "Unconsumed planned tail frames are excluded from consumed-map validation.",
+      "No host playback, subjective listening or user project was tested."
+    ]
+  },
+  "v6ShortProgress": [
+    {
+      "fixture": "v6-short",
+      "variant": "baseline",
+      "file": "v6-short-baseline.wav",
+      "passed": true,
+      "peakPcm16": 2427.0,
+      "fullScaleSamples": 0,
+      "nearFullScaleSamples": 0,
+      "maxAdjacentJump": 474.0,
+      "maxSameSignPlateauLength": 4,
+      "maxSourceFramesPerOutputFrame": 1.0,
+      "maxNearHeldStepsPerSide": 0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-coverage-phase-1",
+      "file": "v6-short-edge1-coverage-phase-1.wav",
+      "passed": true,
+      "peakPcm16": 2174.0,
+      "fullScaleSamples": 0,
+      "nearFullScaleSamples": 0,
+      "maxAdjacentJump": 450.0,
+      "maxSameSignPlateauLength": 4,
+      "maxSourceFramesPerOutputFrame": 19.218517,
+      "maxNearHeldStepsPerSide": 0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-coverage-phase-0.5",
+      "file": "v6-short-edge1-coverage-phase-0.5.wav",
+      "passed": true,
+      "peakPcm16": 2305.0,
+      "fullScaleSamples": 0,
+      "nearFullScaleSamples": 0,
+      "maxAdjacentJump": 443.0,
+      "maxSameSignPlateauLength": 4,
+      "maxSourceFramesPerOutputFrame": 10.552896,
+      "maxNearHeldStepsPerSide": 0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-coverage-phase0",
+      "file": "v6-short-edge1-coverage-phase0.wav",
+      "passed": true,
+      "peakPcm16": 2246.0,
+      "fullScaleSamples": 0,
+      "nearFullScaleSamples": 0,
+      "maxAdjacentJump": 453.0,
+      "maxSameSignPlateauLength": 4,
+      "maxSourceFramesPerOutputFrame": 3.181820000000002,
+      "maxNearHeldStepsPerSide": 0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-coverage-phase0.5",
+      "file": "v6-short-edge1-coverage-phase0.5.wav",
+      "passed": true,
+      "peakPcm16": 2352.0,
+      "fullScaleSamples": 0,
+      "nearFullScaleSamples": 0,
+      "maxAdjacentJump": 470.0,
+      "maxSameSignPlateauLength": 4,
+      "maxSourceFramesPerOutputFrame": 6.074379999999998,
+      "maxNearHeldStepsPerSide": 0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-coverage-phase1",
+      "file": "v6-short-edge1-coverage-phase1.wav",
+      "passed": true,
+      "peakPcm16": 2408.0,
+      "fullScaleSamples": 0,
+      "nearFullScaleSamples": 0,
+      "maxAdjacentJump": 441.0,
+      "maxSameSignPlateauLength": 4,
+      "maxSourceFramesPerOutputFrame": 11.094529999999999,
+      "maxNearHeldStepsPerSide": 0
+    }
+  ],
+  "syntheticCaseCount": 96,
+  "synthetic220Hz": [
+    {
+      "name": "sine220-continuous-equal-gain-alignTrue-AutoOnVolumeDifference",
+      "frequency": 220,
+      "phaseStep": false,
+      "gainStep": false,
+      "align": true,
+      "mode": "AutoOnVolumeDifference",
+      "result": {
+        "Intervened": false,
+        "SpliceOffsetSamples": 0,
+        "SpliceOffsetMs": 0,
+        "CrossfadeDurationMs": 15,
+        "LeftMeasuredDb": -9.031556,
+        "RightMeasuredDb": -9.031556,
+        "VolumeDifferenceDb": 0,
+        "PhaseAligned": true
+      },
+      "changed": 662,
+      "originalMaxJump": 0.015671702101826668,
+      "outputMaxJump": 0.8887578248977661,
+      "leftEdgeBefore": 0.00891101360321045,
+      "leftEdgeAfter": 0.8887578248977661,
+      "rightEdgeBefore": 0.009310662746429443,
+      "rightEdgeAfter": 0.8846896290779114,
+      "rmsError": 0.07419415184090186
+    },
+    {
+      "name": "sine220-continuous-gain-step-alignTrue-AutoOnVolumeDifference",
+      "frequency": 220,
+      "phaseStep": false,
+      "gainStep": true,
+      "align": true,
+      "mode": "AutoOnVolumeDifference",
+      "result": {
+        "Intervened": true,
+        "SpliceOffsetSamples": 0,
+        "SpliceOffsetMs": 0,
+        "CrossfadeDurationMs": 5.566608190536499,
+        "LeftMeasuredDb": -15.052156,
+        "RightMeasuredDb": -9.031556,
+        "VolumeDifferenceDb": 6.0206,
+        "PhaseAligned": true
+      },
+      "changed": 5292,
+      "originalMaxJump": 0.015671702101826668,
+      "outputMaxJump": 0.5786137580871582,
+      "leftEdgeBefore": 0.006002604961395264,
+      "leftEdgeAfter": 0.5765228271484375,
+      "rightEdgeBefore": 0.012005209922790527,
+      "rightEdgeAfter": 0.5786137580871582,
+      "rmsError": 0.03821529257166625
+    }
+  ],
+  "productionChanges": false,
+  "deployed": false,
+  "editorStarted": false,
+  "listeningValidation": false
+}

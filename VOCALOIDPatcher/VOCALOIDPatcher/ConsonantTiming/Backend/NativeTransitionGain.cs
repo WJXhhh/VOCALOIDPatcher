@@ -22,11 +22,23 @@ internal static unsafe class NativeTransitionGain
     }
     [StructLayout(LayoutKind.Sequential)]
     internal struct Status { internal ulong Epoch, Calls, Applied, Failures, Primary, Auxiliary; }
+    [StructLayout(LayoutKind.Sequential)]
+    private struct Failure
+    {
+        internal uint Reason;
+        internal int Frame, Analysis;
+        internal uint HasProgress;
+        internal fixed int Expected[6];
+        internal fixed int Actual[6];
+        internal uint ExpectedSource, ActualSource;
+    }
     private static readonly object Gate = new();
     private static nint _library;
+    internal static bool IsInitialized => _library != 0;
     private static delegate* unmanaged[Cdecl]<ulong, ulong, nint, int, NativePhonemeTiming.Point*, int, Gain*, int, SourceFrame*, int, int> _set;
     private static delegate* unmanaged[Cdecl]<ulong, Status*, int> _status;
     private static delegate* unmanaged[Cdecl]<ulong, ulong, int> _remove;
+    private static delegate* unmanaged[Cdecl]<ulong, Failure*, int> _failure;
 
     internal static void Initialize(string path)
     {
@@ -44,6 +56,10 @@ internal static unsafe class NativeTransitionGain
                 _set = (delegate* unmanaged[Cdecl]<ulong, ulong, nint, int, NativePhonemeTiming.Point*, int, Gain*, int, SourceFrame*, int, int>)NativeLibrary.GetExport(library, "v6_transition_set_part_v2");
                 _status = (delegate* unmanaged[Cdecl]<ulong, Status*, int>)NativeLibrary.GetExport(library, "v6_transition_status");
                 _remove = (delegate* unmanaged[Cdecl]<ulong, ulong, int>)NativeLibrary.GetExport(library, "v6_transition_remove_part");
+                if (NativeLibrary.TryGetExport(library, "v6_transition_failure_size", out var failureSize) &&
+                    ((delegate* unmanaged[Cdecl]<uint>)failureSize)() == sizeof(Failure) &&
+                    NativeLibrary.TryGetExport(library, "v6_transition_failure", out var failure))
+                    _failure = (delegate* unmanaged[Cdecl]<ulong, Failure*, int>)failure;
                 var install = (delegate* unmanaged[Cdecl]<nint, int>)NativeLibrary.GetExport(library, "v6_transition_install");
                 // A partial native installation also retains its code module.
                 nint retained = library; library = 0;
@@ -90,4 +106,14 @@ internal static unsafe class NativeTransitionGain
         return result;
     }
     internal static void Remove(nint part, ulong epoch) { if (_library != 0) _remove((ulong)part, epoch); }
+    internal static object? ReadFailure(nint part)
+    {
+        if (_library == 0 || _failure == null) return null;
+        Failure failure = default;
+        if (_failure((ulong)part, &failure) != 0) throw new InvalidOperationException("Transition failure diagnostics unavailable.");
+        if (failure.Reason == 0) return null;
+        return new { failure.Reason, failure.Frame, failure.Analysis, hasProgress = failure.HasProgress != 0,
+            expected = new ReadOnlySpan<int>(failure.Expected, 6).ToArray(), actual = new ReadOnlySpan<int>(failure.Actual, 6).ToArray(),
+            failure.ExpectedSource, failure.ActualSource };
+    }
 }

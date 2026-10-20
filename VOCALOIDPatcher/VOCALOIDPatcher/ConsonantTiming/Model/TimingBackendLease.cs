@@ -37,4 +37,12 @@ internal sealed class TimingBackendLease<T>(Func<T> factory, bool ownsInstance =
         var instance = _instance; _instance = null;
         if (ownsInstance) instance?.Dispose();
     }
+
+    internal void Reset()
+    {
+        ObjectDisposedException.ThrowIf(_disposed, this);
+        if (!ownsInstance) throw new NotSupportedException("Cannot recreate a borrowed timing backend.");
+        var instance = _instance; _instance = null; Fault = null;
+        instance?.Dispose();
+    }
 }

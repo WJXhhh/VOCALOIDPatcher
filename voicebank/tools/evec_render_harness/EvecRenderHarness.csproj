@@ -12,6 +12,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmoother.cs" Link="Smoothing/TransitionSmoother.cs" />
+    <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmootherConfig.cs" Link="Smoothing/TransitionSmootherConfig.cs" />
+    <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/AudioAnalysisUtils.cs" Link="Smoothing/AudioAnalysisUtils.cs" />
+    <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/WaveJunctionProcessor.cs" Link="Smoothing/WaveJunctionProcessor.cs" />
     <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\DurationSelection\Backend\*.cs" Link="DurationSelection/%(Filename)%(Extension)" />
     <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\DurationSelection\Model\*.cs" Link="DurationSelection/%(Filename)%(Extension)" />
     <Compile Include="..\..\..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\Model\*.cs" Link="PhonemeVolume/%(Filename)%(Extension)" />

@@ -61,7 +61,7 @@ internal sealed partial class LocalConsonantTimingBackend
                     var points = layout.Anchors.Select(p => p.From == boundary
                         ? new TransitionAnchor(p.From, checked(p.To + edit.OffsetFrames)) : p).ToImmutableArray();
                     TransitionLayout.ValidateAnchors(points);
-                    _owner._engine.Begin(cancellation, budget); bool scope = false;
+                    _owner._engine.Begin(cancellation, budget, window.RegisterNotes); bool scope = false;
                     try
                     {
                         NativePhonemeTiming.Begin(points.Select(p => new NativePhonemeTiming.Point(

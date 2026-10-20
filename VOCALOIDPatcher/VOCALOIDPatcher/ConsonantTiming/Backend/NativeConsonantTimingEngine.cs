@@ -16,6 +16,7 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
     private nint _queryMutex;
     private bool _started;
     private bool _nativeRunning;
+    private bool _registerPlanning;
     internal double InitializationMs { get; }
     internal int CurrentFrame => Marshal.ReadInt32(_state, LocalTimingNative.Profile.StateCurrentFrame);
 
@@ -56,7 +57,8 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
 
     private nint Slot(int index) => Marshal.ReadIntPtr(Marshal.ReadIntPtr(_engine), index * 8);
 
-    internal void Begin(CancellationToken cancellation = default, int waitBudgetMs = 50)
+    internal void Begin(CancellationToken cancellation = default, int waitBudgetMs = 50,
+        RegisterShift.NativeRegisterShift.PlanningNote[]? registerNotes = null)
     {
         ObjectDisposedException.ThrowIf(_engine == 0, this);
         if (_started) throw new InvalidOperationException("Private timing session is already active.");
@@ -85,6 +87,7 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
                 throw new InvalidOperationException("Private timing session advanced synthesis frames.");
             ((delegate* unmanaged<nint, void>)(_library + LocalTimingNative.Profile.DseScheduleClear))(Marshal.ReadIntPtr(_state, LocalTimingNative.Profile.StateSchedule));
             ((delegate* unmanaged<nint, void>)(_library + LocalTimingNative.Profile.DseParserReset))(_state + LocalTimingNative.Profile.StateParser);
+            _registerPlanning = RegisterShift.NativeRegisterShift.BeginPlanning(registerNotes);
             _started = true;
         }
         catch
@@ -105,6 +108,7 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
         finally
         {
             _started = false;
+            if (_registerPlanning) { RegisterShift.NativeRegisterShift.EndPlanning(); _registerPlanning = false; }
             if (_queryMutex != 0) ReleaseMutex(_queryMutex);
             _queryMutex = 0;
         }
@@ -179,31 +183,36 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
         if (!_started || _queryMutex == 0) throw new InvalidOperationException("Timing planner is not locked.");
         nint schedule = Marshal.ReadIntPtr(_state, LocalTimingNative.Profile.StateSchedule);
         int end = ((delegate* unmanaged<nint, int>)(_library + LocalTimingNative.Profile.DseScheduleEnd))(schedule);
-        TimingBoundaryEvidence? before = null, after = null;
-        for (int at = Math.Max(3087, frame - 1); at <= frame && at < end; at++)
+        TimingBoundaryEvidence? Read(int at)
         {
+            if (at < 3087 || at >= end) return null;
             nint entry = ((delegate* unmanaged<nint, int, nint>)(_library + LocalTimingNative.Profile.DseScheduleRow))(schedule, at);
+            if (entry == 0) return null;
             nint row = Marshal.ReadIntPtr(entry);
-            if (row == 0 || Marshal.ReadInt32(row, LocalTimingNative.Profile.RowDictionary) < 0) continue;
+            if (row == 0 || Marshal.ReadInt32(row, LocalTimingNative.Profile.RowDictionary) < 0) return null;
             int from = Marshal.ReadInt32(row,LocalTimingNative.Profile.RowFrom), to = Marshal.ReadInt32(row,LocalTimingNative.Profile.RowTo);
-            if (from is < 0 or > 255 || to is < -1 or > 255) continue;
+            if (from is < 0 or > 255 || to is < -1 or > 255) return null;
             int split = checked(Marshal.ReadInt32(row, LocalTimingNative.Profile.RowBegin) + Marshal.ReadInt32(row, to == -1 ? LocalTimingNative.Profile.RowSustainSplit : LocalTimingNative.Profile.RowSplit));
             nint unit = ((delegate* unmanaged<nint,int,int,nint>)(_library+LocalTimingNative.Profile.DseDictionary))(
                 Marshal.ReadIntPtr(_state),Marshal.ReadInt32(row,LocalTimingNative.Profile.RowDictionary),Marshal.ReadInt32(row,LocalTimingNative.Profile.RowSinger));
-            if (unit == 0) continue;
+            if (unit == 0) return null;
             nint table = Marshal.ReadIntPtr(unit,LocalTimingNative.Profile.DictionaryPhones);
+            if (table == 0) return null;
             string? Phone(int index) => index < 0 ? null : Marshal.PtrToStringAnsi(
                 ((delegate* unmanaged<nint,byte,nint>)(_library+LocalTimingNative.Profile.DsePhoneName))(table,checked((byte)index)));
             string? fromPhone = Phone(from), toPhone = Phone(to);
-            var evidence = new TimingBoundaryEvidence(Marshal.ReadInt32(row, LocalTimingNative.Profile.RowBegin),Marshal.ReadInt32(row,LocalTimingNative.Profile.RowEnd),split,fromPhone,toPhone);
-            if (at < frame) before = evidence;
-            else after = evidence;
-            if (evidence.MatchesSplit(frame,left,right)) return;
+            return new TimingBoundaryEvidence(Marshal.ReadInt32(row, LocalTimingNative.Profile.RowBegin),Marshal.ReadInt32(row,LocalTimingNative.Profile.RowEnd),split,fromPhone,toPhone);
         }
+        var before = Read(frame - 1);
+        var after = Read(frame);
+        if (before?.MatchesSplit(frame, left, right) == true || after?.MatchesSplit(frame, left, right) == true) return;
         if (before is { } previous && after is { } next &&
             TimingBoundaryEvidence.MatchesJoin(frame,left,right,previous,next)) return;
+        if (after is { To: "Sil" } outgoing && Read(outgoing.End) is { } incoming &&
+            TimingBoundaryEvidence.MatchesSilenceBridge(frame, left, right, outgoing, incoming,
+                incoming.Split == incoming.End ? Read(incoming.End) : null)) return;
         string Describe(TimingBoundaryEvidence? value) => value is { } e ? $"{e.Begin}..{e.End}:{e.From}/{e.To}@{e.Split}" : "unavailable";
-        throw new NotSupportedException($"Native sample mapping did not produce the requested phoneme boundary at {frame} ({left}/{right}); observed {Describe(before)};{Describe(after)}.");
+        throw new NotSupportedException($"Native sample mapping did not produce the requested phoneme boundary at {frame} ({left}/{right}); observed {Describe(before)};{Describe(after)}; following {Describe(after is { } current ? Read(current.End) : null)}.");
     }
 
     public void Dispose()

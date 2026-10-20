@@ -96,7 +96,7 @@ internal sealed partial class LocalConsonantTimingBackend
                 else
                 {
                     var window = _windows[captured.WindowIndex];
-                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs);
+                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs, window.RegisterNotes);
                     bool scope = false;
                     try
                     {

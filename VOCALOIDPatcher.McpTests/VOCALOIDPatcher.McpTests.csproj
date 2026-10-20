@@ -7,6 +7,10 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmoother.cs" Link="Smoothing/TransitionSmoother.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmootherConfig.cs" Link="Smoothing/TransitionSmootherConfig.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/AudioAnalysisUtils.cs" Link="Smoothing/AudioAnalysisUtils.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/WaveJunctionProcessor.cs" Link="Smoothing/WaveJunctionProcessor.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\DurationSelection\Model\*.cs" Link="DurationSelection/%(Filename)%(Extension)" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\Model\*.cs" Link="PhonemeVolume/%(Filename)%(Extension)" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\PhonemeVolume\PhonemeGainWaveProcessor.cs" Link="PhonemeVolume/PhonemeGainWaveProcessor.cs" />
@@ -29,6 +33,8 @@
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\ConsonantTimingMath.cs" Link="ConsonantTiming\ConsonantTimingMath.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\ConsonantTiming\ConsonantTimingDragSearch.cs" Link="ConsonantTiming\ConsonantTimingDragSearch.cs" />
     <Compile Include="..\voicebank\tools\evec_render_harness\ConsonantTimingSolver.cs" Link="ConsonantTiming\ConsonantTimingSolver.cs" />
+    <Compile Include="..\voicebank\tools\evec_render_harness\ProbeManagerIdentity.cs" Link="Probes\ProbeManagerIdentity.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Rendering\RenderRecoveryBudget.cs" Link="Rendering\RenderRecoveryBudget.cs" />
     <None Update="Fixtures\consonant-timing-response.json" CopyToOutputDirectory="PreserveNewest" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\BoundedRenderRetry.cs" Link="Evec\BoundedRenderRetry.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\CreatedEntityIndex.cs" Link="Core\CreatedEntityIndex.cs" />

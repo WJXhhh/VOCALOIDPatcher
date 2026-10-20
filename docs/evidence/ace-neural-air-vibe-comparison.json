@@ -1,0 +1,293 @@
+{
+  "experiment_date": "2026-10-20",
+  "model": "VibE-SVC2 timbre model",
+  "run": "comparison-142db9d3",
+  "status": "real_checkpoint_inference",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "vibe_commit": "a21a7b40dc378e59d33bde8e350f07c9392e7bcf",
+  "bigvgan_commit": "7d2b454564a6c7d014227f635b7423881f14bdac",
+  "assets_sha256": {
+    "vibe_timbre\\config.yaml": "89f195f1dd3c518d23b21220304f8de739ea908ac1db9623d9389309b3a0843f",
+    "vibe_timbre\\model_200000.pt": "4808babfa0571787a91d0fb695adefb76dd004c82f34c10ac9c330137f519950",
+    "hubert-soft-0d54a1f4.pt": "e82e7d079df05fe3aa535f6f7d42d309bdae1d2a53324e2b2386c56721f4f649",
+    "bigvgan\\config.json": "d77e2c96583ca2296ac112a56ec7cc6bd5da4bf7681ceff18448bedc4fcf6512",
+    "bigvgan\\bigvgan_generator.pt": "6f9c5715550c9d0f11159ceb8935638da5aeb19e27d1e63677632df095e376f5"
+  },
+  "speaker_selection": "lowest fixed-noise denoising loss among trained female IDs; not a source identity estimate",
+  "f0_extractor": "Parselmouth autocorrelation on clean source, no singer-mean scaling",
+  "limitations": [
+    "short sustained vowels, not a sentence or unseen-song identity benchmark",
+    "pretrained speaker table has no VOCALOID voices",
+    "intermediate style embeddings are experimental; only 0 and 1 are trained label endpoints",
+    "spectral metrics are not a perceptual speaker verification score"
+  ],
+  "human_listening_pass": false,
+  "human_listening_feedback": {
+    "date": "2026-10-20",
+    "vocoder_reconstruction": "音色有一点变化，而且很电",
+    "zero_breathy_technique_reconstruction": "气声参数为零时，音色差别也很大",
+    "decision": "不采用已测试的整段神经重合成路线",
+    "follow_up": "停止沿该路线调参或声库微调"
+  },
+  "cuda_peak_allocated_mib": 1121.53369140625,
+  "voices": {
+    "miku": {
+      "source_sha256": "6ee34355640f5d9221c9205dc9d229a4aa8a0dadf2da40eb1686d6cac6435d28",
+      "source_samples": 176896,
+      "source_rate": 44100,
+      "model_frames": 376,
+      "chosen_reference_speaker": {
+        "name": "VocalSet#female5",
+        "id": 10,
+        "loss": 0.032525766700928216
+      },
+      "singer_mean_pitch_normalization": false,
+      "measurements": {
+        "original": {
+          "centered_logmel_shape_mae_db": 0.0,
+          "mfcc_1_to_20_l2": 0.0,
+          "median_abs_f0_error_cents": 0.774949643366997,
+          "median_hnr_db": 21.57541829433403,
+          "raw_samples": 96270,
+          "comparison_samples": 96270
+        },
+        "vocoder-only": {
+          "centered_logmel_shape_mae_db": 0.5687159299850464,
+          "mfcc_1_to_20_l2": 4.758746147155762,
+          "median_abs_f0_error_cents": 4.400593951424883,
+          "median_hnr_db": 20.30196660930815,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "neutral": {
+          "centered_logmel_shape_mae_db": 6.997077465057373,
+          "mfcc_1_to_20_l2": 78.79167938232422,
+          "median_abs_f0_error_cents": 6.876148392534256,
+          "median_hnr_db": 23.565311728535587,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "breathy-035": {
+          "centered_logmel_shape_mae_db": 6.043692588806152,
+          "mfcc_1_to_20_l2": 72.89493560791016,
+          "median_abs_f0_error_cents": 6.950524711489749,
+          "median_hnr_db": 23.593227786895362,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "breathy-070": {
+          "centered_logmel_shape_mae_db": 5.538290023803711,
+          "mfcc_1_to_20_l2": 69.23770904541016,
+          "median_abs_f0_error_cents": 8.275132060738393,
+          "median_hnr_db": 20.969738171496527,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "breathy-100": {
+          "centered_logmel_shape_mae_db": 5.910912036895752,
+          "mfcc_1_to_20_l2": 72.2710189819336,
+          "median_abs_f0_error_cents": 8.506868604286588,
+          "median_hnr_db": 19.02218601653812,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source050-neutral": {
+          "centered_logmel_shape_mae_db": 3.300649642944336,
+          "mfcc_1_to_20_l2": 33.747188568115234,
+          "median_abs_f0_error_cents": 6.059171869677608,
+          "median_hnr_db": 22.31046170175574,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source050-breathy": {
+          "centered_logmel_shape_mae_db": 2.953939914703369,
+          "mfcc_1_to_20_l2": 33.826576232910156,
+          "median_abs_f0_error_cents": 6.197506483615445,
+          "median_hnr_db": 21.625063476053356,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source100-neutral": {
+          "centered_logmel_shape_mae_db": 4.6492533683776855,
+          "mfcc_1_to_20_l2": 49.944053649902344,
+          "median_abs_f0_error_cents": 7.57690829201575,
+          "median_hnr_db": 23.19765084330112,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source100-breathy": {
+          "centered_logmel_shape_mae_db": 3.997739553451538,
+          "mfcc_1_to_20_l2": 48.31978225708008,
+          "median_abs_f0_error_cents": 8.357831990146519,
+          "median_hnr_db": 22.054657805542387,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source200-neutral": {
+          "centered_logmel_shape_mae_db": 5.871750354766846,
+          "mfcc_1_to_20_l2": 64.53758239746094,
+          "median_abs_f0_error_cents": 6.733734436699413,
+          "median_hnr_db": 23.536396895498875,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source200-breathy": {
+          "centered_logmel_shape_mae_db": 4.870210647583008,
+          "mfcc_1_to_20_l2": 61.044639587402344,
+          "median_abs_f0_error_cents": 8.829539168718759,
+          "median_hnr_db": 22.04873323884927,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source400-neutral": {
+          "centered_logmel_shape_mae_db": 6.6002702713012695,
+          "mfcc_1_to_20_l2": 73.4473876953125,
+          "median_abs_f0_error_cents": 6.989206811256613,
+          "median_hnr_db": 23.654688056027616,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source400-breathy": {
+          "centered_logmel_shape_mae_db": 5.31479024887085,
+          "mfcc_1_to_20_l2": 66.56640625,
+          "median_abs_f0_error_cents": 9.974110404153219,
+          "median_hnr_db": 20.927129134835432,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        }
+      }
+    },
+    "tianyi": {
+      "source_sha256": "23954650398d3527213aea8890d28a51113b5fb3f5a29b28772133be2997c358",
+      "source_samples": 176896,
+      "source_rate": 44100,
+      "model_frames": 376,
+      "chosen_reference_speaker": {
+        "name": "VocalSet#female7",
+        "id": 12,
+        "loss": 0.032908238517848076
+      },
+      "singer_mean_pitch_normalization": false,
+      "measurements": {
+        "original": {
+          "centered_logmel_shape_mae_db": 0.0,
+          "mfcc_1_to_20_l2": 0.0,
+          "median_abs_f0_error_cents": 0.6792209525919647,
+          "median_hnr_db": 17.52500021928371,
+          "raw_samples": 96270,
+          "comparison_samples": 96270
+        },
+        "vocoder-only": {
+          "centered_logmel_shape_mae_db": 0.44339197874069214,
+          "mfcc_1_to_20_l2": 4.141706466674805,
+          "median_abs_f0_error_cents": 3.7281277708769927,
+          "median_hnr_db": 17.288997981826558,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "neutral": {
+          "centered_logmel_shape_mae_db": 6.313388824462891,
+          "mfcc_1_to_20_l2": 77.39424133300781,
+          "median_abs_f0_error_cents": 8.364316745011115,
+          "median_hnr_db": 23.453498500638528,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "breathy-035": {
+          "centered_logmel_shape_mae_db": 6.295222282409668,
+          "mfcc_1_to_20_l2": 79.15553283691406,
+          "median_abs_f0_error_cents": 8.175238413907062,
+          "median_hnr_db": 23.746988317643382,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "breathy-070": {
+          "centered_logmel_shape_mae_db": 6.380279064178467,
+          "mfcc_1_to_20_l2": 82.4635238647461,
+          "median_abs_f0_error_cents": 7.874021593924266,
+          "median_hnr_db": 23.379964406941696,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "breathy-100": {
+          "centered_logmel_shape_mae_db": 6.62594747543335,
+          "mfcc_1_to_20_l2": 84.31336212158203,
+          "median_abs_f0_error_cents": 9.746389517648456,
+          "median_hnr_db": 23.163057559454977,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source050-neutral": {
+          "centered_logmel_shape_mae_db": 2.7393064498901367,
+          "mfcc_1_to_20_l2": 29.53325653076172,
+          "median_abs_f0_error_cents": 7.309884130696133,
+          "median_hnr_db": 20.215795361623922,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source050-breathy": {
+          "centered_logmel_shape_mae_db": 3.056300401687622,
+          "mfcc_1_to_20_l2": 35.540557861328125,
+          "median_abs_f0_error_cents": 6.933764665227436,
+          "median_hnr_db": 20.53702553077877,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source100-neutral": {
+          "centered_logmel_shape_mae_db": 3.958125591278076,
+          "mfcc_1_to_20_l2": 45.426998138427734,
+          "median_abs_f0_error_cents": 8.319848554586683,
+          "median_hnr_db": 21.67778012399953,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source100-breathy": {
+          "centered_logmel_shape_mae_db": 4.349611759185791,
+          "mfcc_1_to_20_l2": 53.0788688659668,
+          "median_abs_f0_error_cents": 8.05961689725509,
+          "median_hnr_db": 21.78613916310539,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source200-neutral": {
+          "centered_logmel_shape_mae_db": 5.154879093170166,
+          "mfcc_1_to_20_l2": 61.27482223510742,
+          "median_abs_f0_error_cents": 8.0670094084068,
+          "median_hnr_db": 23.0638831151386,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source200-breathy": {
+          "centered_logmel_shape_mae_db": 5.554145336151123,
+          "mfcc_1_to_20_l2": 69.10907745361328,
+          "median_abs_f0_error_cents": 9.077038161827371,
+          "median_hnr_db": 23.09673710045773,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source400-neutral": {
+          "centered_logmel_shape_mae_db": 5.892443656921387,
+          "mfcc_1_to_20_l2": 71.55996704101562,
+          "median_abs_f0_error_cents": 8.392220245007818,
+          "median_hnr_db": 23.339728144857993,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        },
+        "source400-breathy": {
+          "centered_logmel_shape_mae_db": 6.284001350402832,
+          "mfcc_1_to_20_l2": 79.59426879882812,
+          "median_abs_f0_error_cents": 9.08576464459803,
+          "median_hnr_db": 23.48693200096438,
+          "raw_samples": 96256,
+          "comparison_samples": 96270
+        }
+      }
+    }
+  },
+  "scripts_sha256": {
+    "run_vibe_comparison.py": "08faf732ec3c66ae7a4f3b8c6f0f36091cad3ee48224cd1646a38187c174d08b",
+    "analyze_vibe_comparison.py": "11754c6e187f4f7f1b8421d7fa09363844ea389bf38f078b59ab148bbbd8af5a"
+  }
+}

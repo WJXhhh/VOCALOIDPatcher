@@ -25,6 +25,14 @@ internal static class PhonemeVolumeExport
                     return false;
                 }
                 PhonemeVolumeHost.EnsureForExport(source);
+                ConsonantTiming.Smoothing.TransitionSmoothingHost.EnsureForExport(source);
+                try { AceParameters.AceAcousticHost.EnsureForExport(source); }
+                catch (Exception e)
+                {
+                    Debug.Print("ACE acoustic export preparation: " + e.GetType().Name);
+                    Debug.ShowMessageBox(TranslationManager.Tr("VOCALOIDPatcher_AceAcoustic_ExportNotReady"));
+                    return false;
+                }
             }
             return true;
         }

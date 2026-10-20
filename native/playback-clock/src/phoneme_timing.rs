@@ -59,6 +59,7 @@ struct Cursor {
     reason: i32,
     trace: [i32; 24],
     checkpoints: std::collections::VecDeque<(i32, i32)>,
+    schedule_checkpoints: std::collections::VecDeque<(i32, i32, i32)>,
 }
 impl Context {
     pub fn new(warp: Arc<Warp>) -> Arc<Self> {
@@ -86,19 +87,26 @@ impl Context {
         cursor.displacement = 0;
         cursor.last_actual = None;
         cursor.checkpoints.clear();
+        cursor.schedule_checkpoints.clear();
     }
     unsafe fn schedule_halves(&self, schedule: usize, left: i32, right: i32) -> Option<(i32, i32)> {
         // DSE's segment count is decremented by pop-back as well as cleared by
         // reset. An empty schedule starts at the original frame zero. Testing
         // the count distinguishes this from a quantized zero-length segment.
-        if unsafe { ptr::read_unaligned((schedule as *const u8).add(super::timing_profile::ScheduleMappedCount).cast::<i32>()) } == 0 {
-            self.reset_schedule();
-        }
+        let count = unsafe { ptr::read_unaligned((schedule as *const u8).add(super::timing_profile::ScheduleMappedCount).cast::<i32>()) };
         let end: unsafe extern "system" fn(usize) -> i32 =
             unsafe { std::mem::transmute(GET_END.load(Ordering::Acquire)) };
-        self.halves(unsafe { end(schedule) }, left, right)
+        self.scheduled_halves(count, unsafe { end(schedule) }, left, right)
     }
+    fn scheduled_halves(&self, count: i32, actual: i32, left: i32, right: i32) -> Option<(i32, i32)> {
+        if count == 0 { self.reset_schedule(); }
+        self.halves_at(actual, left, right, Some(count))
+    }
+    #[cfg(test)]
     pub(super) fn halves(&self, actual: i32, left: i32, right: i32) -> Option<(i32, i32)> {
+        self.halves_at(actual, left, right, None)
+    }
+    fn halves_at(&self, actual: i32, left: i32, right: i32, count: Option<i32>) -> Option<(i32, i32)> {
         let mut cursor = self.cursor.lock().unwrap_or_else(|e| e.into_inner());
         cursor.calls += 1;
         cursor.last_left = left;
@@ -112,13 +120,19 @@ impl Context {
         // Native planning removes and rebuilds the last transition when a
         // following NOTE arrives. Restore only an observed schedule boundary;
         // never guess an inverse through frame quantization or a silent gap.
-        if cursor.last_actual.is_some_and(|v| v > actual) {
-            let originals: Vec<i32> = cursor
-                .checkpoints
-                .iter()
-                .filter(|p| p.0 == actual)
-                .map(|p| p.1)
-                .collect();
+        // Front consumption may also decrease the work-item count. A count
+        // change alone does not prove pop-back; the native end must rewind.
+        let rewound = cursor.last_actual.is_some_and(|v| v > actual);
+        if rewound {
+            // A compressed sample's split and end can quantize to the same
+            // output frame. The native work-item count identifies the exact
+            // previously observed dispatch start after pop-back, without
+            // choosing an inverse through that ambiguous frame coordinate.
+            let starts: Vec<i32> = cursor.schedule_checkpoints.iter()
+                .filter(|p| Some(p.0) == count && p.1 == actual).map(|p| p.2).collect();
+            let originals: Vec<i32> = if starts.is_empty() {
+                cursor.checkpoints.iter().filter(|p| p.0 == actual).map(|p| p.1).collect()
+            } else { starts };
             if let Some(&original) = originals
                 .first()
                 .filter(|&&v| originals.iter().all(|&p| p == v))
@@ -126,6 +140,7 @@ impl Context {
                 cursor.displacement = actual - original;
                 cursor.last_actual = Some(actual);
                 cursor.checkpoints.retain(|p| p.1 <= original);
+                cursor.schedule_checkpoints.retain(|p| p.2 <= original);
             }
         }
         if left < 0 || right < 0 || cursor.last_actual.is_some_and(|v| v > actual) {
@@ -162,6 +177,15 @@ impl Context {
         let result = (split_to - start_to, end_to - split_to);
         cursor.displacement = end_to - end;
         cursor.last_actual = Some(end_to);
+        if let Some(count) = count {
+            let checkpoint = (count, actual, begin);
+            if !cursor.schedule_checkpoints.contains(&checkpoint) {
+                cursor.schedule_checkpoints.push_back(checkpoint);
+            }
+            while cursor.schedule_checkpoints.len() > 128 {
+                cursor.schedule_checkpoints.pop_front();
+            }
+        }
         for point in [(start_to, begin), (split_to, split), (end_to, end)] {
             if !cursor.checkpoints.contains(&point) {
                 cursor.checkpoints.push_back(point);
@@ -495,6 +519,60 @@ pub unsafe extern "C" fn v6_phoneme_end(output: *mut Status) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn quantized_silence_bridge_rebuild_uses_native_work_item_start() {
+        for (split, target) in [(3292, 3293), (3296, 3295)] {
+            let mut points = vec![Point { from: 0, to: 0 }, Point { from: 3290, to: 3290 }, Point { from: 3292, to: 3292 },
+                Point { from: 3296, to: 3296 }, Point { from: 3386, to: 3386 }];
+            points.iter_mut().find(|p| p.from == split).unwrap().to = target;
+            let warp = Warp::new(&points).unwrap();
+            let context = Context::new(warp);
+            let first = context.scheduled_halves(5, 3290, 2, 1).unwrap();
+            let incoming_begin = 3290 + first.0 + first.1;
+            let incoming = context.scheduled_halves(6, incoming_begin, 1, 1).unwrap();
+            assert_eq!(incoming.1, 0);
+            let begin = incoming_begin + incoming.0 + incoming.1;
+            let original = context.scheduled_halves(7, begin, 1, 15).unwrap();
+            let future = begin + original.0 + original.1;
+            context.scheduled_halves(8, future, 43, 32).unwrap();
+            assert!(context.cursor.lock().unwrap().checkpoints.iter()
+                .filter(|p| p.0 == begin).map(|p| p.1).collect::<Vec<_>>().len() > 1);
+            assert_eq!(context.scheduled_halves(7, begin, 1, 15), Some(original));
+            assert_eq!(context.failures(), 0);
+            // Neither an unrelated ordinal nor an unobserved frame may
+            // select one of the ambiguous source positions.
+            context.scheduled_halves(8, future, 43, 32).unwrap();
+            assert!(context.scheduled_halves(4, begin, 1, 15).is_none());
+            assert_eq!(context.failures(), 1);
+        }
+    }
+    #[test]
+    fn front_consumption_does_not_rewind_a_quantized_source_cursor() {
+        let context = Context::new(Warp::new(&[
+            Point { from: 0, to: 0 }, Point { from: 100, to: 100 },
+            Point { from: 104, to: 101 }, Point { from: 110, to: 110 }
+        ]).unwrap());
+        assert_eq!(context.scheduled_halves(5, 100, 2, 0), Some((1, 0)));
+        assert_eq!(context.scheduled_halves(6, 101, 1, 0), Some((0, 0)));
+        assert_eq!(context.cursor.lock().unwrap().displacement, -2);
+        assert_eq!(context.scheduled_halves(1, 101, 1, 0), Some((0, 0)));
+        assert_eq!(context.cursor.lock().unwrap().displacement, -3);
+        assert_eq!(context.failures(), 0);
+    }
+    #[test]
+    fn work_item_history_is_bounded_private_and_cleared_with_the_schedule() {
+        let warp = Warp::new(&[Point { from: 0, to: 0 }, Point { from: 2000, to: 2000 }]).unwrap();
+        let context = Context::new(warp.clone());
+        for frame in 0..300 {
+            assert_eq!(context.scheduled_halves(frame + 1, frame, 1, 0), Some((1, 0)));
+        }
+        assert_eq!(context.cursor.lock().unwrap().schedule_checkpoints.len(), 128);
+        let other = Context::new(warp);
+        assert!(other.cursor.lock().unwrap().schedule_checkpoints.is_empty());
+        assert_eq!(context.scheduled_halves(0, 0, 1, 0), Some((1, 0)));
+        assert_eq!(context.cursor.lock().unwrap().schedule_checkpoints.len(), 1);
+        assert_eq!(context.failures(), 0);
+    }
     #[test]
     fn empty_schedule_restarts_coordinates_after_quantized_warmup() {
         let warp = Warp::new(&[

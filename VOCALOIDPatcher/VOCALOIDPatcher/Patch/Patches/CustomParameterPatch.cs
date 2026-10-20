@@ -101,16 +101,23 @@ internal static class CustomParameterUi
 
     public static void UpdateHeaderToolTip(ParameterHeaderControl header, ControlParameterTypeEnum type)
     {
-        var combo = AccessTools.Field(typeof(ParameterHeaderControl), "xControlParameterComboBox")
-            ?.GetValue(header) as FlatComboBox;
-        if (combo == null)
-            return;
+        try
+        {
+            var combo = AccessTools.Field(typeof(ParameterHeaderControl), "xControlParameterComboBox")
+                ?.GetValue(header) as FlatComboBox;
+            if (combo == null)
+                return;
 
-        var name = GetCustomParameterName(type);
-        if (name != null)
-            ToolTipService.SetToolTip(combo, name);
-        else
-            combo.ClearValue(ToolTipService.ToolTipProperty);
+            var name = GetCustomParameterName(type);
+            if (name != null)
+                ToolTipService.SetToolTip(combo, name);
+            else
+                combo.ClearValue(ToolTipService.ToolTipProperty);
+        }
+        catch (Exception ex)
+        {
+            Debug.Print($"UpdateHeaderToolTip error: {ex}");
+        }
     }
 
     private static void AttachSafeToolTip(ParameterHeaderControl header)

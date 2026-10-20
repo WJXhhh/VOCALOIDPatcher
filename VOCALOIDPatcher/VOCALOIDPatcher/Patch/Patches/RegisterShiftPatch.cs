@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using HarmonyLib;
 using VOCALOIDPatcher.RegisterShift;
 using VOCALOIDPatcher.Translation;
@@ -306,5 +307,22 @@ public sealed class RegisterShiftSequenceClosePatch : PatchBase
     public override Type TargetClass => typeof(WIVSMSequence);
     public override string TargetMethodName => "Close";
     [HarmonyPrefix]
-    private static void Prefix() => RegisterShiftService.DisableNative();
+    private static void Prefix(WIVSMSequence __instance, out BreathVolume.BreathNativeObjectHandles __state)
+    {
+        __state = new([], []);
+        try
+        {
+            var tracks = __instance.MidiTracks.Select(BreathVolume.BreathVolumeService.CaptureTrackObjects).ToArray();
+            __state = new(tracks.SelectMany(t => t.NoteHandles).Distinct().ToArray(),
+                tracks.SelectMany(t => t.PartHandles).Distinct().ToArray());
+        }
+        catch (Exception error) { Debug.Print("REG close capture: " + error.GetType().Name); }
+    }
+    [HarmonyPostfix]
+    private static void Postfix(bool __result, BreathVolume.BreathNativeObjectHandles __state)
+    {
+        if (!__result) return;
+        try { RegisterShiftService.ReleasePart(__state); }
+        catch (Exception error) { Debug.Print("REG close release: " + error.GetType().Name); }
+    }
 }

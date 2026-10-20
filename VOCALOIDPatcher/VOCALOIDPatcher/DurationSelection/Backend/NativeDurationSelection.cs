@@ -132,5 +132,17 @@ internal static unsafe class NativeDurationSelection
         if (_library == 0 || _status((ulong)part, &result) != 0) throw new InvalidOperationException("No duration render status.");
         return result;
     }
+    internal static bool TryReadStatus(nint part, out Status result)
+    {
+        result = default;
+        if (_library == 0) return false;
+        fixed (Status* output = &result)
+        {
+            int code = _status((ulong)part, output);
+            if (code == -2) return false; // Adapter loaded, this Part has no duration snapshot.
+            if (code != 0) throw new InvalidOperationException("Cannot read duration render status: " + code);
+        }
+        return true;
+    }
     internal static void Remove(nint part) { if (_library != 0) _remove((ulong)part); }
 }

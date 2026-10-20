@@ -26,7 +26,7 @@ internal sealed class SampledTimingSession : IDisposable
     private bool _notificationPending;
 
     internal SampledTimingSession(WIVSMSequence source, LocalConsonantTimingBackend backend, bool ownsBackend = false)
-        : this(source, () => backend, ownsBackend, backend) { }
+        : this(source, backend.CreateReplacement, ownsBackend, backend) { }
 
     internal SampledTimingSession(WIVSMSequence source, Func<LocalConsonantTimingBackend> backendFactory, bool ownsBackend = true, LocalConsonantTimingBackend? initialBackend = null)
     {
@@ -157,6 +157,8 @@ internal sealed class SampledTimingSession : IDisposable
     {
         EnsureOpen(); return _renderRevision.Capture(Document.Fingerprint + ":" + Transitions.Snapshot.Fingerprint);
     }
+
+    internal void ResetRenderBackend() { EnsureOpen(); _backend.Reset(); _renderRevision.Advance(); }
 
     // Marshal completion back to the source owner, then recheck immediately
     // before publication. A background callback cannot publish directly.

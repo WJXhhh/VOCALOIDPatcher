@@ -6,6 +6,17 @@ namespace VOCALOIDPatcher.ConsonantTiming;
 
 internal static partial class SampledTimingHost
 {
+    internal static void RegisterShiftInputChanged(WIVSMSequence source, WIVSMMidiPart part)
+    {
+        if (!Entries.TryGetValue((nint)source, out var entry) || entry.Rebuilding) return;
+        // REG is patch-owned input, so no VSM note notification precedes it.
+        // Retire old timing first, then publish the selector before any queued
+        // timing rebuild can restart native rendering with the new selection.
+        BeforeSourceChange(source);
+        RegisterShift.RegisterShiftService.PublishPart(source, part);
+        entry.NativeDirtyParts.Add((nint)part);
+        SourceChanged(source);
+    }
     // Native Undo can restore a Part's completed wave without asking the hash
     // hook again. Track actual edited Parts so only those re-enter cache lookup.
     private static void ObserveNativeInputs(Entry entry)

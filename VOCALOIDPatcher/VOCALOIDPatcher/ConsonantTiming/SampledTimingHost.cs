@@ -27,6 +27,8 @@ internal static partial class SampledTimingHost
         internal IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan> Previous = new Dictionary<TimingNoteAddress, SampledTimingPlan>();
         internal readonly HashSet<TimingNoteAddress> Pending = new();
         internal readonly HashSet<nint> PublishedParts = new();
+        internal readonly Dictionary<nint, NativeRenderSnapshot> RetiredNative = new();
+        internal RenderCancellationSnapshot? LastCancellation;
         internal long PublishedRevision = -1;
         internal long SuspendedRevision = -1;
         internal TimingNoteAddress[] DurationPrevious = [];
@@ -210,7 +212,8 @@ internal static partial class SampledTimingHost
 
     internal static object? Diagnostics(WIVSMSequence? source)
     {
-        if (source == null || !Entries.TryGetValue((nint)source,out var entry)) return null;
+        if (source == null) return null;
+        if (!Entries.TryGetValue((nint)source,out var entry)) return new { renderer = Rendering.RendererHealthMonitor.Diagnostics(source) };
         return new {
             revision=entry.Session.Revision, suspended=entry.SuspendedRevision==entry.Session.Revision,
             fault=entry.Fault?.GetType().Name, reason=entry.Fault?.Message,
@@ -223,7 +226,11 @@ internal static partial class SampledTimingHost
             capabilities=new { projectData=true, planner=entry.Session.HasBackend,
                 routing=NativeSampledTiming.IsInitialized, phonemeMapping=NativePhonemeTiming.IsInitialized,
                 independentDuration=NativeDurationSelection.IsInitialized },
-            inputNotices=entry.LastInputNotices
+            inputNotices=entry.LastInputNotices,
+            native=entry.PublishedParts.Take(8).Select(ReadNativeSnapshot).ToArray(),
+            retiredNative=entry.RetiredNative.Values.Take(8).ToArray(),
+            lastCancellation=entry.LastCancellation,
+            renderer=Rendering.RendererHealthMonitor.Diagnostics(source)
         };
     }
 
@@ -332,6 +339,7 @@ internal static partial class SampledTimingHost
     // successful after its controls were skipped. Plain native songs can render.
     internal static bool Recover(WIVSMSequence source,Exception error,bool requestRender=false)
     {
+        Rendering.RendererHealthMonitor.PreparationFailed(source, error);
         if (!Entries.TryGetValue((nint)source,out var entry))
         {
             if (DurationSelectionHost.HasState(source) || CopyFaults.ContainsKey((nint)source) || PhonemeVolume.PhonemeVolumeHost.HasUnbound(source))
@@ -381,7 +389,7 @@ internal static partial class SampledTimingHost
     private static void Detach(Entry entry)
     {
         foreach(nint part in entry.PublishedParts)
-        { RenderParts.TryRemove(part,out _); NativeSampledTiming.Remove(part); NativeDurationSelection.Remove(part); }
+        { RetainNativeSnapshot(entry, part); RenderParts.TryRemove(part,out _); NativeSampledTiming.Remove(part); NativeDurationSelection.Remove(part); }
         entry.PublishedParts.Clear(); entry.Boundaries.Clear(); entry.TransitionViews.Clear();
     }
 
@@ -392,14 +400,14 @@ internal static partial class SampledTimingHost
         if (!RenderParts.TryGetValue(pointer, out var route)) return true;
         var entry = route.Entry; var part = route.Part; var source = entry.Source;
         if (DurationSelectionHost.HasScope(part) && NativeDurationSelection.ReadStatus((nint)part).Failures != 0)
-            return Recover(source, new InvalidOperationException("Independent duration render failed: " + NativeDurationSelection.ReadStatus((nint)part)), true);
+            return Recover(source, new RenderVerificationException("duration-execution-failed", "Independent duration render failed: " + NativeDurationSelection.ReadStatus((nint)part), ReadNativeSnapshot(pointer)), true);
         var status = NativeSampledTiming.ReadStatus((nint)part);
         if (status.Failures != 0)
-            return Recover(source,new InvalidOperationException(
-                $"Native timing render failed (epoch={status.Epoch}, scopes={status.Scopes}, applied={status.Applied}, failures={status.Failures}; {NativeSampledTiming.PhonemeDiagnostic((nint)part)})."),true);
+            return Recover(source,new RenderVerificationException("timing-execution-failed",
+                $"Native timing render failed (epoch={status.Epoch}, scopes={status.Scopes}, applied={status.Applied}, failures={status.Failures}; {NativeSampledTiming.PhonemeDiagnostic((nint)part)}).", ReadNativeSnapshot(pointer)),true);
         if (status.Scopes != 0 || (status.CacheKeys != 0 && part.HasValidRenderedWave && part.HasValidRenderedScore))
         { DurationSelectionHost.RenderSucceeded(source); return true; }
-        return Recover(source,new InvalidOperationException($"Timing render bypassed its native cache identity (epoch={status.Epoch}, scopes={status.Scopes}, keys={status.CacheKeys}, finished={source.IsFinishedRendering}, wave={part.HasValidRenderedWave}, score={part.HasValidRenderedScore})."),true);
+        return Recover(source,new RenderVerificationException("cache-identity-bypassed", $"Timing render bypassed its native cache identity (epoch={status.Epoch}, scopes={status.Scopes}, keys={status.CacheKeys}, finished={source.IsFinishedRendering}, wave={part.HasValidRenderedWave}, score={part.HasValidRenderedScore}).", ReadNativeSnapshot(pointer)),true);
     }
 
     private static void Publish(Entry entry)
@@ -471,6 +479,7 @@ internal static partial class SampledTimingHost
                 NativeDurationSelection.Publish((nint)part, epoch, notes, contract);
             }
             else NativeDurationSelection.Remove((nint)part);
+            RetainNativeSnapshot(entry, (nint)part);
             NativeSampledTiming.Publish(part, epoch, values,
                 anchors.Count == 0 ? null : anchors.Select(p => new NativePhonemeTiming.Point(p.Key, p.Value)).ToArray(), gains, progress);
             RenderParts[(nint)part] = (entry, part);
@@ -487,6 +496,7 @@ internal static partial class SampledTimingHost
 
     internal static void BeforeSourceChange(WIVSMSequence source)
     {
+        Rendering.RendererHealthMonitor.InputChanging(source);
         CopiedTargets.Remove((nint)source);
         if (!Entries.TryGetValue((nint)source, out var entry) || entry.Rebuilding) return;
         entry.BeforeNativeCommit = entry.LastNodes;

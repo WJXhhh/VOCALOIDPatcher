@@ -67,8 +67,12 @@ public static class TransitionHostValidation
         var harmony = new Harmony("VOCALOIDPatcher.isolated-transition-host");
         foreach (PatchBase patch in new PatchBase[]
         {
-            new SampledTimingRenderStartPatch(), new SampledTimingRenderCompletionPatch(), new SampledTimingDirtyPatch(),
+            new RendererHealthRequestPatch(), new RendererHealthStopPatch(), new RendererHealthDispatchPatch(), new RendererHealthStartedPatch(),
+            new RendererHealthProgressPatch(), new RendererHealthCompletedPatch(), new RendererHealthCanceledPatch(), new RendererHealthClosePatch(),
+            new SampledTimingRenderStartPatch(), new SampledTimingRenderCompletionPatch(), new SampledTimingRenderCancellationPatch(), new SampledTimingDirtyPatch(),
             new SampledTimingProjectSavePatch(), new SampledTimingProjectLoadPatch(), new SampledTimingDuplicateSequencePatch(),
+            new RegisterShiftProjectLoadPatch(), new RegisterShiftProjectSavePatch(), new RegisterShiftSequenceStartRenderingPatch(),
+            new RegisterShiftSequenceClosePatch(),
             new ConsonantTimingCommitPatch(), new ConsonantTimingUndoPatch(), new ConsonantTimingRedoPatch(), new ConsonantTimingClosePatch(),
             new BreathVolumeCommitHistoryPatch(), new BreathVolumeUndoPatch(), new BreathVolumeRedoPatch(), new BreathVolumeDirtyPatch(),
             new BreathVolumeProjectSavePatch(), new BreathVolumeDuplicateNotePatch(), new BreathVolumeRemoveNotePatch(),
@@ -178,6 +182,86 @@ public static class TransitionHostValidation
             SampledTimingHost.SetTransitions(part, layout, controls, revision);
         }
 
+        if (Environment.GetEnvironmentVariable("VOCALOID_TRANSITION_FRESH") == "1")
+        {
+            FreshTransitionValidation.Execute(manager, directory);
+            harmony.UnpatchAll(harmony.Id); application.Shutdown(); return;
+        }
+        if (Environment.GetEnvironmentVariable("VOCALOID_RENDER_HEALTH") == "1")
+        {
+            try { Rendering.RendererHealthValidation.Execute(manager, dse, database, directory); }
+            finally { harmony.UnpatchAll(harmony.Id); application.Shutdown(); }
+            return;
+        }
+        if (Environment.GetEnvironmentVariable("VOCALOID_GENG_HOST") == "1")
+        {
+            File.Copy(Environment.GetEnvironmentVariable("VOCALOID_GENG_PROJECT")!, Path.Combine(directory, "geng-source.vpr"), true);
+            var captured = Open("geng-source");
+            try
+            {
+                var track = (WIVSMMidiTrack)captured.GetTrack(0UL)!;
+                var part = Part(captured);
+                foreach (var other in track.PartsEnumerator.OfType<WIVSMMidiPart>().Where(p => (nint)p != (nint)part).ToArray())
+                    Check(track.RemovePart(other), "Cannot isolate captured Part.");
+                captured.InterpolatedMasterVolume(); captured.Commit(false);
+                Render(captured, part, "geng-baseline");
+                using var liveObserver = new WIVSMRendererObserver();
+                var liveEvents = new List<string>();
+                liveObserver.Completed += (_, e) => liveEvents.Add("complete");
+                liveObserver.Canceled += (_, e) => liveEvents.Add("cancel:" + e.CancelReason);
+                captured.AddRendererObserver(liveObserver);
+                long diagnosticRevision = SampledTimingHost.Find(captured)!.Revision;
+                ulong diagnosticEpoch = NativeSampledTiming.ReadStatus((nint)part).Epoch;
+                AccessTools.Method(typeof(WIVSMRendererObserver), "InvokeCancelEvent").Invoke(liveObserver,
+                    [nint.Zero, (nint)part, VSMRenderCancelReason.UserCanceled]);
+                Check(SampledTimingHost.Find(captured)!.Revision == diagnosticRevision &&
+                    NativeSampledTiming.ReadStatus((nint)part).Epoch == diagnosticEpoch,
+                    "Cancellation diagnostics altered the active publication.");
+                Record(new { name = "delayed-cancel-diagnostic", host = SampledTimingHost.Diagnostics(captured) });
+                void PumpLive()
+                {
+                    var frame = new DispatcherFrame();
+                    Dispatcher.CurrentDispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(() => frame.Continue = false));
+                    Dispatcher.PushFrame(frame);
+                }
+                bool zhuang = Environment.GetEnvironmentVariable("VOCALOID_GENG_ZHUANG") == "1";
+                for (int pass = 0; pass < 24; pass++)
+                {
+                    liveEvents.Clear();
+                    using (var preparation = SampledTimingHost.PrepareTransitions(part))
+                    {
+                        var q = preparation.Query();
+                        var edge = q.Layout.Edges.Single(e => zhuang ? e.Identity.From == "uAN" && e.Identity.To == "Sil" :
+                            e.Identity.From == "@N" && e.Identity.To == "k" && e.Identity.Left?.Note.Note == 6);
+                        var endpoint = new TransitionEndpointRef(edge.Identity, zhuang ? (TransitionEndpoint)(pass % 3) : TransitionEndpoint.Begin);
+                        var range = System.Threading.Tasks.Task.Run(() => preparation.Prepared.QueryTransitionRange(q.Layout, q.Controls, endpoint,
+                            preparation.Revision)).GetAwaiter().GetResult();
+                        var controls = q.Controls.WithJunction(q.Layout, endpoint,
+                            zhuang ? range.ReachableFrames[(pass * 37) % range.ReachableFrames.Length] :
+                                edge.Current.Begin + (pass % 2 == 0 ? 0 : 3));
+                        SampledTimingHost.CommitTransitions(preparation,
+                            preparation.Prepared.QueryTransitionControls(q.Layout, controls, preparation.Revision));
+                    }
+                    PumpLive();
+                    Thread.Sleep(pass % 8 * 2);
+                    var watch = System.Diagnostics.Stopwatch.StartNew();
+                    while ((!captured.IsFinishedRendering || !part.HasValidRenderedWave) && watch.ElapsedMilliseconds < 5000)
+                    { while (captured.InvokeRendererObserver()) { } PumpLive(); Thread.Sleep(1); }
+                    while (captured.InvokeRendererObserver()) { }
+                    var nativeStatus = NativeSampledTiming.ReadStatus((nint)part);
+                    Record(new { name = "geng-live-" + pass, events = liveEvents.ToArray(), finished = captured.IsFinishedRendering,
+                        wave = part.HasValidRenderedWave, score = part.HasValidRenderedScore,
+                        nativeStatus.Epoch, nativeStatus.Scopes, nativeStatus.CacheKeys,
+                        gainFailures = NativeTransitionGain.ReadStatus((nint)part).Failures, cursor = NativeSampledTiming.PhonemeDiagnostic((nint)part),
+                        host = SampledTimingHost.Diagnostics(captured) });
+                    Check(part.HasValidRenderedWave && part.HasValidRenderedScore, "Live edit failed without a forced stop/restart.");
+                    Check(nativeStatus.Scopes != 0 || nativeStatus.CacheKeys != 0, "New control publication was never consumed.");
+                }
+                captured.RemoveRendererObserver(liveObserver);
+            }
+            finally { captured.Close(); harmony.UnpatchAll(harmony.Id); application.Shutdown(); }
+            return;
+        }
         if (Environment.GetEnvironmentVariable("VOCALOID_TRANSITION_REOPEN") is { Length: > 0 } fixture)
         {
             File.Copy(fixture, Path.Combine(directory, "reopen-fixture.vpr"));

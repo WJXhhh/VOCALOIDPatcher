@@ -107,14 +107,14 @@ internal static class AceParameterHostProbe
             Record("runtime", new
             {
                 aceEnabled = Settings.AceParameters,
-                mappingEnabled = Settings.AceParameterMapping,
+                acousticProcessingEnabled = Settings.AceParameterMapping,
                 definitions = AceParameterDefinitions.All.Select(d => new
                 {
                     kind = d.Kind.ToString(),
                     parameterId = (int)d.ParameterType,
                     carrier = (int)d.CarrierType,
                     mapped = (int)MusicalEditorViewModel.CtrlParamTypeToVSMControllerType(d.ParameterType),
-                    soundTarget = (int)d.SoundTarget,
+                    soundBackend = "local-pcm-acoustic",
                 }).ToList(),
                 patches = new
                 {

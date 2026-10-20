@@ -11,22 +11,18 @@ using Yamaha.VOCALOID.VSM;
 
 namespace VOCALOIDPatcher.AceParameters;
 
-// Keeps the derived native sound controllers in sync with the ACE carrier
-// curves. The native update observer delivers controller notifications only
-// after Commit has already started, so the mapping compares carrier curve
-// snapshots inside the Commit prefix instead of relying on those notifications.
+// Archive/lifecycle bridge for the existing carrier curves. Sound is generated
+// by AceAcousticHost from rendered PCM; no native sound controller is rewritten.
 internal static class AceParameterMappingService
 {
     private sealed class SequenceState
     {
-        public readonly Dictionary<(IntPtr Part, AceParameterKind Kind), long> Snapshot = new();
         public bool Initialized;
         public bool Disposed;
     }
 
     private static readonly ConditionalWeakTable<WIVSMSequence, SequenceState> States = new();
     private static int _projectLoadDepth;
-    private static int _synchronizing;
 
     [ThreadStatic] private static AceProjectData? _pendingArchive;
 
@@ -59,39 +55,14 @@ internal static class AceParameterMappingService
 
     internal static void OnSequenceCommit(WIVSMSequence sequence, bool updateHistory)
     {
-        if (Volatile.Read(ref _synchronizing) != 0)
-            return;
         try
         {
-            if (!Settings.AceParameters || !Settings.AceParameterMapping)
-                return;
             if (sequence == null || Volatile.Read(ref _projectLoadDepth) > 0)
                 return;
 
             var state = EnsureState(sequence);
-            if (!state.Initialized)
-            {
-                // First commit of this sequence (new project or an uncovered
-                // load path): apply mapping for existing curves so the very
-                // first edit is audible, then take the snapshot baseline.
-                foreach (var part in EnumerateParts(sequence))
-                {
-                    if (part.IsAi)
-                        continue;
-                    foreach (var definition in AceParameterDefinitions.All)
-                    {
-                        if (!AceParameterRegistry.IsMappingEnabled(definition))
-                            continue;
-                        var curve = ReadCarrierCurve(part, definition);
-                        if (curve.Count > 0)
-                            ApplyMapping(part, definition, curve);
-                    }
-                }
-                RefreshSnapshot(sequence, state);
-                state.Initialized = true;
-                return;
-            }
-            SyncChangedCarriers(sequence, state);
+            state.Initialized = true;
+            AceAcousticHost.SourceChanged(sequence);
         }
         catch (Exception e)
         {
@@ -105,7 +76,7 @@ internal static class AceParameterMappingService
         {
             if (sequence == null || !States.TryGetValue(sequence, out var state) || state.Disposed)
                 return;
-            RefreshSnapshot(sequence, state);
+            AceAcousticHost.SourceChanged(sequence);
         }
         catch (Exception e)
         {
@@ -128,8 +99,8 @@ internal static class AceParameterMappingService
             {
                 try { sequence.Commit(false); } catch { }
             }
-            RefreshSnapshot(sequence, state);
             state.Initialized = true;
+            AceAcousticHost.SourceChanged(sequence);
         }
         catch (Exception e)
         {
@@ -139,6 +110,7 @@ internal static class AceParameterMappingService
 
     internal static void OnSequenceClosing(WIVSMSequence sequence)
     {
+        AceAcousticHost.Close(sequence);
         try
         {
             if (sequence == null || !States.TryGetValue(sequence, out var state))
@@ -153,31 +125,7 @@ internal static class AceParameterMappingService
 
     internal static void RebuildAll(WIVSMSequence sequence)
     {
-        if (sequence == null || !Settings.AceParameters || !Settings.AceParameterMapping)
-            return;
-        try
-        {
-            using var transaction = new Yamaha.VOCALOID.Transaction(sequence);
-            foreach (var part in EnumerateParts(sequence))
-            {
-                if (part.IsAi)
-                    continue;
-                foreach (var definition in AceParameterDefinitions.All)
-                {
-                    if (!AceParameterRegistry.IsMappingEnabled(definition))
-                        continue;
-                    var curve = ReadCarrierCurve(part, definition);
-                    if (curve.Count > 0)
-                        ApplyMapping(part, definition, curve);
-                }
-            }
-            if (States.TryGetValue(sequence, out var state))
-                RefreshSnapshot(sequence, state);
-        }
-        catch (Exception e)
-        {
-            Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_AceParameter_Failed", e.Message));
-        }
+        if (sequence != null) AceAcousticHost.SourceChanged(sequence);
     }
 
     internal static AceProjectData BuildProjectData(WIVSMSequence sequence)
@@ -325,157 +273,7 @@ internal static class AceParameterMappingService
             return "no-sequence";
         if (!States.TryGetValue(sequence, out var state))
             return "no-state";
-        return $"initialized={state.Initialized} snapshot={state.Snapshot.Count} disposed={state.Disposed}";
-    }
-
-    private static void SyncChangedCarriers(WIVSMSequence sequence, SequenceState state)
-    {
-        var changes = new List<(WIVSMMidiPart Part, AceParameterDefinition Definition, long Signature)>();
-        foreach (var part in EnumerateParts(sequence))
-        {
-            if (part.IsAi)
-                continue;
-            foreach (var definition in AceParameterDefinitions.All)
-            {
-                long signature = ComputeCarrierSignature(part, definition);
-                var key = ((IntPtr)part, definition.Kind);
-                bool known = state.Snapshot.TryGetValue(key, out long previous);
-                if (!known)
-                {
-                    if (signature == ComputeEmptySignature())
-                        continue;
-                    changes.Add((part, definition, signature));
-                    continue;
-                }
-                if (previous != signature)
-                    changes.Add((part, definition, signature));
-            }
-        }
-        if (changes.Count == 0)
-            return;
-
-        Interlocked.Exchange(ref _synchronizing, 1);
-        try
-        {
-            foreach (var (part, definition, signature) in changes)
-            {
-                if (!AceParameterRegistry.IsMappingEnabled(definition))
-                {
-                    state.Snapshot[((IntPtr)part, definition.Kind)] = signature;
-                    continue;
-                }
-                var curve = ReadCarrierCurve(part, definition);
-                if (curve.Count > 0)
-                    ApplyMapping(part, definition, curve);
-                else
-                    ClearDerived(part, definition);
-                state.Snapshot[((IntPtr)part, definition.Kind)] = signature;
-            }
-        }
-        finally
-        {
-            Interlocked.Exchange(ref _synchronizing, 0);
-        }
-    }
-
-    private static void RefreshSnapshot(WIVSMSequence sequence, SequenceState state)
-    {
-        state.Snapshot.Clear();
-        foreach (var part in EnumerateParts(sequence))
-        {
-            if (part.IsAi)
-                continue;
-            foreach (var definition in AceParameterDefinitions.All)
-            {
-                state.Snapshot[((IntPtr)part, definition.Kind)] =
-                    ComputeCarrierSignature(part, definition);
-            }
-        }
-    }
-
-    private static long ComputeEmptySignature()
-    {
-        unchecked
-        {
-            const long offset = 1469598103934665603L;
-            const long prime = 1099511628211L;
-            long hash = offset;
-            hash ^= 0;
-            hash *= prime;
-            return hash;
-        }
-    }
-
-    private static long ComputeCarrierSignature(WIVSMMidiPart part, AceParameterDefinition definition)
-    {
-        unchecked
-        {
-            const long offset = 1469598103934665603L;
-            const long prime = 1099511628211L;
-            long hash = offset;
-            int count = checked((int)part.GetNumController(definition.CarrierType));
-            for (int index = 0; index < count; index++)
-            {
-                var controller = part.GetController(definition.CarrierType, (ulong)index);
-                if (controller == null)
-                    continue;
-                hash ^= controller.RelPosTick.Value;
-                hash *= prime;
-                hash ^= controller.Value;
-                hash *= prime;
-            }
-            hash ^= count;
-            hash *= prime;
-            return hash;
-        }
-    }
-
-    private static void ApplyMapping(
-        WIVSMMidiPart part,
-        AceParameterDefinition definition,
-        IReadOnlyList<AceCurvePoint> curve)
-    {
-        var target = AceParameterRegistry.GetMappingTarget(definition);
-        var targetKind = AceParameterRegistry.GetSoundTargetKind(definition);
-        var derived = AceParameterMapping.BuildDerivedCurve(definition.Kind, targetKind, curve);
-        if (MatchesExistingCurve(part, target, derived))
-            return;
-        ClearTarget(part, target);
-        foreach (var point in derived)
-            part.InsertController(new VSMRelTick(point.Tick), target, point.Value);
-    }
-
-    private static bool MatchesExistingCurve(
-        WIVSMMidiPart part,
-        VSMControllerType target,
-        IReadOnlyList<NativeControllerPoint> derived)
-    {
-        int count = checked((int)part.GetNumController(target));
-        if (count != derived.Count)
-            return false;
-        for (int index = 0; index < count; index++)
-        {
-            var controller = part.GetController(target, (ulong)index);
-            if (controller == null)
-                return false;
-            if (controller.RelPosTick.Value != derived[index].Tick || controller.Value != derived[index].Value)
-                return false;
-        }
-        return true;
-    }
-
-    private static void ClearDerived(WIVSMMidiPart part, AceParameterDefinition definition)
-        => ClearTarget(part, AceParameterRegistry.GetMappingTarget(definition));
-
-    private static void ClearTarget(WIVSMMidiPart part, VSMControllerType target)
-    {
-        int count = checked((int)part.GetNumController(target));
-        for (int index = count - 1; index >= 0; index--)
-        {
-            var controller = part.GetController(target, (ulong)index);
-            if (controller != null)
-                part.RemoveController(controller);
-        }
+        return $"initialized={state.Initialized} backend=pcm-acoustic disposed={state.Disposed}";
     }
 
     private static void RemoveCarrierControllers(WIVSMMidiPart part, AceParameterDefinition definition)
@@ -486,18 +284,6 @@ internal static class AceParameterMappingService
             var controller = part.GetController(definition.CarrierType, (ulong)index);
             if (controller != null)
                 part.RemoveController(controller);
-        }
-    }
-
-    private static IEnumerable<WIVSMMidiPart> EnumerateParts(WIVSMSequence sequence)
-    {
-        foreach (var track in sequence.MidiTracks)
-        {
-            foreach (var part in track.MidiParts)
-            {
-                if (part != null)
-                    yield return part;
-            }
         }
     }
 

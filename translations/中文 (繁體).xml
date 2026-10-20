@@ -47,6 +47,8 @@
   <data name="VOCALOIDPatcher_ShowNotePitch_Header" xml:space="preserve"><value>顯示音符音高</value></data>
   <data name="VOCALOIDPatcher_RoundedNotes_Header" xml:space="preserve"><value>使用圓角音符</value></data>
   <data name="VOCALOIDPatcher_CenteredLyrics_Header" xml:space="preserve"><value>置中顯示歌詞</value></data>
+  <data name="VOCALOIDPatcher_SingleNoteCandidateLyricInput_Header" xml:space="preserve"><value>候選框點擊保留單音符</value></data>
+  <data name="VOCALOIDPatcher_SingleNoteCandidateLyricInput_Description" xml:space="preserve"><value>在歌詞候選框中點擊候選時，即使輸入內容包含空格，也將全部內容填入當前音符，不向後順延分詞；回車確認或失焦確認仍保留原版分詞行為。</value></data>
   <data name="VOCALOIDPatcher_IndividualBreathVolume_Header" xml:space="preserve"><value>個別調整自動呼吸音量</value></data>
   <data name="VOCALOIDPatcher_IndividualBreathVolume_Description" xml:space="preserve"><value>新增 BVL 參數，可在 0–127 範圍內調整每個自動產生的呼吸音；此功能不會額外產生呼吸音。</value></data>
   <data name="VOCALOIDPatcher_BreathVolume_Name" xml:space="preserve"><value>BVL：呼吸音量</value></data>
@@ -1417,13 +1419,16 @@ VOCALOID6 將以 Lite 版本啟動。</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Tension_Name" xml:space="preserve"><value>ACE：張力</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Falsetto_Name" xml:space="preserve"><value>ACE：假聲</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Header" xml:space="preserve"><value>ACE 參數（仿 ACE Studio）</value></data>
-  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>在傳統 MIDI 音軌的參數區加入四條可編輯曲線（力度、氣聲、張力、假聲）。曲線隨工程保存，並透過映射驅動原生參數發聲。</value></data>
-  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>驅動原生參數</value></data>
-  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>開啟時，編輯 ACE 曲線會按整個 Part 重寫對應原生控制器（力度→Dynamics、氣聲→Breathiness、張力→Brightness、假聲→Character）；之後直接修改這些原生參數會被下一次 ACE 編輯覆蓋。</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Description" xml:space="preserve"><value>為取樣音軌新增力度、氣聲、張力和假聲曲線，透過本機聲學後端處理算繪音訊。</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Header" xml:space="preserve"><value>啟用聲學參數處理</value></data>
+  <data name="VOCALOIDPatcher_AceParameterMapping_Description" xml:space="preserve"><value>對算繪音訊獨立調整能量、諧噪比例和 LF 聲門源頻譜。中性值 50 保留原聲；算繪與處理完成後更新播放。</value></data>
   <data name="VOCALOIDPatcher_AceAirTarget_Header" xml:space="preserve"><value>氣聲映射到原生 Air</value></data>
   <data name="VOCALOIDPatcher_AceAirTarget_Description" xml:space="preserve"><value>關閉（預設）時氣聲曲線驅動 Breathiness；開啟後改驅動原生 Air 控制器。</value></data>
-  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>假聲映射到 Character（實驗性）</value></data>
-  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>原生沒有連續的假聲參數，實驗性映射使用 Character；若音色變化不符合預期可關閉。</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Header" xml:space="preserve"><value>假聲聲源處理</value></data>
+  <data name="VOCALOIDPatcher_AceFalsettoMapping_Description" xml:space="preserve"><value>在保持音高的同時調整高次聲源諧波相對 H2 的強度。這是聲學近似，不會切換至錄製的假聲取樣。</value></data>
   <data name="VOCALOIDPatcher_Debug_AceParameter_Failed" xml:space="preserve"><value>ACE 參數處理失敗：{0}</value></data>
-  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>依 ACE 曲線重建原生映射</value></data>
+  <data name="VOCALOIDPatcher_AceParameter_Rebuild_Header" xml:space="preserve"><value>依 ACE 曲線重新處理音訊</value></data>
+  <data name="VOCALOIDPatcher_RendererRecovery_Header" xml:space="preserve"><value>自動恢復算繪失敗</value></data>
+  <data name="VOCALOIDPatcher_RendererRecovery_Description" xml:space="preserve"><value>保留故障診斷，並對已停止的算繪工作重試一次。連續失敗會停止自動重試，專案控制資料保持不變。</value></data>
+  <data name="VOCALOIDPatcher_AceAcoustic_ExportNotReady" xml:space="preserve"><value>ACE 聲學音訊尚未準備好，無法匯出。請等待算繪完成後重試；處理失敗時請查看記錄。</value></data>
 </root>

@@ -26,6 +26,33 @@ internal static unsafe class NativeRegisterShift
     private static delegate* unmanaged[Cdecl]<ulong, void> _removePart;
     private static delegate* unmanaged[Cdecl]<void> _clear;
     private static delegate* unmanaged[Cdecl]<NativeStatus*, int> _status;
+    [StructLayout(LayoutKind.Sequential)]
+    internal readonly struct PlanningNote(long begin, long end, int pitch, int shift)
+    {
+        internal readonly long Begin = begin, End = end;
+        internal readonly int Pitch = pitch, Shift = shift;
+    }
+    internal static bool BeginPlanning(PlanningNote[]? notes)
+    {
+        if (notes == null || notes.Length == 0) return false;
+        bool required = Array.Exists(notes, note => note.Shift != 0);
+        if (!required && _library == 0) return false;
+        if (!EnsureLoaded() || !EnsureTraditionalInstalled() ||
+            !NativeLibrary.TryGetExport(_library, "v6_register_shift_planning_note_size", out var size) ||
+            ((delegate* unmanaged[Cdecl]<uint>)size)() != sizeof(PlanningNote) ||
+            !NativeLibrary.TryGetExport(_library, "v6_register_shift_plan_begin", out var begin) ||
+            !NativeLibrary.TryGetExport(_library, "v6_register_shift_plan_end", out _))
+        {
+            if (required) throw new NotSupportedException("Native register-shift planning scope unavailable.");
+            return false;
+        }
+        fixed (PlanningNote* values = notes)
+            if (((delegate* unmanaged[Cdecl]<PlanningNote*, int, int>)begin)(values, notes.Length) != 0)
+                throw new InvalidOperationException("Cannot begin register-shift planning scope.");
+        return true;
+    }
+    internal static void EndPlanning() =>
+        ((delegate* unmanaged[Cdecl]<void>)NativeLibrary.GetExport(_library, "v6_register_shift_plan_end"))();
 
     internal static RegisterShiftStatus Status
     {

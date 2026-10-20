@@ -12,15 +12,13 @@ internal sealed class AceParameterDefinition
         ControlParameterTypeEnum parameterType,
         VSMControllerType carrierType,
         string shortName,
-        string nameKey,
-        VSMControllerType soundTarget)
+        string nameKey)
     {
         Kind = kind;
         ParameterType = parameterType;
         CarrierType = carrierType;
         ShortName = shortName;
         NameKey = nameKey;
-        SoundTarget = soundTarget;
     }
 
     internal AceParameterKind Kind { get; }
@@ -30,17 +28,13 @@ internal sealed class AceParameterDefinition
     // established BVL/REG approach.
     internal ControlParameterTypeEnum ParameterType { get; }
 
-    // Native VSM controller used only as the curve storage. These carriers are
-    // not exposed by the parameter UI and are expected to be ignored by the
-    // classic V4/V5 renderer; the host probe verifies that before shipping.
+    // Engine-visible VSM curve storage. Use only carriers verified by the
+    // offline render probe; some also appear in the native parameter UI.
     internal VSMControllerType CarrierType { get; set; }
 
     internal string ShortName { get; }
 
     internal string NameKey { get; }
-
-    // Native controller that actually drives the sound for this ACE parameter.
-    internal VSMControllerType SoundTarget { get; }
 
     internal int Order => (int)Kind;
 
@@ -51,6 +45,23 @@ internal sealed class AceParameterDefinition
     internal int DefaultValue => AceParameterMapping.CurveDefault;
 }
 
+// Carrier storage notes
+//
+// The fabricated parameter types reuse real VSMControllerType values only as
+// curve storage for the native ParameterView (draw/edit/undo). That storage is
+// engine-visible: several controller types are consumed by the renderer, so a
+// user curve written into them also drives an unintended native parameter.
+//
+// Offline render A/B (voicebank/tools/evec_render_harness --ace-carrier-audibility-probe,
+// V4X MIKU, V5 Chinese Luo_Tianyi_Wan, V6 Tianyi_CHN) shows:
+//   - DynamicsHmm and PitchBendHmm are audible. A localized bump there changes
+//     the later notes even after the curve returns to the ACE neutral 50,
+//     because 50 is not that controller's engine-neutral value. This was the
+//     "Tension affects following notes" bug.
+//   - WeightHmm, Expression, S5Air and XSynth leave the render bit-identical in
+//     every tested scenario, so they are safe as storage carriers.
+// Keep the four parameters on inert carriers only. Do not move them back to
+// DynamicsHmm/PitchBendHmm, and re-run the probe before changing any carrier.
 internal static class AceParameterDefinitions
 {
     // 4CC ids; must not collide with BVL (0x42564C) or REG (0x524547).
@@ -69,32 +80,28 @@ internal static class AceParameterDefinitions
         (ControlParameterTypeEnum)EnergyTypeId,
         VSMControllerType.WeightHmm,
         "ACE-E",
-        EnergyNameKey,
-        VSMControllerType.Dynamics);
+        EnergyNameKey);
 
     private static readonly AceParameterDefinition Air = new(
         AceParameterKind.Air,
         (ControlParameterTypeEnum)AirTypeId,
-        VSMControllerType.PitchBendHmm,
+        VSMControllerType.S5Air,
         "ACE-A",
-        AirNameKey,
-        VSMControllerType.Breathiness);
+        AirNameKey);
 
     private static readonly AceParameterDefinition Tension = new(
         AceParameterKind.Tension,
         (ControlParameterTypeEnum)TensionTypeId,
-        VSMControllerType.DynamicsHmm,
+        VSMControllerType.XSynth,
         "ACE-T",
-        TensionNameKey,
-        VSMControllerType.Brightness);
+        TensionNameKey);
 
     private static readonly AceParameterDefinition Falsetto = new(
         AceParameterKind.Falsetto,
         (ControlParameterTypeEnum)FalsettoTypeId,
         VSMControllerType.Expression,
         "ACE-F",
-        FalsettoNameKey,
-        VSMControllerType.Character);
+        FalsettoNameKey);
 
     internal static readonly IReadOnlyList<AceParameterDefinition> All = new[]
     {

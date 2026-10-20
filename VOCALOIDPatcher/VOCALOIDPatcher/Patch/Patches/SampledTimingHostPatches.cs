@@ -224,6 +224,20 @@ public sealed class SampledTimingRenderCompletionPatch : PatchBase
     }
 }
 
+public sealed class SampledTimingRenderCancellationPatch : PatchBase
+{
+    public override string PatchName => nameof(SampledTimingRenderCancellationPatch);
+    public override Type TargetClass => typeof(WIVSMRendererObserver);
+    public override string TargetMethodName => "InvokeCancelEvent";
+    public override Type[] ArgumentTypes => [typeof(IntPtr), typeof(IntPtr), typeof(VSMRenderCancelReason)];
+    [HarmonyPrefix]
+    private static void Prefix(IntPtr pMidiPart, VSMRenderCancelReason reason)
+    {
+        try { SampledTimingHost.ObserveRenderCancellation(pMidiPart, reason); }
+        catch (Exception e) { Debug.Print("Timing cancellation diagnostic: " + e.GetType().Name); }
+    }
+}
+
 public sealed class SampledTimingDirtyPatch : PatchBase
 {
     public override string PatchName => nameof(SampledTimingDirtyPatch);

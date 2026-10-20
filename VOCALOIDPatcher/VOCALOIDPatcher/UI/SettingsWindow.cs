@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using VOCALOIDPatcher.AceParameters;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Mcp;
 using VOCALOIDPatcher.McpBridge;
@@ -330,6 +331,16 @@ public class SettingsWindow : Window
                 CenteredLyricPatch.RefreshLyrics();
             });
 
+        var singleNoteCandidate = DescribedToggle(
+            "VOCALOIDPatcher_SingleNoteCandidateLyricInput_Header",
+            "VOCALOIDPatcher_SingleNoteCandidateLyricInput_Description",
+            Settings.SingleNoteCandidateLyricInput,
+            new Thickness(0, 18, 0, 0),
+            checkbox =>
+            {
+                Settings.SingleNoteCandidateLyricInput = checkbox.IsChecked == true;
+            });
+
         var consonantTiming = DescribedToggle(
             "VOCALOIDPatcher_ConsonantTiming_Header",
             "VOCALOIDPatcher_ConsonantTiming_Description",
@@ -341,11 +352,26 @@ public class SettingsWindow : Window
                 ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
             });
 
+        var rendererRecovery = DescribedToggle(
+            "VOCALOIDPatcher_RendererRecovery_Header", "VOCALOIDPatcher_RendererRecovery_Description",
+            Settings.RendererAutoRecovery, new Thickness(0, 18, 0, 0),
+            checkbox => Settings.RendererAutoRecovery = checkbox.IsChecked == true);
+
         var transitionControl = DescribedToggle(
             "VOCALOIDPatcher_Transitions_Name", "VOCALOIDPatcher_Transitions_Description",
             Settings.IndividualTransitionControl, new Thickness(0, 18, 0, 0), checkbox =>
             {
                 Settings.IndividualTransitionControl = checkbox.IsChecked == true;
+                ConsonantTiming.Smoothing.TransitionSmoothingHost.RefreshSettings();
+                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
+            });
+
+        var transitionSmoothing = DescribedToggle(
+            "VOCALOIDPatcher_TransitionSmoothing_Name", "VOCALOIDPatcher_TransitionSmoothing_Description",
+            Settings.TransitionSmoothingEnabled, new Thickness(0, 18, 0, 0), checkbox =>
+            {
+                Settings.TransitionSmoothingEnabled = checkbox.IsChecked == true;
+                ConsonantTiming.Smoothing.TransitionSmoothingHost.RefreshSettings();
                 ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
             });
 
@@ -427,16 +453,7 @@ public class SettingsWindow : Window
             checkbox =>
             {
                 Settings.AceParameterMapping = checkbox.IsChecked == true;
-            });
-
-        var aceAirNativeTarget = DescribedToggle(
-            "VOCALOIDPatcher_AceAirTarget_Header",
-            "VOCALOIDPatcher_AceAirTarget_Description",
-            Settings.AceAirUseNativeAir,
-            new Thickness(0, 18, 0, 0),
-            checkbox =>
-            {
-                Settings.AceAirUseNativeAir = checkbox.IsChecked == true;
+                AceAcousticHost.RefreshSettings();
             });
 
         var aceFalsettoMapping = DescribedToggle(
@@ -447,6 +464,7 @@ public class SettingsWindow : Window
             checkbox =>
             {
                 Settings.AceFalsettoMapping = checkbox.IsChecked == true;
+                AceAcousticHost.RefreshSettings();
             });
 
         var aceRebuildMapping = new StackPanel { Margin = new Thickness(0, 6, 0, 0) };
@@ -517,15 +535,17 @@ public class SettingsWindow : Window
         panel.Children.Add(showNotePitch);
         panel.Children.Add(roundedNotes);
         panel.Children.Add(centeredLyrics);
+        panel.Children.Add(singleNoteCandidate);
         panel.Children.Add(consonantTiming);
+        panel.Children.Add(rendererRecovery);
         panel.Children.Add(transitionControl);
+        panel.Children.Add(transitionSmoothing);
         panel.Children.Add(durationSelection);
         panel.Children.Add(individualPhonemeVolume);
         panel.Children.Add(individualBreathVolume);
         panel.Children.Add(registerShift);
         panel.Children.Add(aceParameters);
         panel.Children.Add(aceParameterMapping);
-        panel.Children.Add(aceAirNativeTarget);
         panel.Children.Add(aceFalsettoMapping);
         panel.Children.Add(aceRebuildMapping);
         panel.Children.Add(evec);
@@ -538,15 +558,18 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.ShowNotePitchKey, showNotePitch);
         HideIfUnsupported(Settings.RoundedNotesKey, roundedNotes);
         HideIfUnsupported(Settings.CenteredLyricsKey, centeredLyrics);
+        HideIfUnsupported(Settings.SingleNoteCandidateLyricInputKey, singleNoteCandidate);
         HideIfUnsupported(Settings.IntuitiveConsonantTimingKey, consonantTiming);
+        HideIfUnsupported(Settings.RendererAutoRecoveryKey, rendererRecovery);
         HideIfUnsupported(Settings.IntuitiveConsonantTimingKey, transitionControl);
         HideIfUnsupported(Settings.IndividualTransitionControlKey, transitionControl);
+        HideIfUnsupported(Settings.TransitionSmoothingEnabledKey, transitionSmoothing);
         HideIfUnsupported(Settings.IndividualPhonemeVolumeKey, individualPhonemeVolume);
         HideIfUnsupported(Settings.IndependentDurationSelectionKey, durationSelection);
         HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
         HideIfUnsupported(Settings.RegisterShiftKey, registerShift);
         HideIfUnsupported(Settings.AceParametersKey, aceParameters, aceParameterMapping);
-        HideIfUnsupported(Settings.AceParametersKey, aceAirNativeTarget, aceFalsettoMapping, aceRebuildMapping);
+        HideIfUnsupported(Settings.AceParametersKey, aceFalsettoMapping, aceRebuildMapping);
         HideIfUnsupported(Settings.EvecEnabledKey, evec);
         HideIfUnsupported(Settings.AlwaysShowWaveformKey, alwaysShowWaveform, waveformOptions);
         HideIfUnsupported(Settings.SvEditorStyleKey, svEditorStyle);

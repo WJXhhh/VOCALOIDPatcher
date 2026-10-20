@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-20",
+  "deployment": "none",
+  "managedTests": {"passed": 282, "failed": 0},
+  "builds": {"minimumSdk": "6.13.1.1", "debugSolution": "passed", "releaseMergedAssembly": "passed; two native linker-output warnings, zero errors"},
+  "sdkVersions": ["6.13.1.1", "6.13.3.1"],
+  "faults": {
+    "missingTemporaryDirectory": "Real native FailedToGetTempDirPath, two Parts; recovered without restarting editor or reloading project.",
+    "persistentMissingDirectory": "Real fault reintroduced at every native start; exactly two starts (original plus one retry), then automatic retries stop.",
+    "nativeTimingExecution": "Corrupted transition progress input at epoch 990001; real timing/transition failure counters retained before retirement; fresh validated publication and effective rendering restored.",
+    "plainSequence": "Same real temporary-directory failure on a source without a sampled timing session; recovered without creating a timing document.",
+    "lateCancellation": "Synthetic normal and transient cancellation delivered after valid rendering; no new render request.",
+    "watchdog": "Injected expired progress clock while native scheduler still reports unfinished; diagnostic emitted without automatic stop/start, then normal resume rendered successfully. No native thread was deliberately hung."
+  },
+  "dataIntegrity": ["Timing and transition fingerprints preserved", "Source VEL preserved", "Native edit and Undo after a failed retry preserved controls", "Only failed/interrupted invalid Parts invalidated"],
+  "retryPolicy": {"perInputRequest": 1, "perSequencePerMinute": 3, "normalCancellation": "ignored", "busyNativeCall": "diagnostic only"},
+  "diagnostics": {"recentStateEvents": 32, "pendingLogRecords": 32, "rotatedFiles": 3, "rotationMiB": 2, "pcmOrWholeProjectDump": false},
+  "limitations": ["No guarantee of in-process recovery from native access violation or process termination", "No forced reset while a native call remains unfinished", "Private directory repair is hash-gated to the two verified adapters", "Interactive deployed-editor validation is pending deployment"]
+}

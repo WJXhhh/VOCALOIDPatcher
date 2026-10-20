@@ -43,6 +43,8 @@ internal static partial class Program
 
     private static int Main(string[] args)
     {
+        if (args.Contains("--transition-smoother-artifact-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTransitionSmootherArtifacts(args.First(a => !a.StartsWith("--", StringComparison.Ordinal)));
         if (args.Contains("--evec-contract-probe", StringComparer.OrdinalIgnoreCase))
         {
             var luka = EvecVoicebankDetector.GetDatabaseCapabilities("LUKA_V4X_Soft_EVEC");
@@ -207,7 +209,7 @@ internal static partial class Program
         }
 
         using WIVSMSequenceManager? sequenceManager = WVSMModuleIF.CreateManager(
-            Environment.GetEnvironmentVariable("VOCALOID_PROBE_MANAGER_ID") ?? "VOCALOID6", "6.13.0.1");
+            ProbeManagerIdentity.Create(Environment.GetEnvironmentVariable("VOCALOID_PROBE_MANAGER_ID"), Environment.ProcessId), "6.13.0.1");
         Console.WriteLine($"vsm.created={sequenceManager != null}");
         if (sequenceManager == null)
         {
@@ -225,6 +227,10 @@ internal static partial class Program
             return ProbeFullPhonemeTiming(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--phoneme-topology-probe", StringComparer.OrdinalIgnoreCase))
             return ProbePhonemeTopology(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--compound-boundary-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeCompoundBoundaries(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--geng-transition-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeGengTransition(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--phoneme-volume-probe", StringComparer.OrdinalIgnoreCase))
             return ProbePhonemeTopology(sequenceManager, dse, database, outputDirectory, volumeOnly: true);
         if (args.Contains("--duration-selection-probe", StringComparer.OrdinalIgnoreCase))
@@ -245,6 +251,8 @@ internal static partial class Program
             return ProbeTransitionControl(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--transition-backend-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeTransitionBackend(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--transition-artifact-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTransitionArtifacts(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--compound-vowel-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeCompoundVowels(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--source-coverage-probe", StringComparer.OrdinalIgnoreCase))
@@ -265,6 +273,8 @@ internal static partial class Program
             return ProbeExplicitConsonantBorrow(sequenceManager, dse, outputDirectory, contextBorrow: true);
         if (args.Contains("--dynamics-selection-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeDynamicsSelection(sequenceManager, outputDirectory);
+        if (args.Contains("--ace-carrier-audibility-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeAceCarrierAudibility(sequenceManager, outputDirectory);
         if (args.Contains("--timing-crash-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeTimingCrash(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--timing-profile-probe", StringComparer.OrdinalIgnoreCase))

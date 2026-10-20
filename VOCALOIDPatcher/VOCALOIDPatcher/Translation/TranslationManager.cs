@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -26,7 +27,7 @@ public static class TranslationManager
     public static readonly Dictionary<string, string> TranslatedToOriginalMap = new();
     public static readonly Dictionary<string, string> TranslatedToTranslationKeyMap = new();
 
-    private static readonly HashSet<string> MissingKeyList = new();
+    private static readonly ConcurrentDictionary<string, byte> MissingKeyList = new();
 
     public static List<string> AvailableLanguages { get; } = new();
 
@@ -243,11 +244,16 @@ public static class TranslationManager
 
     public static string? Get(string key)
     {
-        var value = Dict.GetValueOrDefault(key);
+        if (string.IsNullOrEmpty(key))
+            return key;
 
-        if (value == null && MissingKeyList.Add(key)) Debug.Print($"Missing key: {key}");
+        if (Dict.TryGetValue(key, out var value))
+            return value;
 
-        return value;
+        if (MissingKeyList.TryAdd(key, 0))
+            Debug.Print($"Missing key: {key}");
+
+        return null;
     }
 
     public static string Tr(string key) => Get(key) ?? key;

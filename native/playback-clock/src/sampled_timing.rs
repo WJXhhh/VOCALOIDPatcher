@@ -237,6 +237,10 @@ pub(super) fn transition_status(part: u64) -> super::transition_gain::Status {
     if let Some(entry) = entry { if let Some(gains) = &entry.gains { return gains.status(entry.epoch); } }
     Default::default()
 }
+pub(super) fn transition_failure(part: u64) -> super::transition_gain::Failure {
+    let entry = parts().read().unwrap_or_else(|e|e.into_inner()).get(&part).cloned();
+    entry.and_then(|entry| entry.gains.as_ref().map(|g| g.failure())).unwrap_or_default()
+}
 
 pub fn phoneme_context(parser: usize) -> Option<Arc<super::phoneme_timing::Context>> {
     let binding = parsers().read().unwrap_or_else(|e|e.into_inner()).get(&parser).cloned();

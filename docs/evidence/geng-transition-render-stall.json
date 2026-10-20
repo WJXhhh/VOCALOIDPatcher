@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-20",
+  "status": "live-host-recovered-probe-temp-namespace-fixed-original-random-trigger-unproven",
+  "deployment": "none",
+  "reportedTrigger": "Drag the shared junction at geng @N -> k; zhuang uAN -> Sil is another reported reproduction target.",
+  "privateFixture": "Saved user VPR retained outside the repository.",
+  "liveHost": {
+    "editor": "6.13.3.1",
+    "processAlive": true,
+    "renderServiceEnabled": true,
+    "renderFinished": true,
+    "validScore": false,
+    "validWave": false,
+    "publishedNativeSnapshot": {
+      "epoch": 11,
+      "scopes": 0,
+      "cacheKeys": 0,
+      "transitionCalls": 0,
+      "failures": 0
+    },
+    "method": "Read-only ClrMD attachment without suspension and bounded native registry reads; DLL SHA256 matched the local release image before decoding its layout.",
+    "interpretation": "The observed latest publication was unused. Zero failures in that new publication did not establish a successful render.",
+    "laterCancellation": {
+      "reason": "FailedToGetTempDirPath",
+      "value": 8,
+      "method": "Bounded read of retained native renderer event storage. Cancellation generations 73 and 75 matched the corresponding completed jobs and source Part. Slots were no longer queued, so this is retained storage evidence, not interception of a delivered callback."
+    },
+    "recovery": {
+      "sameEditorProcess": true,
+      "deployedDllsUnchanged": true,
+      "emptyDirectoryRepair": "Recreated the three verified sequence directories under the live manager's temporary root. This alone did not restore rendering.",
+      "projectReload": "Saved current edits to a private diagnostic VPR, verified sequence and custom timing/transition archives, then reopened that copy in the same editor. The original user VPR was not overwritten.",
+      "scoreAndWaveValidAfterReload": true,
+      "zhuangProgressDrag": "Actual uAN -> Sil diamond drag changed the waveform; session revision advanced from 4 to 5 and score/wave remained valid.",
+      "undo": "Ctrl+Z restored the tested transition and completed another valid render."
+    }
+  },
+  "isolatedChecks": {
+    "exactSavedControls": "Rendered successfully with native note properties and controllers retained.",
+    "cancelAndRepublish": "40 cases, no native timing or transition failures.",
+    "productionHostGeng": "24 alternating junction edits, 24 completed events, all snapshots consumed, no native failures.",
+    "productionHostZhuang": "24 endpoint requests per SDK; 8 completed render events per SDK, remaining requests reused unchanged controls. Passed on 6.13.1.1 and 6.13.3.1.",
+    "publicationOrderHypothesis": "Moving publication before cache invalidation did not reproduce or explain the live failure. Speculative order change reverted.",
+    "diagnosticCallback": "Synthetic delayed UserCanceled callback left session revision and native epoch unchanged; subsequent renders passed.",
+    "managerIsolationOldSdk": "6.13.1.1: five exact-fixture renders passed; the live editor sequence directory survived probe construction and disposal.",
+    "managerIsolationNewSdk": "6.13.3.1: five exact-fixture renders passed; the live editor sequence directory survived probe construction and disposal.",
+    "managedTests": "269 passed, including process namespace and path traversal tests.",
+    "build": "Full Debug solution and updated probe built against minimum SDK in isolated artifacts directories, zero warnings/errors."
+  },
+  "probeDefect": {
+    "oldApplicationId": "VOCALOID6",
+    "problem": "Standalone probes shared the live editor's VSM application ID. Manager creation and destruction recursively remove that application's VSM temporary root. The live editor's main and two planner sequence directories were missing.",
+    "fix": "Always prefix the probe ID with VOCALOIDPatcher.Probe.<processId>; the optional environment override is a validated suffix, not a replacement application ID.",
+    "nativeEvidence": {
+      "program": "VSM.dll 6.13.1.1",
+      "sha256": "78EB2D8198855C0046DD1E8AE8141DE609145A239D434F6518F08BE33E369058",
+      "imageBase": "0x180000000",
+      "createTempRoot": "0x18002D2F0 calls recursive removal at 0x1800FF350 before SHCreateDirectory wrapper 0x1800FF240.",
+      "destructor": "0x18002BD60 removes manager temp root at +0x98; persistent cache root +0xB8 is separate.",
+      "prepare": "0x180060640 checks sequence temp directory and emits cancellation 8 before cache lookup/DSE. The corresponding 6.13.3.1 instructions were also checked in the installed binary."
+    }
+  },
+  "changes": "Isolate standalone probe manager IDs. Also expose current native counters and retain bounded consumed/failed snapshots, and record cancellation delivery reasons without changing rendering behavior. Diagnostic host changes remain undeployed.",
+  "limitations": [
+    "The probe interference is proven and fixed, and this live host was recovered. This does not prove that the user's initial random transition failure, before investigation, had the same cause.",
+    "Independent replays exclude other editor patches and native scheduling state not serialized in VPR.",
+    "The user subsequently authorized Computer Use again. Switched the existing Ghidra GUI from DSE to existing VSM without import/restart; then verified real editor recovery, transition drag and undo.",
+    "PCM reproducibility investigation remains deferred at the user's request."
+  ]
+}

@@ -1,0 +1,4623 @@
+{
+  "date": "2026-10-20",
+  "deployed": false,
+  "source": "Read-only VOCALOID MCP and isolated reconstructed five-note fixture",
+  "bank": "BETDB8W6KWZPYEB9",
+  "bpm": 146,
+  "before": [
+    {
+      "n": 0,
+      "phones": "x u uo",
+      "actual": [
+        -115,
+        -6,
+        123,
+        306
+      ],
+      "error": null
+    },
+    {
+      "n": 1,
+      "phones": "s t ei AU",
+      "actual": [
+        -54,
+        -34,
+        -7,
+        285,
+        481
+      ],
+      "error": "Native sample mapping did not produce the requested phoneme boundary at 3292 (s/t); observed 3290..3293:s/Sil@3292;3290..3293:s/Sil@3292."
+    },
+    {
+      "n": 2,
+      "phones": "x aI AU",
+      "actual": [
+        -119,
+        -3,
+        213,
+        376
+      ],
+      "error": null
+    },
+    {
+      "n": 3,
+      "phones": "t_h i@U u",
+      "actual": [
+        -104,
+        -29,
+        445,
+        601
+      ],
+      "error": "Native sample mapping did not produce the requested phoneme boundary at 3326 (t_h/i@U); observed 3324..3328:t_h/Sil@3326;3324..3328:t_h/Sil@3326."
+    },
+    {
+      "n": 4,
+      "phones": "k o",
+      "actual": [
+        -119,
+        -31,
+        234
+      ],
+      "error": "Native sample mapping did not produce the requested phoneme boundary at 3361 (k/o); observed 3359..3363:k/Sil@3361;3359..3363:k/Sil@3361."
+    }
+  ],
+  "versions": [
+    {
+      "version": "6.13.3.1",
+      "fullMatrixExitCode": 1,
+      "baseline": [
+        {
+          "n": 0,
+          "phones": "x u uo",
+          "actual": [
+            -115,
+            -6,
+            123,
+            306
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -115,
+                -6,
+                123,
+                306
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 11.628
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 0,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 1,
+          "phones": "s t ei AU",
+          "actual": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -54,
+                -34,
+                -7,
+                285,
+                481
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 1.9833
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 1,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 2,
+          "phones": "x aI AU",
+          "actual": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -119,
+                -3,
+                213,
+                376
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 4,
+              "CacheHit": false,
+              "Milliseconds": 1.163
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 2,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 3,
+          "phones": "t_h i@U u",
+          "actual": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -104,
+                -29,
+                445,
+                601
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 1.8565
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 3,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 4,
+          "phones": "k o",
+          "actual": [
+            -112,
+            -31,
+            234
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -119,
+                -31,
+                234
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 1.3328
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 4,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        }
+      ],
+      "rendered": [
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "actual": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            0,
+            123,
+            306
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "actual": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            3,
+            213,
+            376
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "actual": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -22,
+            445,
+            601
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -125,
+            -31,
+            234
+          ],
+          "actual": [
+            -125,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -31,
+            234
+          ],
+          "actual": [
+            -112,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -37,
+            234
+          ],
+          "actual": [
+            -119,
+            -37,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -24,
+            234
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -31,
+            227
+          ],
+          "actual": [
+            -119,
+            -31,
+            227
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -31,
+            241
+          ],
+          "actual": [
+            -119,
+            -31,
+            241
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        }
+      ],
+      "rejected": [
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": 1,
+          "error": "Native phoneme mapping failed (20/2/1; 24/2/3295/0/1; 0,1,0,0,0,1,0,3225,0,0,0,3225,3225,2,4,0,3225,3231,3295,1,15,0,3354,3386)."
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": -1,
+          "error": "Native phoneme mapping failed (20/4/1; 24/2/3294/0/1; 0,1,0,0,0,1,0,3225,0,0,0,3225,3225,2,4,0,3225,3231,3294,1,15,0,3354,3386)."
+        }
+      ],
+      "restored": true
+    },
+    {
+      "version": "6.13.1.1",
+      "fullMatrixExitCode": 1,
+      "baseline": [
+        {
+          "n": 0,
+          "phones": "x u uo",
+          "actual": [
+            -115,
+            -6,
+            123,
+            306
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -115,
+                -6,
+                123,
+                306
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 11.6806
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 0,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 1,
+          "phones": "s t ei AU",
+          "actual": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -54,
+                -34,
+                -7,
+                285,
+                481
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 1.9408
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 1,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 2,
+          "phones": "x aI AU",
+          "actual": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -119,
+                -3,
+                213,
+                376
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 4,
+              "CacheHit": false,
+              "Milliseconds": 1.7802
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 2,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 3,
+          "phones": "t_h i@U u",
+          "actual": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -104,
+                -29,
+                445,
+                601
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 1.6939
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 3,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        },
+        {
+          "n": 4,
+          "phones": "k o",
+          "actual": [
+            -112,
+            -31,
+            234
+          ],
+          "layout": {
+            "Result": {
+              "Boundaries": [
+                -119,
+                -31,
+                234
+              ],
+              "ContextNotes": 5,
+              "PlannerRuns": 6,
+              "CacheHit": false,
+              "Milliseconds": 1.3189
+            },
+            "Anchors": [
+              {
+                "From": 0,
+                "To": 0
+              },
+              {
+                "From": 3227,
+                "To": 3227
+              },
+              {
+                "From": 3243,
+                "To": 3243
+              },
+              {
+                "From": 3262,
+                "To": 3262
+              },
+              {
+                "From": 3289,
+                "To": 3289
+              },
+              {
+                "From": 3292,
+                "To": 3292
+              },
+              {
+                "From": 3296,
+                "To": 3296
+              },
+              {
+                "From": 3339,
+                "To": 3339
+              },
+              {
+                "From": 3368,
+                "To": 3368
+              },
+              {
+                "From": 3385,
+                "To": 3385
+              },
+              {
+                "From": 3417,
+                "To": 3417
+              },
+              {
+                "From": 3441,
+                "To": 3441
+              },
+              {
+                "From": 3452,
+                "To": 3452
+              },
+              {
+                "From": 3522,
+                "To": 3522
+              },
+              {
+                "From": 3545,
+                "To": 3545
+              },
+              {
+                "From": 3558,
+                "To": 3558
+              },
+              {
+                "From": 3597,
+                "To": 3597
+              },
+              {
+                "From": 3683,
+                "To": 3683
+              }
+            ],
+            "Plans": null,
+            "RelatedBoundaries": {},
+            "TransitionCapture": null
+          },
+          "error": null,
+          "evidence": {
+            "Origin": 0,
+            "Target": 4,
+            "rows": [
+              {
+                "Begin": 3225,
+                "Split": 3227,
+                "End": 3231,
+                "From": "Sil",
+                "To": "x"
+              },
+              {
+                "Begin": 3231,
+                "Split": 3243,
+                "End": 3253,
+                "From": "x",
+                "To": "u"
+              },
+              {
+                "Begin": 3253,
+                "Split": 3262,
+                "End": 3277,
+                "From": "u",
+                "To": "uo"
+              },
+              {
+                "Begin": 3277,
+                "Split": 3289,
+                "End": 3290,
+                "From": "uo",
+                "To": "s"
+              },
+              {
+                "Begin": 3290,
+                "Split": 3292,
+                "End": 3293,
+                "From": "s",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3293,
+                "Split": 3294,
+                "End": 3295,
+                "From": "Sil",
+                "To": "t"
+              },
+              {
+                "Begin": 3295,
+                "Split": 3296,
+                "End": 3311,
+                "From": "t",
+                "To": "ei"
+              },
+              {
+                "Begin": 3311,
+                "Split": 3339,
+                "End": 3354,
+                "From": "ei",
+                "To": "AU"
+              },
+              {
+                "Begin": 3354,
+                "Split": 3368,
+                "End": 3373,
+                "From": "AU",
+                "To": "x"
+              },
+              {
+                "Begin": 3373,
+                "Split": 3385,
+                "End": 3394,
+                "From": "x",
+                "To": "aI"
+              },
+              {
+                "Begin": 3394,
+                "Split": 3417,
+                "End": 3426,
+                "From": "aI",
+                "To": "AU"
+              },
+              {
+                "Begin": 3426,
+                "Split": 3441,
+                "End": 3450,
+                "From": "AU",
+                "To": "t_h"
+              },
+              {
+                "Begin": 3450,
+                "Split": 3452,
+                "End": 3454,
+                "From": "t_h",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3454,
+                "Split": 3456,
+                "End": 3485,
+                "From": "Sil",
+                "To": "i@U"
+              },
+              {
+                "Begin": 3485,
+                "Split": 3522,
+                "End": 3534,
+                "From": "i@U",
+                "To": "u"
+              },
+              {
+                "Begin": 3534,
+                "Split": 3545,
+                "End": 3556,
+                "From": "u",
+                "To": "k"
+              },
+              {
+                "Begin": 3556,
+                "Split": 3558,
+                "End": 3560,
+                "From": "k",
+                "To": "Sil"
+              },
+              {
+                "Begin": 3560,
+                "Split": 3562,
+                "End": 3581,
+                "From": "Sil",
+                "To": "o"
+              },
+              {
+                "Begin": 3581,
+                "Split": 3597,
+                "End": 3599,
+                "From": "o",
+                "To": "Sil"
+              }
+            ]
+          }
+        }
+      ],
+      "rendered": [
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -122,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "actual": [
+            -108,
+            -6,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "actual": [
+            -115,
+            -13,
+            123,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            0,
+            123,
+            306
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            116,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "actual": [
+            -115,
+            -6,
+            129,
+            306
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            299
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 0,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "actual": [
+            -115,
+            -6,
+            123,
+            312
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -61,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -48,
+            -34,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -41,
+            -7,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            0,
+            285,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            278,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            291,
+            481
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": -1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            474
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 1,
+          "axis": 4,
+          "offset": 1,
+          "Boundaries": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "actual": [
+            -54,
+            -34,
+            -7,
+            285,
+            488
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -126,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "actual": [
+            -112,
+            -3,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "actual": [
+            -119,
+            -10,
+            213,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            3,
+            213,
+            376
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            207,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "actual": [
+            -119,
+            -3,
+            220,
+            376
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            369
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 2,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "actual": [
+            -119,
+            -3,
+            213,
+            383
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -111,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "actual": [
+            -97,
+            -29,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "actual": [
+            -104,
+            -36,
+            445,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -22,
+            445,
+            601
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            439,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "actual": [
+            -104,
+            -29,
+            452,
+            601
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": -1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            595
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 3,
+          "axis": 3,
+          "offset": 1,
+          "Boundaries": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "actual": [
+            -104,
+            -29,
+            445,
+            608
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": -1,
+          "Boundaries": [
+            -125,
+            -31,
+            234
+          ],
+          "actual": [
+            -125,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 0,
+          "offset": 1,
+          "Boundaries": [
+            -112,
+            -31,
+            234
+          ],
+          "actual": [
+            -112,
+            -31,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -37,
+            234
+          ],
+          "actual": [
+            -119,
+            -37,
+            234
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 1,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -24,
+            234
+          ],
+          "actual": [],
+          "rawMatches": false,
+          "needsProjection": true,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": -1,
+          "Boundaries": [
+            -119,
+            -31,
+            227
+          ],
+          "actual": [
+            -119,
+            -31,
+            227
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        },
+        {
+          "n": 4,
+          "axis": 2,
+          "offset": 1,
+          "Boundaries": [
+            -119,
+            -31,
+            241
+          ],
+          "actual": [
+            -119,
+            -31,
+            241
+          ],
+          "rawMatches": true,
+          "needsProjection": false,
+          "sampleMatches": true,
+          "audioChanged": true,
+          "Failures": 0,
+          "Scopes": 1,
+          "queryCounters": {
+            "Starts": 0,
+            "Steps": 0,
+            "Samples": 0
+          }
+        }
+      ],
+      "rejected": [
+        {
+          "n": 1,
+          "axis": 1,
+          "offset": 1,
+          "error": "Native phoneme mapping failed (20/2/1; 24/2/3295/0/1; 0,1,0,0,0,1,0,3225,0,0,0,3225,3225,2,4,0,3225,3231,3295,1,15,0,3354,3386)."
+        },
+        {
+          "n": 1,
+          "axis": 2,
+          "offset": -1,
+          "error": "Native phoneme mapping failed (20/4/1; 24/2/3294/0/1; 0,1,0,0,0,1,0,3225,0,0,0,3225,3225,2,4,0,3225,3231,3294,1,15,0,3354,3386)."
+        }
+      ],
+      "restored": true
+    }
+  ],
+  "managedTests": 261,
+  "solutionBuild": "Debug, minimum SDK, 0 warnings, 0 errors",
+  "remaining": "Two native mapping rejections remain unresolved; not classified as normal minimum range."
+}

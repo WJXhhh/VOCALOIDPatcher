@@ -65,7 +65,7 @@ internal sealed partial class LocalConsonantTimingBackend
                     var baseline = new int[window.Notes.Length][];
                     ImmutableArray<TransitionSegment> originalTransitions = [], currentTransitions = [];
                     IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? resolvedPlans = null;
-                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs);
+                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs, window.RegisterNotes);
                     try
                     {
                         Feed();
@@ -123,7 +123,7 @@ internal sealed partial class LocalConsonantTimingBackend
                         throw new NotSupportedException("Phoneme boundaries cannot cross or collapse.");
                     int[] requested = baseline[window.Target].Select(f => anchors[f].To).ToArray();
                     string[] phones = _topology.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs);
+                    _owner._engine.Begin(cancellation, nativeWaitBudgetMs, window.RegisterNotes);
                     bool scope = false;
                     try
                     {

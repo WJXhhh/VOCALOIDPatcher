@@ -196,7 +196,17 @@ public sealed class BreathVolumeHeaderValuePatch : PatchBase
 
     [HarmonyPrefix]
     private static bool Prefix(ParameterHeaderControl __instance, ControlParameterTypeEnum type)
-        => !BreathVolumeUi.UpdateHeaderValue(__instance, type);
+    {
+        try
+        {
+            return !BreathVolumeUi.UpdateHeaderValue(__instance, type);
+        }
+        catch (Exception ex)
+        {
+            Debug.Print($"BreathVolumeHeaderValuePatch error: {ex}");
+            return true;
+        }
+    }
 }
 
 public sealed class BreathVolumeHeaderInputPatch : PatchBase
@@ -371,6 +381,8 @@ public sealed class BreathVolumeWavePathPatch : PatchBase
         {
             __result = BreathVolumeService.SubstituteWavePath(__instance, __result);
             __result = PhonemeVolume.PhonemeVolumeHost.Substitute(__instance, __result);
+            __result = ConsonantTiming.Smoothing.TransitionSmoothingHost.Substitute(__instance, __result);
+            __result = AceParameters.AceAcousticHost.Substitute(__instance, __result);
         }
         catch (Exception e) { Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_BreathVolume_CacheFailed", e.Message)); }
     }
@@ -418,6 +430,7 @@ public sealed class BreathVolumeRendererStartPatch : PatchBase
             {
                 PhonemeVolume.PhonemeVolumeHost.RenderStarted(e.MidiPart);
                 BreathVolumeService.StartRender(__instance.VSMSequence, e.MidiPart);
+                ConsonantTiming.Smoothing.TransitionSmoothingHost.RenderStarted(e.MidiPart);
             }
         }
         catch (Exception exception)
@@ -441,6 +454,7 @@ public sealed class BreathVolumeRendererCancelPatch : PatchBase
         {
             BreathVolumeService.CancelRender(e.MidiPart);
             PhonemeVolume.PhonemeVolumeHost.RenderCompleted(e.MidiPart);
+            ConsonantTiming.Smoothing.TransitionSmoothingHost.RenderCompleted(e.MidiPart);
         }
     }
 }
@@ -462,6 +476,7 @@ public sealed class BreathVolumeRendererCompletePatch : PatchBase
             {
                 BreathVolumeService.CompleteRender(sequence, e.MidiPart);
                 PhonemeVolume.PhonemeVolumeHost.RenderCompleted(e.MidiPart);
+                ConsonantTiming.Smoothing.TransitionSmoothingHost.RenderCompleted(e.MidiPart);
             }
         }
         catch (Exception exception)

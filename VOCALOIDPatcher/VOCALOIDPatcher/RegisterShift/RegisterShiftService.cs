@@ -78,6 +78,12 @@ internal static class RegisterShiftService
             return TryKey(handle, out var key) && Values.TryGetValue(key, out var value)
                 ? value : DefaultValue;
     }
+    internal static int CaptureValue(WIVSMNote note)
+    {
+        if (!Settings.RegisterShift) return 0;
+        Register(note);
+        return GetValue(note.CppObjPtr);
+    }
 
     public static IReadOnlyCollection<IntPtr> GetSelection()
     {
@@ -467,6 +473,7 @@ internal static class RegisterShiftService
 
     private static void PublishAndRender(WIVSMSequence sequence, WIVSMMidiPart part)
     {
+        ConsonantTiming.SampledTimingHost.RegisterShiftInputChanged(sequence, part);
         int generation;
         lock (Sync)
         {
@@ -488,6 +495,14 @@ internal static class RegisterShiftService
                 {
                     try
                     {
+                        lock (Sync)
+                            if (!RebuildGenerations.TryGetValue((IntPtr)part, out var current) || current != generation)
+                                return;
+                        // Close/load/remove can run after the background delay
+                        // but before this Dispatcher callback. Never dereference
+                        // the captured native Part until its live owner confirms it.
+                        if (!sequence.IsOpen || !sequence.MidiTracks.SelectMany(t => t.MidiParts)
+                            .Any(current => (IntPtr)current == (IntPtr)part)) return;
                         PublishPart(sequence, part);
                         RenderedWaveCachePatch.InvalidateAndRefreshPart(part);
                         ForceNativeRender(sequence, part);

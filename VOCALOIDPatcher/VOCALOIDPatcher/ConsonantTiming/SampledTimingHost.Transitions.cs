@@ -146,6 +146,7 @@ internal static partial class SampledTimingHost
         var next = TransitionProjectBinding.Encode(data, execution.Layout, controls, ids);
         if (TransitionArchiveData.From(next).Fingerprint == TransitionArchiveData.From(data).Fingerprint) return;
         source.StopAsyncRendering(); entry.Session.SetTransitions(next);
+        Smoothing.TransitionSmoothingHost.RequestPart(preparation.Part);
     }
     internal static TransitionArchiveData TransitionData(WIVSMSequence source)
         => Find(source)?.Transitions.Snapshot ?? TransitionArchiveData.Empty;

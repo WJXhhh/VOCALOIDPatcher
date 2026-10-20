@@ -1,0 +1,399 @@
+{
+  "date": "2026-10-20",
+  "status": "offline_experiment_rejected_by_listening",
+  "method": "original PCM plus pitch-synchronous residual and optional source-tilt delta",
+  "parameters": {
+    "partial_bandwidth_hz": 40,
+    "phase_tracker_bandwidth_hz": 10,
+    "excluded_coherent_subharmonic_divisors": [
+      2,
+      3,
+      4
+    ],
+    "subharmonic_tracker_bandwidth_hz": 5,
+    "residual_band_hz": [
+      500,
+      8000
+    ],
+    "maximum_residual_gain_db": 3,
+    "source_tilt_db_per_octave": 1.0,
+    "voiced_gate_erosion_ms": 25,
+    "voiced_gate_smoothing_ms": 6
+  },
+  "human_listening_pass": false,
+  "production_backend_changed": false,
+  "editor_started": false,
+  "deployed": false,
+  "tests": {
+    "signal_tests_passed": 5,
+    "page_asset_links_passed": true,
+    "source_snapshot_hash_passed": true
+  },
+  "voices": {
+    "miku": {
+      "input_sha256": "6ee34355640f5d9221c9205dc9d229a4aa8a0dadf2da40eb1686d6cac6435d28",
+      "neutral_file_exact": true,
+      "source_residual_rms_ratio": 0.07470535235534438,
+      "candidate_pitch_check_pass": true,
+      "variants": {
+        "neutral": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.121002197265625,
+          "voiced_rms_db": -28.67865932624328,
+          "delta_to_source_rms_ratio": 0.0,
+          "median_f0_error_cents": 0.0,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.0,
+          "preview_sha256": "6ee34355640f5d9221c9205dc9d229a4aa8a0dadf2da40eb1686d6cac6435d28"
+        },
+        "residual-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.12179455807145578,
+          "voiced_rms_db": -28.67135667663703,
+          "delta_to_source_rms_ratio": 0.009597197938922544,
+          "median_f0_error_cents": 0.020770522476357755,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.00730264960625531,
+          "preview_sha256": "850425a01005235f60450bafcd20670e2748799117b2d8cf0b4d5840e3405dcd"
+        },
+        "soft-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.1137494647428759,
+          "voiced_rms_db": -29.078431229267125,
+          "delta_to_source_rms_ratio": 0.060809321970697675,
+          "median_f0_error_cents": 0.038772743731826965,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.3997719030238453,
+          "preview_sha256": "9ecfa46ed323bf3dbb7a5aa9d80097abb69464688482d92c3eff47aa11a44cd0"
+        },
+        "residual-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.12268873402189204,
+          "voiced_rms_db": -28.662173093011724,
+          "delta_to_source_rms_ratio": 0.020427596824646434,
+          "median_f0_error_cents": 0.04600591335687008,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.01648623323155781,
+          "preview_sha256": "f004058d47a979473661f500b244502791fe44b3794c1b8b6cb5b835b9da8214"
+        },
+        "soft-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.10659854736473226,
+          "voiced_rms_db": -29.478655266848158,
+          "delta_to_source_rms_ratio": 0.12181216125757813,
+          "median_f0_error_cents": 0.09588164485584003,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.7999959406048797,
+          "preview_sha256": "0d575f926aaa06615000c509ca2ab8a429bd3346c8f0e6e8b15377afd047db87"
+        },
+        "residual-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.12354607987842833,
+          "voiced_rms_db": -28.652434874496873,
+          "delta_to_source_rms_ratio": 0.030811903855919764,
+          "median_f0_error_cents": 0.07224261311774617,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.026224451746411064,
+          "preview_sha256": "8c2373cb6a73e2db40b82ee55cacb586accc94ba27f90edb6e3a1fdd7d3fb184"
+        },
+        "soft-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.10056009893962867,
+          "voiced_rms_db": -29.818758744925702,
+          "delta_to_source_rms_ratio": 0.1742885631528025,
+          "median_f0_error_cents": 0.16961331712113092,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 1.1400994186824196,
+          "preview_sha256": "fb8122ce582d059186ca384b15ae1534456ecff94c5828c068651815eb05696e"
+        }
+      },
+      "stress_12db_variants": {
+        "residual-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.12483654377724596,
+          "voiced_rms_db": -28.636069072663716,
+          "delta_to_source_rms_ratio": 0.046442204318599835,
+          "median_f0_error_cents": 0.11597868651565064,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.0425902535795632,
+          "preview_sha256": "36851afff12155031dc76b821e4884bc198de652b49cdff6cf337bdfd2e28552"
+        },
+        "soft-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.11679145044866607,
+          "voiced_rms_db": -29.039815131452727,
+          "delta_to_source_rms_ratio": 0.07573866990077353,
+          "median_f0_error_cents": 0.14858528210425803,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.36115580520944657,
+          "preview_sha256": "7c3ccd7523fa5f533821e9555efdb1fa4df1f3327a359f8db2a7cfe90abe3b4b"
+        },
+        "residual-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.1318395494112553,
+          "voiced_rms_db": -28.529217284491658,
+          "delta_to_source_rms_ratio": 0.12176264022611152,
+          "median_f0_error_cents": 1200.0224563252118,
+          "pitch_detected_source_voiced_fraction": 0.9949620219909285,
+          "pitch_outside_100_cents_fraction": 1.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.14944204175162668,
+          "preview_sha256": "0b0cf3d829683ce15ff9e681db375543b7f54eed42a4de4d0f25c4f979e326cd"
+        },
+        "soft-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.1169927871445477,
+          "voiced_rms_db": -29.31942552953506,
+          "delta_to_source_rms_ratio": 0.17059584502747344,
+          "median_f0_error_cents": 1200.0505742822056,
+          "pitch_detected_source_voiced_fraction": 0.9949620219909285,
+          "pitch_outside_100_cents_fraction": 1.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.6407662032917785,
+          "preview_sha256": "f3df47c3304efd6718197b8b6562e35117cb28271e1668823ce5bf801aabdd18"
+        },
+        "residual-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.147366271358311,
+          "voiced_rms_db": -28.318440446645123,
+          "delta_to_source_rms_ratio": 0.2226524493971597,
+          "median_f0_error_cents": 1200.5668503594873,
+          "pitch_detected_source_voiced_fraction": 0.989846774380491,
+          "pitch_outside_100_cents_fraction": 1.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.36021887959815757,
+          "preview_sha256": "3166494580c623cc85da9716dd529350ffeaf5cd0ad3bddc863c353b665bffd6"
+        },
+        "soft-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.12629644769914838,
+          "voiced_rms_db": -29.3888316078881,
+          "delta_to_source_rms_ratio": 0.2803774067604706,
+          "median_f0_error_cents": 1201.6299958100278,
+          "pitch_detected_source_voiced_fraction": 0.9881468431504362,
+          "pitch_outside_100_cents_fraction": 1.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.7101722816448148,
+          "preview_sha256": "5450ab2cf6f197027794331971a0582ab18881e606ae6ae956a672536a155b9e"
+        }
+      }
+    },
+    "tianyi": {
+      "input_sha256": "23954650398d3527213aea8890d28a51113b5fb3f5a29b28772133be2997c358",
+      "neutral_file_exact": true,
+      "source_residual_rms_ratio": 0.12306510190104297,
+      "candidate_pitch_check_pass": false,
+      "variants": {
+        "neutral": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.087554931640625,
+          "voiced_rms_db": -33.73940108316611,
+          "delta_to_source_rms_ratio": 0.0,
+          "median_f0_error_cents": 0.0,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.0,
+          "preview_sha256": "23954650398d3527213aea8890d28a51113b5fb3f5a29b28772133be2997c358"
+        },
+        "residual-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.08900269332481058,
+          "voiced_rms_db": -33.719328696286425,
+          "delta_to_source_rms_ratio": 0.015813221254969964,
+          "median_f0_error_cents": 0.06575457104910662,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.020072386879685326,
+          "preview_sha256": "7bda35beae45587bdd327b92a7a81926f78b18f47b7d3abb28614f4862ee5aaa"
+        },
+        "soft-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.08424305458372473,
+          "voiced_rms_db": -34.10315254439939,
+          "delta_to_source_rms_ratio": 0.05912073712864368,
+          "median_f0_error_cents": 0.1319089919498112,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.36375146123328284,
+          "preview_sha256": "8d35d399bac0556bad35c16f717fa2667eab11f2d3972c2b4a759c86f160ffac"
+        },
+        "residual-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.09063648650392235,
+          "voiced_rms_db": -33.69420564733829,
+          "delta_to_source_rms_ratio": 0.03365837720043121,
+          "median_f0_error_cents": 0.15010576618294277,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.04519543582781606,
+          "preview_sha256": "156157cb9c776f952a9d492cb43909f22acdec91d1605685627e51a2089cc014"
+        },
+        "soft-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.08111720902175067,
+          "voiced_rms_db": -34.46061676460854,
+          "delta_to_source_rms_ratio": 0.11877723932076563,
+          "median_f0_error_cents": 0.3272135111782126,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.7212156814424295,
+          "preview_sha256": "d19910638a68b227bb9268dc4ed20d6ad63531c24eff5d3cdcb029b67f2c3378"
+        },
+        "residual-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.09220298559379986,
+          "voiced_rms_db": -33.6676974117788,
+          "delta_to_source_rms_ratio": 0.05076851139898677,
+          "median_f0_error_cents": 0.24121549333592707,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.07170367138730102,
+          "preview_sha256": "1de3ab12e102e3eff70a00beb1d909018b2c6b3fda9a7c11e639c996c6d7c864"
+        },
+        "soft-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.07860401776212601,
+          "voiced_rms_db": -34.757355402565054,
+          "delta_to_source_rms_ratio": 0.17043072405724574,
+          "median_f0_error_cents": 0.5988130135820512,
+          "pitch_detected_source_voiced_fraction": 0.9816757884551419,
+          "pitch_outside_100_cents_fraction": 0.0617973201909749,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 1.0179543193989444,
+          "preview_sha256": "9a239e21650342145f05627eaaa9c80deb5203e75a86bef1c7fd1844b1fcc6b5"
+        }
+      },
+      "stress_12db_variants": {
+        "residual-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.09456085611665342,
+          "voiced_rms_db": -33.623429775141894,
+          "delta_to_source_rms_ratio": 0.07652242426720131,
+          "median_f0_error_cents": 0.3982598973315282,
+          "pitch_detected_source_voiced_fraction": 1.0,
+          "pitch_outside_100_cents_fraction": 0.0,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.11597130802421181,
+          "preview_sha256": "e1d6d046fc562c2000e2d6df99067d76e1449c3023cfdb3a1d2c07f1c410e48a"
+        },
+        "soft-035": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.08980121737556757,
+          "voiced_rms_db": -33.9988887089808,
+          "delta_to_source_rms_ratio": 0.09495372515595153,
+          "median_f0_error_cents": 0.5510754913609337,
+          "pitch_detected_source_voiced_fraction": 0.9450273653654259,
+          "pitch_outside_100_cents_fraction": 0.19256551371068378,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.25948762581468865,
+          "preview_sha256": "73c3108139e6e30d6f40ef16fe172e5acf3406422be779651a2c5fb7db1e4382"
+        },
+        "residual-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.10592313517321036,
+          "voiced_rms_db": -33.34187747432319,
+          "delta_to_source_rms_ratio": 0.20062726461813235,
+          "median_f0_error_cents": 1198.4855575007869,
+          "pitch_detected_source_voiced_fraction": 0.9450273653654259,
+          "pitch_outside_100_cents_fraction": 0.5781125011998848,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.39752360884291793,
+          "preview_sha256": "84edbd31e190172432a66e32dea8614c092bca3d4138632b36382203e5ea6680"
+        },
+        "soft-070": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.09640385769103868,
+          "voiced_rms_db": -34.045630110676974,
+          "delta_to_source_rms_ratio": 0.22969693234339586,
+          "median_f0_error_cents": 1198.231201535131,
+          "pitch_detected_source_voiced_fraction": 0.9450273653654259,
+          "pitch_outside_100_cents_fraction": 0.5922151473458548,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": 0.3062290275108669,
+          "preview_sha256": "521e3bb28900dc39ee42a6f4e4759da5b2b19e84f9d196feb835c5d245da1752"
+        },
+        "residual-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.12114261912802779,
+          "voiced_rms_db": -32.81830138656742,
+          "delta_to_source_rms_ratio": 0.3668625433887392,
+          "median_f0_error_cents": 1901.848497342507,
+          "pitch_detected_source_voiced_fraction": 0.9083789422757098,
+          "pitch_outside_100_cents_fraction": 0.816542392064179,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.9210996965986915,
+          "preview_sha256": "4e5a3c0ac9aab1b8636a23bc16a4241738c3e433887ddfcd643e55f6907aad60"
+        },
+        "soft-100": {
+          "samples": 176896,
+          "sample_rate": 44100,
+          "peak": 0.10754365129635395,
+          "voiced_rms_db": -33.698748684891285,
+          "delta_to_source_rms_ratio": 0.3997470039932658,
+          "median_f0_error_cents": 1902.3223355806622,
+          "pitch_detected_source_voiced_fraction": 0.918357473314989,
+          "pitch_outside_100_cents_fraction": 0.8893352210990748,
+          "outside_gate_max_delta": 0.0,
+          "preview_gain_db": -0.04065239827482448,
+          "preview_sha256": "69538f41fd8da53d3ea535cf68f4f07f8efa1986249009f0a04c280c6d1486ec"
+        }
+      }
+    }
+  },
+  "limitation": "Strong residual gain magnifies original periodic texture; conservative samples may not provide enough natural breathiness. Tianyi soft-100 fails broad pitch detection; pitch tracking is not proof of perceptual pitch or identity.",
+  "human_listening_feedback": {
+    "date": "2026-10-20",
+    "user_feedback": "怎么好像只是更像哑了而已",
+    "decision": "reject residual amplification and harmonic-softening route; stop tuning this combination",
+    "interpretation": "Reported listening outcome is hoarseness, not the requested natural breathiness. Signal checks remain historical evidence, not perceptual acceptance."
+  }
+}

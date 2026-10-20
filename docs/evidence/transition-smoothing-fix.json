@@ -1,0 +1,325 @@
+{
+  "date": "2026-10-20",
+  "environment": {
+    "sdk": "6.13.3.1",
+    "nativeLibrarySha256": "49DEF60F2D4AA0F55E4EA940B36CE14300E70AC0C10C9FE48E025F09FE1BFEA9",
+    "dseSha256": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD",
+    "sampleRate": 44100,
+    "hop": 256
+  },
+  "originalSmootherSha256": "9ea506149adc0f4c55285e771a69c26c57a49cbf1d03878383182ec5c154eafd",
+  "fixedSourceSha256": {
+    "TransitionSmoother.cs": "59b5ba9aa86a790eba8eeea1debda35149f9863081ea478b4783f9adaa18b25e",
+    "TransitionSmootherConfig.cs": "869f0f0181e3225471147843563ed1578eebbde63c79ef85e0ec0cab19b3859e",
+    "WaveJunctionProcessor.cs": "a4558b5752c2df756e8440699592b91c9319775c1ada72f40831a475edbab497"
+  },
+  "syntheticCases": 96,
+  "syntheticComparison": [
+    {
+      "name": "sine220-continuous-equal-gain-alignTrue-AutoOnVolumeDifference",
+      "beforeMaxAdjacentJump": 0.8887578248977661,
+      "afterMaxAdjacentJump": 0.015671702101826668,
+      "originalMaxAdjacentJump": 0.015671702101826668,
+      "changedSamples": 0
+    },
+    {
+      "name": "sine220-continuous-gain-step-alignTrue-AutoOnVolumeDifference",
+      "beforeMaxAdjacentJump": 0.5786137580871582,
+      "afterMaxAdjacentJump": 0.015671702101826668,
+      "originalMaxAdjacentJump": 0.015671702101826668,
+      "changedSamples": 5290
+    }
+  ],
+  "newRegressionCases": 22,
+  "managedTestsPassed": 304,
+  "aceParameterOfflineTests": "ALL PASS",
+  "nativeRenderCount": 278,
+  "rejectedCandidates": 15,
+  "consumedSourceMapsPassed": 278,
+  "restoration": [
+    {
+      "fixture": "v5-la",
+      "pcmEqual": true
+    },
+    {
+      "fixture": "v5-short",
+      "pcmEqual": true
+    },
+    {
+      "fixture": "v6-la",
+      "pcmEqual": true
+    },
+    {
+      "fixture": "v6-short",
+      "pcmEqual": true
+    },
+    {
+      "fixture": "miku-ka",
+      "pcmEqual": true
+    }
+  ],
+  "rawFullScaleSamples": 0,
+  "rawPeakPcm16": 6547.0,
+  "processedNativeCases": [
+    {
+      "fixture": "v5-la",
+      "variant": "edge0-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2869.0,
+      "processedPeakPcm16": 2869.0,
+      "processedMaxAdjacentJump": 490.0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "edge0-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2869.0,
+      "processedPeakPcm16": 2869.0,
+      "processedMaxAdjacentJump": 490.0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "edge1-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2869.0,
+      "processedPeakPcm16": 2680.0,
+      "processedMaxAdjacentJump": 481.0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "edge1-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 5434.0,
+      "processedPeakPcm16": 6369.0,
+      "processedMaxAdjacentJump": 965.0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "edge2-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2869.0,
+      "processedPeakPcm16": 2869.0,
+      "processedMaxAdjacentJump": 490.0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "edge2-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2869.0,
+      "processedPeakPcm16": 2869.0,
+      "processedMaxAdjacentJump": 490.0
+    },
+    {
+      "fixture": "v5-short",
+      "variant": "edge0-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2934.0,
+      "processedPeakPcm16": 2934.0,
+      "processedMaxAdjacentJump": 492.0
+    },
+    {
+      "fixture": "v5-short",
+      "variant": "edge0-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2934.0,
+      "processedPeakPcm16": 2934.0,
+      "processedMaxAdjacentJump": 492.0
+    },
+    {
+      "fixture": "v5-short",
+      "variant": "edge1-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2934.0,
+      "processedPeakPcm16": 2105.0,
+      "processedMaxAdjacentJump": 352.0
+    },
+    {
+      "fixture": "v5-short",
+      "variant": "edge1-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 5424.0,
+      "processedPeakPcm16": 4829.0,
+      "processedMaxAdjacentJump": 915.0
+    },
+    {
+      "fixture": "v5-short",
+      "variant": "edge2-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2718.0,
+      "processedPeakPcm16": 2496.0,
+      "processedMaxAdjacentJump": 465.0
+    },
+    {
+      "fixture": "v5-short",
+      "variant": "edge2-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 5853.0,
+      "processedPeakPcm16": 3982.0,
+      "processedMaxAdjacentJump": 689.0
+    },
+    {
+      "fixture": "v6-la",
+      "variant": "edge0-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2358.0,
+      "processedPeakPcm16": 2358.0,
+      "processedMaxAdjacentJump": 460.0
+    },
+    {
+      "fixture": "v6-la",
+      "variant": "edge0-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2358.0,
+      "processedPeakPcm16": 2358.0,
+      "processedMaxAdjacentJump": 460.0
+    },
+    {
+      "fixture": "v6-la",
+      "variant": "edge1-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2153.0,
+      "processedPeakPcm16": 1729.0,
+      "processedMaxAdjacentJump": 404.0
+    },
+    {
+      "fixture": "v6-la",
+      "variant": "edge1-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 4705.0,
+      "processedPeakPcm16": 5265.0,
+      "processedMaxAdjacentJump": 1066.0
+    },
+    {
+      "fixture": "v6-la",
+      "variant": "edge2-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2358.0,
+      "processedPeakPcm16": 2358.0,
+      "processedMaxAdjacentJump": 460.0
+    },
+    {
+      "fixture": "v6-la",
+      "variant": "edge2-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2358.0,
+      "processedPeakPcm16": 2358.0,
+      "processedMaxAdjacentJump": 460.0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge0-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2427.0,
+      "processedPeakPcm16": 2427.0,
+      "processedMaxAdjacentJump": 474.0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge0-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2427.0,
+      "processedPeakPcm16": 2427.0,
+      "processedMaxAdjacentJump": 474.0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2077.0,
+      "processedPeakPcm16": 1573.0,
+      "processedMaxAdjacentJump": 323.0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge1-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 4843.0,
+      "processedPeakPcm16": 6835.0,
+      "processedMaxAdjacentJump": 2273.0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge2-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 2427.0,
+      "processedPeakPcm16": 3425.0,
+      "processedMaxAdjacentJump": 1139.0
+    },
+    {
+      "fixture": "v6-short",
+      "variant": "edge2-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 4145.0,
+      "processedPeakPcm16": 3141.0,
+      "processedMaxAdjacentJump": 645.0
+    },
+    {
+      "fixture": "miku-ka",
+      "variant": "edge0-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 3281.0,
+      "processedPeakPcm16": 3281.0,
+      "processedMaxAdjacentJump": 728.0
+    },
+    {
+      "fixture": "miku-ka",
+      "variant": "edge0-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 3281.0,
+      "processedPeakPcm16": 3281.0,
+      "processedMaxAdjacentJump": 805.0
+    },
+    {
+      "fixture": "miku-ka",
+      "variant": "edge1-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 3202.0,
+      "processedPeakPcm16": 3202.0,
+      "processedMaxAdjacentJump": 646.0
+    },
+    {
+      "fixture": "miku-ka",
+      "variant": "edge1-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 6547.0,
+      "processedPeakPcm16": 8920.0,
+      "processedMaxAdjacentJump": 1675.0
+    },
+    {
+      "fixture": "miku-ka",
+      "variant": "edge2-gain-6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 3281.0,
+      "processedPeakPcm16": 3281.0,
+      "processedMaxAdjacentJump": 728.0
+    },
+    {
+      "fixture": "miku-ka",
+      "variant": "edge2-gain6",
+      "outsideWindowsExact": true,
+      "rawPeakPcm16": 3281.0,
+      "processedPeakPcm16": 3281.0,
+      "processedMaxAdjacentJump": 728.0
+    }
+  ],
+  "debugSolutionBuild": {
+    "passed": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "releaseSolutionBuild": {
+    "passed": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "productionChanges": [
+    "Local gain bridge and conditional discontinuity repair",
+    "Exact pass-through when gated off",
+    "Original PCM bytes retained outside edits",
+    "Finite crossfade defaults constrained by minimum"
+  ],
+  "nativeTimingMappingChanged": false,
+  "deployed": false,
+  "editorStarted": false,
+  "hostListeningValidated": false
+}

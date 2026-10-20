@@ -185,14 +185,15 @@ VOCALOIDPatcher/bin/Release/net8.0-windows/VOCALOIDPatcher/native/v6patch_clock.
 
 四个仿 ACE Studio 的连续参数接在原生参数区。实现在 `VOCALOIDPatcher/VOCALOIDPatcher/AceParameters/`，补丁在 `Patch/Patches/AceParameterPatch.cs` 与共享的 `CustomParameterPatch.cs`，设计文档见 `docs/ace-parameters-integration.md`。
 
-- **不要为四个参数新增覆盖层**。做法是用越界 `ControlParameterTypeEnum`（4CC）作参数区条目，再通过 Harmony 覆盖 `MusicalEditorViewModel.CtrlParamTypeToVSMControllerType` 映射到原生 VSM 控制器载体 `VSMControllerType`（`DynamicsHmm`/`PitchBendHmm`/`WeightHmm`/`Expression`；伪造的 VSM 值会被原生以 `InvalidControllerType` 拒绝）。原生 `ParameterView` 因此可以完整复用折线绘制、Behavior、Undo/Redo。
-- 载体控制器必须通过 `.vpr` 内自定义归档 `VOCALOIDPatcher/ace-parameters.json` 持久化：HMM 三个载体不会被原生 `sequence.json` 保存，只靠原生持久化会导致重开工程后曲线变平。加载时以归档为唯一来源清空并重建载体控制器，再 `Commit(false)` 作为无历史基线，避免第一次 Undo 删除恢复数据。
+- **不要为四个参数新增覆盖层**。做法是用越界 `ControlParameterTypeEnum`（4CC）作参数区条目，再通过 Harmony 覆盖 `MusicalEditorViewModel.CtrlParamTypeToVSMControllerType` 映射到原生 VSM 控制器载体 `VSMControllerType`（当前 `WeightHmm`/`S5Air`/`XSynth`/`Expression`；伪造的 VSM 值会被原生以 `InvalidControllerType` 拒绝）。原生 `ParameterView` 因此可以完整复用折线绘制、Behavior、Undo/Redo。
+- **载体不等于惰性存储**：载体是引擎可见的原生控制器。离线渲染探针（`voicebank/tools/evec_render_harness --ace-carrier-audibility-probe`，覆盖 V4X/V5 中文/V6 天依）已证明 `DynamicsHmm`、`PitchBendHmm` 会被渲染消费，把 ACE 曲线写进去会额外改变响度/音高；且 ACE 中性 50 不等于这两种控制器的引擎默认值，所以曲线回到 50 后仍会持续影响后续音符（2026-10-20 用户报告的“张力影响后边几个音符”）。`WeightHmm`/`S5Air`/`XSynth`/`Expression` 在三种声库的探针中逐字节中性，可作载体。**不要在没有重跑该探针的情况下换回或新增载体**；若使用原生参数下拉里也存在的类型（`S5Air`/`XSynth`/`Expression`），用户编辑同名原生参数会与 ACE 曲线共享控制器数据。
+- 载体控制器必须通过 `.vpr` 内自定义归档 `VOCALOIDPatcher/ace-parameters.json` 持久化；加载时以归档为唯一来源清空并重建载体控制器，再 `Commit(false)` 作为无历史基线，避免第一次 Undo 删除恢复数据。归档按参数种类存点、不记录载体类型，因此换载体后旧工程会自动迁移到新载体（旧 HMM 载体曲线本来就不会写入原生 `sequence.json`）。
 - 自定义类型必须在 `GetMinControllerValue/GetMaxControllerValue/GetDefaultControllerValue` 补丁里返回 0/100/50。参数选择沿用 `UserSettings.ControlParameterType`；`AceParameterComboInitPatch` 负责跳过原生 `SelectedIndex=(int)自定义值` 的越界写法。
-- 发声是"派生写回"：`WIVSMSequence.Commit` 前缀按载体曲线快照差异把曲线折算写入 `Dynamics`/`Breathiness`（可切 `Air`）/`Brightness`/`Character`；**不要依赖原生 update observer**（通知在 Commit 体内才到达，会造成"第一次编辑不发声、先划一次预热"的时序问题）。第一次提交（加载后/新工程）必须先对已有曲线补一次映射再建立快照基线。派生写入与载体编辑同事务提交以保证 Undo 原子。
-- 映射目标一旦启用，就视为该 Part 对应原生控制器归 ACE 曲线管理；用户直接改这些原生参数会被下一次 ACE 编辑覆盖，这是有意的所有权策略。
+- 2026-10-20 起发声使用 `AceAcousticHost` 本地 PCM 后端，见 `docs/ace-acoustic-backend.md`：力度为独立增益、正向气声按整帧有声能量合成塑形气流噪声、负向气声衰减分带噪声、张力使用 LF 源谱比、假声调整源谐波形态。气声分析频带不能作为正向合成的唯一能量预算，否则暗音色拉满仍几乎无效；重叠帧的噪声须按绝对采样位置保持一致。`AceParameterMappingService` 只负责归档与生命周期；**不要恢复成向 Dynamics/Breathiness/Brightness/Character 派生写回的映射**。假声仍是声学近似，不代表录制假声采样或 ACE 云端模型。
+- 中性曲线必须精确透传；后台只使用 Dispatcher 捕获的不可变曲线，保留取消、去抖、generation 和单工作限流。渲染开始使缓存失效，渲染完成重建；按 BVL→音素音量→过渡平滑→ACE 顺序组合，导出必须等待处理完成。旧版已保存的原生映射曲线不得擅自删除。
 - 原生命令里遍历 `Enum.GetValues(ControlParameterTypeEnum)` 的入口（选中判断、删除、复制、粘贴、Duplicate、Reset）不会包含自定义 ID；已用定点补丁补齐。纯参数剪贴板复制粘贴可用，音符+参数混合粘贴不复制 ACE 曲线（已知限制）。
 - 共享参数头补丁（列表同步、名称、范围）由 `AceParameterRegistry` 统一枚举 BVL/REG/ACE；新增自定义参数类型必须在该 registry 注册，否则会从下拉列表或开关逻辑中遗漏。
-- 改载体类型或映射公式后必须重跑宿主探针（`VOCALOID_ACE_PROBE=1`）、`AceParameterOfflineTests` 和现有 BVL/REG 回归。2026-10-19 已在宿主人工验收四项参数（条目/编辑、保存重开恢复、首次编辑即发声、加载后 Undo 安全、打开不标脏，5/5）；AI 音轨目前不提供这四个参数。
+- 改载体类型或声学后端后重跑离线载体探针（`voicebank/tools/evec_render_harness --ace-carrier-audibility-probe`）、`AceAcousticOfflineTests`、`AceParameterOfflineTests` 和现有 BVL/REG 回归；宿主探针（`VOCALOID_ACE_PROBE=1`）和宿主交互验收仍须在用户授权的 Editor 中完成。2026-10-19 的 5/5 宿主验收针对旧映射版，新 PCM 后端尚待宿主验收；AI 音轨目前不提供这四个参数。
 
 ## SV 波形样式
 

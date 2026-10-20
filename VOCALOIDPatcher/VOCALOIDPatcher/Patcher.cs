@@ -253,7 +253,7 @@ public static class Patcher
                 new ConsonantTimingHoverPatch(),
                 new ConsonantTimingRenderCompletedPatch()),
 
-            new(Settings.IndividualPhonemeVolumeKey,
+            new(null,
                 new PhonemeVolumeMasterExportPatch(),
                 new PhonemeVolumeTrackExportPatch(),
                 new PhonemeVolumePartExportPatch()),
@@ -356,6 +356,9 @@ public static class Patcher
                 new AceParameterProjectLoadPatch(),
                 new AceParameterProjectOpenCompletePatch(),
                 new AceParameterProjectSavePatch(),
+                new AceAcousticRenderStartPatch(),
+                new AceAcousticRenderCompletePatch(),
+                new AceAcousticRenderCancelPatch(),
                 new AceParameterSequenceClosePatch()),
 
             new(Settings.EvecEnabledKey,
@@ -451,6 +454,9 @@ public static class Patcher
 
             new(Settings.ThrottleRendererPreviewKey, new RendererPreviewThrottlePatch()),
 
+            new(Settings.SingleNoteCandidateLyricInputKey,
+                new SingleNoteCandidateLyricInputPatch()),
+
             new(Settings.ExtendedChinesePinyinKey,
                 new ExtendedChinesePinyinSetLyricsPatch(),
                 new VocaloidSpecialPhonemeAiSetLyricsPatch(),
@@ -528,6 +534,16 @@ public static class Patcher
                 new VoiceBankVocaloChangerPatch(),
                 new VocaloChangerModelFallbackPatch()),
 
+            new(Settings.RendererAutoRecoveryKey,
+                new RendererHealthRequestPatch(),
+                new RendererHealthStopPatch(),
+                new RendererHealthDispatchPatch(),
+                new RendererHealthStartedPatch(),
+                new RendererHealthProgressPatch(),
+                new RendererHealthCompletedPatch(),
+                new RendererHealthCanceledPatch(),
+                new RendererHealthClosePatch()),
+
             new(null,
                 new ConsonantTimingShutdownPatch(),
                 new SampledTimingProjectLoadPatch(),
@@ -538,6 +554,7 @@ public static class Patcher
                 new SampledTimingRenderStartPatch(),
                 new DurationSelectionStartupPatch(),
                 new SampledTimingRenderCompletionPatch(),
+                new SampledTimingRenderCancellationPatch(),
                 new SampledTimingDirtyPatch(),
                 new SampledTimingDuplicateSequencePatch(),
                 new ConsonantTimingCommitPatch(),
