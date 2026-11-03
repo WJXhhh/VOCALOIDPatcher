@@ -11,6 +11,7 @@ using HarmonyLib;
 using VOCALOIDPatcher.BreathVolume;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.Rendering;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.VSM;
@@ -31,25 +32,30 @@ internal static class TransitionSmoothingHost
         internal readonly nint PartId = (nint)part;
         internal readonly nint SourceId = (nint)part.Sequence!;
         internal long Generation;
+        internal long PendingGeneration;
         internal bool Rendering;
         internal Cache? Cache;
+        // Retained only for exact input comparison; Substitute never reads it.
+        internal Cache? ReusableCache;
         internal string? Error;
         internal int RebindQueued;
         internal readonly SemaphoreSlim Gate = new(1, 1);
+        internal readonly PostProcessingQuietPeriod QuietPeriod = new(100);
     }
 
-    private sealed record Cache(string Input, long Length, DateTime Written, string Output);
+    private sealed record Cache(string Input, long Length, DateTime Written, string Output,
+        WaveJunctionProcessor.JunctionInfo[] Junctions, TransitionSmootherConfig Config);
     private sealed record Request(PartState State, long Generation, string Input, long Length, DateTime Written,
         List<WaveJunctionProcessor.JunctionInfo> Junctions, TransitionSmootherConfig Config);
 
     private static readonly ConcurrentDictionary<nint, PartState> Parts = new();
     private static readonly ConcurrentDictionary<string, byte> Files = new();
     private static readonly ConcurrentDictionary<string, byte> InFlightFiles = new();
+    private static readonly SemaphoreSlim PlanningWorker = new(1, 1);
     private static readonly string CacheDirectory = Path.Combine(Path.GetTempPath(), "VOCALOIDPatcher", "TransitionSmoothing", Guid.NewGuid().ToString("N"));
     private static readonly MethodInfo? RegisterPlacement = AccessTools.Method(typeof(AudioPlayer), "RegisterAudioPlacementWithFile",
         [typeof(WIVSMSequence), typeof(WIVSMMidiPart)]);
 
-    [ThreadStatic] private static int _bypass;
     internal static event Action? Changed;
 
     internal static void Initialize()
@@ -77,37 +83,82 @@ internal static class TransitionSmoothingHost
             Dispatch(() => { if (Parts.TryGetValue(state.PartId, out var live) && live == state) QueuePart(state.Part); });
     }
 
-    private static void QueuePart(WIVSMMidiPart part)
+    private static void QueuePart(WIVSMMidiPart part, bool upstreamReady = false)
     {
         if (part.Sequence is not { } sequence || NativeRenderSession.IsInternalSequence(sequence)) return;
+        if (VoiceComp.VoiceCompHost.Owns(part))
+        {
+            if (Parts.TryGetValue((nint)part, out var previous))
+            { Interlocked.Increment(ref previous.Generation); previous.Cache = null; previous.ReusableCache = null; }
+            return;
+        }
         var state = Parts.GetOrAdd((nint)part, _ => new(part));
         long generation = Interlocked.Increment(ref state.Generation);
+        state.PendingGeneration = generation;
         state.Error = null;
+        state.ReusableCache = state.Cache ?? state.ReusableCache;
         state.Cache = null;
-        _ = BuildAfterQuietPeriod(state, generation);
+        int delay = upstreamReady ? state.QuietPeriod.UpstreamReady(Environment.TickCount64) : state.QuietPeriod.Edited(Environment.TickCount64);
+        if (upstreamReady && (BreathVolumeService.HasPendingWave(part) || PhonemeVolume.PhonemeVolumeHost.HasPendingWave(part)))
+            delay = Math.Max(delay, 100);
+        _ = BuildAfterQuietPeriod(state, generation, delay);
     }
 
-    private static async Task BuildAfterQuietPeriod(PartState state, long generation)
+    private static async Task BuildAfterQuietPeriod(PartState state, long generation, int delay)
     {
-        await Task.Delay(100).ConfigureAwait(false);
+        await Task.Delay(delay).ConfigureAwait(false);
         if (Volatile.Read(ref state.Generation) != generation) return;
         Dispatch(() =>
         {
             if (!IsCurrent(state, generation)) return;
-            try
-            {
-                var request = Capture(state, generation);
-                if (request == null) return;
-                if (request.Junctions.Count == 0) { RefreshPlacement(state.Part); return; }
-                _ = ProcessAsync(request);
-            }
-            catch (Exception e)
-            {
-                state.Error = e.GetType().Name;
-                Debug.Print("Transition smoothing preparation: " + e.GetType().Name);
-                Changed?.Invoke();
-            }
+            _ = PrepareBuild(state, generation);
         });
+    }
+
+    // Capture native owners on the Dispatcher, as the transition UI does, but
+    // run the expensive isolated query off it. Serialize fallback planning so
+    // rendering many Parts cannot flood the native query engine.
+    private static async Task PrepareBuild(PartState state, long generation)
+    {
+        SampledTimingHost.TransitionPreparation? preparation = null;
+        bool processing = false;
+        try
+        {
+            var part = state.Part;
+            if (state.Rendering || !Settings.TransitionSmoothingEnabled || part.IsAi ||
+                part.Sequence is not { IsOpen: true, IsStaged: false } || !part.HasValidRenderedWave) return;
+            var plan = SampledTimingHost.TransitionView(part);
+            if (plan == null)
+            {
+                if (!NeedsFallbackPlan(part)) return;
+                // Keep preparation and its disposal on the Dispatcher; only
+                // its immutable query input is used by the worker.
+                await PlanningWorker.WaitAsync();
+                try
+                {
+                    if (!IsCurrent(state, generation)) return;
+                    preparation = SampledTimingHost.PrepareTransitions(part);
+                    plan = await Task.Run(() => IsCurrent(state, generation) ? preparation.Query().Execution : null);
+                }
+                finally { PlanningWorker.Release(); }
+                if (preparation == null || preparation.Revision != preparation.Session.Revision) return;
+            }
+            if (plan == null || !IsCurrent(state, generation)) return;
+            var request = Capture(state, generation, plan);
+            if (request != null && !TryReuse(state, request)) { processing = true; _ = ProcessAsync(request); }
+        }
+        catch (Exception e)
+        {
+            if (!IsCurrent(state, generation)) return;
+            state.Error = e.GetType().Name;
+            Debug.Print("Transition smoothing preparation: " + e.GetType().Name);
+            Changed?.Invoke();
+        }
+        finally
+        {
+            if (!processing && IsCurrent(state, generation)) state.PendingGeneration = 0;
+            preparation?.Dispose();
+        }
     }
 
     private static bool IsCurrent(PartState state, long generation) =>
@@ -117,6 +168,8 @@ internal static class TransitionSmoothingHost
     {
         var view = SampledTimingHost.TransitionView(part);
         if (view != null) return view;
+
+        if (!NeedsFallbackPlan(part)) return null;
 
         if (part.Sequence is { IsOpen: true, IsStaged: false } && !part.IsAi && part.NumNotes is >= 1 and <= 33)
         {
@@ -131,71 +184,30 @@ internal static class TransitionSmoothingHost
         return null;
     }
 
+    private static bool NeedsFallbackPlan(WIVSMMidiPart part)
+    {
+        if (part.Sequence is not { IsOpen: true, IsStaged: false } source || part.IsAi || part.NumNotes is < 1 or > 33)
+            return false;
+        var config = Settings.GetTransitionSmoothingConfig();
+        if (config.Mode == TransitionSmoothingMode.Disabled) return false;
+        if (config.Mode == TransitionSmoothingMode.Always || config.VolumeThresholdDb <= 0) return true;
+        // Include timing/progress-only edits, but avoid planning unedited Parts
+        // on every render completion.
+        var data = SampledTimingHost.TransitionData(source).Data;
+        if (data == null || !data.HasControls) return false;
+        var address = SampledTimingVsmBinding.Address(part.GetNote(0UL)!);
+        return TransitionProjectBinding.HasPart(data, address.Track, address.Part);
+    }
+
     internal static List<WaveJunctionProcessor.JunctionInfo>? CollectJunctions(
         WIVSMMidiPart part,
         TransitionExecutionPlan plan,
         TransitionSmootherConfig config)
     {
-        if (plan.Layout.Edges.IsEmpty || plan.Segments.IsEmpty) return null;
-
-        var edges = plan.Layout.Edges;
-        var rows = plan.Segments.Where(s => s.To != null).ToArray();
-        if (edges.Length != rows.Length || edges.Length == 0) return null;
-
-        var gainsByEdge = plan.Controls.Gains.ToDictionary(g => g.Edge, g => (double)g.Decibels);
-
-        var intervals = edges.Zip(rows, (e, r) => (Edge: e, Row: r, Gain: gainsByEdge.GetValueOrDefault(e.Identity, 0.0)))
-            .OrderBy(item => item.Row.Begin)
-            .ToList();
-
-        var junctions = new List<WaveJunctionProcessor.JunctionInfo>();
-
-        for (int i = 0; i < intervals.Count; i++)
-        {
-            var current = intervals[i];
-
-            // 1. Left boundary of interval: at current.Row.Begin
-            double leftGain = 0.0;
-            if (i > 0 && intervals[i - 1].Row.End == current.Row.Begin)
-            {
-                leftGain = intervals[i - 1].Gain;
-            }
-
-            double rightGain = current.Gain;
-            double diff = Math.Abs(rightGain - leftGain);
-
-            if (config.Mode == TransitionSmoothingMode.Always || diff >= config.VolumeThresholdDb)
-            {
-                long sampleIndex = (long)(current.Row.Begin - 3087) * 256L;
-                if (sampleIndex > 0)
-                {
-                    junctions.Add(new WaveJunctionProcessor.JunctionInfo(sampleIndex, leftGain, rightGain));
-                }
-            }
-
-            // 2. Right boundary of interval: at current.Row.End
-            // Only if not immediately followed by next interval (if adjacent, next interval's begin handles it)
-            if (i == intervals.Count - 1 || intervals[i + 1].Row.Begin != current.Row.End)
-            {
-                leftGain = current.Gain;
-                rightGain = 0.0;
-                diff = Math.Abs(rightGain - leftGain);
-
-                if (config.Mode == TransitionSmoothingMode.Always || diff >= config.VolumeThresholdDb)
-                {
-                    long sampleIndex = (long)(current.Row.End - 3087) * 256L;
-                    if (sampleIndex > 0)
-                    {
-                        junctions.Add(new WaveJunctionProcessor.JunctionInfo(sampleIndex, leftGain, rightGain));
-                    }
-                }
-            }
-        }
-
-        return junctions;
+        return TransitionJunctionPlanner.Collect(plan, config);
     }
 
-    private static Request? Capture(PartState state, long generation)
+    private static Request? Capture(PartState state, long generation, TransitionExecutionPlan? preparedPlan = null)
     {
         var part = state.Part;
         if (part.Sequence is not { IsOpen: true } source || state.Rendering || source.IsStaged) return null;
@@ -204,7 +216,7 @@ internal static class TransitionSmoothingHost
         var config = Settings.GetTransitionSmoothingConfig();
         if (config.Mode == TransitionSmoothingMode.Disabled) return null;
 
-        var plan = GetExecutionPlan(part);
+        var plan = preparedPlan ?? GetExecutionPlan(part);
         if (plan == null) return null;
 
         var junctions = CollectJunctions(part, plan, config);
@@ -218,9 +230,19 @@ internal static class TransitionSmoothingHost
     }
 
     private static string ReadInput(WIVSMMidiPart part)
+        => WaveProcessingReadScope.ReadBefore(WaveProcessingStage.TransitionSmoothing, () => part.WaveFilePath);
+
+    private static bool TryReuse(PartState state, Request request)
     {
-        try { _bypass++; return part.WaveFilePath; }
-        finally { _bypass--; }
+        var cached = state.Cache ?? state.ReusableCache;
+        if (cached == null || !cached.Input.Equals(request.Input, StringComparison.OrdinalIgnoreCase) ||
+            cached.Length != request.Length || cached.Written != request.Written || cached.Config != request.Config ||
+            !cached.Junctions.SequenceEqual(request.Junctions) || !File.Exists(cached.Output)) return false;
+        bool restore = state.Cache == null;
+        state.Cache = cached; state.ReusableCache = null;
+        state.PendingGeneration = 0;
+        if (restore) { RefreshPlacement(state.Part); Changed?.Invoke(); }
+        return true;
     }
 
     private static Cache Process(Request request)
@@ -234,7 +256,7 @@ internal static class TransitionSmoothingHost
             var file = new FileInfo(request.Input);
             if (!file.Exists || file.Length != request.Length || file.LastWriteTimeUtc != request.Written)
                 throw new IOException("Source audio changed during transition smoothing.");
-            return new(request.Input, request.Length, request.Written, output);
+            return new(request.Input, request.Length, request.Written, output, request.Junctions.ToArray(), request.Config);
         }
         catch { InFlightFiles.TryRemove(output, out _); throw; }
     }
@@ -255,6 +277,8 @@ internal static class TransitionSmoothingHost
                     InFlightFiles.TryRemove(cache.Output, out _); CleanupFiles(); return;
                 }
                 request.State.Cache = cache;
+                request.State.PendingGeneration = 0;
+                request.State.ReusableCache = null;
                 InFlightFiles.TryRemove(cache.Output, out _);
                 RefreshPlacement(request.State.Part);
                 CleanupFiles();
@@ -266,6 +290,7 @@ internal static class TransitionSmoothingHost
             Dispatch(() =>
             {
                 if (!IsCurrent(request.State, request.Generation)) return;
+                request.State.PendingGeneration = 0;
                 request.State.Error = e.GetType().Name;
                 Debug.Print("Transition smoothing processing: " + e.GetType().Name);
                 Changed?.Invoke();
@@ -280,7 +305,8 @@ internal static class TransitionSmoothingHost
     /// </summary>
     internal static string Substitute(WIVSMMidiPart part, string input)
     {
-        if (_bypass != 0 || BreathVolumeService.IsReadingOriginalWave || !Settings.TransitionSmoothingEnabled)
+        if (!WaveProcessingReadScope.ShouldApply(WaveProcessingStage.TransitionSmoothing) ||
+            BreathVolumeService.IsReadingOriginalWave || !Settings.TransitionSmoothingEnabled)
             return input;
         if (Parts.TryGetValue((nint)part, out var state) && state.Cache is { } cache)
         {
@@ -289,11 +315,21 @@ internal static class TransitionSmoothingHost
                 Dispatch(() =>
                 {
                     state.RebindQueued = 0;
-                    if (Parts.TryGetValue(state.PartId, out var live) && live == state) QueuePart(state.Part);
+                    RebindReady(state, input);
                 });
         }
         return input;
     }
+
+    private static void RebindReady(PartState state, string input)
+    {
+        if (!Parts.TryGetValue(state.PartId, out var live) || live != state || state.Rendering) return;
+        if (!ReadInput(state.Part).Equals(input, StringComparison.OrdinalIgnoreCase)) return;
+        QueuePart(state.Part, upstreamReady: true);
+    }
+
+    internal static bool HasPendingWave(WIVSMMidiPart part) => Settings.TransitionSmoothingEnabled && Parts.TryGetValue((nint)part, out var state) &&
+        (state.Rendering || state.PendingGeneration != 0 && state.PendingGeneration == state.Generation);
 
     internal static void RenderStarted(WIVSMMidiPart part)
     {
@@ -305,6 +341,7 @@ internal static class TransitionSmoothingHost
         Interlocked.Increment(ref state.Generation);
         state.Rendering = true;
         state.Cache = null;
+        state.ReusableCache = null;
     }
 
     internal static void RenderCompleted(WIVSMMidiPart part)
@@ -350,19 +387,17 @@ internal static class TransitionSmoothingHost
         foreach (var part in EnumerateParts(source))
         {
             if (part.IsAi) continue;
+            if (VoiceComp.VoiceCompHost.Owns(part)) continue;
             var plan = GetExecutionPlan(part);
             if (plan == null) continue;
             var junctions = CollectJunctions(part, plan, config);
             if (junctions == null || junctions.Count == 0) continue;
 
             var state = Parts.GetOrAdd((nint)part, _ => new(part));
-            var request = Capture(state, state.Generation);
+            var request = Capture(state, state.Generation, plan);
             if (request == null || request.Junctions.Count == 0) continue;
 
-            if (state.Cache is { } cached && cached.Input == request.Input &&
-                cached.Length == request.Length && cached.Written == request.Written &&
-                File.Exists(cached.Output))
-                continue;
+            if (TryReuse(state, request)) continue;
 
             long generation = Interlocked.Increment(ref state.Generation);
             var cache = Task.Run(() =>
@@ -373,6 +408,8 @@ internal static class TransitionSmoothingHost
             }).GetAwaiter().GetResult();
 
             state.Cache = cache;
+            state.PendingGeneration = 0;
+            state.ReusableCache = null;
             InFlightFiles.TryRemove(cache.Output, out _);
             RefreshPlacement(part);
         }
@@ -407,7 +444,7 @@ internal static class TransitionSmoothingHost
             {
                 foreach (var file in Directory.EnumerateFiles(CacheDirectory, "*.wav"))
                 {
-                    if (!InFlightFiles.ContainsKey(file) && !Parts.Values.Any(s => s.Cache?.Output == file))
+                    if (!InFlightFiles.ContainsKey(file) && !Parts.Values.Any(s => s.Cache?.Output == file || s.ReusableCache?.Output == file))
                     {
                         try { File.Delete(file); Files.TryRemove(file, out _); }
                         catch { }

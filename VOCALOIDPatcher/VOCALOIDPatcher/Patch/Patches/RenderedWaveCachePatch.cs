@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Threading;
 using HarmonyLib;
 using VOCALOIDPatcher.Config;
+using VOCALOIDPatcher.Rendering;
 using VOCALOIDPatcher.Translation;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
@@ -62,14 +63,14 @@ public class RenderedWaveCachePatch : PatchBase
     private sealed class LruState
     {
         public readonly LinkedList<nint> Order = new();
-        public readonly HashSet<nint> Pending = new();
-        public int Generation;
+        public readonly PartLoadTickets Pending = new();
     }
 
     private static readonly ConditionalWeakTable<RenderedWaveCacheManager, LruState> States = new();
     private static readonly SemaphoreSlim LoadSlots = new(2);
     private const int LoadAttempts = 8;
     private const int InitialRetryDelayMs = 30;
+    private static bool _refreshPending;
 
     [HarmonyPrefix]
     private static bool Prefix(RenderedWaveCacheManager __instance, WIVSMMidiPart part, ref IVSMSampleEnumerator? __result)
@@ -91,6 +92,7 @@ public class RenderedWaveCachePatch : PatchBase
             {
                 dict.Remove(key);
                 state.Order.Remove(key);
+                state.Pending.Invalidate(key);
                 return false;
             }
 
@@ -106,49 +108,49 @@ public class RenderedWaveCachePatch : PatchBase
                 return false;
             }
 
-            if (!state.Pending.Add(key))
+            if (!state.Pending.TryBegin(key, out long ticket))
                 return false;
 
-            int generation = state.Generation;
-            Task.Run(() =>
+            _ = Load();
+            async Task Load()
             {
                 AugmentedAudioBuffer? buffer = null;
                 try
                 {
-                    LoadSlots.Wait();
-                    if (Volatile.Read(ref state.Generation) != generation)
-                        return;
-
                     for (int attempt = 0; attempt < LoadAttempts; attempt++)
                     {
-                        if (Volatile.Read(ref state.Generation) != generation)
+                        if (!state.Pending.IsCurrent(key, ticket))
                             return;
 
-                        var loaded = new AugmentedAudioBuffer();
-                        if (loaded.Load(path))
+                        AugmentedAudioBuffer? loaded;
+                        await LoadSlots.WaitAsync().ConfigureAwait(false);
+                        try
+                        {
+                            loaded = await Task.Run(() =>
+                            {
+                                var candidate = new AugmentedAudioBuffer();
+                                return state.Pending.IsCurrent(key, ticket) && candidate.Load(path) ? candidate : null;
+                            }).ConfigureAwait(false);
+                        }
+                        finally { LoadSlots.Release(); }
+                        if (loaded != null)
                         {
                             buffer = loaded;
                             break;
                         }
 
                         if (attempt + 1 < LoadAttempts)
-                            Thread.Sleep(InitialRetryDelayMs << attempt);
+                            await Task.Delay(InitialRetryDelayMs << attempt).ConfigureAwait(false);
                     }
                 }
                 catch
                 {
                 }
-                finally
-                {
-                    LoadSlots.Release();
-                }
-
                 Application.Current?.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    if (state.Generation != generation)
+                    if (!state.Pending.Complete(key, ticket))
                         return;
 
-                    state.Pending.Remove(key);
                     if (buffer == null)
                         return;
 
@@ -162,9 +164,9 @@ public class RenderedWaveCachePatch : PatchBase
                         dict.Remove(oldest);
                     }
 
-                    RefreshWaveCanvases();
+                    QueueWaveCanvasRefresh();
                 }), DispatcherPriority.Background);
-            });
+            }
 
             return false;
         }
@@ -173,6 +175,18 @@ public class RenderedWaveCachePatch : PatchBase
             Debug.Print(TranslationManager.Tr("VOCALOIDPatcher_Debug_RenderedWaveCache_Failed", e.Message));
             return true;
         }
+    }
+
+    private static void QueueWaveCanvasRefresh()
+    {
+        var dispatcher = Application.Current?.Dispatcher;
+        if (dispatcher == null || dispatcher.HasShutdownStarted || _refreshPending) return;
+        _refreshPending = true;
+        dispatcher.BeginInvoke((Action)(() =>
+        {
+            _refreshPending = false;
+            RefreshWaveCanvases();
+        }), DispatcherPriority.Background);
     }
 
     private static void RefreshWaveCanvases()
@@ -203,7 +217,6 @@ public class RenderedWaveCachePatch : PatchBase
     internal static void Invalidate(RenderedWaveCacheManager manager)
     {
         var state = States.GetOrCreateValue(manager);
-        state.Generation++;
         state.Pending.Clear();
         state.Order.Clear();
     }
@@ -221,8 +234,7 @@ public class RenderedWaveCachePatch : PatchBase
 
             // WaveFilePath is commonly reused by consecutive renders, so path
             // equality alone cannot prove that a cached PCM buffer is current.
-            state.Generation++;
-            state.Pending.Clear();
+            state.Pending.Invalidate(key);
             state.Order.Remove(key);
             DictRef(manager).Remove(key);
         }
@@ -240,6 +252,7 @@ public class RenderedWaveCachePatch : PatchBase
         {
             try
             {
+                ParameterEnergy.ParameterEnergyBackground.InvalidatePart(part);
                 foreach (Window window in Application.Current.Windows)
                 {
                     foreach (var view in ShowOtherTracksNotesPatch.FindVisualChildren<PianorollView>(window))
@@ -249,7 +262,7 @@ public class RenderedWaveCachePatch : PatchBase
                     }
                 }
 
-                RefreshWaveCanvases();
+                QueueWaveCanvasRefresh();
             }
             catch
             {

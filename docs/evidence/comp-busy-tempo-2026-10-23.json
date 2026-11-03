@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "sdk": "6.13.3.1",
+  "live_observation": {
+    "process_id": 34244,
+    "project_revision": 5,
+    "project_dirty": true,
+    "bpm": 146,
+    "rendering": false,
+    "timing_suspended": false,
+    "native_parts": 7,
+    "pending_timing_publications": 0,
+    "parts": [
+      {
+        "screenshot_label": 1,
+        "track_index": 0,
+        "part_index": 0,
+        "absolute_tick": 11520,
+        "status": "Failed",
+        "generation": 31,
+        "source_count": 8,
+        "stale_composition_frames": 605922
+      },
+      {
+        "screenshot_label": 2,
+        "track_index": 1,
+        "part_index": 0,
+        "absolute_tick": 18360,
+        "status": "Failed",
+        "generation": 31,
+        "source_count": 4,
+        "stale_composition_frames": null
+      },
+      {
+        "screenshot_label": 3,
+        "track_index": 0,
+        "part_index": 1,
+        "absolute_tick": 26880,
+        "status": "Failed",
+        "generation": 31,
+        "source_count": 2,
+        "stale_composition_frames": 596860
+      }
+    ],
+    "shared_error": "Voice-comp source preparation failed: Native timing planner is busy or unavailable.",
+    "mapping_correction": "Screenshot label 3 is track 0 / part 1, not part 2.",
+    "file_attribution_limit": "Native cache UUID filenames were not conclusively mapped to these Parts."
+  },
+  "changes": [
+    "Bounded asynchronous retry of private Comp timing publication on typed planner-busy failure.",
+    "Ignore internal timing invalidation notifications in Comp source observer.",
+    "Withdraw published Comp wave and composition when inputs change; native playback fallback until current generation completes.",
+    "Retain last completed file separately without allowing stale playback or export."
+  ],
+  "targeted_cases": [
+    {
+      "name": "private-planner-busy-recovers",
+      "busyRetries": 4,
+      "fastFrames": 170963,
+      "internalNotificationSuppressed": true
+    },
+    {
+      "name": "bpm-146-73-146",
+      "fastFrames": 170963,
+      "slowFrames": 297826,
+      "restoredFrames": 170963,
+      "fastHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "restoredHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "staleWaveRejected": true,
+      "nonSilent": true
+    },
+    {
+      "name": "failed-recipe-retains-file-without-publishing",
+      "retainedFile": true,
+      "staleAudioRejected": true,
+      "exportRejected": true
+    }
+  ],
+  "verification": {
+    "debug_solution": "passed, zero warnings and errors",
+    "release_solution": "passed, zero warnings and errors, ILRepack merged",
+    "mcp_tests": {
+      "passed": 476,
+      "failed": 0,
+      "skipped": 0
+    },
+    "invalidation_cases": {
+      "results": 30,
+      "inputScopes": 11,
+      "nativeRenders": 7,
+      "notifications": 5
+    },
+    "probe_limit": "Isolated legal SDK native rendering with production hooks; not user Editor interaction acceptance.",
+    "setup_corrections": [
+      "Planner contention injection moved from unsafe native wrapper to safe managed BeforeRendering boundary after Harmony failed to patch the wrapper.",
+      "Strict 64-note PCM comparison initially failed after preceding staged/exception/Rollback tests contaminated the fixture. Audio baseline comparison moved ahead of these mutations; strict audio and phoneme assertions retained and all cases passed."
+    ]
+  },
+  "source_sha256": {
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/CompNativeSource.cs": "C7E7BC1C1E2CB6A33825272DDC61300E2BA86ECF7CD375786CA04FD8763A09C5",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompHost.cs": "3C6078A874A7EADECE45829B919EDB40245CB5366D8AE4FFAE2D90465D7D6A0D",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/CompBusyTempoValidation.cs": "2D3B1C632586FB6EA3DD0AD7C2DC8F45420AB2BE9CBAC123E548D1205075639C",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompValidation.cs": "0E9404D7CF48DD71D79FBDA7BB10DAC9C4E4FCCC7FB645046EB84FED5D83038A",
+    "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/VoiceCompPatches.cs": "32DC793CCF736246A107E5FCF43291C1FA1C42D14B9ADC9378E82C78C508CC8B",
+    "voicebank/tools/evec_render_harness/RenderInvalidationProbe.cs": "8D6CC18C1E7A65BF38C72B66A19386A0AE418498ED8C538D0FEFF1516985A893"
+  },
+  "artifact_sha256": {
+    "busy-tempo-regression/comp-busy-tempo.json": "D5C891769A70CC54E94CEA5A35BF1E93C2D9F76DFDD2E44F47464A14DEFFA5EB",
+    "invalidation-clean-baseline/render-invalidation.json": "5E875FE9FFCD5BD07B62EC7FA67D9AD438F80D9A54C5064CBD3F2664F7E99678",
+    "debug-final-build.log": "929891ABAADEE766A2008DBC0E31C30C5922D15879776E5B825A4D96AEEBED33",
+    "release-build.log": "7EA45377CEF3540AE033D16999ECE3467C7563B75F5021149735F1EF2D4EA6C4"
+  },
+  "deployment_evidence": "comp-busy-tempo-deployment-2026-10-23.json",
+  "host_acceptance": "pending user save and reopen; running Editor retains previous assembly; no project edit, playback or render operation initiated by agent"
+}

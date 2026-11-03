@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace VOCALOIDPatcher.ConsonantTiming.Smoothing;
 
@@ -163,9 +164,22 @@ public static class TransitionSmoother
         float leftDb = AudioAnalysisUtils.EstimateLocalLoudnessDb(left);
         float rightDb = AudioAnalysisUtils.EstimateLocalLoudnessDb(right);
         bool nominal = leftNominalGainDb.HasValue || rightNominalGainDb.HasValue;
-        double step = nominal ? (rightNominalGainDb ?? 0) - (leftNominalGainDb ?? 0) : rightDb - leftDb;
+        double measuredStep = rightDb - leftDb;
+        double step = nominal ? (rightNominalGainDb ?? 0) - (leftNominalGainDb ?? 0) : measuredStep;
         float difference = (float)Math.Abs(step);
-        if (!double.IsFinite(step) || (cfg.Mode != TransitionSmoothingMode.Always && difference < cfg.VolumeThresholdDb))
+        if (!double.IsFinite(step) || !double.IsFinite(measuredStep))
+            return Result(leftDb: leftDb, rightDb: rightDb, difference: difference);
+
+        // OLA and upstream phoneme processing can already have bridged the
+        // requested gain. Never impose the nominal step on continuous PCM.
+        double gainStep = 0;
+        bool bridge = Math.Abs(measuredStep) >= cfg.VolumeThresholdDb &&
+            TryGetGainStep(audio, target, sampleRate, measuredStep, cfg.VolumeThresholdDb, out gainStep);
+        // A phase seam or impulse can have equal RMS on both sides. Inspect
+        // a DSE hop on either side, independently of the loudness threshold.
+        int radius = Math.Max(4, (int)Math.Round(sampleRate * 256.0 / 44100));
+        var discontinuities = FindDiscontinuities(audio, target, radius);
+        if (!bridge && discontinuities.Count == 0)
             return Result(leftDb: leftDb, rightDb: rightDb, difference: difference);
 
         bool leftVoiced = AudioAnalysisUtils.DetectVoicedAndPitchPeriod(left, sampleRate, out int leftPitch, out float leftConfidence);
@@ -184,32 +198,98 @@ public static class TransitionSmoother
         bool aligned = false;
         if (cfg.EnablePhaseAlignment && leftVoiced && rightVoiced && confidence >= .45f)
         {
-            int radius = Math.Min(Math.Max(leftPitch, rightPitch) / 2, fadeSamples / 4);
-            centre = AudioAnalysisUtils.FindZeroCrossing(audio, target, radius);
+            int phaseRadius = Math.Min(Math.Max(leftPitch, rightPitch) / 2, fadeSamples / 4);
+            centre = AudioAnalysisUtils.FindZeroCrossing(audio, target, phaseRadius);
             aligned = centre != target;
         }
-        int start = Math.Max(0, centre - fadeSamples / 2);
-        int end = Math.Min(audio.Length, centre + (fadeSamples + 1) / 2);
-        bool changed = ApplyLoudnessEnvelope(audio, target, Samples(cfg.LoudnessWindowMs),
-            Math.Clamp(step / 2, -cfg.MaxLoudnessAdjustmentDb, cfg.MaxLoudnessAdjustmentDb));
-        bool repaired = RepairDiscontinuity(audio, target, start, end);
+        bool changed = bridge && ApplyLoudnessEnvelope(audio, target, Samples(cfg.LoudnessWindowMs),
+            gainStep, cfg.MaxLoudnessAdjustmentDb);
+        // Recheck after gain correction: a genuine gain step may now be gone,
+        // while a phase discontinuity must still be repaired.
+        discontinuities = FindDiscontinuities(audio, target, radius);
+        bool repaired = false;
+        int repairStart = audio.Length, repairEnd = 0;
+        foreach (int seam in discontinuities)
+        {
+            if (!IsDiscontinuity(audio, seam)) continue;
+            int repairCentre = seam == target ? centre : seam;
+            int start = Math.Max(0, repairCentre - fadeSamples / 2);
+            int end = Math.Min(audio.Length, repairCentre + (fadeSamples + 1) / 2);
+            if (!RepairDiscontinuity(audio, seam, start, end)) continue;
+            repaired = true;
+            repairStart = Math.Min(repairStart, start);
+            repairEnd = Math.Max(repairEnd, end);
+        }
         changed |= repaired;
-        return Result(changed, changed ? (repaired ? centre : target) - junctionSample : 0,
-            repaired ? (end - start) * 1000.0 / sampleRate : 0, leftDb, rightDb, difference,
-            repaired && aligned);
+        int repairMiddle = repaired ? (repairStart + repairEnd) / 2 : target;
+        return Result(changed, changed ? repairMiddle - junctionSample : 0,
+            repaired ? (repairEnd - repairStart) * 1000.0 / sampleRate : 0, leftDb, rightDb, difference,
+            repaired && aligned && discontinuities.Contains(target));
     }
 
     private static double SmoothStep(double t) => t * t * (3 - 2 * t);
 
+    private static bool TryGetGainStep(ReadOnlySpan<float> audio, int at, int sampleRate, double measuredDb, double thresholdDb, out double stepDb)
+    {
+        stepDb = 0;
+        if (at < 2 || at + 1 >= audio.Length) return false;
+        // Extrapolate both sides to the same half-sample seam. A gradual
+        // attack can have very different window RMS without any local step.
+        double left = 1.5 * audio[at - 1] - .5 * audio[at - 2];
+        double right = 1.5 * audio[at] - .5 * audio[at + 1];
+        double slopeLeft = (double)audio[at - 1] - audio[at - 2];
+        double slopeRight = (double)audio[at + 1] - audio[at];
+        if (Math.Min(Math.Abs(left), Math.Abs(right)) < .1 * Math.Max(Math.Abs(slopeLeft), Math.Abs(slopeRight)))
+        {
+            left = slopeLeft;
+            right = slopeRight;
+        }
+        if (left * right <= 0 || Math.Abs(left) < 1e-8 || Math.Abs(right) < 1e-8) return false;
+        double localDb = 20 * Math.Log10(Math.Abs(right / left));
+        if (Math.Abs(localDb) < thresholdDb || Math.Abs(localDb - measuredDb) > 1.5) return false;
+        // Four samples near a quiet zero crossing can suggest a large ratio
+        // even on a continuous harmonic decay. Confirm that the immediate
+        // neighbourhood carries the same gain change; the broad analysis
+        // window alone also measures the vowel's natural release envelope.
+        int confirmation = Math.Min(Math.Max(4, sampleRate / 100), Math.Min(at, audio.Length - at));
+        if (confirmation < 4) return false;
+        double leftRms = AudioAnalysisUtils.ComputeRms(audio.Slice(at - confirmation, confirmation));
+        double rightRms = AudioAnalysisUtils.ComputeRms(audio.Slice(at, confirmation));
+        if (leftRms <= 1e-6 || rightRms <= 1e-6) return false;
+        double immediateDb = 20 * Math.Log10(rightRms / leftRms);
+        if (Math.Abs(immediateDb - localDb) > 1.5) return false;
+        stepDb = localDb;
+        return true;
+    }
+
+    private static bool IsDiscontinuity(ReadOnlySpan<float> audio, int at)
+    {
+        if (at <= 0 || at >= audio.Length) return false;
+        double nearby = 0;
+        // Exclude both edges of a 1-3 sample impulse. Including its return
+        // edge in the reference made such clicks impossible to detect.
+        for (int i = Math.Max(1, at - 32); i < Math.Min(audio.Length, at + 33); i++)
+        {
+            if (Math.Abs(i - at) <= 4) continue;
+            double delta = Math.Abs((double)audio[i] - audio[i - 1]);
+            if (!double.IsFinite(delta)) return false;
+            nearby = Math.Max(nearby, delta);
+        }
+        double jump = Math.Abs((double)audio[at] - audio[at - 1]);
+        return double.IsFinite(jump) && jump > 3 * nearby + 2.0 / 32768;
+    }
+
+    private static List<int> FindDiscontinuities(ReadOnlySpan<float> audio, int target, int radius)
+    {
+        var result = new List<int>();
+        for (int at = Math.Max(1, target - radius); at <= Math.Min(audio.Length - 1, target + radius); at++)
+            if (IsDiscontinuity(audio, at)) result.Add(at);
+        return result;
+    }
+
     private static bool RepairDiscontinuity(Span<float> audio, int junction, int start, int end)
     {
         if (junction - start < 2 || end - junction < 2) return false;
-        // Compare with nearby within-side derivatives, not a fixed amplitude
-        // threshold. Normal harmonics and noisy consonants must not be blurred.
-        double nearby = 0;
-        for (int i = Math.Max(start + 1, junction - 8); i < Math.Min(end, junction + 8); i++)
-            if (i != junction) nearby = Math.Max(nearby, Math.Abs(audio[i] - audio[i - 1]));
-        if (Math.Abs(audio[junction] - audio[junction - 1]) <= 3 * nearby + 2.0 / 32768) return false;
 
         var original = audio.Slice(start, end - start).ToArray();
         if (Array.Exists(original, s => !float.IsFinite(s))) return false;
@@ -230,29 +310,30 @@ public static class TransitionSmoother
         return changed;
     }
 
-    private static bool ApplyLoudnessEnvelope(Span<float> audio, int junction, int window, double deltaDb)
+    private static bool ApplyLoudnessEnvelope(Span<float> audio, int junction, int window, double stepDb, double maximumDb)
     {
-        if (Math.Abs(deltaDb) < .001) return false;
+        if (Math.Abs(stepDb) < .001) return false;
         int start = Math.Max(0, junction - window), end = Math.Min(audio.Length, junction + window);
         double Weight(int at) => at < junction
             ? SmoothStep((at - start) / (double)Math.Max(1, junction - start - 1))
             : SmoothStep((end - 1 - at) / (double)Math.Max(1, end - junction - 1));
-        // Reduce the entire local bridge if its boosted side lacks headroom.
-        // Do not hard-clip individual samples or normalize the part's body.
-        double magnitude = Math.Abs(deltaDb);
+        // Allocate unavailable boost to the louder side's attenuation. A
+        // single peak must not disable the cut and leave the gain step intact.
+        double boostDb = Math.Min(Math.Abs(stepDb) / 2, maximumDb);
         for (int at = start; at < end; at++)
         {
             double weight = Weight(at), value = Math.Abs(audio[at]);
             if (!double.IsFinite(value)) return false;
-            bool boost = (at < junction) == (deltaDb > 0);
+            bool boost = (at < junction) == (stepDb > 0);
             if (boost && weight > 0 && value > 0)
-                magnitude = Math.Min(magnitude, Math.Max(0, -20 * Math.Log10(value)) / weight);
+                boostDb = Math.Min(boostDb, Math.Max(0, -20 * Math.Log10(value)) / weight);
         }
-        deltaDb = Math.CopySign(magnitude, deltaDb);
+        double cutDb = Math.Min(Math.Abs(stepDb) - boostDb, maximumDb);
         bool changed = false;
         for (int at = start; at < end; at++)
         {
-            double gainDb = Weight(at) * (at < junction ? deltaDb : -deltaDb);
+            bool boost = (at < junction) == (stepDb > 0);
+            double gainDb = Weight(at) * (boost ? boostDb : -cutDb);
             if (gainDb == 0) continue;
             float value = (float)(audio[at] * Math.Pow(10, gainDb / 20));
             changed |= value != audio[at];

@@ -8,8 +8,8 @@ namespace VOCALOIDPatcher.ConsonantTiming.Smoothing;
 public enum TransitionSmoothingMode
 {
     /// <summary>
-    /// Automatically intervenes only when the measured or nominal volume difference
-    /// across the junction exceeds the configured threshold.
+    /// Bridges verified gain steps above the volume threshold, and independently
+    /// repairs outlying sample discontinuities near a transition boundary.
     /// </summary>
     AutoOnVolumeDifference,
 

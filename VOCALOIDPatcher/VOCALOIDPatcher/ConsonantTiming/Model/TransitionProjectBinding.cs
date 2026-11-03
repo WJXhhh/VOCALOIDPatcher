@@ -14,6 +14,9 @@ internal static class TransitionProjectBinding
         => data.Gains.Any(g => InPart(data, g.Edge, track, part)) || data.Junctions.Any(j => j.Aliases.Any(a => InPart(data, a.Edge, track, part))) ||
             data.Onsets.Any(o => InPart(data, o.Edge, track, part)) || data.Phases.Any(p => InPart(data, p.Edge, track, part)) || data.Coverages.Any(c => InPart(data, c.Edge, track, part));
 
+    internal static bool HasNonzeroGain(TransitionProjectData data, int track, int part)
+        => data.Gains.Any(g => g.Decibels != 0 && InPart(data, g.Edge, track, part));
+
     internal static IReadOnlyDictionary<string, TransitionEdge> MatchEdges(TransitionProjectData data, TransitionLayout layout)
     {
         var ids = data.Notes.ToDictionary(n => n.Address, n => n.Id);
@@ -41,7 +44,13 @@ internal static class TransitionProjectBinding
     internal static TransitionControlPlan ResolveAvailable(TransitionProjectData data, TransitionLayout layout)
         => Resolve(data, layout, availableOnly: true);
 
-    private static TransitionControlPlan Resolve(TransitionProjectData data, TransitionLayout layout, bool availableOnly)
+    // Isolating a phrase changes its native attack/release material. Fit the
+    // inherited offsets to that source's available intervals without changing
+    // the user's document or weakening ordinary transition validation.
+    internal static TransitionControlPlan ResolveForCompSource(TransitionProjectData data, TransitionLayout layout)
+        => Resolve(data, layout, availableOnly: true, fitSource: true);
+
+    private static TransitionControlPlan Resolve(TransitionProjectData data, TransitionLayout layout, bool availableOnly, bool fitSource = false)
     {
         data.Validate();
         var first = layout.Notes[0].Address;
@@ -77,6 +86,28 @@ internal static class TransitionProjectBinding
             .Where(p => p.Edge != null).Select(p => new TransitionPhaseEdit(p.Edge!, p.Amount));
         var coverages = data.Coverages.Where(c => InPart(data, c.Edge, first.Track, first.Part)).Select(c => (Edge: Edge(c.Edge), c.Sides))
             .Where(c => c.Edge != null).Select(c => new TransitionCoverageEdit(c.Edge!, c.Sides));
+        if (fitSource && joints.Count > 0)
+        {
+            var targets = new Dictionary<int, int>();
+            foreach (var edit in joints)
+            {
+                int original = layout.Junction(edit.Endpoint).OriginalFrame;
+                if (targets.TryGetValue(original, out int previous) && previous != edit.Frame)
+                    throw new NotSupportedException("Conflicting controls at a shared transition junction.");
+                targets[original] = edit.Frame;
+            }
+            // Native coincidences remain fixed groups. Project only inherited
+            // edits; unedited endpoints and phoneme anchors stay authoritative.
+            var groups = layout.Junctions.GroupBy(j => j.CurrentFrame).ToArray();
+            var projected = PhonemeWarpProjection.Resolve(groups.Select(g =>
+            {
+                var joint = g.First();
+                bool editable = g.Count() == 1 && !joint.Protected && targets.ContainsKey(joint.OriginalFrame);
+                return new PhonemeWarpRequest(joint.OriginalFrame, editable ? targets[joint.OriginalFrame] : g.Key, editable);
+            }).ToArray(), layout.MinimumOutputFrame);
+            var positions = groups.SelectMany((g, i) => g.Select(j => (j.OriginalFrame, projected[i].To))).ToDictionary(p => p.OriginalFrame, p => p.To);
+            joints = joints.Select(e => new TransitionJunctionEdit(e.Endpoint, positions[layout.Junction(e.Endpoint).OriginalFrame])).ToList();
+        }
         var plan = new TransitionControlPlan(layout.Fingerprint, joints, gains, onsets, phases, coverages);
         _ = plan.Compile(layout); return plan;
     }

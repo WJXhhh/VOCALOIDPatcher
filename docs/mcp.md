@@ -39,6 +39,12 @@ HTTP 默认端点为 `http://127.0.0.1:39266/mcp`。请求必须包含设置页�
 | `v6_get_state` | 工程、播放、渲染、活动对象、修订号和能力 |
 | `v6_get_catalog` | 声库、语言、参数类型和转换格式 |
 | `v6_query_project` | 分页查询轨道、Part、音符、参数、速度、拍号和选区 |
+| `v6_query_timing` | 音素、过渡、原生范围、音素音量、Comp 和设置查询 |
+| `v6_edit_timing` | timing 全部现有控制、精调和重置，支持原生预演与共享边界联动 |
+| `v6_timing_settings` | timing 功能开关和全部过渡平滑设置 |
+| `v6_query_voice_comp` | 单轨拆轨配方、成品状态、来源波形与实际边界 |
+| `v6_edit_voice_comp` | 长音截取／辅元拼接／独立延音、批量、来源快照、旁路及重置 |
+| `v6_preview_voice_comp` | 源音／结果／整句试听及停止 |
 | `v6_edit_structure` | 以单事务批量编辑轨道、Part、速度和拍号 |
 | `v6_edit_notes` | 以单事务批量编辑音符、歌词、音素、表情和颤音 |
 | `v6_g2pa_candidates` | 查询通用语言调度或指定语言/扩展词典的候选发音 |
@@ -68,6 +74,12 @@ Resources：
 `catalog`/`schema` 同时返回 operation ID、所属领域、必需/可选字段、最低 Editor 版本、错误码，以及每项 capability 的 `implemented`、`host_verified`、`minimum_editor_version`、`availability` 和 `unavailable_reason`。旧的大类 capability 布尔字段继续保留。
 
 ## 写入协议
+
+### Timing 查询与编辑
+
+完整参数、单位、后台任务和调用示例见 [Timing MCP 接口](timing-mcp.md)。这三个工具使用具体的结构化对象 schema，控制提交沿用界面的数据、撤销、归档与重建流程；已撤回的时长选样不重新开放。部署时需要同时更新宿主补丁和 Companion。
+
+单轨发音拼接的三个快捷动作、批量提交、来源音符快照和试听见 [拆轨／拼接 MCP](voice-comp-mcp.md)。
 
 ### EVEC 查询与编辑
 

@@ -234,16 +234,17 @@ Check("continuous-gain-change-needs-no-waveform-repair",
     spliceResult.CrossfadeDurationMs == 0,
     $"ms={spliceResult.CrossfadeDurationMs}");
 
-// 5b. Strict Parameter Setting Gating (Option 1):
-// A. When physical waveforms are identical, but user sets nominal gains with 8 dB difference (-20 vs -12), it MUST strictly intervene:
+// 5b. Nominal gains are diagnostic context; continuous PCM must stay exact.
 var equalWavesA = (float[])leftBody.Clone();
 var equalWavesB = (float[])leftBody.Clone();
 var nominalInterveneResult = TransitionSmoother.Splice(equalWavesA, equalWavesB, sampleRate, defaultConfig, leftNominalGainDb: -20.0, rightNominalGainDb: -12.0);
-Check("nominal-setting-drives-intervention", nominalInterveneResult.Intervened && Math.Abs(nominalInterveneResult.VolumeDifferenceDb - 8.0f) < 1e-4);
+Check("nominal-difference-does-not-invent-a-step", !nominalInterveneResult.Intervened &&
+    Math.Abs(nominalInterveneResult.VolumeDifferenceDb - 8.0f) < 1e-4 &&
+    nominalInterveneResult.Output.SequenceEqual(equalWavesA.Concat(equalWavesB)));
 
-// B. When physical waveforms differ by ~8 dB, but user sets both nominal gains to 0 dB, it MUST strictly bypass:
+// A real PCM gain step still needs smoothing when nominal settings are equal.
 var nominalBypassResult = TransitionSmoother.Splice(leftBody, rightBody, sampleRate, defaultConfig, leftNominalGainDb: 0.0, rightNominalGainDb: 0.0);
-Check("nominal-setting-drives-bypass", !nominalBypassResult.Intervened && nominalBypassResult.VolumeDifferenceDb == 0.0f);
+Check("actual-gain-step-with-equal-nominal-settings", nominalBypassResult.Intervened && nominalBypassResult.VolumeDifferenceDb == 0.0f);
 
 // Introducing a sharp transient spike right near splice point should shorten the crossfade
 var leftTransient = (float[])leftBody.Clone();
@@ -274,8 +275,11 @@ Check("in-place-first-sample-preserved", Math.Abs(continuousBuffer[0] - 0f) < 1e
 
 // 8. Custom Timing Offset:
 var offsetConfig = defaultConfig with { TimingOffsetMs = 15.0 };
+int offsetSeam = sampleRate / 2 + (int)Math.Round(sampleRate * .015);
+var offsetBuffer = Enumerable.Range(0, sampleRate).Select(i => (float)(.2 * Math.Sin(
+    2 * Math.PI * 300 * i / sampleRate + (i >= offsetSeam ? Math.PI / 2 : 0)))).ToArray();
 var offsetResult = TransitionSmoother.SmoothJunction(
-    continuousBuffer.AsSpan(),
+    offsetBuffer.AsSpan(),
     sampleRate / 2,
     sampleRate,
     offsetConfig);
@@ -330,7 +334,7 @@ var multiJunctions = new List<WaveJunctionProcessor.JunctionInfo>
 var multiResults = WaveJunctionProcessor.ProcessWaveFile(srcWave, dstMultiWave, multiJunctions, defaultConfig);
 Check("multi-junction-count", multiResults.Count == 2);
 Check("multi-junction-first-intervened", multiResults[0].Intervened);
-Check("multi-junction-second-intervened", multiResults[1].Intervened);
+Check("multi-junction-continuous-second-seam-preserved", !multiResults[1].Intervened);
 Check("multi-junction-file-size", File.Exists(dstMultiWave) && new FileInfo(dstMultiWave).Length == new FileInfo(srcWave).Length);
 
 try { Directory.Delete(waveDir, true); } catch { }

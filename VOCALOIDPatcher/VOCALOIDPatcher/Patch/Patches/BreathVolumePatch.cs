@@ -374,11 +374,17 @@ public sealed class BreathVolumeWavePathPatch : PatchBase
     public override Type TargetClass => typeof(WIVSMMidiPart);
     public override string TargetMethodName => "get_WaveFilePath";
 
-    [HarmonyPostfix]
+    [HarmonyPostfix, HarmonyPriority(Priority.Last)]
     private static void Postfix(WIVSMMidiPart __instance, ref string __result)
     {
         try
         {
+            string composed = VoiceComp.VoiceCompHost.Substitute(__instance, __result);
+            if (composed != __result)
+            {
+                __result = AceParameters.AceAcousticHost.Substitute(__instance, composed);
+                return;
+            }
             __result = BreathVolumeService.SubstituteWavePath(__instance, __result);
             __result = PhonemeVolume.PhonemeVolumeHost.Substitute(__instance, __result);
             __result = ConsonantTiming.Smoothing.TransitionSmoothingHost.Substitute(__instance, __result);
@@ -791,7 +797,10 @@ public sealed class BreathVolumeCommitHistoryPatch : PatchBase
 
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool updateHistory, bool __result)
-        => CustomParameterHistoryCoordinator.OnNativeCommit(__instance, updateHistory, __result);
+    {
+        if (!ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance))
+            CustomParameterHistoryCoordinator.OnNativeCommit(__instance, updateHistory, __result);
+    }
 }
 
 public sealed class BreathVolumeCanUndoPatch : PatchBase

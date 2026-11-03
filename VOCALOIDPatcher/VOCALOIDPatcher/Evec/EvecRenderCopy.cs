@@ -12,6 +12,46 @@ namespace VOCALOIDPatcher.Evec;
 /// </summary>
 internal sealed class EvecRenderCopy : IDisposable
 {
+    // Compile EVEC inside an already-owned render group; do not create or
+    // publish another competing Part override.
+    internal static void ApplyOwnedPart(WIVSMMidiPart part, bool enabled, Func<WIVSMNote, EvecNoteState> getState)
+    {
+        if (!enabled) return;
+        var notes = part.Notes.ToArray();
+        foreach (var note in notes)
+        {
+            var state = getState(note);
+            if (!state.HasAnyEvec) continue;
+            double duration = part.Sequence!.GetTimeFromTick(note.AbsPosTick, note.AbsEndTick) * 1000;
+            var next = note.Next;
+            double? gap = next == null ? null : part.Sequence.GetTimeFromTick(note.AbsEndTick, next.AbsPosTick) * 1000;
+            if (!EvecRenderTimingPlan.TryCreate(note.Phonemes, state, duration, gap,
+                    next != null && next.LangID == note.LangID, out var segments))
+                throw new InvalidOperationException("Unsupported EVEC voice-comp source.");
+            long originalEnd = note.RelEndTick.Value;
+            long originalStart = note.AbsPosTick.Value;
+            var expression = note.GetNoteExpression(); var current = note;
+            for (int i = 0; i < segments.Count; i++)
+            {
+                long end = i == segments.Count - 1 ? originalEnd :
+                    part.Sequence.GetTickFromTime(new VSMAbsTick(originalStart), segments[i].EndMs / 1000).Value - part.AbsPosTick.Value;
+                current.IsProtected = false;
+                var following = i == segments.Count - 1 ? null : part.DivideNote(current, new VSMRelTick(end));
+                if (i < segments.Count - 1 && following == null || !current.SetPhonemes(segments[i].Phonemes, true, current.LangID))
+                    throw new InvalidOperationException("Cannot compile EVEC voice-comp event.");
+                if (i > 0)
+                {
+                    var continuation = expression; continuation.Accent = 50; continuation.Decay = 50;
+                    continuation.RisePort = false; continuation.FallPort = false;
+                    current.NoteVelocity = 64;
+                    if (!current.SetNoteExpression(continuation)) throw new InvalidOperationException("Cannot preserve EVEC expression.");
+                }
+                current.IsProtected = true;
+                if (following != null) current = following;
+            }
+        }
+    }
+
     internal WIVSMSequence Sequence { get; }
     internal WIVSMMidiPart Part { get; }
     private bool _disposed;

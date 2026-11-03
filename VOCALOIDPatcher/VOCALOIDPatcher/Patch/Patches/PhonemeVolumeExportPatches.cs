@@ -24,6 +24,12 @@ internal static class PhonemeVolumeExport
                     Debug.ShowMessageBox(TranslationManager.Tr("VOCALOIDPatcher_DurationSelection_ExportNotReady"));
                     return false;
                 }
+                try { VoiceComp.VoiceCompHost.EnsureForExport(source); }
+                catch (Exception e)
+                {
+                    Debug.Print("Voice-comp export preparation: " + e.GetType().Name);
+                    Debug.ShowMessageBox(TranslationManager.Tr("VOCALOIDPatcher_VoiceComp_ExportNotReady")); return false;
+                }
                 PhonemeVolumeHost.EnsureForExport(source);
                 ConsonantTiming.Smoothing.TransitionSmoothingHost.EnsureForExport(source);
                 try { AceParameters.AceAcousticHost.EnsureForExport(source); }

@@ -1,0 +1,766 @@
+{
+  "date": "2026-10-20",
+  "sdk": "6.13.3.1",
+  "liveFault": {
+    "kind": "preparation-rejected",
+    "count": 15,
+    "firstUtc": "2026-10-20T14:10:39.0698504Z",
+    "lastUtc": "2026-10-20T14:12:36.2966778Z",
+    "reason": "Native sample mapping did not produce the requested phoneme boundary at 3302 (/-)",
+    "isRendering": true,
+    "renderServiceEnabled": false,
+    "timingSuspended": true,
+    "sourceNotes": [
+      {
+        "position": 1920,
+        "duration": 240,
+        "pitch": 62,
+        "phones": "m u"
+      },
+      {
+        "position": 2160,
+        "duration": 240,
+        "pitch": 61,
+        "phones": "-"
+      }
+    ]
+  },
+  "beforeQueries": [
+    {
+      "pitch": 61,
+      "target": 0,
+      "passed": false,
+      "error": "Transition occurrence is ambiguous: u/Sil@3603 (0).",
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "nativePositions": [
+        [
+          -76,
+          -4,
+          236
+        ],
+        [
+          -4,
+          236
+        ]
+      ]
+    },
+    {
+      "pitch": 61,
+      "target": 1,
+      "passed": false,
+      "error": "Native sample mapping did not produce the requested phoneme boundary at 3302 (/-); observed 3271..3302:u/@3302;3302..3324:u/@3324; following 3324..3347:u/Sil@3345.",
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "nativePositions": [
+        [
+          -76,
+          -4,
+          236
+        ],
+        [
+          -4,
+          236
+        ]
+      ]
+    },
+    {
+      "pitch": 62,
+      "target": 0,
+      "passed": false,
+      "error": "Transition occurrence is ambiguous: u/Sil@3603 (0).",
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "nativePositions": [
+        [
+          -76,
+          -4,
+          236
+        ],
+        [
+          -4,
+          236
+        ]
+      ]
+    },
+    {
+      "pitch": 62,
+      "target": 1,
+      "passed": false,
+      "error": "Native sample mapping did not produce the requested phoneme boundary at 3302 (/-); observed 3271..3302:u/@3302;3302..3324:u/@3324; following 3324..3347:u/Sil@3345.",
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "nativePositions": [
+        [
+          -76,
+          -4,
+          236
+        ],
+        [
+          -4,
+          236
+        ]
+      ]
+    },
+    {
+      "pitch": 65,
+      "target": 0,
+      "passed": false,
+      "error": "Transition occurrence is ambiguous: u/Sil@3603 (0).",
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "nativePositions": [
+        [
+          -76,
+          -4,
+          236
+        ],
+        [
+          -4,
+          236
+        ]
+      ]
+    },
+    {
+      "pitch": 65,
+      "target": 1,
+      "passed": false,
+      "error": "Native sample mapping did not produce the requested phoneme boundary at 3302 (/-); observed 3271..3302:u/@3302;3302..3333:u/@3333; following 3333..3347:u/Sil@3345.",
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "nativePositions": [
+        [
+          -76,
+          -4,
+          236
+        ],
+        [
+          -4,
+          236
+        ]
+      ]
+    }
+  ],
+  "afterQueries": [
+    {
+      "pitch": 61,
+      "target": 0,
+      "passed": true,
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renders": [
+        {
+          "Name": "neutral",
+          "map": true,
+          "hash": "885AAA5E997FD161E80532A503ADF5F4C7B7BF565F210D9483F2B655F4343ECF",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "phase",
+          "map": true,
+          "hash": "4506F5BBB9C3D16419CD6D832AA69DB92BE603699DA6681B9E98EB2FC033C795",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "combined",
+          "map": true,
+          "hash": "FED1D5857EECC6190F4DA5F65AF83410FE216AB1ABC0AAAB6C962805A9F18FE2",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "restored",
+          "map": true,
+          "hash": "885AAA5E997FD161E80532A503ADF5F4C7B7BF565F210D9483F2B655F4343ECF",
+          "Failures": 0,
+          "gainFailures": 0
+        }
+      ],
+      "notes": [
+        {
+          "Address": {
+            "Track": 0,
+            "Part": 0,
+            "Note": 0,
+            "Position": 1920,
+            "Duration": 240,
+            "Pitch": 62,
+            "Bank": "BETDB8W6KWZPYEB9",
+            "Topology": "m u"
+          },
+          "Original": [
+            3504,
+            3517,
+            3603
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "Begin": 3481,
+          "Split": 3504,
+          "End": 3509,
+          "From": "Sil",
+          "To": "m"
+        },
+        {
+          "Begin": 3509,
+          "Split": 3517,
+          "End": 3550,
+          "From": "m",
+          "To": "u"
+        },
+        {
+          "Begin": 3550,
+          "Split": 3560,
+          "End": 3560,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3560,
+          "Split": 3574,
+          "End": 3574,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3574,
+          "Split": 3603,
+          "End": 3605,
+          "From": "u",
+          "To": "Sil"
+        }
+      ]
+    },
+    {
+      "pitch": 61,
+      "target": 1,
+      "passed": true,
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renders": [
+        {
+          "Name": "neutral",
+          "map": true,
+          "hash": "885AAA5E997FD161E80532A503ADF5F4C7B7BF565F210D9483F2B655F4343ECF",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "phase",
+          "map": true,
+          "hash": "4506F5BBB9C3D16419CD6D832AA69DB92BE603699DA6681B9E98EB2FC033C795",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "combined",
+          "map": true,
+          "hash": "FED1D5857EECC6190F4DA5F65AF83410FE216AB1ABC0AAAB6C962805A9F18FE2",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "restored",
+          "map": true,
+          "hash": "885AAA5E997FD161E80532A503ADF5F4C7B7BF565F210D9483F2B655F4343ECF",
+          "Failures": 0,
+          "gainFailures": 0
+        }
+      ],
+      "notes": [
+        {
+          "Address": {
+            "Track": 0,
+            "Part": 0,
+            "Note": 0,
+            "Position": 1920,
+            "Duration": 240,
+            "Pitch": 62,
+            "Bank": "BETDB8W6KWZPYEB9",
+            "Topology": "m u"
+          },
+          "Original": [
+            3504,
+            3517,
+            3603
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "Begin": 3481,
+          "Split": 3504,
+          "End": 3509,
+          "From": "Sil",
+          "To": "m"
+        },
+        {
+          "Begin": 3509,
+          "Split": 3517,
+          "End": 3550,
+          "From": "m",
+          "To": "u"
+        },
+        {
+          "Begin": 3550,
+          "Split": 3560,
+          "End": 3560,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3560,
+          "Split": 3574,
+          "End": 3574,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3574,
+          "Split": 3603,
+          "End": 3605,
+          "From": "u",
+          "To": "Sil"
+        }
+      ]
+    },
+    {
+      "pitch": 62,
+      "target": 0,
+      "passed": true,
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renders": [
+        {
+          "Name": "neutral",
+          "map": true,
+          "hash": "A44AE4CB5FDB92D63C748F7943BC77DEC5C4687008EC51F368EADE3EB21B5660",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "phase",
+          "map": true,
+          "hash": "63AD965BDF2C2DE3DCF710F56732448BB71F5F4B5DB9E7368F14C95A429F18D2",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "combined",
+          "map": true,
+          "hash": "99FB76A2F6C60C6C430996541C31C92770C10DB4B47956560559CD6444766F73",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "restored",
+          "map": true,
+          "hash": "A44AE4CB5FDB92D63C748F7943BC77DEC5C4687008EC51F368EADE3EB21B5660",
+          "Failures": 0,
+          "gainFailures": 0
+        }
+      ],
+      "notes": [
+        {
+          "Address": {
+            "Track": 0,
+            "Part": 0,
+            "Note": 0,
+            "Position": 1920,
+            "Duration": 240,
+            "Pitch": 62,
+            "Bank": "BETDB8W6KWZPYEB9",
+            "Topology": "m u"
+          },
+          "Original": [
+            3504,
+            3517,
+            3603
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "Begin": 3481,
+          "Split": 3504,
+          "End": 3509,
+          "From": "Sil",
+          "To": "m"
+        },
+        {
+          "Begin": 3509,
+          "Split": 3517,
+          "End": 3550,
+          "From": "m",
+          "To": "u"
+        },
+        {
+          "Begin": 3550,
+          "Split": 3560,
+          "End": 3560,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3560,
+          "Split": 3574,
+          "End": 3574,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3574,
+          "Split": 3603,
+          "End": 3605,
+          "From": "u",
+          "To": "Sil"
+        }
+      ]
+    },
+    {
+      "pitch": 62,
+      "target": 1,
+      "passed": true,
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renders": [
+        {
+          "Name": "neutral",
+          "map": true,
+          "hash": "A44AE4CB5FDB92D63C748F7943BC77DEC5C4687008EC51F368EADE3EB21B5660",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "phase",
+          "map": true,
+          "hash": "63AD965BDF2C2DE3DCF710F56732448BB71F5F4B5DB9E7368F14C95A429F18D2",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "combined",
+          "map": true,
+          "hash": "99FB76A2F6C60C6C430996541C31C92770C10DB4B47956560559CD6444766F73",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "restored",
+          "map": true,
+          "hash": "A44AE4CB5FDB92D63C748F7943BC77DEC5C4687008EC51F368EADE3EB21B5660",
+          "Failures": 0,
+          "gainFailures": 0
+        }
+      ],
+      "notes": [
+        {
+          "Address": {
+            "Track": 0,
+            "Part": 0,
+            "Note": 0,
+            "Position": 1920,
+            "Duration": 240,
+            "Pitch": 62,
+            "Bank": "BETDB8W6KWZPYEB9",
+            "Topology": "m u"
+          },
+          "Original": [
+            3504,
+            3517,
+            3603
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "Begin": 3481,
+          "Split": 3504,
+          "End": 3509,
+          "From": "Sil",
+          "To": "m"
+        },
+        {
+          "Begin": 3509,
+          "Split": 3517,
+          "End": 3550,
+          "From": "m",
+          "To": "u"
+        },
+        {
+          "Begin": 3550,
+          "Split": 3560,
+          "End": 3560,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3560,
+          "Split": 3574,
+          "End": 3574,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3574,
+          "Split": 3603,
+          "End": 3605,
+          "From": "u",
+          "To": "Sil"
+        }
+      ]
+    },
+    {
+      "pitch": 65,
+      "target": 0,
+      "passed": true,
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renders": [
+        {
+          "Name": "neutral",
+          "map": true,
+          "hash": "03478E48440BA3562997A8DDE382AAEDC6732FC9A38F0323961EF998CA5D53E4",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "phase",
+          "map": true,
+          "hash": "79250F2D853452AF0F1617A4E2947A271B1473068F847F54E3741B527F2A91C6",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "combined",
+          "map": true,
+          "hash": "FD329CEFFB8E2ED406EE02F8C61A6EAB18FC7A423A9E82C2E21E281746C9FE58",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "restored",
+          "map": true,
+          "hash": "03478E48440BA3562997A8DDE382AAEDC6732FC9A38F0323961EF998CA5D53E4",
+          "Failures": 0,
+          "gainFailures": 0
+        }
+      ],
+      "notes": [
+        {
+          "Address": {
+            "Track": 0,
+            "Part": 0,
+            "Note": 0,
+            "Position": 1920,
+            "Duration": 240,
+            "Pitch": 62,
+            "Bank": "BETDB8W6KWZPYEB9",
+            "Topology": "m u"
+          },
+          "Original": [
+            3504,
+            3517,
+            3603
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "Begin": 3481,
+          "Split": 3504,
+          "End": 3509,
+          "From": "Sil",
+          "To": "m"
+        },
+        {
+          "Begin": 3509,
+          "Split": 3517,
+          "End": 3550,
+          "From": "m",
+          "To": "u"
+        },
+        {
+          "Begin": 3550,
+          "Split": 3560,
+          "End": 3560,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3560,
+          "Split": 3583,
+          "End": 3583,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3583,
+          "Split": 3603,
+          "End": 3605,
+          "From": "u",
+          "To": "Sil"
+        }
+      ]
+    },
+    {
+      "pitch": 65,
+      "target": 1,
+      "passed": true,
+      "counters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "renders": [
+        {
+          "Name": "neutral",
+          "map": true,
+          "hash": "03478E48440BA3562997A8DDE382AAEDC6732FC9A38F0323961EF998CA5D53E4",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "phase",
+          "map": true,
+          "hash": "79250F2D853452AF0F1617A4E2947A271B1473068F847F54E3741B527F2A91C6",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "combined",
+          "map": true,
+          "hash": "FD329CEFFB8E2ED406EE02F8C61A6EAB18FC7A423A9E82C2E21E281746C9FE58",
+          "Failures": 0,
+          "gainFailures": 0
+        },
+        {
+          "Name": "restored",
+          "map": true,
+          "hash": "03478E48440BA3562997A8DDE382AAEDC6732FC9A38F0323961EF998CA5D53E4",
+          "Failures": 0,
+          "gainFailures": 0
+        }
+      ],
+      "notes": [
+        {
+          "Address": {
+            "Track": 0,
+            "Part": 0,
+            "Note": 0,
+            "Position": 1920,
+            "Duration": 240,
+            "Pitch": 62,
+            "Bank": "BETDB8W6KWZPYEB9",
+            "Topology": "m u"
+          },
+          "Original": [
+            3504,
+            3517,
+            3603
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "Begin": 3481,
+          "Split": 3504,
+          "End": 3509,
+          "From": "Sil",
+          "To": "m"
+        },
+        {
+          "Begin": 3509,
+          "Split": 3517,
+          "End": 3550,
+          "From": "m",
+          "To": "u"
+        },
+        {
+          "Begin": 3550,
+          "Split": 3560,
+          "End": 3560,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3560,
+          "Split": 3583,
+          "End": 3583,
+          "From": "u",
+          "To": null
+        },
+        {
+          "Begin": 3583,
+          "Split": 3603,
+          "End": 3605,
+          "From": "u",
+          "To": "Sil"
+        }
+      ]
+    }
+  ],
+  "controlledRenders": 24,
+  "strictWarmBaselineRestoration": true,
+  "existingRegressionRenders": 278,
+  "existingRegressionRejectedCandidates": 15,
+  "managedTestsPassed": 308,
+  "debugBuild": {
+    "passed": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "releaseBuild": {
+    "passed": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "sourceSha256": {
+    "Backend/PreparedPhonemeTiming.cs": "1ccd66e07257cf5a65c2970d530e23eabba45ef049cc9a7792cd065081b9315e",
+    "Backend/NativeConsonantTimingEngine.cs": "835310e321ad3fc5ad2294686bb9c1ca1238cc0e8e42263e23d0ce9e0fd30297",
+    "Model/ContinuationPhonemes.cs": "347a633347b527013ff6d7f120172bb1bfad3efeb2723591a843dcd499d9eec2",
+    "Model/TimingBoundaryEvidence.cs": "e9ac96b44bfb7f060c8e83eda20f4c3762d404fa5b8b87375792e9258a9b3e91",
+    "Model/TransitionLayout.cs": "ba599bca30ba4e596d4efb67c24bcbcb91142ccb56b47a8641609c950db249d0"
+  },
+  "nativeAbiChanged": false,
+  "userProjectChangedByAgent": false,
+  "editorStartedByAgent": false,
+  "hostReopenValidated": false
+}

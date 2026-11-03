@@ -11,7 +11,8 @@ namespace VOCALOIDPatcher.PhonemeVolume;
 internal static class PhonemeGainWaveProcessor
 {
     private readonly record struct Format(ushort Tag, int Channels, int Rate, int Align, int Bits, long Offset, long Frames);
-    private readonly record struct Range(long Begin, long End, double Gain);
+    private readonly record struct Range(long Begin, long End, double Gain, double FadeIn = 0, double FadeOut = 0);
+    private readonly record struct Junction(long Sample, double LeftGain, double RightGain, double Width);
 
     internal static void Create(string sourcePath, string destinationPath, IReadOnlyList<PhonemeGainRegion> regions)
     {
@@ -54,7 +55,35 @@ internal static class PhonemeGainWaveProcessor
 
     private static void ProcessWindow(FileStream stream, Format format, long begin, long end, ReadOnlySpan<Range> ranges, long fade)
     {
+        // A shared phoneme boundary is a change between two gain targets,
+        // not two separate fades back to unity. Returning to unity creates
+        // a short loudness burst even when both neighbours are attenuated.
+        var envelopes = ranges.ToArray();
+        var starts = envelopes.GroupBy(r => r.Begin).ToDictionary(g => g.Key, g => g.ToArray());
+        var ends = envelopes.GroupBy(r => r.End).ToDictionary(g => g.Key, g => g.ToArray());
+        double Width(Range range) => Math.Min(fade, Math.Max(.5, (range.End - range.Begin - 1) / 2d));
+        var junctions = starts.Keys.Intersect(ends.Keys).OrderBy(s => s).Select(sample =>
+            new Junction(sample, ends[sample].Aggregate(1d, (gain, r) => gain * r.Gain),
+                starts[sample].Aggregate(1d, (gain, r) => gain * r.Gain),
+                starts[sample].Concat(ends[sample]).Min(Width))).ToArray();
+        for (int i = 0; i < junctions.Length; i++)
+        {
+            double width = junctions[i].Width;
+            if (i > 0) width = Math.Min(width, (junctions[i].Sample - junctions[i - 1].Sample) / 2d);
+            if (i + 1 < junctions.Length) width = Math.Min(width, (junctions[i + 1].Sample - junctions[i].Sample) / 2d);
+            junctions[i] = junctions[i] with { Width = width };
+        }
+        var widths = junctions.ToDictionary(j => j.Sample, j => j.Width);
+        for (int i = 0; i < envelopes.Length; i++)
+            envelopes[i] = envelopes[i] with
+            {
+                FadeIn = widths.GetValueOrDefault(envelopes[i].Begin, Width(envelopes[i])),
+                FadeOut = widths.GetValueOrDefault(envelopes[i].End, Width(envelopes[i]))
+            };
+        static double Weight(double t) => t >= 1 ? 1 : .5 - .5 * Math.Cos(Math.PI * t);
         var bytes = new byte[checked(4096 * format.Align)];
+        var active = new List<Range>();
+        int next = 0, junctionIndex = 0;
         for (long at = begin; at < end;)
         {
             int count = (int)Math.Min(4096, end - at), length = count * format.Align;
@@ -64,17 +93,31 @@ internal static class PhonemeGainWaveProcessor
             for (int frame = 0; frame < count; frame++)
             {
                 long sample = at + frame;
+                while (next < envelopes.Length && envelopes[next].Begin <= sample)
+                    active.Add(envelopes[next++]);
+                // End points need not be sorted: nested / overlapping phonemes
+                // can finish before an earlier range. Preserve multiplication
+                // order while dropping only expired intervals.
+                for (int i = active.Count - 1; i >= 0; i--)
+                    if (active[i].End <= sample) active.RemoveAt(i);
+                double centre = sample + .5;
+                while (junctionIndex < junctions.Length && centre >= junctions[junctionIndex].Sample + junctions[junctionIndex].Width)
+                    junctionIndex++;
+                Junction? junction = junctionIndex < junctions.Length && centre >= junctions[junctionIndex].Sample - junctions[junctionIndex].Width
+                    ? junctions[junctionIndex] : null;
                 double gain = 1;
-                foreach (var range in ranges)
+                foreach (var range in active)
                 {
-                    if (sample < range.Begin || sample >= range.End) continue;
+                    if (junction is { } shared && (range.Begin == shared.Sample || range.End == shared.Sample)) continue;
                     // Smooth strictly inside the selected phoneme. The 5 ms
                     // ramp shortens for short phonemes and reaches its target.
-                    double width = Math.Min(fade, Math.Max(.5, (range.End - range.Begin - 1) / 2d));
-                    double edge = Math.Min(sample - range.Begin + .5, range.End - sample - .5);
-                    double weight = .5 - .5 * Math.Cos(Math.PI * Math.Clamp(edge / width, 0, 1));
+                    double weight = Math.Min(Weight((centre - range.Begin) / range.FadeIn),
+                        Weight((range.End - centre) / range.FadeOut));
                     gain *= 1 + (range.Gain - 1) * weight;
                 }
+                if (junction is { } bridge)
+                    gain *= bridge.LeftGain + (bridge.RightGain - bridge.LeftGain) *
+                        Weight((centre - bridge.Sample + bridge.Width) / (2 * bridge.Width));
                 for (int channel = 0; channel < format.Channels; channel++)
                     Apply(bytes.AsSpan(frame * format.Align + channel * (format.Bits / 8)), format, gain);
             }

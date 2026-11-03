@@ -13,15 +13,16 @@ internal sealed partial class LocalConsonantTimingBackend
     internal sealed record PhonemeLayout(LocalConsonantTimingResult Result, NativePhonemeTiming.Point[] Anchors,
         IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? Plans = null,
         IReadOnlyDictionary<TimingNoteAddress, long[]>? RelatedBoundaries = null,
-        TransitionCapture? TransitionCapture = null);
+        TransitionCapture? TransitionCapture = null,
+        IReadOnlyDictionary<TimingNoteAddress, ImmutableArray<PhonemeBoundaryLimit>>? Limits = null);
 
     internal sealed partial class PreparedCoefficientTiming
     {
-        private readonly Dictionary<(string Plan, int? Boundary, bool Transitions), PhonemeLayout> _phonemeResults = new();
+        private readonly Dictionary<(string Plan, int? Boundary, bool Transitions, bool Reset), PhonemeLayout> _phonemeResults = new();
 
         internal PhonemeLayout QueryPhonemes(SampledTimingPlan plan, long revision,
             CancellationToken cancellation = default, int nativeWaitBudgetMs = 50, int? editedBoundary = null,
-            bool captureTransitions = false)
+            bool captureTransitions = false, bool resetAllBoundaries = false)
         {
             float coefficient = plan.PhonemeCoefficient(_topology) ?? _defaultCoefficient;
             if (nativeWaitBudgetMs is < 0 or > 50) throw new ArgumentOutOfRangeException(nameof(nativeWaitBudgetMs));
@@ -34,7 +35,7 @@ internal sealed partial class LocalConsonantTimingBackend
                 var timer = Stopwatch.StartNew();
                 if (captureTransitions && (!_transitionCompatible || !_windows.Any(w => w.Complete)))
                     throw new NotSupportedException("Transition planning requires a complete captured context (at most 33 notes), 44100/256 and native presend.");
-                var cacheKey = (plan.Fingerprint, editedBoundary, captureTransitions);
+                var cacheKey = (plan.Fingerprint, editedBoundary, captureTransitions, resetAllBoundaries);
                 if (_phonemeResults.TryGetValue(cacheKey, out var hit)) return hit with
                 {
                     Result = hit.Result with
@@ -50,6 +51,12 @@ internal sealed partial class LocalConsonantTimingBackend
                 foreach (var window in _windows)
                 {
                     if (captureTransitions && !window.Complete) continue;
+                    if (!window.Complete && ContinuationPhonemes.IsContinuation(window.Messages[0].Address!.Topology)) continue;
+                    var owners = ContinuationPhonemes.Owners(window.Messages.Select(m => m.Address!).ToArray());
+                    string? continuationPhone = owners[window.Target] == window.Target ? null :
+                        window.Messages[owners[window.Target]].Address!.Topology.Split(' ', StringSplitOptions.RemoveEmptyEntries)[^1];
+                    bool continuesAfter = window.Target + 1 < owners.Length && owners[window.Target + 1] == owners[window.Target];
+                    ContinuationPhonemes.ValidateBoundaryEdits(plan, continuesAfter);
                     cancellation.ThrowIfCancellationRequested();
                     void Feed()
                     {
@@ -86,11 +93,11 @@ internal sealed partial class LocalConsonantTimingBackend
                             baseline[n] = positions.Select(v => Frame(note.RelPosTick.Value + v)).ToArray();
                         }
                         if (captureTransitions) originalTransitions = _owner._engine.ReadTransitions(window.Origin);
-                        if (editedBoundary is { } boundary)
-                            resolvedPlans = PhonemeBoundaryEdit.Resolve(window.Notes.Select((_, n) =>
+                        if (editedBoundary.HasValue || resetAllBoundaries)
+                            resolvedPlans = PhonemeBoundaryEdit.ResolveMany(window.Notes.Select((_, n) =>
                                 new PhonemeBoundaryEdit.Note(window.Messages[n].Address ??
                                     throw new InvalidOperationException("Missing source boundary identity."), baseline[n], window.Messages[n].Plan)).ToArray(),
-                                window.Target, boundary, plan);
+                                window.Target, resetAllBoundaries ? Enumerable.Range(0, baseline[window.Target].Length).ToArray() : [editedBoundary!.Value], plan);
                         for (int n = 0; n < window.Notes.Length; n++)
                         {
                             var note = window.Notes[n];
@@ -118,9 +125,17 @@ internal sealed partial class LocalConsonantTimingBackend
                     // Keep the captured context fixed outside its guard anchors.
                     int guard = checked(anchors.Keys.Max() + 86);
                     anchors[guard] = (guard, false);
-                    var points = anchors.Select(p => new NativePhonemeTiming.Point(p.Key, p.Value.To)).ToArray();
-                    if (points.Zip(points.Skip(1), (a, b) => a.To >= b.To).Any(v => v))
-                        throw new NotSupportedException("Phoneme boundaries cannot cross or collapse.");
+                    var projected = PhonemeWarpProjection.Resolve(anchors.Select(p => new PhonemeWarpRequest(p.Key, p.Value.To, p.Value.Edited)).ToArray(), 3087);
+                    var points = projected.Select(p => new NativePhonemeTiming.Point(p.From, p.To)).ToArray();
+                    var limits = new Dictionary<TimingNoteAddress, ImmutableArray<PhonemeBoundaryLimit>>();
+                    var applied = projected.ToDictionary(p => p.From, p => p.To);
+                    for (int n = 0; n < baseline.Length; n++)
+                    {
+                        var limited = baseline[n].Select((from, index) => new PhonemeBoundaryLimit(index, anchors[from].To - from, applied[from] - from))
+                            .Where(l => l.RequestedFrames != l.AppliedFrames).ToImmutableArray();
+                        if (!limited.IsEmpty) limits.Add(window.Messages[n].Address!, limited);
+                    }
+                    foreach (var point in projected) anchors[point.From] = (point.To, anchors[point.From].Edited);
                     int[] requested = baseline[window.Target].Select(f => anchors[f].To).ToArray();
                     string[] phones = _topology.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     _owner._engine.Begin(cancellation, nativeWaitBudgetMs, window.RegisterNotes);
@@ -128,8 +143,17 @@ internal sealed partial class LocalConsonantTimingBackend
                     try
                     {
                         NativePhonemeTiming.Begin(points); scope = true; Feed();
-                        for (int i = 0; i < requested.Length; i++) _owner._engine.VerifyPhonemeBoundary(requested[i],
-                            i == 0 ? null : phones[i - 1], i == phones.Length ? null : phones[i]);
+                        for (int i = 0; i < requested.Length; i++)
+                        {
+                            // An owner's last boundary is also the next '-'
+                            // note's pitch anchor, not the end of its vowel.
+                            // Require the same two-row continuation proof used
+                            // when querying that following note directly.
+                            bool continuationEnd = i == phones.Length && continuesAfter;
+                            _owner._engine.VerifyPhonemeBoundary(requested[i], i == 0 ? null : phones[i - 1],
+                                continuationEnd ? "-" : i == phones.Length ? null : phones[i],
+                                continuationEnd ? continuationPhone ?? phones[^1] : continuationPhone);
+                        }
                         if (captureTransitions) currentTransitions = _owner._engine.ReadTransitions(window.Origin);
                     }
                     finally
@@ -159,7 +183,7 @@ internal sealed partial class LocalConsonantTimingBackend
                             resolvedPlans, related, !captureTransitions ? null : new TransitionCapture(Array.IndexOf(_windows, window),
                                 originalTransitions, currentTransitions,
                                 window.Messages.Select((m, i) => new TransitionNoteFrames(m.Address!,
-                                    baseline[i].Select(f => checked(f + window.Origin)).ToImmutableArray())).ToImmutableArray()));
+                                    baseline[i].Select(f => checked(f + window.Origin)).ToImmutableArray())).ToImmutableArray()), limits);
                         if (_phonemeResults.Count >= 256) _phonemeResults.Clear();
                         _phonemeResults[cacheKey] = result;
                         return result with { Result = result.Result with { Boundaries = boundaries.ToArray() }, Anchors = result.Anchors.ToArray() };

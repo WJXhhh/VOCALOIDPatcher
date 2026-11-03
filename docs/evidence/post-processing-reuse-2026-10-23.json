@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "sdk": "6.13.3.1",
+  "scope": "Ordinary Part phoneme-volume and transition-smoothing derived WAV reuse. Not deployed.",
+  "method": "Same final isolated-validation driver; baseline build replaces only the two hosts with preserved pre-edit source through a temporary CoreCompile target. Legal V5 native rendering supplies real WAV, note phoneme positions and native transition plans. The probe supplies these fixed verified plans through TransitionView and suppresses only AudioPlayer/pianoroll RefreshPlacement; capture, generation/debounce, gates, file DSP, cleanup, source scopes, history and export run production code.",
+  "source_changes": [
+    "One unpublished reusable candidate per Part, exact input metadata plus regions/junctions/configuration comparison.",
+    "Candidate never served from Substitute until matched; RenderStarted clears active and candidate caches.",
+    "Export uses same full comparison instead of only input path/length/write time.",
+    "Candidate files retained during validation and released on replacement, neutral reset or close."
+  ],
+  "before": {
+    "expectReuse": false,
+    "records": [
+      {
+        "name": "ten-no-change-notifications-two-parts",
+        "duplicateWork": [
+          20,
+          20
+        ],
+        "elapsedMs": 3031.127,
+        "hashes": [
+          "73110883D4B1ED996657DF633F4F01364EB33E4FBC4B1F92CE4558DFCE35A281",
+          "73110883D4B1ED996657DF633F4F01364EB33E4FBC4B1F92CE4558DFCE35A281",
+          "6DBB6A835AF42C8FBA61A8087A124CF5FC641D5DF87621B8D81CE3F17CD2A213",
+          "6DBB6A835AF42C8FBA61A8087A124CF5FC641D5DF87621B8D81CE3F17CD2A213"
+        ]
+      },
+      {
+        "name": "edit-one-part",
+        "editedWork": [
+          2,
+          2
+        ],
+        "otherPartRetained": false
+      },
+      {
+        "name": "smoothing-config-changed",
+        "builds": 2
+      },
+      {
+        "name": "same-path-upstream-overwrite",
+        "builds": 2
+      },
+      {
+        "name": "render-boundary-forces-rebuild",
+        "unchangedFileMetadata": true,
+        "builds": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "missing-output-rebuild",
+        "builds": 2
+      },
+      {
+        "name": "neutral-reset-falls-back",
+        "passed": true
+      }
+    ]
+  },
+  "after": {
+    "expectReuse": true,
+    "records": [
+      {
+        "name": "ten-no-change-notifications-two-parts",
+        "duplicateWork": [
+          0,
+          0
+        ],
+        "elapsedMs": 2526.2111,
+        "hashes": [
+          "3A4FE3473CE3EEE0C38605F448B536331827485153C63C0B1DCDC947736A08DC",
+          "3A4FE3473CE3EEE0C38605F448B536331827485153C63C0B1DCDC947736A08DC",
+          "5F4912D6BCB0599F1521E709212381A9D7C49F5FA07398B25C09EA3459FBE83E",
+          "5F4912D6BCB0599F1521E709212381A9D7C49F5FA07398B25C09EA3459FBE83E"
+        ]
+      },
+      {
+        "name": "edit-one-part",
+        "editedWork": [
+          1,
+          1
+        ],
+        "otherPartRetained": true
+      },
+      {
+        "name": "smoothing-config-changed",
+        "builds": 2
+      },
+      {
+        "name": "same-path-upstream-overwrite",
+        "builds": 1
+      },
+      {
+        "name": "render-boundary-forces-rebuild",
+        "unchangedFileMetadata": true,
+        "builds": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "missing-output-rebuild",
+        "builds": 1
+      },
+      {
+        "name": "changed-junctions-same-source-and-config",
+        "builds": 1
+      },
+      {
+        "name": "rapid-change-and-restore",
+        "builds": 0,
+        "hash": "83AD0894E43E89B59F9BE1D8364FC775828A6A7996F6C8B639DC29AADD2B707A"
+      },
+      {
+        "name": "export-current-gain-before-debounce",
+        "builds": 1,
+        "hash": "42CAB57A760A716DDB7E8F200700519194AA4C7D080258AE8957C933586429C5"
+      },
+      {
+        "name": "actual-native-bpm-146-73-146",
+        "fastFrames": 149248,
+        "slowFrames": 276224,
+        "restoredFrames": 149248
+      },
+      {
+        "name": "same-input-fresh-dsp-reference",
+        "exactWaveChecks": 4,
+        "passed": true
+      },
+      {
+        "name": "neutral-reset-falls-back",
+        "passed": true
+      },
+      {
+        "name": "native-undo-redo-gain-reset",
+        "passed": true
+      },
+      {
+        "name": "close-while-debouncing",
+        "passed": true
+      }
+    ]
+  },
+  "count_comparison": {
+    "ten_notifications_two_parts": {
+      "phoneme_volume": [
+        20,
+        0
+      ],
+      "smoothing": [
+        20,
+        0
+      ]
+    },
+    "edit_one_of_two_parts": {
+      "phoneme_volume": [
+        2,
+        1
+      ],
+      "smoothing": [
+        2,
+        1
+      ]
+    }
+  },
+  "audio_validation": "Each run verifies unchanged notification output against its own initial WAV. Native fixtures differ between processes, so across-process hashes are not claimed equal. The optimized run additionally compares four final outputs and one Undo-restored volume output byte-for-byte by SHA256 with a fresh unchanged DSP invocation on identical input.",
+  "timing_limit": "Single probe timings include sequential 100ms debounce and polling; they are not a statistically established end-to-end speed percentage.",
+  "comp_regression": [
+    {
+      "name": "private-planner-busy-recovers",
+      "busyRetries": 4,
+      "fastFrames": 170963,
+      "internalNotificationSuppressed": true
+    },
+    {
+      "name": "bpm-146-73-146",
+      "fastFrames": 170963,
+      "slowFrames": 297826,
+      "restoredFrames": 170963,
+      "fastHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "restoredHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "staleWaveRejected": true,
+      "nonSilent": true
+    },
+    {
+      "name": "failed-recipe-retains-file-without-publishing",
+      "retainedFile": true,
+      "staleAudioRejected": true,
+      "exportRejected": true
+    }
+  ],
+  "tests": {
+    "passed": 494,
+    "failed": 0,
+    "skipped": 0,
+    "trx_sha256": "756868F3E69737CBC7E15326D7C2B066B96220D519DE6BFB5448598F4B70DB09"
+  },
+  "builds": {
+    "debug_solution": "passed, zero warnings/errors",
+    "release_solution": "passed, zero warnings/errors, ILRepack merged",
+    "isolated_before_after": "passed, zero warnings/errors"
+  },
+  "baseline_source_sha256": {
+    "PhonemeVolumeHost.before.cs": "9873FF35CE8CA2A0996F508BB1C9615F24452502ACEFC744E43DC801811276AF",
+    "TransitionSmoothingHost.before.cs": "23B366E5BB78E186EEEF62866552A99CCC8D388FCF0CC1341C8FA717888931D8"
+  },
+  "source_sha256": {
+    "VOCALOIDPatcher/VOCALOIDPatcher/PhonemeVolume/PhonemeVolumeHost.cs": "46D86F747BE09EA6469A1982FE2605E35621AECF8A7782A2ED2FF3342A42CB5A",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmoothingHost.cs": "30FEADB19F1F97E5DD003762D6CCB360BF37F6487F86FC5A1D400C33249A1CB9",
+    "VOCALOIDPatcher/VOCALOIDPatcher/Rendering/PostProcessingReuseValidation.cs": "2DD8DAEC41E211C3021CD196DAFB1D29CCCA244958AE3A50C3372CC9CE882B6C",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompValidation.cs": "E7CB3EB7887C660C64974B8F46CF014F2F78F89C7F4ACAE4514551DFD0812562"
+  },
+  "artifact_sha256": {
+    "baseline_isolated": "24D3563065FC42513739376C750713AE975F413BCB08046C50BCD135BCD5F1B6",
+    "optimized_isolated": "C90E28EB8CA468CA6C77826D4D438C3D04A4DFDB0564D13634E4D166D8411FB6",
+    "merged_release": "015949E200B7D04A7B812A79396E5B9495698FE56687CFC654A6FC1197516724"
+  },
+  "deployment": {
+    "performed": false,
+    "editor_started": false,
+    "editor_closed": false,
+    "user_project_modified": false
+  },
+  "remaining_work": [
+    "Observe user Editor playback and export after deployment.",
+    "Coordinated dependency readiness to avoid repeated debounce; not changed here.",
+    "Reduce redundant placement/UI publications; not changed here.",
+    "Avoid unnecessary fallback transition planning and broad source scans; not changed here."
+  ]
+}

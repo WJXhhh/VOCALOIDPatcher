@@ -6,6 +6,24 @@ namespace VOCALOIDPatcher.ConsonantTiming;
 
 internal static partial class SampledTimingHost
 {
+    internal static nint BeforeControllerRemoval(WIVSMMidiPart part, WIVSMMidiController controller)
+    {
+        if (Entries.IsEmpty || controller == null || part.Sequence is not { } source ||
+            !Entries.TryGetValue((nint)source, out var entry) || entry.Rebuilding) return 0;
+        entry.InputScope.BeforeControllerRemoval((nint)controller, (nint)part);
+        return (nint)source;
+    }
+
+    internal static void FailedControllerRemoval(nint source, WIVSMMidiController controller)
+    {
+        if (Entries.TryGetValue(source, out var entry)) entry.InputScope.FailedControllerRemoval((nint)controller);
+    }
+
+    internal static void EndInputMutation(WIVSMSequence source)
+    {
+        if (Entries.TryGetValue((nint)source, out var entry)) entry.InputScope.EndMutation();
+    }
+
     internal static void RegisterShiftInputChanged(WIVSMSequence source, WIVSMMidiPart part)
     {
         if (!Entries.TryGetValue((nint)source, out var entry) || entry.Rebuilding) return;
@@ -26,13 +44,20 @@ internal static partial class SampledTimingHost
         {
             try
             {
-                if (entry.Rebuilding || update.NotifyType is VSMNotifyType.DidUpdateWaveFile or
+                if (entry.Rebuilding || TimingCacheInvalidationScope.IsActive((nint)entry.Source) ||
+                    update.NotifyType is VSMNotifyType.DidUpdateWaveFile or
                     VSMNotifyType.DidUpdatePhonemePosition or
                     VSMNotifyType.DidUpdateName or VSMNotifyType.DidUpdateColor or VSMNotifyType.DidUpdateStyleName or
                     VSMNotifyType.DidUpdateStylePresetID) return;
                 entry.InputNotices.Add(update.ObjectsType.Name + ":" + update.NotifyType);
                 foreach (object value in update.Objects)
                 {
+                    if (value is WIVSMMidiController removedController && update.NotifyType == VSMNotifyType.DidRemove)
+                    {
+                        entry.InputScope.ControllerRemoved((nint)removedController,
+                            entry.Source.MidiTracks.SelectMany(t => t.MidiParts).Select(p => (nint)p));
+                        continue;
+                    }
                     // Removed notes remain represented by the last committed graph;
                     // never call native Parent on an object that has been removed.
                     if (value is WIVSMNote removed && update.NotifyType == VSMNotifyType.DidRemove)

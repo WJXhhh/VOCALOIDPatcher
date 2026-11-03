@@ -45,7 +45,7 @@ public sealed class TransitionSmoothingTests
     [InlineData(2.49)]
     public void BelowThresholdBypassesBothBufferAndSplice(double nominalDifference)
     {
-        var original = Sine(220, phaseStep: true);
+        var original = Sine(220);
         var audio = (float[])original.Clone();
         Assert.False(TransitionSmoother.SmoothJunction(audio, Junction, Rate, null, 0, nominalDifference).Intervened);
         Assert.Equal(original, audio);
@@ -70,6 +70,48 @@ public sealed class TransitionSmoothingTests
         Assert.True(localJump < .02, $"Local jump {localJump}");
         Assert.Equal(original[..(Junction - 3000)], audio[..(Junction - 3000)]);
         Assert.Equal(original[(Junction + 3000)..], audio[(Junction + 3000)..]);
+    }
+
+    [Theory]
+    [InlineData(490)]
+    [InlineData(491)]
+    [InlineData(492)]
+    public void QuantizedHarmonicDecayDoesNotCreateAGainStep(int phaseIndex)
+    {
+        const int junction = 4410;
+        double phase = phaseIndex * Math.PI * 2 / 1000;
+        var original = Enumerable.Range(0, 8820).Select(i =>
+        {
+            double angle = 2 * Math.PI * 1000 * (i - junction) / Rate + phase;
+            double envelope = .12 * Math.Exp(-8 * (i - junction) / (double)Rate);
+            double value = envelope * (Math.Sin(angle) + .2 * Math.Sin(3 * angle + .3) + .15 * Math.Sin(7 * angle + .9));
+            return (float)(Math.Round(value * 32768) / 32768);
+        }).ToArray();
+        var audio = (float[])original.Clone();
+        var result = TransitionSmoother.SmoothJunction(audio, junction, Rate, null, 0, 0);
+        Assert.False(result.Intervened);
+        Assert.Equal(original, audio);
+    }
+
+    [Theory]
+    [InlineData(120)]
+    [InlineData(392)]
+    [InlineData(1000)]
+    public void ActualGainStepStillRepairsAcrossPitchAndPhase(int frequency)
+    {
+        foreach (double phase in new[] { 0d, .7, Math.PI / 2 })
+        {
+            var original = Sine(frequency, phase, gainStep: true);
+            var audio = (float[])original.Clone();
+            var result = TransitionSmoother.SmoothJunction(audio, Junction, Rate, null, 0, 6);
+            Assert.True(result.Intervened);
+            double Step(float[] samples) => Math.Abs(20 * Math.Log10(
+                Math.Sqrt(samples.Skip(Junction).Take(441).Average(s => (double)s * s)) /
+                Math.Sqrt(samples.Skip(Junction - 441).Take(441).Average(s => (double)s * s))));
+            Assert.True(Step(audio) < Step(original) / 2);
+            Assert.Equal(original[..(Junction - 3000)], audio[..(Junction - 3000)]);
+            Assert.Equal(original[(Junction + 3000)..], audio[(Junction + 3000)..]);
+        }
     }
 
     [Theory]
@@ -147,7 +189,8 @@ public sealed class TransitionSmoothingTests
                     else { writer.Write((byte)(value >> 8)); writer.Write((byte)(value >> 16)); writer.Write((byte)(value >> 24)); }
                 }
             }
-            WaveJunctionProcessor.ProcessWaveFile(source, bypass, junction, null, 0, 0);
+            WaveJunctionProcessor.ProcessWaveFile(source, bypass, junction,
+                new() { Mode = TransitionSmoothingMode.Disabled }, 0, 0);
             var original = File.ReadAllBytes(source);
             Assert.Equal(original, File.ReadAllBytes(bypass));
             var result = WaveJunctionProcessor.ProcessWaveFile(source, processed, junction, null, 0, 12);

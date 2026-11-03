@@ -1,0 +1,862 @@
+{
+  "date": "2026-10-23",
+  "scope": "Isolated native VSM/DSE working-set intervention, not Editor end-to-end acceptance.",
+  "hardware": {
+    "cpu": "AMD Ryzen 9 9955HX",
+    "cores": 16,
+    "logical_processors": 32,
+    "visible_memory_kib": 15922876
+  },
+  "runtime_changes": {
+    "editor_started": false,
+    "editor_closed": false,
+    "deployed": false,
+    "user_project_changed": false,
+    "user_settings_changed": false,
+    "system_cache_cleared": false
+  },
+  "validation": {
+    "solution_debug_isolated_build": "passed, 0 warnings, 0 errors",
+    "harness_release_isolated_build": "passed, 0 warnings, 0 errors",
+    "completed_measurements": 410,
+    "audio_non_silent_and_fresh_pcm": true,
+    "within_case_audio_sha256_identical": true
+  },
+  "artifacts": {
+    "local_directory_name": "v6patch-working-set-ab-20261023-122137",
+    "paired_v2_harness_dll_sha256": "c1ac1e37489a752655d9085a205a5b3f89f7b82116713e2e16e6f286d6085ca3",
+    "triplet_v3_harness_dll_sha256": "36092fead7d15a9e9c81ee27bbde5c9ec11cb68ceba8e8dd7a153e42f5cd971b",
+    "diagnostic_native_dll_sha256": "621693f9986861de955d1025dee8ec521ca0ef13de691f976d4a86ecd44d4de0",
+    "benchmark_source_sha256": "96994cd876725bf0a33d065bcaf62ff774cd2f3b5fac2503aa8be2bcd374cdd6",
+    "analysis_source_sha256": "47f50b232a253a17be41a7807054cfde6daa13d4a40ac7fd16db8858850d35d6"
+  },
+  "primary_randomized_triplets": {
+    "schema_version": 1,
+    "metadata": {
+      "kind": "metadata",
+      "version": 3,
+      "startedAt": "2026-10-23T12:44:57.5759745+08:00",
+      "processId": 47300,
+      "sdk": "6.13.3.1",
+      "runtime": ".NET 8.0.30",
+      "os": "Microsoft Windows 10.0.26300",
+      "logicalProcessors": 32,
+      "editor": "C:\\Program Files\\VOCALOID6\\Editor",
+      "pairs": 30,
+      "count": 12,
+      "waits": [
+        1250
+      ],
+      "banks": "BD79E492NWWK3DDF",
+      "cacheCapacity": 1073741824,
+      "triplets": true,
+      "editScopes": [
+        "all"
+      ],
+      "ordering": "All six retain/trim/sham permutations, balanced and shuffled with seed 20261023.",
+      "nativeBinaries": [
+        {
+          "name": "VOCALOID6.dll",
+          "version": "6.13.3.1",
+          "sha256": "F534ABB9E5678D024F09525E6957F31BFB1D3F3146258D121DAB929D874965AB"
+        },
+        {
+          "name": "DSE.dll",
+          "version": "6.13.3.1",
+          "sha256": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD"
+        },
+        {
+          "name": "VSM.dll",
+          "version": "6.13.3.1",
+          "sha256": "0A509EE86CBCA68048DFB4D6B6C0D5FE970388AD18B1C2A0E16998CDD3789EE8"
+        }
+      ],
+      "scope": "Isolated VSM async render, full-Part and single-note edits; no Editor UI or Patcher DSP. Each measurement is preceded by an untrimmed primer.",
+      "intervention": "0 ms: render before the 1 s trim deadline, no trim in either arm. 1250 ms: B trims at 1000 ms, both request after at least 1250 ms."
+    },
+    "raw": {
+      "file": "working-set-render-ab.jsonl",
+      "bytes": 104550,
+      "sha256": "ba61bf5fbb8951e46f897dc7a0426df20382d0d11e3118aae6cc865979273c18",
+      "measurements": 90
+    },
+    "available_physical_mib": {
+      "min": 1253.80078125,
+      "median": 2233.55078125,
+      "max": 2812.90234375
+    },
+    "method": "A=retain, B=trim, optional C=sham. All six retain/trim/sham permutations, balanced and shuffled with seed 20261023. Percentile bootstrap of within-block median delta, seed 20261023, 10000 resamples. Immediate arms all omit trim.",
+    "limitations": [
+      "Native VSM/DSE isolation, not Editor UI/Patcher DSP or export latency.",
+      "Page faults include soft and hard faults. Process I/O counters are not physical disk-read counters.",
+      "Idle wait, trim API duration, observer setup, metrics snapshots, stop/cleanup and output verification are outside edit-to-complete time.",
+      "A common primer reheats the active native path; this is the next-render effect, not separate long-running policy processes.",
+      "Cases run sequentially; AB/BA balances arm order but not scenario order or machine background load.",
+      "DSE Samples is the counter's last-start diagnostic, not a sum of all output samples."
+    ],
+    "cases": [
+      {
+        "bank": "BD79E492NWWK3DDF",
+        "edit_scope": "all",
+        "wait_ms": 1250,
+        "actual_trim": true,
+        "pairs": 30,
+        "retain": {
+          "samples": 30,
+          "total_median_ms": 360.07535,
+          "total_p95_ms": 461.96162499999986,
+          "render_median_ms": 360.02930000000003,
+          "edit_median_ms": 0.042749999999999996,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 104.443359375,
+          "working_set_after_trim_mib": 104.443359375,
+          "working_set_after_render_mib": 104.263671875,
+          "private_bytes_before_trim_mib": 418.466796875,
+          "private_bytes_after_trim_mib": 418.466796875,
+          "render_page_faults_median": 7768.0,
+          "resume_page_faults_median": 7768.0,
+          "render_cpu_median_ms": 359.375,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 1257.92375,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "trim": {
+          "samples": 30,
+          "total_median_ms": 372.94975,
+          "total_p95_ms": 461.79535999999973,
+          "render_median_ms": 372.776,
+          "edit_median_ms": 0.19215,
+          "trim_median_ms": 11.23285,
+          "working_set_before_trim_mib": 105.21875,
+          "working_set_after_trim_mib": 0.25390625,
+          "working_set_after_render_mib": 93.2265625,
+          "private_bytes_before_trim_mib": 415.82421875,
+          "private_bytes_after_trim_mib": 415.82421875,
+          "render_page_faults_median": 30600.5,
+          "resume_page_faults_median": 30768.0,
+          "render_cpu_median_ms": 367.1875,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 1259.40185,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "difference_of_arm_medians_ms": 12.87439999999998,
+        "difference_of_arm_medians_pct": 3.575473855680489,
+        "paired_median_delta_ms": 12.465600000000023,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          1.217250000000007,
+          16.953049999999962
+        ],
+        "paired_mean_delta_ms": 18.187069999999995,
+        "paired_median_penalty_pct": 3.5853671676284726,
+        "trim_slower_pairs": 21,
+        "sha256": "E2606B18A31D39FD877DBAAB1591FDA31049D7FCFFF7BED87929193756F2C9E6",
+        "order_counts": {
+          "sham,retain,trim": 5,
+          "trim,retain,sham": 5,
+          "retain,sham,trim": 5,
+          "sham,trim,retain": 5,
+          "retain,trim,sham": 5,
+          "trim,sham,retain": 5
+        },
+        "sham": {
+          "samples": 30,
+          "total_median_ms": 361.79125,
+          "total_p95_ms": 1115.1883699999967,
+          "render_median_ms": 361.75295,
+          "edit_median_ms": 0.040150000000000005,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 103.353515625,
+          "working_set_after_trim_mib": 103.353515625,
+          "working_set_after_render_mib": 103.626953125,
+          "private_bytes_before_trim_mib": 415.37109375,
+          "private_bytes_after_trim_mib": 415.37109375,
+          "render_page_faults_median": 8097.0,
+          "resume_page_faults_median": 8101.0,
+          "render_cpu_median_ms": 351.5625,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 1257.2423,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "sham_minus_retain_median_ms": -2.3815999999999917,
+        "sham_minus_retain_bootstrap_95_ci_ms": [
+          -11.203499999999991,
+          1.8629999999999711
+        ],
+        "trim_minus_sham_median_ms": 14.513649999999984,
+        "trim_minus_sham_bootstrap_95_ci_ms": [
+          11.000699999999995,
+          26.034750000000003
+        ],
+        "mean_controls_median_ms": 370.7108,
+        "trim_minus_mean_controls_median_ms": 10.13500000000002,
+        "trim_minus_mean_controls_bootstrap_95_ci_ms": [
+          1.5139999999999816,
+          16.57782499999999
+        ],
+        "trim_vs_mean_controls_median_penalty_pct": 2.6265012718630465
+      }
+    ]
+  },
+  "initial_direct_edit_pairs": {
+    "schema_version": 1,
+    "metadata": {
+      "kind": "metadata",
+      "version": 2,
+      "startedAt": "2026-10-23T12:32:58.1746142+08:00",
+      "processId": 46048,
+      "sdk": "6.13.3.1",
+      "runtime": ".NET 8.0.30",
+      "os": "Microsoft Windows 10.0.26300",
+      "logicalProcessors": 32,
+      "editor": "C:\\Program Files\\VOCALOID6\\Editor",
+      "pairs": 30,
+      "count": 12,
+      "waits": [
+        1250
+      ],
+      "banks": "BD79E492NWWK3DDF,BL8CEAM5N4XN3LFK",
+      "cacheCapacity": 1073741824,
+      "nativeBinaries": [
+        {
+          "name": "VOCALOID6.dll",
+          "version": "6.13.3.1",
+          "sha256": "F534ABB9E5678D024F09525E6957F31BFB1D3F3146258D121DAB929D874965AB"
+        },
+        {
+          "name": "DSE.dll",
+          "version": "6.13.3.1",
+          "sha256": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD"
+        },
+        {
+          "name": "VSM.dll",
+          "version": "6.13.3.1",
+          "sha256": "0A509EE86CBCA68048DFB4D6B6C0D5FE970388AD18B1C2A0E16998CDD3789EE8"
+        }
+      ],
+      "scope": "Isolated VSM async render, full-Part and single-note edits; no Editor UI or Patcher DSP. Each measurement is preceded by an untrimmed primer.",
+      "intervention": "0 ms: render before the 1 s trim deadline, no trim in either arm. 1250 ms: B trims at 1000 ms, both request after at least 1250 ms."
+    },
+    "raw": {
+      "file": "working-set-render-ab.jsonl",
+      "bytes": 276706,
+      "sha256": "b4839077627add33837ea537c4f71afba16ac0ee6443c8e1bd49809dd8a30cff",
+      "measurements": 240
+    },
+    "available_physical_mib": {
+      "min": 14.234375,
+      "median": 598.013671875,
+      "max": 4027.23828125
+    },
+    "method": "A=retain, B=trim, optional C=sham. AB/BA alternating pairs. Percentile bootstrap of within-block median delta, seed 20261023, 10000 resamples. Immediate arms all omit trim.",
+    "limitations": [
+      "Native VSM/DSE isolation, not Editor UI/Patcher DSP or export latency.",
+      "Page faults include soft and hard faults. Process I/O counters are not physical disk-read counters.",
+      "Idle wait, trim API duration, observer setup, metrics snapshots, stop/cleanup and output verification are outside edit-to-complete time.",
+      "A common primer reheats the active native path; this is the next-render effect, not separate long-running policy processes.",
+      "Cases run sequentially; AB/BA balances arm order but not scenario order or machine background load.",
+      "DSE Samples is the counter's last-start diagnostic, not a sum of all output samples."
+    ],
+    "cases": [
+      {
+        "bank": "BD79E492NWWK3DDF",
+        "edit_scope": "all",
+        "wait_ms": 1250,
+        "actual_trim": true,
+        "pairs": 30,
+        "retain": {
+          "samples": 30,
+          "total_median_ms": 432.7464,
+          "total_p95_ms": 488.34317,
+          "render_median_ms": 432.70230000000004,
+          "edit_median_ms": 0.049350000000000005,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 87.541015625,
+          "working_set_after_trim_mib": 87.544921875,
+          "working_set_after_render_mib": 89.08984375,
+          "private_bytes_before_trim_mib": 392.650390625,
+          "private_bytes_after_trim_mib": 392.650390625,
+          "render_page_faults_median": 11547.0,
+          "resume_page_faults_median": 11560.0,
+          "render_cpu_median_ms": 421.875,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 1253.9072,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "trim": {
+          "samples": 30,
+          "total_median_ms": 450.5858,
+          "total_p95_ms": 1456.0276899999951,
+          "render_median_ms": 450.35225,
+          "edit_median_ms": 0.1847,
+          "trim_median_ms": 13.5517,
+          "working_set_before_trim_mib": 87.314453125,
+          "working_set_after_trim_mib": 0.24609375,
+          "working_set_after_render_mib": 80.015625,
+          "private_bytes_before_trim_mib": 389.173828125,
+          "private_bytes_after_trim_mib": 389.173828125,
+          "render_page_faults_median": 30402.5,
+          "resume_page_faults_median": 30583.0,
+          "render_cpu_median_ms": 453.125,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 1258.5481,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "difference_of_arm_medians_ms": 17.839400000000012,
+        "difference_of_arm_medians_pct": 4.122368204565086,
+        "paired_median_delta_ms": 30.075849999999974,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          7.336249999999978,
+          46.9880149999998
+        ],
+        "paired_mean_delta_ms": 144.25915666666666,
+        "paired_median_penalty_pct": 6.771518215982231,
+        "trim_slower_pairs": 23,
+        "sha256": "E2606B18A31D39FD877DBAAB1591FDA31049D7FCFFF7BED87929193756F2C9E6",
+        "order_counts": {
+          "retain,trim": 15,
+          "trim,retain": 15
+        }
+      },
+      {
+        "bank": "BD79E492NWWK3DDF",
+        "edit_scope": "single",
+        "wait_ms": 1250,
+        "actual_trim": true,
+        "pairs": 30,
+        "retain": {
+          "samples": 30,
+          "total_median_ms": 418.61555,
+          "total_p95_ms": 2285.95381,
+          "render_median_ms": 418.5733,
+          "edit_median_ms": 0.029249999999999998,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 102.927734375,
+          "working_set_after_trim_mib": 102.927734375,
+          "working_set_after_render_mib": 105.240234375,
+          "private_bytes_before_trim_mib": 415.25,
+          "private_bytes_after_trim_mib": 415.25,
+          "render_page_faults_median": 8078.5,
+          "resume_page_faults_median": 8079.5,
+          "render_cpu_median_ms": 406.25,
+          "process_read_bytes_median": 98601426.0,
+          "idle_median_ms": 1253.02295,
+          "dse_steps_range": [
+            4291,
+            4291
+          ]
+        },
+        "trim": {
+          "samples": 30,
+          "total_median_ms": 450.15595,
+          "total_p95_ms": 544.8229449999999,
+          "render_median_ms": 449.97245,
+          "edit_median_ms": 0.1511,
+          "trim_median_ms": 15.90865,
+          "working_set_before_trim_mib": 105.439453125,
+          "working_set_after_trim_mib": 0.24609375,
+          "working_set_after_render_mib": 92.6640625,
+          "private_bytes_before_trim_mib": 418.197265625,
+          "private_bytes_after_trim_mib": 418.197265625,
+          "render_page_faults_median": 30529.5,
+          "resume_page_faults_median": 30692.5,
+          "render_cpu_median_ms": 453.125,
+          "process_read_bytes_median": 98601426.0,
+          "idle_median_ms": 1253.26025,
+          "dse_steps_range": [
+            4291,
+            4291
+          ]
+        },
+        "difference_of_arm_medians_ms": 31.540400000000034,
+        "difference_of_arm_medians_pct": 7.53445494320506,
+        "paired_median_delta_ms": 30.175150000000002,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          15.38209999999998,
+          45.4675
+        ],
+        "paired_mean_delta_ms": -154.43040333333332,
+        "paired_median_penalty_pct": 7.147511858870859,
+        "trim_slower_pairs": 24,
+        "sha256": "223EC01A4239BD4850E3C2C319C6F9EA45E05BF5092B4420B4F2E5319571928A",
+        "order_counts": {
+          "retain,trim": 15,
+          "trim,retain": 15
+        }
+      },
+      {
+        "bank": "BL8CEAM5N4XN3LFK",
+        "edit_scope": "all",
+        "wait_ms": 1250,
+        "actual_trim": true,
+        "pairs": 30,
+        "retain": {
+          "samples": 30,
+          "total_median_ms": 342.15065,
+          "total_p95_ms": 419.20723000000004,
+          "render_median_ms": 342.11365,
+          "edit_median_ms": 0.04295,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 106.47265625,
+          "working_set_after_trim_mib": 106.47265625,
+          "working_set_after_render_mib": 107.484375,
+          "private_bytes_before_trim_mib": 427.95703125,
+          "private_bytes_after_trim_mib": 427.95703125,
+          "render_page_faults_median": 6671.5,
+          "resume_page_faults_median": 6671.5,
+          "render_cpu_median_ms": 335.9375,
+          "process_read_bytes_median": 72672208.0,
+          "idle_median_ms": 1253.414,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "trim": {
+          "samples": 30,
+          "total_median_ms": 374.23064999999997,
+          "total_p95_ms": 1213.290444999996,
+          "render_median_ms": 374.04335000000003,
+          "edit_median_ms": 0.17625000000000002,
+          "trim_median_ms": 14.04725,
+          "working_set_before_trim_mib": 108.142578125,
+          "working_set_after_trim_mib": 0.24609375,
+          "working_set_after_render_mib": 97.04296875,
+          "private_bytes_before_trim_mib": 428.515625,
+          "private_bytes_after_trim_mib": 428.515625,
+          "render_page_faults_median": 30681.0,
+          "resume_page_faults_median": 30866.5,
+          "render_cpu_median_ms": 375.0,
+          "process_read_bytes_median": 72672208.0,
+          "idle_median_ms": 1255.1844,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "difference_of_arm_medians_ms": 32.079999999999984,
+        "difference_of_arm_medians_pct": 9.375986864265773,
+        "paired_median_delta_ms": 16.701700000000017,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          14.266700000000014,
+          46.17349999999999
+        ],
+        "paired_mean_delta_ms": 122.32995000000001,
+        "paired_median_penalty_pct": 4.821937943930976,
+        "trim_slower_pairs": 22,
+        "sha256": "F5844E894EE94E2B99EEC622E2DC7FAA955FBA5F8C66A952FB808572E0C645D6",
+        "order_counts": {
+          "retain,trim": 15,
+          "trim,retain": 15
+        }
+      },
+      {
+        "bank": "BL8CEAM5N4XN3LFK",
+        "edit_scope": "single",
+        "wait_ms": 1250,
+        "actual_trim": true,
+        "pairs": 30,
+        "retain": {
+          "samples": 30,
+          "total_median_ms": 327.26095,
+          "total_p95_ms": 1417.3567149999994,
+          "render_median_ms": 327.23585,
+          "edit_median_ms": 0.0259,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 109.55859375,
+          "working_set_after_trim_mib": 109.55859375,
+          "working_set_after_render_mib": 110.51171875,
+          "private_bytes_before_trim_mib": 434.2578125,
+          "private_bytes_after_trim_mib": 434.2578125,
+          "render_page_faults_median": 6083.0,
+          "resume_page_faults_median": 6086.0,
+          "render_cpu_median_ms": 312.5,
+          "process_read_bytes_median": 72672470.0,
+          "idle_median_ms": 1254.4751,
+          "dse_steps_range": [
+            4294,
+            4294
+          ]
+        },
+        "trim": {
+          "samples": 30,
+          "total_median_ms": 349.72505,
+          "total_p95_ms": 404.50570999999997,
+          "render_median_ms": 349.52335,
+          "edit_median_ms": 0.14889999999999998,
+          "trim_median_ms": 13.4434,
+          "working_set_before_trim_mib": 110.1328125,
+          "working_set_after_trim_mib": 0.24609375,
+          "working_set_after_render_mib": 98.75,
+          "private_bytes_before_trim_mib": 434.646484375,
+          "private_bytes_after_trim_mib": 434.646484375,
+          "render_page_faults_median": 30772.0,
+          "resume_page_faults_median": 30939.0,
+          "render_cpu_median_ms": 343.75,
+          "process_read_bytes_median": 72672470.0,
+          "idle_median_ms": 1255.7517,
+          "dse_steps_range": [
+            4294,
+            4294
+          ]
+        },
+        "difference_of_arm_medians_ms": 22.46410000000003,
+        "difference_of_arm_medians_pct": 6.864277574211042,
+        "paired_median_delta_ms": 16.324250000000006,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          1.489200000000011,
+          28.715599999999995
+        ],
+        "paired_mean_delta_ms": -89.68504,
+        "paired_median_penalty_pct": 5.133022738142512,
+        "trim_slower_pairs": 22,
+        "sha256": "F5844E894EE94E2B99EEC622E2DC7FAA955FBA5F8C66A952FB808572E0C645D6",
+        "order_counts": {
+          "retain,trim": 15,
+          "trim,retain": 15
+        }
+      }
+    ]
+  },
+  "initial_immediate_sham_control": {
+    "schema_version": 1,
+    "metadata": {
+      "kind": "metadata",
+      "version": 2,
+      "startedAt": "2026-10-23T12:41:35.6160202+08:00",
+      "processId": 27444,
+      "sdk": "6.13.3.1",
+      "runtime": ".NET 8.0.30",
+      "os": "Microsoft Windows 10.0.26300",
+      "logicalProcessors": 32,
+      "editor": "C:\\Program Files\\VOCALOID6\\Editor",
+      "pairs": 10,
+      "count": 12,
+      "waits": [
+        0
+      ],
+      "banks": "BD79E492NWWK3DDF,BL8CEAM5N4XN3LFK",
+      "cacheCapacity": 1073741824,
+      "nativeBinaries": [
+        {
+          "name": "VOCALOID6.dll",
+          "version": "6.13.3.1",
+          "sha256": "F534ABB9E5678D024F09525E6957F31BFB1D3F3146258D121DAB929D874965AB"
+        },
+        {
+          "name": "DSE.dll",
+          "version": "6.13.3.1",
+          "sha256": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD"
+        },
+        {
+          "name": "VSM.dll",
+          "version": "6.13.3.1",
+          "sha256": "0A509EE86CBCA68048DFB4D6B6C0D5FE970388AD18B1C2A0E16998CDD3789EE8"
+        }
+      ],
+      "scope": "Isolated VSM async render, full-Part and single-note edits; no Editor UI or Patcher DSP. Each measurement is preceded by an untrimmed primer.",
+      "intervention": "0 ms: render before the 1 s trim deadline, no trim in either arm. 1250 ms: B trims at 1000 ms, both request after at least 1250 ms."
+    },
+    "raw": {
+      "file": "working-set-render-ab.jsonl",
+      "bytes": 91384,
+      "sha256": "4b1b8febdbbba84de0683606d1d930b79347de5a3d2e51e9febbcfa609d0150e",
+      "measurements": 80
+    },
+    "available_physical_mib": {
+      "min": 2093.1328125,
+      "median": 3239.7890625,
+      "max": 3734.95703125
+    },
+    "method": "A=retain, B=trim, optional C=sham. AB/BA alternating pairs. Percentile bootstrap of within-block median delta, seed 20261023, 10000 resamples. Immediate arms all omit trim.",
+    "limitations": [
+      "Native VSM/DSE isolation, not Editor UI/Patcher DSP or export latency.",
+      "Page faults include soft and hard faults. Process I/O counters are not physical disk-read counters.",
+      "Idle wait, trim API duration, observer setup, metrics snapshots, stop/cleanup and output verification are outside edit-to-complete time.",
+      "A common primer reheats the active native path; this is the next-render effect, not separate long-running policy processes.",
+      "Cases run sequentially; AB/BA balances arm order but not scenario order or machine background load.",
+      "DSE Samples is the counter's last-start diagnostic, not a sum of all output samples."
+    ],
+    "cases": [
+      {
+        "bank": "BD79E492NWWK3DDF",
+        "edit_scope": "all",
+        "wait_ms": 0,
+        "actual_trim": false,
+        "pairs": 10,
+        "retain": {
+          "samples": 10,
+          "total_median_ms": 354.4057,
+          "total_p95_ms": 383.19379999999995,
+          "render_median_ms": 354.39045,
+          "edit_median_ms": 0.019200000000000002,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 402.29296875,
+          "working_set_after_trim_mib": 402.29296875,
+          "working_set_after_render_mib": 398.498046875,
+          "private_bytes_before_trim_mib": 375.619140625,
+          "private_bytes_after_trim_mib": 375.619140625,
+          "render_page_faults_median": 18469.0,
+          "resume_page_faults_median": 18469.5,
+          "render_cpu_median_ms": 343.75,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 0.01585,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "trim": {
+          "samples": 10,
+          "total_median_ms": 370.34815000000003,
+          "total_p95_ms": 418.61564,
+          "render_median_ms": 370.32965,
+          "edit_median_ms": 0.01725,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 398.162109375,
+          "working_set_after_trim_mib": 398.162109375,
+          "working_set_after_render_mib": 397.36328125,
+          "private_bytes_before_trim_mib": 371.6640625,
+          "private_bytes_after_trim_mib": 371.6640625,
+          "render_page_faults_median": 20888.5,
+          "resume_page_faults_median": 20888.5,
+          "render_cpu_median_ms": 367.1875,
+          "process_read_bytes_median": 98670368.0,
+          "idle_median_ms": 0.01175,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "difference_of_arm_medians_ms": 15.942450000000008,
+        "difference_of_arm_medians_pct": 4.498361623416325,
+        "paired_median_delta_ms": 18.13794999999999,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          12.430300000000045,
+          37.20795000000001
+        ],
+        "paired_mean_delta_ms": 22.9683,
+        "paired_median_penalty_pct": 5.139797958803216,
+        "trim_slower_pairs": 10,
+        "sha256": "E2606B18A31D39FD877DBAAB1591FDA31049D7FCFFF7BED87929193756F2C9E6",
+        "order_counts": {
+          "retain,trim": 5,
+          "trim,retain": 5
+        }
+      },
+      {
+        "bank": "BD79E492NWWK3DDF",
+        "edit_scope": "single",
+        "wait_ms": 0,
+        "actual_trim": false,
+        "pairs": 10,
+        "retain": {
+          "samples": 10,
+          "total_median_ms": 348.5856,
+          "total_p95_ms": 1074.2834599999987,
+          "render_median_ms": 348.5725,
+          "edit_median_ms": 0.0131,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 446.419921875,
+          "working_set_after_trim_mib": 446.419921875,
+          "working_set_after_render_mib": 451.009765625,
+          "private_bytes_before_trim_mib": 413.001953125,
+          "private_bytes_after_trim_mib": 413.001953125,
+          "render_page_faults_median": 7996.0,
+          "resume_page_faults_median": 7996.5,
+          "render_cpu_median_ms": 343.75,
+          "process_read_bytes_median": 98601426.0,
+          "idle_median_ms": 0.0146,
+          "dse_steps_range": [
+            4291,
+            4291
+          ]
+        },
+        "trim": {
+          "samples": 10,
+          "total_median_ms": 353.2877,
+          "total_p95_ms": 357.73539,
+          "render_median_ms": 353.27645,
+          "edit_median_ms": 0.010450000000000001,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 458.583984375,
+          "working_set_after_trim_mib": 458.583984375,
+          "working_set_after_render_mib": 456.927734375,
+          "private_bytes_before_trim_mib": 418.51171875,
+          "private_bytes_after_trim_mib": 418.51171875,
+          "render_page_faults_median": 7809.5,
+          "resume_page_faults_median": 7809.5,
+          "render_cpu_median_ms": 343.75,
+          "process_read_bytes_median": 98601426.0,
+          "idle_median_ms": 0.01105,
+          "dse_steps_range": [
+            4291,
+            4291
+          ]
+        },
+        "difference_of_arm_medians_ms": 4.702099999999973,
+        "difference_of_arm_medians_pct": 1.3489082738931124,
+        "paired_median_delta_ms": 1.4676500000000203,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          -27.576549999999997,
+          14.718799999999987
+        ],
+        "paired_mean_delta_ms": -130.19334,
+        "paired_median_penalty_pct": 0.4067153701451165,
+        "trim_slower_pairs": 5,
+        "sha256": "223EC01A4239BD4850E3C2C319C6F9EA45E05BF5092B4420B4F2E5319571928A",
+        "order_counts": {
+          "retain,trim": 5,
+          "trim,retain": 5
+        }
+      },
+      {
+        "bank": "BL8CEAM5N4XN3LFK",
+        "edit_scope": "all",
+        "wait_ms": 0,
+        "actual_trim": false,
+        "pairs": 10,
+        "retain": {
+          "samples": 10,
+          "total_median_ms": 294.8147,
+          "total_p95_ms": 308.20012499999996,
+          "render_median_ms": 294.79385,
+          "edit_median_ms": 0.0233,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 472.59375,
+          "working_set_after_trim_mib": 472.423828125,
+          "working_set_after_render_mib": 471.8359375,
+          "private_bytes_before_trim_mib": 425.75390625,
+          "private_bytes_after_trim_mib": 425.75390625,
+          "render_page_faults_median": 6298.0,
+          "resume_page_faults_median": 6298.0,
+          "render_cpu_median_ms": 281.25,
+          "process_read_bytes_median": 72672208.0,
+          "idle_median_ms": 0.02145,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "trim": {
+          "samples": 10,
+          "total_median_ms": 293.0093,
+          "total_p95_ms": 307.426455,
+          "render_median_ms": 292.99514999999997,
+          "edit_median_ms": 0.016,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 472.740234375,
+          "working_set_after_trim_mib": 472.740234375,
+          "working_set_after_render_mib": 471.8359375,
+          "private_bytes_before_trim_mib": 425.712890625,
+          "private_bytes_after_trim_mib": 425.712890625,
+          "render_page_faults_median": 6374.0,
+          "resume_page_faults_median": 6374.0,
+          "render_cpu_median_ms": 289.0625,
+          "process_read_bytes_median": 72672208.0,
+          "idle_median_ms": 0.016050000000000002,
+          "dse_steps_range": [
+            4329,
+            4329
+          ]
+        },
+        "difference_of_arm_medians_ms": -1.80540000000002,
+        "difference_of_arm_medians_pct": -0.6123846606020722,
+        "paired_median_delta_ms": -2.410250000000019,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          -5.4702000000000055,
+          1.162300000000016
+        ],
+        "paired_mean_delta_ms": -0.4148200000000088,
+        "paired_median_penalty_pct": -0.8046422272995513,
+        "trim_slower_pairs": 3,
+        "sha256": "F5844E894EE94E2B99EEC622E2DC7FAA955FBA5F8C66A952FB808572E0C645D6",
+        "order_counts": {
+          "retain,trim": 5,
+          "trim,retain": 5
+        }
+      },
+      {
+        "bank": "BL8CEAM5N4XN3LFK",
+        "edit_scope": "single",
+        "wait_ms": 0,
+        "actual_trim": false,
+        "pairs": 10,
+        "retain": {
+          "samples": 10,
+          "total_median_ms": 340.48415,
+          "total_p95_ms": 897.080584999999,
+          "render_median_ms": 340.46590000000003,
+          "edit_median_ms": 0.01285,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 475.017578125,
+          "working_set_after_trim_mib": 475.017578125,
+          "working_set_after_render_mib": 475.017578125,
+          "private_bytes_before_trim_mib": 428.1171875,
+          "private_bytes_after_trim_mib": 428.1171875,
+          "render_page_faults_median": 5909.0,
+          "resume_page_faults_median": 5909.0,
+          "render_cpu_median_ms": 328.125,
+          "process_read_bytes_median": 72672470.0,
+          "idle_median_ms": 0.02,
+          "dse_steps_range": [
+            4294,
+            4294
+          ]
+        },
+        "trim": {
+          "samples": 10,
+          "total_median_ms": 329.9258,
+          "total_p95_ms": 421.24796499999997,
+          "render_median_ms": 329.9135,
+          "edit_median_ms": 0.015300000000000001,
+          "trim_median_ms": 0.0,
+          "working_set_before_trim_mib": 475.77734375,
+          "working_set_after_trim_mib": 475.77734375,
+          "working_set_after_render_mib": 475.267578125,
+          "private_bytes_before_trim_mib": 428.673828125,
+          "private_bytes_after_trim_mib": 428.673828125,
+          "render_page_faults_median": 5843.0,
+          "resume_page_faults_median": 5843.0,
+          "render_cpu_median_ms": 328.125,
+          "process_read_bytes_median": 72672470.0,
+          "idle_median_ms": 0.0174,
+          "dse_steps_range": [
+            4294,
+            4294
+          ]
+        },
+        "difference_of_arm_medians_ms": -10.558350000000019,
+        "difference_of_arm_medians_pct": -3.100981352582788,
+        "paired_median_delta_ms": 16.653650000000027,
+        "paired_median_delta_bootstrap_95_ci_ms": [
+          -11.635199999999998,
+          46.18395000000001
+        ],
+        "paired_mean_delta_ms": -86.31586,
+        "paired_median_penalty_pct": 5.264918189540291,
+        "trim_slower_pairs": 6,
+        "sha256": "F5844E894EE94E2B99EEC622E2DC7FAA955FBA5F8C66A952FB808572E0C645D6",
+        "order_counts": {
+          "retain,trim": 5,
+          "trim,retain": 5
+        }
+      }
+    ]
+  },
+  "interpretation": "Primary randomized triads estimate a median +10.14 ms (+2.63%) versus the within-block mean of two non-trim controls; 95% bootstrap interval +1.51 to +16.58 ms. Initial fixed-order observations are not all causal: an immediate no-trim control also showed label-associated timing differences. Host behavior and long-run policy effects remain unmeasured."
+}

@@ -1,0 +1,3651 @@
+{
+  "date": "2026-10-23",
+  "production_change": {
+    "part_context_union": true,
+    "commit_and_explicit_refresh_per_affected_part": 1,
+    "native_context_limit_preserved": 33,
+    "internal_commit_origin_scoped_by_source_and_thread": true,
+    "deployed": false
+  },
+  "validation": {
+    "solution_debug": "passed, 0 warnings, 0 errors",
+    "solution_release": "passed, 0 warnings, 0 errors; ILRepack succeeded",
+    "isolated_build": "passed",
+    "probe_release_build": "passed",
+    "mcp_tests": {
+      "passed": 474,
+      "failed": 0,
+      "skipped": 0
+    },
+    "ace_acoustic_offline": "passed",
+    "ace_parameter_offline": "passed",
+    "breath_volume_offline": "passed",
+    "invalidation_cases": 30,
+    "input_scope_cases": 11,
+    "native_render_cases": 7,
+    "commit_notification_and_native_history_cases": 5
+  },
+  "limitations": [
+    "No deployment or Editor lifecycle operations; fixtures are separate SDK sequences.",
+    "Notification cases install actual eight Commit patches but stub/count downstream consumers, not their full UI/DSP work.",
+    "Explicit refresh requests are counted, not total WPF paints.",
+    "Native history is exercised; full custom-history UI and export integration await host acceptance.",
+    "No end-to-end render speedup percentage inferred from call reduction."
+  ],
+  "artifacts": {
+    "local_directory_name": "v6patch-invalidation-batch-20261023-132621",
+    "raw_sha256": "95c792d59b15be3a8b07a9c32f265e58e65854ad33f835a3749c1a3802d722b8",
+    "harness_dll_sha256": "8acf978292ec4104ea931a08287f23d9430d78b55c45025215c395bbb0c4b9e6",
+    "release_merged_sha256": "0d00466be19006a6a7c34d4a9da6860440d59cf584f2cb48f9f27d1b57646862",
+    "baseline_evidence_sha256": "ef5963b48870d4ed5ccf00119b663de21fae44fd7b29cd73aa475b49f7b99b6a",
+    "source_sha256": {
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/SampledTimingVsmBinding.cs": "899ebb9c1481b4dde196b659aadbf854c2782c85224d92fe3d885c8e2916f2ec",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/TimingCacheInvalidationScope.cs": "1ebdd697c4b1c1de9c3e026870663a27881a07772a9cdfaa5427df4fb0cd1ee3",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/SampledTimingHost.cs": "19a8590cc200ad18fc8d1530fc7ae924035a9b240639df53642c0ce98afac108",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/SampledTimingNotifications.cs": "49ac79003aaa2efcd1c75959ae68748b3f29defec73f9eef63e604a5b9f7c8f6",
+      "voicebank/tools/evec_render_harness/RenderInvalidationProbe.cs": "bb1fc87e84ca39aa6a524fdbf677d2116d49d01f0e06f0053311ca55dbaedbba",
+      "VOCALOIDPatcher.McpTests/TimingCacheInvalidationScopeTests.cs": "75df5011f483a5c7817e22aaa03c4fa1db19760c05a328ba9e2efc17ed1382f4",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/ConsonantTimingPatches.cs": "49c810070401d4c3965023fc293cc7eea45202096ba68bc8775e388d971b3e0a",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/AceParameterPatch.cs": "4e50315cc905bfa461b577bf333a5e5c2f9566fd1e29e37517defe4ecdccf330",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/McpRevisionPatch.cs": "584e9f923b229d1168dcb31ffd0d1e521de54e9d9c0bb059a8c4eca369ad1062",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/EvecRenderPatches.cs": "4c6dadc6cbba691c104b99681f4688bce420f8ef2b5a772422a586497e10fa56",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/EvecPatches.cs": "36599f02f831e02d2784312c62275d22c053571b2750bf63506d086a5af4b593",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/BreathVolumePatch.cs": "c397c42899c55e263c641e067965fe23e8d292b25284fc0b7da3368db0babc79",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/SegmentedPhonemeRenderingPatch.cs": "b5f3f1a114824af24f80ebbc03fca883febf8ff518c8a558d8d3e8cfeca802b1",
+      "VOCALOIDPatcher/VOCALOIDPatcher/Patch/Patches/VoiceCompPatches.cs": "a020688c0aa16cd5e2a6844da65909e6f13bbc252ba2d9901ba58efcef9d58ad"
+    },
+    "native_binaries": [
+      {
+        "file": "VOCALOID6.dll",
+        "sha256": "f534abb9e5678d024f09525e6957f31bfb1d3f3146258d121dab929d874965ab"
+      },
+      {
+        "file": "DSE.dll",
+        "sha256": "844452f19271b66634a625f37068933baddd607c3670278c58580528a3ce9dfd"
+      },
+      {
+        "file": "VSM.dll",
+        "sha256": "0a509ee86cbca68048dfb4d6b6c0d5fe970388ad18b1c2a0e16998cdd3789ee8"
+      }
+    ]
+  },
+  "baseline_comparisons": [
+    {
+      "notes": 3,
+      "selection": "one-middle",
+      "before": {
+        "commits": 1,
+        "velocityWrites": 6,
+        "refreshRequests": 1,
+        "distinctNotes": 3
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 6,
+        "refreshRequests": 1,
+        "distinctNotes": 3
+      }
+    },
+    {
+      "notes": 3,
+      "selection": "three-adjacent",
+      "before": {
+        "commits": 3,
+        "velocityWrites": 18,
+        "refreshRequests": 3,
+        "distinctNotes": 3
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 6,
+        "refreshRequests": 1,
+        "distinctNotes": 3
+      }
+    },
+    {
+      "notes": 3,
+      "selection": "all-targets",
+      "before": {
+        "commits": 3,
+        "velocityWrites": 18,
+        "refreshRequests": 3,
+        "distinctNotes": 3
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 6,
+        "refreshRequests": 1,
+        "distinctNotes": 3
+      }
+    },
+    {
+      "notes": 3,
+      "selection": "two-ends",
+      "before": {
+        "commits": 2,
+        "velocityWrites": 12,
+        "refreshRequests": 2,
+        "distinctNotes": 3
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 6,
+        "refreshRequests": 1,
+        "distinctNotes": 3
+      }
+    },
+    {
+      "notes": 12,
+      "selection": "one-middle",
+      "before": {
+        "commits": 1,
+        "velocityWrites": 24,
+        "refreshRequests": 1,
+        "distinctNotes": 12
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 24,
+        "refreshRequests": 1,
+        "distinctNotes": 12
+      }
+    },
+    {
+      "notes": 12,
+      "selection": "three-adjacent",
+      "before": {
+        "commits": 3,
+        "velocityWrites": 72,
+        "refreshRequests": 3,
+        "distinctNotes": 12
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 24,
+        "refreshRequests": 1,
+        "distinctNotes": 12
+      }
+    },
+    {
+      "notes": 12,
+      "selection": "all-targets",
+      "before": {
+        "commits": 12,
+        "velocityWrites": 288,
+        "refreshRequests": 12,
+        "distinctNotes": 12
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 24,
+        "refreshRequests": 1,
+        "distinctNotes": 12
+      }
+    },
+    {
+      "notes": 12,
+      "selection": "two-ends",
+      "before": {
+        "commits": 2,
+        "velocityWrites": 48,
+        "refreshRequests": 2,
+        "distinctNotes": 12
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 24,
+        "refreshRequests": 1,
+        "distinctNotes": 12
+      }
+    },
+    {
+      "notes": 33,
+      "selection": "one-middle",
+      "before": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      }
+    },
+    {
+      "notes": 33,
+      "selection": "three-adjacent",
+      "before": {
+        "commits": 3,
+        "velocityWrites": 194,
+        "refreshRequests": 3,
+        "distinctNotes": 33
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      }
+    },
+    {
+      "notes": 33,
+      "selection": "all-targets",
+      "before": {
+        "commits": 33,
+        "velocityWrites": 1634,
+        "refreshRequests": 33,
+        "distinctNotes": 33
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      }
+    },
+    {
+      "notes": 33,
+      "selection": "two-ends",
+      "before": {
+        "commits": 2,
+        "velocityWrites": 68,
+        "refreshRequests": 2,
+        "distinctNotes": 33
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      }
+    },
+    {
+      "notes": 64,
+      "selection": "one-middle",
+      "before": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 66,
+        "refreshRequests": 1,
+        "distinctNotes": 33
+      }
+    },
+    {
+      "notes": 64,
+      "selection": "three-adjacent",
+      "before": {
+        "commits": 3,
+        "velocityWrites": 198,
+        "refreshRequests": 3,
+        "distinctNotes": 35
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 70,
+        "refreshRequests": 1,
+        "distinctNotes": 35
+      }
+    },
+    {
+      "notes": 64,
+      "selection": "all-targets",
+      "before": {
+        "commits": 64,
+        "velocityWrites": 3680,
+        "refreshRequests": 64,
+        "distinctNotes": 64
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 128,
+        "refreshRequests": 1,
+        "distinctNotes": 64
+      }
+    },
+    {
+      "notes": 64,
+      "selection": "two-ends",
+      "before": {
+        "commits": 2,
+        "velocityWrites": 68,
+        "refreshRequests": 2,
+        "distinctNotes": 34
+      },
+      "after": {
+        "commits": 1,
+        "velocityWrites": 68,
+        "refreshRequests": 1,
+        "distinctNotes": 34
+      }
+    }
+  ],
+  "probe": {
+    "date": "2026-10-23T13:32:20.231268+08:00",
+    "sdk": "6.13.3.1",
+    "patcherSha256": "36CB1B4AC62B678D6FC20684629733D623FDFC21176116BF4547EF4E9930E8A6",
+    "scope": "Actual SampledTimingHost.InvalidateTargets in isolated validation assembly; native Commit/setters and renderer observed. Final notification cases install eight actual production Commit patches with counted/stubbed consumers; no Editor UI or full DSP chain.",
+    "results": [
+      {
+        "count": 3,
+        "Name": "one-middle",
+        "targets": [
+          1
+        ],
+        "elapsedMs": 48.3149,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 6,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 3,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 3,
+        "Name": "three-adjacent",
+        "targets": [
+          0,
+          1,
+          2
+        ],
+        "elapsedMs": 0.2013,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 6,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 3,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 3,
+        "Name": "all-targets",
+        "targets": [
+          0,
+          1,
+          2
+        ],
+        "elapsedMs": 0.0843,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 6,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 3,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 3,
+        "Name": "two-ends",
+        "targets": [
+          0,
+          2
+        ],
+        "elapsedMs": 0.0161,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 6,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 3,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 3,
+        "Name": "duplicate-targets",
+        "targets": [
+          1,
+          1
+        ],
+        "elapsedMs": 0.0218,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 6,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 3,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 12,
+        "Name": "one-middle",
+        "targets": [
+          6
+        ],
+        "elapsedMs": 0.5396,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 24,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 12,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 12,
+        "Name": "three-adjacent",
+        "targets": [
+          5,
+          6,
+          7
+        ],
+        "elapsedMs": 0.0839,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 24,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 12,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 12,
+        "Name": "all-targets",
+        "targets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "elapsedMs": 0.0853,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 24,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 12,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 12,
+        "Name": "two-ends",
+        "targets": [
+          0,
+          11
+        ],
+        "elapsedMs": 0.0189,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 24,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 12,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 12,
+        "Name": "duplicate-targets",
+        "targets": [
+          6,
+          6
+        ],
+        "elapsedMs": 0.0173,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 24,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 12,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 33,
+        "Name": "one-middle",
+        "targets": [
+          16
+        ],
+        "elapsedMs": 0.1515,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 33,
+        "Name": "three-adjacent",
+        "targets": [
+          15,
+          16,
+          17
+        ],
+        "elapsedMs": 0.0892,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 33,
+        "Name": "all-targets",
+        "targets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "elapsedMs": 0.2531,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 33,
+        "Name": "two-ends",
+        "targets": [
+          0,
+          32
+        ],
+        "elapsedMs": 0.0652,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 33,
+        "Name": "duplicate-targets",
+        "targets": [
+          16,
+          16
+        ],
+        "elapsedMs": 0.0377,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 64,
+        "Name": "one-middle",
+        "targets": [
+          32
+        ],
+        "elapsedMs": 0.0497,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 33,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 34,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 35,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 36,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 37,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 38,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 39,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 40,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 41,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 42,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 43,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 44,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 45,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 46,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 47,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 48,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 64,
+        "Name": "three-adjacent",
+        "targets": [
+          31,
+          32,
+          33
+        ],
+        "elapsedMs": 0.078,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 70,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 35,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 33,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 34,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 35,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 36,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 37,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 38,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 39,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 40,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 41,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 42,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 43,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 44,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 45,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 46,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 47,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 48,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 49,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 64,
+        "Name": "all-targets",
+        "targets": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "elapsedMs": 0.4147,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 128,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 64,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 33,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 34,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 35,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 36,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 37,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 38,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 39,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 40,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 41,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 42,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 43,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 44,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 45,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 46,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 47,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 48,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 49,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 50,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 51,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 52,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 53,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 54,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 55,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 56,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 57,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 58,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 59,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 60,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 61,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 62,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 63,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 64,
+        "Name": "two-ends",
+        "targets": [
+          0,
+          63
+        ],
+        "elapsedMs": 0.0407,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 68,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 34,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 0,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 1,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 2,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 3,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 4,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 5,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 6,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 7,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 8,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 9,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 10,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 11,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 12,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 13,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 14,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 15,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 47,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 48,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 49,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 50,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 51,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 52,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 53,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 54,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 55,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 56,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 57,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 58,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 59,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 60,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 61,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 62,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 63,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 64,
+        "Name": "duplicate-targets",
+        "targets": [
+          32,
+          32
+        ],
+        "elapsedMs": 0.0461,
+        "commits": 1,
+        "stagedCommits": 1,
+        "velocityWrites": 66,
+        "startRequests": 0,
+        "stopRequests": 0,
+        "refreshRequests": 1,
+        "distinctNotes": 33,
+        "perNoteWrites": [
+          {
+            "part": 0,
+            "note": 16,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 17,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 18,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 19,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 20,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 21,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 22,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 23,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 24,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 25,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 26,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 27,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 28,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 29,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 30,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 31,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 32,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 33,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 34,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 35,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 36,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 37,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 38,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 39,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 40,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 41,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 42,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 43,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 44,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 45,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 46,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 47,
+            "writes": 2
+          },
+          {
+            "part": 0,
+            "note": 48,
+            "writes": 2
+          }
+        ],
+        "otherPartTouched": false,
+        "nativePcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        },
+        "originalValuesRestored": true,
+        "staged": false
+      },
+      {
+        "count": 64,
+        "name": "oversized-context",
+        "rejectedBeforeMutation": true
+      },
+      {
+        "count": 64,
+        "name": "duplicate-in-context",
+        "rejectedBeforeMutation": true
+      },
+      {
+        "count": 64,
+        "name": "foreign-part-in-context",
+        "rejectedBeforeMutation": true
+      },
+      {
+        "count": 64,
+        "name": "staged-user-edit",
+        "rejectedWithoutConsumingEdit": true
+      },
+      {
+        "count": 64,
+        "name": "empty",
+        "commits": 0,
+        "refreshRequests": 0,
+        "velocityWrites": 0,
+        "distinctNotes": 0
+      },
+      {
+        "count": 64,
+        "name": "stale-pitch",
+        "commits": 0,
+        "refreshRequests": 0,
+        "velocityWrites": 0,
+        "distinctNotes": 0
+      },
+      {
+        "count": 64,
+        "name": "missing-track",
+        "commits": 0,
+        "refreshRequests": 0,
+        "velocityWrites": 0,
+        "distinctNotes": 0
+      },
+      {
+        "count": 64,
+        "name": "missing-note",
+        "commits": 0,
+        "refreshRequests": 0,
+        "velocityWrites": 0,
+        "distinctNotes": 0
+      },
+      {
+        "count": 64,
+        "name": "two-parts",
+        "commits": 2,
+        "refreshRequests": 2,
+        "velocityWrites": 132,
+        "distinctNotes": 66
+      },
+      {
+        "count": 64,
+        "name": "setter-failure",
+        "originalValuesRestored": true,
+        "internalScopeRestored": true
+      }
+    ],
+    "inputScopes": [
+      {
+        "name": "note-pitch",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0
+        ],
+        "notices": {
+          "WIVSMNote:DidUpdateNoteNumber": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "note-velocity",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0
+        ],
+        "notices": {
+          "WIVSMNote:DidUpdateNoteVelocity": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "insert-controller",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0
+        ],
+        "notices": {
+          "WIVSMMidiController:DidInsert": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "remove-controller-recorded-owner",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0
+        ],
+        "notices": {
+          "WIVSMMidiController:DidRemove": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "insert-controller-for-unobserved-removal",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0
+        ],
+        "notices": {
+          "WIVSMMidiController:DidInsert": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "remove-controller-unknown-owner",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0,
+          1
+        ],
+        "notices": {
+          "WIVSMMidiController:DidRemove": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "part-name",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [],
+        "notices": {},
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "tempo",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0,
+          1
+        ],
+        "notices": {
+          "WIVSMTempo:DidInsert": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "no-op-commit",
+        "staged": false,
+        "committed": false,
+        "dirtyParts": [],
+        "notices": {},
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "internal-cache-invalidation",
+        "staged": false,
+        "committed": false,
+        "dirtyParts": [],
+        "notices": {},
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      },
+      {
+        "name": "real-edit-after-invalidation",
+        "staged": true,
+        "committed": true,
+        "dirtyParts": [
+          0
+        ],
+        "notices": {
+          "WIVSMNote:DidUpdateNoteVelocity": 1
+        },
+        "pcm": {
+          "Starts": 0,
+          "Steps": 0,
+          "Samples": 0
+        }
+      }
+    ],
+    "nativeRenders": [
+      {
+        "kind": "note-velocity",
+        "noteCount": 12,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 3495,
+          "Samples": 894720
+        },
+        "editedAudioChanged": true,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "C851938149F703BD3E685D43740E9EC03F8D69CD125C235A10608283F60A5E95",
+        "afterSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "otherBeforeSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2",
+        "otherAfterSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2"
+      },
+      {
+        "kind": "WeightHmm",
+        "noteCount": 12,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 3938,
+          "Samples": 1008128
+        },
+        "editedAudioChanged": false,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "afterSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "otherBeforeSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2",
+        "otherAfterSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2"
+      },
+      {
+        "kind": "S5Air",
+        "noteCount": 12,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 3938,
+          "Samples": 1008128
+        },
+        "editedAudioChanged": false,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "afterSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "otherBeforeSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2",
+        "otherAfterSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2"
+      },
+      {
+        "kind": "XSynth",
+        "noteCount": 12,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 3938,
+          "Samples": 1008128
+        },
+        "editedAudioChanged": false,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "afterSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "otherBeforeSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2",
+        "otherAfterSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2"
+      },
+      {
+        "kind": "Expression",
+        "noteCount": 12,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 3938,
+          "Samples": 1008128
+        },
+        "editedAudioChanged": false,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "afterSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "otherBeforeSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2",
+        "otherAfterSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2"
+      },
+      {
+        "kind": "internal-merged-invalidation",
+        "noteCount": 12,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 3750,
+          "Samples": 960000
+        },
+        "editedAudioChanged": false,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "afterSha256": "E781D3DE0CE50F844FA325FBBD1434ACB26B919406549BE9268A73B7B18A51C5",
+        "otherBeforeSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2",
+        "otherAfterSha256": "4CE2B13A297DF5AC9A502C1F7A86E2E484363667739F0D6E7A69D0BC25D468C2"
+      },
+      {
+        "kind": "internal-merged-invalidation",
+        "noteCount": 64,
+        "started": [
+          1,
+          0
+        ],
+        "completed": [
+          1,
+          0
+        ],
+        "canceled": [
+          0,
+          0
+        ],
+        "explicitManagedStartRequests": 0,
+        "dse": {
+          "Starts": 1,
+          "Steps": 6051,
+          "Samples": 1549056
+        },
+        "editedAudioChanged": false,
+        "otherAudioChanged": false,
+        "phonemePositionsChanged": false,
+        "beforeSha256": "582066482D172872E1718EEDB8841858FEC7C5D6386968928CD150B258041D36",
+        "afterSha256": "582066482D172872E1718EEDB8841858FEC7C5D6386968928CD150B258041D36",
+        "otherBeforeSha256": "BB92D4C032E15E16F55E2158DB6BB63DA6F1551C964F850C4E4CC172F19C97C5",
+        "otherAfterSha256": "BB92D4C032E15E16F55E2158DB6BB63DA6F1551C964F850C4E4CC172F19C97C5"
+      }
+    ],
+    "notifications": [
+      {
+        "kind": "internal-invalidation",
+        "suppressed": true,
+        "consumers": {}
+      },
+      {
+        "kind": "real-edit-no-history",
+        "suppressed": false,
+        "consumers": {
+          "VOCALOIDPatcher.ConsonantTiming.SampledTimingHost.BeforeSourceChange": 1,
+          "VOCALOIDPatcher.AceParameters.AceParameterMappingService.OnSequenceCommit": 1,
+          "VOCALOIDPatcher.Evec.EvecService.ApplyPendingTempoTiming": 1,
+          "VOCALOIDPatcher.ConsonantTiming.ConsonantTimingRuntime.SourceChanged": 1,
+          "VOCALOIDPatcher.PhonemeVolume.PhonemeVolumeHost.SourceChanged": 1,
+          "VOCALOIDPatcher.ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged": 1,
+          "VOCALOIDPatcher.ConsonantTiming.SampledTimingHost.EndInputMutation": 2,
+          "VOCALOIDPatcher.Mcp.McpRevisionTracker.ChangedForSource": 1,
+          "VOCALOIDPatcher.Evec.EvecRenderCoordinator.SequenceChanged": 1,
+          "VOCALOIDPatcher.Patch.Patches.SegmentedPhonemeRenderCoordinator.SequenceChanged": 1,
+          "VOCALOIDPatcher.Evec.EvecService.CompletePendingHistory": 1,
+          "VOCALOIDPatcher.BreathVolume.CustomParameterHistoryCoordinator.OnNativeCommit": 1,
+          "VOCALOIDPatcher.VoiceComp.VoiceCompHost.NativeChanged": 1
+        }
+      },
+      {
+        "kind": "real-edit-with-history",
+        "suppressed": false,
+        "consumers": {
+          "VOCALOIDPatcher.ConsonantTiming.SampledTimingHost.BeforeSourceChange": 1,
+          "VOCALOIDPatcher.AceParameters.AceParameterMappingService.OnSequenceCommit": 1,
+          "VOCALOIDPatcher.Evec.EvecService.ApplyPendingTempoTiming": 1,
+          "VOCALOIDPatcher.ConsonantTiming.ConsonantTimingRuntime.SourceChanged": 1,
+          "VOCALOIDPatcher.PhonemeVolume.PhonemeVolumeHost.SourceChanged": 1,
+          "VOCALOIDPatcher.ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged": 1,
+          "VOCALOIDPatcher.ConsonantTiming.SampledTimingHost.EndInputMutation": 2,
+          "VOCALOIDPatcher.Mcp.McpRevisionTracker.ChangedForSource": 1,
+          "VOCALOIDPatcher.Evec.EvecRenderCoordinator.SequenceChanged": 1,
+          "VOCALOIDPatcher.Patch.Patches.SegmentedPhonemeRenderCoordinator.SequenceChanged": 1,
+          "VOCALOIDPatcher.Evec.EvecService.CompletePendingHistory": 1,
+          "VOCALOIDPatcher.BreathVolume.CustomParameterHistoryCoordinator.OnNativeCommit": 1,
+          "VOCALOIDPatcher.VoiceComp.VoiceCompHost.NativeChanged": 1
+        }
+      },
+      {
+        "kind": "internal-invalidation-after-history",
+        "suppressed": true,
+        "consumers": {}
+      },
+      {
+        "kind": "native-undo-redo",
+        "undoVelocity": 81,
+        "redoVelocity": 82
+      }
+    ]
+  }
+}

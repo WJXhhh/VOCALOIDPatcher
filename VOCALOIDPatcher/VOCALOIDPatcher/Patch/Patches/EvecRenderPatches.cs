@@ -36,7 +36,7 @@ public sealed class EvecRenderSequenceCommitPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool __state, ref bool __result)
     {
-        if (__result && __state)
+        if (__result && __state && !ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance))
             EvecRenderCoordinator.SequenceChanged(__instance, "commit");
     }
 }

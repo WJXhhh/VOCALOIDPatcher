@@ -100,7 +100,6 @@ internal sealed partial class ConsonantTimingOverlay
     private long _transitionGeneration, _transitionRequestId;
     private string? _transitionError;
     private nint _transitionPart;
-    private Button? _transitionPanelTool;
     private Popup? _transitionPanel;
     private Action? _updateTransitionPanel;
     private bool _transitionLoading;
@@ -120,16 +119,12 @@ internal sealed partial class ConsonantTimingOverlay
     {
         _transitionDrawing.Normal = _reference; _transitionDrawing.Active = _editable; _transitionDrawing.Reference = _reference;
         _transitionDrawing.Fill = _highlight; _root.Children.Add(_transitionDrawing);
-        _transitionPanelTool = new Button { Content = TransitionText("Precise"), Focusable = false, Padding = new Thickness(8, 3, 8, 3), Visibility = Visibility.Collapsed };
-        _transitionPanelTool.Click += (_, _) => OpenTransitionPanel(Mouse.GetPosition(_view));
-        _editTools.Children.Add(_transitionPanelTool);
     }
     private void BeginTransitionRefresh(MusicalEditorViewModel vm)
     {
         _transitionDrawing.Width = Math.Max(vm.SongWidth, _view.ActualWidth);
         _transitionDrawing.Height = Math.Max(vm.AllKeyHeight, _view.ActualHeight);
         _transitionDrawing.Visibility = TransitionMode ? Visibility.Visible : Visibility.Collapsed;
-        if (_transitionPanelTool != null) _transitionPanelTool.Visibility = TransitionMode ? Visibility.Visible : Visibility.Collapsed;
         if (!TransitionMode) return;
         if (_transitionPreparation != null && (vm.ActivePart == null || (nint)vm.ActivePart != _transitionPart ||
             _transitionPreparation.Revision != _transitionPreparation.Session.Revision)) InvalidateTransitionContext();
@@ -212,8 +207,7 @@ internal sealed partial class ConsonantTimingOverlay
                     _transitionExecution.Controls.Phases.FirstOrDefault(p => p.Edge == edge.Identity)?.Amount ?? 0)) : null));
         }
         _transitionDrawing.Items = _transitionItems; _transitionDrawing.Selected = _transitionSelected;
-        if (_transitionPanelTool != null && _transitionSelected != null)
-            _transitionPanelTool.Content = TransitionName(_transitionSelected) + "…";
+        _editTools?.DescribeTarget(_transitionSelected == null ? null : TransitionName(_transitionSelected), _transitionError);
         _transitionDrawing.Related = _transitionSelected == null ? [] : joints.Values
             .Where(j => j.Aliases.Any(a => a.Edge == _transitionSelected)).SelectMany(j => j.Aliases).Select(a => a.Edge).ToHashSet();
         _transitionDrawing.InvalidateVisual();
@@ -250,15 +244,17 @@ internal sealed partial class ConsonantTimingOverlay
     }
     private void ShowTransitionTip(TransitionBandItem item, Point point, bool locked = false)
     {
+        if (_transitionPanel?.IsOpen == true) { _tip.IsOpen = false; return; }
         string value = TransitionText("Tip", TransitionPhoneName(item.Row.From, true), TransitionPhoneName(item.Row.To!, false),
             TransitionNumber((item.Row.Split - item.Row.Begin) * 256000d / 44100), TransitionNumber((item.Row.End - item.Row.Split) * 256000d / 44100), FormatGain(item.Decibels));
         var coverages = _transitionExecution?.Controls.Coverages ?? _transitionControls?.Coverages ?? [];
-        if (TransitionExpressionControl.Range(item.Row, item.Edge.Identity, coverages) != null)
+        bool phaseGesture = _transitionDrag?.Hit.Phase == true;
+        if (phaseGesture && TransitionExpressionControl.Range(item.Row, item.Edge.Identity, coverages) != null)
         {
             value += "\n" + TransitionText("PhaseTip", TransitionNumber(
             (_transitionExecution?.Controls.Phases.FirstOrDefault(p => p.Edge == item.Edge.Identity)?.Amount ?? 0) * 100));
         }
-        if (TransitionExpressionControl.Range(item.Row, item.Edge.Identity, coverages, requireProgress: false) is { } range)
+        if (phaseGesture && TransitionExpressionControl.Range(item.Row, item.Edge.Identity, coverages, requireProgress: false) is { } range)
         {
             var coverage = coverages.FirstOrDefault(c => c.Edge == item.Edge.Identity);
             value += "\n" + (coverage?.Sides == TransitionSourceSides.Both ? TransitionText("CoverageBoth") :
@@ -270,13 +266,14 @@ internal sealed partial class ConsonantTimingOverlay
     {
         _transitionError = error is TimeoutException ? TransitionText("Busy") : TransitionText("Unavailable");
         CancelTransitionDrag();
-        if (_transitionPanelTool != null) _transitionPanelTool.ToolTip = _transitionError;
+        _editTools?.DescribeTarget(null, _transitionError);
         ShowTip(_transitionError, Mouse.GetPosition(_view));
         VOCALOIDPatcher.Utils.Debug.Print("Transition interaction: " + error.GetType().Name + ": " + error.Message);
         _updateTransitionPanel?.Invoke();
     }
     private void InvalidateTransitionContext()
     {
+        CancelTransitionPanelOpen();
         _transitionGeneration++; _transitionRequestId++;
         _transitionCancellation?.Cancel();
         var preparation = _transitionPreparation; var cancellation = _transitionCancellation; var work = _transitionWork;

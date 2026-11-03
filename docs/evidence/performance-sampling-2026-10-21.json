@@ -1,0 +1,237 @@
+{
+  "date": "2026-10-21",
+  "deployment": "Deployed after sampling with explicit user authorization; see performance-sampling-deployment.json. Host interaction acceptance pending.",
+  "trace": {
+    "file": "parameter-render-10min.nettrace",
+    "bytes": 97534018,
+    "sha256": "5ec01ab0fb36e9c3a05af3e79a6a38e326770ff0a219a5a1bdebf3755a20ed45",
+    "started_utc": "2026-10-21T14:52:43Z",
+    "ended_utc": "2026-10-21T15:02:43Z",
+    "duration_ms": 600027.5625,
+    "pid": 48664,
+    "ui_thread_id": 14460,
+    "tool": "dotnet-trace 10.0.750501",
+    "profile": "dotnet-sampled-thread-time",
+    "time_semantics": "Sampled wall time, includes native calls and waits; inclusive rows overlap.",
+    "ui_ms": {
+      "dispatcher_get_message": 476655.23,
+      "flush": 38652.83,
+      "private_metadata_close": 37703.44,
+      "publish": 36509.24,
+      "wpf_update_layout": 34310.44
+    }
+  },
+  "native_preparation_benchmark": {
+    "sdk": "6.13.3.1",
+    "groups": [
+      {
+        "notes": 1,
+        "bank": "BCNFCY43LB2LZCD4",
+        "iterations": 4,
+        "before_mean_total_ms": 90.61815,
+        "after_mean_total_ms": 18.157975,
+        "before_mean_dispose_ms": 74.4222,
+        "after_mean_dispose_ms": 0.20217500000000194
+      },
+      {
+        "notes": 1,
+        "bank": "BKKP765AEHXWSKDB",
+        "iterations": 4,
+        "before_mean_total_ms": 58.25505,
+        "after_mean_total_ms": 2.626275,
+        "before_mean_dispose_ms": 54.25975,
+        "after_mean_dispose_ms": 0.009000000000000064
+      },
+      {
+        "notes": 3,
+        "bank": "BCNFCY43LB2LZCD4",
+        "iterations": 4,
+        "before_mean_total_ms": 55.76795,
+        "after_mean_total_ms": 2.1155500000000003,
+        "before_mean_dispose_ms": 51.550725,
+        "after_mean_dispose_ms": 0.0034750000000000614
+      },
+      {
+        "notes": 3,
+        "bank": "BKKP765AEHXWSKDB",
+        "iterations": 4,
+        "before_mean_total_ms": 57.19985,
+        "after_mean_total_ms": 1.459875,
+        "before_mean_dispose_ms": 53.17735,
+        "after_mean_dispose_ms": 0.0024749999999999495
+      },
+      {
+        "notes": 9,
+        "bank": "BCNFCY43LB2LZCD4",
+        "iterations": 4,
+        "before_mean_total_ms": 168.625525,
+        "after_mean_total_ms": 6.42615,
+        "before_mean_dispose_ms": 157.091275,
+        "after_mean_dispose_ms": 0.003175000000000372
+      },
+      {
+        "notes": 9,
+        "bank": "BKKP765AEHXWSKDB",
+        "iterations": 4,
+        "before_mean_total_ms": 218.35325,
+        "after_mean_total_ms": 4.531575,
+        "before_mean_dispose_ms": 204.897975,
+        "after_mean_dispose_ms": 0.0033250000000000224
+      }
+    ],
+    "exact_output_comparisons": 24,
+    "final_build_matches_baseline": true,
+    "dse": {
+      "Starts": 1,
+      "Steps": 0,
+      "Samples": 0
+    },
+    "overlapping_preparations": 4,
+    "double_dispose": true,
+    "clear_cache_reuse": true,
+    "native_controller_removal_scope": true,
+    "second_sdk": {
+      "sdk": "6.13.1.1",
+      "groups": 6,
+      "dse": {
+        "Starts": 1,
+        "Steps": 0,
+        "Samples": 0
+      },
+      "controller_removal_scope": true
+    }
+  },
+  "ui_validation": [
+    {
+      "sdk": "6.13.1.1",
+      "results": [
+        {
+          "patch": "ParameterPencilPreviewPoolPatch",
+          "original": 289,
+          "pooledCalls": 2,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ParameterLinePreviewPoolPatch",
+          "original": 191,
+          "pooledCalls": 2,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ParameterPreviewClearPoolPatch",
+          "original": 8,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ParameterViewportUpdatePatch",
+          "original": 332,
+          "pooledCalls": 0,
+          "selectiveCalls": 10
+        },
+        {
+          "patch": "ControllerRemovalScopePatch",
+          "original": 10,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ControllerRemovalRollbackPatch",
+          "original": 4,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ConsonantTimingCommitPatch",
+          "original": 5,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        }
+      ],
+      "before": {
+        "Ms": 63.271,
+        "Bytes": 41940840
+      },
+      "after": {
+        "Ms": 46.1303,
+        "Bytes": 65640
+      },
+      "emptyViewJit": true
+    },
+    {
+      "sdk": "6.13.3.1",
+      "results": [
+        {
+          "patch": "ParameterPencilPreviewPoolPatch",
+          "original": 289,
+          "pooledCalls": 2,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ParameterLinePreviewPoolPatch",
+          "original": 191,
+          "pooledCalls": 2,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ParameterPreviewClearPoolPatch",
+          "original": 8,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ParameterViewportUpdatePatch",
+          "original": 332,
+          "pooledCalls": 0,
+          "selectiveCalls": 10
+        },
+        {
+          "patch": "ControllerRemovalScopePatch",
+          "original": 10,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ControllerRemovalRollbackPatch",
+          "original": 4,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        },
+        {
+          "patch": "ConsonantTimingCommitPatch",
+          "original": 5,
+          "pooledCalls": 0,
+          "selectiveCalls": 0
+        }
+      ],
+      "before": {
+        "Ms": 66.4857,
+        "Bytes": 41940840
+      },
+      "after": {
+        "Ms": 37.9473,
+        "Bytes": 65640
+      },
+      "emptyViewJit": true
+    }
+  ],
+  "validation": {
+    "reference_sdk": "6.13.1.1",
+    "solution_debug": "passed; 0 warnings, 0 errors",
+    "solution_release": "passed; 0 warnings, 0 errors",
+    "mcp_tests": {
+      "passed": 355,
+      "failed": 0,
+      "skipped": 0
+    },
+    "release_merged_bytes": 8273408,
+    "release_merged_sha256": "c4d62ba69731c0be14c72e06a7f329bb29dc4cbc5284f3b5a0b67a115a643719",
+    "native_sha256": "49def60f2d4aa0f55e4ea940b36ce14300e70ac0c10c9fe48e025f09fe1bfea9",
+    "limits": [
+      "Host measurements are from the pre-deployment build.",
+      "No host interaction acceptance of new patches.",
+      "No per-Part render event counts in the ten-minute trace.",
+      "No claim of native synthesis kernel speedup."
+    ]
+  }
+}

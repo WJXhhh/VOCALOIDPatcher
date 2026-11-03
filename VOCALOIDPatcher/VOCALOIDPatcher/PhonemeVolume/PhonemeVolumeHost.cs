@@ -14,6 +14,7 @@ using VOCALOIDPatcher.BreathVolume;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.ConsonantTiming;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.Rendering;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.VSM;
@@ -28,13 +29,17 @@ internal static class PhonemeVolumeHost
         internal readonly nint PartId = (nint)part;
         internal readonly nint SourceId = (nint)part.Sequence!;
         internal long Generation;
+        internal long PendingGeneration;
         internal bool Rendering;
         internal Cache? Cache;
+        // Retained only for exact input comparison; Substitute never reads it.
+        internal Cache? ReusableCache;
         internal string? Error;
         internal int RebindQueued;
         internal readonly SemaphoreSlim Gate = new(1, 1);
+        internal readonly PostProcessingQuietPeriod QuietPeriod = new(100);
     }
-    private sealed record Cache(string Input, long Length, DateTime Written, string Output);
+    private sealed record Cache(string Input, long Length, DateTime Written, string Output, PhonemeGainRegion[] Regions);
     private sealed record Request(PartState State, long Generation, string Input, long Length, DateTime Written, PhonemeGainRegion[] Regions);
     private static readonly object Sync = new();
     private static readonly Dictionary<PhonemeVolumeKey, PhonemeVolumePlan> Values = new();
@@ -45,7 +50,6 @@ internal static class PhonemeVolumeHost
     private static readonly string CacheDirectory = Path.Combine(Path.GetTempPath(), "VOCALOIDPatcher", "PhonemeVolume", Guid.NewGuid().ToString("N"));
     private static readonly MethodInfo? RegisterPlacement = AccessTools.Method(typeof(AudioPlayer), "RegisterAudioPlacementWithFile",
         [typeof(WIVSMSequence), typeof(WIVSMMidiPart)]);
-    [ThreadStatic] private static int _bypass;
     internal static event Action? Changed;
 
     internal static void Initialize()
@@ -92,6 +96,9 @@ internal static class PhonemeVolumeHost
     }
 
     internal static void Set(WIVSMNote note, int index, double decibels)
+        => SetPlan(note, Get(note).With(index, decibels));
+
+    internal static void SetPlan(WIVSMNote note, PhonemeVolumePlan after, bool dryRun = false)
     {
         if (!Settings.IndividualPhonemeVolume || note.Sequence is not { IsStaged: false } source || note.Parent is not { IsAi: false } part)
             throw new InvalidOperationException("Phoneme volume requires an editable sampled Part.");
@@ -101,7 +108,8 @@ internal static class PhonemeVolumeHost
             unbound.Any(e => (e.Address.Track, e.Address.Part, e.Address.Note) == (address.Track, address.Part, address.Note)))
             throw new NotSupportedException("An unbound saved phoneme volume control occupies this locator and is preserved.");
         var before = Get(note);
-        var after = before.With(index, decibels);
+        if (after.Topology != note.Phonemes) throw new NotSupportedException("Phoneme volume topology changed.");
+        if (dryRun) return;
         if (before.SameAs(after)) return;
         var edit = new VolumeEdit(source, part, key, before, after);
         edit.ApplyAfter();
@@ -135,19 +143,29 @@ internal static class PhonemeVolumeHost
             Dispatch(() => { if (Parts.TryGetValue(state.PartId, out var live) && live == state) QueuePart(state.Part); });
     }
 
-    private static void QueuePart(WIVSMMidiPart part)
+    private static void QueuePart(WIVSMMidiPart part, bool upstreamReady = false)
     {
         if (NativeRenderSession.IsInternalSequence(part.Sequence)) return;
+        if (VoiceComp.VoiceCompHost.Owns(part))
+        {
+            if (Parts.TryGetValue((nint)part, out var previous))
+            { Interlocked.Increment(ref previous.Generation); previous.Cache = null; previous.ReusableCache = null; }
+            return;
+        }
         var state = Parts.GetOrAdd((nint)part, _ => new(part));
         long generation = Interlocked.Increment(ref state.Generation);
+        state.PendingGeneration = generation;
         state.Error = null;
+        state.ReusableCache = state.Cache ?? state.ReusableCache;
         state.Cache = null; // Never expose the previous control value as current.
-        _ = BuildAfterQuietPeriod(state, generation);
+        int delay = upstreamReady ? state.QuietPeriod.UpstreamReady(Environment.TickCount64) : state.QuietPeriod.Edited(Environment.TickCount64);
+        if (upstreamReady && BreathVolumeService.HasPendingWave(part)) delay = Math.Max(delay, 100);
+        _ = BuildAfterQuietPeriod(state, generation, delay);
     }
 
-    private static async Task BuildAfterQuietPeriod(PartState state, long generation)
+    private static async Task BuildAfterQuietPeriod(PartState state, long generation, int delay)
     {
-        await Task.Delay(100).ConfigureAwait(false);
+        await Task.Delay(delay).ConfigureAwait(false);
         if (Volatile.Read(ref state.Generation) != generation) return;
         Dispatch(() =>
         {
@@ -155,12 +173,15 @@ internal static class PhonemeVolumeHost
             try
             {
                 var request = Capture(state, generation);
-                if (request == null) return;
-                if (request.Regions.Length == 0) { RefreshPlacement(state.Part); return; }
+                if (request == null) { state.PendingGeneration = 0; return; }
+                if (request.Regions.Length == 0)
+                { state.PendingGeneration = 0; state.ReusableCache = null; RefreshPlacement(state.Part); CleanupFiles(); return; }
+                if (TryReuse(state, request)) return;
                 _ = ProcessAsync(request);
             }
             catch (Exception e)
             {
+                state.PendingGeneration = 0;
                 state.Error = e.GetType().Name;
                 Debug.Print("Phoneme volume preparation: " + e.GetType().Name); Changed?.Invoke();
             }
@@ -202,9 +223,19 @@ internal static class PhonemeVolumeHost
     }
 
     private static string ReadInput(WIVSMMidiPart part)
+        => WaveProcessingReadScope.ReadBefore(WaveProcessingStage.PhonemeVolume, () => part.WaveFilePath);
+
+    private static bool TryReuse(PartState state, Request request)
     {
-        try { _bypass++; return part.WaveFilePath; }
-        finally { _bypass--; }
+        var cached = state.Cache ?? state.ReusableCache;
+        if (cached == null || !cached.Input.Equals(request.Input, StringComparison.OrdinalIgnoreCase) ||
+            cached.Length != request.Length || cached.Written != request.Written ||
+            !cached.Regions.SequenceEqual(request.Regions) || !File.Exists(cached.Output)) return false;
+        bool restore = state.Cache == null;
+        state.Cache = cached; state.ReusableCache = null;
+        state.PendingGeneration = 0;
+        if (restore) { RefreshPlacement(state.Part); Changed?.Invoke(); }
+        return true;
     }
 
     private static Cache Process(Request request)
@@ -218,7 +249,7 @@ internal static class PhonemeVolumeHost
             var file = new FileInfo(request.Input);
             if (!file.Exists || file.Length != request.Length || file.LastWriteTimeUtc != request.Written)
                 throw new IOException("Source audio changed during phoneme gain processing.");
-            return new(request.Input, request.Length, request.Written, output);
+            return new(request.Input, request.Length, request.Written, output, request.Regions);
         }
         catch { InFlightFiles.TryRemove(output, out _); throw; }
     }
@@ -241,6 +272,8 @@ internal static class PhonemeVolumeHost
                     InFlightFiles.TryRemove(cache.Output, out _); CleanupFiles(); return;
                 }
                 request.State.Cache = cache;
+                request.State.PendingGeneration = 0;
+                request.State.ReusableCache = null;
                 InFlightFiles.TryRemove(cache.Output, out _);
                 RefreshPlacement(request.State.Part);
                 CleanupFiles();
@@ -252,6 +285,7 @@ internal static class PhonemeVolumeHost
             Dispatch(() =>
             {
                 if (!IsCurrent(request.State, request.Generation)) return;
+                request.State.PendingGeneration = 0;
                 request.State.Error = e.GetType().Name;
                 Debug.Print("Phoneme volume processing: " + e.GetType().Name); Changed?.Invoke();
             });
@@ -263,7 +297,8 @@ internal static class PhonemeVolumeHost
     // exactly once, independent of their feature switches.
     internal static string Substitute(WIVSMMidiPart part, string input)
     {
-        if (_bypass != 0 || BreathVolumeService.IsReadingOriginalWave || !Settings.IndividualPhonemeVolume) return input;
+        if (!WaveProcessingReadScope.ShouldApply(WaveProcessingStage.PhonemeVolume) ||
+            BreathVolumeService.IsReadingOriginalWave || !Settings.IndividualPhonemeVolume) return input;
         if (Parts.TryGetValue((nint)part, out var state) && state.Cache is { } cache)
         {
             if (cache.Input.Equals(input, StringComparison.OrdinalIgnoreCase)) return cache.Output;
@@ -274,11 +309,21 @@ internal static class PhonemeVolumeHost
                 Dispatch(() =>
                 {
                     state.RebindQueued = 0;
-                    if (Parts.TryGetValue(state.PartId, out var live) && live == state) QueuePart(state.Part);
+                    RebindReady(state, input);
                 });
         }
         return input;
     }
+
+    private static void RebindReady(PartState state, string input)
+    {
+        if (!Parts.TryGetValue(state.PartId, out var live) || live != state || state.Rendering) return;
+        if (!ReadInput(state.Part).Equals(input, StringComparison.OrdinalIgnoreCase)) return;
+        QueuePart(state.Part, upstreamReady: true);
+    }
+
+    internal static bool HasPendingWave(WIVSMMidiPart part) => Settings.IndividualPhonemeVolume && Parts.TryGetValue((nint)part, out var state) &&
+        (state.Rendering || state.PendingGeneration != 0 && state.PendingGeneration == state.Generation);
 
     internal static void RenderStarted(WIVSMMidiPart part)
     {
@@ -289,7 +334,7 @@ internal static class PhonemeVolumeHost
             state = Parts.GetOrAdd((nint)part, _ => new(part));
         }
         Interlocked.Increment(ref state.Generation);
-        state.Rendering = true; state.Cache = null;
+        state.Rendering = true; state.Cache = null; state.ReusableCache = null;
     }
 
     internal static void RenderCompleted(WIVSMMidiPart part)
@@ -316,6 +361,7 @@ internal static class PhonemeVolumeHost
     {
         foreach (var part in EnumerateParts(source))
         {
+            if (VoiceComp.VoiceCompHost.Owns(part)) continue;
             if (!HasControls(part) || !Settings.IndividualPhonemeVolume)
             {
                 if (Parts.ContainsKey((nint)part)) RefreshPlacement(part);
@@ -330,8 +376,7 @@ internal static class PhonemeVolumeHost
                 continue;
             }
             if (request.Regions.Length == 0) continue;
-            if (state.Cache is { } cached && cached.Input == request.Input && cached.Length == request.Length && cached.Written == request.Written)
-                continue;
+            if (TryReuse(state, request)) continue;
             long generation = Interlocked.Increment(ref state.Generation);
             var cache = Task.Run(() =>
             {
@@ -340,6 +385,8 @@ internal static class PhonemeVolumeHost
                 finally { state.Gate.Release(); }
             }).GetAwaiter().GetResult();
             state.Cache = cache;
+            state.PendingGeneration = 0;
+            state.ReusableCache = null;
             InFlightFiles.TryRemove(cache.Output, out _);
             RefreshPlacement(part);
         }
@@ -428,6 +475,12 @@ internal static class PhonemeVolumeHost
         if (!Settings.IndividualPhonemeVolume) return "Disabled";
         if (!HasTopology(note)) return "Unavailable";
         if (Get(note).IsDefault) return "Original";
+        if (note.Parent is { } owned && VoiceComp.VoiceCompHost.Owns(owned))
+        {
+            var comp = VoiceComp.VoiceCompHost.View(owned);
+            if (comp?.Status == "Failed") return "Unavailable";
+            return comp is { Dirty: false, Wave: not null } ? "Ready" : "Pending";
+        }
         if (note.Parent is { } part && Parts.TryGetValue((nint)part, out var state))
         {
             if (state.Error != null) return "Unavailable";
@@ -441,7 +494,8 @@ internal static class PhonemeVolumeHost
         enabled = Settings.IndividualPhonemeVolume,
         values = HasTopology(note) ? Get(note).Values : [],
         status = Status(note),
-        error = note.Parent is { } part && Parts.TryGetValue((nint)part, out var state) ? state.Error : null
+        error = note.Parent is { } part ? VoiceComp.VoiceCompHost.Owns(part) ? VoiceComp.VoiceCompHost.View(part)?.Error :
+            Parts.TryGetValue((nint)part, out var state) ? state.Error : null : null
     };
 
     private static void RefreshPlacement(WIVSMMidiPart part)
@@ -453,7 +507,8 @@ internal static class PhonemeVolumeHost
 
     private static void CleanupFiles()
     {
-        var current = Parts.Values.Select(p => p.Cache?.Output).OfType<string>().ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var current = Parts.Values.SelectMany(p => new[] { p.Cache?.Output, p.ReusableCache?.Output })
+            .OfType<string>().ToHashSet(StringComparer.OrdinalIgnoreCase);
         foreach (var file in Files.Keys)
         {
             if (current.Contains(file) || InFlightFiles.ContainsKey(file)) continue;

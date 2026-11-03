@@ -1,6 +1,7 @@
 using System;
 using VOCALOIDPatcher.Mcp.Core;
 using Yamaha.VOCALOID;
+using Yamaha.VOCALOID.VSM;
 
 namespace VOCALOIDPatcher.Mcp;
 
@@ -39,6 +40,13 @@ internal static class McpRevisionTracker
         }
     }
 
+    internal static void ChangedForSource(WIVSMSequence source)
+    {
+        // Planning creates/commits private sequences. Those commits must never
+        // invalidate the real project's optimistic revision.
+        if ((nint)source == CurrentSequencePointer()) Changed();
+    }
+
     public static void ProjectReplaced()
     {
         lock (Gate)
@@ -55,6 +63,9 @@ internal static class McpRevisionTracker
     {
         try
         {
+#if PATCHER_ISOLATED_VALIDATION
+            if (VocaloidMcpFacade.IsolatedTimingSource is { } isolated) return (nint)isolated;
+#endif
             var sequence = App.Shared?.Document?.Sequence?.VSMSequence;
             return sequence == null ? IntPtr.Zero : (IntPtr)sequence;
         }

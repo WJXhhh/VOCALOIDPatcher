@@ -1,0 +1,123 @@
+{
+  "Feature": "voice-comp-independent-sustain-source-length",
+  "RecordedOn": "2026-10-22",
+  "Deployed": true,
+  "Changes": [
+    "Removed implicit 250 ms extension from automatic context isolation",
+    "Enabled actual source length independently of output cut",
+    "Retained timing adjustments for sources whose note length is unchanged",
+    "Preserved source length through archive, history, endpoint and fade edits",
+    "Explicit least-recently-used eviction at 32 raw sources"
+  ],
+  "Builds": [
+    {
+      "Target": "6.13.1.1 Debug",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    },
+    {
+      "Target": "6.13.1.1 Release",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    },
+    {
+      "Target": "6.13.3.1 Debug",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    },
+    {
+      "Target": "6.13.3.1 Release",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    }
+  ],
+  "ManagedTests": {
+    "Passed": 384,
+    "Failed": 0,
+    "Skipped": 0
+  },
+  "TranslationCheck": {
+    "Languages": 4,
+    "VoiceCompKeys": 52,
+    "AllKeySetsEqual": true
+  },
+  "NativeRuns": [
+    {
+      "Sdk": "6.13.1.1",
+      "ExitCode": 0,
+      "FullProbeStages": 30,
+      "SourceLength": {
+        "stage": "independent-diphthong-source-length",
+        "automaticMs": 400,
+        "explicitMs": 650,
+        "outputEnd": 81585,
+        "passed": true
+      },
+      "NativeCleanupPassed": true
+    },
+    {
+      "Sdk": "6.13.3.1",
+      "ExitCode": 0,
+      "FullProbeStages": 30,
+      "SourceLength": {
+        "stage": "independent-diphthong-source-length",
+        "automaticMs": 400,
+        "explicitMs": 650,
+        "outputEnd": 81585,
+        "passed": true
+      },
+      "NativeCleanupPassed": true
+    }
+  ],
+  "HostListeningValidated": false,
+  "EditorLaunched": false,
+  "EditorClosedByAgent": false,
+  "Deployment": {
+    "At": "2026-10-22T12:49:15.0616244+08:00",
+    "VerifiedFiles": [
+      {
+        "File": "Microsoft.Xaml.Behaviors.dll",
+        "Sha256": "BD59C08DAD2B7425CF82CDB795C02DBDFBCC61EAA62602B53C100203967360EE",
+        "Length": 8497152
+      },
+      {
+        "File": "VOCALOIDPatcher\\HardcodedPropertyMap.xml",
+        "Sha256": "06EEF278368BF54611B95D013EDAAC8366461EFE7570E60A0824A906DD966400",
+        "Length": 10713
+      },
+      {
+        "File": "VOCALOIDPatcher\\native\\v6patch_clock.dll",
+        "Sha256": "FE6158E08B148BB133D5FE4CF255BE2A0ABE56D5A0043ABBF80BA83F6F334A4E",
+        "Length": 379904
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\日本語.xml",
+        "Sha256": "EF0050EB7068FFA0F715838D72E27C20C77B150CEF28F11E93772F2FAF7939CF",
+        "Length": 195901
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\中文 (繁體).xml",
+        "Sha256": "8706009D1FB7A989FD00F2EC28335C6076CE061F68C51AC55DFA0746B9EB3230",
+        "Length": 176358
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\中文 (简体).xml",
+        "Sha256": "778C2D6566BFECD5ABB842EB9E9C9436BC5FF5B6FCCFBCAA4FFD0659ADCA4424",
+        "Length": 175770
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\English.xml",
+        "Sha256": "685E420DD9204673D409A3728CBFA482F66E11CB8FCEDADDF62E105C36AAC706",
+        "Length": 178184
+      }
+    ],
+    "PreviousFilesBackedUp": true,
+    "EditorLaunched": false,
+    "EditorClosedByAgent": false,
+    "HostListeningValidated": false
+  }
+}

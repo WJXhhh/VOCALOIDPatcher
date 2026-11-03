@@ -12,6 +12,10 @@ namespace VOCALOIDPatcher.Mcp;
 
 internal static class McpJobManager
 {
+    internal sealed class Fault(BridgeError error) : Exception(error.Message)
+    {
+        internal BridgeError Error { get; } = error;
+    }
     private sealed class Entry
     {
         public required string Id { get; init; }
@@ -100,6 +104,11 @@ internal static class McpJobManager
         {
             entry.Status = BridgeJobStatus.Cancelled;
             entry.Error = new BridgeError("cancelled", "The job was cancelled.");
+        }
+        catch (Fault exception)
+        {
+            entry.Status = BridgeJobStatus.Failed;
+            entry.Error = exception.Error;
         }
         catch (Exception exception)
         {

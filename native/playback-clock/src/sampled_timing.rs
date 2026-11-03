@@ -181,6 +181,13 @@ fn current(b: &Binding) -> bool {
         .is_some_and(|e| Arc::ptr_eq(e, &b.entry))
 }
 
+// Controlled sampled renders already have a qualified VSM/DSE binding. Their
+// source clock has a fixed presend origin; do not infer it from repeated notes.
+pub(super) fn source_frame_offset(parser: usize, part: u64) -> Option<i64> {
+    let binding = parsers().read().unwrap_or_else(|e| e.into_inner()).get(&parser).cloned()?;
+    (binding.part == part && current(&binding)).then_some(3087)
+}
+
 // VSM supplies absolute frames including presend; this DSE adds 3087 frames.
 // Exact fixed-origin matching avoids calibrating repeated notes by call order.
 fn matching(notes: &[Note], begin: i64, duration: i64, pitch: f32) -> Result<Option<f32>, ()> {
@@ -320,6 +327,18 @@ fn bound_phoneme_context(binding: Option<Binding>) -> Option<Arc<super::phoneme_
 
 #[cfg(test)] mod tests {
     use super::*;
+    #[test] fn register_origin_requires_the_current_parser_and_part_binding() {
+        let part=0xfe77;
+        let notes=[Note{begin:100,end:200,pitch:0.0,coefficient:0.5}];
+        assert_eq!(set(part,1,&notes),0);
+        scope(part,||bind_parser(0xfe78,0xfe79,0xfe7a,ACTIVE.with(|v|v.borrow().clone())));
+        assert_eq!(source_frame_offset(0xfe78,part),Some(3087));
+        assert_eq!(source_frame_offset(0xfe78,part+1),None);
+        assert_eq!(source_frame_offset(0xfe7b,part),None);
+        assert_eq!(set(part,2,&notes),0);
+        assert_eq!(source_frame_offset(0xfe78,part),None);
+        remove(part);
+    }
     #[test] fn transition_removal_cannot_detach_a_newer_publication() {
         use super::super::transition_gain::{Controls,Gain};
         let part=0xff30;

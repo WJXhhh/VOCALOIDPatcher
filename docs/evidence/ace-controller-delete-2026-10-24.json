@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "sdk": "6.13.3.1",
+  "artifact_root": "C:\\Users\\WJC\\AppData\\Local\\Temp/v6patch-controller-delete-20261024-092654",
+  "project_sha256": "22D8BE9BD049F0FCC1D30D8D65E315E2E380624B4ACA3094EADAEBD58E7C57B2",
+  "original_project_unchanged": true,
+  "crash": {
+    "local_time": "2026-10-24 09:22:51 +08:00",
+    "exception": "System.ApplicationException",
+    "method": "Yamaha.VOCALOID.VSM.WIVSMSequence.Finalize",
+    "full_heap_available": false,
+    "exact_site_root_cause_confirmed": false
+  },
+  "old_interpolation": {
+    "prefix_changed_pcm16_samples": 66774,
+    "max_prefix_delta": 438,
+    "suffix_changed_samples": 0,
+    "log": "before-run.log"
+  },
+  "pcm": [
+    {
+      "stage": "before",
+      "inputHash": "2A34D2635534D2240FCCFD76F9E69468BAD9955CEA2760B513D90A014507330F",
+      "outputHash": "33FD600A8DADB6DE34C4E963801CF5B038735D48191617FFC3B512FBC283E475",
+      "hostMatchesDirectDsp": true,
+      "cleanup": {
+        "PendingCount": 0,
+        "Failures": 0,
+        "AlreadyReleased": 0
+      },
+      "comp": "Ready"
+    },
+    {
+      "stage": "deleted",
+      "inputHash": "2A34D2635534D2240FCCFD76F9E69468BAD9955CEA2760B513D90A014507330F",
+      "outputHash": "7171ECD244FA37F0980FBAF442582FDD99B5229CE4DE6D5E7B8B0A7B8F0D3351",
+      "hostMatchesDirectDsp": true,
+      "cleanup": {
+        "PendingCount": 0,
+        "Failures": 0,
+        "AlreadyReleased": 0
+      },
+      "comp": "Ready"
+    },
+    {
+      "stage": "undo",
+      "inputHash": "2A34D2635534D2240FCCFD76F9E69468BAD9955CEA2760B513D90A014507330F",
+      "outputHash": "33FD600A8DADB6DE34C4E963801CF5B038735D48191617FFC3B512FBC283E475",
+      "hostMatchesDirectDsp": true,
+      "cleanup": {
+        "PendingCount": 6,
+        "Failures": 0,
+        "AlreadyReleased": 0
+      },
+      "comp": "Ready"
+    },
+    {
+      "stage": "redo",
+      "inputHash": "2A34D2635534D2240FCCFD76F9E69468BAD9955CEA2760B513D90A014507330F",
+      "outputHash": "7171ECD244FA37F0980FBAF442582FDD99B5229CE4DE6D5E7B8B0A7B8F0D3351",
+      "hostMatchesDirectDsp": true,
+      "cleanup": {
+        "PendingCount": 43,
+        "Failures": 0,
+        "AlreadyReleased": 0
+      },
+      "comp": "Ready"
+    },
+    {
+      "stage": "unselected-pcm",
+      "prefixSame": true,
+      "suffixSame": true,
+      "first": 443116,
+      "last": 465996,
+      "editedChanged": true,
+      "undoSame": true,
+      "redoSame": true
+    },
+    {
+      "stage": "delete-undo-redo-forced-gc",
+      "passed": true,
+      "cleanup": {
+        "PendingCount": 0,
+        "Failures": 0,
+        "AlreadyReleased": 2
+      }
+    }
+  ],
+  "reused_owner_before": {
+    "stage": "reused-sequence-owner",
+    "liveOwnerPreserved": false,
+    "staleDetached": true,
+    "liveStillRegistered": false,
+    "cleanup": {
+      "PendingCount": 0,
+      "Failures": 0,
+      "AlreadyReleased": 0
+    }
+  },
+  "reused_owner_after": {
+    "stage": "reused-sequence-owner",
+    "liveOwnerPreserved": true,
+    "staleDetached": true,
+    "liveStillRegistered": true,
+    "cleanup": {
+      "PendingCount": 0,
+      "Failures": 0,
+      "AlreadyReleased": 1
+    }
+  },
+  "distinct_same_address_wrappers_retained": true,
+  "injected_close_failures": {
+    "failedCloses": 7,
+    "Failures": 7,
+    "PendingCount": 0,
+    "forcedGcPassed": true
+  },
+  "tests": {
+    "acoustic_checks": 51,
+    "parameter_checks": 62,
+    "mcp_passed": 500,
+    "mcp_failed": 0,
+    "undo_redo_stress_rounds": 12,
+    "forced_gc_each_round": 2,
+    "debug_solution": "passed",
+    "release_solution": "passed",
+    "warnings": 0,
+    "errors": 0
+  },
+  "carrier_probe": {
+    "banks": [
+      "BCNFCY43LB2LZCD4",
+      "BL8CEAM5N4XN3LFK",
+      "BETDB8W6KWZPYEB9"
+    ],
+    "carriers": [
+      "WeightHmm",
+      "S5Air",
+      "XSynth",
+      "Expression"
+    ],
+    "scenarios": 24,
+    "all_rendered": true,
+    "all_pcm_identical": true
+  },
+  "release": {
+    "path": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-controller-delete-20261024-092654\\build\\bin\\VOCALOIDPatcher\\release\\out\\Microsoft.Xaml.Behaviors.dll",
+    "bytes": 8705536,
+    "sha256": "B0460BD15646410649FE3A4CC400CAE1CACDFAEE974CC35CD86C3677FD7855CC"
+  },
+  "deployed": false,
+  "editor_started_or_stopped": false,
+  "host_interaction_acceptance": "pending"
+}

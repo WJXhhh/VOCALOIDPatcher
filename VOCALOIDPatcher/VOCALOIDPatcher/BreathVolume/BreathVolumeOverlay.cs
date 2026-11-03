@@ -165,6 +165,7 @@ internal sealed class BreathVolumeOverlay
         _valueEditor.PreviewKeyDown += OnValueEditorKeyDown;
         _valueEditor.LostKeyboardFocus += (_, _) => EndValueEdit(commit: !_cancelValueEdit);
         _canvas.Children.Add(_gridLayer);
+        _canvas.Children.Add(ParameterEnergy.ParameterEnergyBackground.CreateCustomSurface(view));
         _canvas.Children.Add(_zeroLine);
         _canvas.Children.Add(_parameterLayer);
         _canvas.Children.Add(_nomineeLayer);

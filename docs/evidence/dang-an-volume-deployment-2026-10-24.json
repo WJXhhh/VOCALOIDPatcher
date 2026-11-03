@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "scope": "Fix dang AN gain blocked by final continuation tail; report Comp failures; reject faulted private-source cache reuse",
+  "deployed_at": "2026-10-24T08:53:21.9844493+08:00",
+  "source_validation": "dang-an-volume-2026-10-24.json",
+  "deployment_directory": "C:\\Users\\WJC\\AppData\\Local\\VOCALOIDPatcher\\deployments\\dang-an-volume-d6541d472da94935b1738cc820ed1958",
+  "manifest": {
+    "Destination": "C:\\Program Files\\VOCALOID6\\Editor\\Microsoft.Xaml.Behaviors.dll",
+    "PreviousTarget": "C:\\Users\\WJC\\AppData\\Local\\VOCALOIDPatcher\\deployments\\post-processing-ready-b3b075f94c0c4e46a4235767b363cb25\\payload\\Microsoft.Xaml.Behaviors.dll",
+    "PreviousSha256": "99FA2B76AEA45BD00F1E7F11C95724668B8F72C5458929D5A83302D5CFA7F431",
+    "PayloadSha256": "982819226B63A8991A6E263A13CAB09ECFD5178925A644F07AA2DEAA1A740562",
+    "NativePath": "C:\\Program Files\\VOCALOID6\\Editor\\VOCALOIDPatcher\\native\\v6patch_clock.dll",
+    "NativeSha256": "621693F9986861DE955D1025DEE8EC521CA0EF13DE691F976D4A86ECD44D4DE0",
+    "SourceArtifact": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-dang-gain-20261024-084012\\release\\bin\\VOCALOIDPatcher\\release\\out\\Microsoft.Xaml.Behaviors.dll",
+    "PreparedAt": "2026-10-24T08:53:19.5303468+08:00"
+  },
+  "result": {
+    "Success": true,
+    "EditorLaunched": false,
+    "EditorClosedByAgent": false,
+    "RequiresEditorRestart": true,
+    "RunningEditorProcessIds": [
+      30212
+    ],
+    "DeployedAt": "2026-10-24T08:53:21.9844493+08:00",
+    "Sha256": "982819226B63A8991A6E263A13CAB09ECFD5178925A644F07AA2DEAA1A740562",
+    "LinkTarget": "C:\\Users\\WJC\\AppData\\Local\\VOCALOIDPatcher\\deployments\\dang-an-volume-d6541d472da94935b1738cc820ed1958\\payload\\Microsoft.Xaml.Behaviors.dll"
+  },
+  "independent_verification": {
+    "installation_link_target_matches": true,
+    "installed_sha256_matches": true,
+    "payload_sha256_matches": true,
+    "previous_target_unchanged": true,
+    "backup_sha256_matches": true,
+    "native_clock_unchanged": true
+  },
+  "rollback": "C:\\Users\\WJC\\AppData\\Local\\VOCALOIDPatcher\\deployments\\dang-an-volume-d6541d472da94935b1738cc820ed1958\\rollback.json",
+  "user_project_modified": false,
+  "editor_host_acceptance": "Pending user save and manual restart; existing Editor remains on prior assembly"
+}

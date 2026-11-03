@@ -28,6 +28,7 @@ internal sealed partial class ConsonantTimingOverlay
         enabled = Settings.IntuitiveConsonantTiming,
         backendReady = ConsonantTimingRuntime.Backend != null,
         timingHost = SampledTimingHost.Diagnostics(note.Sequence),
+        timingLimits = SampledTimingHost.BoundaryLimits(note),
         phonemeVolume = PhonemeVolume.PhonemeVolumeHost.Diagnostics(note),
         timingControls = note.Sequence is { } source ? SampledTimingHost.Find(source)?.Document
             .Get(SampledTimingVsmBinding.Address(note))?.Adjustments.Take(65)

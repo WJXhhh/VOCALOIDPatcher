@@ -11,6 +11,22 @@ namespace VOCALOIDPatcher.McpTests;
 public sealed class TransitionProjectTests
 {
     [Fact]
+    public void AutomaticSmoothingOnlyNeedsPlanningForPartsWithNonzeroGains()
+    {
+        var layout = Layout();
+        var data = TransitionProjectBinding.Encode(TransitionProjectData.Empty, layout,
+            new TransitionControlPlan(layout.Fingerprint, gains: [new(layout.Edges[0].Identity, -6)]));
+        var owner = data.Notes[0].Address;
+        Assert.True(TransitionProjectBinding.HasNonzeroGain(data, owner.Track, owner.Part));
+        Assert.False(TransitionProjectBinding.HasNonzeroGain(data, owner.Track, owner.Part + 1));
+        Assert.False(TransitionProjectBinding.HasNonzeroGain(TransitionProjectData.Empty, owner.Track, owner.Part));
+        Assert.False(TransitionProjectBinding.HasNonzeroGain(data with
+        {
+            Gains = data.Gains.Select(g => g with { Decibels = 0 }).ToImmutableArray()
+        }, owner.Track, owner.Part));
+    }
+
+    [Fact]
     public void SourceProgressPersistsSeparatelyFromProtectedPhonemeAndJunctions()
     {
         var layout = Layout(); var edge = layout.Edges[0].Identity;
@@ -63,6 +79,33 @@ public sealed class TransitionProjectTests
         => TransitionProjectBinding.Encode(TransitionProjectData.Empty, layout, new(layout.Fingerprint,
             [new(new(layout.Edges[0].Identity, TransitionEndpoint.End), layout.Edges[0].Current.End + 2)],
             [new(layout.Edges[1].Identity, -6)]));
+
+    [Fact]
+    public void IsolatedSourceFitsInheritedOffsetsWithoutChangingMainTrackControls()
+    {
+        var original = Layout(); var data = Controlled(original);
+        var before = TransitionArchiveData.From(data).Fingerprint;
+        var rows = original.Edges.Select(e => e.Original).ToArray();
+        rows[0] = rows[0] with { End = 179 }; rows[1] = rows[1] with { Begin = 179 };
+        var isolated = new TransitionLayout(Guid.NewGuid(), 2, "isolated-attack", rows, rows, original.Notes, original.Anchors);
+        Assert.Throws<NotSupportedException>(() => TransitionProjectBinding.ResolveAvailable(data, isolated));
+        var fitted = TransitionProjectBinding.ResolveForCompSource(data, isolated);
+        Assert.Equal(179, Assert.Single(fitted.Junctions).Frame);
+        Assert.Equal(-6, Assert.Single(fitted.Gains).Decibels);
+        _ = fitted.Compile(isolated);
+        Assert.Equal(before, TransitionArchiveData.From(data).Fingerprint);
+        Assert.Equal(127, Assert.Single(TransitionProjectBinding.ResolveAvailable(data, Layout()).Junctions).Frame);
+    }
+
+    [Fact]
+    public void IsolatedSourceLeavesReachableOffsetsExactAndStillRejectsMalformedControls()
+    {
+        var layout = Layout(); var data = Controlled(layout);
+        Assert.Equal(TransitionProjectBinding.ResolveAvailable(data, layout).Compile(layout).Fingerprint,
+            TransitionProjectBinding.ResolveForCompSource(data, layout).Compile(layout).Fingerprint);
+        Assert.Throws<InvalidDataException>(() => TransitionProjectBinding.ResolveForCompSource(
+            data with { Gains = [data.Gains[0] with { Decibels = float.NaN }] }, layout));
+    }
 
     [Fact]
     public void SharedAliasesPersistOnceAndResolveAgainstFreshPreparation()

@@ -56,14 +56,10 @@ internal static class RuntimeObservationLog
         "logs",
         "runtime-observations.jsonl");
 
-    public static bool IsEnabled
-    {
-        get
-        {
-            try { return File.Exists(EnabledPath); }
-            catch { return false; }
-        }
-    }
+    private static readonly CachedDiagnosticSwitch ObservationSwitch = new(
+        () => File.Exists(EnabledPath), Stopwatch.GetTimestamp, Stopwatch.Frequency / 4);
+
+    public static bool IsEnabled => ObservationSwitch.IsEnabled;
 
     public static long Timestamp() => Stopwatch.GetTimestamp();
 

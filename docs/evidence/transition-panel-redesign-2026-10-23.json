@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-23",
+  "observed_host": "6.13.3.1",
+  "observed_target": "first Part, t_h to iE_n",
+  "root_causes": [
+    "Inherited light foreground on a system-white popup, mixed implicit control styles",
+    "Mouse-capturing popup opened during double-click MouseDown before the corresponding outside release"
+  ],
+  "changes": [
+    "Shared dark acoustic palette, explicit label and control templates",
+    "Compact two-column fields with units and a separate full-source checkbox",
+    "Release-before-open with capture, Escape/lost-capture/context cancellation and generation guard",
+    "Popup control input excluded from pianoroll gestures",
+    "Removed duplicate TextBox padding to preserve complete digits"
+  ],
+  "validation": {
+    "debug_solution": { "sdk": "6.13.3.1", "passed": true, "warnings": 0, "errors": 0 },
+    "release_solution": { "sdk": "6.13.1.1", "passed": true, "warnings": 0, "errors": 0 },
+    "managed_tests": { "passed": 484, "failed": 0 },
+    "translation_keys_identical_and_unique": true,
+    "preview": {
+      "same_production_panel_and_styles": true,
+      "hostile_implicit_styles": true,
+      "width": 332,
+      "height": 291.3333333333333,
+      "foreground": "#FFD6E0EA",
+      "background": "#FF1B2026",
+      "verified": ["labels and digits visible", "double-click release keeps panel open", "mouse need not move inside", "numeric input", "coverage checkbox", "nested combo keyboard selection", "Escape close"]
+    },
+    "live_project_revision_before": 19,
+    "live_project_revision_after": 19,
+    "live_project_dirty_preserved": true,
+    "limits": "Standalone WPF preview validates the production panel and reproduces release-before-open. Full Editor integration acceptance awaits deployment."
+  },
+  "deployed": false
+}

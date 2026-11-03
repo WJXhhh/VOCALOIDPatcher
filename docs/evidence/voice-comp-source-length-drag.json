@@ -1,0 +1,117 @@
+{
+  "Feature": "voice-comp-source-length-drag",
+  "RecordedOn": "2026-10-22",
+  "Deployed": true,
+  "NativeRuns": [
+    {
+      "Sdk": "6.13.1.1",
+      "ExitCode": 0,
+      "FullProbeStages": 31,
+      "Gesture": {
+        "stage": "waveform-source-length-drag",
+        "previewOnly": true,
+        "lostCaptureCancels": true,
+        "singleSubmit": true,
+        "fineAdjustment": true,
+        "passed": true
+      },
+      "NativeCleanupPassed": true
+    },
+    {
+      "Sdk": "6.13.3.1",
+      "ExitCode": 0,
+      "FullProbeStages": 31,
+      "Gesture": {
+        "stage": "waveform-source-length-drag",
+        "previewOnly": true,
+        "lostCaptureCancels": true,
+        "singleSubmit": true,
+        "fineAdjustment": true,
+        "passed": true
+      },
+      "NativeCleanupPassed": true
+    }
+  ],
+  "Builds": [
+    {
+      "Target": "6.13.1.1 Debug",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    },
+    {
+      "Target": "6.13.1.1 Release",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    },
+    {
+      "Target": "6.13.3.1 Debug",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    },
+    {
+      "Target": "6.13.3.1 Release",
+      "ExitCode": 0,
+      "Warnings": 0,
+      "Errors": 0
+    }
+  ],
+  "TranslationCheck": {
+    "Languages": 4,
+    "VoiceCompKeys": 54,
+    "AllKeySetsEqual": true
+  },
+  "VisualReview": [
+    "Wide Chinese at 150% DPI",
+    "360 x 200 DIP English at 200% DPI"
+  ],
+  "ValidationScope": "Offscreen WPF hit regions and candidate/commit lifecycle connected to real native synthesis; physical Editor mouse/keyboard use still awaits listening and interaction acceptance",
+  "EditorLaunched": false,
+  "EditorClosedByAgent": false,
+  "Deployment": {
+    "At": "2026-10-22T13:06:21.7320055+08:00",
+    "VerifiedFiles": [
+      {
+        "File": "Microsoft.Xaml.Behaviors.dll",
+        "Sha256": "3A956FEC96A378DB7F6F5EE77136E45D3021F3F34E336A0E6B6FC2128633B378",
+        "Length": 8500224
+      },
+      {
+        "File": "VOCALOIDPatcher\\HardcodedPropertyMap.xml",
+        "Sha256": "06EEF278368BF54611B95D013EDAAC8366461EFE7570E60A0824A906DD966400",
+        "Length": 10713
+      },
+      {
+        "File": "VOCALOIDPatcher\\native\\v6patch_clock.dll",
+        "Sha256": "FE6158E08B148BB133D5FE4CF255BE2A0ABE56D5A0043ABBF80BA83F6F334A4E",
+        "Length": 379904
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\日本語.xml",
+        "Sha256": "73D85EBE621E393B7373ED2A74F1AD715EF8406EDCAF976D2D85C537AF0C84B2",
+        "Length": 196298
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\中文 (繁體).xml",
+        "Sha256": "34E1F3F031D0154935B2822001C6DC31EB42128A8C6CD758E4658A0D5573E01A",
+        "Length": 176705
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\中文 (简体).xml",
+        "Sha256": "5497999DB998D6D251DB6D0D768040E2217DBC4B2E9DA9B53883E6E06B4AE445",
+        "Length": 176117
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\English.xml",
+        "Sha256": "FA17C641ECAB6047B1A9D62E8A8FC9E78F17C4DA89CD28F4E3CE644B83101DC2",
+        "Length": 178554
+      }
+    ],
+    "PreviousFilesBackedUp": true,
+    "EditorLaunched": false,
+    "EditorClosedByAgent": false,
+    "HostInteractionValidated": false
+  }
+}

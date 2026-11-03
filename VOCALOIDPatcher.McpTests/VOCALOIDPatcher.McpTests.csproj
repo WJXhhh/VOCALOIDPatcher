@@ -7,7 +7,18 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/Model/*.cs" Link="VoiceComp/%(Filename)%(Extension)" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/CompWave.cs" Link="VoiceComp/CompWave.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Utils/BoundedPreviewPool.cs" Link="Utils/BoundedPreviewPool.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Utils/CachedDiagnosticSwitch.cs" Link="Utils/CachedDiagnosticSwitch.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Rendering/PartLoadTickets.cs" Link="Rendering/PartLoadTickets.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Rendering/WaveProcessingReadScope.cs" Link="Rendering/WaveProcessingReadScope.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Rendering/PostProcessingQuietPeriod.cs" Link="Rendering/PostProcessingQuietPeriod.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ParameterEnergy/EnergyEnvelope.cs" Link="ParameterEnergy/EnergyEnvelope.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ParameterEnergy/EnergyFrequencyWeighting.cs" Link="ParameterEnergy/EnergyFrequencyWeighting.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ParameterEnergy/EnergyLevelScale.cs" Link="ParameterEnergy/EnergyLevelScale.cs" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmoother.cs" Link="Smoothing/TransitionSmoother.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionJunctionPlanner.cs" Link="Smoothing/TransitionJunctionPlanner.cs" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmootherConfig.cs" Link="Smoothing/TransitionSmootherConfig.cs" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/AudioAnalysisUtils.cs" Link="Smoothing/AudioAnalysisUtils.cs" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/WaveJunctionProcessor.cs" Link="Smoothing/WaveJunctionProcessor.cs" />
@@ -39,6 +50,7 @@
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Evec\BoundedRenderRetry.cs" Link="Evec\BoundedRenderRetry.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\CreatedEntityIndex.cs" Link="Core\CreatedEntityIndex.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\NoteLanguage.cs" Link="Core\NoteLanguage.cs" />
+    <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Core\TimingMcpEdits.cs" Link="Core\TimingMcpEdits.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Domains\ExtensionParameters\ExtensionParameterContracts.cs"
              Link="Stage3\ExtensionParameterContracts.cs" />
     <Compile Include="..\VOCALOIDPatcher\VOCALOIDPatcher\Mcp\Domains\AudioParts\AudioPartContracts.cs"

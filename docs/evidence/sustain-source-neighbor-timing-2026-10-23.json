@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-23",
+  "issue": "independent sustain source length dropped neighboring phoneme timing controls",
+  "deployed": false,
+  "target": {
+    "track_index": 0,
+    "part_index": 1,
+    "note_index": 16,
+    "bar": 18,
+    "beat": 3,
+    "absolute_tick": 33600,
+    "phonemes": "ts` UN"
+  },
+  "source_group": {
+    "last_note_index": 16,
+    "first_note_index": 0,
+    "unmodified_notes": 16
+  },
+  "before": {
+    "affected_non_target_notes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      13,
+      14,
+      15
+    ],
+    "source_lengths_ms": [
+      148,
+      350,
+      650
+    ],
+    "nearby_max_boundary_shift_ms": 52.2222222222
+  },
+  "fix": "Bind private timing independence by original owner identity, preserving complete timing plans of unchanged neighbors and shared physical boundaries",
+  "native_runs": [
+    {
+      "sdk": "6.13.1.1",
+      "exit_code": 0,
+      "cases": [
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 148,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        },
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 350,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        },
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 650,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        },
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 0,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        }
+      ]
+    },
+    {
+      "sdk": "6.13.3.1",
+      "exit_code": 0,
+      "cases": [
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 148,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        },
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 350,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        },
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 650,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        },
+        {
+          "stage": "sustain-neighbor-timing",
+          "lengthMs": 0,
+          "unchangedNotes": 16,
+          "passed": true,
+          "differences": []
+        }
+      ]
+    }
+  ],
+  "native_sha256": "621693F9986861DE955D1025DEE8EC521CA0EF13DE691F976D4A86ECD44D4DE0",
+  "managed_tests": {
+    "failed": 0,
+    "passed": 472
+  },
+  "builds": [
+    {
+      "sdk": "6.13.1.1",
+      "configuration": "Debug",
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "sdk": "6.13.1.1",
+      "configuration": "Release",
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "sdk": "6.13.3.1",
+      "configuration": "Debug",
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "sdk": "6.13.3.1",
+      "configuration": "Release",
+      "warnings": 0,
+      "errors": 0
+    }
+  ],
+  "project_written": false,
+  "editor_launched": false,
+  "editor_closed": false,
+  "host_acceptance": "Pending deployment and user listening",
+  "full_voice_comp_regression": [
+    {
+      "stages": 32,
+      "sdk": "6.13.1.1",
+      "native_cleanup_passed": true,
+      "exit_code": 0
+    },
+    {
+      "stages": 32,
+      "sdk": "6.13.3.1",
+      "native_cleanup_passed": true,
+      "exit_code": 0
+    }
+  ],
+  "prepared_merged_assembly_sha256": "C05A43BAFC829E4B3CCABD56C75E65CD57B8C4A4C90D7A26CA2D47F6B99C5ACF"
+}

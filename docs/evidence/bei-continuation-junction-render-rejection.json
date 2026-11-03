@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-20",
+  "sdk": "6.13.3.1",
+  "liveFault": {
+    "kind": "preparation-rejected",
+    "count": 5,
+    "firstUtc": "2026-10-20T14:36:04.9499249Z",
+    "lastUtc": "2026-10-20T14:36:13.8885746Z",
+    "reason": "Requested transition endpoint is outside its native geometry domain.",
+    "isRendering": true,
+    "renderServiceEnabled": false,
+    "timingSuspended": true,
+    "projectRevision": 952,
+    "dirty": false
+  },
+  "before": {
+    "error": "Requested transition endpoint is outside its native geometry domain.",
+    "queryCounters": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    },
+    "junctions": [
+      {
+        "From": "p",
+        "To": "ei",
+        "endpoint": "Begin",
+        "leftNote": 3,
+        "rightNote": 3,
+        "OriginalFrame": 3489,
+        "CurrentFrame": 3486,
+        "Protected": false,
+        "MinimumOutputFrame": 3087,
+        "requested": 3489,
+        "delta": 3,
+        "OffsetSeconds": 0.017414965986394557
+      },
+      {
+        "From": "p",
+        "To": "ei",
+        "endpoint": "End",
+        "leftNote": 3,
+        "rightNote": 3,
+        "OriginalFrame": 3509,
+        "CurrentFrame": 3509,
+        "Protected": true,
+        "MinimumOutputFrame": 3087,
+        "requested": 3515,
+        "delta": 6,
+        "OffsetSeconds": 0.034829931972789115
+      }
+    ]
+  },
+  "after": {
+    "error": null,
+    "queryCounters": {
+      "Starts": 0,
+      "Steps": 0,
+      "Samples": 0
+    },
+    "junctions": [
+      {
+        "From": "p",
+        "To": "ei",
+        "endpoint": "Begin",
+        "leftNote": 3,
+        "rightNote": 3,
+        "OriginalFrame": 3489,
+        "CurrentFrame": 3486,
+        "Protected": false,
+        "MinimumOutputFrame": 3087,
+        "requested": 3489,
+        "delta": 3,
+        "OffsetSeconds": 0.017414965986394557
+      },
+      {
+        "From": "p",
+        "To": "ei",
+        "endpoint": "End",
+        "leftNote": 3,
+        "rightNote": 3,
+        "OriginalFrame": 3509,
+        "CurrentFrame": 3509,
+        "Protected": false,
+        "MinimumOutputFrame": 3087,
+        "requested": 3515,
+        "delta": 6,
+        "OffsetSeconds": 0.034829931972789115
+      }
+    ]
+  },
+  "storedProjectRenders": [
+    {
+      "delta": 0,
+      "Name": "warm",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "72989FF97AE0C6682FED89D5D2A1A7C17399FF33B09F885012BA5990E999C7A1"
+    },
+    {
+      "delta": 0,
+      "Name": "neutral",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "670089385D898D277E0A659072F4422B74685BADFCB43156125D914F79CF42F4"
+    },
+    {
+      "delta": 0,
+      "Name": "stored",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "156C4A5705C3478C938293DFD107CE580EACEB68C7C995CE72CEE7BE962A3ACC"
+    },
+    {
+      "delta": 0,
+      "Name": "restored",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "670089385D898D277E0A659072F4422B74685BADFCB43156125D914F79CF42F4"
+    },
+    {
+      "delta": -2,
+      "Name": "warm",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "16A3F56E2235044C723A34AEA1D0F33724DD69F5EDA3A9747F85DA06FD95FE3C"
+    },
+    {
+      "delta": -2,
+      "Name": "neutral",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "16A3F56E2235044C723A34AEA1D0F33724DD69F5EDA3A9747F85DA06FD95FE3C"
+    },
+    {
+      "delta": -2,
+      "Name": "stored",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "381FB29798662DD565FF6B1BEA4B82AA253E06FE773092D3467355E4DD5D31F4"
+    },
+    {
+      "delta": -2,
+      "Name": "restored",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "16A3F56E2235044C723A34AEA1D0F33724DD69F5EDA3A9747F85DA06FD95FE3C"
+    },
+    {
+      "delta": 2,
+      "Name": "warm",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "8CBC2767B09ACBCB2575CE3045703EBE65351CCB3E0FF392D0EA2885D806098A"
+    },
+    {
+      "delta": 2,
+      "Name": "neutral",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "8CBC2767B09ACBCB2575CE3045703EBE65351CCB3E0FF392D0EA2885D806098A"
+    },
+    {
+      "delta": 2,
+      "Name": "stored",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "404CC570BEC967386D28DA3CBF3A9685742E7D169F851A75DD2E9F2C6D2FF6D4"
+    },
+    {
+      "delta": 2,
+      "Name": "restored",
+      "map": true,
+      "sourceUnchanged": true,
+      "Failures": 0,
+      "gainFailures": 0,
+      "hash": "8CBC2767B09ACBCB2575CE3045703EBE65351CCB3E0FF392D0EA2885D806098A"
+    }
+  ],
+  "strictWarmRestoration": true,
+  "sourceNoteEventsUnchanged": true,
+  "continuationControlledRenders": 24,
+  "continuationQueryCases": 6,
+  "existingRegressionRenders": 278,
+  "existingRegressionRejectedCandidates": 15,
+  "managedTestsPassed": 310,
+  "debugBuild": {
+    "passed": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "releaseBuild": {
+    "passed": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "sourceSha256": {
+    "transitionLayout": "1D6C8D1784BEF09E6A71A2D2C33CC62FB4EAAEE089B2269666FA3EEA866C178F",
+    "regressionTests": "9031354E894421C8270E754DC89A359D8763DF957A581E7333531C9C0B62BE00",
+    "storedProjectProbe": "0623ABB8E6D9930F3B8362A2C98100BD75C82BD16B47DA9DAB75A11052CA9E7B"
+  },
+  "nativeAbiChanged": false,
+  "userProjectChangedByAgent": false,
+  "editorStartedByAgent": false,
+  "hostReopenValidated": false
+}

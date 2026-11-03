@@ -1,0 +1,874 @@
+{
+  "Date": "2026-10-22",
+  "EditorVersion": "6.13.3.1",
+  "Target": {
+    "NoteIndices": [
+      16,
+      17
+    ],
+    "PartIndex": 1,
+    "ChronologicalPart": 3,
+    "TrackIndex": 0
+  },
+  "InitialProjectRevision": 354,
+  "SourceSnapshotSha256": "F2B4A23599C42D472C7B4F12D36E56BB9DA8A24150235DE39C92E8A41C02D39A",
+  "InstalledPatchSha256": "C4D62BA69731C0BE14C72E06A7F329BB29DC4CBC5284F3B5A0B67A115A643719",
+  "NativeSha256": "49DEF60F2D4AA0F55E4EA940B36CE14300E70AC0C10C9FE48E025F09FE1BFEA9",
+  "InitialMcpBoundaries": [
+    {
+      "TimingLimitedCount": 0,
+      "Velocity": 64,
+      "Lyric": "zhong",
+      "Boundaries": [
+        -76,
+        -2,
+        195
+      ],
+      "RenderFinished": true
+    },
+    {
+      "TimingLimitedCount": 0,
+      "Velocity": 105,
+      "Lyric": "dan",
+      "Boundaries": [
+        -45,
+        -4,
+        294
+      ],
+      "RenderFinished": true
+    }
+  ],
+  "LiveSharedBoundaryAbsoluteTick": 33795,
+  "ProbeBaselineNativeBoundaries": [
+    [
+      -76,
+      -2,
+      202
+    ],
+    [
+      -38,
+      -4,
+      294
+    ]
+  ],
+  "ProbeDiffersFromLiveByAboutOneFrame": true,
+  "PcmScope": "Raw independent SDK render; final host PCM post-processing not reproduced",
+  "ThresholdMethod": "Longest consecutive 256-sample-frame RMS run near the target phoneme at 44100 Hz; -60 and -50 dBFS are measurement thresholds, not digital silence",
+  "FinalRenderCount": 23,
+  "Renders": [
+    {
+      "Name": "warm",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "C82A69E8CD4132A1402E7637021735479EC929BFDC020220E9708DA7EE94A15A",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "stored",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "C82A69E8CD4132A1402E7637021735479EC929BFDC020220E9708DA7EE94A15A",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "neutral-transitions",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "DA9EFCF3B60804B66813FD16F29F6C127429A268574686E415631AA544E4F89B",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "vel0",
+      "Velocity": 0,
+      "BaselineStartFrame": 4174,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4174,
+          "To": 4174
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 133.515,
+        "Frames": 23,
+        "Start": 4175
+      },
+      "Below50": {
+        "Milliseconds": 139.32,
+        "Frames": 24,
+        "Start": 4175
+      },
+      "Hash": "96F039389455E27CA12F6A90EF91EA41EC42BD497DAD66005A28592C988227C5",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "vel64",
+      "Velocity": 64,
+      "BaselineStartFrame": 4191,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4191,
+          "To": 4191
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 34.83,
+        "Frames": 6,
+        "Start": 4192
+      },
+      "Below50": {
+        "Milliseconds": 46.44,
+        "Frames": 8,
+        "Start": 4191
+      },
+      "Hash": "3E6FE83FC0B503CEBFB9E27BB5B6D196CC10D2F1A032E850D4B793902F81A399",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "vel127",
+      "Velocity": 127,
+      "BaselineStartFrame": 4195,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4195,
+          "To": 4195
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 17.415,
+        "Frames": 3,
+        "Start": 4196
+      },
+      "Below50": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Hash": "D771B36DE8B92888D7B748840BA6288A3B6B8F0DD71DB4FD6C5674D9DDDC46A2",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary0--4",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4190
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 40.635,
+        "Frames": 7,
+        "Start": 4191
+      },
+      "Below50": {
+        "Milliseconds": 52.245,
+        "Frames": 9,
+        "Start": 4190
+      },
+      "Hash": "6AF23EBB906E90EF2919D37C17DD49EF968D8BB5573E2F90F6F353F402815A6B",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary0--2",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4192
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 34.83,
+        "Frames": 6,
+        "Start": 4193
+      },
+      "Below50": {
+        "Milliseconds": 40.635,
+        "Frames": 7,
+        "Start": 4192
+      },
+      "Hash": "03CC4C6D63149F4C8CE9D58B4BB5FA60C15122296572F355E5622E4D42F07A15",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary0-2",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4196
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 11.61,
+        "Frames": 2,
+        "Start": 4197
+      },
+      "Below50": {
+        "Milliseconds": 17.415,
+        "Frames": 3,
+        "Start": 4196
+      },
+      "Hash": "F8230EB6C5D219218D2570386F0CF9BE4E62E8A052E49CFEEAE8FEFE8AB3F761",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary0-4",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4198
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 0.0,
+        "Frames": 0,
+        "Start": 0
+      },
+      "Below50": {
+        "Milliseconds": 5.805,
+        "Frames": 1,
+        "Start": 4198
+      },
+      "Hash": "DA4FF18BEAB47DAD2AADF9DE2BF063BA2F9FCE56102F7C51E6D4B90E57D300BA",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary1--4",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4195
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 0.0,
+        "Frames": 0,
+        "Start": 0
+      },
+      "Below50": {
+        "Milliseconds": 5.805,
+        "Frames": 1,
+        "Start": 4194
+      },
+      "Hash": "34566A05A72B1B155BD61EDF8A1635D4945E8693C686365EA05D06D6C4A2786C",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary1--2",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4197
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 11.61,
+        "Frames": 2,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 17.415,
+        "Frames": 3,
+        "Start": 4194
+      },
+      "Hash": "0F996C5A3B04865EA6139A712CE4D2263D4144F8018B11DF18AB6C77048B5F6D",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary1-2",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4201
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 34.83,
+        "Frames": 6,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 40.635,
+        "Frames": 7,
+        "Start": 4194
+      },
+      "Hash": "054A2651E82E0E34F38CBB5C01B0B99CEF0EE877CAC4226BD3941A4C094874ED",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "dan-boundary1-4",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4203
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 40.635,
+        "Frames": 7,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 52.245,
+        "Frames": 9,
+        "Start": 4194
+      },
+      "Hash": "7C6D37A9FC551471CC044952AD6D9A3D04859D3D7BEBDE2EB04004726E7FC812",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "phase-UN--1",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "D943B915C773160F66D450F066B968141601066DE4981AB30BBABCF7FF869D64",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "phase-UN-1",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "CB9B0169BACD4927E307ED0CD41E490F33065D37983C751E6C0AD777BD0430FF",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "phase-t--1",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "A84835ED338E12FE030D33EC2EA41A7A4346BE7CE3D1DFCEF06E9A9E71C03157",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "phase-t-1",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "B7ACC2EE8379D407A77CE4E8A7BBE6A02627E49B15C8AF144A79CD165F267613",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "edge-UN-Begin",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Hash": "7C6EF157FE9AD3C8212C6C3128E7685FD6BFC8CDEDD7A37D29CC1B21B94DC9EC",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "edge-UN-End",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 11.61,
+        "Frames": 2,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "2157A8A911C6481C6A0B57BBBF0E352A1E7C42344BCFADA7FD95366A4CF59EBA",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "edge-t-Begin",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "C82A69E8CD4132A1402E7637021735479EC929BFDC020220E9708DA7EE94A15A",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "edge-t-End",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "D3993858B08FC4FAF6D90FD43FAAEEDF79F7AB69AA467ADEE6ECC2391F7376E9",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    },
+    {
+      "Name": "restored",
+      "Velocity": 105,
+      "BaselineStartFrame": 4194,
+      "BaselineVowelFrame": 4199,
+      "AppliedAnchors": [
+        {
+          "From": 4194,
+          "To": 4194
+        },
+        {
+          "From": 4199,
+          "To": 4199
+        }
+      ],
+      "Below60": {
+        "Milliseconds": 23.22,
+        "Frames": 4,
+        "Start": 4195
+      },
+      "Below50": {
+        "Milliseconds": 29.025,
+        "Frames": 5,
+        "Start": 4194
+      },
+      "Hash": "C82A69E8CD4132A1402E7637021735479EC929BFDC020220E9708DA7EE94A15A",
+      "CertifiedMap": true,
+      "TimingFailures": 0,
+      "GainFailures": 0,
+      "QueryCounters": {
+        "Starts": 0,
+        "Steps": 0,
+        "Samples": 0
+      }
+    }
+  ],
+  "RestoredPcmEqualsStored": true,
+  "FinalTargetBasicFieldsMatchInitial": true,
+  "UserEditedOtherPartsDuringResearch": true,
+  "AgentWroteLiveProject": false,
+  "Deployed": false,
+  "Builds": {
+    "Solution": "Debug passed, 0 warnings, 0 errors",
+    "Harness": "Debug passed, 0 warnings, 0 errors"
+  }
+}

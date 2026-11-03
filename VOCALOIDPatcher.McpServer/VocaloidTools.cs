@@ -1,12 +1,13 @@
 using System.ComponentModel;
 using System.Text.Json;
+using VOCALOIDPatcher.McpBridge;
 using ModelContextProtocol.Server;
 using McpServerInstance = ModelContextProtocol.Server.McpServer;
 
 namespace VOCALOIDPatcher.McpServer;
 
 [McpServerToolType]
-public sealed class VocaloidTools
+public sealed partial class VocaloidTools
 {
     private readonly BridgeGateway _gateway;
 

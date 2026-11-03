@@ -25,7 +25,7 @@ public sealed class CompanionIntegrationTests
         await using McpClient client = await McpClient.CreateAsync(transport);
         var tools = await client.ListToolsAsync();
 
-        Assert.Equal(20, tools.Count);
+        Assert.Equal(26, tools.Count);
         Assert.Contains(tools, tool => tool.Name == "v6_get_state");
         Assert.Contains(tools, tool => tool.Name == "v6_g2pa_candidates");
         Assert.Contains(tools, tool => tool.Name == "v6_g2pa_apply");
@@ -75,6 +75,60 @@ public sealed class CompanionIntegrationTests
         Assert.NotEqual(true, stringResult.IsError);
         Assert.Equal(System.Text.Json.JsonValueKind.Array, fake.LastRequest!.Arguments!.Value.GetProperty("operations").ValueKind);
         Assert.True(fake.LastRequest.Arguments.Value.GetProperty("operations")[0].GetProperty("evec").GetProperty("clear").GetBoolean());
+        var timingSchema = tools.Single(t => t.Name == "v6_edit_timing").JsonSchema.GetProperty("properties").GetProperty("edit");
+        Assert.Equal("object", timingSchema.GetProperty("type").GetString());
+        Assert.Contains("delta_frames", timingSchema.GetRawText());
+        Assert.Contains("comp", timingSchema.GetRawText());
+        var timingResult = await client.CallToolAsync("v6_edit_timing", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project", ["expected_revision"] = 1L, ["client_request_id"] = "timing-boundary",
+            ["track_index"] = 0, ["part_index"] = 1, ["dry_run"] = true,
+            ["edit"] = new { op = "boundary.move", note_index = 17, boundary_index = 1, delta_frames = -2 },
+        });
+        Assert.NotEqual(true, timingResult.IsError);
+        Assert.Equal("v6_edit_timing", fake.LastRequest?.Method);
+        var timing = fake.LastRequest!.Arguments!.Value.GetProperty("edit");
+        Assert.Equal(System.Text.Json.JsonValueKind.Object, timing.ValueKind);
+        Assert.Equal(-2, timing.GetProperty("delta_frames").GetInt32());
+        Assert.Equal(17, timing.GetProperty("note_index").GetInt32());
+        var settingsResult = await client.CallToolAsync("v6_timing_settings", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project", ["expected_revision"] = 1L, ["client_request_id"] = "timing-settings",
+            ["dry_run"] = true, ["settings"] = new { smoothing = false, crossfade_ms = 12.0, phase_alignment = false },
+        });
+        Assert.NotEqual(true, settingsResult.IsError);
+        Assert.Equal("v6_timing_settings", fake.LastRequest?.Method);
+        Assert.False(fake.LastRequest!.Arguments!.Value.GetProperty("settings").GetProperty("smoothing").GetBoolean());
+        var compResult = await client.CallToolAsync("v6_edit_timing", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project", ["expected_revision"] = 1L, ["client_request_id"] = "timing-comp",
+            ["track_index"] = 0, ["part_index"] = 1, ["dry_run"] = true,
+            ["edit"] = new { op = "comp.set", note_index = 16, comp = new { body = new { length_ms = 1800, trim = "keep_tail",
+                context = new { before = "t a", after = "Sil", note_ms = 550 } }, isolation = new { after = true, source_length_ms = 1600 } } },
+        });
+        Assert.NotEqual(true, compResult.IsError);
+        Assert.Equal(1800, fake.LastRequest!.Arguments!.Value.GetProperty("edit").GetProperty("comp").GetProperty("body").GetProperty("length_ms").GetDouble());
+        var compEditSchema = tools.Single(t => t.Name == "v6_edit_voice_comp").JsonSchema.GetProperty("properties").GetProperty("edit");
+        Assert.Equal("object", compEditSchema.GetProperty("type").GetString());
+        Assert.Contains("note_indices", compEditSchema.GetRawText());
+        var batchResult = await client.CallToolAsync("v6_edit_voice_comp", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project", ["expected_revision"] = 1L, ["client_request_id"] = "comp-batch",
+            ["track_index"] = 0, ["part_index"] = 1, ["dry_run"] = true,
+            ["edit"] = new { op = "independent_sustain", note_indices = new[] { 16, 17 }, length_ms = 1800, fade_ms = 8 },
+        });
+        Assert.NotEqual(true, batchResult.IsError);
+        Assert.Equal("v6_edit_voice_comp", fake.LastRequest!.Method);
+        Assert.Equal(2, fake.LastRequest.Arguments!.Value.GetProperty("edit").GetProperty("note_indices").GetArrayLength());
+        Assert.Equal(1800, fake.LastRequest.Arguments!.Value.GetProperty("edit").GetProperty("length_ms").GetDouble());
+        var previewResult = await client.CallToolAsync("v6_preview_voice_comp", new Dictionary<string, object?>
+        {
+            ["project_id"] = "fake-project", ["expected_revision"] = 1L, ["client_request_id"] = "comp-preview",
+            ["action"] = "source", ["track_index"] = 0, ["part_index"] = 1, ["note_index"] = 16, ["play"] = false,
+        });
+        Assert.NotEqual(true, previewResult.IsError);
+        Assert.Equal("v6_preview_voice_comp", fake.LastRequest!.Method);
+        Assert.False(fake.LastRequest.Arguments!.Value.GetProperty("play").GetBoolean());
     }
 
     [Fact]

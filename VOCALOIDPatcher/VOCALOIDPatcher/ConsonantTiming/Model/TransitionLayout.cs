@@ -47,13 +47,15 @@ internal sealed class TransitionLayout
     internal ImmutableArray<TransitionAnchor> Anchors { get; }
     internal ImmutableArray<TransitionNoteFrames> Notes { get; }
     internal int MinimumOutputFrame { get; }
+    internal IReadOnlyDictionary<TimingNoteAddress, ImmutableArray<PhonemeBoundaryLimit>>? BoundaryLimits { get; init; }
 
     internal TransitionLayout(Guid scope, long revision, string inputKey,
         IEnumerable<TransitionSegment> original, IEnumerable<TransitionSegment> current,
         IEnumerable<TransitionNoteFrames> notes, IEnumerable<TransitionAnchor> anchors, int minimumOutputFrame = 0)
     {
         Scope = scope; Revision = revision; MinimumOutputFrame = minimumOutputFrame;
-        Notes = notes.ToImmutableArray(); Anchors = anchors.ToImmutableArray();
+        var physicalNotes = notes.Take(34).ToArray();
+        Notes = ContinuationPhonemes.Join(physicalNotes); Anchors = anchors.ToImmutableArray();
         if (Notes.Length is < 1 or > 33 || Notes.Select(n => n.Address).Distinct().Count() != Notes.Length ||
             Notes.Any(n => n.Original.IsDefault || n.Original.Length != n.Address.Topology.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length + 1 ||
                 n.Original.Length < 2 || n.Original.Zip(n.Original.Skip(1)).Any(p => p.First > p.Second)))
@@ -88,7 +90,15 @@ internal sealed class TransitionLayout
             edges.Add(new(identity, a, b));
         }
         Edges = edges.ToImmutableArray();
-        var points = Anchors.ToDictionary(p => p.From, p => (p.To, Protected: true));
+        var phonemeBoundaries = Notes.SelectMany(n => n.Original).ToHashSet();
+        var continuationJunctions = physicalNotes.Where(n => ContinuationPhonemes.IsContinuation(n.Address.Topology))
+            .Select(n => n.Original[0]).ToHashSet();
+        // A continuation's internal pitch allocation is not a new phoneme.
+        // Keep the NOTE/pitch events intact, while allowing ART/STA geometry
+        // to cross this junction unless it is also a real phoneme boundary.
+        var points = Anchors.ToDictionary(p => p.From, p => (p.To, Protected:
+            !continuationJunctions.Contains(p.From) || phonemeBoundaries.Contains(p.From) ||
+            p.From == Anchors[0].From || p.From == Anchors[^1].From));
         var aliases = new Dictionary<int, List<TransitionEndpointRef>>();
         foreach (var edge in Edges)
             foreach (var endpoint in Enum.GetValues<TransitionEndpoint>())
@@ -102,11 +112,13 @@ internal sealed class TransitionLayout
                 list.Add(new(edge.Identity, endpoint));
             }
         var ordered = points.OrderBy(p => p.Key).ToArray();
-        ValidateAnchors(ordered.Select(p => new TransitionAnchor(p.Key, p.Value.To)));
+        // DSE may crop an ART half to zero frames after a valid phoneme warp.
+        // Observed endpoints may coincide; the published warp stays strict.
+        ValidateAnchors(ordered.Select(p => new TransitionAnchor(p.Key, p.Value.To)), allowCoincidentOutputs: true);
         Junctions = ordered.Select((p, i) => new TransitionJunction(p.Key, p.Value.To, p.Value.Protected,
             aliases.TryGetValue(p.Key, out var list) ? list.ToImmutableArray() : [],
-            p.Value.Protected || i == 0 ? p.Value.To : Math.Max(minimumOutputFrame, ordered[i - 1].Value.To + 1),
-            p.Value.Protected || i == ordered.Length - 1 ? p.Value.To : ordered[i + 1].Value.To - 1)).ToImmutableArray();
+            p.Value.Protected || i == 0 ? p.Value.To : Math.Min(p.Value.To, Math.Max(minimumOutputFrame, ordered[i - 1].Value.To + 1)),
+            p.Value.Protected || i == ordered.Length - 1 ? p.Value.To : Math.Max(p.Value.To, ordered[i + 1].Value.To - 1))).ToImmutableArray();
         using var stream = new MemoryStream();
         using (var writer = new BinaryWriter(stream, Encoding.UTF8, true))
         {
@@ -140,17 +152,55 @@ internal sealed class TransitionLayout
         var coordinates = compiled.Anchors.ToDictionary(a => a.From, a => a.To);
         int At(int i) => coordinates.GetValueOrDefault(Junctions[i].OriginalFrame, Junctions[i].CurrentFrame);
         return Junctions.Select((joint, index) => joint with { CurrentFrame = At(index),
-            MinimumCandidate = joint.Protected || index == 0 ? At(index) : Math.Max(MinimumOutputFrame, At(index - 1) + 1),
-            MaximumCandidate = joint.Protected || index == Junctions.Length - 1 ? At(index) : At(index + 1) - 1 }).ToImmutableArray();
+            MinimumCandidate = joint.Protected || index == 0 ? At(index) : Math.Min(At(index), Math.Max(MinimumOutputFrame, At(index - 1) + 1)),
+            MaximumCandidate = joint.Protected || index == Junctions.Length - 1 ? At(index) : Math.Max(At(index), At(index + 1) - 1) }).ToImmutableArray();
     }
     internal static int Position(TransitionSegment row, TransitionEndpoint endpoint) => endpoint switch
     { TransitionEndpoint.Begin => row.Begin, TransitionEndpoint.Split => row.Split, TransitionEndpoint.End => row.End, _ => throw new ArgumentOutOfRangeException(nameof(endpoint)) };
-    internal static void ValidateAnchors(IEnumerable<TransitionAnchor> points)
+    internal static void ValidateAnchors(IEnumerable<TransitionAnchor> points, bool allowCoincidentOutputs = false)
     {
         var array = points.ToArray();
         if (array.Length is < 2 or > 8192 || array[0].From != array[0].To || array[^1].From != array[^1].To ||
-            array.Zip(array.Skip(1)).Any(p => p.First.From >= p.Second.From || p.First.To >= p.Second.To))
+            array.Zip(array.Skip(1)).Any(p => p.First.From >= p.Second.From ||
+                (allowCoincidentOutputs ? p.First.To > p.Second.To : p.First.To >= p.Second.To)))
             throw new NotSupportedException("Transition anchors cross, collapse or lack fixed guards.");
+    }
+
+    internal ImmutableArray<TransitionAnchor> CompileJunctionAnchors(IReadOnlyDictionary<int, int> targets)
+    {
+        var observed = Junctions.Select(j => new TransitionAnchor(j.OriginalFrame,
+            targets.TryGetValue(j.OriginalFrame, out int frame) ? frame : j.CurrentFrame)).ToArray();
+        ValidateAnchors(observed, allowCoincidentOutputs: true);
+        var byFrame = Junctions.ToDictionary(j => j.OriginalFrame);
+        var strict = new List<TransitionAnchor>();
+        foreach (var group in observed.GroupBy(a => a.To))
+        {
+            var points = group.ToArray();
+            if (points.Length == 1) { strict.Add(points[0]); continue; }
+            var joints = points.Select(a => byFrame[a.From]).ToArray();
+            // Only an unchanged, already observed native coincidence may be
+            // represented implicitly. A new collapse is still an invalid edit.
+            if (joints.Any(j => j.CurrentFrame != group.Key) || joints.Count(j => j.Protected) > 1)
+                throw new NotSupportedException("Transition edit collapses distinct native junctions.");
+            var keep = joints.FirstOrDefault(j => j.Protected) ?? joints[0];
+            strict.Add(new(keep.OriginalFrame, group.Key));
+        }
+        var result = strict.ToImmutableArray();
+        ValidateAnchors(result);
+        foreach (var point in observed)
+        {
+            int i = 0; while (i < result.Length && result[i].From <= point.From) i++;
+            int mapped = point.From;
+            if (i > 0 && i < result.Length)
+            {
+                var a = result[i - 1]; var b = result[i];
+                mapped = checked(a.To + (int)Math.Round((point.From - (double)a.From) * (b.To - (double)a.To) /
+                    (b.From - (double)a.From), MidpointRounding.AwayFromZero));
+            }
+            if (mapped != point.To)
+                throw new NotSupportedException("Native coincident junctions cannot be represented by a strict warp.");
+        }
+        return result;
     }
 }
 
@@ -209,8 +259,7 @@ internal sealed class TransitionControlPlan
                 throw new InvalidDataException("Duplicate or foreign transition gain identity.");
         }
         var anchors = targets.All(p => layout.Junctions.Single(j => j.OriginalFrame == p.Key).CurrentFrame == p.Value)
-            ? layout.Anchors : layout.Junctions.Select(j => new TransitionAnchor(j.OriginalFrame,
-                targets.TryGetValue(j.OriginalFrame, out int frame) ? frame : j.CurrentFrame)).ToImmutableArray();
+            ? layout.Anchors : layout.CompileJunctionAnchors(targets);
         TransitionLayout.ValidateAnchors(anchors);
         var orderedGains = layout.Edges.Where(e => gains.TryGetValue(e.Identity, out float value) && value != 0)
             .Select(e => new TransitionGainEdit(e.Identity, gains[e.Identity])).ToImmutableArray();

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,14 +44,19 @@ internal static partial class SampledTimingHost
         internal readonly Dictionary<nint, (string Input, NativeDurationSelection.TimeEvent[] Events)> DurationContracts = new();
         internal WIVSMUpdateObserver? InputObserver;
         internal Exception? InputObserverFault;
-        internal readonly HashSet<nint> NativeDirtyParts = new();
+        internal readonly NativeInputInvalidation InputScope = new();
+        internal HashSet<nint> NativeDirtyParts => InputScope.DirtyParts;
         internal readonly HashSet<string> InputNotices = new();
         internal string[] LastInputNotices = [];
         internal int DurationContractHits, DurationContractMisses;
         internal bool Loading, Queued, Rebuilding, NativeRestart;
+        internal readonly TimingPublicationRetryBudget PublicationRetry = new();
+        internal DispatcherTimer? PublicationRetryTimer;
         internal bool AttachedDuringCopy;
+        internal bool CompSource;
         internal Exception? Fault;
         internal readonly System.Collections.Concurrent.ConcurrentDictionary<nint, (long Revision, int[] Boundaries)> Boundaries = new();
+        internal readonly System.Collections.Concurrent.ConcurrentDictionary<nint, (long Revision, ImmutableArray<PhonemeBoundaryLimit> Limits)> BoundaryLimits = new();
         internal readonly System.Collections.Concurrent.ConcurrentDictionary<nint, (long Revision, TransitionExecutionPlan Plan)> TransitionViews = new();
     }
     private static readonly System.Collections.Concurrent.ConcurrentDictionary<nint, Entry> Entries = new();
@@ -175,31 +181,11 @@ internal static partial class SampledTimingHost
     {
         var session = ForPhonemeEditing(note.Sequence!);
         if (editedBoundary == null && session.Document.Get(SampledTimingVsmBinding.Address(note))?.Fingerprint == plan?.Fingerprint) return;
-        IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? related = null;
-        TransitionProjectData? transitions = null;
-        using (var prepared = session.Prepare(note))
-        {
-            if (editedBoundary.HasValue)
-                related = prepared.QueryPhonemes(plan ?? new(note.Phonemes, []), session.Revision, editedBoundary: editedBoundary).Plans;
-            else _ = prepared.Query(plan ?? new(note.Phonemes, []), session.Revision);
-            if (related != null && related.All(p => session.Document.Get(p.Key)?.Fingerprint == p.Value?.Fingerprint)) return;
-            var entry = Get(note.Sequence!);
-            var active = ActiveTransitions(entry);
-            var address = SampledTimingVsmBinding.Address(note);
-            if (TransitionProjectBinding.HasPart(active, address.Track, address.Part))
-            {
-                var current = session.Document.Get(address) ?? new(note.Phonemes, []);
-                var before = prepared.QueryTransitions(current, session.Revision);
-                transitions = TransitionTimingScale.Adopt(session.Transitions.Snapshot.Data!, active, before);
-                var liveIds = active.Notes.Select(n => n.Id).ToHashSet();
-                var adoptedActive = transitions.KeepNotes(n => liveIds.Contains(n.Id));
-                var candidates = related ?? new Dictionary<TimingNoteAddress, SampledTimingPlan?> { [address] = plan };
-                using var candidate = session.Prepare(note, candidates);
-                var layout = candidate.QueryTransitions(plan ?? new(note.Phonemes, []), session.Revision);
-                _ = candidate.QueryTransitionControls(layout, TransitionProjectBinding.ResolveAvailable(adoptedActive, layout), session.Revision);
-            }
-        }
-        note.Sequence!.StopAsyncRendering(); session.SetPlan(note, plan, related, transitions);
+        using var prepared = new PhonemePreparation(note);
+        var candidate = prepared.Query(plan, editedBoundary);
+        using var next = prepared.PrepareCandidate(candidate);
+        var execution = prepared.ValidateCandidate(candidate, next);
+        prepared.Commit(candidate, next, execution);
     }
 
     internal static List<int>? VerifiedPositions(WIVSMNote note)
@@ -208,6 +194,11 @@ internal static partial class SampledTimingHost
             !entry.Boundaries.TryGetValue((nint)note, out var value) || value.Revision != entry.Session.Revision) return null;
         return value.Boundaries.ToList();
     }
+
+    internal static ImmutableArray<PhonemeBoundaryLimit> BoundaryLimits(WIVSMNote note)
+        => note.Sequence is { } source && Entries.TryGetValue((nint)source, out var entry) &&
+            entry.BoundaryLimits.TryGetValue((nint)note, out var value) && value.Revision == entry.Session.Revision
+            ? value.Limits : [];
     internal static bool IsDirty(WIVSMSequence source) => Find(source)?.Document.IsDirty == true || Find(source)?.Transitions.IsDirty == true || DurationSelectionHost.IsDirty(source);
 
     internal static object? Diagnostics(WIVSMSequence? source)
@@ -222,6 +213,8 @@ internal static partial class SampledTimingHost
             nativeParts=entry.PublishedParts.Count,pending=entry.Pending.Count,
             durationContractHits=entry.DurationContractHits,durationContractMisses=entry.DurationContractMisses,
             backendCreated=entry.Session.HasBackend, backendFault=entry.Session.BackendFault?.Message,
+            publicationRetry=entry.PublicationRetryTimer?.IsEnabled == true, nativeRestart=entry.NativeRestart,
+            privateSequenceCleanup=TimingSequenceCleanup.Diagnostics(),
             compatibility=LocalTimingNative.Status,
             capabilities=new { projectData=true, planner=entry.Session.HasBackend,
                 routing=NativeSampledTiming.IsInitialized, phonemeMapping=NativePhonemeTiming.IsInitialized,
@@ -259,6 +252,7 @@ internal static partial class SampledTimingHost
             entry.TransitionPreviousData = transitions.Data ?? TransitionProjectData.Empty;
             entry.TransitionPreviousFingerprint = transitions.Fingerprint;
         }
+        VoiceComp.VoiceCompHost.NativeChanged(entry.Source);
         if (entry.Loading || entry.Rebuilding || entry.Queued || (entry.Pending.Count == 0 && !entry.NativeRestart) || NativeRenderSession.IsInternalSequence(entry.Source)) return;
         entry.Queued = true;
         var dispatcher = Application.Current?.Dispatcher ?? throw new InvalidOperationException("Timing edits require the Editor Dispatcher.");
@@ -280,8 +274,13 @@ internal static partial class SampledTimingHost
             entry.Source.StopAsyncRendering();
             var affected = entry.Pending.ToArray();
             InvalidateTargets(entry,affected);
-            entry.Pending.Clear(); entry.NativeRestart = false; entry.Fault = null;
+            entry.Pending.ExceptWith(affected);
+            // Cache invalidation is already committed. A busy planner retry
+            // must resume publication, not repeat the temporary native edit.
+            entry.NativeRestart = true;
             Publish(entry);
+            entry.NativeRestart = false; entry.Fault = null;
+            entry.PublicationRetryTimer?.Stop(); entry.PublicationRetry.Reset();
             // CanAsyncRendering reports the service's current enabled state;
             // StopAsyncRendering above sets it false. It is not permission to
             // restart, and using it as a guard permanently disables rendering.
@@ -292,24 +291,32 @@ internal static partial class SampledTimingHost
 
     private static void InvalidateTargets(Entry entry,IEnumerable<TimingNoteAddress> affected)
     {
+        var parts = new Dictionary<nint, (WIVSMMidiPart Part, List<IEnumerable<WIVSMNote>> Contexts)>();
         foreach (var address in affected)
+        {
+            var part = (ulong)address.Track < entry.Source.NumTrack &&
+                entry.Source.GetTrack((ulong)address.Track) is WIVSMMidiTrack track && (ulong)address.Part < track.NumParts
+                ? track.GetPart((ulong)address.Part) as WIVSMMidiPart : null;
+            var target = part != null && (ulong)address.Note < part.NumNotes ? part.GetNote((ulong)address.Note) : null;
+            if (part == null || target == null || target.Phonemes != address.Topology || target.RelPosTick.Value != address.Position ||
+                target.NoteNumber != address.Pitch || target.DurationTick.Value != address.Duration || part.VoiceBankID != address.Bank)
+                continue; // Deleted/moved notes must not prevent native rendering.
+            var notes = new List<WIVSMNote> { target };
+            var before = target.Prev; var after = target.Next;
+            for (int i = 0; i < 16; i++)
             {
-                var part = entry.Source.GetTrack((ulong)address.Track) is WIVSMMidiTrack track && (ulong)address.Part < track.NumParts
-                    ? track.GetPart((ulong)address.Part) as WIVSMMidiPart : null;
-                var target = part != null && (ulong)address.Note < part.NumNotes ? part.GetNote((ulong)address.Note) : null;
-                if (part == null || target == null || target.Phonemes != address.Topology || target.RelPosTick.Value != address.Position ||
-                    target.NoteNumber != address.Pitch || target.DurationTick.Value != address.Duration || part.VoiceBankID != address.Bank)
-                    continue; // Deleted/moved notes must not prevent native rendering.
-                var notes = new List<WIVSMNote> { target };
-                var before = target.Prev; var after = target.Next;
-                for (int i = 0; i < 16; i++)
-                {
-                    if (before != null) { notes.Add(before); before = before.Prev; }
-                    if (after != null) { notes.Add(after); after = after.Next; }
-                }
-                SampledTimingVsmBinding.InvalidateRenderedPart(part, notes);
-                RenderedWaveCachePatch.InvalidateAndRefreshPart(part);
+                if (before != null) { notes.Add(before); before = before.Prev; }
+                if (after != null) { notes.Add(after); after = after.Next; }
             }
+            if (!parts.TryGetValue((nint)part, out var batch))
+                parts.Add((nint)part, batch = (part, new()));
+            batch.Contexts.Add(notes);
+        }
+        foreach (var batch in parts.Values)
+        {
+            SampledTimingVsmBinding.InvalidateRenderedContexts(batch.Part, batch.Contexts);
+            RenderedWaveCachePatch.InvalidateAndRefreshPart(batch.Part);
+        }
     }
 
     internal static void BeforeRendering(WIVSMSequence source)
@@ -339,6 +346,8 @@ internal static partial class SampledTimingHost
     // successful after its controls were skipped. Plain native songs can render.
     internal static bool Recover(WIVSMSequence source,Exception error,bool requestRender=false)
     {
+        if (error is TimingPlannerBusyException && Entries.TryGetValue((nint)source, out var retryEntry) &&
+            DeferPublication(retryEntry)) return false;
         Rendering.RendererHealthMonitor.PreparationFailed(source, error);
         if (!Entries.TryGetValue((nint)source,out var entry))
         {
@@ -350,6 +359,7 @@ internal static partial class SampledTimingHost
             Debug.Print("Custom timing unavailable for this render source; native rendering retained: "+error.GetType().Name);
             return true;
         }
+        entry.PublicationRetryTimer?.Stop(); entry.PublicationRetry.Reset();
         if (DurationSelectionHost.HasState(source) || PhonemeVolume.PhonemeVolumeHost.HasUnbound(source) ||
             entry.Session.Document.Snapshot().Count != 0 || entry.Session.Transitions.Snapshot.HasData)
         {
@@ -386,11 +396,39 @@ internal static partial class SampledTimingHost
         return true;
     }
 
+    private static bool DeferPublication(Entry entry)
+    {
+        var dispatcher = Application.Current?.Dispatcher;
+        if (dispatcher?.CheckAccess() != true || !entry.Source.IsOpen || entry.SuspendedRevision == entry.Session.Revision ||
+            NativeRenderSession.IsInternalSequence(entry.Source)) return false;
+        entry.NativeRestart = true;
+        if (entry.PublicationRetryTimer?.IsEnabled == true) return true;
+        if (!entry.PublicationRetry.TrySchedule(entry.Session.Revision, Environment.TickCount64, out int delay)) return false;
+        if (entry.PublicationRetryTimer == null)
+        {
+            var timer = new DispatcherTimer(DispatcherPriority.ContextIdle, dispatcher);
+            entry.PublicationRetryTimer = timer;
+            timer.Tick += (_, _) =>
+            {
+                if (!Entries.TryGetValue((nint)entry.Source, out var live) || live != entry || !entry.Source.IsOpen)
+                { timer.Stop(); return; }
+                // Do not consume or reject a user's still-staged transaction.
+                if (entry.Source.IsStaged) return;
+                timer.Stop();
+                try { Flush(entry); }
+                catch (Exception e) { Recover(entry.Source, e, true); }
+            };
+        }
+        entry.PublicationRetryTimer.Interval = TimeSpan.FromMilliseconds(delay);
+        entry.PublicationRetryTimer.Start();
+        return true;
+    }
+
     private static void Detach(Entry entry)
     {
         foreach(nint part in entry.PublishedParts)
         { RetainNativeSnapshot(entry, part); RenderParts.TryRemove(part,out _); NativeSampledTiming.Remove(part); NativeDurationSelection.Remove(part); }
-        entry.PublishedParts.Clear(); entry.Boundaries.Clear(); entry.TransitionViews.Clear();
+        entry.PublishedParts.Clear(); entry.Boundaries.Clear(); entry.BoundaryLimits.Clear(); entry.TransitionViews.Clear();
     }
 
     // The native cache key includes the immutable numerical timing controls.
@@ -426,6 +464,7 @@ internal static partial class SampledTimingHost
         if (plans.Count != 0) NativeSampledTiming.Initialize(Path.Combine(Patcher.DataDir, "native", "v6patch_clock.dll"));
         var parts = new HashSet<nint>();
         var geometry=new Dictionary<nint,int[]>();
+        var limits = new Dictionary<nint, ImmutableArray<PhonemeBoundaryLimit>>();
         for(ulong t=0;t<entry.Source.NumTrack;t++)
         foreach(var part in entry.Source.GetTrack(t) is WIVSMMidiTrack track ? track.PartsEnumerator.OfType<WIVSMMidiPart>() : [])
         {
@@ -445,6 +484,10 @@ internal static partial class SampledTimingHost
                 foreach (var point in query.Execution.RenderAnchors) anchors.Add(point.From, point.To);
                 gains = NativeTransitionGain.Gains(query.Execution);
                 progress = NativeTransitionGain.Progress(query.Execution);
+                if (query.Layout.BoundaryLimits != null)
+                    foreach (var pair in query.Layout.BoundaryLimits)
+                        if (part.GetNote(checked((ulong)pair.Key.Note)) is { } limited)
+                            limits[(nint)limited] = pair.Value;
                 foreach (var note in query.Layout.Notes)
                 {
                     var liveNote = part.GetNote(checked((ulong)note.Address.Note))!;
@@ -459,6 +502,10 @@ internal static partial class SampledTimingHost
                 NativePhonemeTiming.Initialize(Path.Combine(Patcher.DataDir, "native", "v6patch_clock.dll"));
                 using var prepared = entry.Session.Prepare(note);
                 var layout = prepared.QueryPhonemes(plan, entry.Session.Revision);
+                if (layout.Limits != null)
+                    foreach (var pair in layout.Limits)
+                        if (part.GetNote(checked((ulong)pair.Key.Note)) is { } limited)
+                            limits[(nint)limited] = pair.Value;
                 geometry[(nint)note]=layout.Result.Boundaries.Select(v=>checked((int)v)).ToArray();
                 foreach (var point in layout.Anchors)
                 {
@@ -490,6 +537,8 @@ internal static partial class SampledTimingHost
         entry.PublishedParts.Clear(); entry.PublishedParts.UnionWith(parts);
         entry.Boundaries.Clear();
         foreach(var pair in geometry) entry.Boundaries[pair.Key]=(entry.Session.Revision,pair.Value);
+        entry.BoundaryLimits.Clear();
+        foreach (var pair in limits) entry.BoundaryLimits[pair.Key] = (entry.Session.Revision, pair.Value);
         entry.PublishedRevision = entry.Session.Revision;
         entry.DurationPrevious = durationAddresses;
     }
@@ -632,6 +681,7 @@ internal static partial class SampledTimingHost
         Copies.TryRemove(pointer, out _);
         CopiedTransitions.TryRemove(pointer, out _);
         if (!Entries.TryRemove(pointer, out var entry)) return;
+        entry.PublicationRetryTimer?.Stop(); entry.PublicationRetry.Reset();
         entry.InputObserver?.Dispose();
         foreach (nint part in entry.PublishedParts)
         { RenderParts.TryRemove(part, out _); NativeSampledTiming.Remove(part); NativeDurationSelection.Remove(part); }
@@ -645,7 +695,9 @@ internal static partial class SampledTimingHost
         if (entry.Session.Document.Snapshot().Count == 0 && !entry.Session.Transitions.Snapshot.HasData && DurationSelectionHost.Snapshot(source).Length == 0) return;
         bool pending = entry.Pending.Count != 0 || entry.NativeRestart || entry.PublishedRevision != entry.Session.Revision;
         BeforeRendering(source);
-        if (!pending && entry.PublishedParts.All(p => RenderParts.TryGetValue(p, out var route) &&
+        var required = entry.PublishedParts.Where(p => !RenderParts.TryGetValue(p, out var route) || !VoiceComp.VoiceCompHost.Owns(route.Part)).ToArray();
+        if (required.Length == 0) return; // Owned stems validate and wait on their own immutable routes.
+        if (!pending && required.All(p => RenderParts.TryGetValue(p, out var route) &&
             route.Part.HasValidRenderedWave && route.Part.HasValidRenderedScore) && source.IsFinishedRendering) return;
         source.StartAsyncRendering();
         throw new InvalidOperationException("Custom timing or duration audio is still updating.");

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using System.Windows.Threading;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID.DSE;
 using Yamaha.VOCALOID.VDM;
@@ -26,6 +27,8 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
 {
     private const double MappingTicksPerSecond = 60000;
     private readonly object _gate = new();
+    private readonly int _ownerThread = Environment.CurrentManagedThreadId;
+    private readonly Dispatcher? _ownerDispatcher = Dispatcher.FromThread(Thread.CurrentThread);
     private readonly WIVSMSequenceManager _manager;
     private readonly Func<LocalConsonantTimingBackend> _recreate;
     internal LocalConsonantTimingBackend CreateReplacement() => _recreate();
@@ -38,6 +41,8 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
     private readonly WIVSMMidiPart _mappingPart;
     private readonly Dictionary<string, LocalConsonantTimingResult> _cache = new(StringComparer.Ordinal);
     private readonly Queue<string> _keys = new();
+    private readonly Stack<WIVSMSequence> _coefficientMappings = new();
+    private readonly HashSet<WIVSMSequence> _ownedSequences = new(ReferenceEqualityComparer.Instance);
     private readonly Dictionary<(nint Part, long Target, int Velocity), int> _radiusHints = new();
     private bool _disposed;
 
@@ -248,6 +253,7 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
         { SamplingRate = VSMSamplingRate._44100, MaxNumTracks = 4, MaxUndoCount = 0 })
             ?? throw new InvalidOperationException("Cannot create private timing metadata.");
         NativeRenderSession.RegisterInternalSequence(sequence);
+        _ownedSequences.Add(sequence);
         try
         {
             if (sequence.InsertTimeSig(0, new VSMTimeSigEvent(4, 4)) == null ||
@@ -256,6 +262,52 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
             return sequence;
         }
         catch { ClosePrivate(sequence); throw; }
+    }
+
+    // Only empty, committed sequence shells may be pooled. A Part that has
+    // received a private native score must be retired with its track, never
+    // cleared and resized for another preparation (the Editor crash entered
+    // native setDuration through that reuse path). Retain the sequence shell
+    // to avoid the expensive native Close on every owner-thread query.
+    private (WIVSMSequence Sequence, WIVSMMidiPart Part) RentCoefficientMapping(long duration, string bank)
+    {
+        var sequence = _coefficientMappings.TryPop(out var cached) ? cached : NewSequence();
+        try
+        {
+            if (!sequence.IsOpen || !_manager.HasSequence((nint)sequence))
+                throw new InvalidOperationException("Timing mapping sequence was released.");
+            if (sequence.NumTrack != 0)
+                throw new InvalidOperationException("Timing mapping shell is not empty.");
+            var track = sequence.InsertTrackEx(0, VSMTrackType.Midi, "timing") as WIVSMMidiTrack
+                ?? throw new InvalidOperationException("Cannot create timing mapping track.");
+            var part = track.InsertPart(VSMAbsTick.Zero, new VSMRelTick(duration), "timing")
+                ?? throw new InvalidOperationException("Cannot create timing mapping Part.");
+            if (!part.SetVoiceBankID(bank)) throw new InvalidOperationException("Cannot select mapping bank.");
+            return (sequence, part);
+        }
+        catch { ClosePrivate(sequence); throw; }
+    }
+
+    private void ReturnCoefficientMapping(CoefficientWindow window)
+    {
+        var sequence = window.Sequence;
+        bool pooled = false;
+        try
+        {
+            if (_disposed || _coefficientMappings.Count >= 5) return;
+            // Check the native owner before touching its child wrappers.
+            if (!sequence.IsOpen || !_manager.HasSequence((nint)sequence)) return;
+            if (window.Part.Parent is not { } track || !sequence.RemoveTrack(track) ||
+                !sequence.Commit(false) || sequence.NumTrack != 0)
+                throw new InvalidOperationException("Cannot retire timing mapping track.");
+            _coefficientMappings.Push(sequence);
+            pooled = true;
+        }
+        catch (Exception error)
+        {
+            Trace.TraceWarning("Timing mapping shell discarded: {0}", error);
+        }
+        finally { if (!pooled) ClosePrivate(sequence); }
     }
 
     internal void ClearCache()
@@ -353,25 +405,30 @@ internal sealed partial class LocalConsonantTimingBackend : IDisposable
         {
             if (_disposed) return;
             _disposed = true;
-            InvalidatePrepared();
-            _cache.Clear();
-            _keys.Clear();
-            _radiusHints.Clear();
-            try { ClosePrivate(_mappingSequence); }
+            try
+            {
+                InvalidatePrepared();
+                _cache.Clear(); _keys.Clear(); _radiusHints.Clear();
+            }
             finally
             {
-                try { ClosePrivate(_inputSequence); }
+                try
+                {
+                    // A failed preparation/cache teardown must not skip the
+                    // remaining native owners. Close transfers failed owners
+                    // into the strongly retained retry queue.
+                    foreach (var sequence in _ownedSequences.ToArray()) ClosePrivate(sequence);
+                    _coefficientMappings.Clear();
+                }
                 finally { _engine.Dispose(); }
             }
         }
     }
 
-    private static void ClosePrivate(WIVSMSequence? sequence)
+    private void ClosePrivate(WIVSMSequence? sequence)
     {
-        if (sequence == null) return;
-        nint pointer = (nint)sequence;
-        try { sequence.Close(); }
-        finally { if (!sequence.IsOpen) NativeRenderSession.UnregisterInternalSequence(pointer); }
+        TimingSequenceCleanup.Close(_manager, sequence, _ownerThread, _ownerDispatcher);
+        if (sequence != null) _ownedSequences.Remove(sequence);
     }
 }
 

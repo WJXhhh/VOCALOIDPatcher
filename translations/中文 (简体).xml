@@ -1340,6 +1340,7 @@ VOCALOID6 将以 Lite 版本启动。</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_End" xml:space="preserve"><value>结束</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_Value" xml:space="preserve"><value>{0} → {1} · 距音符起点 {2} 毫秒 · Ctrl+单击重置</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_Limit" xml:space="preserve"><value>边界不能交叉或超出可用上下文。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Clamped" xml:space="preserve"><value>受限：保存偏移 {0} 毫秒；当前应用 {1} 毫秒</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Name" xml:space="preserve"><value>音素音量</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Description" xml:space="preserve"><value>在情感模式中，上下拖动采样音素内部调整音量；单击可选择音素并精确输入 dB。音素边界仍可横向拖动调整 timing。</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Tip" xml:space="preserve"><value>{0} · {1} · 上下拖调音量 · Shift 精调 · 单击展开 · Ctrl+单击重置</value></data>
@@ -1374,10 +1375,11 @@ VOCALOID6 将以 Lite 版本启动。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>仅预览，点击应用后提交。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>音素时值或选样音频仍在更新，或暂不可用。请在渲染成功完成后导出。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Name" xml:space="preserve"><value>独立过渡音控制</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PanelTitle" xml:space="preserve"><value>过渡精调</value></data>
   <data name="VOCALOIDPatcher_Transitions_Description" xml:space="preserve"><value>在情感模式的独立过渡带中调整过渡覆盖时长和音量；支持精确输入、共享接点和撤销。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Phonemes" xml:space="preserve"><value>音素</value></data>
   <data name="VOCALOIDPatcher_Transitions_Tool" xml:space="preserve"><value>过渡</value></data>
-  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>两端横拖改 timing，音量线上下拖改 dB；Shift 精调，Esc 取消。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>单击选中，双击或点“精调”打开面板。两端横拖改 timing，音量线上下拖改 dB；Shift 精调，Esc 取消。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Precise" xml:space="preserve"><value>精确调整…</value></data>
   <data name="VOCALOIDPatcher_Transitions_Start" xml:space="preserve"><value>起音</value></data>
   <data name="VOCALOIDPatcher_Transitions_End" xml:space="preserve"><value>收尾</value></data>
@@ -1403,7 +1405,7 @@ VOCALOID6 将以 Lite 版本启动。</value></data>
 
   <data name="VOCALOIDPatcher_Transitions_Phase" xml:space="preserve"><value>发音展开进度（%）</value></data>
   <data name="VOCALOIDPatcher_Transitions_PhaseTip" xml:space="preserve"><value>展开进度 {0}% · 向左更早，向右更晚 · timing 边界不变</value></data>
-  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>拖动会启用发音侧的完整素材。Shift 细调；Ctrl+单击重置菱形及完整素材设置。进度为 0 时，也可以保持完整素材开启。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>拖动只调整当前素材范围内的进度，完整素材需单独开启。Shift 细调；Ctrl+单击重置进度及完整素材设置。</value></data>
   <data name="VOCALOIDPatcher_Transitions_LegacyOnset" xml:space="preserve"><value>此过渡保留了旧版起音偏移；“重置过渡”可清除。</value></data>
   <data name="VOCALOIDPatcher_Transitions_PhaseLimited" xml:space="preserve"><value>此侧不足三个可用输出帧，或没有可推进的源区间。已有设置仍会保留。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Coverage" xml:space="preserve"><value>使用完整发音素材</value></data>
@@ -1411,7 +1413,7 @@ VOCALOID6 将以 Lite 版本启动。</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageBoth" xml:space="preserve"><value>使用完整发音素材（过渡两侧）</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageHint" xml:space="preserve"><value>把完整素材放进现有 timing 范围。可在进度为 0 时单独开启；关闭则使用原有源范围。按“应用”一起提交。</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageActive" xml:space="preserve"><value>已使用完整素材 · {0} 侧</value></data>
-  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>拖动即启用 {0} 侧的完整素材</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>使用 {0} 侧现有素材范围</value></data>
   <data name="VOCALOIDPatcher_Transitions_ResetExpression" xml:space="preserve"><value>重置菱形</value></data>
   <data name="VOCALOIDPatcher_Transitions_ResetExpressionHint" xml:space="preserve"><value>重置展开进度和完整素材，保留 timing、音量及旧版起音控制。</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Energy_Name" xml:space="preserve"><value>ACE：力度</value></data>
@@ -1431,4 +1433,75 @@ VOCALOID6 将以 Lite 版本启动。</value></data>
   <data name="VOCALOIDPatcher_RendererRecovery_Header" xml:space="preserve"><value>自动恢复渲染失败</value></data>
   <data name="VOCALOIDPatcher_RendererRecovery_Description" xml:space="preserve"><value>保留故障诊断，并对已停止的渲染任务重试一次。连续失败会停止自动重试，工程控制数据保持不变。</value></data>
   <data name="VOCALOIDPatcher_AceAcoustic_ExportNotReady" xml:space="preserve"><value>ACE 声学音频尚未准备好，无法导出。请等待渲染完成后重试；处理失败时请查看日志。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Header" xml:space="preserve"><value>参数背景能量图</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Desc" xml:space="preserve"><value>在参数时间轴背景显示当前 Part 渲染音频的半透明峰值与 RMS 细线（dB），支持频率加权，采用约 1 毫秒分析步长及连续插值，在渲染和音频处理完成后更新。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Minimum" xml:space="preserve"><value>下限（dB）</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Maximum" xml:space="preserve"><value>上限（dB）</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Opacity" xml:space="preserve"><value>不透明度</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetLine" xml:space="preserve"><value>目标音量参考线</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetLevel" xml:space="preserve"><value>目标（dB）</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetHint" xml:space="preserve"><value>上下拖动最右侧的小短标记可移动参考线，虚线和文字均可穿透鼠标。仅作视觉标记，不改变音频；目标超出当前 dB 显示范围时隐藏。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetDrag" xml:space="preserve"><value>上下拖动这个边缘短标记设置目标音量，按 Esc 取消。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetValue" xml:space="preserve"><value>目标 {0} dB</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_Name" xml:space="preserve"><value>发音编辑</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_Precise" xml:space="preserve"><value>精调</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_PhonemeHint" xml:space="preserve"><value>音素：横拖边界调整时值，纵拖音量线调整音量。</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_PreciseHint" xml:space="preserve"><value>精确编辑选中的过渡；也可双击过渡打开，Esc 关闭。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Weighting" xml:space="preserve"><value>频率加权强度</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_WeightingHint" xml:space="preserve"><value>仅影响图表，范围 0～300%，默认 50%。0% 显示原始 dBFS；超过 100% 继续加强低频衰减和中高频强调，1 kHz 基准不变。两条曲线和目标线共用加权 dB 标尺。白线贴顶时可提高 dB 上限（最高 +24）。采用自定义加权，非 LUFS 测量。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_WeightedUnit" xml:space="preserve"><value>dB（加权）</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Mode" xml:space="preserve"><value>发音拼接</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Hint" xml:space="preserve"><value>独立生成源音，截取长音、拼接辅元，并让前音不受后一辅音截断。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_LongSlice" xml:space="preserve"><value>长音截取</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PhonemeSplice" xml:space="preserve"><value>辅元拼接</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_IndependentSustain" xml:space="preserve"><value>独立延音</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Collapse" xml:space="preserve"><value>收起</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Precise" xml:space="preserve"><value>精调</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Source" xml:space="preserve"><value>来源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Lyric" xml:space="preserve"><value>歌词</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Phonemes" xml:space="preserve"><value>音素</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Length" xml:space="preserve"><value>源长 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Offset" xml:space="preserve"><value>取位 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Vowel" xml:space="preserve"><value>入韵序号</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Seam" xml:space="preserve"><value>接缝 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_End" xml:space="preserve"><value>终点 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Fade" xml:space="preserve"><value>淡出 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickSource" xml:space="preserve"><value>从音符取用来源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickHint" xml:space="preserve"><value>请点击来源音符</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Crop" xml:space="preserve"><value>截取</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_KeepHead" xml:space="preserve"><value>去尾</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_KeepTail" xml:space="preserve"><value>去头</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Middle" xml:space="preserve"><value>取中段</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Solo" xml:space="preserve"><value>源音单听</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Listen" xml:space="preserve"><value>试听结果</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Phrase" xml:space="preserve"><value>整句试听</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Bypass" xml:space="preserve"><value>临时旁路</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Reset" xml:space="preserve"><value>恢复原发声</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SelectNote" xml:space="preserve"><value>选中音符后，选择上方的操作</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Target" xml:space="preserve"><value>当前音符：{0} · MIDI {1}</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Consonant" xml:space="preserve"><value>辅音来源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_VowelSource" xml:space="preserve"><value>韵部来源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Body" xml:space="preserve"><value>长音来源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Result" xml:space="preserve"><value>最终结果 · 跟随主轨</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Entrance" xml:space="preserve"><value>入韵点</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Pending" xml:space="preserve"><value>待更新</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Rendering" xml:space="preserve"><value>正在生成源音…</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Ready" xml:space="preserve"><value>已更新</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Clipped" xml:space="preserve"><value>已更新 · 交叠削波</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Failed" xml:space="preserve"><value>更新失败 · 保留上一成品</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Invalid" xml:space="preserve"><value>请检查来源设置</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SameBank" xml:space="preserve"><value>请选择同一声库的音符</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PreviewFailed" xml:space="preserve"><value>暂时无法试听</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ExportNotReady" xml:space="preserve"><value>发音拼接尚未就绪，请等待更新或修正来源设置后再导出。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextBefore" xml:space="preserve"><value>前语境音素</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextAfter" xml:space="preserve"><value>后语境音素</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextLength" xml:space="preserve"><value>语境时长 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_AutoLength" xml:space="preserve"><value>0 = 自动：生成至少为原音两倍或 1000 ms 的源音。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SustainAutoLength" xml:space="preserve"><value>0 = 沿用原音符时长，仅在输出终点后移时相应延长。填写正数可设置实际源音时长，输出截点单独控制。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_IndependentSource" xml:space="preserve"><value>独立来源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_GeneratedLength" xml:space="preserve"><value>实际生成：{0} ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SourceLengthHandle" xml:space="preserve"><value>源长 ↔ {0} ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_DragSourceLength" xml:space="preserve"><value>左右拖动调整源音时长，按住 Shift 精调；松手后重新生成，Escape 取消。输出截点保持不变。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickVowel" xml:space="preserve"><value>双击源音中的音素起点，选择入韵点。</value></data>
 </root>

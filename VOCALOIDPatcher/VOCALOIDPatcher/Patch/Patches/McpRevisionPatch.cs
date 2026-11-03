@@ -14,10 +14,10 @@ public sealed class McpRevisionCommitPatch : PatchBase
     public override Type[] ArgumentTypes => new[] { typeof(bool) };
 
     [HarmonyPostfix]
-    private static void Postfix(bool __result)
+    private static void Postfix(WIVSMSequence __instance, bool __result)
     {
-        if (__result && Settings.McpEnabled)
-            McpRevisionTracker.Changed();
+        if (__result && !ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance) && Settings.McpEnabled)
+            McpRevisionTracker.ChangedForSource(__instance);
     }
 }
 
@@ -28,10 +28,10 @@ public sealed class McpRevisionUndoPatch : PatchBase
     public override string TargetMethodName => nameof(WIVSMSequence.Undo);
 
     [HarmonyPostfix]
-    private static void Postfix()
+    private static void Postfix(WIVSMSequence __instance)
     {
         if (Settings.McpEnabled)
-            McpRevisionTracker.Changed();
+            McpRevisionTracker.ChangedForSource(__instance);
     }
 }
 
@@ -42,9 +42,9 @@ public sealed class McpRevisionRedoPatch : PatchBase
     public override string TargetMethodName => nameof(WIVSMSequence.Redo);
 
     [HarmonyPostfix]
-    private static void Postfix()
+    private static void Postfix(WIVSMSequence __instance)
     {
         if (Settings.McpEnabled)
-            McpRevisionTracker.Changed();
+            McpRevisionTracker.ChangedForSource(__instance);
     }
 }

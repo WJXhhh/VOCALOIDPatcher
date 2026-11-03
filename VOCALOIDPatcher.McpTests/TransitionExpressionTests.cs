@@ -28,13 +28,13 @@ public sealed class TransitionExpressionTests
     }
     [Theory]
     [InlineData(-1f)] [InlineData(-.75f)] [InlineData(0f)] [InlineData(.75f)] [InlineData(1f)]
-    public void ProgressEnablesCompleteSourceAtZeroAndPreservesTimingVolumeAndOtherEdges(float amount)
+    public void ProgressPreservesSourceRangeTimingAndVolumeIncludingZero(float amount)
     {
         var layout = Layout(); var edge = layout.Edges[0].Identity;
         var original = new TransitionControlPlan(layout.Fingerprint, gains: [new(edge, -6)])
             .WithJunction(layout, new(edge, TransitionEndpoint.End), 124);
         var plan = TransitionExpressionControl.Progress(original, Row(), edge, amount);
-        Assert.Equal(TransitionSourceSides.Right, Assert.Single(plan.Coverages).Sides);
+        Assert.Empty(plan.Coverages);
         Assert.True(original.Compile(layout).Anchors.SequenceEqual(plan.Compile(layout).Anchors));
         Assert.True(original.Gains.SequenceEqual(plan.Gains)); Assert.True(original.Junctions.SequenceEqual(plan.Junctions));
         var range = TransitionExpressionControl.Range(Row(), edge, plan)!.Value;
@@ -44,6 +44,30 @@ public sealed class TransitionExpressionTests
         var restored = TransitionExpressionControl.Reset(plan, edge);
         Assert.Empty(restored.Phases); Assert.Empty(restored.Coverages);
         Assert.Equal(original.Compile(layout).Fingerprint, restored.Compile(layout).Fingerprint);
+    }
+    [Fact]
+    public void TinyMovesOnCroppedSourceConvergeToTheUntouchedMapAndRoundtripExactly()
+    {
+        var layout = Layout(); var edge = layout.Edges[0].Identity;
+        var controls = new TransitionControlPlan(layout.Fingerprint);
+        var row = Row();
+        float Value(TransitionFrame f) => BitConverter.Int32BitsToSingle(f.SourceBits);
+        foreach (float amount in new[] { -.001f, .001f })
+        {
+            var edited = TransitionExpressionControl.Progress(controls, row, edge, amount);
+            Assert.Empty(edited.Coverages);
+            var mapped = TransitionPhaseMapping.Apply(row, edited.Phases.Single().Amount);
+            Assert.InRange(mapped.Zip(row.Frames).Max(p => Math.Abs(Value(p.First) - Value(p.Second))), 0, .02f);
+            var restored = TransitionExpressionControl.Progress(edited, row, edge, 0);
+            Assert.Equal(controls.Compile(layout).Fingerprint, restored.Compile(layout).Fingerprint);
+            Assert.Equal(row.Frames, TransitionPhaseMapping.Apply(row, 0));
+        }
+        // Explicit full-source activation is a separate, substantial change,
+        // retained when progress alone returns to zero.
+        var full = TransitionExpressionControl.Source(controls, row, edge, true);
+        Assert.Single(TransitionExpressionControl.Progress(full, row, edge, 0).Coverages);
+        Assert.True(TransitionCoverageMapping.Apply(row, row, TransitionSourceSides.Right)
+            .Zip(row.Frames).Max(p => Math.Abs(Value(p.First) - Value(p.Second))) > 20);
     }
     [Fact]
     public void TwoFramesPermitCompleteCoverageButDoNotMoveTheDiamondToTheOtherSide()
@@ -77,7 +101,11 @@ public sealed class TransitionExpressionTests
         var layout = Layout(); var edge = layout.Edges[0].Identity;
         var controls = new TransitionControlPlan(layout.Fingerprint);
         var flat = Row() with { Frames = Row().Frames.Select(f => f with { SourceBits = 0 }).ToImmutableArray() };
-        Assert.False(TransitionPhaseMapping.CanEdit(flat)); Assert.NotNull(TransitionExpressionControl.Range(flat, edge, controls));
+        Assert.False(TransitionPhaseMapping.CanEdit(flat)); Assert.Null(TransitionExpressionControl.Range(flat, edge, controls));
+        Assert.NotNull(TransitionExpressionControl.Range(flat, edge, controls, requireProgress: false));
+        var covered = TransitionExpressionControl.Source(controls, flat, edge, true);
+        Assert.NotNull(TransitionExpressionControl.Range(flat, edge, covered));
+        Assert.Single(TransitionExpressionControl.Progress(covered, flat, edge, .001f).Coverages);
         Assert.Null(TransitionExpressionControl.Range(flat with { MaterialCoverage = null }, edge, controls));
         Assert.Null(TransitionExpressionControl.Range(Row(91), edge, controls.WithCoverage(edge, TransitionSourceSides.Both)));
         Assert.Throws<InvalidDataException>(() => TransitionExpressionControl.Progress(controls, Row(), edge, float.NaN));

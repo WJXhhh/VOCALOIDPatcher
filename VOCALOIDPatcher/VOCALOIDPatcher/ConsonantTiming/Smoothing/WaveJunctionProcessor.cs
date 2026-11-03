@@ -50,6 +50,7 @@ public static class WaveJunctionProcessor
         long totalFrames = format.DataLength / format.BlockAlign;
         var validJunctions = (junctions ?? [])
             .Where(j => j.JunctionSample > 0 && j.JunctionSample < totalFrames)
+            .DistinctBy(j => j.JunctionSample)
             .OrderBy(j => j.JunctionSample)
             .ToList();
 
@@ -71,18 +72,25 @@ public static class WaveJunctionProcessor
         {
             var junction = validJunctions[j];
             SmoothingResult junctionResult = default!;
+            // Dense/extreme transitions can be shorter than the configured
+            // smoothing window. Give each seam a disjoint neighbourhood so
+            // nearby bridges cannot multiply or undo one another.
+            int begin = j == 0 ? 0 : (int)((validJunctions[j - 1].JunctionSample + junction.JunctionSample) / 2);
+            int end = j == validJunctions.Count - 1 ? (int)totalFrames :
+                (int)((junction.JunctionSample + validJunctions[j + 1].JunctionSample) / 2);
 
             for (int ch = 0; ch < format.Channels; ch++)
             {
                 var r = TransitionSmoother.SmoothJunction(
-                    channels[ch].AsSpan(),
-                    (int)junction.JunctionSample,
+                    channels[ch].AsSpan(begin, end - begin),
+                    (int)junction.JunctionSample - begin,
                     format.SampleRate,
                     config,
                     junction.LeftNominalDb,
                     junction.RightNominalDb);
 
-                if (ch == 0) junctionResult = r;
+                if (ch == 0 || (r.Intervened && (!junctionResult.Intervened || r.CrossfadeDurationMs > junctionResult.CrossfadeDurationMs)))
+                    junctionResult = r;
             }
 
             results.Add(junctionResult);

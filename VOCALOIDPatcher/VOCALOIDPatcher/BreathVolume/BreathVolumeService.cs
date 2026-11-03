@@ -660,6 +660,15 @@ internal static class BreathVolumeService
     public static bool RefreshRegions(WIVSMSequence sequence, WIVSMMidiPart part)
         => RefreshRegionsCore(sequence, part, expectedState: null, expectedGeneration: 0);
 
+    // Owned voice-comp stems consume the native completion synchronously and
+    // apply gain before mixing. They must drain markers without scheduling the
+    // ordinary Part's derived-WAV worker or publishing a second audio route.
+    internal static bool RefreshOwnedRenderRegions(WIVSMSequence sequence, WIVSMMidiPart part)
+    {
+        DrainNativeBreathMarkers("owned-render-complete");
+        return RefreshRegions(sequence, part);
+    }
+
     private static bool RefreshRegionsCore(
         WIVSMSequence sequence,
         WIVSMMidiPart part,
@@ -1082,7 +1091,12 @@ internal static class BreathVolumeService
             return;
 
         var state = GetPartState(part);
-        var generation = Interlocked.Increment(ref state.RebuildGeneration);
+        int generation;
+        lock (Sync)
+        {
+            generation = Interlocked.Increment(ref state.RebuildGeneration);
+            Volatile.Write(ref state.PendingRebuildGeneration, generation);
+        }
         _ = Task.Run(async () =>
         {
             try
@@ -1103,6 +1117,7 @@ internal static class BreathVolumeService
             }
             finally
             {
+                Interlocked.CompareExchange(ref state.PendingRebuildGeneration, 0, generation);
                 RebuildCompleted?.Invoke(part, generation, Volatile.Read(ref state.RebuildGeneration) == generation);
             }
         });
@@ -1114,6 +1129,14 @@ internal static class BreathVolumeService
         NotifyChanged(BreathVolumeChangeKind.Values, null);
         foreach (WIVSMMidiPart part in targets)
             RequestRebuild(sequence, part);
+    }
+
+    internal static bool HasPendingWave(WIVSMMidiPart part)
+    {
+        if (!Settings.IndividualBreathVolume) return false;
+        lock (Sync)
+            return Parts.TryGetValue((IntPtr)part, out var state) &&
+                (Volatile.Read(ref state.PendingRebuildGeneration) != 0 || state.RegionRefreshPending);
     }
 
     public static string SubstituteWavePath(WIVSMMidiPart part, string originalPath)
@@ -1424,6 +1447,9 @@ internal static class BreathVolumeService
                 $"history timeline push sequence=0x{((IntPtr)sequence).ToInt64():X} " +
                 $"undo={history.Undo.Count} redo={history.Redo.Count}");
         }
+        // Custom timing/volume/Comp edits do not call native VSM.Commit.
+        // Keep optimistic MCP revisions current for edits made in the UI too.
+        if (Config.Settings.McpEnabled) Mcp.McpRevisionTracker.ChangedForSource(sequence);
     }
 
     public static bool CanUndo(WIVSMSequence sequence, bool nativeResult)
@@ -2318,8 +2344,10 @@ internal static class BreathVolumeService
             var gains = BuildGainRegions(part);
             if (gains.Count == 0)
             {
-                RemoveCache(part);
-                RefreshAudioPlacement(sequence, part);
+                // The native render-complete handler already binds its file.
+                // Only removing an active BVL substitution requires a rebind;
+                // neutral Parts must not invalidate PCM and redraw every note.
+                if (RemoveCache(part)) RefreshAudioPlacement(sequence, part);
                 return;
             }
 
@@ -2367,12 +2395,17 @@ internal static class BreathVolumeService
         }
     }
 
-    private static void RemoveCache(WIVSMMidiPart part)
+    private static bool RemoveCache(WIVSMMidiPart part)
     {
         lock (Sync)
         {
             if (Parts.TryGetValue((IntPtr)part, out var state))
+            {
+                bool removed = state.Cache != null;
                 RemoveCacheCore(state);
+                return removed;
+            }
+            return false;
         }
     }
 
@@ -2730,6 +2763,7 @@ internal static class BreathVolumeService
         public int Generation;
         public int LastProgress = -1;
         public int RebuildGeneration;
+        public int PendingRebuildGeneration;
     }
 
     private sealed class SequenceHistory

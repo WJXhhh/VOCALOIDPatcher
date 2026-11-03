@@ -69,7 +69,8 @@ public sealed class SampledTimingEndPhonemePatch : PatchBase
 public sealed class SampledTimingProjectLoadPatch : PatchBase
 {
     internal sealed record LoadState(IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan> Timing,
-        PhonemeVolume.PhonemeVolumeArchive.Entry[] Volume, DurationSelectionArchive.Entry[] Duration, TransitionArchiveData Transitions);
+        PhonemeVolume.PhonemeVolumeArchive.Entry[] Volume, DurationSelectionArchive.Entry[] Duration, TransitionArchiveData Transitions,
+        VoiceComp.VoiceCompArchive.Entry[] Comp);
     public override string PatchName => nameof(SampledTimingProjectLoadPatch);
     public override Type TargetClass => typeof(Yamaha.VOCALOID.Sequence);
     public override string TargetMethodName => "LoadProjectSequenceFile";
@@ -83,7 +84,7 @@ public sealed class SampledTimingProjectLoadPatch : PatchBase
         if (!filePath.EndsWith(".vpr", StringComparison.OrdinalIgnoreCase) && !filePath.EndsWith(".vpr.bak", StringComparison.OrdinalIgnoreCase)) return true;
         try
         {
-            __state = new(SampledTimingProjectArchive.Read(filePath), PhonemeVolume.PhonemeVolumeArchive.Read(filePath), DurationSelectionArchive.Read(filePath), TransitionProjectArchive.Read(filePath));
+            __state = new(SampledTimingProjectArchive.Read(filePath), PhonemeVolume.PhonemeVolumeArchive.Read(filePath), DurationSelectionArchive.Read(filePath), TransitionProjectArchive.Read(filePath), VoiceComp.VoiceCompArchive.Read(filePath));
             return true;
         }
         catch (Exception e)
@@ -104,6 +105,7 @@ public sealed class SampledTimingProjectLoadPatch : PatchBase
             SampledTimingHost.Load(vsmSequence, __state?.Timing, __state?.Transitions);
             PhonemeVolume.PhonemeVolumeHost.Load(vsmSequence, __state?.Volume ?? []);
             DurationSelectionHost.Load(vsmSequence, __state?.Duration ?? []);
+            VoiceComp.VoiceCompHost.Load(vsmSequence, __state?.Comp ?? []);
         }
         catch (Exception e)
         {
@@ -119,7 +121,8 @@ public sealed class SampledTimingProjectLoadPatch : PatchBase
 
 public sealed class SampledTimingProjectSavePatch : PatchBase
 {
-    internal sealed record SaveState(string Path, string? Backup, PhonemeVolume.PhonemeVolumeArchive.Entry[] Volume, DurationSelectionArchive.Entry[] Duration);
+    internal sealed record SaveState(string Path, string? Backup, PhonemeVolume.PhonemeVolumeArchive.Entry[] Volume, DurationSelectionArchive.Entry[] Duration,
+        VoiceComp.VoiceCompArchive.Entry[] Comp);
     [ThreadStatic] private static HashSet<nint>? _saves;
     internal static bool OwnsSave(WIVSMSequence source) => _saves?.Contains((nint)source) == true;
     public override string PatchName => nameof(SampledTimingProjectSavePatch);
@@ -133,12 +136,13 @@ public sealed class SampledTimingProjectSavePatch : PatchBase
         if (!extension.StartsWith(".vpr", StringComparison.OrdinalIgnoreCase)) return;
         var volume = PhonemeVolume.PhonemeVolumeHost.Snapshot(vsmSequence);
         var duration = DurationSelectionHost.Snapshot(vsmSequence);
+        var comp = VoiceComp.VoiceCompHost.Snapshot(vsmSequence);
         if (!SampledTimingHost.HasData(vsmSequence) && volume.Length == 0 && !PhonemeVolume.PhonemeVolumeHost.HasState(vsmSequence) &&
-            !DurationSelectionHost.HasState(vsmSequence)) return;
+            !DurationSelectionHost.HasState(vsmSequence) && !VoiceComp.VoiceCompHost.HasData(vsmSequence)) return;
         string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(directoryPath, projectName + extension));
         string? backup = File.Exists(path) ? path + "." + Guid.NewGuid().ToString("N") + ".timing-save" : null;
         if (backup != null) File.Copy(path, backup, false);
-        __state = new(path, backup, volume, duration);
+        __state = new(path, backup, volume, duration, comp);
         (_saves ??= new()).Add((nint)vsmSequence);
     }
     [HarmonyPostfix, HarmonyPriority(Priority.Last)]
@@ -153,10 +157,12 @@ public sealed class SampledTimingProjectSavePatch : PatchBase
             SampledTimingHost.Save(vsmSequence, temporary, false);
             PhonemeVolume.PhonemeVolumeArchive.Write(temporary, __state.Volume);
             DurationSelectionArchive.Write(temporary, __state.Duration);
+            VoiceComp.VoiceCompArchive.Write(temporary, __state.Comp);
             File.Replace(temporary, __state.Path, null, true);
             if (extension.Equals(".vpr", StringComparison.OrdinalIgnoreCase))
             {
                 SampledTimingHost.MarkSaved(vsmSequence); DurationSelectionHost.MarkSaved(vsmSequence);
+                VoiceComp.VoiceCompHost.MarkSaved(vsmSequence);
                 BreathVolume.BreathVolumeService.MarkExtensionSaved(vsmSequence);
             }
         }

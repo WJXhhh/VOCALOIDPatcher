@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "sdk": "6.13.3.1",
+  "scope": "Ready upstream path rebinds for phoneme volume, transition smoothing and ACE, plus completed Comp -> ACE. Ordinary input edits and native render-complete/BVL completion retain original debounce. Not deployed.",
+  "method": "Thirty ready-path changes per stage in an isolated legal V5 SDK fixture. ReadInput supplies frozen upstream native/DSP WAV copies and TransitionView supplies its verified native plan. Only AudioPlayer/pianoroll publication is suppressed. Actual Substitute, Dispatcher callbacks, generation/token/quiet scheduling, capture and file DSP execute. Timing ends at Host.Process entry, excluding DSP processing and final audio binding.",
+  "baseline_method": "Preserved four hosts compiled with a temporary CoreCompile override; ACE ReadInput is extracted without semantic change for the common probe. BVL bookkeeping is common to both builds and unused by the baseline timed requests. The optimized driver adds guard cases outside the common timed loops.",
+  "summary": [
+    {
+      "stage": "PhonemeVolumeHost",
+      "before_median_ms": 108.0333,
+      "after_median_ms": 0.19705,
+      "before_p95_ms": 124.2392,
+      "after_p95_ms": 0.5043,
+      "native_fixture_hash_equal_between_runs": true
+    },
+    {
+      "stage": "TransitionSmoothingHost",
+      "before_median_ms": 107.682,
+      "after_median_ms": 0.2241,
+      "before_p95_ms": 123.0205,
+      "after_p95_ms": 1.0064,
+      "native_fixture_hash_equal_between_runs": true
+    },
+    {
+      "stage": "AceAcousticHost",
+      "before_median_ms": 122.61895,
+      "after_median_ms": 0.20165,
+      "before_p95_ms": 139.1637,
+      "after_p95_ms": 0.5645,
+      "native_fixture_hash_equal_between_runs": true
+    }
+  ],
+  "before": {
+    "optimized": false,
+    "records": [
+      {
+        "name": "ready-path-rebind",
+        "stage": "PhonemeVolumeHost",
+        "iterations": 30,
+        "medianMs": 108.0333,
+        "p95Ms": 124.2392,
+        "maxMs": 134.2245,
+        "hash": "6DBB6A835AF42C8FBA61A8087A124CF5FC641D5DF87621B8D81CE3F17CD2A213",
+        "samples": [
+          134.2245,
+          109.6483,
+          108.1432,
+          104.0198,
+          108.3601,
+          106.2301,
+          108.4928,
+          123.5904,
+          107.9704,
+          109.426,
+          124.2392,
+          106.1692,
+          108.7526,
+          107.989,
+          106.5162,
+          106.6851,
+          108.2892,
+          108.0128,
+          107.6791,
+          106.9896,
+          123.5335,
+          107.1127,
+          108.0538,
+          107.0312,
+          110.1208,
+          107.4182,
+          104.6864,
+          108.3224,
+          122.8683,
+          107.1008
+        ]
+      },
+      {
+        "name": "ready-preserves-pending-edit-deadline",
+        "stage": "PhonemeVolumeHost",
+        "startMs": 164.0217
+      },
+      {
+        "name": "ready-path-rebind",
+        "stage": "TransitionSmoothingHost",
+        "iterations": 30,
+        "medianMs": 107.682,
+        "p95Ms": 123.0205,
+        "maxMs": 123.6562,
+        "hash": "6DBB6A835AF42C8FBA61A8087A124CF5FC641D5DF87621B8D81CE3F17CD2A213",
+        "samples": [
+          122.9717,
+          121.7894,
+          108.4113,
+          108.795,
+          105.1027,
+          107.3416,
+          105.2872,
+          105.4117,
+          121.3218,
+          108.3975,
+          106.5189,
+          109.9254,
+          107.8811,
+          106.4582,
+          108.935,
+          107.9817,
+          105.4665,
+          122.0915,
+          107.2204,
+          106.736,
+          107.1244,
+          108.8951,
+          106.2117,
+          123.6562,
+          107.4829,
+          105.4856,
+          123.0205,
+          107.477,
+          105.9069,
+          107.9522
+        ]
+      },
+      {
+        "name": "ready-preserves-pending-edit-deadline",
+        "stage": "TransitionSmoothingHost",
+        "startMs": 166.4466
+      },
+      {
+        "name": "ready-path-rebind",
+        "stage": "AceAcousticHost",
+        "iterations": 30,
+        "medianMs": 122.61895,
+        "p95Ms": 139.1637,
+        "maxMs": 139.253,
+        "hash": "C7F383E2116F48B83BBD4190040ED54B1B3DDF815D4391C0458104F123506EA5",
+        "samples": [
+          123.8841,
+          136.0922,
+          123.9995,
+          120.6593,
+          139.253,
+          122.6387,
+          123.6618,
+          122.2793,
+          139.1637,
+          122.9863,
+          122.2527,
+          121.267,
+          136.4225,
+          120.9862,
+          122.5992,
+          121.8762,
+          121.5334,
+          135.1313,
+          138.3886,
+          120.9486,
+          122.2404,
+          121.6238,
+          122.0376,
+          122.469,
+          123.8103,
+          137.2965,
+          122.5147,
+          122.1036,
+          123.8248,
+          135.1536
+        ]
+      },
+      {
+        "name": "ready-preserves-pending-edit-deadline",
+        "stage": "AceAcousticHost",
+        "startMs": 189.7299
+      }
+    ]
+  },
+  "after": {
+    "optimized": true,
+    "records": [
+      {
+        "name": "ready-path-rebind",
+        "stage": "PhonemeVolumeHost",
+        "iterations": 30,
+        "medianMs": 0.19705,
+        "p95Ms": 0.5043,
+        "maxMs": 0.7475,
+        "hash": "6DBB6A835AF42C8FBA61A8087A124CF5FC641D5DF87621B8D81CE3F17CD2A213",
+        "samples": [
+          0.5043,
+          0.3052,
+          0.1912,
+          0.2243,
+          0.1692,
+          0.1706,
+          0.2765,
+          0.1926,
+          0.1764,
+          0.1702,
+          0.1536,
+          0.1491,
+          0.2627,
+          0.261,
+          0.1605,
+          0.2477,
+          0.1543,
+          0.1582,
+          0.1733,
+          0.7475,
+          0.287,
+          0.2493,
+          0.2379,
+          0.3071,
+          0.16,
+          0.1433,
+          0.2365,
+          0.183,
+          0.2209,
+          0.2015
+        ]
+      },
+      {
+        "name": "ready-preserves-pending-edit-deadline",
+        "stage": "PhonemeVolumeHost",
+        "startMs": 126.5026
+      },
+      {
+        "name": "pending-upstream-retains-wait-then-promotes",
+        "stage": "PhonemeVolumeHost",
+        "promotedStartMs": 0.898
+      },
+      {
+        "name": "stale-ready-path-rejected",
+        "stage": "PhonemeVolumeHost",
+        "passed": true
+      },
+      {
+        "name": "ready-path-rebind",
+        "stage": "TransitionSmoothingHost",
+        "iterations": 30,
+        "medianMs": 0.2241,
+        "p95Ms": 1.0064,
+        "maxMs": 1.5611,
+        "hash": "6DBB6A835AF42C8FBA61A8087A124CF5FC641D5DF87621B8D81CE3F17CD2A213",
+        "samples": [
+          0.7247,
+          0.1896,
+          0.1675,
+          0.1781,
+          0.2637,
+          0.2063,
+          0.2159,
+          0.1678,
+          0.2309,
+          0.2159,
+          0.3191,
+          0.1682,
+          0.1427,
+          0.2109,
+          0.1707,
+          0.1476,
+          0.2696,
+          0.15,
+          0.1372,
+          0.4475,
+          0.3885,
+          0.7049,
+          1.0064,
+          1.5611,
+          0.2793,
+          0.4244,
+          0.3016,
+          0.2173,
+          0.2621,
+          0.472
+        ]
+      },
+      {
+        "name": "ready-preserves-pending-edit-deadline",
+        "stage": "TransitionSmoothingHost",
+        "startMs": 116.2171
+      },
+      {
+        "name": "pending-upstream-retains-wait-then-promotes",
+        "stage": "TransitionSmoothingHost",
+        "promotedStartMs": 0.3862
+      },
+      {
+        "name": "stale-ready-path-rejected",
+        "stage": "TransitionSmoothingHost",
+        "passed": true
+      },
+      {
+        "name": "ready-path-rebind",
+        "stage": "AceAcousticHost",
+        "iterations": 30,
+        "medianMs": 0.20165,
+        "p95Ms": 0.5645,
+        "maxMs": 1.2299,
+        "hash": "C7F383E2116F48B83BBD4190040ED54B1B3DDF815D4391C0458104F123506EA5",
+        "samples": [
+          1.2299,
+          0.3255,
+          0.1713,
+          0.5645,
+          0.3321,
+          0.2012,
+          0.2129,
+          0.2022,
+          0.2089,
+          0.1882,
+          0.2262,
+          0.2253,
+          0.195,
+          0.1624,
+          0.2067,
+          0.1809,
+          0.2098,
+          0.1566,
+          0.1459,
+          0.1883,
+          0.1754,
+          0.2054,
+          0.1523,
+          0.1902,
+          0.2021,
+          0.1827,
+          0.1871,
+          0.3828,
+          0.1994,
+          0.2245
+        ]
+      },
+      {
+        "name": "ready-preserves-pending-edit-deadline",
+        "stage": "AceAcousticHost",
+        "startMs": 141.1042
+      },
+      {
+        "name": "pending-upstream-retains-wait-then-promotes",
+        "stage": "AceAcousticHost",
+        "promotedStartMs": 0.2736
+      },
+      {
+        "name": "stale-ready-path-rejected",
+        "stage": "AceAcousticHost",
+        "passed": true
+      },
+      {
+        "name": "disabled-upstream-does-not-delay",
+        "checks": 3,
+        "passed": true
+      },
+      {
+        "name": "ace-io-retry-keeps-backoff",
+        "attempts": 3,
+        "passed": true
+      },
+      {
+        "name": "actual-comp-publishes-to-ace-ready",
+        "startMs": 0.344,
+        "passed": true
+      },
+      {
+        "name": "bvl-pending-marker-keeps-latest-generation",
+        "passed": true
+      },
+      {
+        "name": "closed-part-rejects-queued-ready",
+        "passed": true
+      }
+    ]
+  },
+  "guards": [
+    "Edit deadlines remain per Part, not restarted by a ready notification.",
+    "Current upstream path and live Part-state identity checked on Dispatcher; rendering/closed/stale requests rejected.",
+    "BVL/phoneme-volume/smoothing pending status prevents promoting unsettled upstream audio; disabled stages do not block.",
+    "Only latest BVL task clears its pending marker.",
+    "ACE I/O retries retain 120ms backoff and bounded attempts.",
+    "Comp ready path only selected when current VoiceComp state is non-dirty with a wave."
+  ],
+  "audio_validation": "Each ready case has exactly one DSP execution and the same output SHA256 as its stage baseline; last stage outputs are also compared with freshly run unchanged DSP on identical input. Actual Comp -> ACE output is non-silent and matches fresh ACE processing. No general cross-process native-render determinism claim is made.",
+  "reuse_regression": {
+    "expectReuse": true,
+    "records": [
+      {
+        "name": "ten-no-change-notifications-two-parts",
+        "duplicateWork": [
+          0,
+          0
+        ],
+        "elapsedMs": 2597.1156,
+        "hashes": [
+          "3A4FE3473CE3EEE0C38605F448B536331827485153C63C0B1DCDC947736A08DC",
+          "3A4FE3473CE3EEE0C38605F448B536331827485153C63C0B1DCDC947736A08DC",
+          "A0872F33613A3117DFC5935B3D6F097B842253296EA5CA3D2B605D21CF29E2F4",
+          "A0872F33613A3117DFC5935B3D6F097B842253296EA5CA3D2B605D21CF29E2F4"
+        ]
+      },
+      {
+        "name": "edit-one-part",
+        "editedWork": [
+          1,
+          1
+        ],
+        "otherPartRetained": true
+      },
+      {
+        "name": "smoothing-config-changed",
+        "builds": 2
+      },
+      {
+        "name": "same-path-upstream-overwrite",
+        "builds": 1
+      },
+      {
+        "name": "render-boundary-forces-rebuild",
+        "unchangedFileMetadata": true,
+        "builds": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "missing-output-rebuild",
+        "builds": 1
+      },
+      {
+        "name": "changed-junctions-same-source-and-config",
+        "builds": 1
+      },
+      {
+        "name": "rapid-change-and-restore",
+        "builds": 0,
+        "hash": "83AD0894E43E89B59F9BE1D8364FC775828A6A7996F6C8B639DC29AADD2B707A"
+      },
+      {
+        "name": "export-current-gain-before-debounce",
+        "builds": 1,
+        "hash": "42CAB57A760A716DDB7E8F200700519194AA4C7D080258AE8957C933586429C5"
+      },
+      {
+        "name": "actual-native-bpm-146-73-146",
+        "fastFrames": 149248,
+        "slowFrames": 276224,
+        "restoredFrames": 149248
+      },
+      {
+        "name": "same-input-fresh-dsp-reference",
+        "exactWaveChecks": 4,
+        "passed": true
+      },
+      {
+        "name": "neutral-reset-falls-back",
+        "passed": true
+      },
+      {
+        "name": "native-undo-redo-gain-reset",
+        "passed": true
+      },
+      {
+        "name": "close-while-debouncing",
+        "passed": true
+      }
+    ]
+  },
+  "comp_regression": [
+    {
+      "name": "private-planner-busy-recovers",
+      "busyRetries": 4,
+      "fastFrames": 170963,
+      "internalNotificationSuppressed": true
+    },
+    {
+      "name": "bpm-146-73-146",
+      "fastFrames": 170963,
+      "slowFrames": 297826,
+      "restoredFrames": 170963,
+      "fastHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "restoredHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "staleWaveRejected": true,
+      "nonSilent": true
+    },
+    {
+      "name": "failed-recipe-retains-file-without-publishing",
+      "retainedFile": true,
+      "staleAudioRejected": true,
+      "exportRejected": true
+    }
+  ],
+  "tests": {
+    "mcp_passed": 499,
+    "failed": 0,
+    "skipped": 0,
+    "trx_sha256": "E79D1DB80415980EAFAB10FE1E39F833921199D3F1A77AB82B902080FEF1C441",
+    "breath_volume_offline": "passed",
+    "ace_acoustic_offline": "passed, 0 failures"
+  },
+  "builds": {
+    "debug_solution": "passed, zero warnings/errors",
+    "release_solution": "passed, zero warnings/errors, ILRepack merged",
+    "isolated_before_after": "passed, zero warnings/errors"
+  },
+  "test_setup_correction": "An extended oracle call initially reused an existing fresh-2.wav destination; ACE atomic output rejected it. Probe now generates unique oracle paths and cleans them; complete final run passed. No product behavior changed for this test setup error.",
+  "baseline_source_sha256": {
+    "PhonemeVolumeHost.before.cs": "46D86F747BE09EA6469A1982FE2605E35621AECF8A7782A2ED2FF3342A42CB5A",
+    "TransitionSmoothingHost.before.cs": "30FEADB19F1F97E5DD003762D6CCB360BF37F6487F86FC5A1D400C33249A1CB9",
+    "AceAcousticHost.before.cs": "822C64C45D73FC9C37F071E1472B8D50F8A1AC632775ED76750A26157D6AC3C2",
+    "AceAcousticHost.before-probe.cs": "42B2F63EE2867981F4A154B9046F734CD0D5AB037CD75B8EB17A710BA7EAC8E4",
+    "VoiceCompHost.before.cs": "83BCD15B8E26745765356170C5EFBEAF4D58E5328A2E532A97F7E3ECBE27AC68",
+    "BreathVolumeService.before.cs": "AAF3DC0B6557FC337A3002837025082D9C0FAB4D7775585A1F160635B19FBBE0"
+  },
+  "source_sha256": {
+    "VOCALOIDPatcher/VOCALOIDPatcher/Rendering/PostProcessingQuietPeriod.cs": "9336ABE5BDF068DF15A8E804EC6964987D640A21212052307A85296A033DA291",
+    "VOCALOIDPatcher/VOCALOIDPatcher/Rendering/PostProcessingReadyValidation.cs": "6BB93B66D4FE4C8E253812B1EEBDB35531C2B4D33EC61B6873E91AF00633BBC4",
+    "VOCALOIDPatcher/VOCALOIDPatcher/PhonemeVolume/PhonemeVolumeHost.cs": "41318700273B2CA150DD4DFFAFF2B0B672568628FA6221244C06B11A896048AD",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmoothingHost.cs": "C2CF72B22C3641B2961958209F74526A1E03ABA48664840143657AF61A988830",
+    "VOCALOIDPatcher/VOCALOIDPatcher/AceParameters/AceAcousticHost.cs": "DFABDB30608D41E762795C6566D6C3DEA0EE3EF12BB35D23FC4390E5E14C77B9",
+    "VOCALOIDPatcher/VOCALOIDPatcher/BreathVolume/BreathVolumeService.cs": "B106D3885269C6115F3FBC224B84368642BB20EEF9C7FAC98244D468F4ADA1AD",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompHost.cs": "2EE9D0FC3B2E8E12DA65F593C2DDFBAAD3A98BCAD1D17CE3E71236DC1E79ABA0",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompValidation.cs": "FE20B67479EC49603DCFE0B32F3AE193E9F5F43C5CF4026CE5A21244FEC1AEDB",
+    "VOCALOIDPatcher.McpTests/PostProcessingQuietPeriodTests.cs": "DEB4E14B26551607EB4440B48EEB4EFC58CCC4146167F6FB94C89053259AC397",
+    "VOCALOIDPatcher.McpTests/VOCALOIDPatcher.McpTests.csproj": "74E941C5911CFAF60A9E5849FB7F096B307CB9D7383448629486124BA70B164A"
+  },
+  "artifact_sha256": {
+    "before_isolated": "2B3147143DEA7D05FCCCFC5F700F788C1B8E32ECDB08B1FE2A0D01E663DA773A",
+    "after_isolated": "AC9CDF3E7899EC367FB858AFF9105C997DD507515FDAD725DA45CA7E1CD61C51",
+    "merged_release": "99FA2B76AEA45BD00F1E7F11C95724668B8F72C5458929D5A83302D5CFA7F431"
+  },
+  "deployment": {
+    "performed": true,
+    "deployed_at": "2026-10-23T22:35:31.6864975+08:00",
+    "evidence": "post-processing-ready-deployment-2026-10-23.json",
+    "editor_launched": false,
+    "editor_closed": false,
+    "user_project_modified": false
+  },
+  "remaining_work": [
+    "Full dependency task graph and elimination of every serial debounce are not implemented.",
+    "Intermediate/final placement and UI publication merging remains separate work.",
+    "Real Editor interaction and end-to-end acceptance pending after deployment."
+  ]
+}

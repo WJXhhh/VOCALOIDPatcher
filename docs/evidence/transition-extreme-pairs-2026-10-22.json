@@ -1,0 +1,274 @@
+{
+  "date": "2026-10-22",
+  "environment": {
+    "sdk": "6.13.3.1",
+    "nativeLibrarySha256": "FE6158E08B148BB133D5FE4CF255BE2A0ABE56D5A0043ABBF80BA83F6F334A4E",
+    "dseSha256": "844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD",
+    "sampleRate": 44100,
+    "hop": 256,
+    "extreme": true,
+    "pairsOnly": true
+  },
+  "renderCount": 132,
+  "rejectedCandidates": 128,
+  "skippedFixtures": [],
+  "rawFullScaleSamples": 0,
+  "processedFullScaleSamples": 0,
+  "rawPeakPcm16": 32765,
+  "processedPeakPcm16": 32765,
+  "maxRawPlateau": 6,
+  "maxSourceFramesPerOutputFrame": 16.76408,
+  "changedFiles": 10,
+  "jumpIncreasedFiles": 0,
+  "bodyOutsideWindowsExact": true,
+  "consumedSourceMapsExact": true,
+  "restoration": [
+    {
+      "fixture": "v5-la",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "v5-short",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "v6-la",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "v6-short",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "miku-ka",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "v6-low",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "v6-high",
+      "pcmExact": false,
+      "maximumPcm16Difference": 2
+    },
+    {
+      "fixture": "v6-nasal",
+      "pcmExact": false,
+      "maximumPcm16Difference": 25
+    },
+    {
+      "fixture": "v5-plosive",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    },
+    {
+      "fixture": "miku-fricative",
+      "pcmExact": true,
+      "maximumPcm16Difference": 0
+    }
+  ],
+  "sourceSha256": {
+    "TransitionSmoother.cs": "e36df612b366d80a755cf8207d2c0bff3a835250f363e378be1b8a1b52f8c60d",
+    "TransitionSmoothingHost.cs": "8dfeaa4e12cad4d7cb6564b96aea9ff8d72ca4a3f59d76b0037003cccdee9aa1",
+    "TransitionJunctionPlanner.cs": "3a2cd227eb04263830c308721da46670b0919fda191e0f04c40788d20218130b",
+    "WaveJunctionProcessor.cs": "1fe26e7e5844509b71406cdc82a4c0b3d9cd3552512143672f04c4c0a8f6e7de"
+  },
+  "largestJumpIncreases": [
+    {
+      "fixture": "v5-la",
+      "variant": "baseline",
+      "raw": {
+        "peakPcm16": 2848,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 524,
+        "longestNonSilentPlateau": 3
+      },
+      "processed": {
+        "peakPcm16": 2848,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 524,
+        "longestNonSilentPlateau": 3
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge0-expanded-phase-1-gain0",
+      "raw": {
+        "peakPcm16": 2847,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "processed": {
+        "peakPcm16": 2847,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge0-expanded-phase-1-gain12",
+      "raw": {
+        "peakPcm16": 4886,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "processed": {
+        "peakPcm16": 4886,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge0-expanded-phase1-gain0",
+      "raw": {
+        "peakPcm16": 2847,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "processed": {
+        "peakPcm16": 2847,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge0-expanded-phase1-gain12",
+      "raw": {
+        "peakPcm16": 4886,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "processed": {
+        "peakPcm16": 4886,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 537,
+        "longestNonSilentPlateau": 4
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge1-expanded-phase-1-gain0",
+      "raw": {
+        "peakPcm16": 2613,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 627,
+        "longestNonSilentPlateau": 3
+      },
+      "processed": {
+        "peakPcm16": 2613,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 627,
+        "longestNonSilentPlateau": 3
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge1-expanded-phase-1-gain12",
+      "raw": {
+        "peakPcm16": 10402,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 2493,
+        "longestNonSilentPlateau": 3
+      },
+      "processed": {
+        "peakPcm16": 10402,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 2493,
+        "longestNonSilentPlateau": 3
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge1-expanded-phase1-gain0",
+      "raw": {
+        "peakPcm16": 2294,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 453,
+        "longestNonSilentPlateau": 3
+      },
+      "processed": {
+        "peakPcm16": 2294,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 453,
+        "longestNonSilentPlateau": 3
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge1-expanded-phase1-gain12",
+      "raw": {
+        "peakPcm16": 9133,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 1803,
+        "longestNonSilentPlateau": 3
+      },
+      "processed": {
+        "peakPcm16": 9133,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 1803,
+        "longestNonSilentPlateau": 3
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    },
+    {
+      "fixture": "v5-la",
+      "variant": "pair-edge2-expanded-phase-1-gain0",
+      "raw": {
+        "peakPcm16": 2426,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 461,
+        "longestNonSilentPlateau": 4
+      },
+      "processed": {
+        "peakPcm16": 2426,
+        "fullScaleSamples": 0,
+        "maxAdjacentJump": 461,
+        "longestNonSilentPlateau": 4
+      },
+      "changedSamples": 0,
+      "repairedSeams": 0
+    }
+  ],
+  "deployed": false,
+  "editorStarted": false,
+  "listeningValidation": false,
+  "limitations": [
+    "Synthetic fixtures; no reproduction of the user's project or subjective listening.",
+    "Low-level or upstream clipping cannot be excluded by the absence of PCM16 full scale.",
+    "Restoration equality is reported per fixture; native PCM can differ at low level even with exact consumed source maps.",
+    "Neighbouring-sample and plateau metrics do not identify perceived square-wave timbre."
+  ]
+}

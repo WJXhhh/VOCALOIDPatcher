@@ -731,6 +731,20 @@ internal static class WaveformSvState
             return;
 
         var spans = new List<PhonemeSpan>();
+        if (VoiceComp.VoiceCompHost.View(part) is { Wave: not null, Composition: { } comp } combined &&
+            Config.Settings.VoiceCompEnabled)
+        {
+            foreach (var span in combined.Spans)
+            {
+                VSMAbsTick At(long sample) => part.Sequence!.GetTickFromTime(part.AbsBeginTick,
+                    sample / (double)comp.SampleRate - part.Sequence.PresendTimeSec);
+                double start = vm.CalcTickToViewPosition(At(span.Begin)), end = vm.CalcTickToViewPosition(At(span.End));
+                if (end > start) spans.Add(new PhonemeSpan(start, end, span.Phoneme));
+            }
+            spans.Sort((a, b) => a.StartX.CompareTo(b.StartX));
+            _phonemePart = part; _phonemeWidthPerTick = widthPerTick; _phonemeSpans = spans;
+            return;
+        }
         foreach (var note in part.NotesInPart)
         {
             if (note == null || !note.IsValidPhonemes)

@@ -103,19 +103,33 @@ public sealed class ConsonantTimingCommitPatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(WIVSMSequence __instance, out bool __state)
     {
-        __state = __instance.IsStaged;
+        __state = !TimingCacheInvalidationScope.IsActive((nint)__instance) && __instance.IsStaged;
         if (__state) SampledTimingHost.BeforeSourceChange(__instance);
     }
 
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool __state, bool __result)
     {
-        if (__state && __result)
+        try
         {
-            ConsonantTimingRuntime.SourceChanged(__instance);
-            PhonemeVolume.PhonemeVolumeHost.SourceChanged(__instance);
-            ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged(__instance);
+            if (__state && __result)
+            {
+                ConsonantTimingRuntime.SourceChanged(__instance);
+                PhonemeVolume.PhonemeVolumeHost.SourceChanged(__instance);
+                ConsonantTiming.Smoothing.TransitionSmoothingHost.SourceChanged(__instance);
+            }
         }
+        finally
+        {
+            if (!TimingCacheInvalidationScope.IsActive((nint)__instance)) SampledTimingHost.EndInputMutation(__instance);
+        }
+    }
+
+    [HarmonyFinalizer]
+    private static Exception? Finalizer(WIVSMSequence __instance, Exception? __exception)
+    {
+        if (!TimingCacheInvalidationScope.IsActive((nint)__instance)) SampledTimingHost.EndInputMutation(__instance);
+        return __exception;
     }
 }
 
@@ -126,7 +140,11 @@ public sealed class ConsonantTimingUndoPatch : PatchBase
     public override string TargetMethodName => nameof(WIVSMSequence.Undo);
     public override Type[] ArgumentTypes => Type.EmptyTypes;
     [HarmonyPrefix]
-    private static void Prefix(WIVSMSequence __instance) => SampledTimingHost.BeforeSourceChange(__instance);
+    private static void Prefix(WIVSMSequence __instance)
+    {
+        SampledTimingHost.EndInputMutation(__instance);
+        SampledTimingHost.BeforeSourceChange(__instance);
+    }
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance)
     {
@@ -145,7 +163,11 @@ public sealed class ConsonantTimingRedoPatch : PatchBase
     public override string TargetMethodName => nameof(WIVSMSequence.Redo);
     public override Type[] ArgumentTypes => Type.EmptyTypes;
     [HarmonyPrefix]
-    private static void Prefix(WIVSMSequence __instance) => SampledTimingHost.BeforeSourceChange(__instance);
+    private static void Prefix(WIVSMSequence __instance)
+    {
+        SampledTimingHost.EndInputMutation(__instance);
+        SampledTimingHost.BeforeSourceChange(__instance);
+    }
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance)
     {

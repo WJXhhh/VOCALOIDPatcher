@@ -48,6 +48,7 @@ internal static class ConsonantTimingRuntime
         try { _backend?.Dispose(); }
         catch (Exception exception) { Debug.Print("Local timing close: " + exception.GetType().Name); }
         finally { _backend = null; }
+        TimingSequenceCleanup.Shutdown();
     }
 
     internal static void SourceChanged(WIVSMSequence sequence)

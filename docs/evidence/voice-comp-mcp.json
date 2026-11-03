@@ -1,0 +1,70 @@
+{
+  "feature": "timing-and-voice-comp-mcp",
+  "date": "2026-10-22",
+  "tools": [
+    "v6_query_timing",
+    "v6_edit_timing",
+    "v6_timing_settings",
+    "v6_query_voice_comp",
+    "v6_edit_voice_comp",
+    "v6_preview_voice_comp"
+  ],
+  "totalTools": 26,
+  "compiledAgainst": "6.13.1.1",
+  "builds": [
+    "6.13.1.1 Debug",
+    "6.13.1.1 Release",
+    "6.13.3.1 Debug",
+    "6.13.3.1 Release"
+  ],
+  "buildWarnings": 0,
+  "buildErrors": 0,
+  "managedTests": {
+    "passed": 452,
+    "failed": 0
+  },
+  "isolatedAcceptance": [
+    {
+      "sdk": "6.13.1.1",
+      "groups": 16,
+      "exitCode": 0
+    },
+    {
+      "sdk": "6.13.3.1",
+      "groups": 16,
+      "exitCode": 0,
+      "sameBaselineAssembly": true
+    }
+  ],
+  "previewVerification": "Contract, native phrase preflight without playback, and unready/stale-audio rejection; interactive listening pending",
+  "publishedCompanionCheck": {
+    "Success": true,
+    "ToolCount": 26,
+    "AddedTools": [
+      "v6_timing_settings",
+      "v6_query_timing",
+      "v6_edit_voice_comp",
+      "v6_preview_voice_comp",
+      "v6_edit_timing",
+      "v6_query_voice_comp"
+    ],
+    "ProtocolVersion": "2025-03-26",
+    "InstanceListSucceeded": true,
+    "InstanceCount": 0
+  },
+  "deployment": {
+    "status": "deployed",
+    "deployedAt": "2026-10-22T21:43:32.2205719+08:00",
+    "files": 33,
+    "installedHashesVerified": 33,
+    "rollbackAvailable": true,
+    "installedCompanionVerified": true,
+    "installedToolCount": 26,
+    "mcpCommandUpdatedToInstalledExecutable": true,
+    "mainSha256": "B867FDF8A430104700E6F4CB9E2DE2255C5EA5ED55B6EEAC11981790312DF65D",
+    "nativeSha256": "FE6158E08B148BB133D5FE4CF255BE2A0ABE56D5A0043ABBF80BA83F6F334A4E",
+    "editorLaunched": false,
+    "editorClosedByAgent": false
+  },
+  "interactiveHostVerified": false
+}

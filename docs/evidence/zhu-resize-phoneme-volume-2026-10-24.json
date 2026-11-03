@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "sdk": "6.13.3.1",
+  "artifact_root": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-zhu-resize-20261024-131536",
+  "observation": {
+    "project": "010acac7034441e79d147427183be276",
+    "user_confirmed_trigger": "420 -> 480 ticks; returned to 420",
+    "revision": 59,
+    "lyric": "zhu a ang",
+    "part": 0,
+    "duration": 420,
+    "note": 12,
+    "gains": [
+      0,
+      -8.3,
+      -6.1,
+      -8.9
+    ],
+    "track": 0,
+    "phonemes": "ts` u a AN"
+  },
+  "fixture_sha256": "6CEBBB6C4ADD5818F14C39336EAC0A068F02DDA12B1F8BA4481764A386025A18",
+  "source_project_unchanged": true,
+  "cause": {
+    "observed_que_boundary": 3342,
+    "verification_relaxed": false,
+    "component": "native silence allocation",
+    "expected_que_boundary": 3343,
+    "double_counted_previous_displacement": true
+  },
+  "old_native": {
+    "baseline420_pcm_hash": "683E650022012BCEC145ED9AF850EBCDC54C4F874D2F7C8721B4D2B412C2188E",
+    "sha256": "9F20BBD43F8DEAAF713A50C335B3F7947B0575519A7B5F3C5020A68830708EEA",
+    "exit_code": -532462766,
+    "baseline420_matches_fixed": true,
+    "failed_at_480": true,
+    "log": "old-native-oracle.log"
+  },
+  "pcm_release_native": [
+    {
+      "stage": "zhu-420",
+      "passed": true,
+      "duration": 420,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -8.9
+      ],
+      "rms": 0.009020197902482548,
+      "hash": "683E650022012BCEC145ED9AF850EBCDC54C4F874D2F7C8721B4D2B412C2188E",
+      "begin": 225120,
+      "end": 235929,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 224238
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 224238,
+          "End": 236811
+        }
+      ]
+    },
+    {
+      "stage": "zhu-480",
+      "passed": true,
+      "duration": 480,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -8.9
+      ],
+      "rms": 0.009594624867097397,
+      "hash": "A215EF74133D1B94C8DAA586E5AF0D714723A917BD510B50FF0EED7C640FB478",
+      "begin": 226404,
+      "end": 238232,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 225522
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 225522,
+          "End": 239114
+        }
+      ]
+    },
+    {
+      "stage": "zhu-480-minus6",
+      "passed": true,
+      "duration": 480,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -14.9
+      ],
+      "rms": 0.004808702054872534,
+      "hash": "AC9F777093C1297E2F6F4DEAF6A158631535872ADD500FD7FEA06C2161A1885D",
+      "begin": 226404,
+      "end": 238232,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 225522
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 225522,
+          "End": 239114
+        }
+      ]
+    },
+    {
+      "stage": "zhu-480-gain-undo",
+      "passed": true,
+      "duration": 480,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -8.9
+      ],
+      "rms": 0.009594624867097397,
+      "hash": "A215EF74133D1B94C8DAA586E5AF0D714723A917BD510B50FF0EED7C640FB478",
+      "begin": 226404,
+      "end": 238232,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 225522
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 225522,
+          "End": 239114
+        }
+      ]
+    },
+    {
+      "stage": "zhu-480-gain-redo",
+      "passed": true,
+      "duration": 480,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -14.9
+      ],
+      "rms": 0.004808702054872534,
+      "hash": "AC9F777093C1297E2F6F4DEAF6A158631535872ADD500FD7FEA06C2161A1885D",
+      "begin": 226404,
+      "end": 238232,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 225522
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 225522,
+          "End": 239114
+        }
+      ]
+    },
+    {
+      "stage": "zhu-420-resize-undo",
+      "passed": true,
+      "duration": 420,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -8.9
+      ],
+      "rms": 0.009020197902482548,
+      "hash": "683E650022012BCEC145ED9AF850EBCDC54C4F874D2F7C8721B4D2B412C2188E",
+      "begin": 225120,
+      "end": 235929,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 224238
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 224238,
+          "End": 236811
+        }
+      ]
+    },
+    {
+      "stage": "zhu-480-resize-redo",
+      "passed": true,
+      "duration": 480,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -8.9
+      ],
+      "rms": 0.009594624867097397,
+      "hash": "A215EF74133D1B94C8DAA586E5AF0D714723A917BD510B50FF0EED7C640FB478",
+      "begin": 226404,
+      "end": 238232,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 225522
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 225522,
+          "End": 239114
+        }
+      ]
+    },
+    {
+      "stage": "zhu-420-drag-back",
+      "passed": true,
+      "duration": 420,
+      "Status": "Ready",
+      "Error": null,
+      "values": [
+        0,
+        -8.3,
+        -6.1,
+        -8.9
+      ],
+      "rms": 0.009020197902482548,
+      "hash": "683E650022012BCEC145ED9AF850EBCDC54C4F874D2F7C8721B4D2B412C2188E",
+      "begin": 225120,
+      "end": 235929,
+      "spans": [
+        {
+          "NoteIndex": 12,
+          "Phoneme": "ts`",
+          "Begin": 217328,
+          "End": 221180
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "u",
+          "Begin": 221180,
+          "End": 222463
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "a",
+          "Begin": 222463,
+          "End": 224238
+        },
+        {
+          "NoteIndex": 12,
+          "Phoneme": "AN",
+          "Begin": 224238,
+          "End": 236811
+        }
+      ]
+    },
+    {
+      "stage": "resize-gain-and-history",
+      "passed": true,
+      "changeDb": -6.000002600977728,
+      "originalProjectEdited": false
+    }
+  ],
+  "regressions": {
+    "continuation_passed": true,
+    "managed_passed": 500,
+    "explicit_private_rejection_ms": 0,
+    "comp_busy_tempo": [
+      {
+        "name": "private-planner-busy-recovers",
+        "busyRetries": 4,
+        "fastFrames": 170963,
+        "internalNotificationSuppressed": true
+      },
+      {
+        "name": "bpm-146-73-146",
+        "fastFrames": 170963,
+        "slowFrames": 297826,
+        "restoredFrames": 170963,
+        "fastHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+        "restoredHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+        "staleWaveRejected": true,
+        "nonSilent": true
+      },
+      {
+        "name": "failed-recipe-retains-file-without-publishing",
+        "retainedFile": true,
+        "staleAudioRejected": true,
+        "exportRejected": true
+      }
+    ],
+    "managed_trx": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-zhu-resize-20261024-131536/test-results/zhu-resize.trx",
+    "rust_passed": 56
+  },
+  "builds": {
+    "release_solution": "passed; 0 warnings, 0 errors; ILRepack merged",
+    "debug_solution": "passed; 0 warnings, 0 errors",
+    "isolated": "passed; 0 warnings, 0 errors"
+  },
+  "source_sha256": {
+    "native/playback-clock/src/phoneme_timing.rs": "FB564E75D02C9D5E7824CD6AF2E70039D8770189D84C874BB7025FB84AF311EC",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompValidation.cs": "03734B46DC6D00F41705ABE35E35745D38F891283F966E6794FA722F0AB2DF3D"
+  },
+  "artifact_sha256": {
+    "merged": "6BCDCB558D5F59E2505D84B20F721E2E2DD1F2E70F5F64BDE4F15ABDFE0DCC6C",
+    "native": "FBDAB785447DF2A009EB10EBBCC55060196A6C215ABB6B0CBF1DB29FCDEE577D"
+  },
+  "limitations": [
+    "Independent SDK process with a temporary saved-project copy; current unsaved state observed read-only.",
+    "Missing AudioPlayer in isolated process causes a caught placement TargetException; PCM oracle uses Comp output directly.",
+    "Initial invalid native path run excluded; corrected setup used for all acceptance.",
+    "No interactive GUI drag acceptance. Ghidra bridge connection refused; no target query or Ghidra conclusions."
+  ],
+  "deployed": true,
+  "editor_started_or_closed": false,
+  "host_acceptance": "Deployed at 2026-10-24 13:44 +08:00; pending user opens Editor and tests resize/phoneme gain."
+}

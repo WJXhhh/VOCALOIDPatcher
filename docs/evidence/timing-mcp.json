@@ -1,0 +1,71 @@
+{
+  "feature": "timing-mcp",
+  "date": "2026-10-22",
+  "scope": "Source, concrete MCP transport schema, and isolated real VSM/DSE production-facade acceptance; no interactive Editor deployment",
+  "sdk": "6.13.3.1",
+  "addedTools": [
+    "v6_query_timing",
+    "v6_edit_timing",
+    "v6_timing_settings"
+  ],
+  "totalTools": 23,
+  "editOperations": 14,
+  "builds": [
+    {
+      "project": "VOCALOIDPatcher.sln",
+      "configuration": "Debug",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "project": "VOCALOIDPatcher.sln",
+      "configuration": "Release",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    }
+  ],
+  "managedTests": {
+    "passed": 419,
+    "failed": 0,
+    "total": 419,
+    "includes": "stdio/HTTP companion transport and concrete timing DTO schema"
+  },
+  "isolatedAcceptance": {
+    "passed": 14,
+    "failed": 0,
+    "checks": [
+      "reads-have-no-history-or-project-revision",
+      "native-certified-transition-range",
+      "all-five-control-families-and-settings-dry-run",
+      "boundary-write-idempotency-undo-redo-and-shared-reset",
+      "coefficient.set",
+      "coefficient.reset",
+      "phoneme_gain.set",
+      "phoneme_gain.reset",
+      "comp.set",
+      "comp.reset",
+      "transition-write-and-part-reset",
+      "stale-write-rejected-and-query-cancelled",
+      "concurrent-native-edit-invalidates-background-candidate",
+      "global-settings-write"
+    ],
+    "productionFacade": true,
+    "realVsmDse": true,
+    "syntheticFixture": true
+  },
+  "releaseMetadata": {
+    "Size": 8619520,
+    "HarmonyMerged": true,
+    "SeparateHarmonyReference": false,
+    "TestHookTypeAbsent": true,
+    "VocaloidReference": "6.13.3.1"
+  },
+  "mainSha256": "7804D04EB5C37D530A69AB4F516D9433D60AFED5B1C9E91CF2B622F2FCAC3684",
+  "nativeSha256": "FE6158E08B148BB133D5FE4CF255BE2A0ABE56D5A0043ABBF80BA83F6F334A4E",
+  "installedFilesUnchanged": true,
+  "deployed": false,
+  "interactiveHostVerified": false,
+  "durationSelection": "retired; archived data preserved; no new execution API"
+}

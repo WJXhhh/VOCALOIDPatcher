@@ -1,0 +1,251 @@
+{
+  "Date": "2026-10-21",
+  "Policy": "Project out-of-range offsets to nearest feasible integer boundaries; retain requests and mark limits",
+  "EditorVersion": "6.13.3.1",
+  "PlanningCases": 21,
+  "PlanningErrors": 0,
+  "PlanningAudioCalls": 0,
+  "FinalSavedControlsReplay": true,
+  "RawRequestArchiveRoundTrip": true,
+  "LimitedNoteBoundaryRecords": 4,
+  "LimitedSharedPhysicalBoundaries": 2,
+  "WholeContextLimits": [
+    {
+      "Note": 1,
+      "limits": [
+        {
+          "Index": 2,
+          "RequestedFrames": 11,
+          "AppliedFrames": 10
+        }
+      ]
+    },
+    {
+      "Note": 2,
+      "limits": [
+        {
+          "Index": 0,
+          "RequestedFrames": 11,
+          "AppliedFrames": 10
+        }
+      ]
+    },
+    {
+      "Note": 13,
+      "limits": [
+        {
+          "Index": 2,
+          "RequestedFrames": 9,
+          "AppliedFrames": 6
+        }
+      ]
+    },
+    {
+      "Note": 14,
+      "limits": [
+        {
+          "Index": 0,
+          "RequestedFrames": 9,
+          "AppliedFrames": 6
+        }
+      ]
+    }
+  ],
+  "TargetedRenders": [
+    {
+      "stateName": "captured",
+      "Name": "warm",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "4B96575DB8D97AB480EC7957CF2CC66BA81782E95DD12B6451E31E718D069686",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "captured",
+      "Name": "baseline",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "4B96575DB8D97AB480EC7957CF2CC66BA81782E95DD12B6451E31E718D069686",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "captured",
+      "Name": "phase",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "D121348CEF83FA64F26507F4649C977FD2BAFCD9A3DBA851E3EC51A5A31CE579",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "captured",
+      "Name": "geometry",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "16A91680D552390B23F1A0B2FE848893E0AB2966A52B3D905A307432CD180823",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "captured",
+      "Name": "restored",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "4B96575DB8D97AB480EC7957CF2CC66BA81782E95DD12B6451E31E718D069686",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "vel64",
+      "Name": "warm",
+      "limited": 0,
+      "map": true,
+      "unchanged": true,
+      "hash": "11B7B4A819419FAC228777A3171B105D8EBB85E4A5372BCD6407EFB3965D7D40",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "vel64",
+      "Name": "baseline",
+      "limited": 0,
+      "map": true,
+      "unchanged": true,
+      "hash": "11B7B4A819419FAC228777A3171B105D8EBB85E4A5372BCD6407EFB3965D7D40",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "vel64",
+      "Name": "phase",
+      "limited": 0,
+      "map": true,
+      "unchanged": true,
+      "hash": "6182DAD96FE31936A662CDB01175E12F3B33F3886C5E7FE1062E34B2CE963746",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "vel64",
+      "Name": "geometry",
+      "limited": 0,
+      "map": true,
+      "unchanged": true,
+      "hash": "EBF92561BC4DC2FA17D7446EBD6CF1011DB22727303F308DC327D2DAAD12CBA6",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "vel64",
+      "Name": "restored",
+      "limited": 0,
+      "map": true,
+      "unchanged": true,
+      "hash": "11B7B4A819419FAC228777A3171B105D8EBB85E4A5372BCD6407EFB3965D7D40",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "restored-context",
+      "Name": "warm",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "4B96575DB8D97AB480EC7957CF2CC66BA81782E95DD12B6451E31E718D069686",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "restored-context",
+      "Name": "baseline",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "4B96575DB8D97AB480EC7957CF2CC66BA81782E95DD12B6451E31E718D069686",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "restored-context",
+      "Name": "phase",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "D121348CEF83FA64F26507F4649C977FD2BAFCD9A3DBA851E3EC51A5A31CE579",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "restored-context",
+      "Name": "geometry",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "16A91680D552390B23F1A0B2FE848893E0AB2966A52B3D905A307432CD180823",
+      "Failures": 0,
+      "gainFailures": 0
+    },
+    {
+      "stateName": "restored-context",
+      "Name": "restored",
+      "limited": 4,
+      "map": true,
+      "unchanged": true,
+      "hash": "4B96575DB8D97AB480EC7957CF2CC66BA81782E95DD12B6451E31E718D069686",
+      "Failures": 0,
+      "gainFailures": 0
+    }
+  ],
+  "UnitTests": {
+    "Passed": 322,
+    "Skipped": 0,
+    "Failed": 0
+  },
+  "Builds": {
+    "IsolatedArtifacts": true,
+    "Release": "passed, 0 warnings, 0 errors",
+    "Debug": "passed, 0 warnings, 0 errors"
+  },
+  "Regressions": {
+    "InvalidTransitionCandidatesRejected": 15,
+    "ContinuationRenders": 24,
+    "LeadingNoteRenders": 20,
+    "TransitionRenders": 278
+  },
+  "TranslationKeys": 1384,
+  "TranslationKeySetsEqual": true,
+  "SourceHashes": [
+    {
+      "File": "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/PhonemeWarpProjection.cs",
+      "SHA256": "CA43F1AFCE8210E4669AFBD0BF5499985DADFF27769EFDE3B2156415BA0632ED"
+    },
+    {
+      "File": "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/PreparedPhonemeTiming.cs",
+      "SHA256": "7FF77CC61781537849A643E8F36BBA1C91F54EF568239703AF305ACF58C8894E"
+    },
+    {
+      "File": "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/SampledTimingHost.cs",
+      "SHA256": "19BF33BE88DEFD22BA607954F6C1AA94553746973CAAA9427ECB9D33F4351939"
+    },
+    {
+      "File": "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/ConsonantTimingOverlay.Phonemes.cs",
+      "SHA256": "7B9B7CC10B368DA23AABC36762FABA76781F3AAF016C961B0F2F9F9CDA71BD64"
+    },
+    {
+      "File": "VOCALOIDPatcher.McpTests/PhonemeWarpProjectionTests.cs",
+      "SHA256": "46879A2D61A15A7E2FB87D103316CA4FF09752F869FE60DCE22193AD95355278"
+    },
+    {
+      "File": "voicebank/tools/evec_render_harness/CapturedTimingControlsProbe.cs",
+      "SHA256": "A535B2D82E4EDFE21789DF82CE246E6AEB878D70E3E45E2F0157CFE4F57EE822"
+    }
+  ],
+  "HostValidationPending": true
+}

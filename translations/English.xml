@@ -1344,6 +1344,7 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_End" xml:space="preserve"><value>End</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_Value" xml:space="preserve"><value>{0} → {1} · {2} ms from note onset · Ctrl-click to reset</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_Limit" xml:space="preserve"><value>Boundary cannot cross its neighbors or exceed the available context.</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Clamped" xml:space="preserve"><value>Limited: saved offset {0} ms; applied {1} ms</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Name" xml:space="preserve"><value>Phoneme volume</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Description" xml:space="preserve"><value>In Emotion mode, drag inside a sampled phoneme vertically to adjust its volume. Click for phoneme selection and precise dB entry. Timing boundaries remain horizontal handles.</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Tip" xml:space="preserve"><value>{0} · {1} · Drag vertically · Shift: fine · Click: details · Ctrl-click: reset</value></data>
@@ -1378,10 +1379,11 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>Preview only. Apply to commit.</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>Phoneme timing or sample-duration audio is still updating or unavailable. Export after rendering has completed successfully.</value></data>
   <data name="VOCALOIDPatcher_Transitions_Name" xml:space="preserve"><value>Transition timing and volume</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PanelTitle" xml:space="preserve"><value>Transition details</value></data>
   <data name="VOCALOIDPatcher_Transitions_Description" xml:space="preserve"><value>Edit transition timing and volume in a separate Emotion lane, with precise values, shared junctions and undo.</value></data>
   <data name="VOCALOIDPatcher_Transitions_Phonemes" xml:space="preserve"><value>Phonemes</value></data>
   <data name="VOCALOIDPatcher_Transitions_Tool" xml:space="preserve"><value>Transitions</value></data>
-  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>Drag endpoints horizontally for timing and the gain line vertically for volume. Shift: fine adjustment; Esc: cancel.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>Click to select; double-click or use Details for precise controls. Drag endpoints horizontally for timing and the gain line vertically for volume. Shift: fine adjustment; Esc: cancel.</value></data>
   <data name="VOCALOIDPatcher_Transitions_Precise" xml:space="preserve"><value>Precise values…</value></data>
   <data name="VOCALOIDPatcher_Transitions_Start" xml:space="preserve"><value>Onset</value></data>
   <data name="VOCALOIDPatcher_Transitions_End" xml:space="preserve"><value>Release</value></data>
@@ -1407,7 +1409,7 @@ Please enter your license key to activate the application.</value></data>
 
   <data name="VOCALOIDPatcher_Transitions_Phase" xml:space="preserve"><value>Articulation progress (%)</value></data>
   <data name="VOCALOIDPatcher_Transitions_PhaseTip" xml:space="preserve"><value>Progress {0}% · left: earlier, right: later · timing stays fixed</value></data>
-  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>Dragging enables the complete source for the articulation side. Shift: fine adjustment. Ctrl+click: reset the diamond and complete-source setting. Zero progress can keep the complete source enabled.</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>Dragging adjusts progress within the current source range. Complete source is enabled separately. Shift: fine adjustment. Ctrl+click: reset progress and complete source.</value></data>
   <data name="VOCALOIDPatcher_Transitions_LegacyOnset" xml:space="preserve"><value>A legacy onset offset is preserved. Reset transition clears it.</value></data>
   <data name="VOCALOIDPatcher_Transitions_PhaseLimited" xml:space="preserve"><value>This side has fewer than three usable output frames or no source progression. Existing controls are retained.</value></data>
   <data name="VOCALOIDPatcher_Transitions_Coverage" xml:space="preserve"><value>Complete articulation source</value></data>
@@ -1415,7 +1417,7 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageBoth" xml:space="preserve"><value>Complete articulation source (both sides)</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageHint" xml:space="preserve"><value>Fit the complete source into the current timing range. Enable it at zero progress, or turn it off to use the existing source range. Apply commits all fields together.</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageActive" xml:space="preserve"><value>Complete source enabled · {0} side</value></data>
-  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>Drag to enable the complete {0} source</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>Using the current {0} source range</value></data>
   <data name="VOCALOIDPatcher_Transitions_ResetExpression" xml:space="preserve"><value>Reset diamond</value></data>
   <data name="VOCALOIDPatcher_Transitions_ResetExpressionHint" xml:space="preserve"><value>Reset progress and complete source; keep timing, volume and legacy onset controls.</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Energy_Name" xml:space="preserve"><value>ACE: Energy</value></data>
@@ -1435,4 +1437,75 @@ Please enter your license key to activate the application.</value></data>
   <data name="VOCALOIDPatcher_RendererRecovery_Header" xml:space="preserve"><value>Automatically recover failed rendering</value></data>
   <data name="VOCALOIDPatcher_RendererRecovery_Description" xml:space="preserve"><value>Keep failure diagnostics and retry stopped render tasks once. Repeated failures stop automatic retries; project controls remain unchanged.</value></data>
   <data name="VOCALOIDPatcher_AceAcoustic_ExportNotReady" xml:space="preserve"><value>ACE acoustic audio is not ready for export. Wait for rendering and try again; check the log if processing fails.</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Header" xml:space="preserve"><value>Parameter background energy</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Desc" xml:space="preserve"><value>Show the active Part's rendered audio as translucent peak and RMS lines in dB, with optional frequency weighting, approximately 1 ms analysis steps and continuous interpolation. Updates after rendering and audio processing finish.</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Minimum" xml:space="preserve"><value>Minimum (dB)</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Maximum" xml:space="preserve"><value>Maximum (dB)</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Opacity" xml:space="preserve"><value>Opacity</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetLine" xml:space="preserve"><value>Target volume reference line</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetLevel" xml:space="preserve"><value>Target (dB)</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetHint" xml:space="preserve"><value>Drag the small grip at the far right to move the line. The line and text let mouse input pass through. This visual marker does not change audio and is hidden outside the displayed dB range.</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetDrag" xml:space="preserve"><value>Drag this edge grip vertically to set the target volume. Press Esc to cancel.</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetValue" xml:space="preserve"><value>Target {0} dB</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_Name" xml:space="preserve"><value>ARTICULATION</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_Precise" xml:space="preserve"><value>Details</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_PhonemeHint" xml:space="preserve"><value>Phonemes: drag boundaries horizontally for timing and the volume line vertically for gain.</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_PreciseHint" xml:space="preserve"><value>Open precise controls for the selected transition. You can also double-click a transition; Esc closes the panel.</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Weighting" xml:space="preserve"><value>Frequency weighting</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_WeightingHint" xml:space="preserve"><value>Display only; 0-300%, default 50%. 0% shows raw dBFS. Above 100% continues strengthening the weighting: less bass, more upper frequencies, with 1 kHz unchanged. Both lines and the target use weighted dB. If peaks touch the top, raise the maximum dB (up to +24). Custom weighting, not LUFS.</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_WeightedUnit" xml:space="preserve"><value>dB (weighted)</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Mode" xml:space="preserve"><value>Voice comp</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Hint" xml:space="preserve"><value>Render independent sources, trim long notes, splice consonants and vowels, and sustain without the next consonant.</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_LongSlice" xml:space="preserve"><value>Long-note slice</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PhonemeSplice" xml:space="preserve"><value>C/V splice</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_IndependentSustain" xml:space="preserve"><value>Independent sustain</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Collapse" xml:space="preserve"><value>Collapse</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Precise" xml:space="preserve"><value>Fine edit</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Source" xml:space="preserve"><value>Source</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Lyric" xml:space="preserve"><value>Lyric</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Phonemes" xml:space="preserve"><value>Phonemes</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Length" xml:space="preserve"><value>Length · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Offset" xml:space="preserve"><value>Offset · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Vowel" xml:space="preserve"><value>Vowel index</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Seam" xml:space="preserve"><value>Seam · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_End" xml:space="preserve"><value>End · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Fade" xml:space="preserve"><value>Fade · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickSource" xml:space="preserve"><value>Pick a note as source</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickHint" xml:space="preserve"><value>Click a source note</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Crop" xml:space="preserve"><value>Crop</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_KeepHead" xml:space="preserve"><value>Keep onset</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_KeepTail" xml:space="preserve"><value>Keep release</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Middle" xml:space="preserve"><value>Take middle</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Solo" xml:space="preserve"><value>Source solo</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Listen" xml:space="preserve"><value>Preview result</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Phrase" xml:space="preserve"><value>Play phrase</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Bypass" xml:space="preserve"><value>Bypass</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Reset" xml:space="preserve"><value>Restore native voice</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SelectNote" xml:space="preserve"><value>Select a note, then choose an action</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Target" xml:space="preserve"><value>Target: {0} · MIDI {1}</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Consonant" xml:space="preserve"><value>Consonant source</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_VowelSource" xml:space="preserve"><value>Vowel source</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Body" xml:space="preserve"><value>Long-note source</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Result" xml:space="preserve"><value>Output · follows main notes</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Entrance" xml:space="preserve"><value>Vowel entrance</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Pending" xml:space="preserve"><value>Pending</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Rendering" xml:space="preserve"><value>Generating sources…</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Ready" xml:space="preserve"><value>Up to date</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Clipped" xml:space="preserve"><value>Updated · overlap clipped</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Failed" xml:space="preserve"><value>Update failed · previous result retained</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Invalid" xml:space="preserve"><value>Check the source settings</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SameBank" xml:space="preserve"><value>Choose a note using the same voicebank</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PreviewFailed" xml:space="preserve"><value>Preview unavailable</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ExportNotReady" xml:space="preserve"><value>Voice-comp audio is not ready. Wait for the update or fix the source settings before exporting.</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextBefore" xml:space="preserve"><value>Before · phones</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextAfter" xml:space="preserve"><value>After · phones</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextLength" xml:space="preserve"><value>Context · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_AutoLength" xml:space="preserve"><value>0 = automatic: generate at least twice the note duration or 1000 ms.</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SustainAutoLength" xml:space="preserve"><value>0 = original note duration, extended only to cover a later output endpoint. A positive value sets the actual source duration; the output endpoint remains separate.</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_IndependentSource" xml:space="preserve"><value>Independent source</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_GeneratedLength" xml:space="preserve"><value>Generated: {0} ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SourceLengthHandle" xml:space="preserve"><value>Source ↔ {0} ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_DragSourceLength" xml:space="preserve"><value>Drag left/right to change source duration; Shift for fine adjustment. Release to regenerate. Escape cancels. The output endpoint stays unchanged.</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickVowel" xml:space="preserve"><value>Double-click a source phoneme boundary to choose the vowel entrance.</value></data>
 </root>

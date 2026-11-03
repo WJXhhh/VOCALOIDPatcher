@@ -1465,9 +1465,12 @@ mod register_shift_hook {
     }
 
     type NotePrepare = unsafe extern "system" fn(*mut c_void, u32, *const i32, *const i32);
-    type Selector = unsafe extern "system" fn(*mut c_void, *mut c_void, i32, f32, f32, bool) -> u64;
+    type Selector = unsafe extern "system" fn(*mut c_void, *mut c_void, i32, f32, f32, u8) -> u64;
+    // These two native predicates return AL only. Reading RAX as u64 lets
+    // undefined upper return bits escape through Rust TLS closures and can
+    // discard a vowel-only candidate even with neutral controls.
     type CandidateScopeFn =
-        unsafe extern "system" fn(*mut c_void, i32, i32, i32, u64, u64, u32, u8) -> u64;
+        unsafe extern "system" fn(*mut c_void, i32, i32, i32, u64, u64, u32, u8) -> u8;
     type CandidatePrune = unsafe extern "system" fn(
         u64,
         u64,
@@ -1483,7 +1486,7 @@ mod register_shift_hook {
         f32,
         u8,
         u8,
-    ) -> u64;
+    ) -> u8;
     type CandidateScore = unsafe extern "system" fn(
         *mut u64,
         *mut f32,
@@ -1584,7 +1587,12 @@ mod register_shift_hook {
         STATE_PARTS.get_or_init(|| RwLock::new(HashMap::new()))
     }
 
+    #[cfg(test)]
     fn find_shift(context: PartContext, record: *const i32) -> Option<i32> {
+        find_shift_with_origin(context, record, None)
+    }
+
+    fn find_shift_with_origin(context: PartContext, record: *const i32, origin: Option<i64>) -> Option<i32> {
         if context.part == 0 || context.epoch == 0 || record.is_null() {
             return None;
         }
@@ -1602,6 +1610,14 @@ mod register_shift_hook {
         let entry = notes.get(&context.part)?;
         if entry.epoch != context.epoch {
             return None;
+        }
+        if let Some(offset) = origin {
+            let mut matched = entry.notes.iter().filter(|note|
+                (note.pitch_cents as f32 - pitch).abs() <= 0.25 &&
+                (note.begin_frame.saturating_add(offset) - begin).abs() <= 2 &&
+                (note.end_frame.saturating_add(offset) - end).abs() <= 2);
+            let first = matched.next()?;
+            return matched.next().is_none().then_some(first.semitones.clamp(MIN_SHIFT, MAX_SHIFT));
         }
         let candidates = offset_candidates(entry, begin, duration, pitch);
         let mut frame_offset = entry.frame_offset.load(Ordering::Acquire);
@@ -1717,8 +1733,9 @@ mod register_shift_hook {
         if context.part != 0 {
             RESOLVED_PART_CALLS.fetch_add(1, Ordering::Relaxed);
         }
-        let current_shift = find_shift(context, current);
-        let target_shift = find_shift(context, target);
+        let origin = super::sampled_timing::source_frame_offset(parser as usize, context.part);
+        let current_shift = find_shift_with_origin(context, current, origin);
+        let target_shift = find_shift_with_origin(context, target, origin);
         if current_shift.is_some() {
             CURRENT_MATCHES.fetch_add(1, Ordering::Relaxed);
         }
@@ -1798,7 +1815,7 @@ mod register_shift_hook {
         duration: i32,
         pitch: f32,
         second_feature: f32,
-        flag: bool,
+        flag: u8,
     ) -> u64 {
         SELECTOR_1B_CALLS.fetch_add(1, Ordering::Relaxed);
         let callsite = selector_callsite();
@@ -1883,7 +1900,7 @@ mod register_shift_hook {
         target: u64,
         p7: u32,
         p8: u8,
-    ) -> u64 {
+    ) -> u8 {
         let original: CandidateScopeFn =
             unsafe { std::mem::transmute(ORIGINAL_CANDIDATE_SCOPE.load(Ordering::Acquire)) };
         let _duration = super::duration_selection::work_scope(current as usize, target as usize);
@@ -1961,7 +1978,7 @@ mod register_shift_hook {
         second_extension: f32,
         p13: u8,
         p14: u8,
-    ) -> u64 {
+    ) -> u8 {
         PRUNE_1A_CALLS.fetch_add(1, Ordering::Relaxed);
         let shift_semitones = shift_for_candidate(candidate);
         let shift = shift_semitones as f32 * 100.0;
@@ -3001,6 +3018,26 @@ mod register_shift_hook {
         let result = find_shift(PartContext { part, epoch: 1 }, record.as_ptr());
         remove_part(part);
         result
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn qualified_origin_resolves_repeated_pitch_and_duration_before_calibration() {
+        let _guard = test_registry_guard();
+        let part = 0xfe76;
+        let notes = [test_note(174, 209, -1100, 6, 0), test_note(209, 244, -1100, 7, 1)];
+        assert_eq!(set_part(part, 1, &notes), 0);
+        let record = |note: RegisterNote| [(note.begin_frame + 3087) as i32,
+            (note.end_frame-note.begin_frame) as i32, (note.pitch_cents as f32).to_bits() as i32];
+        // The old lookup cannot distinguish the first call's two offsets.
+        assert_eq!(find_shift(PartContext {part,epoch:1},record(notes[0]).as_ptr()),None);
+        for index in [0,1,0] {
+            assert_eq!(find_shift_with_origin(PartContext {part,epoch:1},record(notes[index]).as_ptr(),Some(3087)),Some(notes[index].semitones));
+        }
+        assert_eq!(find_shift_with_origin(PartContext {part,epoch:2},record(notes[0]).as_ptr(),Some(3087)),None);
+        let unrelated = [3243,35,(-1100.0f32).to_bits() as i32];
+        assert_eq!(find_shift_with_origin(PartContext {part,epoch:1},unrelated.as_ptr(),Some(3087)),None);
+        remove_part(part);
     }
 
     #[cfg(test)]

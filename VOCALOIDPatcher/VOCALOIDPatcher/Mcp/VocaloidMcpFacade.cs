@@ -58,6 +58,12 @@ internal static partial class VocaloidMcpFacade
                 "v6_get_state" => GetState(),
                 "v6_get_catalog" => GetCatalog(),
                 "v6_query_project" => QueryProject(arguments),
+                "v6_query_timing" => TimingCall(() => QueryTiming(request.Client, arguments)),
+                "v6_edit_timing" => TimingCall(() => EditTiming(request.Client, arguments)),
+                "v6_timing_settings" => TimingCall(() => EditTimingSettings(request.Client, arguments)),
+                "v6_query_voice_comp" => TimingCall(() => QueryVoiceComp(arguments)),
+                "v6_edit_voice_comp" => TimingCall(() => EditVoiceComp(request.Client, arguments)),
+                "v6_preview_voice_comp" => TimingCall(() => PreviewVoiceComp(request.Client, arguments)),
                 "v6_selection_resource" => QuerySelection(),
                 "v6_edit_structure" => EditStructure(request.Client, arguments),
                 "v6_edit_notes" => EditNotes(request.Client, arguments),
@@ -137,13 +143,16 @@ internal static partial class VocaloidMcpFacade
     }
 
     private static bool IsMutation(string method, JsonElement arguments)
-        => method is "v6_edit_structure" or "v6_edit_notes" or "v6_g2pa_apply" or "v6_edit_parameters" or "v6_apply_operations" or "v6_select_view" or "v6_run_job"
+        => method is "v6_edit_voice_comp" or "v6_preview_voice_comp" or "v6_edit_timing" or "v6_timing_settings" or "v6_edit_structure" or "v6_edit_notes" or "v6_g2pa_apply" or "v6_edit_parameters" or "v6_apply_operations" or "v6_select_view" or "v6_run_job"
            || method == "v6_history" && !string.Equals(String(arguments, "action"), "status", StringComparison.OrdinalIgnoreCase)
            || method == "v6_project_file" && !string.Equals(String(arguments, "action"), "recent", StringComparison.OrdinalIgnoreCase)
            || method is "v6_convert_project" or "v6_mixdown";
 
     private static (Yamaha.VOCALOID.Sequence Sequence, WIVSMSequence Vsm) Context()
     {
+#if PATCHER_ISOLATED_VALIDATION
+        if (IsolatedTimingSource is { } isolated) return (null!, isolated);
+#endif
         var sequence = App.Shared?.Document?.Sequence;
         var vsm = sequence?.VSMSequence;
         if (sequence == null || vsm == null)

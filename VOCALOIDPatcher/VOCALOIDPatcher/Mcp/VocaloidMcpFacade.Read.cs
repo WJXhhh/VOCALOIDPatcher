@@ -109,6 +109,11 @@ internal static partial class VocaloidMcpFacade
                 UnavailableReason = versionSupported ? capability.UnavailableReason : "The installed editor is older than 6.13.0.",
             };
         }).Concat(ExtensionParameterRegistry.Capabilities()).Concat(McpContractCatalog.StageSevenCapabilities)
+            .Concat(new[] { "timing.phonemes", "timing.transitions", "timing.range", "timing.phoneme_volume", "timing.comp", "timing.settings",
+                "voice_comp.quick_actions", "voice_comp.source_snapshots", "voice_comp.preview" }
+                .Select(id => new CapabilityStatus(id, evecVersionSupported, false, "6.13.0",
+                    evecVersionSupported ? "MCP host acceptance pending; consult timing settings/native compatibility." : "The editor is older than 6.13.",
+                    evecVersionSupported ? "unverified" : "unsupported")))
             .Append(new CapabilityStatus("notes.evec", evecVersionSupported, true, "6.13.0",
                 !evecVersionSupported ? "The installed editor is older than 6.13.0." :
                 Evec.EvecService.IsEnabled ? null : "EVEC is disabled.",
@@ -147,6 +152,8 @@ internal static partial class VocaloidMcpFacade
             operations = McpContractCatalog.Operations.Concat(McpDomainRegistry.Operations).ToArray(),
             domains = McpContractCatalog.Domains.Concat(McpDomainRegistry.Contracts).ToArray(),
             extension_parameters = ExtensionParameterRegistry.Schema,
+            timing = TimingCatalog(),
+            voice_comp = VoiceCompCatalog(),
             evec = new
             {
                 operation = "notes.set_evec",

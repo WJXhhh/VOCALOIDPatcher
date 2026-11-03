@@ -1,0 +1,90 @@
+{
+  "feature": "sequence-finalizer-and-register-origin",
+  "date": "2026-10-22",
+  "rootCause": "Repeated pitch/duration made the first REG render lookup ambiguous; the qualified sampled-render origin now matches planning. Native sequence Close failures require retained ownership and manager-verified released-wrapper handling.",
+  "compiledAgainst": "6.13.1.1",
+  "nativeConfiguration": "Release",
+  "builds": [
+    "6.13.1.1 Debug",
+    "6.13.1.1 Release",
+    "6.13.3.1 Debug",
+    "6.13.3.1 Release"
+  ],
+  "buildWarnings": 0,
+  "buildErrors": 0,
+  "managedTests": {
+    "passed": 460,
+    "failed": 0
+  },
+  "rustTests": {
+    "passed": 54,
+    "failed": 0
+  },
+  "sameAssemblyAndReleaseNativeAcrossSdks": true,
+  "sdks": [
+    {
+      "sdk": "6.13.1.1",
+      "projectReplays": 6,
+      "blockModes": [
+        true,
+        false
+      ],
+      "forcedGcAfterEachReset": true,
+      "authoredInputsUnchanged": true,
+      "transitionControlsUnchanged": true,
+      "automaticRecoveryIncidents": 0,
+      "pendingSequenceCloses": 0,
+      "alreadyReleasedWrappersObserved": 4,
+      "injectedCloseFailures": 7,
+      "closeFaultGcAndRetryPassed": true,
+      "releasedOwnerGcPassed": true,
+      "nativeFaultRecoveryPassed": true,
+      "mcpAcceptanceGroups": 16
+    },
+    {
+      "sdk": "6.13.3.1",
+      "projectReplays": 6,
+      "blockModes": [
+        true,
+        false
+      ],
+      "forcedGcAfterEachReset": true,
+      "authoredInputsUnchanged": true,
+      "transitionControlsUnchanged": true,
+      "automaticRecoveryIncidents": 0,
+      "pendingSequenceCloses": 0,
+      "alreadyReleasedWrappersObserved": 8,
+      "injectedCloseFailures": 7,
+      "closeFaultGcAndRetryPassed": true,
+      "releasedOwnerGcPassed": true,
+      "nativeFaultRecoveryPassed": true,
+      "mcpAcceptanceGroups": 16
+    }
+  ],
+  "sourceProjectFileUnchanged": true,
+  "transitionValidationRelaxed": false,
+  "interactiveEditorVerified": false,
+  "previewAndCompositionListeningVerified": false,
+  "isolatedShellLimitations": "The native replay fixture has no Editor ViewModel; incidental PhonemeVolume/VoiceComp background preview callbacks are not an interactive composition acceptance test.",
+  "deployment": {
+    "editorLaunched": false,
+    "editorClosedByAgent": false,
+    "status": "deployed",
+    "files": [
+      {
+        "File": "Microsoft.Xaml.Behaviors.dll",
+        "Sha256": "AEF33D04F91D402E0BBBF47D0488060E2758C99CE3E7E01F340480B90AEB89A1",
+        "Length": 8676864
+      },
+      {
+        "File": "VOCALOIDPatcher\\native\\v6patch_clock.dll",
+        "Sha256": "621693F9986861DE955D1025DEE8EC521CA0EF13DE691F976D4A86ECD44D4DE0",
+        "Length": 380928
+      }
+    ],
+    "deployedAt": "2026-10-22T22:27:24.2274594+08:00",
+    "installedHashesVerified": 2,
+    "rollbackAvailable": true,
+    "companionToolCount": 26
+  }
+}

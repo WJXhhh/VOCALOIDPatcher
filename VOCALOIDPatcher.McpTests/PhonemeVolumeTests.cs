@@ -83,6 +83,85 @@ public sealed class PhonemeVolumeTests
     }
 
     [Fact]
+    public void NonAdjacentAndNestedGainRangesPreserveTheReferenceSampleProduct()
+    {
+        WithDirectory(directory =>
+        {
+            string input = Path.Combine(directory, "input.wav"), output = Path.Combine(directory, "output.wav");
+            WriteWave(input, 3, 32, 1);
+            PhonemeGainRegion[] regions = [new(.01, .09, -3), new(.01, .02, 6), new(.03, .04, -12),
+                new(.045, .06, 6), new(.045, .06, -3), new(.08, .095, -60)];
+            PhonemeGainWaveProcessor.Create(input, output, regions);
+            byte[] actual = File.ReadAllBytes(output);
+            for (int sample = 0; sample < 4800; sample++)
+            {
+                double gain = 1;
+                foreach (var range in regions.OrderBy(r => r.BeginSeconds))
+                {
+                    long begin = (long)Math.Round(range.BeginSeconds * 48000), end = (long)Math.Round(range.EndSeconds * 48000);
+                    if (sample < begin || sample >= end) continue;
+                    double width = Math.Min(240, Math.Max(.5, (end - begin - 1) / 2d));
+                    double edge = Math.Min(sample - begin + .5, end - sample - .5);
+                    double weight = .5 - .5 * Math.Cos(Math.PI * Math.Clamp(edge / width, 0, 1));
+                    gain *= 1 + (PhonemeVolumePlan.LinearGain(range.Decibels) - 1) * weight;
+                }
+                Assert.Equal(BitConverter.SingleToInt32Bits((float)(.25 * gain)), BitConverter.ToInt32(actual, 44 + sample * 4));
+            }
+        });
+    }
+
+    [Theory]
+    [InlineData(-6f, -6.6f, false)]
+    [InlineData(-6f, -6f, false)]
+    [InlineData(-60f, -60f, false)]
+    [InlineData(6f, 6f, false)]
+    [InlineData(-6f, -6.6f, true)]
+    public void AdjacentPhonemesBridgeTheirGainsWithoutReturningToUnity(float leftDb, float rightDb, bool nested)
+    {
+        WithDirectory(directory =>
+        {
+            string input = Path.Combine(directory, "input.wav"), output = Path.Combine(directory, "output.wav");
+            WriteWave(input, 3, 32, 2);
+            var regions = new List<PhonemeGainRegion> { new(.01, .05, leftDb), new(.05, .09, rightDb) };
+            if (nested) regions.Insert(0, new(.005, .095, -3));
+            PhonemeGainWaveProcessor.Create(input, output, regions);
+            byte[] changed = File.ReadAllBytes(output);
+            double common = nested ? PhonemeVolumePlan.LinearGain(-3) : 1;
+            double left = common * PhonemeVolumePlan.LinearGain(leftDb), right = common * PhonemeVolumePlan.LinearGain(rightDb);
+            for (int sample = 2160; sample < 2640; sample++)
+            for (int channel = 0; channel < 2; channel++)
+            {
+                double actual = ReadSample(changed, 44 + sample * 8 + channel * 4, 3, 32) / (channel == 0 ? .25 : -.25);
+                Assert.InRange(actual, Math.Min(left, right) - 1e-6, Math.Max(left, right) + 1e-6);
+            }
+            double centre = ReadSample(changed, 44 + 2400 * 8, 3, 32) / .25;
+            Assert.InRange(Math.Abs(centre - (left + right) / 2), 0, .005);
+        });
+    }
+
+    [Fact]
+    public void SharedBoundaryAtStreamingBlockEdgeStaysMutedAndShortAdjacentMutesDoNotLeak()
+    {
+        WithDirectory(directory =>
+        {
+            string input = Path.Combine(directory, "input.wav"), output = Path.Combine(directory, "output.wav");
+            WriteWave(input, 3, 32, 1);
+            foreach (var regions in new PhonemeGainRegion[][]
+            {
+                [new(0, 4096d / 48000, -60), new(4096d / 48000, .1, -60)],
+                [new(2400d / 48000, 2402d / 48000, -60), new(2402d / 48000, 2404d / 48000, -60)]
+            })
+            {
+                PhonemeGainWaveProcessor.Create(input, output, regions);
+                byte[] changed = File.ReadAllBytes(output);
+                int boundary = (int)Math.Round(regions[0].EndSeconds * 48000);
+                Assert.Equal(0, ReadSample(changed, 44 + (boundary - 1) * 4, 3, 32));
+                Assert.Equal(0, ReadSample(changed, 44 + boundary * 4, 3, 32));
+            }
+        });
+    }
+
+    [Fact]
     public void ShortPhonemeReachesMuteAndOverlappingGainsComposeBeforeIntegerClipping()
     {
         WithDirectory(directory =>

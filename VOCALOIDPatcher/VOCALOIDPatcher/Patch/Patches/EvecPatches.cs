@@ -150,6 +150,7 @@ public sealed class EvecSequenceTempoCommitPatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(WIVSMSequence __instance, out bool __state)
     {
+        if (ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance)) { __state = false; return; }
         try
         {
             __state = EvecService.ApplyPendingTempoTiming(__instance);
@@ -163,6 +164,7 @@ public sealed class EvecSequenceTempoCommitPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool __result, bool __state)
     {
+        if (ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance)) return;
         if (!__result && __state)
             EvecService.MarkTempoChanged(__instance);
         EvecService.CompletePendingHistory(__instance, __result);

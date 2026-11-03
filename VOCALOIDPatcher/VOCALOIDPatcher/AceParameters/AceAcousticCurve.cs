@@ -34,10 +34,10 @@ internal sealed class AceAcousticCurve
             if (_points[mid].Seconds <= seconds) low = mid;
             else high = mid - 1;
         }
-        if (low == _points.Length - 1) return _points[low].Value;
-        var a = _points[low];
-        var b = _points[low + 1];
-        return a.Value + (b.Value - a.Value) * ((seconds - a.Seconds) / (b.Seconds - a.Seconds));
+        // Native controller points are sample-and-hold, as drawn by
+        // UIControlParameter. Interpolation would turn a deleted interval's
+        // flat line into a ramp, changing earlier, unedited notes as well.
+        return _points[low].Value;
     }
 
     internal static AceAcousticCurve Neutral { get; } = new(Array.Empty<AceAcousticPoint>());

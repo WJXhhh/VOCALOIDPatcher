@@ -98,15 +98,25 @@ impl Context {
             unsafe { std::mem::transmute(GET_END.load(Ordering::Acquire)) };
         self.scheduled_halves(count, unsafe { end(schedule) }, left, right)
     }
+    unsafe fn schedule_gap(&self, schedule: usize, duration: i32) -> Option<i32> {
+        let count = unsafe { ptr::read_unaligned((schedule as *const u8).add(super::timing_profile::ScheduleMappedCount).cast::<i32>()) };
+        let end: unsafe extern "system" fn(usize) -> i32 =
+            unsafe { std::mem::transmute(GET_END.load(Ordering::Acquire)) };
+        self.scheduled_gap(count, unsafe { end(schedule) }, duration)
+    }
+    fn scheduled_gap(&self, count: i32, actual: i32, duration: i32) -> Option<i32> {
+        if count == 0 { self.reset_schedule(); }
+        self.halves_at(actual, duration, 0, Some(count), true).map(|v| v.0)
+    }
     fn scheduled_halves(&self, count: i32, actual: i32, left: i32, right: i32) -> Option<(i32, i32)> {
         if count == 0 { self.reset_schedule(); }
-        self.halves_at(actual, left, right, Some(count))
+        self.halves_at(actual, left, right, Some(count), false)
     }
     #[cfg(test)]
     pub(super) fn halves(&self, actual: i32, left: i32, right: i32) -> Option<(i32, i32)> {
-        self.halves_at(actual, left, right, None)
+        self.halves_at(actual, left, right, None, false)
     }
-    fn halves_at(&self, actual: i32, left: i32, right: i32, count: Option<i32>) -> Option<(i32, i32)> {
+    fn halves_at(&self, actual: i32, left: i32, right: i32, count: Option<i32>, absolute_gap: bool) -> Option<(i32, i32)> {
         let mut cursor = self.cursor.lock().unwrap_or_else(|e| e.into_inner());
         cursor.calls += 1;
         cursor.last_left = left;
@@ -153,7 +163,11 @@ impl Context {
             cursor.failures += 1;
             return None;
         };
-        let Some(split) = begin.checked_add(left) else {
+        // The parser computes silence as the next absolute input position
+        // minus the already mapped schedule end. Recover that endpoint before
+        // warping it; treating this duration as a source length counts the
+        // previous displacement twice and shifts every following phoneme.
+        let Some(split) = (if absolute_gap { actual } else { begin }).checked_add(left) else {
             cursor.failures += 1;
             return None;
         };
@@ -279,8 +293,7 @@ unsafe extern "system" fn allocate(schedule: usize, output: usize, duration: i32
         if output_padding {
             duration
         } else {
-            unsafe { context.schedule_halves(schedule, duration, 0) }
-                .map(|v| v.0)
+            unsafe { context.schedule_gap(schedule, duration) }
                 .unwrap_or(duration)
         }
     } else {
@@ -519,6 +532,36 @@ pub unsafe extern "C" fn v6_phoneme_end(output: *mut Status) -> i32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn silence_gap_uses_the_absolute_endpoint_after_an_edited_release() {
+        let context = Context::new(Warp::new(&[
+            Point { from: 0, to: 0 }, Point { from: 3329, to: 3329 },
+            Point { from: 3340, to: 3343 }, Point { from: 3365, to: 3365 },
+            Point { from: 3450, to: 3450 },
+        ]).unwrap());
+        assert_eq!(context.scheduled_halves(5, 0, 3329, 2), Some((3329, 3)));
+        // DSE requests 3338 - 3332, after the release moved by one frame.
+        // The next source must still start at map(3338), not map(3337).
+        assert_eq!(context.scheduled_gap(6, 3332, 6), Some(8));
+        assert_eq!(context.scheduled_halves(7, 3340, 2, 5), Some((3, 4)));
+        assert_eq!(context.scheduled_halves(8, 3347, 20, 30), Some((18, 30)));
+        assert_eq!(context.failures(), 0);
+    }
+
+    #[test]
+    fn silence_gap_handles_negative_displacement_and_fixed_endpoints() {
+        let context = Context::new(Warp::new(&[
+            Point { from: 0, to: 0 }, Point { from: 100, to: 98 },
+            Point { from: 110, to: 110 }, Point { from: 150, to: 150 },
+        ]).unwrap());
+        assert_eq!(context.scheduled_halves(1, 0, 100, 0), Some((98, 0)));
+        assert_eq!(context.scheduled_gap(2, 98, 12), Some(12));
+        assert_eq!(context.scheduled_halves(3, 110, 10, 5), Some((10, 5)));
+        assert_eq!(context.failures(), 0);
+        assert_eq!(context.scheduled_gap(0, 0, 50), Some(49));
+        assert_eq!(context.failures(), 0);
+    }
+
     #[test]
     fn quantized_silence_bridge_rebuild_uses_native_work_item_start() {
         for (split, target) in [(3292, 3293), (3296, 3295)] {

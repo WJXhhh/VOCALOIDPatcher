@@ -85,6 +85,18 @@ public static class TransitionHostValidation
             harmony.Patch(target, Hook("Prefix"), Hook("Postfix"), finalizer: Hook("Finalizer"));
         }
         harmony.Patch(AccessTools.Method(typeof(TransitionProjectArchive), "Write"), new HarmonyMethod(typeof(TransitionHostValidation), nameof(FailSave)));
+        if (Environment.GetEnvironmentVariable("VOCALOID_SEQUENCE_FINALIZER_PROBE") == "1")
+        {
+            try { SequenceFinalizerValidation.Execute(manager, directory); }
+            finally { harmony.UnpatchAll(harmony.Id); application.Shutdown(); }
+            return;
+        }
+        if (Environment.GetEnvironmentVariable("VOCALOID_PUBLICATION_RETRY_PROBE") == "1")
+        {
+            try { TimingPublicationRetryValidation.Execute(manager, dse, database, directory); }
+            finally { harmony.UnpatchAll(harmony.Id); application.Shutdown(); }
+            return;
+        }
         var states = new List<object>();
         var pcmPaths = new Dictionary<string, string>();
         void Record(object state) { states.Add(state); File.WriteAllText(Path.Combine(directory, "transition-host.json"), JsonSerializer.Serialize(states, new JsonSerializerOptions { WriteIndented = true })); }

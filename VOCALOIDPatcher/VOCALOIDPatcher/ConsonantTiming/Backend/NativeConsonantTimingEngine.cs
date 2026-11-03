@@ -71,7 +71,7 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
             cancellation.ThrowIfCancellationRequested();
             wait = WaitForSingleObject(_nativeMutex, (uint)Math.Min(5, waitBudgetMs));
             if (wait == 0x102 && timer.ElapsedMilliseconds >= waitBudgetMs)
-                throw new TimeoutException("Native timing planner is busy or unavailable.");
+                throw new TimingPlannerBusyException("Native timing planner is busy or unavailable.");
         } while (wait == 0x102);
         if (wait == 0x80)
         {
@@ -178,7 +178,7 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
         NativeTimingNoteInput.Feed(_state, frame, bytes, coefficient);
     }
 
-    internal void VerifyPhonemeBoundary(int frame, string? left, string? right)
+    internal void VerifyPhonemeBoundary(int frame, string? left, string? right, string? continuationPhone = null)
     {
         if (!_started || _queryMutex == 0) throw new InvalidOperationException("Timing planner is not locked.");
         nint schedule = Marshal.ReadIntPtr(_state, LocalTimingNative.Profile.StateSchedule);
@@ -205,6 +205,11 @@ internal sealed unsafe partial class NativeConsonantTimingEngine : IDisposable
         }
         var before = Read(frame - 1);
         var after = Read(frame);
+        bool continuationStart = right == "-" && continuationPhone != null;
+        if (left == "-" && continuationPhone != null) left = continuationPhone;
+        if (continuationStart) right = continuationPhone;
+        if (continuationStart && before is { } tail && after is { } head &&
+            TimingBoundaryEvidence.MatchesContinuation(frame, continuationPhone!, tail, head)) return;
         if (before?.MatchesSplit(frame, left, right) == true || after?.MatchesSplit(frame, left, right) == true) return;
         if (before is { } previous && after is { } next &&
             TimingBoundaryEvidence.MatchesJoin(frame,left,right,previous,next)) return;

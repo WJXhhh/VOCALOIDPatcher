@@ -1,0 +1,427 @@
+{
+  "feature": "voice-comp",
+  "recordedOn": "2026-10-22",
+  "scope": "Isolated real native rendering and WPF layout; no Editor deployment or host acceptance",
+  "patcherCompiledAgainst": "6.13.1.1",
+  "isolatedAssemblySha256": "DAB8355912DB8568E1385A199B1C5F11447062AA22D2A8BD435C0B41F709AE88",
+  "nativeShimSha256": "5BE1BCB7759D9A893D4CE215705607EF38D05774F0F6A3B8FE39C6F60FB82D2C",
+  "builds": [
+    {
+      "sdk": "6.13.1.1",
+      "configuration": "Debug",
+      "project": "VOCALOIDPatcher.sln",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "sdk": "6.13.1.1",
+      "configuration": "Release",
+      "project": "VOCALOIDPatcher.sln",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "sdk": "6.13.3.1",
+      "configuration": "Debug",
+      "project": "VOCALOIDPatcher.sln",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    },
+    {
+      "sdk": "6.13.3.1",
+      "configuration": "Release",
+      "project": "VOCALOIDPatcher.sln",
+      "exitCode": 0,
+      "warnings": 0,
+      "errors": 0
+    }
+  ],
+  "managedTests": {
+    "project": "VOCALOIDPatcher.McpTests",
+    "passed": 383,
+    "failed": 0,
+    "skipped": 0
+  },
+  "rustTests": {
+    "project": "native/playback-clock",
+    "passed": 52,
+    "failed": 0
+  },
+  "offlineExecutables": [
+    {
+      "project": "BreathVolumeOfflineTests",
+      "exitCode": 0
+    },
+    {
+      "project": "AceAcousticOfflineTests",
+      "exitCode": 0
+    },
+    {
+      "project": "AceParameterOfflineTests",
+      "exitCode": 0
+    }
+  ],
+  "translationCheck": {
+    "languages": [
+      "English",
+      "中文 (简体)",
+      "中文 (繁體)",
+      "日本語"
+    ],
+    "allKeySetsEqual": true,
+    "newKeysPerLanguage": 49,
+    "duplicateNewKeys": 0
+  },
+  "nativeRuns": [
+    {
+      "sdk": "6.13.1.1",
+      "exitCode": 0,
+      "stages": [
+        {
+          "stage": "native-copy",
+          "Rate": 44100,
+          "Samples": 198912,
+          "Length": 3,
+          "originalPreserved": true
+        },
+        {
+          "stage": "long-KeepHead",
+          "hash": "691756D5B00C71C7304B4D79D0145B77AD4BB9B47D3C40D125BFD14382B4B3AD",
+          "contributions": 3
+        },
+        {
+          "stage": "long-KeepTail",
+          "hash": "0B9ABB4840BA0EAB584623BD9D18243B301D2FB7348F1AD8367D40297091E9B6",
+          "contributions": 3
+        },
+        {
+          "stage": "long-Middle",
+          "hash": "B361742D2E2460A1906C2C58219B350D595EB44741BE12C95A36D4644313C838",
+          "contributions": 3
+        },
+        {
+          "stage": "rapid-trim-cache-export-wait",
+          "edits": 25,
+          "passed": true
+        },
+        {
+          "stage": "independent-pronunciation-context",
+          "passed": true
+        },
+        {
+          "stage": "part-boundaries-and-overrun-range",
+          "passed": true
+        },
+        {
+          "stage": "independent-successor-invariance",
+          "passed": true
+        },
+        {
+          "stage": "splice",
+          "hash": "D5C0F1466385C0EC9C17F86C33EE7DC3CA99A0954E2CEB097BC8C6CE3F970A00",
+          "slices": [
+            {
+              "Role": 0,
+              "SourceBegin": 0,
+              "OutputBegin": 0,
+              "Length": 66150
+            },
+            {
+              "Role": 0,
+              "SourceBegin": 0,
+              "OutputBegin": 0,
+              "Length": 198912
+            },
+            {
+              "Role": 2,
+              "SourceBegin": 61694,
+              "OutputBegin": 61694,
+              "Length": 4474
+            },
+            {
+              "Role": 3,
+              "SourceBegin": 65948,
+              "OutputBegin": 65948,
+              "Length": 22252
+            }
+          ]
+        },
+        {
+          "stage": "history",
+          "passed": true
+        },
+        {
+          "stage": "donor-snapshot-fields",
+          "passed": true
+        },
+        {
+          "stage": "failure-retention-export-rejection",
+          "passed": true
+        },
+        {
+          "stage": "wpf",
+          "languages": 4,
+          "widths": 3,
+          "heights": [
+            200,
+            272,
+            360
+          ],
+          "dpi": [
+            100,
+            150,
+            200
+          ],
+          "passed": true
+        },
+        {
+          "stage": "effective-playback-range",
+          "Len": 5,
+          "passed": true
+        },
+        {
+          "stage": "save-failure-rollback",
+          "passed": true
+        },
+        {
+          "stage": "save-reopen",
+          "entries": 2,
+          "passed": true
+        },
+        {
+          "stage": "manual-independent-track-reference",
+          "pcm": "FB88436A95760C16516C56E0AF3E61AE53050F158AC727C56DACDDC754B7705A",
+          "passed": true
+        },
+        {
+          "stage": "native-delete-undo",
+          "passed": true
+        },
+        {
+          "stage": "part-copy-delete-undo-and-file-cleanup",
+          "passed": true
+        },
+        {
+          "stage": "pure-timing",
+          "passed": true
+        },
+        {
+          "stage": "main-pitch-and-tempo",
+          "passed": true
+        },
+        {
+          "stage": "main-controllers-and-phoneme-gain",
+          "passed": true
+        },
+        {
+          "stage": "native-transition-before-composition",
+          "passed": true
+        },
+        {
+          "stage": "ace-after-composition",
+          "passed": true
+        },
+        {
+          "stage": "evec",
+          "phonemes": "k k#2 a a#2 *#1",
+          "passed": true
+        },
+        {
+          "stage": "bvl-before-composition",
+          "changed": false,
+          "passed": true
+        },
+        {
+          "stage": "extended-pinyin",
+          "phonemes": "f UN",
+          "passed": true,
+          "sdk": "6.13.1.1"
+        },
+        {
+          "stage": "native-cleanup-drained",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "sdk": "6.13.3.1",
+      "exitCode": 0,
+      "stages": [
+        {
+          "stage": "native-copy",
+          "Rate": 44100,
+          "Samples": 198912,
+          "Length": 3,
+          "originalPreserved": true
+        },
+        {
+          "stage": "long-KeepHead",
+          "hash": "691756D5B00C71C7304B4D79D0145B77AD4BB9B47D3C40D125BFD14382B4B3AD",
+          "contributions": 3
+        },
+        {
+          "stage": "long-KeepTail",
+          "hash": "0B9ABB4840BA0EAB584623BD9D18243B301D2FB7348F1AD8367D40297091E9B6",
+          "contributions": 3
+        },
+        {
+          "stage": "long-Middle",
+          "hash": "B361742D2E2460A1906C2C58219B350D595EB44741BE12C95A36D4644313C838",
+          "contributions": 3
+        },
+        {
+          "stage": "rapid-trim-cache-export-wait",
+          "edits": 25,
+          "passed": true
+        },
+        {
+          "stage": "independent-pronunciation-context",
+          "passed": true
+        },
+        {
+          "stage": "part-boundaries-and-overrun-range",
+          "passed": true
+        },
+        {
+          "stage": "independent-successor-invariance",
+          "passed": true
+        },
+        {
+          "stage": "splice",
+          "hash": "D5C0F1466385C0EC9C17F86C33EE7DC3CA99A0954E2CEB097BC8C6CE3F970A00",
+          "slices": [
+            {
+              "Role": 0,
+              "SourceBegin": 0,
+              "OutputBegin": 0,
+              "Length": 66150
+            },
+            {
+              "Role": 0,
+              "SourceBegin": 0,
+              "OutputBegin": 0,
+              "Length": 198912
+            },
+            {
+              "Role": 2,
+              "SourceBegin": 61694,
+              "OutputBegin": 61694,
+              "Length": 4474
+            },
+            {
+              "Role": 3,
+              "SourceBegin": 65948,
+              "OutputBegin": 65948,
+              "Length": 22252
+            }
+          ]
+        },
+        {
+          "stage": "history",
+          "passed": true
+        },
+        {
+          "stage": "donor-snapshot-fields",
+          "passed": true
+        },
+        {
+          "stage": "failure-retention-export-rejection",
+          "passed": true
+        },
+        {
+          "stage": "wpf",
+          "languages": 4,
+          "widths": 3,
+          "heights": [
+            200,
+            272,
+            360
+          ],
+          "dpi": [
+            100,
+            150,
+            200
+          ],
+          "passed": true
+        },
+        {
+          "stage": "effective-playback-range",
+          "Len": 5,
+          "passed": true
+        },
+        {
+          "stage": "save-failure-rollback",
+          "passed": true
+        },
+        {
+          "stage": "save-reopen",
+          "entries": 2,
+          "passed": true
+        },
+        {
+          "stage": "manual-independent-track-reference",
+          "pcm": "FB88436A95760C16516C56E0AF3E61AE53050F158AC727C56DACDDC754B7705A",
+          "passed": true
+        },
+        {
+          "stage": "native-delete-undo",
+          "passed": true
+        },
+        {
+          "stage": "part-copy-delete-undo-and-file-cleanup",
+          "passed": true
+        },
+        {
+          "stage": "pure-timing",
+          "passed": true
+        },
+        {
+          "stage": "main-pitch-and-tempo",
+          "passed": true
+        },
+        {
+          "stage": "main-controllers-and-phoneme-gain",
+          "passed": true
+        },
+        {
+          "stage": "native-transition-before-composition",
+          "passed": true
+        },
+        {
+          "stage": "ace-after-composition",
+          "passed": true
+        },
+        {
+          "stage": "evec",
+          "phonemes": "k k#2 a a#2 *#1",
+          "passed": true
+        },
+        {
+          "stage": "bvl-before-composition",
+          "changed": false,
+          "passed": true
+        },
+        {
+          "stage": "extended-pinyin",
+          "phonemes": "f UN",
+          "passed": true,
+          "sdk": "6.13.3.1"
+        },
+        {
+          "stage": "native-cleanup-drained",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "remainingAcceptance": [
+    "Real Editor interactions, keyboard focus, scrolling, resizing and sustained use",
+    "Whole-phrase listening with plosives, compound vowels, tails and overlapping pitches",
+    "BVL audibility using identifiable breath material: the current fixture reports changed=false",
+    "Editor playback and all export levels agree, bypass restores native output",
+    "Large-Part performance and long-running resource behavior"
+  ]
+}

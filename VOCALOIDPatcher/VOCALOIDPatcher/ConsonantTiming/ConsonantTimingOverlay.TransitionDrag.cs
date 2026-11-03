@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.Translation;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.MusicalEditor;
 using Yamaha.VOCALOID.VSM;
@@ -69,13 +70,17 @@ internal sealed partial class ConsonantTimingOverlay
         _transitionSelected = hit.Item.Edge.Identity; _transitionDrawing.Selected = _transitionSelected;
         _transitionDrawing.InvalidateVisual();
         if (_view.DataContext is not MusicalEditorViewModel vm || vm.ActivePart is not { } part) return true;
+        // Precision editing is opt-in. The first click only selects (or starts
+        // a handle gesture); a plain double-click opens the selected transition.
+        if (clicks == 2 && Keyboard.Modifiers == ModifierKeys.None)
+        { _tip.IsOpen = false; OpenTransitionPanel(point); return true; }
         if (hit.Endpoint is { } endpoint)
         {
             var joint = _transitionLayout.ConditionalJunction(new(hit.Item.Edge.Identity, endpoint), _transitionControls);
             if (joint.MinimumCandidate == joint.MaximumCandidate)
-            { OpenTransitionPanel(point); ShowTip(TransitionText("Locked"), point); return true; }
+            { ShowTip(TransitionText("Locked"), point); return true; }
         }
-        if (!hit.Endpoint.HasValue && !hit.Gain && !hit.Phase) { OpenTransitionPanel(point); return true; }
+        if (!hit.Endpoint.HasValue && !hit.Gain && !hit.Phase) { RequestRefresh(); return true; }
         if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
         {
             var reset = hit.Endpoint is { } side ? _transitionControls.WithJunction(_transitionLayout,
@@ -140,7 +145,7 @@ internal sealed partial class ConsonantTimingOverlay
         if (_transitionDrag is not { } drag) return;
         if (!TransitionPreparationValid()) { CancelTransitionDrag(); return; }
         if (!drag.Moved)
-        { var point = e.GetPosition(_view); CancelTransitionDrag(); OpenTransitionPanel(point); return; }
+        { CancelTransitionDrag(); return; }
         drag.Final = true; MoveTransitionDrag(e);
         if (_view.IsMouseCaptured) _view.ReleaseMouseCapture();
         ShowTip(TransitionText("Validating"), e.GetPosition(_view));
@@ -248,15 +253,37 @@ internal sealed partial class ConsonantTimingOverlay
             PhaseX: expressionRange is { } range ? TransitionFrameX(vm, part, TransitionExpressionControl.HandleFrame(range,
                 _transitionExecution.Controls.Phases.FirstOrDefault(p => p.Edge == edge.Identity)?.Amount ?? 0)) : null);
     }
+    private Point? _transitionPanelOpenPoint;
+    private void CancelTransitionPanelOpen()
+    {
+        if (_transitionPanelOpenPoint == null) return;
+        _transitionPanelOpenPoint = null;
+        if (_view.IsMouseCaptured && _transitionDrag == null) _view.ReleaseMouseCapture();
+    }
+    private bool HitTransitionControl(DependencyObject target)
+        => _transitionPanel?.Child is FrameworkElement root && (root == target || root.IsAncestorOf(target));
     private void OpenTransitionPanel(Point point)
     {
         if (!TransitionMode) return;
+        _tip.IsOpen = false;
         if (_transitionLayout == null || _transitionControls == null || !TransitionPreparationValid())
         { ShowTip(_transitionError ?? TransitionText("Preparing"), point); return; }
-        if (_transitionPanel != null) { _transitionPanel.IsOpen = true; return; }
-        var body = new StackPanel { Width = 300, Margin = new Thickness(12) };
-        var title = new TextBlock { Text = TransitionText("Name"), FontWeight = FontWeights.SemiBold, Foreground = _view.Foreground };
-        var choices = new ComboBox { Margin = new Thickness(0, 8, 0, 8) };
+        // Opening a mouse-capturing Popup during the second MouseDown makes
+        // its matching release look like an outside click. Wait for release.
+        if (Mouse.LeftButton == MouseButtonState.Pressed)
+        {
+            _transitionPanelOpenPoint = point;
+            if (!_view.IsMouseCaptured && !_view.CaptureMouse()) _transitionPanelOpenPoint = null;
+            return;
+        }
+        if (_transitionPanel != null) { _updateTransitionPanel?.Invoke(); _transitionPanel.IsOpen = true; return; }
+        var body = new TransitionEditorPanel(key => TransitionText(key), TranslationManager.Tr("Button_Close"));
+        var title = body.Title; var close = body.Close; var choices = body.Choices;
+        var coverageLabel = body.CoverageLabel; var coverage = body.Coverage;
+        var resetExpression = body.ResetExpression;
+        var phase = body.Phase; var left = body.Left; var right = body.Right; var gain = body.Gain;
+        var apply = body.Apply; var reset = body.Reset; var mute = body.Mute;
+        var status = body.Status; var legacy = body.Legacy;
         foreach (var edge in _transitionLayout.Edges)
         {
             string name = TransitionName(edge.Identity);
@@ -264,36 +291,12 @@ internal sealed partial class ConsonantTimingOverlay
                 name = TransitionText("Numbered", name, (edge.Identity.Right ?? edge.Identity.Left!).Note.Note + 1);
             choices.Items.Add(new ComboBoxItem { Content = name, Tag = edge.Identity });
         }
-        TextBox Field(string key)
-        {
-            body.Children.Add(new TextBlock { Text = TransitionText(key), Margin = new Thickness(0, 5, 0, 2), Foreground = _view.Foreground });
-            var input = new TextBox { Width = 110, HorizontalAlignment = HorizontalAlignment.Left }; body.Children.Add(input); return input;
-        }
-        body.Children.Add(title); body.Children.Add(choices);
-        var coverageLabel = new TextBlock { Text = TransitionText("Coverage"), TextWrapping = TextWrapping.Wrap, MaxWidth = 275 };
-        var coverage = new CheckBox { Content = coverageLabel, Foreground = _view.Foreground, Margin = new Thickness(0, 3, 0, 5),
-            ToolTip = TransitionText("CoverageHint") };
-        body.Children.Add(coverage);
-        var resetExpression = new Button { Content = TransitionText("ResetExpression"), HorizontalAlignment = HorizontalAlignment.Left,
-            Padding = new Thickness(6, 2, 6, 2), ToolTip = TransitionText("ResetExpressionHint") };
-        body.Children.Add(resetExpression);
-        TextBox phase = Field("Phase"), left = Field("Left"), right = Field("Right"), gain = Field("Volume");
-        var actions = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 10, 0, 5) };
-        var apply = new Button { Content = TransitionText("Apply"), Padding = new Thickness(8, 3, 8, 3) };
-        var reset = new Button { Content = TransitionText("Reset"), Margin = new Thickness(7, 0, 0, 0), Padding = new Thickness(8, 3, 8, 3) };
-        var mute = new Button { Content = TransitionText("Mute"), Margin = new Thickness(7, 0, 0, 0), Padding = new Thickness(8, 3, 8, 3) };
-        actions.Children.Add(apply); actions.Children.Add(reset); actions.Children.Add(mute); body.Children.Add(actions);
-        var status = new TextBlock { TextWrapping = TextWrapping.Wrap, Foreground = _view.Foreground, Margin = new Thickness(0, 6, 0, 0) };
-        body.Children.Add(status);
-        body.Children.Add(new TextBlock { Text = TransitionText("PhaseHint"), TextWrapping = TextWrapping.Wrap, Foreground = _view.Foreground, FontSize = 11, Margin = new Thickness(0, 6, 0, 0) });
-        var legacy = new TextBlock { Text = TransitionText("LegacyOnset"), TextWrapping = TextWrapping.Wrap, Foreground = _view.Foreground, Margin = new Thickness(0, 5, 0, 0) };
-        body.Children.Add(legacy);
         var viewport = (_view.DataContext as MusicalEditorViewModel)?.PianorollViewer?.ViewportRect();
         var scroll = new ScrollViewer { Content = body, MaxHeight = Math.Max(80, (viewport?.Height ?? _view.ActualHeight) - 16),
-            VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled };
-        var popup = new Popup { PlacementTarget = _view, Placement = PlacementMode.Relative, StaysOpen = false, AllowsTransparency = true,
-            Child = new Border { Background = _view.TryFindResource("Brush_WindowBackground") as Brush ?? SystemColors.WindowBrush,
-                BorderBrush = SystemColors.ActiveBorderBrush, BorderThickness = new Thickness(1), Child = scroll } };
+            VerticalScrollBarVisibility = ScrollBarVisibility.Auto, HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
+            Background = body.Background };
+        var popup = new Popup { PlacementTarget = _view, Placement = PlacementMode.Relative, StaysOpen = false,
+            AllowsTransparency = true, Child = scroll };
         WpfTranslationPatch.MarkUntranslatable(body);
         bool updating = false;
         bool coverageDirty = false;
@@ -302,23 +305,18 @@ internal sealed partial class ConsonantTimingOverlay
             field.TextChanged += (_, _) => { if (!updating) dirtyFields.Add(field); };
         coverage.Checked += (_, _) => { if (!updating) coverageDirty = true; };
         coverage.Unchecked += (_, _) => { if (!updating) coverageDirty = true; };
-        phase.TextChanged += (_, _) =>
-        {
-            if (!updating && !coverageDirty && coverage.IsEnabled)
-            { updating = true; coverage.IsChecked = true; updating = false; }
-        };
         void Update()
         {
             var item = SelectedTransitionItem();
             if (item == null || !TransitionPreparationValid()) { popup.IsOpen = false; return; }
             updating = true;
-            title.Text = TransitionName(item.Edge.Identity);
+            title.Text = TransitionText("PanelTitle");
             var current = TransitionControlPlan.FromCompiled(_transitionLayout!, _transitionExecution!.Controls);
             var range = TransitionExpressionControl.Range(item.Row, item.Edge.Identity, current);
             var coverageRange = TransitionExpressionControl.Range(item.Row, item.Edge.Identity, current, requireProgress: false);
             phase.IsEnabled = range != null;
             coverage.IsEnabled = coverageRange != null || current.Coverages.Any(c => c.Edge == item.Edge.Identity);
-            if (!coverageDirty && !dirtyFields.Contains(phase)) coverage.IsChecked = current.Coverages.Any(c => c.Edge == item.Edge.Identity);
+            if (!coverageDirty) coverage.IsChecked = current.Coverages.Any(c => c.Edge == item.Edge.Identity);
             var activeCoverage = current.Coverages.FirstOrDefault(c => c.Edge == item.Edge.Identity)?.Sides;
             string coverageText = activeCoverage == TransitionSourceSides.Both ? TransitionText("CoverageBoth") :
                 coverageRange is { } interval ? TransitionText("CoverageSide", interval.Side == TransitionSourceSides.Left ? item.Row.From : item.Row.To!) : TransitionText("Coverage");
@@ -357,7 +355,7 @@ internal sealed partial class ConsonantTimingOverlay
                     plan = plan.WithJunction(_transitionLayout, new(item.Edge.Identity, TransitionEndpoint.End),
                     checked(item.Row.Split + (int)Math.Round(r * 44100 / 256000, MidpointRounding.AwayFromZero)));
                 if (phase.IsEnabled && dirtyFields.Contains(phase)) plan = plan.WithPhase(item.Edge.Identity, (float)(p / 100));
-                if (coverageDirty || (phase.IsEnabled && dirtyFields.Contains(phase)))
+                if (coverageDirty)
                     plan = TransitionExpressionControl.Source(plan, item.Row, item.Edge.Identity, coverage.IsChecked == true);
                 _ = plan.Compile(_transitionLayout);
                 if (dirtyFields.Contains(gain)) plan = TransitionGain(plan, item.Edge.Identity, (float)db);
@@ -389,6 +387,7 @@ internal sealed partial class ConsonantTimingOverlay
             QueueTransitionPlan(TransitionGain(TransitionExpressionControl.Reset(plan.WithOnset(_transitionSelected, 0), _transitionSelected), _transitionSelected, 0));
         };
         mute.Click += (_, _) => { if (_transitionSelected != null && _transitionControls != null) QueueTransitionPlan(TransitionGain(_transitionControls, _transitionSelected, -60)); };
+        close.Click += (_, _) => popup.IsOpen = false;
         popup.Closed += (_, _) => { if (_transitionPanel == popup) { _transitionPanel = null; _updateTransitionPanel = null; } };
         body.PreviewKeyDown += (_, e) => { if (e.Key == Key.Escape) { CancelTransitionDrag(); popup.IsOpen = false; e.Handled = true; } };
         _transitionPanel = popup; _updateTransitionPanel = Update;
@@ -398,7 +397,7 @@ internal sealed partial class ConsonantTimingOverlay
             popup.HorizontalOffset = Math.Max(viewport?.Left ?? 0, Math.Min(point.X + 14, (viewport?.Right ?? _view.ActualWidth) - popup.Child.DesiredSize.Width));
             popup.VerticalOffset = Math.Max(viewport?.Top ?? 0, Math.Min(point.Y + 7, (viewport?.Bottom ?? _view.ActualHeight) - popup.Child.DesiredSize.Height));
         }
-        popup.Opened += (_, _) => Place();
+        popup.Opened += (_, _) => { Place(); close.Focus(); };
         Update(); Place(); popup.IsOpen = true;
     }
 }

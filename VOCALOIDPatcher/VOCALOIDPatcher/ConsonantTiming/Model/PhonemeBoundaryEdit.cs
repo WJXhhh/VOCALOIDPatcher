@@ -19,13 +19,17 @@ internal static class PhonemeBoundaryEdit
 
     internal static IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?> Resolve(
         IReadOnlyList<Note> notes, int target, int index, SampledTimingPlan candidate)
+        => ResolveMany(notes, target, [index], candidate);
+
+    internal static IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?> ResolveMany(
+        IReadOnlyList<Note> notes, int target, IReadOnlyList<int> indices, SampledTimingPlan candidate)
     {
-        if (target < 0 || target >= notes.Count || index < 0 || index >= notes[target].Frames.Length)
-            throw new ArgumentOutOfRangeException(nameof(index));
+        if (target < 0 || target >= notes.Count || indices.Any(i => i < 0 || i >= notes[target].Frames.Length))
+            throw new ArgumentOutOfRangeException(nameof(indices));
         var selected = notes[target];
         _ = candidate.PhonemeCoefficient(selected.Address.Topology);
-        int frame = selected.Frames[index];
-        float? seconds = candidate.Adjustments.SingleOrDefault(a => a.Kind == TimingAdjustment.PhonemeBoundary && a.Index == index)?.Value;
+        var edits = indices.Select(index => (Frame: selected.Frames[index], Seconds:
+            candidate.Adjustments.SingleOrDefault(a => a.Kind == TimingAdjustment.PhonemeBoundary && a.Index == index)?.Value)).ToArray();
         var result = new Dictionary<TimingNoteAddress, SampledTimingPlan?>();
         for (int n = 0; n < notes.Count; n++)
         {
@@ -37,7 +41,8 @@ internal static class PhonemeBoundaryEdit
             var plan = n == target ? candidate : note.Plan ?? new(note.Address.Topology, []);
             bool touched = n == target;
             for (int i = 0; i < note.Frames.Length; i++)
-                if (note.Frames[i] == frame) { plan = WithBoundary(plan, i, seconds); touched = true; }
+                foreach (var edit in edits)
+                    if (note.Frames[i] == edit.Frame) { plan = WithBoundary(plan, i, edit.Seconds); touched = true; }
             if (touched) result.Add(note.Address, plan.Adjustments.Count == 0 ? null : plan);
         }
         return result;

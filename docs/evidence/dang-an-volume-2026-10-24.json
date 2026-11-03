@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "project_observation": {
+    "track": 0,
+    "gain_db": [
+      -1.5,
+      -5.4
+    ],
+    "note": 0,
+    "revision": 43,
+    "error": "Continuation pitch boundaries are not independent phoneme edits.",
+    "part": 0,
+    "instance": "00e3f73325574bdc9965d2db76d46b1f",
+    "project": "80af37fd3cb14b809420bcfa45f75f0e",
+    "comp_status": "Failed",
+    "phonemes": "t AN",
+    "lyric": "dang"
+  },
+  "cause": {
+    "offset_frames": -3,
+    "shared_with_boundary": 0,
+    "boundary": 1,
+    "shared_with_note": 18,
+    "continuation_note": 17
+  },
+  "fixture_sha256": "67676DD80435D156D974C4315A35B131124B265A52BDD15811C48953F24A3C1D",
+  "artifact_root": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-dang-gain-20261024-084012",
+  "before": {
+    "same_error_reproduced": true,
+    "log": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-dang-gain-20261024-084012\\before.log",
+    "assembly": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-ready-delay-20261023-215936\\after\\bin\\VOCALOIDPatcher\\debug\\VOCALOIDPatcher.IsolatedValidation.dll"
+  },
+  "pcm_results": [
+    {
+      "stage": "dang-an-saved",
+      "passed": true,
+      "gain_db": -5.4,
+      "rms": 0.013456893536187115,
+      "hash": "D438DFF1ABA7FEFC2DC9B62F9D3FEA9FE021D600146ACB5BAF9D0813F10F6A31",
+      "begin": 40829,
+      "end": 63871,
+      "frames": 325011
+    },
+    {
+      "stage": "dang-an-minus6",
+      "passed": true,
+      "gain_db": -11.4,
+      "rms": 0.006744550542408355,
+      "hash": "5DA7450A06136A0B0BD8E2C347F0EEE1AC0A5D671E30069B418D5FC3D012D4F7",
+      "begin": 40829,
+      "end": 63871,
+      "frames": 325011
+    },
+    {
+      "stage": "dang-an-undo",
+      "passed": true,
+      "gain_db": -5.4,
+      "rms": 0.013456893536187115,
+      "hash": "D438DFF1ABA7FEFC2DC9B62F9D3FEA9FE021D600146ACB5BAF9D0813F10F6A31",
+      "begin": 40829,
+      "end": 63871,
+      "frames": 325011
+    },
+    {
+      "stage": "dang-an-redo",
+      "passed": true,
+      "gain_db": -11.4,
+      "rms": 0.006744550542408355,
+      "hash": "5DA7450A06136A0B0BD8E2C347F0EEE1AC0A5D671E30069B418D5FC3D012D4F7",
+      "begin": 40829,
+      "end": 63871,
+      "frames": 325011
+    },
+    {
+      "stage": "dang-an-pcm-gain-and-history",
+      "passed": true,
+      "changeDb": -5.9998360594997475,
+      "originalProjectEdited": false
+    }
+  ],
+  "pcm_locality": {
+    "outside_an_different_bytes": 539,
+    "inside_an_different_bytes": 36447,
+    "outside_an_and_5ms_ramp_different_bytes": 302,
+    "first_different_sample": 38538,
+    "last_different_sample": 64743,
+    "outside_an_ramp_max_delta_pcm16": 3,
+    "outside_an_ramp_changed_samples": 247
+  },
+  "continuation_regression": {
+    "explicit_fault_rejected_ms": 0,
+    "non_silent_render": true,
+    "baseline_rejection_failed": true,
+    "log": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-dang-gain-20261024-084012\\continuation-accepted.log"
+  },
+  "comp_regression": [
+    {
+      "name": "private-planner-busy-recovers",
+      "busyRetries": 4,
+      "fastFrames": 170963,
+      "internalNotificationSuppressed": true
+    },
+    {
+      "name": "bpm-146-73-146",
+      "fastFrames": 170963,
+      "slowFrames": 297826,
+      "restoredFrames": 170963,
+      "fastHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "restoredHash": "644F5AC02D9B22E99966815935D769A23739A29F5B75F44124F8AF5EB8C53880",
+      "staleWaveRejected": true,
+      "nonSilent": true
+    },
+    {
+      "name": "failed-recipe-retains-file-without-publishing",
+      "retainedFile": true,
+      "staleAudioRejected": true,
+      "exportRejected": true
+    }
+  ],
+  "tests": {
+    "passed": 500,
+    "trx": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-dang-gain-20261024-084012\\test-results\\dang-gain.trx",
+    "failed": 0
+  },
+  "builds": {
+    "isolated": "success; 0 warnings, 0 errors",
+    "release": "success; 0 warnings, 0 errors; ILRepack merged",
+    "debug": "success; 0 warnings, 0 errors"
+  },
+  "source_sha256": {
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/ContinuationPhonemes.cs": "9115032E42A816E94A79953198C17E1A2B7DCEAECDCF8EB1C3102274A145677E",
+    "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/PreparedPhonemeTiming.cs": "7AE774103FA491BB60DED42E81ED81129D51E3B4A6FB26E7D2A2231ACD10FCE0",
+    "VOCALOIDPatcher/VOCALOIDPatcher/PhonemeVolume/PhonemeVolumeHost.cs": "F8D8B86EF96A2805FA00FFCFAB9C9ED8D10DAD701D656FC4379C84D3A8245936",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/CompNativeSource.cs": "25EC713560FBEC337DB6464434ED5242C5895459D77FD304E2C617453E3C5045",
+    "VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/VoiceCompValidation.cs": "45DF208FA59518DCCC54BD068E802B29E3EF47853A187DB09CF70528E23B78D8",
+    "VOCALOIDPatcher.McpTests/ContinuationPhonemeTests.cs": "7A740EA0B3D3655960BD79487158B868F3D538EF67EF5BA3362364D46BA0845E"
+  },
+  "artifact_sha256": {
+    "merged_release": "982819226B63A8991A6E263A13CAB09ECFD5178925A644F07AA2DEAA1A740562",
+    "isolated": "A7C936619A91D5B4CEC319E873856FE95020004834E1460E073C7D8A4DF74E37"
+  },
+  "release_artifact": "C:\\Users\\WJC\\AppData\\Local\\Temp\\v6patch-dang-gain-20261024-084012\\release\\bin\\VOCALOIDPatcher\\release\\out\\Microsoft.Xaml.Behaviors.dll",
+  "probe_initialization": "Final native runs use existing --patcher-dse-initialization; the initial silent PCM run without host initialization was rejected.",
+  "deployment": {
+    "performed": true,
+    "editor_started_or_closed": false,
+    "user_project_modified": false,
+    "installed_sha256": "99FA2B76AEA45BD00F1E7F11C95724668B8F72C5458929D5A83302D5CFA7F431",
+    "deployed_at": "2026-10-24T08:53:21.9844493+08:00",
+    "evidence": "dang-an-volume-deployment-2026-10-24.json",
+    "deployed_sha256": "982819226B63A8991A6E263A13CAB09ECFD5178925A644F07AA2DEAA1A740562"
+  },
+  "host_acceptance": "Pending user save and manual restart; existing Editor remains on prior assembly"
+}

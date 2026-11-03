@@ -11,6 +11,20 @@ AceAcousticCurve Constant(double value) => new([new(0, value)]);
 AceAcousticControls Controls(double energy = 0, double air = 0, double tension = 0, double falsetto = 0)
     => new(Constant(energy), Constant(air), Constant(tension), Constant(falsetto));
 
+// Removing points must leave the native flat interval flat. In particular a
+// later non-neutral event must not fade an earlier neutral note in advance.
+var heldCurve = new AceAcousticCurve([new(1, 0), new(3, -.8), new(4, 0)]);
+Check("controller default before first event", heldCurve.At(.5) == 0);
+Check("controller holds neutral before later event", heldCurve.At(2.99) == 0);
+Check("controller changes at event timestamp", heldCurve.At(3) == -.8);
+Check("controller holds between events", heldCurve.At(3.5) == -.8);
+Check("controller holds final event", heldCurve.At(8) == 0);
+var flatInput = Enumerable.Repeat(.1f, 44100 * 5).ToArray();
+var heldOutput = AceAcousticProcessor.Process(flatInput, 44100,
+    new(heldCurve, AceAcousticCurve.Neutral, AceAcousticCurve.Neutral, AceAcousticCurve.Neutral));
+Check("later energy event leaves earlier PCM unchanged", heldOutput.Take(44100 * 3).SequenceEqual(flatInput.Take(44100 * 3)));
+Check("energy return leaves following PCM unchanged", heldOutput.Skip(44100 * 4).SequenceEqual(flatInput.Skip(44100 * 4)));
+
 if (args.Length == 3 && args[0] == "--process")
 {
     string destination = Path.GetFullPath(args[2]);
@@ -56,6 +70,35 @@ float[] Fixture(int rate = 44100)
         x[i] = (float)(value * .15 * Math.Min(1, Math.Min(i, x.Length - i - 1) / 1000d));
     }
     return x;
+}
+
+if (args.Length == 1 && args[0] == "--benchmark")
+{
+    // Fixed synthetic vowel: no voicebank, editor, or private project required.
+    var unit = Fixture();
+    var benchmarkInput = Enumerable.Range(0, 6).SelectMany(_ => unit).ToArray();
+    foreach (var item in new[]
+    {
+        ("energy", Controls(energy: .5)), ("air", Controls(air: .8)),
+        ("tension", Controls(tension: .8)), ("falsetto", Controls(falsetto: .8)),
+        ("combined", Controls(air: .8, tension: .6, falsetto: .6)),
+    })
+    {
+        _ = AceAcousticProcessor.Process(unit, 44100, item.Item2);
+        var elapsed = new List<double>();
+        var allocations = new List<long>();
+        for (int repeat = 0; repeat < 5; repeat++)
+        {
+            long before = GC.GetAllocatedBytesForCurrentThread();
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var result = AceAcousticProcessor.Process(benchmarkInput, 44100, item.Item2);
+            elapsed.Add(watch.Elapsed.TotalMilliseconds);
+            allocations.Add(GC.GetAllocatedBytesForCurrentThread() - before);
+            GC.KeepAlive(result);
+        }
+        Console.WriteLine($"{item.Item1}: {elapsed.Order().ElementAt(2):F2} ms, {allocations.Order().ElementAt(2)} bytes (12 s PCM, median of 5)");
+    }
+    return 0;
 }
 
 foreach (double rd in new[] { .5, 1.0, 1.5, 2.0, 2.7 })

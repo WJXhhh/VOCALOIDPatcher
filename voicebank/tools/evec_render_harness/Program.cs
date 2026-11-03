@@ -43,6 +43,10 @@ internal static partial class Program
 
     private static int Main(string[] args)
     {
+        if (args.Contains("--phoneme-gain-file-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbePhonemeGainFile(args);
+        if (args.Contains("--transition-artifact-reprocess", StringComparer.OrdinalIgnoreCase))
+            return ReprocessTransitionArtifacts(args.First(a => !a.StartsWith("--", StringComparison.Ordinal)));
         if (args.Contains("--transition-smoother-artifact-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeTransitionSmootherArtifacts(args.First(a => !a.StartsWith("--", StringComparison.Ordinal)));
         if (args.Contains("--evec-contract-probe", StringComparer.OrdinalIgnoreCase))
@@ -196,6 +200,13 @@ internal static partial class Program
             return 2;
         }
 
+        if (args.Contains("--working-set-license-check", StringComparer.OrdinalIgnoreCase))
+        {
+            foreach (var license in dse.GetLicenses().Where(item => item.CompType == Yamaha.VOCALOID.DSE.License.Type.Voice))
+                Console.WriteLine($"working_set.voicebank={license.CompID};name={license.CompName};result={license.Result}");
+            return 0;
+        }
+
         HashSet<string> targetComponentIds = Cases
             .Select(item => item.ComponentId)
             .Append("B6D9CFB7-ECA7-4EB0-A740-7A88E375EA25")
@@ -252,7 +263,25 @@ internal static partial class Program
         if (args.Contains("--transition-backend-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeTransitionBackend(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--transition-artifact-probe", StringComparer.OrdinalIgnoreCase))
-            return ProbeTransitionArtifacts(sequenceManager, dse, database, outputDirectory);
+            return ProbeTransitionArtifacts(sequenceManager, dse, database, outputDirectory,
+                args.Contains("--extreme-combinations", StringComparer.OrdinalIgnoreCase) || args.Contains("--extreme-pairs", StringComparer.OrdinalIgnoreCase),
+                args.Contains("--extreme-pairs", StringComparer.OrdinalIgnoreCase));
+        if (args.Contains("--yuan-transition-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeTransitionArtifacts(sequenceManager, dse, database, outputDirectory, yuanOnly: true);
+        if (args.Contains("--continuation-timing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeContinuationTiming(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--stored-transition-replay", StringComparer.OrdinalIgnoreCase))
+            return ProbeStoredTransitionReplay(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--stored-phoneme-replay", StringComparer.OrdinalIgnoreCase))
+            return ProbeStoredPhonemeReplay(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--leading-note-timing-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeLeadingNoteTiming(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--captured-timing-controls", StringComparer.OrdinalIgnoreCase))
+            return ProbeCapturedTimingControls(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--zhong-dan-gap-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeZhongDanGap(sequenceManager, dse, database, outputDirectory);
+        if (args.Contains("--transition-progress-continuity", StringComparer.OrdinalIgnoreCase))
+            return ProbeTransitionProgressContinuity(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--compound-vowel-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeCompoundVowels(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--source-coverage-probe", StringComparer.OrdinalIgnoreCase))
@@ -283,7 +312,7 @@ internal static partial class Program
             return ProbeSharedBoundary(sequenceManager, dse, database, outputDirectory);
         if (args.Contains("--duration-concurrent-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeDurationConcurrent(sequenceManager, dse, database, outputDirectory);
-        if (args.Contains("--duration-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--transition-host-probe", StringComparer.OrdinalIgnoreCase))
+        if (args.Contains("--duration-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--transition-host-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--voice-comp-probe", StringComparer.OrdinalIgnoreCase) || args.Contains("--mcp-timing-host-probe", StringComparer.OrdinalIgnoreCase))
         {
             var management = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.Combine(EditorDirectory, "runtimes", "win", "lib", "net8.0", "System.Management.dll"));
             Console.WriteLine("duration.host.management=" + management.Location + "; SDK=" + typeof(WIVSMSequence).Assembly.GetName().Name);
@@ -294,7 +323,9 @@ internal static partial class Program
                 return File.Exists(dependency) ? System.Reflection.Assembly.LoadFrom(dependency) : null;
             };
             var assembly = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.GetFullPath(assemblyPath));
-            try { assembly.GetType(args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.CompatibilityHostValidation" :
+            try { assembly.GetType(args.Contains("--mcp-timing-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.Mcp.TimingMcpValidation" :
+                args.Contains("--voice-comp-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.VoiceComp.VoiceCompValidation" :
+                args.Contains("--compatibility-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.CompatibilityHostValidation" :
                 args.Contains("--transition-host-probe", StringComparer.OrdinalIgnoreCase) ? "VOCALOIDPatcher.ConsonantTiming.TransitionHostValidation" : "VOCALOIDPatcher.DurationSelection.DurationHostValidation", true)!.GetMethod("Run")!
                 .Invoke(null, [sequenceManager, dse, database, outputDirectory]); }
             finally { foreach (var a in AppDomain.CurrentDomain.GetAssemblies().Where(a => a.GetName().Name == "System.Management")) Console.WriteLine("duration.host.management.loaded=" + a.Location + "; context=" + System.Runtime.Loader.AssemblyLoadContext.GetLoadContext(a)!.Name); }
@@ -322,6 +353,15 @@ internal static partial class Program
 
         if (args.Contains("--standalone-timing-benchmark", StringComparer.OrdinalIgnoreCase))
             return BenchmarkStandaloneTiming(sequenceManager, dse, database, outputDirectory);
+
+        if (args.Contains("--timing-preparation-benchmark", StringComparer.OrdinalIgnoreCase))
+            return BenchmarkTimingPreparation(sequenceManager, dse, database, outputDirectory);
+
+        if (args.Contains("--working-set-render-ab", StringComparer.OrdinalIgnoreCase))
+            return BenchmarkWorkingSetRendering(sequenceManager, outputDirectory, args);
+
+        if (args.Contains("--render-invalidation-probe", StringComparer.OrdinalIgnoreCase))
+            return ProbeRenderInvalidation(sequenceManager, outputDirectory);
 
         if (args.Contains("--standalone-timing-probe", StringComparer.OrdinalIgnoreCase))
             return ProbeStandaloneTiming(sequenceManager, dse, database, outputDirectory,

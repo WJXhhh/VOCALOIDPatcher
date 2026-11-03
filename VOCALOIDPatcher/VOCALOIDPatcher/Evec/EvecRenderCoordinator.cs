@@ -274,6 +274,7 @@ internal static class EvecRenderCoordinator
     {
         if (part == null)
             return;
+        if (VoiceComp.VoiceCompHost.Owns(part)) return;
 
         nint key = (nint)part;
         Abandon(RemoveJob(key));

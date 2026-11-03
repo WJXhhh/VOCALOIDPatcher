@@ -36,7 +36,7 @@ internal sealed partial class LocalConsonantTimingBackend
                 var layout = new TransitionLayout(_transitionScope, revision, LocalTimingNative.Profile.Id + ":" + plan.Fingerprint + ":" + _windows[captured.WindowIndex].InputKey,
                     captured.Original, captured.Current, captured.Notes,
                     phonemes.Anchors.Select(a => new TransitionAnchor(a.From, a.To)),
-                    minimumOutputFrame: checked(3087 + _windows[captured.WindowIndex].Origin));
+                    minimumOutputFrame: checked(3087 + _windows[captured.WindowIndex].Origin)) { BoundaryLimits = phonemes.Limits };
                 if (_transitionLayouts.Count >= 64) { _transitionLayouts.Clear(); _transitionResults.Clear(); _transitionRanges.Clear(); _transitionCoefficients.Clear(); }
                 _transitionLayouts[plan.Fingerprint] = (layout, captured);
                 _transitionCoefficients[layout.Fingerprint] = plan.PhonemeCoefficient(_topology) ?? _defaultCoefficient;

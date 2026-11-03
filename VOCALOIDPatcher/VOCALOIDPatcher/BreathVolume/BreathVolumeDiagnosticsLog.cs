@@ -19,6 +19,7 @@ internal static class BreathVolumeDiagnosticsLog
 
     internal static void Initialize()
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         RuntimeObservationLog.Write("breath.diagnostic", "initialize", new Dictionary<string, object?>
         {
             ["editorVersion"] = typeof(Yamaha.VOCALOID.App).Assembly.GetName().Version?.ToString(),
@@ -28,6 +29,7 @@ internal static class BreathVolumeDiagnosticsLog
 
     internal static void Write(string message)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             string value = message ?? string.Empty;
@@ -44,6 +46,7 @@ internal static class BreathVolumeDiagnosticsLog
 
     internal static void WriteUiState(string stage, IReadOnlyDictionary<string, object?> data)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RuntimeObservationLog.Write("breath.ui", stage, data);
@@ -64,6 +67,7 @@ internal static class BreathVolumeDiagnosticsLog
         int storedRangeCount,
         double elapsedMilliseconds)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RenderCycle renderCycle = RuntimeObservationLog.RenderCycleForPart(partHandle);
@@ -104,6 +108,7 @@ internal static class BreathVolumeDiagnosticsLog
         int noteCount,
         int mappedRegions)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RenderCycle renderCycle = RuntimeObservationLog.RenderCycleForPart(partHandle);
@@ -126,6 +131,7 @@ internal static class BreathVolumeDiagnosticsLog
 
     internal static void WriteNativeSnapshot(string phase, bool force = false)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         WriteDseSnapshot(phase, force);
         NativeBreathDiagnostics snapshot = NativeBreathCapture.GetDiagnostics();
         lock (SnapshotLock)
@@ -229,6 +235,7 @@ internal static class BreathVolumeDiagnosticsLog
 
     internal static void WriteMarkers(string phase, IReadOnlyList<NativeBreathMarker> markers)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         string fingerprint = string.Join(",", markers
             .OrderBy(marker => marker.BeginFrame)
             .ThenBy(marker => marker.EndFrame)

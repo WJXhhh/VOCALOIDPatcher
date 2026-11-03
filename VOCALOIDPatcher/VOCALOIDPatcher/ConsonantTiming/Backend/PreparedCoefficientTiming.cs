@@ -53,12 +53,10 @@ internal sealed partial class LocalConsonantTimingBackend
                     if (!_inputPart.SetDuration(new VSMRelTick(notes.Max(n => n.AbsTick + n.Duration) - partStart + 480)))
                         throw new InvalidOperationException("Cannot resize timing input.");
                     if (!_inputPart.SetVoiceBankID(part.VoiceBankID)) throw new InvalidOperationException("Cannot select bank.");
-                    var mapping = NewSequence();
+                    var (mapping, mappingPart) = RentCoefficientMapping(
+                        (long)Math.Ceiling((end + 2) * MappingTicksPerSecond), part.VoiceBankID);
                     try
                     {
-                        var track = (WIVSMMidiTrack)mapping.InsertTrackEx(0, VSMTrackType.Midi, "timing")!;
-                        var mappingPart = track.InsertPart(VSMAbsTick.Zero, new VSMRelTick((long)Math.Ceiling((end + 2) * MappingTicksPerSecond)), "timing")!;
-                        if (!mappingPart.SetVoiceBankID(part.VoiceBankID)) throw new InvalidOperationException("Cannot select mapping bank.");
                         var messages = new List<CoefficientMessage>();
                         var mapped = new List<WIVSMNote>();
                         // Resolve optional coefficients against the same captured source order.
@@ -240,9 +238,17 @@ internal sealed partial class LocalConsonantTimingBackend
         {
             lock (_owner._gate)
             {
-                ClearTransitionCache();
-                foreach (var window in _windows) ClosePrivate(window.Sequence);
+                if (_windows.Length == 0) return;
+                // Native teardown can notify managed observers synchronously.
+                // Detach ownership before calling it so reentrant/repeated
+                // Dispose cannot return the same sequence to the pool twice.
+                var windows = _windows;
                 _windows = []; _results.Clear(); _phonemeResults.Clear(); _owner._prepared.Remove(this);
+                try { ClearTransitionCache(); }
+                finally
+                {
+                    foreach (var window in windows) _owner.ReturnCoefficientMapping(window);
+                }
             }
         }
     }

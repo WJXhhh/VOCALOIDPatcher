@@ -197,6 +197,13 @@ internal sealed partial class ConsonantTimingOverlay
 
     private void OnDragMouseUp(object sender, MouseButtonEventArgs e)
     {
+        if (_transitionPanelOpenPoint is { } point)
+        {
+            CancelTransitionPanelOpen(); e.Handled = true;
+            long generation = _transitionGeneration;
+            PostTransition(() => { if (generation == _transitionGeneration) OpenTransitionPanel(point); });
+            return;
+        }
         if (_transitionDrag != null)
         { try { EndTransitionDrag(e); } catch (Exception error) { TransitionFailure(error); } return; }
         if (_durationDrag != null)
@@ -240,6 +247,9 @@ internal sealed partial class ConsonantTimingOverlay
 
     private void OnDragKeyDown(object sender, KeyEventArgs e)
     {
+        if (e.Key == Key.Escape && _transitionPanelOpenPoint != null)
+        { CancelTransitionPanelOpen(); e.Handled = true; return; }
+        if (e.OriginalSource is DependencyObject control && HitTransitionControl(control)) return;
         if (_transitionDrag != null || (TransitionMode && (_transitionPending != null || _transitionJobCancellation != null)))
         { if (e.Key == Key.Escape) CancelTransitionDrag(); e.Handled = true; return; }
         if (e.Key == Key.Escape && (_durationDrag != null || DurationMode))
@@ -256,7 +266,7 @@ internal sealed partial class ConsonantTimingOverlay
         // LostMouseCapture bubbles from descendants. Capturing the pianoroll
         // can release a child first; that event must not cancel this new drag.
         if (ReferenceEquals(e.OriginalSource, _view) && !_view.IsMouseCaptured)
-        { if (_transitionDrag?.Final != true) CancelTransitionDrag(); CancelDurationDrag(); CancelVolumeDrag(); CancelPhonemeDrag(); CancelDrag(); }
+        { CancelTransitionPanelOpen(); if (_transitionDrag?.Final != true) CancelTransitionDrag(); CancelDurationDrag(); CancelVolumeDrag(); CancelPhonemeDrag(); CancelDrag(); }
     }
 
     private void CancelDrag()

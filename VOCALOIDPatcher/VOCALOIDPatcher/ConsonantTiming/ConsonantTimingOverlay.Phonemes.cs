@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Immutable;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -40,6 +41,7 @@ internal sealed partial class ConsonantTimingOverlay
         internal required int[] Positions;
         internal IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? Plans;
         internal IReadOnlyDictionary<nint, int[]>? RelatedPositions;
+        internal IReadOnlyDictionary<nint, ImmutableArray<PhonemeBoundaryLimit>>? Limits;
         internal double FrameWidth;
         internal nint Source;
         internal Point Point;
@@ -53,7 +55,9 @@ internal sealed partial class ConsonantTimingOverlay
         line.AbsPosTick = new VSMAbsTick(tick); line.EndPosTick = new VSMAbsTick(tick);
         line.PhonemePositionIndex = visual.Note.Phonemes.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
         line.Width = 0; line.SignedWidth = 0; line.Height = vm.OneKeyHeight;
-        line.HasEndLine = false; line.NormalLinePen = _editable; line.HighlightLinePen = _editable;
+        line.HasEndLine = false;
+        line.NormalLinePen = BoundaryLimitFor(visual.Note, line.PhonemePositionIndex).HasValue ? _limited : _editable;
+        line.HighlightLinePen = line.NormalLinePen;
         line.DisabledLinePen = _reference; line.HighlightFillBrush = _highlight;
         line.IsHighlight = false; line.Visibility = Visibility.Visible; line.BuddyPhonemes = null;
         Canvas.SetLeft(line, vm.CalcTickToViewPosition(new VSMAbsTick(tick))); Canvas.SetTop(line, y);
@@ -93,9 +97,28 @@ internal sealed partial class ConsonantTimingOverlay
         string left = index == 0 ? TranslationManager.Tr("VOCALOIDPatcher_PhonemeTiming_Start") : phones[index - 1];
         string right = index == phones.Length ? TranslationManager.Tr("VOCALOIDPatcher_PhonemeTiming_End") : phones[index];
         double ms = 1000 * (source.GetTimeFromTick(new VSMAbsTick(note.AbsPosTick.Value + positions[index])) - source.GetTimeFromTick(note.AbsPosTick));
-        ShowTip(TranslationManager.Tr("VOCALOIDPatcher_PhonemeTiming_Value", left, right,
-            ms.ToString("+0.#;-0.#;0", CultureInfo.CurrentCulture)), point);
+        string text = TranslationManager.Tr("VOCALOIDPatcher_PhonemeTiming_Value", left, right,
+            ms.ToString("+0.#;-0.#;0", CultureInfo.CurrentCulture));
+        if (BoundaryLimitFor(note, index) is { } limit)
+            text += " · " + TranslationManager.Tr("VOCALOIDPatcher_PhonemeTiming_Clamped",
+                (limit.RequestedFrames * 256000d / 44100).ToString("+0.#;-0.#;0", CultureInfo.CurrentCulture),
+                (limit.AppliedFrames * 256000d / 44100).ToString("+0.#;-0.#;0", CultureInfo.CurrentCulture));
+        ShowTip(text, point);
     }
+
+    private PhonemeBoundaryLimit? BoundaryLimitFor(WIVSMNote note, int index)
+    {
+        var limits = SampledTimingHost.BoundaryLimits(note);
+        if (_phonemeDrag?.Limits is { } preview)
+            limits = preview.TryGetValue((nint)note, out var current) ? current : [];
+        foreach (var limit in limits) if (limit.Index == index) return limit;
+        return null;
+    }
+
+    private static IReadOnlyDictionary<nint, ImmutableArray<PhonemeBoundaryLimit>>? LimitHandles(WIVSMNote note,
+        IReadOnlyDictionary<TimingNoteAddress, ImmutableArray<PhonemeBoundaryLimit>>? limits)
+        => limits?.ToDictionary(p => (nint)(note.Parent!.GetNote(checked((ulong)p.Key.Note)) ??
+            throw new InvalidOperationException("Limited timing note detached.")), p => p.Value);
 
     private static SampledTimingPlan BoundaryPlan(SampledTimingPlan original, int index, float? seconds)
         => PhonemeBoundaryEdit.WithBoundary(original, index, seconds);
@@ -149,6 +172,7 @@ internal sealed partial class ConsonantTimingOverlay
                 BaselineTick = checked((int)baseline.Result.Boundaries[handle.Index]),
                 InitialTick = checked((int)current.Result.Boundaries[handle.Index]),
                 Positions = current.Result.Boundaries.Select(v => checked((int)v)).ToArray(),
+                Limits = LimitHandles(note, current.Limits),
                 FrameWidth = handle.Visual.FramePen?.Thickness ?? 1
             };
             prepared = null;
@@ -204,6 +228,7 @@ internal sealed partial class ConsonantTimingOverlay
             var layout = drag.Prepared.QueryPhonemes(candidate, drag.Revision, nativeWaitBudgetMs: 0, editedBoundary: drag.Index);
             drag.Best = candidate; drag.Positions = layout.Result.Boundaries.Select(v => checked((int)v)).ToArray();
             drag.Plans = layout.Plans;
+            drag.Limits = LimitHandles(drag.Note, layout.Limits);
             drag.RelatedPositions = layout.RelatedBoundaries?.ToDictionary(p =>
                 (nint)(drag.Note.Parent!.GetNote(checked((ulong)p.Key.Note)) ?? throw new InvalidOperationException("Shared timing note detached.")),
                 p => p.Value.Select(v => checked((int)v)).ToArray());
@@ -232,6 +257,8 @@ internal sealed partial class ConsonantTimingOverlay
             if (positions == null) continue;
             int i = line.PhonemePositionIndex;
             if (i < 0 || i >= positions.Length) continue;
+            line.NormalLinePen = BoundaryLimitFor(note, i).HasValue ? _limited : _editable;
+            line.HighlightLinePen = line.NormalLinePen;
             long start = note.AbsPosTick.Value + positions[i];
             long end = i + 1 < positions.Length ? note.AbsPosTick.Value + positions[i + 1] : start;
             double x = drag.VM.CalcTickToViewPosition(new VSMAbsTick(start));

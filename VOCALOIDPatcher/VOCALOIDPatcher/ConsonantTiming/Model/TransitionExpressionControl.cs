@@ -5,7 +5,7 @@ using System.Linq;
 namespace VOCALOIDPatcher.ConsonantTiming;
 
 // UI policy shared by the diamond, precise panel and isolated interaction
-// tests. Selecting/painting never edits data; actual progress edits opt in.
+// tests. Source coverage is an explicit choice, independent of progress edits.
 internal static class TransitionExpressionControl
 {
     internal readonly record struct Interval(TransitionSourceSides Side, int Begin, int End);
@@ -35,7 +35,14 @@ internal static class TransitionExpressionControl
         int begin = side == TransitionSourceSides.Left ? row.Begin : row.Split;
         int end = (side == TransitionSourceSides.Left ? row.Split : row.End) - 1;
         if (CanCover(side) && selected != null && selected.First != selected.Last && end - begin >= (requireProgress ? 2 : 1))
+        {
+            // A cropped native map may be flat even though the full material
+            // progresses. Do not make the diamond silently switch materials.
+            if (requireProgress && active == TransitionSourceSides.None &&
+                !row.Frames.Skip(begin - row.Begin).Take(end - begin + 1)
+                    .Any(f => f.SourceBits != row.Frames[begin - row.Begin].SourceBits)) return null;
             return new(side, begin, end);
+        }
         return null;
     }
     internal static double HandleFrame(Interval range, float amount)
@@ -49,7 +56,7 @@ internal static class TransitionExpressionControl
         return controls.WithCoverage(edge, active | range.Side);
     }
     internal static TransitionControlPlan Progress(TransitionControlPlan controls, TransitionSegment row, TransitionIdentity edge, float amount)
-        => Enable(controls, row, edge).WithPhase(edge, amount);
+        => controls.WithPhase(edge, amount);
     internal static TransitionControlPlan Source(TransitionControlPlan controls, TransitionSegment row, TransitionIdentity edge, bool enabled)
         => enabled ? Enable(controls, row, edge) : controls.WithCoverage(edge, TransitionSourceSides.None);
     internal static TransitionControlPlan Reset(TransitionControlPlan controls, TransitionIdentity edge)

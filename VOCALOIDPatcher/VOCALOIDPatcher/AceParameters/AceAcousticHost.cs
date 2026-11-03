@@ -11,6 +11,7 @@ using HarmonyLib;
 using VOCALOIDPatcher.BreathVolume;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Patch.Patches;
+using VOCALOIDPatcher.Rendering;
 using VOCALOIDPatcher.Utils;
 using Yamaha.VOCALOID;
 using Yamaha.VOCALOID.VSM;
@@ -28,6 +29,7 @@ internal static class AceAcousticHost
         internal Cache? Cache;
         internal CancellationTokenSource? Cancellation;
         internal int RebindQueued;
+        internal readonly PostProcessingQuietPeriod QuietPeriod = new(120);
     }
 
     private sealed record Cache(string Input, long Length, DateTime Written, int Controls, string Output);
@@ -43,7 +45,6 @@ internal static class AceAcousticHost
     private static readonly string DirectoryPath = Path.Combine(Path.GetTempPath(), "VOCALOIDPatcher", "AceAcoustic", Guid.NewGuid().ToString("N"));
     private static readonly MethodInfo? RegisterPlacement = AccessTools.Method(typeof(AudioPlayer), "RegisterAudioPlacementWithFile",
         [typeof(WIVSMSequence), typeof(WIVSMMidiPart)]);
-    [ThreadStatic] private static bool _bypass;
     internal static bool Enabled => Settings.AceParameters && Settings.AceParameterMapping;
 
     static AceAcousticHost() => AppDomain.CurrentDomain.ProcessExit += (_, _) => Cleanup(all: true);
@@ -100,19 +101,23 @@ internal static class AceAcousticHost
         return state.Cancellation.Token;
     }
 
-    private static void Queue(WIVSMMidiPart part)
+    private static void Queue(WIVSMMidiPart part, bool upstreamReady = false)
     {
         var state = Parts.GetOrAdd((nint)part, _ => new(part));
         var token = Restart(state);
         long generation = state.Generation;
-        _ = Debounce(state, generation, token);
+        int delay = upstreamReady ? state.QuietPeriod.UpstreamReady(Environment.TickCount64) : state.QuietPeriod.Edited(Environment.TickCount64);
+        if (upstreamReady && !VoiceComp.VoiceCompHost.Owns(part) &&
+            (BreathVolumeService.HasPendingWave(part) || PhonemeVolume.PhonemeVolumeHost.HasPendingWave(part) ||
+             ConsonantTiming.Smoothing.TransitionSmoothingHost.HasPendingWave(part))) delay = Math.Max(delay, 120);
+        _ = Debounce(state, generation, token, delay);
     }
 
-    private static async Task Debounce(PartState state, long generation, CancellationToken token, int attempt = 0)
+    private static async Task Debounce(PartState state, long generation, CancellationToken token, int delay, int attempt = 0)
     {
         try
         {
-            await Task.Delay(120, token).ConfigureAwait(false);
+            await Task.Delay(delay, token).ConfigureAwait(false);
             Dispatch(() =>
             {
                 if (!Current((nint)state.Part, state, generation)) return;
@@ -130,7 +135,7 @@ internal static class AceAcousticHost
                 }
                 catch (IOException) when (attempt < 2)
                 {
-                    _ = Debounce(state, generation, token, attempt + 1);
+                    _ = Debounce(state, generation, token, 120, attempt + 1);
                 }
                 catch (Exception e)
                 {
@@ -150,6 +155,16 @@ internal static class AceAcousticHost
         var part = state.Part;
         if (!Enabled || state.Rendering || part.IsAi || part.Sequence is not { IsOpen: true, IsStaged: false } source ||
             part.NumNotes == 0 || !part.HasValidRenderedWave) return null;
+        var controls = CaptureControls(part, source, out int signature);
+        if (controls.IsNeutral) return null;
+        string input = ReadInput(part);
+        if (string.IsNullOrWhiteSpace(input) || !File.Exists(input)) throw new IOException("Source wave is unavailable.");
+        var file = new FileInfo(input);
+        return new((nint)part, state, state.Generation, input, file.Length, file.LastWriteTimeUtc, signature, controls, token);
+    }
+
+    internal static AceAcousticControls CaptureControls(WIVSMMidiPart part, WIVSMSequence source, out int signature)
+    {
         var hash = new HashCode();
         AceAcousticCurve Read(AceParameterKind kind)
         {
@@ -157,24 +172,13 @@ internal static class AceAcousticHost
             if (kind == AceParameterKind.Falsetto && !Settings.AceFalsettoMapping) return AceAcousticCurve.Neutral;
             var points = AceParameterMappingService.ReadCarrierCurve(part, definition).OrderBy(p => p.Tick).ToArray();
             if (points.Length == 0) return AceAcousticCurve.Neutral;
-            var split = new SortedSet<long>(points.Select(p => p.Tick));
-            // Native curves interpolate in ticks. Split at tempo changes before
-            // converting to seconds so time interpolation remains equivalent.
-            foreach (var tempo in source.Tempos)
-            {
-                long tick = tempo.RelPosTick.Value - part.AbsPosTick.Value;
-                if (tick > points[0].Tick && tick < points[^1].Tick) split.Add(tick);
-            }
             var captured = new List<AceAcousticPoint>();
-            int index = 0;
-            foreach (long tick in split)
+            // Preserve the native hold-until-next-point contract. Tempo only
+            // changes each event's timestamp; it does not add interpolated values.
+            foreach (var point in points)
             {
-                while (index + 1 < points.Length && points[index + 1].Tick <= tick) index++;
-                double value = points[index].Value;
-                if (index + 1 < points.Length)
-                    value += (points[index + 1].Value - value) * ((tick - points[index].Tick) / (double)(points[index + 1].Tick - points[index].Tick));
-                double seconds = source.PresendTimeSec + source.GetTimeFromTick(part.AbsBeginTick, part.AbsPosTick + new VSMRelTick(tick));
-                double normalized = (Math.Clamp(value, 0, 100) - 50) / 50;
+                double seconds = source.PresendTimeSec + source.GetTimeFromTick(part.AbsBeginTick, part.AbsPosTick + new VSMRelTick(point.Tick));
+                double normalized = (Math.Clamp(point.Value, 0, 100) - 50) / 50d;
                 captured.Add(new(seconds, normalized));
                 hash.Add((int)kind); hash.Add(seconds); hash.Add(normalized);
             }
@@ -182,18 +186,16 @@ internal static class AceAcousticHost
         }
         var controls = new AceAcousticControls(Read(AceParameterKind.Energy), Read(AceParameterKind.Air),
             Read(AceParameterKind.Tension), Read(AceParameterKind.Falsetto));
-        if (controls.IsNeutral) return null;
-        string input;
-        try { _bypass = true; input = part.WaveFilePath; }
-        finally { _bypass = false; }
-        if (string.IsNullOrWhiteSpace(input) || !File.Exists(input)) throw new IOException("Source wave is unavailable.");
-        var file = new FileInfo(input);
-        return new((nint)part, state, state.Generation, input, file.Length, file.LastWriteTimeUtc, hash.ToHashCode(), controls, token);
+        signature = hash.ToHashCode();
+        return controls;
     }
 
     private static bool Matches(Cache? cache, Request request) => cache != null &&
         cache.Input.Equals(request.Input, StringComparison.OrdinalIgnoreCase) && cache.Length == request.Length &&
         cache.Written == request.Written && cache.Controls == request.Signature && File.Exists(cache.Output);
+
+    private static string ReadInput(WIVSMMidiPart part)
+        => WaveProcessingReadScope.ReadBefore(WaveProcessingStage.AceAcoustic, () => part.WaveFilePath);
 
     private static async Task<Cache> Process(Request request)
     {
@@ -253,7 +255,8 @@ internal static class AceAcousticHost
 
     internal static string Substitute(WIVSMMidiPart part, string input)
     {
-        if (_bypass || BreathVolumeService.IsReadingOriginalWave || !Enabled) return input;
+        if (!WaveProcessingReadScope.ShouldApply(WaveProcessingStage.AceAcoustic) ||
+            BreathVolumeService.IsReadingOriginalWave || !Enabled) return input;
         if (!Parts.TryGetValue((nint)part, out var state) || state.Rendering) return input;
         if (state.Cache is not { } cache) return input;
         if (cache.Input.Equals(input, StringComparison.OrdinalIgnoreCase)) return cache.Output;
@@ -261,9 +264,16 @@ internal static class AceAcousticHost
             Dispatch(() =>
             {
                 state.RebindQueued = 0;
-                if (Parts.TryGetValue((nint)part, out var live) && live == state) Queue(state.Part);
+                RebindReady(state, input);
             });
         return input;
+    }
+
+    private static void RebindReady(PartState state, string input)
+    {
+        if (!Parts.TryGetValue((nint)state.Part, out var live) || live != state || state.Rendering) return;
+        if (!ReadInput(state.Part).Equals(input, StringComparison.OrdinalIgnoreCase)) return;
+        Queue(state.Part, upstreamReady: true);
     }
 
     internal static void RenderStarted(WIVSMMidiPart part)
@@ -272,14 +282,17 @@ internal static class AceAcousticHost
         Restart(state); state.Rendering = true; state.Cache = null;
     }
 
-    internal static void RenderCompleted(WIVSMMidiPart part) => Dispatch(() =>
+    internal static void RenderCompleted(WIVSMMidiPart part) => Complete(part, upstreamReady: false);
+    internal static void UpstreamReady(WIVSMMidiPart part) => Complete(part, upstreamReady: true);
+
+    private static void Complete(WIVSMMidiPart part, bool upstreamReady) => Dispatch(() =>
     {
         if (part.Sequence is not { IsOpen: true } source || NativeRenderSession.IsInternalSequence(source) || part.IsAi) return;
         if (!Enabled && !Parts.ContainsKey((nint)part)) return;
         if (!Parts.ContainsKey((nint)part) && !HasControls(part)) return;
         var state = Parts.GetOrAdd((nint)part, _ => new(part));
         state.Rendering = false;
-        Queue(part);
+        Queue(part, upstreamReady);
     });
 
     internal static void Close(WIVSMSequence source)
@@ -330,7 +343,7 @@ internal static class AceAcousticHost
     private static void RefreshPlacement(WIVSMMidiPart part)
     {
         if (part.Sequence is not { IsOpen: true } source) return;
-        RegisterPlacement?.Invoke(App.AudioPlayer, [source, part]);
+        if (App.AudioPlayer != null) RegisterPlacement?.Invoke(App.AudioPlayer, [source, part]);
         RenderedWaveCachePatch.InvalidateAndRefreshPart(part);
     }
 

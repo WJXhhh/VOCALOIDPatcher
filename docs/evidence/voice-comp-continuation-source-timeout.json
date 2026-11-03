@@ -1,0 +1,135 @@
+{
+  "Feature": "voice-comp-continuation-source-timeout",
+  "RecordedOn": "2026-10-22",
+  "Deployed": false,
+  "RootCauses": [
+    "Continuation owner endpoint incorrectly validated as the vowel end",
+    "Inherited transition displacement exceeded the isolated attack geometry",
+    "Suppressed native start waited for a completion event until timeout"
+  ],
+  "Fixes": [
+    "Require adjacent native-row continuation evidence at the owner endpoint",
+    "Project inherited junction offsets inside private source geometry without rewriting the owning document",
+    "Fail immediately on a suspended/rejected private timing render"
+  ],
+  "ManagedTests": {
+    "Passed": 386,
+    "Scope": "Isolated source snapshot with prior deployed MCP routing",
+    "Failed": 0
+  },
+  "Builds": [
+    {
+      "Warnings": 0,
+      "Configuration": "Debug",
+      "Errors": 0,
+      "Sdk": "6.13.1.1"
+    },
+    {
+      "Warnings": 0,
+      "Configuration": "Release",
+      "Errors": 0,
+      "Sdk": "6.13.1.1"
+    },
+    {
+      "Warnings": 0,
+      "Configuration": "Debug",
+      "Errors": 0,
+      "Sdk": "6.13.3.1"
+    },
+    {
+      "Warnings": 0,
+      "Configuration": "Release",
+      "Errors": 0,
+      "Sdk": "6.13.3.1"
+    }
+  ],
+  "WorkspaceDebugBuild": {
+    "Warnings": 0,
+    "Errors": 0,
+    "Sdk": "6.13.1.1"
+  },
+  "BuildIsolation": "Unrelated in-progress MCP timing API changes excluded from deployment snapshot; workspace changes preserved",
+  "SavedProjectReadOnlyProbe": {
+    "Slices": 5,
+    "OutputFrames": 325011,
+    "NativeBaselineMs": 3551,
+    "CompositionTotalMs": 5706,
+    "Sdk": "6.13.3.1",
+    "Sources": 5,
+    "ProjectWritten": false
+  },
+  "EditorLaunched": false,
+  "EditorClosedByAgent": false,
+  "HostAcceptance": "Pending user reopen and listening",
+  "NativeRuns": [
+    {
+      "Sdk": "6.13.1.1",
+      "ExitCode": 0,
+      "FullProbeStages": 32,
+      "ContinuationSourceMs": 464,
+      "RejectedSourceMs": 56,
+      "NativeCleanupPassed": true,
+      "SavedPartNativeMs": 2714,
+      "SavedPartCompositionTotalMs": 4570,
+      "SavedPartSources": 5,
+      "SavedPartSlices": 5,
+      "SavedPartOutputFrames": 325011
+    },
+    {
+      "Sdk": "6.13.3.1",
+      "ExitCode": 0,
+      "FullProbeStages": 32,
+      "ContinuationSourceMs": 446,
+      "RejectedSourceMs": 57,
+      "NativeCleanupPassed": true,
+      "SavedPartNativeMs": 2714,
+      "SavedPartCompositionTotalMs": 4569,
+      "SavedPartSources": 5,
+      "SavedPartSlices": 5,
+      "SavedPartOutputFrames": 325011
+    }
+  ],
+  "Deployment": {
+    "PreparedManifest": [
+      {
+        "File": "Microsoft.Xaml.Behaviors.dll",
+        "Sha256": "0419734232906EBD05AFB2B427EA30E000BE8A708A8E8954360FFBAFF06D89EE",
+        "Length": 8503296
+      },
+      {
+        "File": "VOCALOIDPatcher\\HardcodedPropertyMap.xml",
+        "Sha256": "06EEF278368BF54611B95D013EDAAC8366461EFE7570E60A0824A906DD966400",
+        "Length": 10713
+      },
+      {
+        "File": "VOCALOIDPatcher\\native\\v6patch_clock.dll",
+        "Sha256": "FE6158E08B148BB133D5FE4CF255BE2A0ABE56D5A0043ABBF80BA83F6F334A4E",
+        "Length": 379904
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\日本語.xml",
+        "Sha256": "73D85EBE621E393B7373ED2A74F1AD715EF8406EDCAF976D2D85C537AF0C84B2",
+        "Length": 196298
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\中文 (繁體).xml",
+        "Sha256": "34E1F3F031D0154935B2822001C6DC31EB42128A8C6CD758E4658A0D5573E01A",
+        "Length": 176705
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\中文 (简体).xml",
+        "Sha256": "5497999DB998D6D251DB6D0D768040E2217DBC4B2E9DA9B53883E6E06B4AE445",
+        "Length": 176117
+      },
+      {
+        "File": "VOCALOIDPatcher\\translations\\English.xml",
+        "Sha256": "FA17C641ECAB6047B1A9D62E8A8FC9E78F17C4DA89CD28F4E3CE644B83101DC2",
+        "Length": 178554
+      }
+    ],
+    "State": "not_deployed",
+    "InstalledMainSha256": "3A956FEC96A378DB7F6F5EE77136E45D3021F3F34E336A0E6B6FC2128633B378",
+    "Reason": "Windows elevation returned operation canceled by user; helper did not start",
+    "InstallationModified": false
+  }
+}

@@ -43,7 +43,7 @@ public sealed class SegmentedPhonemeSequenceCommitPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool __state, ref bool __result)
     {
-        if (__result && __state)
+        if (__result && __state && !ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance))
             SegmentedPhonemeRenderCoordinator.SequenceChanged(__instance, "commit");
     }
 }
@@ -187,12 +187,42 @@ public sealed class SegmentedPhonemeRendererProgressPatch : PatchBase
 
 internal static class SegmentedPhonemeRenderCoordinator
 {
+    internal sealed record OwnedCompAudio(string Path, Dictionary<int, WavePhonemeSpan[]> Spans);
+    internal static OwnedCompAudio? RenderOwnedCompSource(WIVSMSequence sequence, WIVSMMidiPart part,
+        CancellationToken cancellation)
+    {
+        var plans = RunOnUi(() => TryBuildPlans(sequence, part, out var found) ? found : null);
+        if (plans == null) return null;
+        var job = new RenderJob(sequence, part, plans) { OwnedCompSource = true };
+        using var registration = cancellation.Register(() => job.Superseded = true);
+        string? result = RenderSplitPart(job, sequence, part, plans, out var score);
+        if (score != null) FileManager.RemoveFile(score);
+        cancellation.ThrowIfCancellationRequested();
+        return result != null ? new(result, job.OwnedSpans) : throw new InvalidOperationException("Extended-pinyin voice-comp source failed: " + job.Failure);
+    }
+
     private const double CrossfadeSeconds = 0.005;
     private const int MinimumAudiblePeak = 128;
     private const int SequenceScanDebounceMilliseconds = 100;
     private const int NativeCloseQuietMilliseconds = 1500;
     private static long _nextJobId;
     private static readonly object SyncRoot = new();
+    private static int _ownedCompSources;
+    private static int _nativeCloseWorkers, _nativeCleanupWorkers;
+    internal static bool TryEnterCompSource()
+    {
+        lock (SyncRoot)
+        {
+            if (_nativeCloseActive) return false;
+            _ownedCompSources++; _lastNativeForegroundActivity = Environment.TickCount64; return true;
+        }
+    }
+    internal static void ExitCompSource()
+    { lock (SyncRoot) { _ownedCompSources--; _lastNativeForegroundActivity = Environment.TickCount64; } }
+    internal static bool CompCleanupIdle
+    { get { lock (SyncRoot) return CompCleanupQuiescent && PendingCloseSequences.Count == 0; } }
+    internal static bool CompCleanupQuiescent
+    { get { lock (SyncRoot) return _ownedCompSources == 0 && _nativeCloseWorkers == 0 && _nativeCleanupWorkers == 0 && !_nativeCloseActive; } }
     private static readonly Dictionary<nint, RenderJob> Jobs = new();
     private static readonly Dictionary<nint, OverrideState> OverridePaths = new();
     private static readonly HashSet<WIVSMSequence> InternalSequences = new(
@@ -243,7 +273,10 @@ internal static class SegmentedPhonemeRenderCoordinator
         SplitPlan Plan,
         long FirstStartRelTick,
         long FirstEndRelTick,
-        long SecondStartRelTick);
+        long SecondStartRelTick)
+    {
+        internal long SecondEndRelTick { get; init; }
+    }
 
     internal readonly record struct WavePhonemeSpan(
         long StartRelTick,
@@ -263,11 +296,14 @@ internal static class SegmentedPhonemeRenderCoordinator
         private int _started;
         public long Id { get; }
         public volatile bool Superseded;
+        internal string Failure = "preparing";
+        internal bool OwnedCompSource;
         public WIVSMSequence Sequence { get; }
         public WIVSMMidiPart Part { get; }
         public List<SplitPlan> Plans { get; }
 
         public bool IsStarted => Volatile.Read(ref _started) != 0;
+        internal Dictionary<int, WavePhonemeSpan[]> OwnedSpans { get; } = new();
 
         public bool TryStart()
             => Interlocked.CompareExchange(ref _started, 1, 0) == 0;
@@ -460,6 +496,7 @@ internal static class SegmentedPhonemeRenderCoordinator
     {
         if (part == null)
             return;
+        if (VoiceComp.VoiceCompHost.Owns(part)) return;
 
         nint key = (nint)part;
         Abandon(RemoveJob(key));
@@ -717,7 +754,8 @@ internal static class SegmentedPhonemeRenderCoordinator
             "native-session-cleanup",
             $"job={jobId}; queued=background; settled={renderSettled}");
 
-        _ = Task.Run(async () =>
+        lock (SyncRoot) _nativeCleanupWorkers++;
+        var cleanup = Task.Run(async () =>
         {
             var totalTimer = Stopwatch.StartNew();
             long teardownMilliseconds = 0;
@@ -813,6 +851,37 @@ internal static class SegmentedPhonemeRenderCoordinator
             if (!closed)
                 CloseSequenceSafely(sequence);
         });
+        _ = cleanup.ContinueWith(task =>
+        {
+            _ = task.Exception;
+            lock (SyncRoot) _nativeCleanupWorkers--;
+        }, CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
+    }
+
+    private static void CleanupOwnedCompSession(WIVSMSequence sequence, WIVSMRendererObserver? observer,
+        AsyncRenderState state, bool started, bool observerAdded, long jobId)
+    {
+        // The comp source owns Close. Complete observer teardown and release
+        // the render gate before returning its audio, so a second asynchronous
+        // closer cannot outlive the owning source or its sequence manager.
+        bool entered = false;
+        try
+        {
+            WaitForRendererPumpDrain(sequence, jobId);
+            NativeCleanupGate.Wait(); entered = true;
+            RunOnUi(() =>
+            {
+                if (started && sequence.IsOpen) sequence.StopAsyncRendering();
+                if (observerAdded && observer != null && sequence.IsOpen) sequence.RemoveRendererObserver(observer);
+                observer?.Dispose(); return true;
+            });
+        }
+        finally
+        {
+            state.Dispose();
+            if (entered) NativeCleanupGate.Release();
+            NativeRenderSessionGate.Release();
+        }
     }
 
     internal static void CloseSequenceSafely(WIVSMSequence sequence)
@@ -833,6 +902,7 @@ internal static class SegmentedPhonemeRenderCoordinator
             if (!tracked)
             {
                 PendingCloseSequences.Add(sequence);
+                _nativeCloseWorkers++;
                 queued = true;
             }
         }
@@ -843,7 +913,12 @@ internal static class SegmentedPhonemeRenderCoordinator
         ExtendedPinyinDiagnosticLog.Write(
             "sequence-close-queued",
             $"sequence=0x{(nint)sequence:X}; background=True");
-        _ = Task.Run(() => RetrySequenceClose(sequence));
+        var closing = Task.Run(() => RetrySequenceClose(sequence));
+        _ = closing.ContinueWith(task =>
+        {
+            _ = task.Exception;
+            lock (SyncRoot) _nativeCloseWorkers--;
+        }, CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);
     }
 
     private static bool TryCloseSequenceDirect(WIVSMSequence sequence)
@@ -935,7 +1010,7 @@ internal static class SegmentedPhonemeRenderCoordinator
             lock (SyncRoot)
             {
                 long elapsed = Environment.TickCount64 - _lastNativeForegroundActivity;
-                bool foregroundBusy = Jobs.Count != 0 || PendingSequenceScans.Count != 0;
+                bool foregroundBusy = Jobs.Count != 0 || PendingSequenceScans.Count != 0 || _ownedCompSources != 0 || NativeRenderSession.HasForegroundRendering;
                 if (!foregroundBusy
                     && !_nativeCloseActive
                     && elapsed >= NativeCloseQuietMilliseconds)
@@ -961,6 +1036,8 @@ internal static class SegmentedPhonemeRenderCoordinator
                 long elapsed = Environment.TickCount64 - _lastNativeForegroundActivity;
                 if (Jobs.Count == 0
                     && PendingSequenceScans.Count == 0
+                    && _ownedCompSources == 0
+                    && !NativeRenderSession.HasForegroundRendering
                     && !_nativeCloseActive
                     && elapsed >= NativeCloseQuietMilliseconds)
                 {
@@ -1499,9 +1576,10 @@ internal static class SegmentedPhonemeRenderCoordinator
             if (job.Superseded || !Settings.ExtendedChinesePinyin)
                 return null;
 
+            job.Failure = "first carrier commit";
             bool transformed = RunOnUi(() =>
             {
-                if (!ApplyCarrierVariant(part, plans, useFirstCarrier: true, job.Id))
+                if (!ApplyCarrierVariant(part, plans, useFirstCarrier: true, job.Id, job.OwnedCompSource))
                     return false;
 
                 bool committed = sequence.Commit(false);
@@ -1542,6 +1620,7 @@ internal static class SegmentedPhonemeRenderCoordinator
                     return;
 
                 Volatile.Write(ref renderState.Status, -1);
+                job.Failure = "native carrier canceled: " + args.CancelReason;
                 ExtendedPinyinDiagnosticLog.Write(
                     "native-canceled",
                     $"job={job.Id}; reason={args.CancelReason}");
@@ -1565,10 +1644,12 @@ internal static class SegmentedPhonemeRenderCoordinator
             if (!started)
                 return null;
 
+            job.Failure = "first carrier rendering";
             if (!WaitForNativeRender(job, sequence, renderState, TimeSpan.FromSeconds(90)))
                 return null;
             renderSettled = true;
 
+            job.Failure = "first carrier wave";
             if (!CopyRenderedWave(
                     job,
                     sequence,
@@ -1582,6 +1663,7 @@ internal static class SegmentedPhonemeRenderCoordinator
                 $"job={job.Id}; variant=first; samples={firstStats.Samples}; "
                 + $"peak={firstStats.Peak}; bytes={firstStats.FileBytes}");
 
+            job.Failure = "first carrier boundaries";
             Dictionary<int, (long Start, long End)> firstBoundaries = CaptureCarrierBoundaries(
                 part,
                 plans,
@@ -1590,24 +1672,31 @@ internal static class SegmentedPhonemeRenderCoordinator
 
             renderSettled = false;
             renderState.Reset();
+            job.Failure = "second carrier commit";
             bool secondCommitted = RunOnUi(() =>
             {
-                if (!ApplyCarrierVariant(part, plans, useFirstCarrier: false, job.Id))
+                if (!ApplyCarrierVariant(part, plans, useFirstCarrier: false, job.Id, job.OwnedCompSource))
                     return false;
 
                 bool committed = sequence.Commit(false);
                 ExtendedPinyinDiagnosticLog.Write(
                     "carrier-commit",
                     $"job={job.Id}; variant=second; committed={committed}; staged={sequence.IsStaged}");
+                // Timing owns an immutable route in these copies. Its Commit
+                // adapter pauses the native service; restart explicitly after
+                // the carrier mutation has rebound that route.
+                if (committed && job.OwnedCompSource) sequence.StartAsyncRendering();
                 return committed;
             });
             if (!secondCommitted || job.Superseded)
                 return null;
 
+            job.Failure = "second carrier rendering";
             if (!WaitForNativeRender(job, sequence, renderState, TimeSpan.FromSeconds(90)))
                 return null;
             renderSettled = true;
 
+            job.Failure = "second carrier wave";
             if (!CopyRenderedWave(
                     job,
                     sequence,
@@ -1623,6 +1712,7 @@ internal static class SegmentedPhonemeRenderCoordinator
                 $"job={job.Id}; variant=second; samples={secondStats.Samples}; "
                 + $"peak={secondStats.Peak}; bytes={secondStats.FileBytes}");
 
+            job.Failure = "second carrier score";
             if (!CopyRenderedScore(
                     job,
                     sequence,
@@ -1638,11 +1728,18 @@ internal static class SegmentedPhonemeRenderCoordinator
                 "carrier-score",
                 $"job={job.Id}; variant=second; frames={scoreFrames}; bytes={scoreBytes}");
 
+            job.Failure = "carrier alignment";
             List<CarrierTiming> timings = BuildCarrierTimings(
                 part,
                 plans,
                 firstBoundaries,
-                job.Id);
+                job.Id,
+                requireVerified: job.OwnedCompSource);
+            foreach (var timing in timings)
+                job.OwnedSpans[timing.Plan.NoteIndex] =
+                [new(timing.FirstStartRelTick, timing.FirstEndRelTick, timing.Plan.FirstPhoneme),
+                 new(timing.FirstEndRelTick, Math.Min(timing.Plan.RelPosTick + timing.Plan.DurationTick,
+                     timing.FirstEndRelTick + timing.SecondEndRelTick - timing.SecondStartRelTick), timing.Plan.SecondPhoneme)];
             for (int index = 0; index < job.Plans.Count; index++)
             {
                 CarrierTiming? timing = timings.FirstOrDefault(
@@ -1651,6 +1748,7 @@ internal static class SegmentedPhonemeRenderCoordinator
                     job.Plans[index] = job.Plans[index] with { SplitRelTick = timing.FirstEndRelTick };
             }
 
+            job.Failure = "carrier merge";
             if (!MergeCarrierWaves(
                     part,
                     timings,
@@ -1673,6 +1771,7 @@ internal static class SegmentedPhonemeRenderCoordinator
         }
         catch (Exception e)
         {
+            job.Failure += ": " + e.GetType().Name + ": " + e.Message;
             ExtendedPinyinDiagnosticLog.Write(
                 "native-render-failed",
                 $"job={job.Id}; {e.GetType().Name}: {e.Message}");
@@ -1680,14 +1779,8 @@ internal static class SegmentedPhonemeRenderCoordinator
         }
         finally
         {
-            CleanupNativeSession(
-                sequence,
-                observer,
-                renderState,
-                renderingStarted,
-                observerAdded,
-                renderSettled,
-                job.Id);
+            if (job.OwnedCompSource) CleanupOwnedCompSession(sequence, observer, renderState, renderingStarted, observerAdded, job.Id);
+            else CleanupNativeSession(sequence, observer, renderState, renderingStarted, observerAdded, renderSettled, job.Id);
             FileManager.RemoveFile(firstCarrierPath);
             FileManager.RemoveFile(secondCarrierPath);
             if (!keepFile || job.Superseded)
@@ -1704,7 +1797,7 @@ internal static class SegmentedPhonemeRenderCoordinator
         WIVSMMidiPart part,
         IReadOnlyList<SplitPlan> plans,
         bool useFirstCarrier,
-        long jobId)
+        long jobId, bool ownedCompSource = false)
     {
         foreach (SplitPlan plan in plans)
         {
@@ -1741,7 +1834,7 @@ internal static class SegmentedPhonemeRenderCoordinator
                 return false;
             }
 
-            if (!SetNativeCarrier(note, carrier))
+            if (!SetNativeCarrier(note, carrier, ownedCompSource))
             {
                 ExtendedPinyinDiagnosticLog.Write(
                     "carrier-failed",
@@ -1759,11 +1852,20 @@ internal static class SegmentedPhonemeRenderCoordinator
         return true;
     }
 
-    private static bool SetNativeCarrier(WIVSMNote note, NativeCarrier carrier)
+    private static bool SetNativeCarrier(WIVSMNote note, NativeCarrier carrier, bool ownedCompSource)
     {
         try
         {
             note.IsProtected = false;
+            if (ownedCompSource)
+            {
+                // Explicit private recipes already supply authoritative
+                // phonemes; they do not depend on the Editor's lyric UI/G2P.
+                note.Lyric = carrier.Lyric;
+                bool assigned = note.SetPhonemes(carrier.Phonemes, true, note.LangID);
+                note.IsProtected = true;
+                return assigned;
+            }
             (bool success, _) = G2PAMultiLingualManager.SetLyrics(
                 note,
                 carrier.Lyric,
@@ -1908,7 +2010,7 @@ internal static class SegmentedPhonemeRenderCoordinator
         WIVSMMidiPart part,
         IReadOnlyList<SplitPlan> plans,
         IReadOnlyDictionary<int, (long Start, long End)> firstBoundaries,
-        long jobId)
+        long jobId, bool requireVerified = false)
     {
         Dictionary<int, (long Start, long End)> secondBoundaries = CaptureCarrierBoundaries(
             part,
@@ -1918,6 +2020,8 @@ internal static class SegmentedPhonemeRenderCoordinator
         var result = new List<CarrierTiming>(plans.Count);
         foreach (SplitPlan plan in plans)
         {
+            if (requireVerified && (!firstBoundaries.ContainsKey(plan.NoteIndex) || !secondBoundaries.ContainsKey(plan.NoteIndex)))
+                throw new InvalidOperationException("Native carrier phoneme boundaries are not ready.");
             long firstStart = plan.RelPosTick;
             long firstEnd = plan.SplitRelTick;
             long secondStart = plan.SplitRelTick;
@@ -1930,10 +2034,13 @@ internal static class SegmentedPhonemeRenderCoordinator
                 secondStart = second.Start;
 
             long noteEnd = plan.RelPosTick + plan.DurationTick;
-            firstStart = Math.Clamp(firstStart, 0L, noteEnd - 1);
+            long minimum = requireVerified && part.Sequence is { } owner
+                ? owner.GetTickFromTime(part.AbsBeginTick, -owner.PresendTimeSec).Value - part.AbsPosTick.Value : 0;
+            firstStart = Math.Clamp(firstStart, minimum, noteEnd - 1);
             firstEnd = Math.Clamp(firstEnd, firstStart + 1, noteEnd);
-            secondStart = Math.Clamp(secondStart, 0L, noteEnd - 1);
-            result.Add(new CarrierTiming(plan, firstStart, firstEnd, secondStart));
+            secondStart = Math.Clamp(secondStart, minimum, noteEnd - 1);
+            result.Add(new CarrierTiming(plan, firstStart, firstEnd, secondStart)
+            { SecondEndRelTick = secondBoundaries.TryGetValue(plan.NoteIndex, out var end) ? end.End : noteEnd });
             ExtendedPinyinDiagnosticLog.Write(
                 "carrier-alignment",
                 $"job={jobId}; first={firstStart}-{firstEnd}; secondStart={secondStart}");

@@ -14,6 +14,7 @@ internal static class AceAcousticProcessor
     private const int Models = 48;
     private const int Harmonics = 128;
     private static readonly double[,] SourceLog = BuildSourceTable();
+    private static readonly double[] Window = BuildWindow();
 
     internal static float[] Process(float[] input, int sampleRate, AceAcousticControls controls,
         CancellationToken cancellation = default)
@@ -28,10 +29,10 @@ internal static class AceAcousticProcessor
             var difference = new double[input.Length];
             var weight = new double[input.Length];
             var frame = new double[Size];
-            var window = new double[Size];
+            var window = Window;
             var spectrum = new Complex[Size];
             var original = new Complex[Size];
-            for (int i = 0; i < Size; i++) window[i] = .5 - .5 * Math.Cos(2 * Math.PI * i / Size);
+            var noise = controls.Air.IsNeutral ? Array.Empty<Complex>() : new Complex[Size];
             // Padding at both ends prevents gain errors at the first/last frame.
             for (int start = -Size + Hop; start < input.Length; start += Hop)
             {
@@ -52,10 +53,11 @@ internal static class AceAcousticProcessor
                 if (f0 == 0) continue; // Preserve consonants and attacks rather than invent a pitch.
                 Transform(spectrum, inverse: false);
                 spectrum.CopyTo(original, 0);
-                double rd = EstimateRd(frame, spectrum, sampleRate, f0);
+                // Air and falsetto do not depend on the inferred LF closure.
+                double rd = tension == 0 ? 1 : EstimateRd(frame, spectrum, sampleRate, f0);
                 double targetRd = tension >= 0 ? rd + tension * (LfGlottalModel.MinimumRd - rd) * .8
                     : rd - tension * (LfGlottalModel.MaximumRd - rd) * .8;
-                ApplySource(spectrum, sampleRate, f0, voiced, rd, targetRd, falsetto, air, start);
+                ApplySource(spectrum, noise, sampleRate, f0, voiced, rd, targetRd, falsetto, air, start);
                 // Separate source shape/HNR from Energy. Keep weighted frame
                 // energy constant before the independent sample-domain gain.
                 double before = 0, after = 0;
@@ -85,37 +87,43 @@ internal static class AceAcousticProcessor
                     output[i] = (float)(input[i] + difference[i] / weight[i] * blend);
             }
         }
+        bool energyNeutral = controls.Energy.IsNeutral;
         for (int i = 0; i < output.Length; i++)
         {
             if ((i & 4095) == 0) cancellation.ThrowIfCancellationRequested();
-            double gain = Math.Pow(10, controls.Energy.At(i / (double)sampleRate) * 18 / 20);
-            output[i] = (float)(output[i] * gain);
+            if (!energyNeutral)
+            {
+                double gain = Math.Pow(10, controls.Energy.At(i / (double)sampleRate) * 18 / 20);
+                output[i] = (float)(output[i] * gain);
+            }
             if (!float.IsFinite(output[i])) throw new InvalidOperationException("Non-finite acoustic output.");
         }
         return output;
     }
 
-    private static void ApplySource(Complex[] spectrum, int sampleRate, double f0, double voiced,
+    private static void ApplySource(Complex[] spectrum, Complex[] noiseSpectrum, int sampleRate, double f0, double voiced,
         double rd, double targetRd, double falsetto, double air, int start)
     {
-        var mask = new double[Size / 2 + 1];
+        Span<double> mask = stackalloc double[Size / 2 + 1];
         double binHz = sampleRate / (double)Size;
         double width = Math.Min(f0 * .22, binHz * 1.5);
-        for (int k = 1; k < Size / 2; k++)
+        bool shapeSource = rd != targetRd || falsetto != 0;
+        for (int k = 1; k < Size / 2 && (shapeSource || air < 0); k++)
         {
             double frequency = k * binHz, harmonic = frequency / f0;
             double nearest = Math.Max(1, Math.Round(harmonic));
             mask[k] = voiced * Math.Exp(-.5 * Math.Pow((frequency - nearest * f0) / width, 2));
             if (frequency > 10000) mask[k] *= Math.Max(0, 1 - (frequency - 10000) / 4000);
+            if (!shapeSource) continue;
             // Ratios alter the source while retaining the input tract resonances
             // and phase; gains are relative to harmonic number, not fixed Hz.
-            double logRatio = Lookup(targetRd, harmonic) - Lookup(rd, harmonic);
+            double logRatio = rd == targetRd ? 0 : Lookup(targetRd, harmonic) - Lookup(rd, harmonic);
             double thinningDb = -12 * falsetto * Math.Log2(Math.Max(1, harmonic / 2));
             double gain = Math.Exp(Math.Clamp(logRatio + thinningDb * Math.Log(10) / 20, -2.07, 2.07));
             spectrum[k] *= 1 + mask[k] * (gain - 1);
         }
         if (air > 0)
-            ApplyAspiration(spectrum, sampleRate, f0, voiced, air, start);
+            ApplyAspiration(spectrum, noiseSpectrum, sampleRate, f0, voiced, air, start);
         else if (air < 0)
         {
             double nyquist = sampleRate / 2d;
@@ -145,11 +153,11 @@ internal static class AceAcousticProcessor
         for (int k = 1; k < Size / 2; k++) spectrum[Size - k] = Complex.Conjugate(spectrum[k]);
     }
 
-    private static void ApplyAspiration(Complex[] spectrum, int sampleRate, double f0, double voiced,
+    private static void ApplyAspiration(Complex[] spectrum, Complex[] noise, int sampleRate, double f0, double voiced,
         double air, int start)
     {
-        var noise = new Complex[Size];
-        var cumulativePower = new double[Size / 2 + 1];
+        Span<double> cumulativePower = stackalloc double[Size / 2 + 1];
+        cumulativePower[1] = 0;
         double sourcePower = 0;
         for (int k = 1; k < Size / 2; k++)
         {
@@ -167,7 +175,7 @@ internal static class AceAcousticProcessor
             seed ^= seed >> 16; seed *= 2246822519u; seed ^= seed >> 13;
             seed *= 3266489917u; seed ^= seed >> 16;
             double value = seed / (double)uint.MaxValue * 2 - 1;
-            noise[i] = new Complex(value * (.5 - .5 * Math.Cos(2 * Math.PI * i / Size)), 0);
+            noise[i] = new Complex(value * Window[i], 0);
         }
         Transform(noise, inverse: false);
         double binHz = sampleRate / (double)Size;
@@ -205,7 +213,7 @@ internal static class AceAcousticProcessor
         int length = samples.Length / stride;
         int min = Math.Max(2, (int)(sampleRate / (1200d * stride)));
         int max = Math.Min(length / 2 - 1, (int)(sampleRate / (65d * stride)));
-        var correlation = new double[max + 2];
+        Span<double> correlation = stackalloc double[max + 2];
         double best = 0;
         for (int lag = min; lag <= max; lag++)
         {
@@ -238,26 +246,29 @@ internal static class AceAcousticProcessor
         // Regularized pre-emphasized LPC approximates the tract envelope.
         // It is an estimate, not an exact inverse filter on arbitrary singing.
         int order = Math.Clamp(2 + sampleRate / 1000, 18, 48);
-        var emphasized = new double[Size];
+        Span<double> emphasized = stackalloc double[Size];
+        emphasized[0] = 0;
         for (int i = 1; i < Size; i++) emphasized[i] = (frame[i] - .97 * frame[i - 1]) *
-            (.5 - .5 * Math.Cos(2 * Math.PI * i / Size));
-        var r = new double[order + 1];
+            Window[i];
+        Span<double> r = stackalloc double[order + 1];
+        r.Clear();
         for (int lag = 0; lag <= order; lag++)
             for (int i = lag; i < Size; i++) r[lag] += emphasized[i] * emphasized[i - lag];
-        var a = new double[order + 1]; a[0] = 1;
+        Span<double> a = stackalloc double[order + 1]; a.Clear(); a[0] = 1;
+        Span<double> previous = stackalloc double[order + 1];
         double error = Math.Max(1e-12, r[0] * 1.001);
         for (int i = 1; i <= order; i++)
         {
             double sum = r[i];
             for (int j = 1; j < i; j++) sum += a[j] * r[i - j];
             double reflection = Math.Clamp(-sum / error, -.98, .98);
-            var previous = (double[])a.Clone();
+            a.CopyTo(previous);
             for (int j = 1; j < i; j++) a[j] = previous[j] + reflection * previous[i - j];
             a[i] = reflection;
             error = Math.Max(1e-12, error * (1 - reflection * reflection));
         }
         int count = Math.Clamp((int)(8000 / f0), 4, 40);
-        var measured = new double[count];
+        Span<double> measured = stackalloc double[count];
         for (int h = 1; h <= count; h++)
         {
             double bin = h * f0 * Size / sampleRate;
@@ -282,6 +293,13 @@ internal static class AceAcousticProcessor
         // against a physical model endpoint (and silently disable half its range).
         return Math.Clamp(LfGlottalModel.MinimumRd +
             (LfGlottalModel.MaximumRd - LfGlottalModel.MinimumRd) * best / (Models - 1d), .75, 2.45);
+    }
+
+    private static double[] BuildWindow()
+    {
+        var window = new double[Size];
+        for (int i = 0; i < Size; i++) window[i] = .5 - .5 * Math.Cos(2 * Math.PI * i / Size);
+        return window;
     }
 
     private static double[,] BuildSourceTable()

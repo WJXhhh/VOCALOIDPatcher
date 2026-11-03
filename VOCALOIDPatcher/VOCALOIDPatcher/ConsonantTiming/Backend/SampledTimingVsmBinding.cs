@@ -65,14 +65,27 @@ internal static class SampledTimingVsmBinding
     // No temporary value is committed, so no native undo entry is introduced.
     // The caller must schedule one normal render afterwards, under its epoch.
     internal static void InvalidateRenderedPart(WIVSMMidiPart part, IEnumerable<WIVSMNote> affectedNotes)
+        => InvalidateRenderedContexts(part, new[] { affectedNotes });
+
+    // Keep each validated +/-16 source context bounded, but commit their exact
+    // union once. Disjoint contexts must not invalidate the gap between them.
+    internal static void InvalidateRenderedContexts(WIVSMMidiPart part, IEnumerable<IEnumerable<WIVSMNote>> contexts)
     {
         var sequence = part.Sequence ?? throw new InvalidOperationException("Missing sequence.");
         if (sequence.IsStaged)
             throw new InvalidOperationException("Cannot invalidate a staged source.");
-        var values = affectedNotes.Take(34).Select(n => (Note: n, Velocity: n.NoteVelocity)).ToArray();
-        if (values.Length is < 1 or > 33 || values.Any(v => (nint)v.Note.Parent! != (nint)part) ||
-            values.Select(v => (nint)v.Note).Distinct().Count() != values.Length)
-            throw new ArgumentException("Cache invalidation needs one bounded source context.");
+        var notes = new Dictionary<nint, WIVSMNote>();
+        foreach (var context in contexts)
+        {
+            var bounded = context.Take(34).ToArray();
+            if (bounded.Length is < 1 or > 33 || bounded.Any(n => (nint)n.Parent! != (nint)part) ||
+                bounded.Select(n => (nint)n).Distinct().Count() != bounded.Length)
+                throw new ArgumentException("Cache invalidation needs bounded source contexts.");
+            foreach (var note in bounded) notes.TryAdd((nint)note, note);
+        }
+        if (notes.Count == 0) return;
+        var values = notes.Values.Select(n => (Note: n, Velocity: n.NoteVelocity)).ToArray();
+        using var mutation = TimingCacheInvalidationScope.Enter((nint)sequence);
         try
         {
             foreach (var value in values)

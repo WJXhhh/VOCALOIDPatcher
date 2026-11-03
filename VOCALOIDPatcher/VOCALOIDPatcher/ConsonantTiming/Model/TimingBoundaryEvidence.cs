@@ -4,6 +4,12 @@ namespace VOCALOIDPatcher.ConsonantTiming;
 // between two samples. The latter requires evidence from both neighboring rows.
 internal readonly record struct TimingBoundaryEvidence(int Begin, int End, int Split, string? From, string? To)
 {
+    internal static bool MatchesContinuation(int frame, string phone,
+        TimingBoundaryEvidence before, TimingBoundaryEvidence after) =>
+        phone != "-" && phone != "Sil" && before.Begin < frame && before.End == frame &&
+        after.Begin == frame && after.End > frame && (before.To ?? before.From) == phone &&
+        after.From == phone && (after.To == null || after.Split > after.Begin);
+
     internal bool MatchesSplit(int frame, string? left, string? right) =>
         Split == frame && (left == null || From == left) && (right == null || To == right);
 

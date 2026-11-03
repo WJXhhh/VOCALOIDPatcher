@@ -1344,6 +1344,7 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_PhonemeTiming_End" xml:space="preserve"><value>終了</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_Value" xml:space="preserve"><value>{0} → {1} · ノート開始から {2} ms · Ctrl+クリックでリセット</value></data>
   <data name="VOCALOIDPatcher_PhonemeTiming_Limit" xml:space="preserve"><value>境界を隣の境界より先や利用可能な範囲外に移動できません。</value></data>
+  <data name="VOCALOIDPatcher_PhonemeTiming_Clamped" xml:space="preserve"><value>制限中：保存オフセット {0} ms、現在の適用値 {1} ms</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Name" xml:space="preserve"><value>音素音量</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Description" xml:space="preserve"><value>エモーションモードでサンプリング音素の内部を上下にドラッグすると音量を調整できます。クリックで音素選択と dB 入力を開きます。境界の左右ドラッグはタイミング調整です。</value></data>
   <data name="VOCALOIDPatcher_PhonemeVolume_Tip" xml:space="preserve"><value>{0} · {1} · 上下ドラッグで音量 · Shift: 微調整 · クリック: 詳細 · Ctrl+クリック: リセット</value></data>
@@ -1378,10 +1379,11 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_DurationSelection_Preview" xml:space="preserve"><value>プレビューのみ。「適用」で確定します。</value></data>
   <data name="VOCALOIDPatcher_DurationSelection_ExportNotReady" xml:space="preserve"><value>音素タイミングまたは選択時間の音声を更新中、もしくは利用できません。レンダリングが正常に完了してから書き出してください。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Name" xml:space="preserve"><value>遷移音のタイミングと音量</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PanelTitle" xml:space="preserve"><value>遷移の詳細調整</value></data>
   <data name="VOCALOIDPatcher_Transitions_Description" xml:space="preserve"><value>エモーションモードの専用レーンで遷移音の長さと音量を調整します。数値入力、共有接点、元に戻す操作に対応します。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Phonemes" xml:space="preserve"><value>音素</value></data>
   <data name="VOCALOIDPatcher_Transitions_Tool" xml:space="preserve"><value>遷移音</value></data>
-  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>端点を横にドラッグしてタイミング、音量線を縦にドラッグして音量を変更します。Shift：微調整、Esc：キャンセル。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_Hint" xml:space="preserve"><value>クリックで選択、ダブルクリックまたは「詳細」で編集パネルを開きます。端点を横にドラッグしてタイミング、音量線を縦にドラッグして音量を変更します。Shift：微調整、Esc：キャンセル。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Precise" xml:space="preserve"><value>数値調整…</value></data>
   <data name="VOCALOIDPatcher_Transitions_Start" xml:space="preserve"><value>立ち上がり</value></data>
   <data name="VOCALOIDPatcher_Transitions_End" xml:space="preserve"><value>語尾</value></data>
@@ -1407,7 +1409,7 @@ Spliceのリースが完了しました。
 
   <data name="VOCALOIDPatcher_Transitions_Phase" xml:space="preserve"><value>発音の進行（%）</value></data>
   <data name="VOCALOIDPatcher_Transitions_PhaseTip" xml:space="preserve"><value>進行 {0}% · 左：早く、右：遅く · timing 境界は固定</value></data>
-  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>ドラッグすると発音側の完全な素材を使用します。Shift：微調整。Ctrl+クリック：ひし形と完全素材の設定をリセット。進行が 0 でも完全素材を有効にできます。</value></data>
+  <data name="VOCALOIDPatcher_Transitions_PhaseHint" xml:space="preserve"><value>ドラッグは現在の素材範囲内の進行のみを調整します。完全素材は別に有効にします。Shift：微調整。Ctrl+クリック：進行と完全素材の設定をリセット。</value></data>
   <data name="VOCALOIDPatcher_Transitions_LegacyOnset" xml:space="preserve"><value>以前の起声オフセットを保持しています。「トランジションをリセット」で解除できます。</value></data>
   <data name="VOCALOIDPatcher_Transitions_PhaseLimited" xml:space="preserve"><value>この側の有効な出力フレームが 3 未満、または進行可能な素材区間がありません。既存の設定は保持されます。</value></data>
   <data name="VOCALOIDPatcher_Transitions_Coverage" xml:space="preserve"><value>発音素材全体を使用</value></data>
@@ -1415,7 +1417,7 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_Transitions_CoverageBoth" xml:space="preserve"><value>発音素材全体を使用（両側）</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageHint" xml:space="preserve"><value>素材全体を現在の timing 範囲内に収めます。進行が 0 でも有効にでき、オフにすると従来の素材範囲を使用します。「適用」でまとめて確定します。</value></data>
   <data name="VOCALOIDPatcher_Transitions_CoverageActive" xml:space="preserve"><value>完全素材を使用中 · {0} 側</value></data>
-  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>ドラッグで {0} 側の完全素材を使用</value></data>
+  <data name="VOCALOIDPatcher_Transitions_CoverageOnDrag" xml:space="preserve"><value>{0} 側の現在の素材範囲を使用</value></data>
   <data name="VOCALOIDPatcher_Transitions_ResetExpression" xml:space="preserve"><value>ひし形をリセット</value></data>
   <data name="VOCALOIDPatcher_Transitions_ResetExpressionHint" xml:space="preserve"><value>進行と完全素材をリセットし、timing、音量、従来の起音設定を保持します。</value></data>
   <data name="VOCALOIDPatcher_AceParameter_Energy_Name" xml:space="preserve"><value>ACE：エナジー</value></data>
@@ -1435,4 +1437,75 @@ Spliceのリースが完了しました。
   <data name="VOCALOIDPatcher_RendererRecovery_Header" xml:space="preserve"><value>レンダリング失敗から自動復旧</value></data>
   <data name="VOCALOIDPatcher_RendererRecovery_Description" xml:space="preserve"><value>障害の診断情報を保存し、停止したレンダリングを一度だけ再試行します。連続した失敗では再試行を停止し、プロジェクトの制御データは保持します。</value></data>
   <data name="VOCALOIDPatcher_AceAcoustic_ExportNotReady" xml:space="preserve"><value>ACE音響処理の音声が未準備のため書き出せません。レンダリング完了後に再試行し、処理に失敗した場合はログを確認してください。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Header" xml:space="preserve"><value>パラメーター背景のエネルギー表示</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Desc" xml:space="preserve"><value>現在の Part のレンダリング音声を半透明のピークおよび RMS 線（dB）としてパラメーター背景に表示。周波数重み付け、約 1 ms の解析間隔と連続補間に対応し、レンダリングと音声処理の完了後に更新します。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Minimum" xml:space="preserve"><value>下限（dB）</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Maximum" xml:space="preserve"><value>上限（dB）</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Opacity" xml:space="preserve"><value>不透明度</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetLine" xml:space="preserve"><value>目標音量の基準線</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetLevel" xml:space="preserve"><value>目標（dB）</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetHint" xml:space="preserve"><value>右端の小さなグリップを上下にドラッグして基準線を移動します。線と文字はマウス入力を遮りません。音声は変更せず、表示 dB 範囲外の目標は非表示になります。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetDrag" xml:space="preserve"><value>この端のグリップを上下にドラッグして目標音量を設定します。Esc でキャンセルします。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_TargetValue" xml:space="preserve"><value>目標 {0} dB</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_Name" xml:space="preserve"><value>発音編集</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_Precise" xml:space="preserve"><value>詳細</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_PhonemeHint" xml:space="preserve"><value>音素：境界を左右にドラッグしてタイミングを、音量線を上下にドラッグして音量を調整します。</value></data>
+  <data name="VOCALOIDPatcher_TimingTools_PreciseHint" xml:space="preserve"><value>選択したトランジションの詳細編集を開きます。ダブルクリックでも開けます。Esc で閉じます。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_Weighting" xml:space="preserve"><value>周波数重み付け</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_WeightingHint" xml:space="preserve"><value>グラフ表示のみ。0～300%、初期値 50%。0% は元の dBFS を表示。100% を超えて低域の抑制と中高域の強調を強められます。1 kHz の基準は維持し、両曲線と目標線に同じ重み付き dB 目盛を使用。ピークが上端に張り付く場合は上限を上げてください（最大 +24 dB）。独自の重み付けで LUFS 測定ではありません。</value></data>
+  <data name="VOCALOIDPatcher_ParameterEnergy_WeightedUnit" xml:space="preserve"><value>dB（重み付き）</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Mode" xml:space="preserve"><value>発音コンプ</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Hint" xml:space="preserve"><value>独立した音源を生成し、長音の切り出し、子音・母音の接合、後続子音に影響されない持続を編集します。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_LongSlice" xml:space="preserve"><value>長音切り出し</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PhonemeSplice" xml:space="preserve"><value>子音・母音接合</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_IndependentSustain" xml:space="preserve"><value>独立持続</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Collapse" xml:space="preserve"><value>折りたたむ</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Precise" xml:space="preserve"><value>詳細</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Source" xml:space="preserve"><value>音源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Lyric" xml:space="preserve"><value>歌詞</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Phonemes" xml:space="preserve"><value>音素</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Length" xml:space="preserve"><value>音源長 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Offset" xml:space="preserve"><value>切り出し · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Vowel" xml:space="preserve"><value>母音番号</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Seam" xml:space="preserve"><value>接合 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_End" xml:space="preserve"><value>終端 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Fade" xml:space="preserve"><value>フェード · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickSource" xml:space="preserve"><value>ノートから音源を選ぶ</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickHint" xml:space="preserve"><value>音源ノートをクリック</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Crop" xml:space="preserve"><value>切り出し</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_KeepHead" xml:space="preserve"><value>語頭を保持</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_KeepTail" xml:space="preserve"><value>語尾を保持</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Middle" xml:space="preserve"><value>中間を使用</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Solo" xml:space="preserve"><value>音源試聴</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Listen" xml:space="preserve"><value>結果を試聴</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Phrase" xml:space="preserve"><value>フレーズ再生</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Bypass" xml:space="preserve"><value>バイパス</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Reset" xml:space="preserve"><value>元の発音に戻す</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SelectNote" xml:space="preserve"><value>ノートを選択して操作を選んでください</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Target" xml:space="preserve"><value>対象：{0} · MIDI {1}</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Consonant" xml:space="preserve"><value>子音音源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_VowelSource" xml:space="preserve"><value>母音音源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Body" xml:space="preserve"><value>長音音源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Result" xml:space="preserve"><value>出力 · メインノートに追従</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Entrance" xml:space="preserve"><value>母音開始</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Pending" xml:space="preserve"><value>更新待ち</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Rendering" xml:space="preserve"><value>音源を生成中…</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Ready" xml:space="preserve"><value>更新済み</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Clipped" xml:space="preserve"><value>更新済み · 重なりでクリップ</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Failed" xml:space="preserve"><value>更新失敗 · 前の結果を保持</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Invalid" xml:space="preserve"><value>音源設定を確認してください</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SameBank" xml:space="preserve"><value>同じ歌声ライブラリーのノートを選んでください</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PreviewFailed" xml:space="preserve"><value>試聴できません</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ExportNotReady" xml:space="preserve"><value>発音コンプが未完了です。更新を待つか音源設定を修正してから書き出してください。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextBefore" xml:space="preserve"><value>前の文脈音素</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextAfter" xml:space="preserve"><value>後の文脈音素</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_ContextLength" xml:space="preserve"><value>文脈長 · ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_Cancel" xml:space="preserve"><value>キャンセル</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_AutoLength" xml:space="preserve"><value>0 = 自動：音符の長さの 2 倍、または 1000 ms 以上のソースを生成します。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SustainAutoLength" xml:space="preserve"><value>0 = 元の音符の長さ。出力終点を後ろに動かした場合のみ延長します。正の値で音源の長さを指定でき、出力終点は別に設定できます。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_IndependentSource" xml:space="preserve"><value>独立音源</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_GeneratedLength" xml:space="preserve"><value>生成済み：{0} ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_SourceLengthHandle" xml:space="preserve"><value>音源長 ↔ {0} ms</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_DragSourceLength" xml:space="preserve"><value>左右にドラッグして音源の長さを変更。Shift で微調整、離すと再生成、Escape でキャンセルします。出力終点は変わりません。</value></data>
+  <data name="VOCALOIDPatcher_VoiceComp_PickVowel" xml:space="preserve"><value>ソースの音素境界をダブルクリックして母音の開始点を選択します。</value></data>
 </root>

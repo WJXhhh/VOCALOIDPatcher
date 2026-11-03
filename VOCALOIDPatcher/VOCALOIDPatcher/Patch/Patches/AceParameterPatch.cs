@@ -97,7 +97,10 @@ public sealed class AceParameterCommitMappingPatch : PatchBase
 
     [HarmonyPrefix]
     private static void Prefix(WIVSMSequence __instance, bool updateHistory)
-        => AceParameterMappingService.OnSequenceCommit(__instance, updateHistory);
+    {
+        if (!ConsonantTiming.TimingCacheInvalidationScope.IsActive((nint)__instance))
+            AceParameterMappingService.OnSequenceCommit(__instance, updateHistory);
+    }
 }
 
 public sealed class AceParameterUndoMappingPatch : PatchBase

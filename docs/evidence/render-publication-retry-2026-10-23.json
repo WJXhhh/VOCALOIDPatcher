@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-23",
+  "observed_host_failure": {
+    "process_id": 3792,
+    "editor": "6.13.3.1",
+    "revision": 6,
+    "suspended": true,
+    "stored_plans": 49,
+    "native_parts": 0,
+    "fault": "TimeoutException",
+    "message": "Native timing planner is busy or unavailable.",
+    "observed_utc": [
+      "2026-10-23T05:39:32.9883846Z",
+      "2026-10-23T05:40:45.0601245Z"
+    ],
+    "frames": [
+      "NativeConsonantTimingEngine.Begin",
+      "PreparedCoefficientTiming.QueryPhonemes",
+      "PreparedCoefficientTiming.QueryTransitions",
+      "TransitionPreparation.Query",
+      "SampledTimingHost.Publish",
+      "SampledTimingHost.Flush"
+    ]
+  },
+  "change": {
+    "typed_transient_native_mutex_contention": true,
+    "dispatcher_retry_delay_ms": [
+      25,
+      50,
+      100,
+      200,
+      250
+    ],
+    "same_revision_retry_budget_ms": 5000,
+    "retry_timer_coalesced_per_source": true,
+    "cache_invalidation_not_recommitted_on_retry": true,
+    "genuine_failures_still_reject_and_cancel_queued_retry": true,
+    "part_progress_not_fabricated": true
+  },
+  "validation": {
+    "solution_debug": "passed, 0 warnings, 0 errors",
+    "solution_release": "passed, 0 warnings, 0 errors; ILRepack succeeded",
+    "isolated_build": "passed",
+    "managed_tests": {
+      "passed": 476,
+      "failed": 0,
+      "skipped": 0
+    },
+    "real_native_mutex_and_wpf_probe": [
+      {
+        "name": "real-native-mutex-contention-deferred",
+        "elapsedMs": 115.3647,
+        "internalCommits": 1
+      },
+      {
+        "name": "retry-coalesced-and-progress-restored",
+        "started": 1,
+        "completed": 1,
+        "progressed": 26,
+        "partialBlue": 7450,
+        "completedBlue": 7722,
+        "internalCommits": 1,
+        "nativeEnabled": true
+      },
+      {
+        "name": "genuine-failure-cancels-retry",
+        "controlsPreserved": true,
+        "suspended": true,
+        "retryPending": false
+      }
+    ],
+    "captured_project_native_cold_render": {
+      "parts": 9,
+      "storedPlans": 49,
+      "progress": 234,
+      "completed": 9,
+      "bluePixels": [
+        7722,
+        7722,
+        7722,
+        7722,
+        7722,
+        7722,
+        7722,
+        7722,
+        7722
+      ],
+      "elapsedMs": 8333.632,
+      "sourceSha256": "C03571AAB7EDD660B4125DC78E3E2D8CEA0FE3766457ECD75D6AC4CF1B49E5F5",
+      "sourceUnchanged": true,
+      "suspended": false,
+      "nativeEnabled": true
+    },
+    "invalidation_regression": {
+      "cases": 30,
+      "input_scopes": 11,
+      "native_renders": 7,
+      "notification_and_history_cases": 5
+    }
+  },
+  "limits": [
+    "Running Editor still has the previous assembly until reopened.",
+    "Captured project is a temporary file copy, rendered in a separate SDK process; no writes to live project.",
+    "The captured probe installs a subset of production patches, and produced VoiceComp InvalidOperationException warnings; full Comp/BVL/ACE/export acceptance is not claimed.",
+    "Two earlier captured-probe attempts with incomplete Editor initialization produced no native callbacks. Final run sets native block-size defaults, interpolates master volume, commits its isolated baseline, and forces bounded cache invalidation before cold rendering."
+  ],
+  "artifacts": {
+    "local_directory_name": "v6patch-publication-retry-20261023-134555",
+    "source_sha256": {
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/SampledTimingHost.cs": "6e3a2e498176caa065be2e56962ac0d65cc3ff7b6e12ab715ac597d25d0adb74",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Backend/NativeConsonantTimingEngine.cs": "bf720e1ec55dae4c919efa663b12e5b51429c458112436daebb3c6a9db447e03",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Model/TimingPlannerBusyException.cs": "1d6e393084c8b91e53a9aee5384024398f76dd24c13149cd6c04d012b2230437",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/TimingPublicationRetryValidation.cs": "d1ff2641464833fdfc25f789241772dc24c4d3f7af4b5b468a0b2ef8139bcfe6",
+      "VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/TransitionHostValidation.cs": "67723b19cbf66014b40ec6d7b9b9c2bae2c089653e73b86598c10454c90660ed",
+      "VOCALOIDPatcher.McpTests/TimingPublicationRetryTests.cs": "34c8c200e9cba139e3c5b854717d1b55986f9dafde76324e9bd17bc5ce0a3ba1"
+    },
+    "release_merged_sha256": "5762524738cafc9d24487e27b5220883c07cefd783b33d0ac2b02b093ffa8ed1",
+    "isolated_sha256": "115ac061399a5922b572d13ff43a8a3fdd2df53b97b41ad652d2ff0a6ebc76e5",
+    "retry_probe_sha256": "34caca45d5ce17992b3ed244e9795b95d2c575d975312bce067ae66d7cfc76b7",
+    "captured_probe_sha256": "1e36bbeaf6db6b3753e5e7d25148b5a31144a93a302f5af5bcf0005f7f1d87f9",
+    "invalidation_regression_sha256": "0a671ddc091f5c6a80a12c7a718ed5888105a51f09ab19f733dbbedcadddcfd9"
+  },
+  "deployment_evidence": "render-publication-retry-deployment-2026-10-23.json"
+}

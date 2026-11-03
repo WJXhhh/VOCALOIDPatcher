@@ -142,6 +142,7 @@ public static class Patcher
         McpBridgeService.Install();
         ConsonantTiming.SampledTimingHostValidation.Queue();
         PhonemeVolume.PhonemeVolumeHost.Initialize();
+        VoiceComp.VoiceCompHost.Initialize();
         ConsonantTiming.TimingFeedbackHostValidation.Queue();
         AceParameters.AceParameterHostProbe.Queue();
     }
@@ -483,6 +484,10 @@ public static class Patcher
 
             new(Settings.DeferParameterViewUpdateKey,
                 new ParameterViewDeferPatch(),
+                new ParameterViewportUpdatePatch(),
+                new ParameterPencilPreviewPoolPatch(),
+                new ParameterLinePreviewPoolPatch(),
+                new ParameterPreviewClearPoolPatch(),
                 new ParameterVisibleRangePatch()
             ),
 
@@ -500,8 +505,7 @@ public static class Patcher
                 new AudioThumbFromCachePatch()),
 
             new(Settings.TrimWorkingSetKey,
-                new WorkingSetTrimPatch(),
-                new RenderCompleteTrimPatch()),
+                new WorkingSetTrimPatch()),
 
             new(Settings.OptimizeTrackRenderingKey,
                 new TrackNoteInsertPatch(),
@@ -522,6 +526,9 @@ public static class Patcher
             new(Settings.CacheRenderedWavesKey,
                 new RenderedWaveCachePatch(),
                 new RenderedWaveCacheClearPatch()),
+
+            new(Settings.ParameterEnergyKey,
+                new ParameterEnergyConstructorPatch()),
 
             new(Settings.UnlockAllLanguagesKey,
                 new VoiceBankLangIDsPatch(),
@@ -544,6 +551,11 @@ public static class Patcher
                 new RendererHealthCanceledPatch(),
                 new RendererHealthClosePatch()),
 
+            new(Settings.VoiceCompEnabledKey,
+                new VoiceCompCommitPatch(), new VoiceCompStartPatch(), new VoiceCompStopPatch(), new VoiceCompUndoPatch(), new VoiceCompRedoPatch(),
+                new VoiceCompClosePatch(), new VoiceCompDirtyPatch(), new VoiceCompBlockPatch(), new VoiceCompPreviewBlockPatch(), new VoiceCompValidWavePatch(),
+                new VoiceCompPlacementRangePatch(), new VoiceCompManagerDisposalPatch()),
+
             new(null,
                 new ConsonantTimingShutdownPatch(),
                 new SampledTimingProjectLoadPatch(),
@@ -558,6 +570,8 @@ public static class Patcher
                 new SampledTimingDirtyPatch(),
                 new SampledTimingDuplicateSequencePatch(),
                 new ConsonantTimingCommitPatch(),
+                new ControllerRemovalScopePatch(),
+                new ControllerRemovalRollbackPatch(),
                 new ConsonantTimingUndoPatch(),
                 new ConsonantTimingRedoPatch(),
                 new ConsonantTimingClosePatch(),

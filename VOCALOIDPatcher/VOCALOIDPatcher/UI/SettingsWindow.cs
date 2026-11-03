@@ -14,6 +14,7 @@ using VOCALOIDPatcher.AceParameters;
 using VOCALOIDPatcher.Config;
 using VOCALOIDPatcher.Mcp;
 using VOCALOIDPatcher.McpBridge;
+using VOCALOIDPatcher.ParameterEnergy;
 using VOCALOIDPatcher.Patch;
 using VOCALOIDPatcher.Patch.Patches;
 using VOCALOIDPatcher.RegisterShift;
@@ -371,18 +372,8 @@ public class SettingsWindow : Window
             Settings.TransitionSmoothingEnabled, new Thickness(0, 18, 0, 0), checkbox =>
             {
                 Settings.TransitionSmoothingEnabled = checkbox.IsChecked == true;
+                VoiceComp.VoiceCompHost.RefreshSettings();
                 ConsonantTiming.Smoothing.TransitionSmoothingHost.RefreshSettings();
-                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
-            });
-
-        var durationSelection = DescribedToggle(
-            "VOCALOIDPatcher_DurationSelection_Name",
-            "VOCALOIDPatcher_DurationSelection_Description",
-            Settings.IndependentDurationSelection,
-            new Thickness(0, 18, 0, 0),
-            checkbox =>
-            {
-                Settings.IndependentDurationSelection = checkbox.IsChecked == true;
                 ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
             });
 
@@ -394,6 +385,7 @@ public class SettingsWindow : Window
             checkbox =>
             {
                 Settings.IndividualPhonemeVolume = checkbox.IsChecked == true;
+                VoiceComp.VoiceCompHost.RefreshSettings();
                 PhonemeVolume.PhonemeVolumeHost.RefreshSettings();
                 ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
             });
@@ -406,6 +398,7 @@ public class SettingsWindow : Window
             checkbox =>
             {
                 Settings.IndividualBreathVolume = checkbox.IsChecked == true;
+                VoiceComp.VoiceCompHost.RefreshSettings();
                 BreathVolumeUi.RefreshSetting();
             });
 
@@ -417,6 +410,7 @@ public class SettingsWindow : Window
             checkbox =>
             {
                 Settings.RegisterShift = checkbox.IsChecked == true;
+                VoiceComp.VoiceCompHost.RefreshSettings();
                 if (!Settings.RegisterShift)
                     RegisterShiftService.DisableNative();
                 BreathVolumeUi.RefreshSetting();
@@ -539,8 +533,14 @@ public class SettingsWindow : Window
         panel.Children.Add(consonantTiming);
         panel.Children.Add(rendererRecovery);
         panel.Children.Add(transitionControl);
+        panel.Children.Add(DescribedToggle("VOCALOIDPatcher_VoiceComp_Mode", "VOCALOIDPatcher_VoiceComp_Hint",
+            Settings.VoiceCompEnabled, new Thickness(0, 18, 0, 0), checkbox =>
+            {
+                Settings.VoiceCompEnabled = checkbox.IsChecked == true;
+                VoiceComp.VoiceCompHost.RefreshSettings();
+                ShowOtherTracksNotesPatch.RequestRefreshPianoroll();
+            }));
         panel.Children.Add(transitionSmoothing);
-        panel.Children.Add(durationSelection);
         panel.Children.Add(individualPhonemeVolume);
         panel.Children.Add(individualBreathVolume);
         panel.Children.Add(registerShift);
@@ -551,6 +551,17 @@ public class SettingsWindow : Window
         panel.Children.Add(evec);
         panel.Children.Add(alwaysShowWaveform);
         panel.Children.Add(waveformOptions);
+        var energyOptions = BuildParameterEnergyOptions();
+        var energyToggle = DescribedToggle("VOCALOIDPatcher_ParameterEnergy_Header",
+            "VOCALOIDPatcher_ParameterEnergy_Desc", Settings.ParameterEnergy, new Thickness(0, 18, 0, 0), checkbox =>
+            {
+                Settings.ParameterEnergy = checkbox.IsChecked == true;
+                energyOptions.IsEnabled = Settings.ParameterEnergy;
+                energyOptions.Opacity = Settings.ParameterEnergy ? 1 : 0.4;
+                ParameterEnergyBackground.RefreshAll();
+            });
+        panel.Children.Add(energyToggle);
+        panel.Children.Add(energyOptions);
         panel.Children.Add(showCharacterArt);
         panel.Children.Add(artOptions);
 
@@ -565,16 +576,139 @@ public class SettingsWindow : Window
         HideIfUnsupported(Settings.IndividualTransitionControlKey, transitionControl);
         HideIfUnsupported(Settings.TransitionSmoothingEnabledKey, transitionSmoothing);
         HideIfUnsupported(Settings.IndividualPhonemeVolumeKey, individualPhonemeVolume);
-        HideIfUnsupported(Settings.IndependentDurationSelectionKey, durationSelection);
         HideIfUnsupported(Settings.IndividualBreathVolumeKey, individualBreathVolume);
         HideIfUnsupported(Settings.RegisterShiftKey, registerShift);
         HideIfUnsupported(Settings.AceParametersKey, aceParameters, aceParameterMapping);
         HideIfUnsupported(Settings.AceParametersKey, aceFalsettoMapping, aceRebuildMapping);
         HideIfUnsupported(Settings.EvecEnabledKey, evec);
         HideIfUnsupported(Settings.AlwaysShowWaveformKey, alwaysShowWaveform, waveformOptions);
+        HideIfUnsupported(Settings.ParameterEnergyKey, energyToggle, energyOptions);
         HideIfUnsupported(Settings.SvEditorStyleKey, svEditorStyle);
         HideIfUnsupported(Settings.ShowCharacterArtKey, showCharacterArt, artOptions);
 
+        return panel;
+    }
+
+    private FrameworkElement BuildParameterEnergyOptions()
+    {
+        var panel = new StackPanel
+        {
+            Margin = new Thickness(28, 8, 0, 0),
+            IsEnabled = Settings.ParameterEnergy,
+            Opacity = Settings.ParameterEnergy ? 1 : 0.4
+        };
+        TextBox AddDb(string key, Func<int> read, Action<int> write)
+        {
+            var row = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 0, 0, 8) };
+            var label = new TextBlock { Width = 155, Foreground = MutedBrush, VerticalAlignment = VerticalAlignment.Center };
+            Localize(() => label.Text = TranslationManager.Tr(key));
+            var input = new TextBox { Width = 64, Text = read().ToString(System.Globalization.CultureInfo.InvariantCulture), MaxLength = 4 };
+            void Commit()
+            {
+                if (int.TryParse(input.Text, out int value)) write(value);
+                input.Text = read().ToString(System.Globalization.CultureInfo.InvariantCulture);
+                ParameterEnergyBackground.RefreshAll();
+            }
+            input.LostKeyboardFocus += (_, _) => Commit();
+            input.KeyDown += (_, e) => { if (e.Key == System.Windows.Input.Key.Enter) { Commit(); e.Handled = true; } };
+            row.Children.Add(label);
+            row.Children.Add(input);
+            panel.Children.Add(row);
+            return input;
+        }
+        AddDb("VOCALOIDPatcher_ParameterEnergy_Minimum", () => Settings.ParameterEnergyMinimumDb,
+            v => Settings.ParameterEnergyMinimumDb = v);
+        AddDb("VOCALOIDPatcher_ParameterEnergy_Maximum", () => Settings.ParameterEnergyMaximumDb,
+            v => Settings.ParameterEnergyMaximumDb = v);
+        var opacityRow = new StackPanel { Orientation = Orientation.Horizontal };
+        var opacityLabel = new TextBlock { Width = 155, Foreground = MutedBrush, VerticalAlignment = VerticalAlignment.Center };
+        Localize(() => opacityLabel.Text = TranslationManager.Tr("VOCALOIDPatcher_ParameterEnergy_Opacity"));
+        var opacity = new Slider
+        {
+            Width = 150, Minimum = 0, Maximum = 100, Value = Settings.ParameterEnergyOpacity,
+            TickFrequency = 1, IsSnapToTickEnabled = true,
+            AutoToolTipPlacement = System.Windows.Controls.Primitives.AutoToolTipPlacement.TopLeft,
+            AutoToolTipPrecision = 0
+        };
+        var percent = new TextBlock { Width = 42, Margin = new Thickness(8, 0, 0, 0), Foreground = MutedBrush,
+            Text = Settings.ParameterEnergyOpacity + "%", VerticalAlignment = VerticalAlignment.Center };
+        opacity.ValueChanged += (_, _) =>
+        {
+            Settings.ParameterEnergyOpacity = (int)opacity.Value;
+            percent.Text = Settings.ParameterEnergyOpacity + "%";
+            ParameterEnergyBackground.RefreshAll();
+        };
+        opacityRow.Children.Add(opacityLabel);
+        opacityRow.Children.Add(opacity);
+        opacityRow.Children.Add(percent);
+        panel.Children.Add(opacityRow);
+        var weightingRow = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 12, 0, 0) };
+        var weightingLabel = new TextBlock { Width = 155, Foreground = MutedBrush, VerticalAlignment = VerticalAlignment.Center };
+        Localize(() => weightingLabel.Text = TranslationManager.Tr("VOCALOIDPatcher_ParameterEnergy_Weighting"));
+        var weighting = new Slider
+        {
+            Width = 150, Minimum = 0, Maximum = 300, Value = Settings.ParameterEnergyWeighting,
+            TickFrequency = 1, IsSnapToTickEnabled = true,
+            AutoToolTipPlacement = System.Windows.Controls.Primitives.AutoToolTipPlacement.TopLeft,
+            AutoToolTipPrecision = 0
+        };
+        var weightingPercent = new TextBlock { Width = 42, Margin = new Thickness(8, 0, 0, 0), Foreground = MutedBrush,
+            Text = Settings.ParameterEnergyWeighting + "%", VerticalAlignment = VerticalAlignment.Center };
+        weighting.ValueChanged += (_, _) =>
+        {
+            Settings.ParameterEnergyWeighting = (int)weighting.Value;
+            weightingPercent.Text = Settings.ParameterEnergyWeighting + "%";
+            ParameterEnergyBackground.RefreshAll();
+        };
+        weightingRow.Children.Add(weightingLabel);
+        weightingRow.Children.Add(weighting);
+        weightingRow.Children.Add(weightingPercent);
+        panel.Children.Add(weightingRow);
+        var weightingHint = new TextBlock { Foreground = MutedBrush, FontSize = 11, TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 5, 0, 0) };
+        Localize(() => weightingHint.Text = TranslationManager.Tr("VOCALOIDPatcher_ParameterEnergy_WeightingHint"));
+        panel.Children.Add(weightingHint);
+        var targetOptions = new StackPanel { IsEnabled = Settings.ParameterEnergyTargetLine, Margin = new Thickness(0, 6, 0, 0) };
+        panel.Children.Add(Toggle("VOCALOIDPatcher_ParameterEnergy_TargetLine", Settings.ParameterEnergyTargetLine,
+            new Thickness(0, 12, 0, 0), checkbox =>
+            {
+                Settings.ParameterEnergyTargetLine = checkbox.IsChecked == true;
+                targetOptions.IsEnabled = Settings.ParameterEnergyTargetLine;
+                ParameterEnergyBackground.RefreshAll();
+            }));
+        var targetRow = new StackPanel { Orientation = Orientation.Horizontal };
+        var targetLabel = new TextBlock { Width = 155, Foreground = MutedBrush, VerticalAlignment = VerticalAlignment.Center };
+        Localize(() => targetLabel.Text = TranslationManager.Tr("VOCALOIDPatcher_ParameterEnergy_TargetLevel"));
+        var targetInput = new TextBox { Width = 64, MaxLength = 8 };
+        string displayed = "";
+        void UpdateTargetInput()
+        {
+            displayed = Settings.ParameterEnergyTargetDb.ToString("0.0", System.Globalization.CultureInfo.CurrentCulture);
+            targetInput.Text = displayed;
+        }
+        void CommitTargetInput()
+        {
+            if (targetInput.Text != displayed && double.TryParse(targetInput.Text,
+                    System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.CurrentCulture, out double value) && double.IsFinite(value))
+                Settings.ParameterEnergyTargetDb = value;
+            UpdateTargetInput();
+            ParameterEnergyBackground.RefreshAll();
+        }
+        UpdateTargetInput();
+        targetInput.LostKeyboardFocus += (_, _) => CommitTargetInput();
+        targetInput.KeyDown += (_, e) =>
+        {
+            if (e.Key == System.Windows.Input.Key.Enter) { CommitTargetInput(); e.Handled = true; }
+        };
+        Activated += (_, _) => { if (!targetInput.IsKeyboardFocusWithin) UpdateTargetInput(); };
+        targetRow.Children.Add(targetLabel);
+        targetRow.Children.Add(targetInput);
+        targetOptions.Children.Add(targetRow);
+        var targetHint = new TextBlock { Foreground = MutedBrush, FontSize = 11, TextWrapping = TextWrapping.Wrap,
+            Margin = new Thickness(0, 5, 0, 0) };
+        Localize(() => targetHint.Text = TranslationManager.Tr("VOCALOIDPatcher_ParameterEnergy_TargetHint"));
+        targetOptions.Children.Add(targetHint);
+        panel.Children.Add(targetOptions);
         return panel;
     }
 

@@ -55,6 +55,7 @@ internal static class RuntimeObservationPatchSupport
 
     public static void Exception(string eventName, RuntimeObservationState? state, Exception exception)
     {
+        if (state == null || !RuntimeObservationLog.IsEnabled) return;
         var data = new Dictionary<string, object?>
         {
             ["exception"] = exception.GetType().Name,
@@ -147,6 +148,7 @@ public class ObserveRendererStartPatch : PatchBase
     private static void Prefix(IntPtr client, IntPtr pMidiPart, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RenderCycle renderCycle = RuntimeObservationLog.BeginRenderCycle(pMidiPart, null);
@@ -171,6 +173,7 @@ public class ObserveRendererStartPatch : PatchBase
                 (string projectId, long revision) = McpRevisionTracker.Current();
                 McpEventHub.Publish("render_started", projectId, revision);
             }
+            if (__state == null) return;
             RuntimeObservationPatchSupport.End("render.started.native", __state, new Dictionary<string, object?>
             {
                 ["partId"] = RuntimeObservationLog.ObjectId("part", pMidiPart),
@@ -184,7 +187,7 @@ public class ObserveRendererStartPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("render.started.native", __state, __exception);
         return __exception;
     }
@@ -210,6 +213,7 @@ public class ObserveRendererBlockPatch : PatchBase
         out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RenderCycle renderCycle = RuntimeObservationLog.RenderCycleForPart(pMidiPart);
@@ -228,6 +232,7 @@ public class ObserveRendererBlockPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(IntPtr pMidiPart, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("render.block.native", __state, new Dictionary<string, object?>
@@ -243,7 +248,7 @@ public class ObserveRendererBlockPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("render.block.native", __state, __exception);
         return __exception;
     }
@@ -259,6 +264,7 @@ public class ObserveRendererProgressPatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(IntPtr pMidiPart, VSMRendererProgress progress)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             var data = new Dictionary<string, object?>
@@ -287,6 +293,7 @@ public class ObserveRendererCompletePatch : PatchBase
     private static void Prefix(IntPtr pMidiPart, VSMRendererProgress progress, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RenderCycle renderCycle = RuntimeObservationLog.RenderCycleForPart(pMidiPart);
@@ -311,6 +318,8 @@ public class ObserveRendererCompletePatch : PatchBase
                 (string projectId, long revision) = McpRevisionTracker.Current();
                 McpEventHub.Publish("render_idle", projectId, revision);
             }
+
+            if (__state == null) { RuntimeObservationLog.EndRenderCycle(pMidiPart); return; }
 
             var data = new Dictionary<string, object?>
             {
@@ -344,7 +353,7 @@ public class ObserveRendererCompletePatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("render.completed.native", __state, __exception);
         return __exception;
     }
@@ -360,6 +369,7 @@ public class ObserveRendererCancelPatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(IntPtr pMidiPart, VSMRenderCancelReason reason)
     {
+        if (!RuntimeObservationLog.IsEnabled) { RuntimeObservationLog.EndRenderCycle(pMidiPart); return; }
         try
         {
             var data = new Dictionary<string, object?>
@@ -390,6 +400,7 @@ public class ObserveMusicalEditorRendererStartPatch : PatchBase
     private static void Prefix(object __instance, RendererObserverStartEventArgs e, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart);
@@ -404,6 +415,7 @@ public class ObserveMusicalEditorRendererStartPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(object __instance, RendererObserverStartEventArgs e, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart);
@@ -427,6 +439,7 @@ public class ObserveMusicalEditorRendererBlockPatch : PatchBase
     private static void Prefix(object __instance, RendererObserverBlockRenderingEventArgs e, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart, e?.Progress);
@@ -444,6 +457,7 @@ public class ObserveMusicalEditorRendererBlockPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(object __instance, RendererObserverBlockRenderingEventArgs e, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart, e?.Progress);
@@ -467,6 +481,7 @@ public class ObserveMusicalEditorRendererCompletePatch : PatchBase
     private static void Prefix(object __instance, RendererObserverCompleteEventArgs e, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart, e?.Progress);
@@ -481,6 +496,7 @@ public class ObserveMusicalEditorRendererCompletePatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(object __instance, RendererObserverCompleteEventArgs e, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart, e?.Progress);
@@ -504,6 +520,7 @@ public class ObserveAudioPlayerRendererBlockPatch : PatchBase
     private static void Prefix(RendererObserverBlockRenderingEventArgs e, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             Dictionary<string, object?> data = RuntimeObservationPatchSupport.PartEventData(e?.MidiPart, e?.Progress);
@@ -520,6 +537,7 @@ public class ObserveAudioPlayerRendererBlockPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(RendererObserverBlockRenderingEventArgs e, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End(
@@ -544,6 +562,7 @@ public class ObserveAudioPlayerRendererCompletePatch : PatchBase
     private static void Prefix(RendererObserverCompleteEventArgs e, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             __state = RuntimeObservationPatchSupport.Begin(
@@ -558,6 +577,7 @@ public class ObserveAudioPlayerRendererCompletePatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(RendererObserverCompleteEventArgs e, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End(
@@ -581,6 +601,7 @@ public class ObserveAudioBufferReleasePatch : PatchBase
     [HarmonyPrefix]
     private static void Prefix(IntPtr ptr, IntPtr audioBufferHandle)
     {
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             RenderCycle renderCycle = RuntimeObservationLog.RenderCycleForAudioBuffer(audioBufferHandle);
@@ -608,6 +629,7 @@ public class ObserveTransactionEndPatch : PatchBase
     private static void Prefix(Transaction __instance, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             WIVSMSequence? sequence = RuntimeObservationPatchSupport.TransactionSequence(__instance);
@@ -632,6 +654,7 @@ public class ObserveTransactionEndPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(Transaction __instance, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             WIVSMSequence? sequence = RuntimeObservationPatchSupport.TransactionSequence(__instance);
@@ -653,7 +676,7 @@ public class ObserveTransactionEndPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("transaction.end", __state, __exception);
         RuntimeObservationLog.ClearCommitCycle();
         return __exception;
@@ -671,6 +694,7 @@ public class ObserveSequenceCommitPatch : PatchBase
     private static void Prefix(WIVSMSequence __instance, bool updateHistory, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -689,6 +713,7 @@ public class ObserveSequenceCommitPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool __result, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationLog.CompleteCommitCycle(__instance, __result);
@@ -707,7 +732,7 @@ public class ObserveSequenceCommitPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("transaction.commit", __state, __exception);
         return __exception;
     }
@@ -723,6 +748,7 @@ public class ObserveSequenceRollbackPatch : PatchBase
     private static void Prefix(WIVSMSequence __instance, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -740,6 +766,7 @@ public class ObserveSequenceRollbackPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMSequence __instance, bool __result, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("transaction.rollback", __state, new Dictionary<string, object?>
@@ -757,7 +784,7 @@ public class ObserveSequenceRollbackPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("transaction.rollback", __state, __exception);
         return __exception;
     }
@@ -783,6 +810,7 @@ public class ObserveCandidatePhonemesPatch : PatchBase
         out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             __state = RuntimeObservationPatchSupport.Begin("g2pa.candidate", new Dictionary<string, object?>
@@ -804,6 +832,7 @@ public class ObserveCandidatePhonemesPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(List<Syllables>? __result, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("g2pa.candidate", __state, new Dictionary<string, object?>
@@ -820,7 +849,7 @@ public class ObserveCandidatePhonemesPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("g2pa.candidate", __state, __exception);
         return __exception;
     }
@@ -845,6 +874,7 @@ public class ObserveSetSyllablesPatch : PatchBase
         out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -867,6 +897,7 @@ public class ObserveSetSyllablesPatch : PatchBase
         (bool IsSuccess, WIVSMNote? NextNote) __result,
         RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("g2pa.setSyllables", __state, new Dictionary<string, object?>
@@ -884,7 +915,7 @@ public class ObserveSetSyllablesPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("g2pa.setSyllables", __state, __exception);
         return __exception;
     }
@@ -901,6 +932,7 @@ public class ObserveResetPhonemesPatch : PatchBase
     private static void Prefix(WIVSMNote beginNote, WIVSMNote? endNote, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -919,6 +951,7 @@ public class ObserveResetPhonemesPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMNote beginNote, bool __result, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("g2pa.reset", __state, new Dictionary<string, object?>
@@ -935,7 +968,7 @@ public class ObserveResetPhonemesPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("g2pa.reset", __state, __exception);
         return __exception;
     }
@@ -952,6 +985,7 @@ public class ObserveSetLyricsAndResetPatch : PatchBase
     private static void Prefix(WIVSMNote note, string lyrics, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -971,6 +1005,7 @@ public class ObserveSetLyricsAndResetPatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMNote note, bool __result, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("g2pa.setLyricsAndReset", __state, new Dictionary<string, object?>
@@ -987,7 +1022,7 @@ public class ObserveSetLyricsAndResetPatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("g2pa.setLyricsAndReset", __state, __exception);
         return __exception;
     }
@@ -1004,6 +1039,7 @@ public class ObserveSetLyricsAndResetWithLanguagePatch : PatchBase
     private static void Prefix(WIVSMNote note, string lyrics, int langID, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -1024,6 +1060,7 @@ public class ObserveSetLyricsAndResetWithLanguagePatch : PatchBase
     [HarmonyPostfix]
     private static void Postfix(WIVSMNote note, bool __result, RuntimeObservationState? __state)
     {
+        if (__state == null) return;
         try
         {
             RuntimeObservationPatchSupport.End("g2pa.setLyricsAndReset", __state, new Dictionary<string, object?>
@@ -1040,7 +1077,7 @@ public class ObserveSetLyricsAndResetWithLanguagePatch : PatchBase
     [HarmonyFinalizer]
     private static Exception? Finalizer(Exception? __exception, RuntimeObservationState? __state)
     {
-        if (__exception != null)
+        if (__exception != null && __state != null)
             RuntimeObservationPatchSupport.Exception("g2pa.setLyricsAndReset", __state, __exception);
         return __exception;
     }
@@ -1057,6 +1094,7 @@ public class ObserveBreathBypassPatch : PatchBase
     private static void Prefix(WIVSMEffect __instance, bool bypass, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             if (__instance is not WIVSMBreathEffect effect)
@@ -1107,6 +1145,7 @@ public class ObserveBreathModePatch : PatchBase
     private static void Prefix(WIVSMBreathEffect __instance, VSMBreathMode mode, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -1149,6 +1188,7 @@ public class ObserveBreathTypePatch : PatchBase
     private static void Prefix(WIVSMBreathEffect __instance, VSMBreathType type, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();
@@ -1191,6 +1231,7 @@ public class ObserveBreathExhalationPatch : PatchBase
     private static void Prefix(WIVSMBreathEffect __instance, int exhalation, out RuntimeObservationState? __state)
     {
         __state = null;
+        if (!RuntimeObservationLog.IsEnabled) return;
         try
         {
             long commitCycle = RuntimeObservationLog.EnsureCommitCycle();

@@ -4,6 +4,54 @@ namespace VOCALOIDPatcher.Config;
 
 public static class Settings
 {
+    public static string ParameterEnergyKey => "ParameterEnergy";
+    public static bool ParameterEnergy
+    {
+        get => FeatureFlag(ParameterEnergyKey, true);
+        set => Patcher.ConfigManager.Set(ParameterEnergyKey, value);
+    }
+
+    public static int ParameterEnergyMinimumDb
+    {
+        get => System.Math.Clamp(Patcher.ConfigManager.Get("ParameterEnergyMinimumDb", -30), -120, -1);
+        set => Patcher.ConfigManager.Set("ParameterEnergyMinimumDb", System.Math.Clamp(value, -120, System.Math.Min(-1, ParameterEnergyMaximumDb - 1)));
+    }
+
+    public static int ParameterEnergyMaximumDb
+    {
+        get => System.Math.Clamp(Patcher.ConfigManager.Get("ParameterEnergyMaximumDb", 0), ParameterEnergyMinimumDb + 1, 24);
+        set => Patcher.ConfigManager.Set("ParameterEnergyMaximumDb", System.Math.Clamp(value, ParameterEnergyMinimumDb + 1, 24));
+    }
+
+    public static int ParameterEnergyOpacity
+    {
+        get => System.Math.Clamp(Patcher.ConfigManager.Get("ParameterEnergyOpacity", 30), 0, 100);
+        set => Patcher.ConfigManager.Set("ParameterEnergyOpacity", System.Math.Clamp(value, 0, 100));
+    }
+
+    public static bool ParameterEnergyTargetLine
+    {
+        get => Patcher.ConfigManager.Get("ParameterEnergyTargetLine", true);
+        set => Patcher.ConfigManager.Set("ParameterEnergyTargetLine", value);
+    }
+
+    public static int ParameterEnergyWeighting
+    {
+        get => System.Math.Clamp(Patcher.ConfigManager.Get("ParameterEnergyWeighting", 50), 0, 300);
+        set => Patcher.ConfigManager.Set("ParameterEnergyWeighting", System.Math.Clamp(value, 0, 300));
+    }
+
+    public static double ParameterEnergyTargetDb
+    {
+        get
+        {
+            double value = Patcher.ConfigManager.Get("ParameterEnergyTargetDb", -18d);
+            return double.IsFinite(value) ? System.Math.Clamp(value, -120, 24) : -18;
+        }
+        set => Patcher.ConfigManager.Set("ParameterEnergyTargetDb",
+            double.IsFinite(value) ? System.Math.Round(System.Math.Clamp(value, -120, 24), 1) : -18);
+    }
+
     public static string RendererAutoRecoveryKey => "RendererAutoRecovery";
     public static bool RendererAutoRecovery
     {
@@ -218,6 +266,12 @@ public static class Settings
         set => Patcher.ConfigManager.Set(SvEditorStyleKey, value);
     }
 
+    public static string VoiceCompEnabledKey => "VoiceCompEnabled";
+    public static bool VoiceCompEnabled
+    {
+        get => FeatureFlag(VoiceCompEnabledKey, true);
+        set => Patcher.ConfigManager.Set(VoiceCompEnabledKey, value);
+    }
     public static string IntuitiveConsonantTimingKey => "IntuitiveConsonantTiming";
 
     public static bool IntuitiveConsonantTiming
@@ -298,6 +352,7 @@ public static class Settings
             : ConsonantTiming.Smoothing.TransitionSmoothingMode.Disabled
     };
 
+    // Legacy configuration only. The sample-duration experiment has no editing UI.
     public static bool IndependentDurationSelection
     {
         get => FeatureFlag(IndependentDurationSelectionKey, false);

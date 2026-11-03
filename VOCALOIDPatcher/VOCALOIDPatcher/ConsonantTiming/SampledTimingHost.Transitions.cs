@@ -87,18 +87,20 @@ internal static partial class SampledTimingHost
         internal readonly SampledTimingPlan SourcePlan;
         internal readonly TransitionProjectData Document;
         internal readonly LocalConsonantTimingBackend.PreparedCoefficientTiming Prepared;
+        private readonly bool _compSource;
         internal TransitionPreparation(SampledTimingSession session, WIVSMMidiPart part, SampledTimingPlan sourcePlan,
-            TransitionProjectData document, LocalConsonantTimingBackend.PreparedCoefficientTiming prepared)
-        { Session = session; Part = part; Source = (nint)part.Sequence!; SourcePlan = sourcePlan; Document = document; Prepared = prepared; Revision = session.Revision; }
+            TransitionProjectData document, LocalConsonantTimingBackend.PreparedCoefficientTiming prepared, bool compSource = false)
+        { Session = session; Part = part; Source = (nint)part.Sequence!; SourcePlan = sourcePlan; Document = document; Prepared = prepared; Revision = session.Revision; _compSource = compSource; }
         internal (TransitionLayout Layout, TransitionControlPlan Controls, TransitionExecutionPlan Execution) Query(System.Threading.CancellationToken cancellation = default)
         {
             var layout = Prepared.QueryTransitions(SourcePlan, Revision, cancellation, 0);
-            var controls = TransitionProjectBinding.ResolveAvailable(Document, layout);
+            var controls = _compSource ? TransitionProjectBinding.ResolveForCompSource(Document, layout) : TransitionProjectBinding.ResolveAvailable(Document, layout);
             return (layout, controls, Prepared.QueryTransitionControls(layout, controls, Revision, cancellation, 0));
         }
         public void Dispose() => Prepared.Dispose();
     }
-    internal static TransitionPreparation PrepareTransitions(WIVSMMidiPart part)
+    internal static TransitionPreparation PrepareTransitions(WIVSMMidiPart part,
+        IReadOnlyDictionary<TimingNoteAddress, SampledTimingPlan?>? candidates = null)
     {
         var source = part.Sequence ?? throw new InvalidOperationException("Missing transition source.");
         if (source.IsStaged || part.IsAi || part.NumNotes is < 1 or > 33) throw new NotSupportedException("Transition planning requires one complete bounded sampled Part.");
@@ -110,7 +112,9 @@ internal static partial class SampledTimingHost
         // A vacant locator can still carry an old note's undo-only controls.
         var plan = entry.Session.AllowsNote?.Invoke((nint)target) != false
             ? entry.Session.Document.Get(address) ?? new(target.Phonemes, []) : new(target.Phonemes, []);
-        return new(entry.Session, part, plan, document, entry.Session.Prepare(target));
+        if (candidates?.TryGetValue(address, out var candidate) == true)
+            plan = candidate ?? new(target.Phonemes, []);
+        return new(entry.Session, part, plan, document, entry.Session.Prepare(target, candidates), entry.CompSource);
     }
     internal static void SetTransitions(WIVSMMidiPart part, TransitionLayout layout, TransitionControlPlan controls, long revision)
     {

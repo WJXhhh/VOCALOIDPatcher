@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-23",
+  "target": { "track": 0, "part": 0, "note": 2, "from": "t_h", "to": "iE_n" },
+  "live_mcp": {
+    "revision_before": 19,
+    "revision_after": 19,
+    "dirty": true,
+    "operations": "queries and dry_run only",
+    "geometry": { "begin": 3380, "split": 3385, "end": 3400 },
+    "original": { "phase": 0, "coverage": "none" },
+    "minus": { "phase": -0.001, "coverage": "right" },
+    "plus": { "phase": 0.001, "coverage": "right" }
+  },
+  "cause": "The first progress edit implicitly enabled full source coverage before applying the continuous phase map.",
+  "fix": "Progress preserves coverage; full source is an explicit independent choice in the diamond, precise panel and MCP.",
+  "validation": {
+    "managed_passed": 484,
+    "managed_failed": 0,
+    "solution_debug": { "sdk": "6.13.3.1", "passed": true },
+    "solution_release": { "sdk": "6.13.1.1", "passed": true },
+    "translation_keys_identical": true,
+    "native_sdks": ["6.13.1.1", "6.13.3.1"],
+    "final_native_renders_per_sdk": 8,
+    "native_consumed_map_matches_plan": true,
+    "native_failures": 0,
+    "saved_project_copy_sha256": "125102D4805BBA3658114547F32ABAFF3FB1195AC07688FA14FBDF5B58E894AA",
+    "native_baseline_source_right": [14, 28],
+    "full_material_right": [14, 53],
+    "maximum_source_change_tiny_progress": 0.007137298583984375,
+    "maximum_source_change_old_implicit_coverage": 25,
+    "zero_restores_exact_pcm": true,
+    "pcm_window": { "begin_frame": 3380, "end_frame_exclusive": 3410, "origin": 3087, "samples_per_frame": 256 },
+    "difference_rms_divided_by_baseline_rms": {
+      "new_minus": 0.000706514146237487,
+      "new_plus": 0.0009941178310221908,
+      "old_minus": 1.2545231412493794,
+      "old_plus": 1.252413109021461,
+      "old_minus_vs_old_plus": 0.01336555206247882
+    },
+    "limits": "Saved-project SDK replay with live target geometry; no Editor UI or subjective listening acceptance. PCM ratios measure waveform difference, not loudness."
+  },
+  "deployed": false
+}

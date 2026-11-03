@@ -39,6 +39,7 @@ internal sealed partial class ConsonantTimingOverlay
     private readonly ToolTip _tip = new() { StaysOpen = true, Placement = PlacementMode.Relative, IsHitTestVisible = false };
     private readonly Pen _editable;
     private readonly Pen _reference;
+    private readonly Pen _limited;
     private readonly Brush _highlight;
     private readonly FastCanvas _nativePhonemes;
     private readonly Dictionary<UIEmotionPhoneme, double> _hiddenGlyphs = new();
@@ -75,6 +76,7 @@ internal sealed partial class ConsonantTimingOverlay
         panel.Children.Insert(panel.Children.IndexOf(boundary) + 1, _root);
         _editable = FrozenPen(view.TryFindResource("Brush_PhonemeTiming_HighlightLine") as Brush ?? Brushes.LightSkyBlue, 1.5);
         _reference = FrozenPen(view.TryFindResource("Brush_PhonemeTiming_NormalLine") as Brush ?? Brushes.Gray, .7, true);
+        _limited = FrozenPen(Brushes.Goldenrod, 1.5);
         _highlight = view.TryFindResource("Brush_PhonemeTiming_HighlightFill") as Brush ?? Brushes.Transparent;
         _tip.PlacementTarget = view;
         // This text is already formatted by TranslationManager.Tr. The global
@@ -93,7 +95,7 @@ internal sealed partial class ConsonantTimingOverlay
         view.Unloaded += (_, _) => Suspend();
         view.DataContextChanged += (_, _) => Suspend();
         AttachVolumeContextMenu();
-        AttachDurationTool(panel);
+        AttachAcousticToolBar(panel);
         AttachTransitionBand();
     }
 
@@ -105,7 +107,7 @@ internal sealed partial class ConsonantTimingOverlay
         return pen;
     }
 
-    private static bool Enabled(PianorollView view) => (Settings.IntuitiveConsonantTiming || Settings.IndividualPhonemeVolume || Settings.IndependentDurationSelection || Settings.IndividualTransitionControl) &&
+    private static bool Enabled(PianorollView view) => (Settings.IntuitiveConsonantTiming || Settings.IndividualPhonemeVolume || Settings.IndividualTransitionControl || Settings.VoiceCompEnabled) &&
         view.DataContext is MusicalEditorViewModel vm && vm.EditorMode.Mode == EditModeME.Emotion &&
         vm.VSMSequence is { IsOpen: true } &&
         vm.ActiveTrack?.Type == VSMTrackType.Midi && vm.ActivePart != null;
@@ -138,6 +140,7 @@ internal sealed partial class ConsonantTimingOverlay
             if (!Enabled(view) || !States.TryGetValue(view, out var state) || state._root.Visibility != Visibility.Visible)
                 return false;
             if (state.DurationMode) return state.SearchDuration(point, out result);
+            if (state.CompMode) return true;
             if (state.TransitionMode) { state.SearchTransition(point, out result); return true; }
             if (state._volumeDrag != null && state.SearchVolume(point, out result)) return true;
             state._volumeHover = null;
@@ -302,7 +305,7 @@ internal sealed partial class ConsonantTimingOverlay
                     line.SignedWidth = endX - beginX;
                     line.Height = vm.OneKeyHeight;
                     line.HasEndLine = !editable && i == tokens.Length - 1;
-                    line.NormalLinePen = editable ? _editable : _reference;
+                    line.NormalLinePen = editable ? BoundaryLimitFor(note, i).HasValue ? _limited : _editable : _reference;
                     line.HighlightLinePen = line.NormalLinePen;
                     line.DisabledLinePen = _reference;
                     line.HighlightFillBrush = _highlight;
@@ -360,7 +363,8 @@ internal sealed partial class ConsonantTimingOverlay
             }
             EndDurationRefresh();
             RefreshTransitionBands(vm, notes.VirtualChildren.OfType<UIEmotionNote>().ToArray());
-            if (used == 0 && _durationSpans.Count == 0 && !Settings.IndependentDurationSelection && !TransitionMode) { Suspend(); return; }
+            RefreshComp(vm);
+            if (used == 0 && _acousticToolsLayer.Visibility != Visibility.Visible && !TransitionMode) { Suspend(); return; }
             foreach (var glyph in _nativePhonemes.VirtualChildren.OfType<UIEmotionPhoneme>())
             {
                 if (!replacedGlyphs.Contains((glyph.Number, Canvas.GetLeft(glyph), glyph.Phoneme))) continue;
@@ -368,7 +372,8 @@ internal sealed partial class ConsonantTimingOverlay
                 glyph.Opacity = 0;
             }
             _root.Visibility = Visibility.Visible;
-            if (DurationMode) { if (_view.IsMouseOver) SearchDuration(Mouse.GetPosition(_view), out _); }
+            if (Mouse.DirectlyOver is DependencyObject target && HitAcousticTool(target)) _tip.IsOpen = false;
+            else if (DurationMode) { if (_view.IsMouseOver) SearchDuration(Mouse.GetPosition(_view), out _); }
             else if (TransitionMode) { if (_view.IsMouseOver) SearchTransition(Mouse.GetPosition(_view), out _); }
             else if (_volumeDrag != null) DrawVolumeCandidate();
             else if(_phonemeDrag != null) DrawPhonemeCandidate();
@@ -500,11 +505,9 @@ internal sealed partial class ConsonantTimingOverlay
         {
             // The mode button owns its normal WPF input. Song tools must not
             // interpret that click as an emotion gesture underneath it.
-            if (e.OriginalSource is DependencyObject original && HitAcousticTool(original))
-            { e.Handled = true; return; }
-            if (e.OriginalSource is DependencyObject panelTarget && _transitionPanelTool != null &&
-                (_transitionPanelTool == panelTarget || _transitionPanelTool.IsAncestorOf(panelTarget)))
-            { e.Handled = true; OpenTransitionPanel(e.GetPosition(_view)); return; }
+            if (e.OriginalSource is DependencyObject original && (HitAcousticTool(original) || HitCompControl(original) || HitTransitionControl(original)))
+                return;
+            if (Enabled(_view) && CompMode) { e.Handled = CompClick(e.GetPosition(_view)); return; }
             if (Enabled(_view) && TransitionMode)
             { e.Handled = BeginTransitionDrag(e.GetPosition(_view), e.ClickCount); return; }
             if (Enabled(_view) && DurationMode)
@@ -538,7 +541,9 @@ internal sealed partial class ConsonantTimingOverlay
 
     private void Suspend()
     {
-        InvalidateDurationContext(); _durationTools.Visibility = Visibility.Collapsed;
+        if (_compPanel != null) _compPanel.Visibility = Visibility.Collapsed;
+        _compPicking = false;
+        InvalidateDurationContext(); _acousticToolsLayer.Visibility = Visibility.Collapsed;
         InvalidateTransitionContext();
         foreach (var glyph in _durationPool) glyph.Visibility = Visibility.Collapsed;
         _durationSpans.Clear();
