@@ -26,7 +26,7 @@ namespace VOCALOIDPatcher.ConsonantTiming;
 [CLSCompliant(false)]
 public static class CompatibilityHostValidation
 {
-    private static int _backendAttempts, _hashes;
+    private static int _backendAttempts, _qualifications;
     private static bool _missingModules;
     private static bool _failSave;
     public static void Run(WIVSMSequenceManager manager, DSEManager dse, DatabaseManager database, string directory)
@@ -63,7 +63,7 @@ public static class CompatibilityHostValidation
         bool realUnknown = Environment.GetEnvironmentVariable("VOCALOID_COMPAT_REAL_UNKNOWN") == "1";
         if (!realUnknown)
         {
-            harmony.Patch(AccessTools.Method(typeof(LocalTimingNative), "Hash"), new HarmonyMethod(typeof(CompatibilityHostValidation), nameof(UnknownHash)));
+            harmony.Patch(AccessTools.Method(typeof(LocalTimingNative), "ResolveProfile"), new HarmonyMethod(typeof(CompatibilityHostValidation), nameof(UnknownLayout)));
             harmony.Patch(AccessTools.Method(typeof(LocalTimingNative), "RequireModule"), new HarmonyMethod(typeof(CompatibilityHostValidation), nameof(MissingModules)));
         }
         harmony.Patch(AccessTools.Method(typeof(DurationSelectionArchive), "Write"), new HarmonyMethod(typeof(CompatibilityHostValidation), nameof(FailSave)));
@@ -182,15 +182,15 @@ public static class CompatibilityHostValidation
                 }
                 finally { opened.Close(); }
             }
-            Check(_hashes == (realUnknown ? 0 : 2), "Unexpected component identity injection or repeated hashing.");
-            File.WriteAllText(Path.Combine(directory, "compatibility-host.json"), JsonSerializer.Serialize(new { componentIdentityInjected = !realUnknown, qualificationHashes = _hashes, states }, new JsonSerializerOptions { WriteIndented = true }));
+            Check(_qualifications == (realUnknown ? 0 : 1), "Unexpected layout injection or repeated qualification.");
+            File.WriteAllText(Path.Combine(directory, "compatibility-host.json"), JsonSerializer.Serialize(new { componentIdentityInjected = !realUnknown, layoutQualifications = _qualifications, states }, new JsonSerializerOptions { WriteIndented = true }));
             Console.WriteLine("compatibility.host=plain native render; data/copy round-trips; shared/native history; save rollback; unsupported execution rejection passed");
         }
         finally { source.Close(); harmony.UnpatchAll(harmony.Id); application.Shutdown(); }
     }
 
     private static void BackendConstruction() => _backendAttempts++;
-    private static bool UnknownHash(ref string __result) { _hashes++; __result = new string('0', 64); return false; }
+    private static bool UnknownLayout() { _qualifications++; throw new NotSupportedException("Unrecognized native layout signatures."); }
     private static void MissingModules() { if (_missingModules) throw new NotSupportedException("Injected timing module not loaded."); }
     private static void FailSave() { if (_failSave) throw new IOException("Injected extension save failure."); }
     private static void Check(bool condition, string message) { if (!condition) throw new InvalidOperationException(message); }

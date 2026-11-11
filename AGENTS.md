@@ -253,6 +253,8 @@ dotnet run --project ResourceTranslationComparer/ResourceTranslationComparer.csp
 
 ## 配置、兼容性与安全
 
+- DSE/VSM 时值后端和 VDM 目录发现自 2026-11-11 起使用 `compatibility/native-signatures.json` 的代码特征、函数体布局检查和调用关系定位，不再按整个文件 SHA-256 白名单放行。`.profile` 的 SHA 字段仅保留历史来源；结构字段仍是严格的布局契约。解析得到的全部原生地址通过 profile ABI 3 传给 Rust，不能退回固定 RVA 或仅凭短函数头放行。特征缺失、引用不一致或候选不能唯一确定时须安全拒绝。见 `docs/native-signature-compatibility.md`。
+
 - 用户配置位于 `%APPDATA%/VOCALOIDPatcher/config.json`；外置运行数据位于编辑器目录下的 `VOCALOIDPatcher/`。不要在开发或测试中删除真实用户配置。
 - 保持已有配置键和序列化格式向后兼容。新增设置应提供安全默认值，并检查设置窗口、运行时刷新和翻译键是否完整。
 - 格式转换会处理不可信的外部工程文件。解析器必须校验边界、长度、枚举值及空值，避免无限分配、路径穿越或覆盖源文件。

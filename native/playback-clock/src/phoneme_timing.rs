@@ -276,9 +276,9 @@ unsafe extern "system" fn allocate(schedule: usize, output: usize, duration: i32
         // standalone stack walk out of ordinary multi-frame allocations.
         let mut output_padding = false;
         if duration == 1 && QUERY.with(|v| v.borrow().is_none()) {
-            let base = GET_END.load(Ordering::Acquire) as usize - super::timing_profile::DseScheduleEnd;
+            let base = GET_END.load(Ordering::Acquire) as usize - super::timing_profile::DseScheduleEnd();
             if let Some(caller) = super::duration_bridge::original_caller(2) {
-                output_padding = caller == base + super::timing_profile::DsePaddingCaller;
+                output_padding = caller == base + super::timing_profile::DsePaddingCaller();
             } else {
                 // Standalone timing can be installed without the duration
                 // bridge. In that case the native caller is still on-stack.
@@ -287,7 +287,7 @@ unsafe extern "system" fn allocate(schedule: usize, output: usize, duration: i32
                 }
                 let mut frames = [ptr::null_mut(); 8];
                 let count = unsafe { RtlCaptureStackBackTrace(0, 8, frames.as_mut_ptr(), ptr::null_mut()) };
-                output_padding = frames[..usize::from(count)].iter().any(|&frame| frame as usize == base + super::timing_profile::DsePaddingCaller);
+                output_padding = frames[..usize::from(count)].iter().any(|&frame| frame as usize == base + super::timing_profile::DsePaddingCaller());
             }
         }
         if output_padding {
@@ -419,12 +419,12 @@ pub unsafe extern "C" fn v6_phoneme_install(module: *mut u8) -> i32 {
     let signature = [
         0x4c, 0x8b, 0xdc, 0x4d, 0x89, 0x4b, 0x20, 0x4d, 0x89, 0x43, 0x18, 0x49, 0x89, 0x53, 0x10,
     ];
-    let target = unsafe { module.add(super::timing_profile::DseMapper) };
-    let sustain = unsafe { module.add(super::timing_profile::DseStationary) };
+    let target = unsafe { module.add(super::timing_profile::DseMapper()) };
+    let sustain = unsafe { module.add(super::timing_profile::DseStationary()) };
     let sustain_sig = [
         0x48, 0x8b, 0xc4, 0x55, 0x53, 0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56, 0x41, 0x57,
     ];
-    let allocator = unsafe { module.add(super::timing_profile::DseAllocate) };
+    let allocator = unsafe { module.add(super::timing_profile::DseAllocate()) };
     let allocate_sig = [
         0x48, 0x89, 0x5c, 0x24, 0x08, 0x48, 0x89, 0x6c, 0x24, 0x10, 0x48, 0x89, 0x74, 0x24, 0x18,
     ];
@@ -434,7 +434,7 @@ pub unsafe extern "C" fn v6_phoneme_install(module: *mut u8) -> i32 {
     {
         return -2;
     }
-    GET_END.store(unsafe { module.add(super::timing_profile::DseScheduleEnd) }.cast(), Ordering::Release);
+    GET_END.store(unsafe { module.add(super::timing_profile::DseScheduleEnd()) }.cast(), Ordering::Release);
     if let Err(error) = unsafe {
         super::register_shift_hook::install_hook(
             target,

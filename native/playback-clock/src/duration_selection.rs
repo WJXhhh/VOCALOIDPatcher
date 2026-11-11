@@ -334,7 +334,7 @@ pub(super) unsafe fn score(
     type Allocate =
         unsafe extern "system" fn(usize, *mut [u32; 2], i32, usize, i32, i32, i32, u8, u8) -> usize;
     let allocate: Allocate =
-        unsafe { std::mem::transmute((MODULE.load(Ordering::Acquire) as usize) + super::timing_profile::DseDurationScore) };
+        unsafe { std::mem::transmute((MODULE.load(Ordering::Acquire) as usize) + super::timing_profile::DseDurationScore()) };
     let original = unsafe { slice::from_raw_parts(work as *const u8, WORK_BYTES) };
     let mut scratch = original.to_vec();
     let mut actual = [0u32; 2];
@@ -396,9 +396,9 @@ unsafe fn observe(id: u32, call: &mut Call) {
         .caller
         .wrapping_sub(MODULE.load(Ordering::Acquire) as usize);
     let kind = match id {
-        0 if matches!(caller, super::timing_profile::DurationCaller0 | super::timing_profile::DurationCaller1 | super::timing_profile::DurationCaller2 | super::timing_profile::DurationCaller3) => 1,
+        0 if [super::timing_profile::DurationCaller0(), super::timing_profile::DurationCaller1(), super::timing_profile::DurationCaller2(), super::timing_profile::DurationCaller3()].contains(&caller) => 1,
         1 => 0,
-        2 if matches!(caller, super::timing_profile::DurationCaller4 | super::timing_profile::DurationCaller5 | super::timing_profile::DurationCaller6 | super::timing_profile::DurationCaller7 | super::timing_profile::DurationCaller8) => 2,
+        2 if [super::timing_profile::DurationCaller4(), super::timing_profile::DurationCaller5(), super::timing_profile::DurationCaller6(), super::timing_profile::DurationCaller7(), super::timing_profile::DurationCaller8()].contains(&caller) => 2,
         _ => return,
     };
     let Some(r) = active() else {
@@ -647,7 +647,7 @@ pub(super) unsafe fn before(id: u32, call: &mut Call) {
         }
         return;
     }
-    let address = (MODULE.load(Ordering::Acquire) as usize + super::timing_profile::DseDurationRandom) as *mut u32;
+    let address = (MODULE.load(Ordering::Acquire) as usize + super::timing_profile::DseDurationRandom()) as *mut u32;
     let saved = unsafe { address.read_unaligned() };
     call.token = mutex;
     call.args[13] = (u64::from(saved) | (1u64 << 32)) as usize;
@@ -685,7 +685,7 @@ pub(super) unsafe fn after(id: u32, call: &mut Call) {
         }
     }
     if id == 4 && call.token != 0 {
-        let address = (MODULE.load(Ordering::Acquire) as usize + super::timing_profile::DseDurationRandom) as *mut u32;
+        let address = (MODULE.load(Ordering::Acquire) as usize + super::timing_profile::DseDurationRandom()) as *mut u32;
         if let Some(r) = active() {
             r.lock().unwrap_or_else(|e| e.into_inner()).layer_history =
                 unsafe { address.read_unaligned() };

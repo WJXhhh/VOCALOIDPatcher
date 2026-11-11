@@ -7,6 +7,9 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Utils/NativeCodeImage.cs" Link="Utils/NativeCodeImage.cs" />
+    <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Evec/EvecCatalogDiscoveryScope.cs" Link="Evec/EvecCatalogDiscoveryScope.cs" />
+    <EmbeddedResource Include="../compatibility/native-signatures.json" LogicalName="VOCALOIDPatcher.NativeSignatures" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/Model/*.cs" Link="VoiceComp/%(Filename)%(Extension)" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/VoiceComp/CompWave.cs" Link="VoiceComp/CompWave.cs" />
     <Compile Include="../VOCALOIDPatcher/VOCALOIDPatcher/Utils/BoundedPreviewPool.cs" Link="Utils/BoundedPreviewPool.cs" />

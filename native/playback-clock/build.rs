@@ -23,7 +23,21 @@ fn main() {
         if profiles.is_empty() {
             common = offsets.clone();
             output.push_str(&format!("pub const FINGERPRINT: u64 = {fingerprint};\n"));
-            for (name, value) in &offsets { output.push_str(&format!("pub const {name}: usize = {value};\n")); }
+            let addresses: Vec<_> = offsets.iter().filter(|(name, _)|
+                name.starts_with("Dse") || name.starts_with("Vsm") || name.starts_with("DurationCaller")).collect();
+            output.push_str(&format!("pub const ADDRESS_COUNT: usize = {};\n", addresses.len()));
+            output.push_str(&format!("pub const ADDRESS_IS_VSM: &[bool] = &[{}];\n",
+                addresses.iter().map(|(name, _)| name.starts_with("Vsm").to_string()).collect::<Vec<_>>().join(",")));
+            output.push_str(&format!("#[cfg(test)] pub const DEFAULT_ADDRESSES: &[u32] = &[{}];\n",
+                addresses.iter().map(|(_, value)| value.to_string()).collect::<Vec<_>>().join(",")));
+            for (index, (name, value)) in addresses.iter().enumerate() {
+                output.push_str(&format!("pub fn {name}() -> usize {{ address({index}, {value}) }}\n"));
+            }
+            for (name, value) in &offsets {
+                if !addresses.iter().any(|(key, _)| *key == name) {
+                    output.push_str(&format!("pub const {name}: usize = {value};\n"));
+                }
+            }
         } else {
             // These two certified builds share DSE code and private structures.
             // A third layout must introduce an adapter rather than silently use

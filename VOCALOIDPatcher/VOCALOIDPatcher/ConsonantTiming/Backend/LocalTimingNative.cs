@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Text;
+using VOCALOIDPatcher.Utils;
 
 namespace VOCALOIDPatcher.ConsonantTiming;
 
@@ -10,6 +10,7 @@ internal static class LocalTimingNative
 {
     private static readonly object Gate = new();
     private static volatile bool _verified;
+    private static bool _rendererDirectoryVerified;
     private static TimingNativeProfile? _profile;
     private static string? _reason;
     private static (nint Dse, nint Vsm, string Reason)? _rejected;
@@ -20,17 +21,31 @@ internal static class LocalTimingNative
     {
         var profile = Profile;
         if (!NativeLibrary.TryGetExport(library, "v6_timing_profile_abi_version", out nint abi) ||
-            ((delegate* unmanaged[Cdecl]<uint>)abi)() != 2 ||
+            ((delegate* unmanaged[Cdecl]<uint>)abi)() != 3 ||
             !NativeLibrary.TryGetExport(library, "v6_timing_profile_supported", out nint entry) ||
             ((delegate* unmanaged[Cdecl]<ulong, int>)entry)(profile.Fingerprint) != 1)
             throw new NotSupportedException("Managed/native timing compatibility profiles do not match.");
-        if (!NativeLibrary.TryGetExport(library, "v6_timing_select_profile", out nint select) ||
-            ((delegate* unmanaged[Cdecl]<ulong, nint, nint, int>)select)(profile.Fingerprint, Dse, Vsm) != 0)
-            throw new NotSupportedException("Native timing profile selection rejected the loaded modules.");
+        var addresses = profile.NativeAddresses;
+        fixed (uint* table = addresses)
+            if (!NativeLibrary.TryGetExport(library, "v6_timing_select_layout", out nint select) ||
+                ((delegate* unmanaged[Cdecl]<ulong, nint, nint, uint*, uint, int>)select)(profile.Fingerprint, Dse, Vsm, table, (uint)addresses.Length) != 0)
+                throw new NotSupportedException("Native timing layout selection rejected the loaded modules.");
     }
 
     internal static nint Dse => RequireModule("DSE.dll");
     internal static nint Vsm => RequireModule("VSM.dll");
+
+    internal static void VerifyRendererDirectory()
+    {
+        VerifyImages();
+        lock (Gate)
+        {
+            if (_rendererDirectoryVerified) return;
+            nint module = Vsm;
+            _ = new NativeCodeImage(ModulePath(module), module).Resolve("VSMDirectory");
+            _rendererDirectoryVerified = true;
+        }
+    }
 
     internal static void VerifyImages()
     {
@@ -45,15 +60,17 @@ internal static class LocalTimingNative
                 nint dse = Dse, vsm = Vsm;
                 if (_rejected is { } previous && previous.Dse == dse && previous.Vsm == vsm)
                     throw new NotSupportedException(previous.Reason);
-                var profile = TimingNativeProfile.Identify(Hash(dse), Hash(vsm));
-                if (profile == null)
+                TimingNativeProfile profile;
+                try
                 {
-                    const string reason = "This DSE/VSM component tuple has not been validated; project controls are preserved.";
-                    // Repeated hover/query requests on an unknown build must
-                    // not hash both libraries on every UI interaction. Missing
-                    // modules and transient I/O failures remain retryable.
-                    _rejected = (dse, vsm, reason);
-                    throw new NotSupportedException(reason);
+                    profile = ResolveProfile(dse, vsm);
+                }
+                catch (Exception error) when (error is NotSupportedException or InvalidDataException or BadImageFormatException)
+                {
+                    // Cache structural rejection, but keep missing modules and
+                    // transient file access failures retryable.
+                    _rejected = (dse, vsm, error.Message);
+                    throw new NotSupportedException(error.Message, error);
                 }
                 _profile = profile; _verified = true; _reason = null;
             }
@@ -67,14 +84,16 @@ internal static class LocalTimingNative
         return module != 0 ? module : throw new NotSupportedException("Timing libraries have not been initialized.");
     }
 
-    private static string Hash(nint module)
+    private static TimingNativeProfile ResolveProfile(nint dse, nint vsm) =>
+        TimingNativeProfile.Resolve(new NativeCodeImage(ModulePath(dse), dse), new NativeCodeImage(ModulePath(vsm), vsm));
+
+    private static string ModulePath(nint module)
     {
         var path = new StringBuilder(32768);
         uint length = GetModuleFileName(module, path, path.Capacity);
         if (length == 0 || length >= path.Capacity)
             throw new NotSupportedException("Cannot identify the loaded timing library.");
-        using var stream = File.OpenRead(path.ToString());
-        return Convert.ToHexString(SHA256.HashData(stream));
+        return path.ToString();
     }
 
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode, EntryPoint = "GetModuleHandleW")]

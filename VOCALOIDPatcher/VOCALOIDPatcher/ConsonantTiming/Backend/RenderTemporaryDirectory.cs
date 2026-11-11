@@ -22,11 +22,9 @@ internal static class RenderTemporaryDirectory
 
     internal static string Read(WIVSMSequence source)
     {
-        // Verified in both actual binaries. Never rewrite a native string or
-        // read this private field on an unknown version.
-        string id = LocalTimingNative.Profile.Id;
-        if (id is not ("sampled-dse-vsm-6.13.1.1-v1" or "sampled-dse-vsm-6.13.3.1-v1"))
-            throw new NotSupportedException("No verified renderer temporary directory adapter.");
+        // Qualify this optional private string layout independently. Never
+        // infer it from the timing profile name or rewrite the native string.
+        LocalTimingNative.VerifyRendererDirectory();
         if (!source.IsOpen) throw new InvalidOperationException("Renderer source has closed.");
         nint value = (nint)source + 0x598;
         long length = Marshal.ReadInt64(value, 16), capacity = Marshal.ReadInt64(value, 24);

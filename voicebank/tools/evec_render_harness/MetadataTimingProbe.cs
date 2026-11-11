@@ -202,9 +202,8 @@ internal static partial class Program
 
         internal MetadataTimingReplay(ulong vtableRva)
         {
-            string hash = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(Path.Combine(EditorDirectory, "DSE.dll"))));
             var profile = VOCALOIDPatcher.ConsonantTiming.LocalTimingNative.Profile;
-            if (hash != profile.DseSha256 || vtableRva != (ulong)profile.DseEngineVtable)
+            if (vtableRva != (ulong)profile.DseEngineVtable)
                 throw new InvalidOperationException("Unrecognized engine image.");
             _dse = ResolveEditorLibrary("dse");
             _vtable = _dse + (nint)vtableRva;

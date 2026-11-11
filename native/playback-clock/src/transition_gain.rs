@@ -199,8 +199,8 @@ pub unsafe fn mapping_end(parser: *mut c_void, begin: Option<i32>) {
         if *state + super::timing_profile::StateParser != parser as usize || c.retired.load(Ordering::Acquire) { c.failures.fetch_add(1,Ordering::Relaxed); return; }
         let schedule = unsafe { ptr::read_unaligned(parser.cast::<usize>()) };
         let base = MODULE.load(Ordering::Acquire);
-        let get_end: unsafe extern "system" fn(usize)->i32 = unsafe { std::mem::transmute(base+super::timing_profile::DseScheduleEnd) };
-        let get_row: unsafe extern "system" fn(usize,i32)->usize = unsafe { std::mem::transmute(base+super::timing_profile::DseScheduleRow) };
+        let get_end: unsafe extern "system" fn(usize)->i32 = unsafe { std::mem::transmute(base+super::timing_profile::DseScheduleEnd()) };
+        let get_row: unsafe extern "system" fn(usize,i32)->usize = unsafe { std::mem::transmute(base+super::timing_profile::DseScheduleRow()) };
         let end = unsafe { get_end(schedule) };
         for p in c.unconsumed_progress(begin, end) {
             let entry = unsafe { get_row(schedule,p.frame) };
@@ -277,7 +277,7 @@ unsafe extern "system" fn synthesize(
         }
         let get_row: unsafe extern "system" fn(usize, i32) -> usize = unsafe {
             std::mem::transmute(
-                MODULE.load(Ordering::Acquire) + super::timing_profile::DseScheduleRow,
+                MODULE.load(Ordering::Acquire) + super::timing_profile::DseScheduleRow(),
             )
         };
         let entry = unsafe { get_row(schedule,time) };
@@ -363,7 +363,7 @@ pub unsafe extern "C" fn v6_transition_install(module: *mut u8) -> i32 {
         0x48, 0x89, 0x6c, 0x24, 0x18, 0x57, 0x48, 0x83, 0xec, 0x30, 0x48, 0x63, 0x41, 0x60, 0x48,
         0x8b, 0xf9,
     ];
-    let entry = unsafe { module.add(super::timing_profile::DseTransitionSynthesis) };
+    let entry = unsafe { module.add(super::timing_profile::DseTransitionSynthesis()) };
     if unsafe { slice::from_raw_parts(entry, prefix.len()) } != prefix {
         return -2;
     }

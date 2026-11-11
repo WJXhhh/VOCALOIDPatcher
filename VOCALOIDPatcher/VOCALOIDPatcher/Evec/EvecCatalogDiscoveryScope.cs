@@ -2,8 +2,8 @@ using System;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Threading;
+using VOCALOIDPatcher.Utils;
 
 namespace VOCALOIDPatcher.Evec;
 
@@ -14,13 +14,10 @@ namespace VOCALOIDPatcher.Evec;
 /// </summary>
 internal sealed class EvecCatalogDiscoveryScope : IDisposable
 {
-    private const string ExpectedHash = "73F1E128932521A1BA7DDB4736B59BC2D437E134753A3F3AFA2DF7751D430DB2";
-    // 6.13.3 ships identical VDM code/data; only debug metadata differs.
-    private const string UpdatedHash = "A673A7EBBAB0D12D2275FC459ECE630CC55DA55CBCA95A4E62E6D79F8D9D3722";
-    private static readonly byte[] Original = [0x0F, 0x85, 0x79, 0x01, 0x00, 0x00];
-    private static readonly byte[] Replacement = [0xE9, 0x7A, 0x01, 0x00, 0x00, 0x90];
     private static readonly object Sync = new();
     private static IntPtr _activeAddress;
+    private static IntPtr _activeModule;
+    private static byte[]? _original;
     private static int _depth;
     private bool _disposed;
 
@@ -33,36 +30,38 @@ internal sealed class EvecCatalogDiscoveryScope : IDisposable
         {
             if (module == IntPtr.Zero)
                 throw new ArgumentException("VDM module is unavailable.", nameof(module));
-            IntPtr address = IntPtr.Add(module, 0xDC3D0);
             if (_depth > 0)
             {
-                if (address != _activeAddress)
+                if (module != _activeModule)
                     throw new InvalidOperationException("VDM catalog module changed during discovery.");
                 _depth++;
                 return new EvecCatalogDiscoveryScope();
             }
 
-            using var stream = File.OpenRead(path);
-            string hash = Convert.ToHexString(SHA256.HashData(stream));
-            if (hash != ExpectedHash && hash != UpdatedHash)
-                throw new InvalidOperationException("Unsupported VDM catalog binary.");
-            byte[] actual = new byte[Original.Length];
+            var image = new NativeCodeImage(path, module);
+            int rva = image.Resolve("VDM")["VdmCatalogBranch"];
+            byte[] original = image.Read(rva, 6);
+            var replacement = CreateBranchReplacement(image, rva);
+            IntPtr address = module + rva;
+            byte[] actual = new byte[original.Length];
             Marshal.Copy(address, actual, 0, actual.Length);
-            if (!actual.AsSpan().SequenceEqual(Original))
+            if (!actual.AsSpan().SequenceEqual(original))
                 throw new InvalidOperationException("VDM catalog instruction mismatch.");
 
             try
             {
-                Write(address, Replacement);
+                Write(address, replacement);
             }
             catch
             {
                 // A protection/cache-flush failure after the copy must not
                 // leave a patch active when no scope was returned to the caller.
-                Write(address, Original);
+                Write(address, original);
                 throw;
             }
             _activeAddress = address;
+            _activeModule = module;
+            _original = original;
             _depth = 1;
             return new EvecCatalogDiscoveryScope();
         }
@@ -81,8 +80,10 @@ internal sealed class EvecCatalogDiscoveryScope : IDisposable
         {
             if (--_depth == 0)
             {
-                Write(_activeAddress, Original);
+                Write(_activeAddress, _original!);
                 _activeAddress = IntPtr.Zero;
+                _activeModule = IntPtr.Zero;
+                _original = null;
             }
         }
         finally
@@ -90,6 +91,20 @@ internal sealed class EvecCatalogDiscoveryScope : IDisposable
             _disposed = true;
             Monitor.Exit(Sync);
         }
+    }
+
+    internal static byte[] CreateBranchReplacement(NativeCodeImage image, int rva)
+    {
+        var original = image.Read(rva, 6);
+        if (original[0] != 0x0F || original[1] != 0x85)
+            throw new NotSupportedException("VDM catalog branch is not a near conditional jump.");
+        int target = checked(rva + 6 + image.ReadInt32(rva + 2));
+        var function = image.Function(rva);
+        if (function == null || target <= rva + 6 || target >= function.Value.End || !image.IsCode(target))
+            throw new NotSupportedException("VDM catalog branch leaves its validated function.");
+        var replacement = new byte[] { 0xE9, 0, 0, 0, 0, 0x90 };
+        System.Buffers.Binary.BinaryPrimitives.WriteInt32LittleEndian(replacement.AsSpan(1, 4), checked(target - rva - 5));
+        return replacement;
     }
 
     private static void Write(IntPtr address, byte[] bytes)

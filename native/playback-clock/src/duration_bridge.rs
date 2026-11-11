@@ -154,34 +154,34 @@ impl Code {
 pub(super) unsafe fn install(module: *mut u8) -> Result<(), i32> {
     let prefixes: &[(usize, &[u8])] = &[
         (
-            super::timing_profile::DseDurationScore,
+            super::timing_profile::DseDurationScore(),
             &[
                 0x48, 0x8b, 0xc4, 0x4c, 0x89, 0x48, 0x20, 0x44, 0x89, 0x40, 0x18, 0x48, 0x89, 0x50,
                 0x10,
             ],
         ),
         (
-            super::timing_profile::DseDurationNote,
+            super::timing_profile::DseDurationNote(),
             &[
                 0x48, 0x89, 0x5c, 0x24, 0x18, 0x55, 0x56, 0x57, 0x41, 0x54, 0x41, 0x55, 0x41, 0x56,
                 0x41, 0x57,
             ],
         ),
         (
-            super::timing_profile::DseDurationWork,
+            super::timing_profile::DseDurationWork(),
             &[
                 0x48, 0x83, 0xec, 0x48, 0x85, 0xd2, 0x0f, 0x8e, 0x7b, 0x01, 0, 0, 0x48, 0x8b, 0x09,
             ],
         ),
         (
-            super::timing_profile::DseDurationLookup,
+            super::timing_profile::DseDurationLookup(),
             &[
                 0x48, 0x89, 0x5c, 0x24, 0x08, 0x48, 0x89, 0x74, 0x24, 0x10, 0x48, 0x89, 0x7c, 0x24,
                 0x18,
             ],
         ),
         (
-            super::timing_profile::DseDurationSelect,
+            super::timing_profile::DseDurationSelect(),
             &[
                 0x48, 0x8b, 0xc4, 0x44, 0x89, 0x48, 0x20, 0x44, 0x89, 0x40, 0x18, 0x48, 0x89, 0x50,
                 0x10,
@@ -275,14 +275,14 @@ mod tests {
             Call { args: [0; 14], caller, result: 0, token: 0 }
         }
         assert!(original_caller(2).is_none());
-        CALLS.with(|calls| calls.borrow_mut().push((2, call(super::timing_profile::DsePaddingCaller))));
-        CALLS.with(|calls| calls.borrow_mut().push((3, call(super::timing_profile::DseDurationLookup))));
-        assert_eq!(original_caller(2), Some(super::timing_profile::DsePaddingCaller));
+        CALLS.with(|calls| calls.borrow_mut().push((2, call(super::timing_profile::DsePaddingCaller()))));
+        CALLS.with(|calls| calls.borrow_mut().push((3, call(super::timing_profile::DseDurationLookup()))));
+        assert_eq!(original_caller(2), Some(super::timing_profile::DsePaddingCaller()));
         assert!(std::thread::spawn(|| original_caller(2)).join().unwrap().is_none());
-        CALLS.with(|calls| calls.borrow_mut().push((2, call(super::timing_profile::DurationCaller4))));
-        assert_eq!(original_caller(2), Some(super::timing_profile::DurationCaller4));
+        CALLS.with(|calls| calls.borrow_mut().push((2, call(super::timing_profile::DurationCaller4()))));
+        assert_eq!(original_caller(2), Some(super::timing_profile::DurationCaller4()));
         CALLS.with(|calls| { calls.borrow_mut().pop(); });
-        assert_eq!(original_caller(2), Some(super::timing_profile::DsePaddingCaller));
+        assert_eq!(original_caller(2), Some(super::timing_profile::DsePaddingCaller()));
         CALLS.with(|calls| { calls.borrow_mut().pop(); calls.borrow_mut().pop(); });
         assert!(original_caller(2).is_none());
     }

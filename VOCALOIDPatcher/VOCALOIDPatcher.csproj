@@ -81,6 +81,7 @@
     </Target>
 
   <ItemGroup>
+    <EmbeddedResource Include="../compatibility/native-signatures.json" LogicalName="VOCALOIDPatcher.NativeSignatures" />
     <EmbeddedResource Include="../compatibility/sampled-timing-6.13.1.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile" />
     <EmbeddedResource Include="../compatibility/sampled-timing-6.13.3.profile" LogicalName="VOCALOIDPatcher.SampledTimingProfile.6.13.3" />
   </ItemGroup>

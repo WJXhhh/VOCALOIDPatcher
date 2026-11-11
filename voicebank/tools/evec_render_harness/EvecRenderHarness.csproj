@@ -12,6 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/Utils/NativeCodeImage.cs" Link="NativeCodeImage.cs" />
+    <EmbeddedResource Include="../../../compatibility/native-signatures.json" LogicalName="VOCALOIDPatcher.NativeSignatures" />
     <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmoother.cs" Link="Smoothing/TransitionSmoother.cs" />
     <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/TransitionSmootherConfig.cs" Link="Smoothing/TransitionSmootherConfig.cs" />
     <Compile Include="../../../VOCALOIDPatcher/VOCALOIDPatcher/ConsonantTiming/Smoothing/AudioAnalysisUtils.cs" Link="Smoothing/AudioAnalysisUtils.cs" />

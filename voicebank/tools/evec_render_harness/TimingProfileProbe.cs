@@ -12,17 +12,28 @@ internal static partial class Program
         try
         {
             var fingerprint = (delegate* unmanaged[Cdecl]<ulong>)NativeLibrary.GetExport(library, "v6_timing_profile_fingerprint");
-            var select = (delegate* unmanaged[Cdecl]<ulong, nint, nint, int>)NativeLibrary.GetExport(library, "v6_timing_select_profile");
+            var select = (delegate* unmanaged[Cdecl]<ulong, nint, nint, uint*, uint, int>)NativeLibrary.GetExport(library, "v6_timing_select_layout");
             var install = (delegate* unmanaged[Cdecl]<int>)NativeLibrary.GetExport(library, "v6_timing_install");
             var profile = LocalTimingNative.Profile;
+            LocalTimingNative.VerifyRendererDirectory();
             ulong managed = profile.Fingerprint;
             var supports = (delegate* unmanaged[Cdecl]<ulong, int>)NativeLibrary.GetExport(library, "v6_timing_profile_supported");
             Require(supports(managed) == 1, "Native bridge does not contain this profile.");
-            Require(select(managed ^ 1, LocalTimingNative.Dse, LocalTimingNative.Vsm) == -1, "Wrong profile was selected.");
-            Require(install() == -30, "Unselected timing profile installed private hooks.");
-            Require(select(managed, 1, 1) == -2, "Wrong native handles were selected.");
+            var addresses = profile.NativeAddresses;
+            fixed (uint* table = addresses)
+            {
+                Require(select(managed ^ 1, LocalTimingNative.Dse, LocalTimingNative.Vsm, table, (uint)addresses.Length) == -1, "Wrong profile was selected.");
+                Require(install() == -30, "Unselected timing profile installed private hooks.");
+                Require(select(managed, 1, 1, table, (uint)addresses.Length) == -2, "Wrong native handles were selected.");
+                Require(select(managed, LocalTimingNative.Dse, LocalTimingNative.Vsm, table, (uint)addresses.Length - 1) == -1, "Incomplete address table was selected.");
+            }
             LocalTimingNative.VerifyBridge(library);
             Require(fingerprint() == managed, "Managed and Rust selected profiles differ.");
+            var changedAddresses = profile.NativeAddresses;
+            changedAddresses[0]++;
+            fixed (uint* changed = changedAddresses)
+                Require(select(managed, LocalTimingNative.Dse, LocalTimingNative.Vsm, changed, (uint)changedAddresses.Length) == -3,
+                    "A selected native layout accepted different addresses.");
             string? oldPath = Environment.GetEnvironmentVariable("VOCALOID_TIMING_OLD_NATIVE");
             bool oldRejected = false;
             if (oldPath != null)

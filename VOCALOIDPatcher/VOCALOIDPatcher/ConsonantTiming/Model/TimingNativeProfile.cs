@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Linq;
+using VOCALOIDPatcher.Utils;
 
 namespace VOCALOIDPatcher.ConsonantTiming;
 
-// This profile describes one private adapter, not a promise about other editor
-// versions. Never select it by editor version or by matching a short prologue.
+// Fixed private structure contracts; code/global RVAs are resolved separately.
+// The fingerprint identifies this contract for the native bridge, not a DLL.
 internal sealed partial class TimingNativeProfile
 {
     internal static IReadOnlyList<TimingNativeProfile> Supported { get; } = Array.AsReadOnly(new[] {
@@ -15,19 +17,24 @@ internal sealed partial class TimingNativeProfile
         ReadEmbedded("VOCALOIDPatcher.SampledTimingProfile.6.13.3")
     });
     internal static TimingNativeProfile Known => Supported[0];
-    internal static TimingNativeProfile? Identify(string dse, string vsm)
+    internal static TimingNativeProfile Resolve(NativeCodeImage dse, NativeCodeImage vsm)
     {
-        foreach (var profile in Supported) if (profile.Matches(dse, vsm)) return profile;
-        return null;
+        var addresses = dse.Resolve("DSE");
+        foreach (var pair in vsm.Resolve("VSM")) addresses.Add(pair.Key, pair.Value);
+        return new(Known._source, addresses);
     }
+    private readonly byte[] _source;
     private readonly Dictionary<string, string> _values;
     internal string Id => _values["Id"];
-    internal string DseSha256 => _values["DseSha256"];
-    internal string VsmSha256 => _values["VsmSha256"];
     internal ulong Fingerprint { get; }
+    internal uint[] NativeAddresses => AddressNames.Select(name => checked((uint)Offset(name))).ToArray();
+    internal static string[] AddressNames { get; } = Known._values.Keys.Where(IsAddress).OrderBy(k => k, StringComparer.Ordinal).ToArray();
+    private static bool IsAddress(string name) => (name.StartsWith("Dse", StringComparison.Ordinal) && name != "DseSha256") ||
+        (name.StartsWith("Vsm", StringComparison.Ordinal) && name != "VsmSha256") || name.StartsWith("DurationCaller", StringComparison.Ordinal);
 
-    private TimingNativeProfile(byte[] bytes)
+    private TimingNativeProfile(byte[] bytes, IReadOnlyDictionary<string, int>? addresses = null)
     {
+        _source = bytes;
         _values = new(StringComparer.Ordinal);
         ulong fingerprint = 14695981039346656037UL;
         foreach (byte value in bytes) fingerprint = unchecked((fingerprint ^ value) * 1099511628211UL);
@@ -39,6 +46,16 @@ internal sealed partial class TimingNativeProfile
             int split = line.IndexOf('=');
             if (split <= 0 || !_values.TryAdd(line[..split], line[(split + 1)..]))
                 throw new InvalidDataException("Invalid timing compatibility profile.");
+        }
+        if (addresses != null)
+        {
+            foreach (string name in _values.Keys.Where(IsAddress).ToArray())
+            {
+                if (!addresses.TryGetValue(name, out int address) || address <= 0)
+                    throw new InvalidDataException("Missing native signature address: " + name);
+                _values[name] = "0x" + address.ToString("x", CultureInfo.InvariantCulture);
+            }
+            _values["Id"] = "sampled-signatures-layout-v1";
         }
         EngineSlot = Offset(nameof(EngineSlot));
         EngineConfigureSlot = Offset(nameof(EngineConfigureSlot));
@@ -131,9 +148,6 @@ internal sealed partial class TimingNativeProfile
         using var buffer = new MemoryStream(); source.CopyTo(buffer);
         return new(buffer.ToArray());
     }
-    internal bool Matches(string dse, string vsm) =>
-        string.Equals(DseSha256, dse, StringComparison.OrdinalIgnoreCase) &&
-        string.Equals(VsmSha256, vsm, StringComparison.OrdinalIgnoreCase);
     private int Offset(string name) => int.Parse(_values[name].AsSpan(2), NumberStyles.HexNumber, CultureInfo.InvariantCulture);
     internal readonly int EngineSlot;
     internal readonly int EngineConfigureSlot;

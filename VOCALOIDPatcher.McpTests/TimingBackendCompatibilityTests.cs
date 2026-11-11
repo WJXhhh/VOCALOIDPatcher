@@ -69,28 +69,24 @@ public sealed class TimingBackendCompatibilityTests
     }
 
     [Fact]
-    public void ProfileRequiresBothComponentHashesAndKeepsLayoutSeparateFromEditorVersion()
+    public void NativeContractKeepsStructureAndAddressTableSeparate()
     {
         var profile = TimingNativeProfile.Known;
-        Assert.True(profile.Matches(profile.DseSha256, profile.VsmSha256));
-        Assert.False(profile.Matches(new string('0', 64), profile.VsmSha256));
-        Assert.False(profile.Matches(profile.DseSha256, new string('0', 64)));
-        Assert.False(profile.Matches(profile.VsmSha256, profile.DseSha256));
         Assert.NotEqual(0UL, profile.Fingerprint);
         Assert.Equal(0x1d570, profile.StateParser);
+        Assert.Equal(TimingNativeProfile.AddressNames.Length, profile.NativeAddresses.Length);
+        Assert.Equal(TimingNativeProfile.AddressNames.OrderBy(n => n, StringComparer.Ordinal), TimingNativeProfile.AddressNames);
+        Assert.All(profile.NativeAddresses, address => Assert.True(address > 0));
     }
 
     [Fact]
-    public void CertifiedProfilesRejectMixedComponentTuples()
+    public void HistoricalProfilesRemainLayoutBaselinesRatherThanFileHashGates()
     {
         Assert.Equal(2, TimingNativeProfile.Supported.Count);
         var old = TimingNativeProfile.Supported[0];
         var current = TimingNativeProfile.Supported[1];
-        Assert.Same(old, TimingNativeProfile.Identify(old.DseSha256, old.VsmSha256));
-        Assert.Same(current, TimingNativeProfile.Identify(current.DseSha256, current.VsmSha256));
-        Assert.Null(TimingNativeProfile.Identify(old.DseSha256, current.VsmSha256));
-        Assert.Null(TimingNativeProfile.Identify(current.DseSha256, old.VsmSha256));
         Assert.NotEqual(old.Fingerprint, current.Fingerprint);
         Assert.NotEqual(old.VsmPrepare, current.VsmPrepare);
+        Assert.Equal(old.StateParser, current.StateParser);
     }
 }

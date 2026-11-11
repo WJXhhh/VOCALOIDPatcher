@@ -90,7 +90,7 @@ pub fn install() -> i32 {
     let name: Vec<u16> = "VSM.dll\0".encode_utf16().collect();
     let module = unsafe { GetModuleHandleW(name.as_ptr()) }.cast::<u8>();
     if module.is_null() { return -3; }
-    // Verified VSM SHA256 is also required by the managed initialization gate.
+    // The managed loader has resolved and validated VSM code/layout signatures.
     // Both complete instruction prefixes contain no PC-relative instructions.
     let prefixes: [(usize, &[u8], *const c_void, &AtomicPtr<c_void>); 2] = [
         (super::timing_profile::vsm_prepare(), &[0x48,0x89,0x5c,0x24,0x18,0x55,0x56,0x57,0x41,0x54,0x41,0x55,0x41,0x56,0x41,0x57], prepare as *const c_void, &PREPARE),

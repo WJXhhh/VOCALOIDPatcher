@@ -137,7 +137,7 @@ unsafe fn parser(engine: *mut c_void) -> Option<(usize, u64)> {
     let name: Vec<u16> = "DSE.dll\0".encode_utf16().collect();
     let module = unsafe { GetModuleHandleW(name.as_ptr()) }.cast::<u8>();
     if module.is_null() { return None; }
-    let outer = unsafe { ptr::read_unaligned(module.add(super::timing_profile::DseStates + slot as usize * 8).cast::<u64>()) };
+    let outer = unsafe { ptr::read_unaligned(module.add(super::timing_profile::DseStates() + slot as usize * 8).cast::<u64>()) };
     (outer != 0).then_some((outer as usize + super::timing_profile::StateParser, outer))
 }
 #[link(name = "kernel32")]

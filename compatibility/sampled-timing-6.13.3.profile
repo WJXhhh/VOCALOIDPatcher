@@ -1,4 +1,5 @@
-# Exact component identity; layout is valid only for this DSE/VSM tuple.
+# Historical SDK baseline for structure contracts and signature generation.
+# SHA256 values record provenance only; runtime admission uses code signatures.
 Id=sampled-dse-vsm-6.13.3.1-v1
 DseSha256=844452F19271B66634A625F37068933BADDD607C3670278C58580528A3CE9DFD
 VsmSha256=0A509EE86CBCA68048DFB4D6B6C0D5FE970388AD18B1C2A0E16998CDD3789EE8
